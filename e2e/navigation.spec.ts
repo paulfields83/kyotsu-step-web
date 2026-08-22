@@ -1,0 +1,30 @@
+import { expect, test } from '@playwright/test'
+
+const routes = [
+  '/problems', '/learning/setup', '/learning/session/demo', '/learning/result/demo',
+  '/simulation/setup', '/simulation/session/demo', '/simulation/result/demo', '/analysis',
+  '/analysis/knowledge/vector', '/mistakes', '/history', '/ranking', '/profile', '/admin',
+]
+
+test('all declared routes render meaningful content', async ({ page }) => {
+  for (const route of routes) {
+    await page.goto(route)
+    await expect(page.locator('main')).not.toHaveText('')
+    await expect(page.locator('body')).not.toContainText('APP READY')
+  }
+})
+
+test('bottom navigation exposes four reachable destinations', async ({ page }) => {
+  await page.goto('/problems')
+  const nav = page.getByRole('navigation', { name: '主要ナビゲーション' })
+  await expect(nav.getByRole('link')).toHaveCount(4)
+  await nav.getByRole('link', { name: /分析/ }).click()
+  await expect(page).toHaveURL(/\/analysis$/)
+  await expect(page.getByRole('heading', { name: '分析', level: 1 })).toBeVisible()
+})
+
+test('unknown route has a useful recovery path', async ({ page }) => {
+  await page.goto('/missing-route')
+  await expect(page.getByRole('heading', { name: 'ページが見つかりません' })).toBeVisible()
+  await expect(page.getByRole('link', { name: '問題ページへ' })).toBeVisible()
+})

@@ -1,0 +1,71 @@
+import { expect, test } from '@playwright/test'
+
+test.beforeEach(async ({ page }) => {
+  await page.goto('/problems')
+  await page.evaluate(() => localStorage.clear())
+  await page.reload()
+})
+
+test('switches the complete learning flow and preserves progress across languages', async ({ page }) => {
+  await expect(page.locator('html')).toHaveAttribute('lang', 'ja')
+  await page.getByRole('button', { name: '中文' }).click()
+  await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN')
+  await expect(page.getByRole('heading', { name: '题目' })).toBeVisible()
+
+  await page.reload()
+  await expect(page.getByRole('button', { name: '中文' })).toHaveAttribute('aria-pressed', 'true')
+  await page.goto('/learning/setup')
+  await expect(page.getByRole('heading', { name: '学习设置' })).toBeVisible()
+  await page.getByLabel('选择学习题目').selectOption('math-quadratic-01')
+  await expect(page.getByLabel('选择学习题目').locator('option:checked')).toHaveText('二次函数的最大值')
+  await page.getByRole('radio', { name: /详细引导/ }).click()
+  await page.getByTestId('start-learning').click()
+
+  await expect(page.getByRole('heading', { name: '二次函数的最大值' })).toBeVisible()
+  await expect(page.getByText('先对关于 x 的式子进行配方。')).toBeVisible()
+  await page.getByTestId('blank-mq-blank-sign').click()
+  await page.getByTestId('option-mq-sign-minus').click()
+  await page.getByTestId('option-mq-vertex-minus-two').click()
+  await page.getByRole('button', { name: '关闭' }).click()
+  await expect(page.getByTestId('answer-mq-blank-vertex')).toContainText('首次答错')
+
+  const sessionUrl = page.url()
+  await page.getByRole('button', { name: '日本語' }).click()
+  await expect(page.getByRole('heading', { name: '二次関数の最大値' })).toBeVisible()
+  await expect(page.getByTestId('answer-mq-blank-vertex')).toContainText('初回誤答')
+  await expect(page).toHaveURL(sessionUrl)
+
+  await page.getByRole('button', { name: '中文' }).click()
+  await page.getByTestId('blank-mq-blank-max').click()
+  await page.getByTestId('option-mq-max-five').click()
+  await expect(page).toHaveURL(/\/learning\/result\/learn-/)
+  await expect(page.getByRole('heading', { name: '学习结果' })).toBeVisible()
+  await expect(page.getByText('最大值', { exact: true })).toBeVisible()
+})
+
+test('uses Chinese in simulation, analysis, ranking, profile, and persists the preference', async ({ page }) => {
+  await page.getByRole('button', { name: '中文' }).click()
+  await page.goto('/simulation/setup')
+  await expect(page.getByRole('heading', { name: '模拟测试设置' })).toBeVisible()
+  await expect(page.getByText('二次函数的最大值')).toBeVisible()
+  await page.getByTestId('start-simulation').click()
+  await expect(page.getByRole('heading', { name: '二次函数的最大值' })).toBeVisible()
+  await expect(page.getByText('选择函数取得最大值时的 x。')).toBeVisible()
+  await page.getByTestId('open-submit').click()
+  await expect(page.getByRole('alertdialog')).toContainText('还有 2 个小题未作答')
+  await page.getByRole('button', { name: '确认提交' }).click()
+  await expect(page.getByRole('heading', { name: '模拟测试结果' })).toBeVisible()
+  await expect(page.getByText('未作答', { exact: true }).first()).toBeVisible()
+
+  await page.goto('/analysis')
+  await expect(page.getByRole('heading', { name: '分析' })).toBeVisible()
+  await page.goto('/ranking')
+  await expect(page.getByRole('heading', { name: '排行榜' })).toBeVisible()
+  await page.goto('/profile')
+  await expect(page.getByRole('heading', { name: '我的' })).toBeVisible()
+  await expect(page.getByLabel('显示名称')).toHaveValue('学习者')
+
+  await page.reload()
+  await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN')
+  await expect(page.getByTestId('language-switcher').getByRole('button', { name: '中文' })).toHaveAttribute('aria-pressed', 'true')
+})

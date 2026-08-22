@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" role="img" aria-labelledby="title desc">
+  <title id="title">速度と時間の関係</title>
+  <desc id="desc">0秒から4秒で速度が0から8メートル毎秒へ直線的に増え、その後6秒まで一定になるグラフ</desc>
+  <rect width="560" height="300" fill="#fffefa"/>
+  <g stroke="#c8c7c0" stroke-width="1">
+    <path d="M70 240H520M70 190H520M70 140H520M70 90H520M70 40H520"/>
+    <path d="M70 40V240M145 40V240M220 40V240M295 40V240M370 40V240M445 40V240M520 40V240"/>
+  </g>
+  <g stroke="#1a2a3c" stroke-width="3" fill="none"><path d="M70 240H525"/><path d="M70 245V32"/></g>
+  <path d="M70 240L370 40L520 40" fill="none" stroke="#1e4a7c" stroke-width="7" stroke-linejoin="round"/>
+  <g fill="#1a2a3c" font-family="sans-serif" font-size="18">
+    <text x="505" y="270">t (s)</text><text x="16" y="35">v (m/s)</text>
+    <text x="64" y="270">0</text><text x="360" y="270">4</text><text x="510" y="270">6</text><text x="40" y="48">8</text>
+  </g>
+</svg>
