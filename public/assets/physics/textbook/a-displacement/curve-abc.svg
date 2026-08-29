@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+<title id="title">各点A・B・Cでの瞬間速度</title><desc id="desc">左から右へ進むU字型の曲線上にA、B、Cがある。</desc>
+<path d="M80 115 C230 145 285 270 390 270 C485 270 520 155 640 100" fill="none" stroke="currentColor" stroke-width="10" opacity=".25"/>
+<g fill="currentColor" font-family="Arial, sans-serif" font-size="24">
+<circle cx="205" cy="165" r="8"/><circle cx="390" cy="270" r="8"/><circle cx="560" cy="145" r="8"/>
+<text x="190" y="135">A</text><text x="375" y="310">B</text><text x="548" y="116">C</text>
+<text x="250" y="335">運動方向：左 → 右</text>
+</g></svg>
