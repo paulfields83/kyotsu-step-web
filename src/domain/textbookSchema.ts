@@ -11,6 +11,7 @@ export const TextbookItemSchema = z.object({
   answer: z.string().min(1),
   acceptedAnswers: z.array(z.string().min(1)).default([]),
   answerType: TextbookAnswerTypeSchema.default('text'),
+  choices: z.array(z.string().min(1)).min(2).optional(),
   unit: z.string().optional(),
 })
 
