@@ -1,9 +1,9 @@
 import { Check, LockKeyhole, RotateCcw, X } from 'lucide-react'
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { textbookRepository } from '../repositories/textbookRepository'
-import { textbookSectionProgress, textbookUnitProgress } from '../domain/textbook'
+import { getTextbookChoices, textbookSectionProgress, textbookUnitProgress } from '../domain/textbook'
 import type { TextbookItem, TextbookUnit } from '../domain/textbookSchema'
 import { useAppStore } from '../stores/useAppStore'
 import { useI18n } from '../i18n/runtime'
@@ -20,43 +20,43 @@ function TextbookCheckItem({ unit, item }: { unit: TextbookUnit; item: TextbookI
   const record = useAppStore((state) => state.textbookProgress[unit.unitId]?.answers[item.id])
   const answerTextbook = useAppStore((state) => state.answerTextbook)
   const { text } = useI18n()
-  const [value, setValue] = useState(record?.resolved ? record.value : '')
-
-  useEffect(() => {
-    if (record?.resolved) setValue(record.value)
-  }, [record?.resolved, record?.value])
-
-  const submit = (event: FormEvent) => {
-    event.preventDefault()
-    const trimmed = value.trim()
-    if (!trimmed || record?.resolved) return
-    answerTextbook(unit, item.id, trimmed)
-  }
-
+  const choices = getTextbookChoices(unit, item)
   const wrong = Boolean(record && !record.resolved)
+
   return (
-    <form className={`textbook-check-item${record?.resolved ? ' textbook-check-item--correct' : wrong ? ' textbook-check-item--wrong' : ''}`} onSubmit={submit} data-testid={`textbook-item-${item.id}`}>
+    <section className={`textbook-check-item${record?.resolved ? ' textbook-check-item--correct' : wrong ? ' textbook-check-item--wrong' : ''}`} data-testid={`textbook-item-${item.id}`}>
       <header>
         <span>{item.label}</span>
         {record?.resolved && <small><Check size={15} aria-hidden="true" />{record.isFirstCorrect ? text('初回正解', '首次答对') : text('再回答で正解', '重答正确')}</small>}
         {wrong && <small><X size={15} aria-hidden="true" />{text('もう一度', '再试一次')}</small>}
       </header>
+
       <p>{item.prompt}</p>
-      <div className="textbook-answer-row">
-        <input
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
-          disabled={record?.resolved}
-          inputMode={item.answerType === 'number' ? 'decimal' : undefined}
-          aria-label={`${item.label} ${text('解答', '答案')}`}
-          placeholder={item.answerType === 'formula' ? text('式を入力', '输入公式') : item.answerType === 'number' ? text('数値を入力', '输入数值') : text('答えを入力', '输入答案')}
-        />
-        {item.unit && <span className="textbook-unit-label">{item.unit}</span>}
-        {!record?.resolved && <RaisedButton type="submit" disabled={!value.trim()}>{text('判定', '判定')}</RaisedButton>}
+
+      <div className="textbook-choice-list" role="group" aria-label={`${item.label} ${text('選択肢', '选项')}`}>
+        {choices.map((choice, index) => {
+          const selectedWrong = wrong && record?.value === choice
+          const selectedCorrect = Boolean(record?.resolved && record.value === choice)
+          return (
+            <button
+              type="button"
+              key={choice}
+              data-testid={`textbook-choice-${item.id}-${index}`}
+              className={`textbook-choice${selectedWrong ? ' textbook-choice--wrong' : ''}${selectedCorrect ? ' textbook-choice--correct' : ''}`}
+              disabled={record?.resolved}
+              onClick={() => answerTextbook(unit, item.id, choice)}
+            >
+              <span>{index + 1}</span>
+              <strong>{choice}</strong>
+              {item.unit && <small>{item.unit}</small>}
+            </button>
+          )
+        })}
       </div>
-      {wrong && <p className="textbook-feedback textbook-feedback--wrong">{text('答えを固定せず、前後の説明を読み直してもう一度入力してください。', '先不要看最终答案，重新阅读前后说明后再输入一次。')}</p>}
+
+      {wrong && <p className="textbook-feedback textbook-feedback--wrong">{text('不正解です。ほかの選択肢からもう一度選んでください。', '答错了，请从其他选项中重新选择。')}</p>}
       {record?.resolved && <p className="textbook-feedback textbook-feedback--correct">{text('正解。次の知識点へ進みます。', '正确，继续下一个知识点。')}</p>}
-    </form>
+    </section>
   )
 }
 
