@@ -12,7 +12,7 @@ const rawTextbookUnits = [
     status: 'published',
     subject: 'physics',
     title: 'A 変位と速度',
-    subtitle: '知識点チェック × 図の読み取り × 例題穴埋め',
+    subtitle: '知識点チェック × 図の読み取り × 例題選択',
     source: {
       type: 'reference',
       label: '物理・教科書モード｜A 変位と速度',
