@@ -37,6 +37,17 @@
     display: none;
   }
 
+  .header-back-link {
+    min-width: 42px;
+    min-height: 42px;
+    justify-content: center;
+    padding: .25rem;
+  }
+
+  .header-back-link span {
+    display: none;
+  }
+
   .language-switcher button {
     min-width: 42px;
     min-height: 42px;
