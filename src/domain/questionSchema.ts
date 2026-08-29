@@ -3,7 +3,7 @@ import { z } from 'zod'
 const IdSchema = z.string().min(2).regex(/^[a-z0-9][a-z0-9-]*$/, 'ID は小文字英数字とハイフンで指定してください')
 
 export const ContentBlockSchema = z.discriminatedUnion('type', [
-  z.object({ id: IdSchema, type: z.literal('text'), text: z.string().min(1) }),
+  z.object({ id: IdSchema, type: z.literal('text'), text: z.string().min(1), speaker: z.string().min(1).optional() }),
   z.object({ id: IdSchema, type: z.literal('latex'), latex: z.string().min(1), display: z.enum(['inline', 'block']) }),
   z.object({ id: IdSchema, type: z.literal('image'), assetId: IdSchema, alt: z.string().min(1), caption: z.string().optional() }),
   z.object({
@@ -96,6 +96,9 @@ const QuestionBaseSchema = z.object({
   assets: z.array(AssetSchema),
   stem: z.array(ContentBlockSchema).min(1),
   learning: z.object({
+    presentation: z.enum(['standard', 'common-test']).default('standard'),
+    flowType: z.enum(['math-narrative', 'phenomenon-analysis', 'calculation-derivation', 'relation-analysis']).optional(),
+    finalBlankId: IdSchema.optional(),
     solutionFlow: z.array(LearningFlowBlockSchema).min(1),
     blanks: z.record(IdSchema, LearningBlankSchema),
     variants: z.object({ detailed: z.array(IdSchema).min(1), standard: z.array(IdSchema).min(1), selfCheck: z.array(IdSchema).min(1) }),
@@ -149,14 +152,38 @@ export const QuestionSchema = QuestionBaseSchema.superRefine((question, context)
   flowBlankIds.forEach((blankId) => {
     if (!blankIds.includes(blankId)) context.addIssue({ code: 'custom', path: ['learning', 'solutionFlow'], message: `存在しない blank 参照: ${blankId}` })
   })
+
+  const finalBlankId = question.learning.finalBlankId
+  if (question.learning.presentation === 'common-test') {
+    if (!finalBlankId) {
+      context.addIssue({ code: 'custom', path: ['learning', 'finalBlankId'], message: '共通テスト形式には finalBlankId が必要です' })
+    }
+    if (!question.learning.flowType) {
+      context.addIssue({ code: 'custom', path: ['learning', 'flowType'], message: '共通テスト形式には flowType が必要です' })
+    }
+  }
+  if (finalBlankId) {
+    if (!blankIds.includes(finalBlankId)) {
+      context.addIssue({ code: 'custom', path: ['learning', 'finalBlankId'], message: `存在しない final blank: ${finalBlankId}` })
+    }
+    if (flowBlankIds.includes(finalBlankId)) {
+      context.addIssue({ code: 'custom', path: ['learning', 'solutionFlow'], message: 'finalBlankId は推論ガイド内に置かず、最後の選択画面で表示してください' })
+    }
+  }
+
   blankIds.forEach((blankId) => {
-    if (!flowBlankIds.includes(blankId)) context.addIssue({ code: 'custom', path: ['learning', 'blanks', blankId], message: 'solutionFlow から参照されていません' })
+    if (!flowBlankIds.includes(blankId) && blankId !== finalBlankId) {
+      context.addIssue({ code: 'custom', path: ['learning', 'blanks', blankId], message: 'solutionFlow または finalBlankId から参照されていません' })
+    }
   })
   Object.entries(question.learning.variants).forEach(([variant, ids]) => {
     duplicateValues(ids).forEach((id) => context.addIssue({ code: 'custom', path: ['learning', 'variants', variant], message: `重複した blankId: ${id}` }))
     ids.forEach((id) => {
       if (!blankIds.includes(id)) context.addIssue({ code: 'custom', path: ['learning', 'variants', variant], message: `存在しない blankId: ${id}` })
     })
+    if (finalBlankId && !ids.includes(finalBlankId)) {
+      context.addIssue({ code: 'custom', path: ['learning', 'variants', variant], message: `finalBlankId ${finalBlankId} を含めてください` })
+    }
   })
 
   question.simulation.items.forEach((item, itemIndex) => {
