@@ -9,6 +9,9 @@ export type LearningBlankAnswer = {
   explanationOpened: boolean
   explanationReadMs: number
   revisitCount: number
+  resolved?: boolean
+  attemptCount?: number
+  lastSelectedOptionIds?: string[]
 }
 
 export type LearningSession = {
