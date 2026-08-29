@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+<title id="title">曲線運動と瞬間速度</title><desc id="desc">P1からP2への短い変位とP1での接線方向の速度を示す。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="currentColor"/></marker></defs>
+<path d="M90 210 C220 280 360 260 610 95" fill="none" stroke="currentColor" stroke-width="10" opacity=".22"/>
+<g fill="none" stroke="currentColor" stroke-width="4">
+<line x1="260" y1="235" x2="430" y2="185" marker-end="url(#arrow)"/>
+<line x1="260" y1="235" x2="490" y2="225" marker-end="url(#arrow)"/>
+</g>
+<g fill="currentColor" font-family="Arial, sans-serif" font-size="24">
+<circle cx="260" cy="235" r="7"/><circle cx="430" cy="185" r="7"/>
+<text x="225" y="270">P₁</text><text x="438" y="180">P₂</text><text x="332" y="198">Δr</text><text x="440" y="250">v</text><text x="472" y="294">接線方向</text>
+</g></svg>
