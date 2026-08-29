@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 const routes = [
-  '/problems', '/learning/setup', '/learning/session/demo', '/learning/result/demo',
+  '/problems', '/learning/setup', '/learning/session/demo', '/learning/result/demo', '/learning/textbook/physics-a-displacement-velocity',
   '/simulation/setup', '/simulation/session/demo', '/simulation/result/demo', '/analysis',
   '/analysis/knowledge/vector', '/mistakes', '/history', '/ranking', '/profile', '/admin',
 ]
