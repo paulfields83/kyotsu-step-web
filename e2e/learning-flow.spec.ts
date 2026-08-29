@@ -8,6 +8,7 @@ test.beforeEach(async ({ page }) => {
 
 test('common-test learning uses original question, guide, retry, then original choices', async ({ page }) => {
   await page.goto('/learning/setup')
+  await page.getByRole('radio', { name: /問題を解く/ }).click()
   await page.getByLabel('学習する問題').selectOption('math-quadratic-01')
   await page.getByRole('radio', { name: /詳細穴埋め/ }).click()
   await page.getByTestId('start-learning').click()
@@ -42,6 +43,7 @@ test('common-test learning uses original question, guide, retry, then original c
 
 test('self-check keeps only the configured guide blank before the final original choice', async ({ page }) => {
   await page.goto('/learning/setup')
+  await page.getByRole('radio', { name: /問題を解く/ }).click()
   await page.getByLabel('学習する問題').selectOption('math-quadratic-01')
   await page.getByRole('radio', { name: /自力確認/ }).click()
   await page.getByTestId('start-learning').click()
