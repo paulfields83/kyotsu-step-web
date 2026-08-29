@@ -28,3 +28,23 @@ test('unknown route has a useful recovery path', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'ページが見つかりません' })).toBeVisible()
   await expect(page.getByRole('link', { name: '問題ページへ' })).toBeVisible()
 })
+
+
+test('secondary screens expose a hierarchical back button while top-level tabs do not', async ({ page }) => {
+  await page.goto('/problems')
+  await expect(page.getByTestId('app-back-button')).toHaveCount(0)
+
+  await page.goto('/learning/setup')
+  const learningBack = page.getByTestId('app-back-button')
+  await expect(learningBack).toBeVisible()
+  await expect(learningBack).toHaveAttribute('href', '#/problems')
+
+  await page.goto('/simulation/setup')
+  await expect(page.getByTestId('app-back-button')).toHaveAttribute('href', '#/problems')
+
+  await page.goto('/history')
+  await expect(page.getByTestId('app-back-button')).toHaveAttribute('href', '#/profile')
+
+  await page.goto('/admin')
+  await expect(page.getByTestId('app-back-button')).toHaveAttribute('href', '#/profile')
+})
