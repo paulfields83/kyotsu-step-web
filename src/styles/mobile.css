@@ -4,6 +4,11 @@
     padding: .5rem .7rem;
   }
 
+  .header-leading {
+    min-width: 0;
+    gap: .35rem;
+  }
+
   .brand {
     min-width: 0;
     gap: .5rem;
