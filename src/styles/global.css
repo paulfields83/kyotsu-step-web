@@ -240,3 +240,69 @@ a { color: inherit; }
 @media (min-width: 760px) { .app-content { padding-inline: 2rem; } .page-hero { padding-top: 1.5rem; } }
 @media (max-width: 420px) { .metric-list > a { grid-template-columns: 1fr auto; } .metric-list .progress-block { grid-column: 1 / -1; grid-row: 2; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+
+
+/* Textbook learning mode */
+.learning-mode-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.learning-mode-grid > button { display: grid; min-height: 132px; gap: .45rem; align-content: start; padding: .9rem; border: 2px solid var(--color-border); background: var(--color-paper); color: var(--color-text); text-align: left; cursor: pointer; box-shadow: 0 3px 0 var(--color-border); }
+.learning-mode-grid > button[aria-checked="true"] { border-color: var(--color-primary); background: var(--color-section); box-shadow: 0 3px 0 var(--color-primary); }
+.learning-mode-grid svg { color: var(--color-primary); }
+.learning-mode-grid strong { font-size: .98rem; }
+.learning-mode-grid small { color: var(--color-muted); line-height: 1.55; }
+.field-help { margin: .65rem 0 0; color: var(--color-muted); font-size: .78rem; }
+.setup-progress-note { display: grid; gap: .2rem; margin-top: .7rem; padding: .7rem .8rem; border-left: 4px solid var(--color-primary); background: var(--color-section); }
+.setup-progress-note span { font-weight: 700; }
+.setup-progress-note small { color: var(--color-muted); }
+
+.textbook-page { padding-bottom: 2rem; }
+.textbook-objectives { display: grid; gap: .6rem; padding: 1rem; border: 2px solid var(--color-border); background: var(--color-paper); }
+.textbook-objectives strong { color: var(--color-primary); }
+.textbook-objectives ol { display: grid; gap: .35rem; margin: 0; padding-left: 1.4rem; }
+.textbook-objectives li { line-height: 1.5; }
+.textbook-section-nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .45rem; }
+.textbook-section-nav button { display: grid; min-width: 0; gap: .28rem; align-content: start; padding: .65rem .5rem; border: 1px solid var(--color-border); background: var(--color-paper); color: var(--color-text); text-align: left; cursor: pointer; }
+.textbook-section-nav button:disabled { cursor: not-allowed; opacity: .48; }
+.textbook-section-nav button[aria-pressed="true"] { border: 2px solid var(--color-primary); background: var(--color-section); }
+.textbook-section-nav button > span { display: grid; width: 26px; height: 26px; place-items: center; border: 1px solid currentColor; color: var(--color-primary); font: 700 .7rem/1 ui-monospace, monospace; }
+.textbook-section-nav strong { min-width: 0; font-size: .74rem; line-height: 1.35; }
+.textbook-section-nav small { color: var(--color-muted); font: 600 .68rem/1.3 ui-monospace, monospace; }
+
+.textbook-section { display: grid; gap: 1rem; }
+.textbook-section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: .8rem; padding-bottom: .7rem; border-bottom: 2px solid var(--color-border); }
+.textbook-section-heading > div { display: flex; min-width: 0; gap: .7rem; }
+.textbook-section-heading > div > span { display: grid; flex: 0 0 38px; width: 38px; height: 38px; place-items: center; background: var(--color-primary); color: white; font: 700 .72rem/1 ui-monospace, monospace; }
+.textbook-section-heading h2 { margin: 0; font-size: 1.2rem; }
+.textbook-section-heading p { margin: .25rem 0 0; color: var(--color-muted); line-height: 1.6; }
+.textbook-section-heading > strong { white-space: nowrap; font: 700 .78rem/1.4 ui-monospace, monospace; color: var(--color-primary); }
+
+.textbook-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: .8rem; }
+.textbook-figures figure { display: grid; gap: .45rem; margin: 0; padding: .75rem; border: 1px solid var(--color-border); background: white; }
+.textbook-figures img { display: block; width: 100%; max-height: 360px; object-fit: contain; }
+.textbook-figures figcaption { color: var(--color-muted); font-size: .72rem; text-align: center; }
+
+.textbook-check-list { display: grid; gap: .65rem; }
+.textbook-check-item { display: grid; gap: .6rem; padding: .8rem; border: 2px solid var(--color-border); background: var(--color-paper); }
+.textbook-check-item--correct { border-color: var(--color-success); }
+.textbook-check-item--wrong { border-color: var(--color-error); background: #fff8f6; }
+.textbook-check-item > header { display: flex; align-items: center; gap: .5rem; }
+.textbook-check-item > header > span { padding: .18rem .4rem; border: 1px solid var(--color-border); font: 700 .72rem/1.35 ui-monospace, monospace; }
+.textbook-check-item > header > small { display: inline-flex; align-items: center; gap: .2rem; margin-left: auto; font-weight: 700; }
+.textbook-check-item--correct > header > small { color: var(--color-success); }
+.textbook-check-item--wrong > header > small { color: var(--color-error); }
+.textbook-check-item > p { margin: 0; line-height: 1.65; }
+.textbook-answer-row { display: flex; align-items: stretch; gap: .5rem; }
+.textbook-answer-row input { min-width: 0; flex: 1; min-height: 46px; padding: .55rem .7rem; border: 2px solid var(--color-border); background: white; color: var(--color-text); font: inherit; }
+.textbook-answer-row input:focus { outline: 3px solid color-mix(in srgb, var(--color-primary) 22%, transparent); border-color: var(--color-primary); }
+.textbook-answer-row input:disabled { background: var(--color-section); color: var(--color-text); opacity: 1; }
+.textbook-unit-label { display: inline-flex; align-items: center; padding: 0 .25rem; color: var(--color-muted); font-weight: 700; }
+.textbook-feedback { font-size: .74rem; }
+.textbook-feedback--wrong { color: var(--color-error); }
+.textbook-feedback--correct { color: var(--color-success); }
+
+.textbook-next-panel, .textbook-complete-panel { display: flex; align-items: center; gap: .8rem; padding: .9rem; border: 2px solid var(--color-primary); background: var(--color-section); }
+.textbook-next-panel > svg, .textbook-complete-panel > svg { flex: 0 0 auto; color: var(--color-primary); }
+.textbook-next-panel > div, .textbook-complete-panel > div { display: grid; flex: 1; gap: .2rem; }
+.textbook-next-panel small { color: var(--color-muted); }
+.textbook-complete-panel h2, .textbook-complete-panel p { margin: 0; }
+.textbook-complete-panel p { margin-top: .25rem; color: var(--color-muted); }
+.textbook-reset { display: inline-flex; align-items: center; gap: .35rem; width: fit-content; }
