@@ -5,6 +5,8 @@ import { builtInQuestionsZh } from '../data/questions.zh'
 import type { LearningAttempt, LearningSession, SimulationAttempt, SimulationSession } from '../domain/attempts'
 import { activateLearningBlank, answerLearningBlank, createLearningSession, recordExplanationOpen, recordExplanationRead, revisitLearningBlank, toLearningAttempt } from '../domain/learning'
 import type { LearningVariant, Question } from '../domain/questionSchema'
+import { answerTextbookItem, type TextbookUnitProgress } from '../domain/textbook'
+import type { TextbookUnit } from '../domain/textbookSchema'
 import { scoreSimulation } from '../domain/scoring'
 import { answerSimulationItem, createSimulationSession, setSimulationQuestion, toggleSimulationReview } from '../domain/simulation'
 import type { AppLanguage } from '../i18n/types'
@@ -22,6 +24,7 @@ type AppState = {
   learningAttempts: LearningAttempt[]
   simulationSessions: Record<string, SimulationSession>
   simulationAttempts: SimulationAttempt[]
+  textbookProgress: Record<string, TextbookUnitProgress>
   customQuestions: Question[]
   settings: UserSettings
   startLearning: (questionId: string, variant: LearningVariant) => string
@@ -30,6 +33,8 @@ type AppState = {
   openLearningExplanation: (sessionId: string, blankId: string) => void
   closeLearningExplanation: (sessionId: string, blankId: string, readMs: number) => void
   revisitLearning: (sessionId: string, blankId: string) => void
+  answerTextbook: (unit: TextbookUnit, itemId: string, value: string) => void
+  resetTextbookUnit: (unitId: string) => void
   startSimulation: (questionIds: string[], timeMode: SimulationSession['timeMode']) => string
   answerSimulation: (sessionId: string, itemId: string, selectedOptionIds: string[], numericValue?: number) => void
   toggleSimulationReview: (sessionId: string, itemId: string) => void
@@ -53,6 +58,7 @@ export const useAppStore = create<AppState>()(persist((set, get) => ({
   learningAttempts: [],
   simulationSessions: {},
   simulationAttempts: [],
+  textbookProgress: {},
   customQuestions: [],
   settings: { displayName: '学習者', defaultSubject: 'math-1a', reduceMotion: false, showTimer: true, language: 'ja' },
   startLearning: (questionId, variant) => {
@@ -96,6 +102,17 @@ export const useAppStore = create<AppState>()(persist((set, get) => ({
     if (!session) return state
     return { learningSessions: { ...state.learningSessions, [sessionId]: revisitLearningBlank(session, blankId) } }
   }),
+  answerTextbook: (unit, itemId, value) => set((state) => {
+    const item = unit.sections.flatMap((section) => section.items).find((candidate) => candidate.id === itemId)
+    if (!item) return state
+    const updated = answerTextbookItem(state.textbookProgress[unit.unitId], unit, item, value, Date.now())
+    return { textbookProgress: { ...state.textbookProgress, [unit.unitId]: updated } }
+  }),
+  resetTextbookUnit: (unitId) => set((state) => {
+    const next = { ...state.textbookProgress }
+    delete next[unitId]
+    return { textbookProgress: next }
+  }),
   startSimulation: (questionIds, timeMode) => {
     const state = get()
     const questions = questionIds.map((id) => findQuestion(state, id)).filter((question): question is Question => Boolean(question))
@@ -135,7 +152,7 @@ export const useAppStore = create<AppState>()(persist((set, get) => ({
   }),
   setCustomQuestions: (questions) => set({ customQuestions: questions }),
   setSettings: (partial) => set((state) => ({ settings: { ...state.settings, ...partial } })),
-  resetProgress: () => set({ learningSessions: {}, learningAttempts: [], simulationSessions: {}, simulationAttempts: [] }),
+  resetProgress: () => set({ learningSessions: {}, learningAttempts: [], simulationSessions: {}, simulationAttempts: [], textbookProgress: {} }),
 }), {
   name: 'kyotsu-step-store',
   version: 1,
@@ -144,6 +161,7 @@ export const useAppStore = create<AppState>()(persist((set, get) => ({
     learningAttempts: state.learningAttempts,
     simulationSessions: state.simulationSessions,
     simulationAttempts: state.simulationAttempts,
+    textbookProgress: state.textbookProgress,
     customQuestions: state.customQuestions,
     settings: state.settings,
   }),
