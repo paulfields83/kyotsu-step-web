@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="title desc">
+<title id="title">位置ベクトルと変位</title><desc id="desc">原点OからP1とP2への位置ベクトルと、P1からP2への変位を示す。</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="currentColor"/></marker></defs>
+<g fill="none" stroke="currentColor" stroke-width="3">
+<line x1="90" y1="340" x2="650" y2="340"/><line x1="90" y1="340" x2="90" y2="60"/>
+<line x1="90" y1="340" x2="300" y2="245" marker-end="url(#arrow)"/>
+<line x1="90" y1="340" x2="555" y2="115" marker-end="url(#arrow)"/>
+<line x1="300" y1="245" x2="555" y2="115" marker-end="url(#arrow)"/>
+<path d="M300 245 C390 205 455 165 555 115" stroke-dasharray="8 8"/>
+</g>
+<g fill="currentColor" font-family="Arial, sans-serif" font-size="24">
+<circle cx="90" cy="340" r="6"/><circle cx="300" cy="245" r="7"/><circle cx="555" cy="115" r="7"/>
+<text x="65" y="372">O</text><text x="278" y="235">P₁</text><text x="570" y="112">P₂</text>
+<text x="185" y="305">r₁</text><text x="315" y="205">r₂</text><text x="410" y="155">Δr</text>
+<text x="660" y="348">x</text><text x="78" y="48">y</text><text x="470" y="95">軌跡</text>
+</g></svg>
