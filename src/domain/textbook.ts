@@ -33,6 +33,48 @@ export function normalizeTextbookAnswer(value: string) {
     .replace(/[⃗→]/g, '')
 }
 
+
+function stableHash(value: string) {
+  let hash = 2166136261
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index)
+    hash = Math.imul(hash, 16777619)
+  }
+  return hash >>> 0
+}
+
+function stableShuffle(values: string[], seed: string) {
+  const next = [...values]
+  let state = stableHash(seed) || 1
+  for (let index = next.length - 1; index > 0; index -= 1) {
+    state = (Math.imul(state, 1664525) + 1013904223) >>> 0
+    const swapIndex = state % (index + 1)
+    ;[next[index], next[swapIndex]] = [next[swapIndex], next[index]]
+  }
+  return next
+}
+
+export function getTextbookChoices(unit: TextbookUnit, item: TextbookItem) {
+  if (item.choices?.length) return stableShuffle(item.choices, item.id)
+
+  const currentSection = unit.sections.find((section) => section.items.some((candidate) => candidate.id === item.id))
+  const sameTypeInSection = currentSection?.items.filter((candidate) => candidate.answerType === item.answerType) ?? []
+  const sameTypeInUnit = unit.sections.flatMap((section) => section.items).filter((candidate) => candidate.answerType === item.answerType)
+
+  const pool = [...sameTypeInSection, ...sameTypeInUnit]
+    .map((candidate) => candidate.answer)
+    .filter((answer) => normalizeTextbookAnswer(answer) !== normalizeTextbookAnswer(item.answer))
+
+  const distinctDistractors: string[] = []
+  for (const answer of pool) {
+    if (distinctDistractors.some((existing) => normalizeTextbookAnswer(existing) === normalizeTextbookAnswer(answer))) continue
+    distinctDistractors.push(answer)
+    if (distinctDistractors.length === 3) break
+  }
+
+  return stableShuffle([item.answer, ...distinctDistractors.slice(0, 3)], item.id)
+}
+
 export function isTextbookAnswerCorrect(item: TextbookItem, value: string) {
   const normalized = normalizeTextbookAnswer(value)
   return [item.answer, ...item.acceptedAnswers].some((answer) => normalizeTextbookAnswer(answer) === normalized)
