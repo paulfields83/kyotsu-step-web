@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { builtInTextbookUnits } from '../data/textbookUnits'
-import { answerTextbookItem, isTextbookAnswerCorrect, normalizeTextbookAnswer, textbookUnitProgress } from './textbook'
+import { answerTextbookItem, getTextbookChoices, isTextbookAnswerCorrect, normalizeTextbookAnswer, textbookUnitProgress } from './textbook'
 
 const unit = builtInTextbookUnits[0]
 const firstItem = unit.sections[0].items[0]
@@ -10,6 +10,13 @@ describe('textbook learning state', () => {
   it('normalizes spacing, unicode minus and vector marks for formula entry', () => {
     expect(normalizeTextbookAnswer(' r₂ − r₁ ')).toBe(normalizeTextbookAnswer('r2-r1'))
     expect(isTextbookAnswerCorrect(formulaItem, 'r2 - r1')).toBe(true)
+  })
+
+  it('builds stable multiple-choice options from answers in the same source unit', () => {
+    const choices = getTextbookChoices(unit, firstItem)
+    expect(choices).toContain('位置ベクトル')
+    expect(choices.length).toBeGreaterThanOrEqual(3)
+    expect(getTextbookChoices(unit, firstItem)).toEqual(choices)
   })
 
   it('keeps first-try accuracy while allowing retry until correct', () => {
