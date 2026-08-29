@@ -7,11 +7,11 @@ const image = (id: string, assetId: string, alt: string, caption?: string) => ({
 const table = (id: string, columns: string[], rows: string[][], caption?: string) => ({ id, type: 'table' as const, columns, rows, caption })
 const option = (id: string, label: string, wrongReason = '') => ({
   id,
-  content: [text(\`\${id}-content\`, label)],
+  content: [text(`${id}-content`, label)],
   misconceptionTags: wrongReason ? ['misconception'] : [],
-  wrongReason: wrongReason ? [text(\`\${id}-reason\`, wrongReason)] : [],
+  wrongReason: wrongReason ? [text(`${id}-reason`, wrongReason)] : [],
 })
-const simOption = (id: string, label: string) => ({ id, content: [text(\`\${id}-content\`, label)] })
+const simOption = (id: string, label: string) => ({ id, content: [text(`${id}-content`, label)] })
 
 const rawQuestions = [
   {
