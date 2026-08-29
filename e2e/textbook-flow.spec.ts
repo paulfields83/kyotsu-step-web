@@ -18,19 +18,16 @@ test('textbook mode starts without difficulty and preserves retry progress', asy
   await expect(page.getByText('0/78')).toBeVisible()
 
   const firstItem = page.getByTestId('textbook-item-a-1')
-  await firstItem.getByRole('textbox').fill('変位')
-  await firstItem.getByRole('button', { name: '判定' }).click()
+  await firstItem.getByRole('button', { name: '変位' }).click()
   await expect(firstItem).toContainText('もう一度')
 
-  await firstItem.getByRole('textbox').fill('位置ベクトル')
-  await firstItem.getByRole('button', { name: '判定' }).click()
+  await firstItem.getByRole('button', { name: '位置ベクトル' }).click()
   await expect(firstItem).toContainText('再回答で正解')
 
   const url = page.url()
   await page.reload()
   await expect(page).toHaveURL(url)
-  await expect(page.getByTestId('textbook-item-a-1').getByRole('textbox')).toHaveValue('位置ベクトル')
-  await expect(page.getByTestId('textbook-item-a-1').getByRole('textbox')).toBeDisabled()
+  await expect(page.getByTestId('textbook-item-a-1').getByRole('button', { name: '位置ベクトル' })).toBeDisabled()
 })
 
 test('future textbook sections stay locked until the current section is complete', async ({ page }) => {
