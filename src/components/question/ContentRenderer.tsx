@@ -17,7 +17,12 @@ export function ContentRenderer({ blocks, assets = [] }: { blocks: ContentBlock[
   return (
     <div className="content-renderer">
       {blocks.map((block) => {
-        if (block.type === 'text') return <p key={block.id}>{block.text}</p>
+        if (block.type === 'text') {
+          if (block.speaker) {
+            return <div key={block.id} className="dialogue-block"><strong>{block.speaker}</strong><p>{block.text}</p></div>
+          }
+          return <p key={block.id}>{block.text}</p>
+        }
         if (block.type === 'latex') {
           return block.display === 'block'
             ? <div key={block.id} className="formula-scroll" data-testid="latex-block"><BlockMath math={block.latex} /></div>
