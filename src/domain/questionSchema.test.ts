@@ -4,9 +4,15 @@ import { builtInQuestions } from '../data/questions'
 import { formatQuestionIssues, validateQuestionCatalog } from './questionSchema'
 
 describe('question catalog schema', () => {
-  it('accepts the four built-in versioned questions', () => {
-    expect(builtInQuestions).toHaveLength(4)
-    expect(new Set(builtInQuestions.map((question) => question.questionId)).size).toBe(4)
+  it('accepts the five built-in versioned questions', () => {
+    expect(builtInQuestions).toHaveLength(5)
+    expect(new Set(builtInQuestions.map((question) => question.questionId)).size).toBe(5)
+  })
+
+  it('requires common-test questions to keep the final choice outside the guide flow', () => {
+    const invalid = structuredClone(builtInQuestions)
+    invalid[0].learning.solutionFlow.push({ id: 'invalid-final-flow', type: 'blank', blankId: 'mq-final-choice' })
+    expect(() => validateQuestionCatalog(invalid)).toThrow(/finalBlankId/)
   })
 
   it('reports a precise path for a missing correct option', () => {
