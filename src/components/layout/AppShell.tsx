@@ -1,4 +1,4 @@
-import { BarChart3, CircleUserRound, Languages, ListChecks, Trophy } from 'lucide-react'
+import { ArrowLeft, BarChart3, CircleUserRound, Languages, ListChecks, Trophy } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useAppStore } from '../../stores/useAppStore'
@@ -40,6 +40,12 @@ export function AppShell() {
           <span><strong>共通 STEP</strong><small>{text('数学・物理', '数学・物理')}</small></span>
         </NavLink>
         <div className="header-actions">
+          {isFocusRoute && (
+            <NavLink to="/problems" className="header-back-link" aria-label={text('問題一覧へ戻る', '返回题目主页')}>
+              <ArrowLeft size={18} aria-hidden="true" />
+              <span>{text('問題へ', '返回题目')}</span>
+            </NavLink>
+          )}
           <Languages size={17} aria-hidden="true" />
           <div className="language-switcher" role="group" aria-label={text('表示言語', '显示语言')} data-testid="language-switcher">
             {(Object.keys(languageMeta) as AppLanguage[]).map((value) => (
