@@ -12,6 +12,9 @@ function gradingSignature(question: (typeof builtInQuestions)[number]) {
     taxonomy: question.taxonomy,
     difficulty: question.difficulty,
     assets: question.assets.map(({ id, type, src }) => ({ id, type, src })),
+    presentation: question.learning.presentation,
+    flowType: question.learning.flowType,
+    finalBlankId: question.learning.finalBlankId,
     variants: question.learning.variants,
     blanks: Object.values(question.learning.blanks).map((blank) => ({
       id: blank.id,
@@ -46,18 +49,19 @@ describe('independently authored Chinese question catalog', () => {
   it('contains complete Chinese content instead of Japanese text fallbacks', () => {
     expect(JSON.stringify(builtInQuestionsZh)).not.toMatch(/[ぁ-んァ-ン]/)
     expect(builtInQuestionsZh.map((question) => question.title)).toEqual([
-      '二次函数的最大值',
-      '频数分布表与平均数',
-      '速度–时间图像的读取',
-      '长题：串联与并联电路的测量方案',
+      '通过对话理解二次函数最大值',
+      '通过对话读取频数分布表与平均数',
+      '计算推导型｜速度–时间图像',
+      '现象分析型｜串联与并联电路候选比较',
+      '关系式分析型｜负电荷与磁场',
     ])
   })
 
   it('selects the requested language without changing stable question IDs', () => {
     const japanese = getQuestionCatalog([], 'ja')
     const chinese = getQuestionCatalog([], 'zh')
-    expect(chinese[0].title).toBe('二次函数的最大值')
-    expect(japanese[0].title).toBe('二次関数の最大値')
+    expect(chinese[0].title).toBe('通过对话理解二次函数最大值')
+    expect(japanese[0].title).toBe('会話で考える二次関数の最大値')
     expect(chinese.map((question) => question.questionId)).toEqual(japanese.map((question) => question.questionId))
   })
 })
