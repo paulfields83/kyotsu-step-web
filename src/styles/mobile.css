@@ -92,6 +92,20 @@
     padding: .8rem;
   }
 
+  .common-test-step small {
+    font-size: .6rem;
+  }
+
+  .original-choice,
+  .final-choice {
+    padding: .65rem;
+    grid-template-columns: 30px minmax(0, 1fr);
+  }
+
+  .dialogue-block {
+    padding: .65rem .7rem;
+  }
+
   .session-header,
   .simulation-header {
     flex-direction: column;
