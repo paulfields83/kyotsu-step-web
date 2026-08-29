@@ -2,7 +2,7 @@ import type { LearningAttempt, LearningBlankAnswer, LearningSession } from './at
 import type { LearningVariant, Question } from './questionSchema'
 
 export function isLearningAnswerResolved(answer: LearningBlankAnswer | undefined) {
-  return Boolean(answer) && answer.resolved !== false
+  return answer !== undefined && answer.resolved !== false
 }
 
 export function activeBlankIds(question: Question, variant: LearningVariant): string[] {
