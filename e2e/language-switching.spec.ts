@@ -16,9 +16,10 @@ test('switches the complete learning flow and preserves progress across language
   await expect(page.getByRole('button', { name: '中文' })).toHaveAttribute('aria-pressed', 'true')
   await page.goto('/learning/setup')
   await expect(page.getByRole('heading', { name: '学习设置' })).toBeVisible()
+  await page.getByRole('radio', { name: /做题/ }).click()
   await page.getByLabel('选择学习题目').selectOption('math-quadratic-01')
-  await expect(page.getByLabel('选择学习题目').locator('option:checked')).toHaveText('二次函数的最大值')
-  await page.getByRole('radio', { name: /详细引导/ }).click()
+  await expect(page.getByLabel('选择学习题目').locator('option:checked')).toHaveText('通过对话理解二次函数最大值')
+  await expect(page.getByText('引导强度')).toHaveCount(0)
   await page.getByTestId('start-learning').click()
 
   await expect(page.getByRole('heading', { name: '二次函数的最大值' })).toBeVisible()
