@@ -138,6 +138,7 @@ export function LearningSessionPage() {
   })
 
   const typeLabel = question.learning.flowType ? flowTypeLabel[question.learning.flowType] : undefined
+  const persistentVisualBlocks = question.stem.filter((block) => block.type === 'image')
 
   return (
     <div className="page-stack learning-page">
@@ -184,6 +185,14 @@ export function LearningSessionPage() {
             <section className="common-test-screen" data-testid="common-test-guide">
               <div className="screen-kicker">{text('STEP 2｜推論ガイド', 'STEP 2｜推理引导')}</div>
               <ProgressBar label={text('ガイドの進み具合', '引导进度')} value={guideCompletedCount} max={guideBlankIds.length} />
+
+              {persistentVisualBlocks.length > 0 && (
+                <aside className="guide-reference-panel" data-testid="guide-reference-panel" aria-label={text('問題図', '题目图像')}>
+                  <div className="guide-reference-panel__label">{text('問題図｜解答中も表示', '题目图像｜答题期间持续显示')}</div>
+                  <ContentRenderer blocks={persistentVisualBlocks} assets={question.assets} />
+                </aside>
+              )}
+
               <LearningFlowRenderer question={question} session={session} onActivate={activate} onExplain={showExplanation} onRevisit={revisitLearning.bind(null, sessionId)} />
               <RaisedButton className="primary-button" data-testid="open-final-choice" disabled={!guideComplete} onClick={() => setScreen('final')}>{text('元の選択肢へ戻る', '回到原选项')}</RaisedButton>
             </section>
