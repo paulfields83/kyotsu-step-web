@@ -11,6 +11,9 @@ import { subjectLabel } from '../i18n/labels'
 
 type LearningMode = 'textbook' | 'practice'
 
+const SHOW_GUIDANCE_LEVEL = false
+const FIXED_PRACTICE_VARIANT: LearningVariant = 'detailed'
+
 export function LearningSetupPage() {
   const navigate = useNavigate()
   const customQuestions = useAppStore((state) => state.customQuestions)
@@ -58,7 +61,7 @@ export function LearningSetupPage() {
       if (unitId) navigate(`/learning/textbook/${unitId}`)
       return
     }
-    if (questionId) navigate(`/learning/session/${startLearning(questionId, variant)}`)
+    if (questionId) navigate(`/learning/session/${startLearning(questionId, FIXED_PRACTICE_VARIANT)}`)
   }
 
   return (
@@ -109,11 +112,13 @@ export function LearningSetupPage() {
               {subjectQuestions.map((question) => <option key={question.questionId} value={question.questionId}>{question.title}</option>)}
             </select>
           </NumberedSection>
-          <NumberedSection number="04" title={text('誘導レベル', '引导强度')}>
-            <div className="choice-grid" role="radiogroup" aria-label={text('誘導レベル', '引导强度')}>
-              {variants.map((item) => <button type="button" role="radio" aria-checked={variant === item.value} key={item.value} onClick={() => setVariant(item.value)}><strong>{item.label}</strong><small>{item.description}</small></button>)}
-            </div>
-          </NumberedSection>
+          {SHOW_GUIDANCE_LEVEL && (
+            <NumberedSection number="04" title={text('誘導レベル', '引导强度')}>
+              <div className="choice-grid" role="radiogroup" aria-label={text('誘導レベル', '引导强度')}>
+                {variants.map((item) => <button type="button" role="radio" aria-checked={variant === item.value} key={item.value} onClick={() => setVariant(item.value)}><strong>{item.label}</strong><small>{item.description}</small></button>)}
+              </div>
+            </NumberedSection>
+          )}
         </>
       )}
 
