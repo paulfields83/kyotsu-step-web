@@ -6,34 +6,28 @@ test.beforeEach(async ({ page }) => {
   await page.reload()
 })
 
-test('textbook mode reads like an article and reveals embedded choices step by step', async ({ page }) => {
+test('textbook mode shows a full subsection with inline blanks and unlocks the next subsection only after all are correct', async ({ page }) => {
   await page.goto('/learning/setup')
-  await expect(page.getByRole('radio', { name: /知識を学ぶ/ })).toHaveAttribute('aria-checked', 'true')
-  await expect(page.getByLabel('学習する単元')).toHaveValue('physics-a-displacement-velocity')
-  await expect(page.getByRole('radiogroup', { name: '誘導レベル' })).toHaveCount(0)
-
   await page.getByTestId('start-learning').click()
-  await expect(page).toHaveURL(/\/learning\/textbook\/physics-a-displacement-velocity$/)
-  await expect(page.getByRole('heading', { name: 'A 変位と速度' })).toBeVisible()
-  await expect(page.getByTestId('textbook-reading-flow')).toContainText('平面上を運動する物体を考える')
+
+  await expect(page.getByTestId('textbook-reading-flow')).toContainText('1-1')
   await expect(page.getByTestId('textbook-item-a-1')).toBeVisible()
-  await expect(page.getByTestId('textbook-item-a-2')).toHaveCount(0)
-
-  const firstItem = page.getByTestId('textbook-item-a-1')
-  await firstItem.getByRole('button', { name: '変位' }).click()
-  await expect(firstItem).toContainText('不正解')
-
-  await firstItem.getByRole('button', { name: '位置ベクトル' }).click()
-  await expect(page.getByTestId('resolved-a-1')).toContainText('位置ベクトル')
   await expect(page.getByTestId('textbook-item-a-2')).toBeVisible()
+  await expect(page.getByTestId('textbook-item-a-3')).toBeVisible()
+  await expect(page.getByText('1-2　変位')).toHaveCount(0)
 
-  const url = page.url()
-  await page.reload()
-  await expect(page).toHaveURL(url)
-  await expect(page.getByTestId('resolved-a-1')).toContainText('位置ベクトル')
-  await expect(page.getByTestId('textbook-item-a-2')).toBeVisible()
+  for (const [itemId, answer] of [
+    ['a-1', '位置ベクトル'],
+    ['a-2', '位置'],
+    ['a-3', '位置'],
+  ] as const) {
+    await page.getByTestId(`textbook-item-${itemId}`).click()
+    await page.getByRole('dialog').getByRole('button', { name: answer, exact: true }).click()
+  }
+
+  await expect(page.getByText('1-2　変位')).toBeVisible()
+  await expect(page.getByTestId('textbook-item-a-4')).toBeVisible()
 })
-
 test('future textbook sections stay locked until the current section is complete', async ({ page }) => {
   await page.goto('/learning/textbook/physics-a-displacement-velocity')
   await expect(page.getByRole('button', { name: /図の読み取り/ })).toBeDisabled()
