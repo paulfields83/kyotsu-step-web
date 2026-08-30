@@ -10,7 +10,6 @@ test('common-test learning uses original question, guide, retry, then original c
   await page.goto('/learning/setup')
   await page.getByRole('radio', { name: /問題を解く/ }).click()
   await page.getByLabel('学習する問題').selectOption('math-quadratic-01')
-  await page.getByRole('radio', { name: /詳細穴埋め/ }).click()
   await page.getByTestId('start-learning').click()
   await expect(page).toHaveURL(/\/learning\/session\/learn-/)
 
@@ -41,17 +40,20 @@ test('common-test learning uses original question, guide, retry, then original c
   await expect(page.getByTestId('correct-count')).toContainText('2')
 })
 
-test('self-check keeps only the configured guide blank before the final original choice', async ({ page }) => {
+test('practice setup hides guidance level and always starts detailed guidance', async ({ page }) => {
   await page.goto('/learning/setup')
   await page.getByRole('radio', { name: /問題を解く/ }).click()
   await page.getByLabel('学習する問題').selectOption('math-quadratic-01')
-  await page.getByRole('radio', { name: /自力確認/ }).click()
+
+  await expect(page.getByText('誘導レベル')).toHaveCount(0)
+  await expect(page.getByRole('radiogroup', { name: '誘導レベル' })).toHaveCount(0)
+
   await page.getByTestId('start-learning').click()
   await page.getByTestId('open-guide').click()
 
+  await expect(page.getByTestId('blank-mq-blank-sign')).toBeVisible()
+  await expect(page.getByTestId('blank-mq-blank-vertex')).toBeVisible()
   await expect(page.getByTestId('blank-mq-blank-max')).toBeVisible()
-  await expect(page.locator('[data-testid^="blank-"]')).toHaveCount(1)
-  await expect(page.getByText('提示済み')).toHaveCount(2)
 })
 
 
