@@ -275,9 +275,18 @@
 
   .reading-inline-blank,
   .reading-inline-answer {
-    min-height: 32px;
-    margin-inline: .1rem;
-    padding: .12rem .35rem;
+    min-height: 30px;
+    margin-inline: .08rem;
+    padding: .1rem .3rem;
+  }
+
+  .reading-inline-blank > span {
+    font-size: .56rem;
+  }
+
+  .reading-inline-blank > strong,
+  .reading-inline-answer strong {
+    font-size: .82rem;
   }
 
   .reading-figure img {
