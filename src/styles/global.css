@@ -337,7 +337,9 @@ a { color: inherit; }
 .reading-figure img { display: block; width: 100%; max-height: 420px; object-fit: contain; }
 .reading-figure figcaption { color: var(--color-muted); font-size: .74rem; text-align: center; }
 
-.reading-inline-blank, .reading-inline-answer { display: inline-flex; min-height: 34px; align-items: center; gap: .3rem; margin: 0 .16rem; padding: .15rem .45rem; vertical-align: middle; border: 2px solid var(--color-primary); background: white; color: var(--color-primary); line-height: 1.35; }
+.reading-inline-blank, .reading-inline-answer { display: inline-flex; min-height: 34px; align-items: center; gap: .3rem; margin: 0 .16rem; padding: .15rem .45rem; vertical-align: baseline; border: 2px solid var(--color-primary); background: white; color: var(--color-primary); line-height: 1.35; }
+button.reading-inline-blank { font: inherit; cursor: pointer; box-shadow: none; }
+button.reading-inline-blank:hover { background: var(--color-section); }
 .reading-inline-blank > span { font: 700 .62rem/1 ui-monospace, monospace; opacity: .72; }
 .reading-inline-blank > strong { font-size: .86rem; }
 .reading-inline-blank--wrong { border-color: var(--color-error); color: var(--color-error); background: #fff8f6; }
@@ -358,3 +360,12 @@ a { color: inherit; }
 .reading-choice-option > small { color: var(--color-muted); font-weight: 700; }
 .reading-choice-option--wrong { border-color: var(--color-error); background: #fff8f6; color: var(--color-error); }
 .reading-choice-panel > p { margin: 0; color: var(--color-error); font-size: .75rem; }
+
+.reading-subsection { display: grid; gap: .9rem; }
+.reading-subsection + .reading-subsection { margin-top: .3rem; padding-top: .35rem; border-top: 1px solid var(--color-line); }
+.reading-subsection-complete { display: inline-flex; width: fit-content; align-items: center; gap: .35rem; padding: .35rem .5rem; border: 1px solid var(--color-success); background: #f6fff8; color: var(--color-success); font-size: .75rem; font-weight: 700; }
+
+.reading-sheet-choice-list { display: grid; gap: .6rem; }
+.reading-sheet-prompt { margin: 0 0 .15rem; line-height: 1.6; }
+.reading-sheet-choice-list .reading-choice-option { width: 100%; }
+.reading-sheet-error { margin: 0; color: var(--color-error); font-size: .78rem; }
