@@ -238,4 +238,49 @@
   .textbook-answer-row .raised-button { flex: 1 0 100%; }
   .textbook-next-panel, .textbook-complete-panel { align-items: flex-start; flex-wrap: wrap; }
   .textbook-next-panel .raised-button, .textbook-complete-panel .raised-link { width: 100%; }
+
+  .textbook-reading-flow {
+    gap: .8rem;
+    padding: .75rem;
+  }
+
+  .reading-paragraph {
+    font-size: .95rem;
+    line-height: 1.95;
+  }
+
+  .reading-formula-line {
+    padding: .6rem .55rem;
+    font-size: .98rem;
+    text-align: left;
+  }
+
+  .reading-choice-options {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-choice-panel {
+    padding: .65rem;
+  }
+
+  .reading-choice-panel__head {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .reading-choice-panel__head > small {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .reading-inline-blank,
+  .reading-inline-answer {
+    min-height: 32px;
+    margin-inline: .1rem;
+    padding: .12rem .35rem;
+  }
+
+  .reading-figure img {
+    max-height: 48dvh;
+  }
 }
