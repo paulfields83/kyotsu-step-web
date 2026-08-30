@@ -25,6 +25,21 @@ describe('textbook unit catalog', () => {
     expect(items.at(-1)?.label).toBe('F-8')
   })
 
+
+
+  it('maps every textbook blank back into a continuous reading flow', () => {
+    const unit = builtInTextbookUnits[0]
+    for (const section of unit.sections) {
+      expect(section.readingFlow.length).toBeGreaterThan(0)
+      const referenced = section.readingFlow.flatMap((block) =>
+        block.type === 'paragraph' || block.type === 'formula'
+          ? block.parts.filter((part) => part.type === 'choice').map((part) => part.itemId)
+          : [],
+      )
+      expect(new Set(referenced)).toEqual(new Set(section.items.map((item) => item.id)))
+    }
+  })
+
   it('keeps the four source diagrams as independent assets', () => {
     const figures = builtInTextbookUnits[0].sections.flatMap((section) => section.figures)
     expect(figures).toHaveLength(4)
