@@ -292,4 +292,12 @@
   .reading-figure img {
     max-height: 48dvh;
   }
+
+  .reading-inline-choice-panel {
+    padding: .6rem;
+  }
+
+  .reading-inline-choice-panel__head span {
+    font-size: .76rem;
+  }
 }
