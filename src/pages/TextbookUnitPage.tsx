@@ -2,7 +2,7 @@ import { InlineMath } from 'react-katex'
 import { Check, LockKeyhole, RotateCcw } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { BottomSheet, ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
+import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { getTextbookChoices, isTextbookAnswerCorrect, textbookSectionProgress, textbookUnitProgress, type TextbookUnitProgress } from '../domain/textbook'
 import type { TextbookItem, TextbookReadingBlock, TextbookReadingPart, TextbookSection, TextbookUnit } from '../domain/textbookSchema'
@@ -108,6 +108,52 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem ? getTextbookChoices(unit, activeItem) : []
 
+  const selectChoice = (choice: string) => {
+    if (!activeItem) return
+    answerTextbook(unit, activeItem.id, choice)
+    if (isTextbookAnswerCorrect(activeItem, choice)) setActiveItemId(null)
+  }
+
+  const blockContainsActiveItem = (block: TextbookReadingBlock) =>
+    Boolean(
+      activeItemId
+      && (block.type === 'paragraph' || block.type === 'formula')
+      && block.parts.some((part) => part.type === 'choice' && part.itemId === activeItemId),
+    )
+
+  const renderInlineChoicePanel = (block: TextbookReadingBlock) => {
+    if (!activeItem || !blockContainsActiveItem(block)) return null
+    return (
+      <div className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${activeItem.id}`}>
+        <div className="reading-inline-choice-panel__head">
+          <strong>{activeItem.label}</strong>
+          <span>{activeItem.prompt}</span>
+        </div>
+        <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
+          {activeChoices.map((choice, index) => {
+            const selectedWrong = Boolean(activeRecord && !activeRecord.resolved && activeRecord.value === choice)
+            return (
+              <button
+                type="button"
+                key={choice}
+                data-testid={`textbook-choice-${activeItem.id}-${index}`}
+                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}`}
+                onClick={() => selectChoice(choice)}
+              >
+                <span>{index + 1}</span>
+                <strong>{choice}</strong>
+                {activeItem.unit && <small>{activeItem.unit}</small>}
+              </button>
+            )
+          })}
+        </div>
+        {activeRecord && !activeRecord.resolved && (
+          <p className="reading-inline-choice-error">{text('不正解です。前後の文章を見ながら、もう一度選んでください。', '答错了。请结合前后文重新选择。')}</p>
+        )}
+      </div>
+    )
+  }
+
   const renderBlock = (block: TextbookReadingBlock) => {
     if (block.type === 'heading') return <h3 className="reading-subheading" key={block.id}>{block.text}</h3>
     if (block.type === 'note') return <aside className="reading-note" key={block.id}>{block.text}</aside>
@@ -129,65 +175,34 @@ function TextbookReadingFlow({ unit, section, progress }: {
       </span>
     ))
 
-    if (block.type === 'formula') return <div className="reading-formula-line" key={block.id}>{content}</div>
-    return <p className="reading-paragraph" key={block.id}>{content}</p>
-  }
-
-  const selectChoice = (choice: string) => {
-    if (!activeItem) return
-    answerTextbook(unit, activeItem.id, choice)
-    if (isTextbookAnswerCorrect(activeItem, choice)) setActiveItemId(null)
+    return (
+      <div className="reading-block-with-choice" key={block.id}>
+        {block.type === 'formula'
+          ? <div className="reading-formula-line">{content}</div>
+          : <p className="reading-paragraph">{content}</p>}
+        {renderInlineChoicePanel(block)}
+      </div>
+    )
   }
 
   return (
-    <>
-      <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
-        {visibleGroups.map((group, groupIndex) => {
-          const groupItemIds = readingGroupItemIds(group)
-          const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
-          return (
-            <section className="reading-subsection" data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
-              {group.map(renderBlock)}
-              {completed && groupIndex < groups.length - 1 && (
-                <div className="reading-subsection-complete">
-                  <Check size={16} aria-hidden="true" />
-                  <span>{text('この小節を完了しました。次の小節へ進めます。', '本小节已完成，可以继续下一小节。')}</span>
-                </div>
-              )}
-            </section>
-          )
-        })}
-      </article>
-
-      <BottomSheet
-        open={Boolean(activeItem)}
-        title={activeItem ? `${activeItem.label}｜${text('空欄に入るものを選ぶ', '选择填入空格的内容')}` : ''}
-        onClose={() => setActiveItemId(null)}
-      >
-        {activeItem && (
-          <div className="reading-sheet-choice-list">
-            <p className="reading-sheet-prompt">{activeItem.prompt}</p>
-            {activeChoices.map((choice, index) => {
-              const selectedWrong = Boolean(activeRecord && !activeRecord.resolved && activeRecord.value === choice)
-              return (
-                <button
-                  type="button"
-                  key={choice}
-                  data-testid={`textbook-choice-${activeItem.id}-${index}`}
-                  className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}`}
-                  onClick={() => selectChoice(choice)}
-                >
-                  <span>{index + 1}</span>
-                  <strong>{choice}</strong>
-                  {activeItem.unit && <small>{activeItem.unit}</small>}
-                </button>
-              )
-            })}
-            {activeRecord && !activeRecord.resolved && <p className="reading-sheet-error">{text('不正解です。文章を確認して、もう一度選んでください。', '答错了。请结合文章再选一次。')}</p>}
-          </div>
-        )}
-      </BottomSheet>
-    </>
+    <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
+      {visibleGroups.map((group, groupIndex) => {
+        const groupItemIds = readingGroupItemIds(group)
+        const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
+        return (
+          <section className="reading-subsection" data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
+            {group.map(renderBlock)}
+            {completed && groupIndex < groups.length - 1 && (
+              <div className="reading-subsection-complete">
+                <Check size={16} aria-hidden="true" />
+                <span>{text('この小節を完了しました。次の小節へ進めます。', '本小节已完成，可以继续下一小节。')}</span>
+              </div>
+            )}
+          </section>
+        )
+      })}
+    </article>
   )
 }
 
