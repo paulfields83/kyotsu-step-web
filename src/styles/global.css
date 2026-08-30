@@ -369,3 +369,10 @@ button.reading-inline-blank:hover { background: var(--color-section); }
 .reading-sheet-prompt { margin: 0 0 .15rem; line-height: 1.6; }
 .reading-sheet-choice-list .reading-choice-option { width: 100%; }
 .reading-sheet-error { margin: 0; color: var(--color-error); font-size: .78rem; }
+
+.reading-block-with-choice { display: grid; gap: .55rem; }
+.reading-inline-choice-panel { display: grid; gap: .6rem; margin: .1rem 0 .25rem; padding: .75rem; border: 2px solid var(--color-primary); background: var(--color-section); }
+.reading-inline-choice-panel__head { display: grid; gap: .2rem; }
+.reading-inline-choice-panel__head strong { color: var(--color-primary); font: 700 .72rem/1.35 ui-monospace, monospace; }
+.reading-inline-choice-panel__head span { font-size: .82rem; line-height: 1.55; }
+.reading-inline-choice-error { margin: 0; color: var(--color-error); font-size: .76rem; }
