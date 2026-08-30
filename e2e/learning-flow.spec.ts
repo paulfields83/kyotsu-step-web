@@ -53,3 +53,20 @@ test('self-check keeps only the configured guide blank before the final original
   await expect(page.locator('[data-testid^="blank-"]')).toHaveCount(1)
   await expect(page.getByText('提示済み')).toHaveCount(2)
 })
+
+
+test('physics guide keeps the original problem image visible while solving', async ({ page }) => {
+  await page.goto('/learning/setup')
+  await page.getByRole('radio', { name: /問題を解く/ }).click()
+  await page.getByRole('button', { name: '物理' }).click()
+  await page.getByLabel('学習する問題').selectOption('physics-motion-01')
+  await page.getByTestId('start-learning').click()
+
+  await expect(page.getByTestId('common-test-original').getByRole('img')).toBeVisible()
+  await page.getByTestId('open-guide').click()
+
+  const reference = page.getByTestId('guide-reference-panel')
+  await expect(reference).toBeVisible()
+  await expect(reference.getByRole('img')).toBeVisible()
+  await expect(reference).toContainText('問題図')
+})
