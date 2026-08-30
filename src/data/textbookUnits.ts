@@ -4,15 +4,24 @@ const item = (id: string, label: string, prompt: string, answer: string, answerT
   id, label, prompt, answer, acceptedAnswers, answerType, ...(unit ? { unit } : {}),
 })
 
+const t = (text: string) => ({ type: 'text' as const, text })
+const m = (latex: string) => ({ type: 'math' as const, latex })
+const c = (itemId: string) => ({ type: 'choice' as const, itemId })
+const heading = (id: string, text: string) => ({ id, type: 'heading' as const, text })
+const paragraph = (id: string, ...parts: Array<ReturnType<typeof t> | ReturnType<typeof m> | ReturnType<typeof c>>) => ({ id, type: 'paragraph' as const, parts })
+const formula = (id: string, ...parts: Array<ReturnType<typeof t> | ReturnType<typeof m> | ReturnType<typeof c>>) => ({ id, type: 'formula' as const, parts })
+const figure = (id: string, figureId: string) => ({ id, type: 'figure' as const, figureId })
+const note = (id: string, text: string) => ({ id, type: 'note' as const, text })
+
 const rawTextbookUnits = [
   {
     schemaVersion: '1.0',
     unitId: 'physics-a-displacement-velocity',
-    revision: 1,
+    revision: 2,
     status: 'published',
     subject: 'physics',
     title: 'A 変位と速度',
-    subtitle: '知識点チェック × 図の読み取り × 例題選択',
+    subtitle: '本文・図・式を順番に読む教科書モード',
     source: {
       type: 'reference',
       label: '物理・教科書モード｜A 変位と速度',
@@ -29,8 +38,45 @@ const rawTextbookUnits = [
         id: 'knowledge-check',
         number: '01',
         title: '知識点チェック',
-        description: '公式だけではなく、「何を表す量か」「向きはどう決まるか」まで順番に確認する。',
+        description: '公式だけではなく、「何を表す量か」「向きはどう決まるか」まで、本文を読みながら順番に確認する。',
         figures: [],
+        readingFlow: [
+          heading('kc-h-1', '1-1　位置と位置ベクトル'),
+          paragraph('kc-p-1', t('平面上を運動する物体を考える。ある時刻 '), m('t_1'), t(' に物体が点 '), m('P_1'), t('、時刻 '), m('t_2'), t(' に点 '), m('P_2'), t(' にあるとする。')),
+          paragraph('kc-p-2', t('原点 O から点 '), m('P_1'), t('、'), m('P_2'), t(' に向かって引いたベクトルを、それぞれ '), m('\\vec r_1'), t('、'), m('\\vec r_2'), t(' とする。このように、原点から物体の位置まで引いたベクトルを '), c('a-1'), t(' という。')),
+          paragraph('kc-p-3', t('したがって、'), m('\\vec r_1'), t(' は時刻 '), m('t_1'), t(' における物体の '), c('a-2'), t(' を表し、'), m('\\vec r_2'), t(' は時刻 '), m('t_2'), t(' における物体の '), c('a-3'), t(' を表している。')),
+
+          heading('kc-h-2', '1-2　変位'),
+          paragraph('kc-p-4', t('物体が '), m('P_1'), t(' から '), m('P_2'), t(' まで移動したとき、物体の位置の変化を '), c('a-4'), t(' という。変位はベクトルである。')),
+          formula('kc-f-1', m('\\Delta \\vec r = '), c('a-5')),
+          paragraph('kc-p-5', t('つまり、変位 ＝ '), c('a-6'), t(' の位置 − '), c('a-7'), t(' の位置である。')),
+          paragraph('kc-p-6', t('物体がどのような曲線を通って '), m('P_1'), t(' から '), m('P_2'), t(' へ移動したとしても、変位は途中の経路には '), c('a-8'), t('。')),
+          paragraph('kc-p-7', t('したがって、変位を求めるために必要なのは '), c('a-9'), t(' と '), c('a-10'), t(' である。')),
+
+          heading('kc-h-3', '1-3　変位の成分'),
+          paragraph('kc-p-8', m('\\vec r_1=(x_1,y_1)'), t('、'), m('\\vec r_2=(x_2,y_2)'), t(' とする。変位を '), m('\\Delta \\vec r=(\\Delta x,\\Delta y)'), t(' と書けば、')),
+          formula('kc-f-2', m('\\Delta x='), c('a-11')),
+          formula('kc-f-3', m('\\Delta y='), c('a-12')),
+          formula('kc-f-4', m('\\Delta \\vec r=(x_2-x_1,\\ y_2-y_1)')),
+
+          heading('kc-h-4', '1-4　平均の速度'),
+          paragraph('kc-p-9', t('時刻 '), m('t_1'), t(' から '), m('t_2'), t(' までの経過時間を '), m('\\Delta t='), c('a-13'), t(' とする。')),
+          paragraph('kc-p-10', t('この間の変位が '), m('\\Delta\\vec r=\\vec r_2-\\vec r_1'), t(' であるとき、「単位時間あたりの変位」を、この間の '), c('a-14'), t(' という。')),
+          formula('kc-f-5', m('\\bar{\\vec v}=\\frac{\\Delta\\vec r}{\\Delta t}')),
+          formula('kc-f-6', m('\\bar{\\vec v}=\\frac{'), c('a-15'), m('}{'), c('a-16'), m('}')),
+
+          heading('kc-h-5', '1-5　平均の速度の大きさと向き'),
+          paragraph('kc-p-11', m('\\Delta t>0'), t(' なので、平均の速度の向きは '), c('a-17'), t(' の向きと一致する。')),
+          formula('kc-f-7', m('|\\bar{\\vec v}|=\\frac{'), c('a-18'), m('}{\\Delta t}')),
+
+          heading('kc-h-6', '1-6　瞬間の速度'),
+          paragraph('kc-p-12', t('時刻 '), m('t_2'), t(' を '), m('t_1'), t(' にどんどん近づけ、'), m('\\Delta t\\to0'), t(' と考える。このとき得られる、その瞬間の速度を '), c('a-19'), t(' という。')),
+          formula('kc-f-8', m('\\vec v=\\lim_{\\Delta t\\to0}\\frac{\\Delta\\vec r}{\\Delta t}')),
+
+          heading('kc-h-7', '1-7　速度と速さ'),
+          paragraph('kc-p-13', t('速度 '), m('\\vec v'), t(' は '), c('a-20'), t(' と '), c('a-21'), t(' の両方をもつ量である。したがって、速度は '), c('a-22'), t(' 量である。')),
+          paragraph('kc-p-14', t('一方、速度ベクトルの大きさ '), m('v=|\\vec v|'), t(' を '), c('a-23'), t(' という。つまり、速さは速度の '), c('a-24'), t(' である。')),
+        ],
         items: [
           item('a-1', 'A-1', '原点 O から物体の位置まで引いたベクトルを何というか。', '位置ベクトル'),
           item('a-2', 'A-2', 'r₁ は時刻 t₁ における物体の何を表しているか。', '位置'),
@@ -62,10 +108,30 @@ const rawTextbookUnits = [
         id: 'figure-reading',
         number: '02',
         title: '図の読み取り',
-        description: '矢印・方向・記号が「何を表すか」を図と言葉の両方から確認する。',
+        description: '図も知識の一部。矢印・方向・記号が「何を表すか」を、文章と図を往復しながら確認する。',
         figures: [
           { id: 'position-vector-figure', src: '/assets/physics/textbook/a-displacement/position-vector.svg', alt: '原点 O、点 P1、点 P2、位置ベクトル r1 と r2、変位 Δr の関係図', caption: '図1　位置ベクトルと変位' },
           { id: 'tangent-velocity-figure', src: '/assets/physics/textbook/a-displacement/tangent-velocity.svg', alt: '曲線上の P1 と P2、変位ベクトルと P1 における接線方向の速度ベクトルの図', caption: '図2　曲線運動と瞬間速度' },
+        ],
+        readingFlow: [
+          note('fr-note-1', '図も知識の一部。矢印・方向・記号が「何を表すか」を言葉で説明できるようにする。'),
+          heading('fr-h-1', '図1　位置ベクトルと変位'),
+          figure('fr-fig-1', 'position-vector-figure'),
+          paragraph('fr-p-1', t('図中の '), m('\\vec r_1'), t(' は '), c('d-1'), t(' から '), c('d-2'), t(' へ向かうベクトルであり、点 '), m('P_1'), t(' の '), c('d-3'), t(' を表している。')),
+          paragraph('fr-p-2', t('同様に、'), m('\\vec r_2'), t(' は '), c('d-4'), t(' から '), c('d-5'), t(' へ向かうベクトルである。')),
+          paragraph('fr-p-3', t('一方、'), m('\\Delta\\vec r'), t(' は '), c('d-6'), t(' から '), c('d-7'), t(' へ向かうベクトルであり、物体の '), c('d-8'), t(' を表している。')),
+          formula('fr-f-1', m('\\vec r_1+\\Delta\\vec r='), c('d-9')),
+          formula('fr-f-2', m('\\therefore\\ \\Delta\\vec r='), c('d-10')),
+          heading('fr-h-2', '図2　曲線運動と瞬間速度'),
+          figure('fr-fig-2', 'tangent-velocity-figure'),
+          paragraph('fr-p-4', t('点 '), m('P_1'), t(' における矢印は、この瞬間の '), c('d-11'), t(' を表している。その方向は、点 '), m('P_1'), t(' において軌跡に引いた '), c('d-12'), t(' 方向である。')),
+          paragraph('fr-p-5', m('P_2'), t(' を '), m('P_1'), t(' に近づける、つまり '), m('\\Delta t\\to'), c('d-13'), t(' とすると、'), m('\\Delta\\vec r'), t(' の方向は次第に軌跡の '), c('d-14'), t(' 方向へ近づく。')),
+          paragraph('fr-p-6', t('したがって、速度の方向も軌跡の '), c('d-15'), t(' 方向になる。')),
+          heading('fr-h-3', '図中のラベルそのものも確認する'),
+          paragraph('fr-p-7', t('図1 の O → '), m('P_1'), t(' のベクトル：'), c('d-16')),
+          paragraph('fr-p-8', t('図1 の O → '), m('P_2'), t(' のベクトル：'), c('d-17')),
+          paragraph('fr-p-9', t('図1 の '), m('P_1'), t(' → '), m('P_2'), t(' のベクトル：'), c('d-18')),
+          paragraph('fr-p-10', t('図2 の '), m('P_1'), t(' における接線方向のベクトル：'), c('d-19')),
         ],
         items: [
           item('d-1', 'D-1', '図1の r₁ はどこから出るベクトルか。', '原点 O', 'text', ['O', '原点']),
@@ -93,9 +159,20 @@ const rawTextbookUnits = [
         id: 'example-q1',
         number: '03',
         title: '例題1｜瞬間速度の向き',
-        description: '曲線運動では、各点の瞬間速度が軌跡の接線方向になることを確認する。',
+        description: '「なぜそう言えるか」を文章で追いながら、各点の瞬間速度の向きを考える。',
         figures: [
           { id: 'curve-abc-figure', src: '/assets/physics/textbook/a-displacement/curve-abc.svg', alt: '左から右へ進む曲線軌道上に A、B、C の三点がある図', caption: '問1　各点 A・B・C における瞬間速度の向き' },
+        ],
+        readingFlow: [
+          note('q1-note-1', '解法の流れも文章の中で確認する。「なぜ」→「判断」→「結論」の順で進む。'),
+          heading('q1-h-1', '問1　瞬間速度の向き'),
+          paragraph('q1-p-1', t('物体が次のような曲線上を左から右へ運動している。点 A、B、C を通過するときの瞬間の速度の向きを考えよう。')),
+          figure('q1-fig-1', 'curve-abc-figure'),
+          paragraph('q1-p-2', t('瞬間速度の方向は、物体の '), c('q1-1'), t(' の方向ではなく、その点における軌跡の '), c('q1-2'), t(' 方向である。')),
+          paragraph('q1-p-3', t('点 A 付近では、軌跡は右へ進みながら '), c('q1-3'), t(' 方向へ傾いている。したがって、点 A における速度ベクトルは '), c('q1-4'), t(' 方向を向く。')),
+          paragraph('q1-p-4', t('点 B は軌跡の最も低い付近にある。この点に引いた接線はほぼ '), c('q1-5'), t(' である。したがって、速度の向きは右向きである。')),
+          paragraph('q1-p-5', t('点 C 付近では、物体は右へ進みながら '), c('q1-6'), t(' 方向へ進んでいる。したがって、点 C における速度ベクトルは '), c('q1-7'), t(' 方向を向く。')),
+          paragraph('q1-p-6', t('結論：曲線運動をしていても、瞬間速度の方向は必ず、その点における軌跡の '), c('q1-8'), t(' 方向である。')),
         ],
         items: [
           item('q1-1', 'Q1-1', '瞬間速度の方向は、物体の何の方向そのものではないか。', '曲線そのもの', 'text', ['軌跡そのもの']),
@@ -112,9 +189,43 @@ const rawTextbookUnits = [
         id: 'example-q2',
         number: '04',
         title: '例題2｜変位と平均の速度',
-        description: 'P₁=(1.0,2.0)m、P₂=(7.0,6.0)m、t₁=2.0s、t₂=5.0s から、変位・平均の速度・その大きさを順に求める。',
+        description: '「何を求めるか」→「式を立てる」→「計算」→「結論」を本文と式の流れに沿って進める。',
         figures: [
           { id: 'coordinate-figure', src: '/assets/physics/textbook/a-displacement/coordinate.svg', alt: '座標平面上の P1(1.0,2.0) から P2(7.0,6.0) への移動を示す図', caption: '問2　P₁ から P₂ への移動' },
+        ],
+        readingFlow: [
+          heading('q2-h-0', '問2　変位と平均の速度'),
+          paragraph('q2-p-0', t('平面上を運動する物体が、時刻 '), m('t_1=2.0\\,\\mathrm{s}'), t(' に '), m('P_1=(1.0,2.0)\\,\\mathrm{m}'), t(' にあり、時刻 '), m('t_2=5.0\\,\\mathrm{s}'), t(' に '), m('P_2=(7.0,6.0)\\,\\mathrm{m}'), t(' に移動した。このとき、①変位、②平均の速度、③平均の速度の大きさを求める。')),
+          figure('q2-fig-1', 'coordinate-figure'),
+
+          heading('q2-h-1', 'STEP 1　何を求める問題か'),
+          paragraph('q2-p-1', m('P_1'), t(' から '), m('P_2'), t(' への位置の変化を表すベクトルを '), c('q2-1'), t(' という。公式は')),
+          formula('q2-f-1', m('\\Delta\\vec r='), c('q2-2')),
+
+          heading('q2-h-2', 'STEP 2　位置ベクトルを書く'),
+          formula('q2-f-2', m('\\vec r_1='), c('q2-3'), m('\\ \\mathrm{m}')),
+          formula('q2-f-3', m('\\vec r_2='), c('q2-4'), m('\\ \\mathrm{m}')),
+
+          heading('q2-h-3', 'STEP 3　変位を計算する'),
+          formula('q2-f-4', m('\\Delta\\vec r=\\vec r_2-\\vec r_1=(7.0,6.0)-'), c('q2-5')),
+          formula('q2-f-5', m('\\Delta x=7.0-'), c('q2-6'), m('='), c('q2-7'), m('\\ \\mathrm{m}')),
+          formula('q2-f-6', m('\\Delta y=6.0-'), c('q2-8'), m('='), c('q2-9'), m('\\ \\mathrm{m}')),
+          formula('q2-f-7', m('\\Delta\\vec r='), c('q2-10'), m('\\ \\mathrm{m}')),
+
+          heading('q2-h-4', 'STEP 4　経過時間を求める'),
+          paragraph('q2-p-2', t('平均の速度を求めるには、変位だけでなく '), c('q2-11'), t(' も必要である。')),
+          formula('q2-f-8', m('\\Delta t=t_2-t_1=5.0-'), c('q2-12'), m('='), c('q2-13'), m('\\ \\mathrm{s}')),
+
+          heading('q2-h-5', 'STEP 5　平均の速度を求める'),
+          formula('q2-f-9', m('\\bar{\\vec v}=\\frac{'), c('q2-14'), m('}{'), c('q2-15'), m('}')),
+          formula('q2-f-10', m('\\bar{\\vec v}=\\frac{(6.0,4.0)}{3.0}=\\left(\\frac{6.0}{3.0},\\frac{4.0}{3.0}\\right)')),
+          formula('q2-f-11', m('\\bar{\\vec v}='), c('q2-16'), m('\\ \\mathrm{m/s}')),
+
+          heading('q2-h-6', 'STEP 6　平均の速度の大きさ'),
+          paragraph('q2-p-3', t('平均の速度はベクトルなので、大きさを求めるには各成分から三平方の関係を用いる。')),
+          formula('q2-f-12', m('|\\bar{\\vec v}|=\\sqrt{'), c('q2-17'), m('^2+'), c('q2-18'), m('^2}')),
+          formula('q2-f-13', m('=\\sqrt{4+\\frac{16}{9}}=\\sqrt{\\frac{52}{9}}')),
+          formula('q2-f-14', m('|\\bar{\\vec v}|='), c('q2-19'), m('\\ \\mathrm{m/s}')),
         ],
         items: [
           item('q2-1', 'Q2-1', 'STEP 1：P₁ から P₂ への位置の変化を表すベクトルを何というか。', '変位'),
@@ -142,8 +253,17 @@ const rawTextbookUnits = [
         id: 'final-review',
         number: '05',
         title: '最後の知識確認',
-        description: '単元の最後に、位置・変位・速度・速さの関係をもう一度つなげる。',
+        description: '単元の最後に、位置・変位・速度・速さの関係を一つの文章としてもう一度つなげる。',
         figures: [],
+        readingFlow: [
+          note('frv-note-1', '最後は前の説明を最小限にして、単元全体のつながりを自分で確認する。'),
+          paragraph('frv-p-1', t('物体の位置は '), c('f-1'), t(' によって表すことができる。物体がある位置から別の位置へ移動したとき、その位置の変化を '), c('f-2'), t(' という。')),
+          formula('frv-f-1', m('\\Delta\\vec r='), c('f-3')),
+          paragraph('frv-p-2', t('一方、単位時間あたりの変位を '), c('f-4'), t(' という。')),
+          formula('frv-f-2', m('\\bar{\\vec v}='), c('f-5')),
+          paragraph('frv-p-3', m('\\Delta t'), t(' を限りなく 0 に近づけることで '), c('f-6'), t(' が得られる。瞬間速度の方向は、その点における軌跡の '), c('f-7'), t(' 方向と一致する。')),
+          paragraph('frv-p-4', t('また、速度ベクトルの大きさを '), c('f-8'), t(' という。')),
+        ],
         items: [
           item('f-1', 'F-1', '物体の位置は何によって表すことができるか。', '位置ベクトル'),
           item('f-2', 'F-2', '物体がある位置から別の位置へ移動したとき、その位置の変化を何というか。', '変位'),
