@@ -89,6 +89,11 @@ a { color: inherit; }
 .final-retry { display: grid; gap: .65rem; padding: .8rem; border: 2px solid var(--color-error); background: #fff8f6; }
 .final-retry p { margin: 0; }
 .question-paper--compact { max-height: 44dvh; overflow: auto; }
+.guide-reference-panel { position: sticky; z-index: 11; top: 74px; display: grid; gap: .45rem; padding: .65rem; border: 2px solid var(--color-primary); background: rgba(248,247,242,.97); box-shadow: 0 4px 14px rgba(26,42,60,.12); backdrop-filter: blur(8px); }
+.guide-reference-panel__label { width: fit-content; padding: .18rem .38rem; background: var(--color-primary); color: white; font: 700 .68rem/1.35 ui-monospace, monospace; }
+.guide-reference-panel .question-figure { margin: 0; }
+.guide-reference-panel .question-figure img { display: block; width: 100%; max-height: 30dvh; object-fit: contain; }
+.guide-reference-panel .question-figure figcaption { margin-top: .3rem; font-size: .7rem; text-align: center; }
 .filled-blank--recovered { border-color: var(--color-primary); }
 .filled-blank--recovered .blank-state-label { color: var(--color-primary); }
 .formula-scroll, .table-scroll { max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; }
