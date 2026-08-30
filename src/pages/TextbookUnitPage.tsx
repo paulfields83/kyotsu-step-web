@@ -1,10 +1,10 @@
 import { InlineMath } from 'react-katex'
-import { Check, LockKeyhole, RotateCcw, X } from 'lucide-react'
+import { Check, LockKeyhole, RotateCcw } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
+import { BottomSheet, ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { textbookRepository } from '../repositories/textbookRepository'
-import { getTextbookChoices, textbookSectionProgress, textbookUnitProgress, type TextbookUnitProgress } from '../domain/textbook'
+import { getTextbookChoices, isTextbookAnswerCorrect, textbookSectionProgress, textbookUnitProgress, type TextbookUnitProgress } from '../domain/textbook'
 import type { TextbookItem, TextbookReadingBlock, TextbookReadingPart, TextbookSection, TextbookUnit } from '../domain/textbookSchema'
 import { useAppStore } from '../stores/useAppStore'
 import { useI18n } from '../i18n/runtime'
@@ -17,45 +17,27 @@ function resolveAssetSrc(src: string) {
   return `${base}${src.replace(/^\.?\/+/, '')}`
 }
 
-function TextbookChoicePanel({ unit, item, progress }: {
-  unit: TextbookUnit
-  item: TextbookItem
-  progress: TextbookUnitProgress | undefined
-}) {
-  const answerTextbook = useAppStore((state) => state.answerTextbook)
-  const { text } = useI18n()
-  const record = progress?.answers[item.id]
-  const choices = getTextbookChoices(unit, item)
-  const wrong = Boolean(record && !record.resolved)
-
-  return (
-    <div className="reading-choice-panel" data-testid={`textbook-item-${item.id}`}>
-      <div className="reading-choice-panel__head">
-        <span>{item.label}</span>
-        <strong>{text('ここを選ぶ', '在这里选择')}</strong>
-        {wrong && <small><X size={14} aria-hidden="true" />{text('不正解・もう一度', '答错・再选一次')}</small>}
-      </div>
-      <div className="reading-choice-options" role="group" aria-label={`${item.label} ${text('選択肢', '选项')}`}>
-        {choices.map((choice, index) => {
-          const selectedWrong = wrong && record?.value === choice
-          return (
-            <button
-              type="button"
-              key={choice}
-              data-testid={`textbook-choice-${item.id}-${index}`}
-              className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}`}
-              onClick={() => answerTextbook(unit, item.id, choice)}
-            >
-              <span>{index + 1}</span>
-              <strong>{choice}</strong>
-              {item.unit && <small>{item.unit}</small>}
-            </button>
-          )
-        })}
-      </div>
-      {wrong && <p>{text('前後の文章を読み直して、別の選択肢を選んでください。', '重新阅读前后文，再选择其他选项。')}</p>}
-    </div>
+function readingGroupItemIds(blocks: TextbookReadingBlock[]) {
+  return blocks.flatMap((block) =>
+    block.type === 'paragraph' || block.type === 'formula'
+      ? block.parts.filter((part) => part.type === 'choice').map((part) => part.itemId)
+      : [],
   )
+}
+
+function groupReadingFlow(blocks: TextbookReadingBlock[]) {
+  const groups: TextbookReadingBlock[][] = []
+  let current: TextbookReadingBlock[] = []
+
+  for (const block of blocks) {
+    if (block.type === 'heading' && current.some((candidate) => candidate.type === 'heading')) {
+      groups.push(current)
+      current = []
+    }
+    current.push(block)
+  }
+  if (current.length) groups.push(current)
+  return groups
 }
 
 function renderResolvedChoice(item: TextbookItem, value: string) {
@@ -67,28 +49,42 @@ function renderResolvedChoice(item: TextbookItem, value: string) {
   )
 }
 
-function renderActiveChoice(item: TextbookItem, value: string | undefined, isWrong: boolean, text: (ja: string, zh: string) => string) {
+function renderActiveChoice(
+  item: TextbookItem,
+  value: string | undefined,
+  isWrong: boolean,
+  onOpen: (itemId: string) => void,
+  text: (ja: string, zh: string) => string,
+) {
   return (
-    <span className={`reading-inline-blank${isWrong ? ' reading-inline-blank--wrong' : ''}`}>
+    <button
+      type="button"
+      data-testid={`textbook-item-${item.id}`}
+      className={`reading-inline-blank${isWrong ? ' reading-inline-blank--wrong' : ''}`}
+      onClick={() => onOpen(item.id)}
+      aria-label={`${item.label} ${text('を選ぶ', '选择答案')}`}
+    >
       <span>{item.label}</span>
       <strong>{value || text('選択', '选择')}</strong>
-    </span>
+    </button>
   )
 }
 
-function renderPart(part: TextbookReadingPart, section: TextbookSection, progress: TextbookUnitProgress | undefined, text: (ja: string, zh: string) => string): { node: ReactNode; unresolved?: TextbookItem } {
-  if (part.type === 'text') return { node: part.text }
-  if (part.type === 'math') return { node: <InlineMath math={part.latex} /> }
+function renderPart(
+  part: TextbookReadingPart,
+  section: TextbookSection,
+  progress: TextbookUnitProgress | undefined,
+  onOpen: (itemId: string) => void,
+  text: (ja: string, zh: string) => string,
+): ReactNode {
+  if (part.type === 'text') return part.text
+  if (part.type === 'math') return <InlineMath math={part.latex} />
 
   const item = section.items.find((candidate) => candidate.id === part.itemId)
-  if (!item) return { node: null }
+  if (!item) return null
   const record = progress?.answers[item.id]
-  if (record?.resolved) return { node: renderResolvedChoice(item, record.value) }
-
-  return {
-    node: renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), text),
-    unresolved: item,
-  }
+  if (record?.resolved) return renderResolvedChoice(item, record.value)
+  return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text)
 }
 
 function TextbookReadingFlow({ unit, section, progress }: {
@@ -97,72 +93,102 @@ function TextbookReadingFlow({ unit, section, progress }: {
   progress: TextbookUnitProgress | undefined
 }) {
   const { text } = useI18n()
-  const nodes: ReactNode[] = []
-  let stopped = false
+  const answerTextbook = useAppStore((state) => state.answerTextbook)
+  const [activeItemId, setActiveItemId] = useState<string | null>(null)
+  const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
 
-  const renderParts = (block: Extract<TextbookReadingBlock, { type: 'paragraph' | 'formula' }>) => {
-    const content: ReactNode[] = []
-    let unresolved: TextbookItem | undefined
+  const firstIncompleteGroup = groups.findIndex((group) => {
+    const itemIds = readingGroupItemIds(group)
+    return itemIds.length > 0 && itemIds.some((itemId) => !progress?.answers[itemId]?.resolved)
+  })
+  const visibleGroupCount = firstIncompleteGroup === -1 ? groups.length : firstIncompleteGroup + 1
+  const visibleGroups = groups.slice(0, visibleGroupCount)
 
-    for (let index = 0; index < block.parts.length; index += 1) {
-      const part = block.parts[index]
-      const rendered = renderPart(part, section, progress, text)
-      content.push(<span key={`${block.id}-part-${index}`}>{rendered.node}</span>)
-      if (rendered.unresolved) {
-        unresolved = rendered.unresolved
-        break
-      }
-    }
+  const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
+  const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
+  const activeChoices = activeItem ? getTextbookChoices(unit, activeItem) : []
 
-    if (block.type === 'formula') {
-      nodes.push(
-        <div className="reading-formula-line" key={block.id}>
-          {content}
-        </div>,
-      )
-    } else {
-      nodes.push(
-        <p className="reading-paragraph" key={block.id}>
-          {content}
-        </p>,
-      )
-    }
-
-    if (unresolved) {
-      nodes.push(<TextbookChoicePanel key={`${block.id}-choice`} unit={unit} item={unresolved} progress={progress} />)
-      stopped = true
-    }
-  }
-
-  for (const block of section.readingFlow) {
-    if (stopped) break
-
-    if (block.type === 'heading') {
-      nodes.push(<h3 className="reading-subheading" key={block.id}>{block.text}</h3>)
-      continue
-    }
-
-    if (block.type === 'note') {
-      nodes.push(<aside className="reading-note" key={block.id}>{block.text}</aside>)
-      continue
-    }
+  const renderBlock = (block: TextbookReadingBlock) => {
+    if (block.type === 'heading') return <h3 className="reading-subheading" key={block.id}>{block.text}</h3>
+    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{block.text}</aside>
 
     if (block.type === 'figure') {
       const figure = section.figures.find((candidate) => candidate.id === block.figureId)
-      if (!figure) continue
-      nodes.push(
+      if (!figure) return null
+      return (
         <figure className="reading-figure" key={block.id}>
           <img src={resolveAssetSrc(figure.src)} alt={figure.alt} />
           {figure.caption && <figcaption>{figure.caption}</figcaption>}
-        </figure>,
+        </figure>
       )
-      continue
     }
 
-    renderParts(block)
+    const content = block.parts.map((part, index) => (
+      <span key={`${block.id}-part-${index}`}>
+        {renderPart(part, section, progress, setActiveItemId, text)}
+      </span>
+    ))
+
+    if (block.type === 'formula') return <div className="reading-formula-line" key={block.id}>{content}</div>
+    return <p className="reading-paragraph" key={block.id}>{content}</p>
   }
 
-  return <article className="textbook-reading-flow" data-testid="textbook-reading-flow">{nodes}</article>
+  const selectChoice = (choice: string) => {
+    if (!activeItem) return
+    answerTextbook(unit, activeItem.id, choice)
+    if (isTextbookAnswerCorrect(activeItem, choice)) setActiveItemId(null)
+  }
+
+  return (
+    <>
+      <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
+        {visibleGroups.map((group, groupIndex) => {
+          const groupItemIds = readingGroupItemIds(group)
+          const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
+          return (
+            <section className="reading-subsection" data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
+              {group.map(renderBlock)}
+              {completed && groupIndex < groups.length - 1 && (
+                <div className="reading-subsection-complete">
+                  <Check size={16} aria-hidden="true" />
+                  <span>{text('この小節を完了しました。次の小節へ進めます。', '本小节已完成，可以继续下一小节。')}</span>
+                </div>
+              )}
+            </section>
+          )
+        })}
+      </article>
+
+      <BottomSheet
+        open={Boolean(activeItem)}
+        title={activeItem ? `${activeItem.label}｜${text('空欄に入るものを選ぶ', '选择填入空格的内容')}` : ''}
+        onClose={() => setActiveItemId(null)}
+      >
+        {activeItem && (
+          <div className="reading-sheet-choice-list">
+            <p className="reading-sheet-prompt">{activeItem.prompt}</p>
+            {activeChoices.map((choice, index) => {
+              const selectedWrong = Boolean(activeRecord && !activeRecord.resolved && activeRecord.value === choice)
+              return (
+                <button
+                  type="button"
+                  key={choice}
+                  data-testid={`textbook-choice-${activeItem.id}-${index}`}
+                  className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}`}
+                  onClick={() => selectChoice(choice)}
+                >
+                  <span>{index + 1}</span>
+                  <strong>{choice}</strong>
+                  {activeItem.unit && <small>{activeItem.unit}</small>}
+                </button>
+              )
+            })}
+            {activeRecord && !activeRecord.resolved && <p className="reading-sheet-error">{text('不正解です。文章を確認して、もう一度選んでください。', '答错了。请结合文章再选一次。')}</p>}
+          </div>
+        )}
+      </BottomSheet>
+    </>
+  )
 }
 
 export function TextbookUnitPage() {
@@ -252,7 +278,7 @@ export function TextbookUnitPage() {
 
         {currentSection.readingFlow.length > 0
           ? <TextbookReadingFlow unit={unit} section={currentSection} progress={progress} />
-          : <div className="textbook-check-list">{currentSection.items.map((item) => <TextbookChoicePanel key={item.id} unit={unit} item={item} progress={progress} />)}</div>}
+          : null}
 
         {sectionComplete && !unitComplete && selectedSectionIndex < unit.sections.length - 1 && (
           <div className="textbook-next-panel">
