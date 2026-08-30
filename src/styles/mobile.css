@@ -106,6 +106,19 @@
     padding: .65rem .7rem;
   }
 
+  .guide-reference-panel {
+    top: 64px;
+    padding: .5rem;
+  }
+
+  .guide-reference-panel .question-figure img {
+    max-height: 24dvh;
+  }
+
+  .guide-reference-panel__label {
+    font-size: .6rem;
+  }
+
   .session-header,
   .simulation-header {
     flex-direction: column;
