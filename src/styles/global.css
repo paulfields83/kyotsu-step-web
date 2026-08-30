@@ -322,3 +322,39 @@ a { color: inherit; }
 .textbook-complete-panel h2, .textbook-complete-panel p { margin: 0; }
 .textbook-complete-panel p { margin-top: .25rem; color: var(--color-muted); }
 .textbook-reset { display: inline-flex; align-items: center; gap: .35rem; width: fit-content; }
+
+/* Guided textbook reading flow */
+.textbook-reading-flow { display: grid; gap: 1rem; padding: clamp(.9rem, 2vw, 1.35rem); border: 2px solid var(--color-border); background: var(--color-paper); }
+.reading-subheading { margin: 1rem 0 .1rem; padding: .55rem .7rem; border-left: 5px solid var(--color-primary); background: var(--color-section); font-size: 1.05rem; }
+.reading-subheading:first-child { margin-top: 0; }
+.reading-note { padding: .7rem .8rem; border: 1px solid var(--color-primary); background: var(--color-section); color: var(--color-muted); font-size: .82rem; line-height: 1.65; }
+.reading-paragraph { margin: 0; font-size: 1rem; line-height: 2.05; }
+.reading-paragraph > span { display: inline; }
+.reading-paragraph .katex { font-size: 1.03em; }
+.reading-formula-line { overflow-x: auto; padding: .7rem .85rem; border: 1px solid var(--color-line); background: #fff; font-size: 1.08rem; line-height: 2; text-align: center; white-space: nowrap; }
+.reading-formula-line > span { display: inline; }
+.reading-figure { display: grid; gap: .5rem; margin: .25rem 0; padding: .75rem; border: 1px solid var(--color-border); background: white; }
+.reading-figure img { display: block; width: 100%; max-height: 420px; object-fit: contain; }
+.reading-figure figcaption { color: var(--color-muted); font-size: .74rem; text-align: center; }
+
+.reading-inline-blank, .reading-inline-answer { display: inline-flex; min-height: 34px; align-items: center; gap: .3rem; margin: 0 .16rem; padding: .15rem .45rem; vertical-align: middle; border: 2px solid var(--color-primary); background: white; color: var(--color-primary); line-height: 1.35; }
+.reading-inline-blank > span { font: 700 .62rem/1 ui-monospace, monospace; opacity: .72; }
+.reading-inline-blank > strong { font-size: .86rem; }
+.reading-inline-blank--wrong { border-color: var(--color-error); color: var(--color-error); background: #fff8f6; }
+.reading-inline-answer { border-color: var(--color-success); background: #f6fff8; color: var(--color-success); }
+.reading-inline-answer strong { font-size: .9rem; }
+
+.reading-choice-panel { display: grid; gap: .65rem; margin: .1rem 0 .25rem; padding: .8rem; border: 2px solid var(--color-primary); background: var(--color-section); }
+.reading-choice-panel__head { display: flex; align-items: center; gap: .5rem; }
+.reading-choice-panel__head > span { padding: .15rem .38rem; border: 1px solid var(--color-primary); color: var(--color-primary); font: 700 .68rem/1.35 ui-monospace, monospace; }
+.reading-choice-panel__head > strong { font-size: .85rem; }
+.reading-choice-panel__head > small { display: inline-flex; align-items: center; gap: .2rem; margin-left: auto; color: var(--color-error); font-weight: 700; }
+.reading-choice-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.reading-choice-option { display: grid; min-width: 0; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: .55rem; min-height: 50px; padding: .55rem .65rem; border: 2px solid var(--color-border); background: white; color: var(--color-text); text-align: left; cursor: pointer; box-shadow: 0 2px 0 var(--color-border); }
+.reading-choice-option:hover { border-color: var(--color-primary); }
+.reading-choice-option:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--color-border); }
+.reading-choice-option > span { display: grid; width: 27px; height: 27px; place-items: center; border: 1px solid var(--color-border); font: 700 .7rem/1 ui-monospace, monospace; }
+.reading-choice-option > strong { overflow-wrap: anywhere; font-size: .88rem; }
+.reading-choice-option > small { color: var(--color-muted); font-weight: 700; }
+.reading-choice-option--wrong { border-color: var(--color-error); background: #fff8f6; color: var(--color-error); }
+.reading-choice-panel > p { margin: 0; color: var(--color-error); font-size: .75rem; }
