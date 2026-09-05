@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
   await page.reload()
 })
 
-test('textbook mode shows a full subsection with inline blanks and unlocks the next subsection only after all are correct', async ({ page }) => {
+test('textbook mode shows a full subsection and unlocks the next subsection after each blank is resolved', async ({ page }) => {
   await page.goto('/learning/setup')
   await page.getByTestId('start-learning').click()
 
@@ -31,12 +31,25 @@ test('textbook mode shows a full subsection with inline blanks and unlocks the n
   await expect(page.getByText('1-2　変位')).toBeVisible()
   await expect(page.getByTestId('textbook-item-a-4')).toBeVisible()
 })
+
+test('a wrong textbook choice immediately reveals the correct answer instead of retrying', async ({ page }) => {
+  await page.goto('/learning/textbook/physics-a-displacement-velocity')
+
+  await page.getByTestId('textbook-item-a-1').click()
+  const panel = page.getByTestId('inline-choice-panel-a-1')
+  await expect(panel).toBeVisible()
+  await panel.getByRole('button', { name: '変位', exact: true }).click()
+
+  await expect(panel).toHaveCount(0)
+  await expect(page.getByTestId('resolved-a-1')).toContainText('位置ベクトル')
+  await expect(page.getByTestId('textbook-item-a-1')).toHaveCount(0)
+})
+
 test('future textbook sections stay locked until the current section is complete', async ({ page }) => {
   await page.goto('/learning/textbook/physics-a-displacement-velocity')
   await expect(page.getByRole('button', { name: /図の読み取り/ })).toBeDisabled()
   await expect(page.getByRole('button', { name: /例題1/ })).toBeDisabled()
 })
-
 
 test('opening a textbook blank keeps the sentence visible and expands choices directly underneath', async ({ page }) => {
   await page.goto('/learning/textbook/physics-a-displacement-velocity')
