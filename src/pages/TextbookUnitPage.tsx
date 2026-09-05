@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { textbookRepository } from '../repositories/textbookRepository'
-import { getTextbookChoices, isTextbookAnswerCorrect, textbookSectionProgress, textbookUnitProgress, type TextbookUnitProgress } from '../domain/textbook'
+import { getTextbookChoices, textbookSectionProgress, textbookUnitProgress, type TextbookUnitProgress } from '../domain/textbook'
 import type { TextbookItem, TextbookReadingBlock, TextbookReadingPart, TextbookSection, TextbookUnit } from '../domain/textbookSchema'
 import { useAppStore } from '../stores/useAppStore'
 import { useI18n } from '../i18n/runtime'
@@ -111,7 +111,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const selectChoice = (choice: string) => {
     if (!activeItem) return
     answerTextbook(unit, activeItem.id, choice)
-    if (isTextbookAnswerCorrect(activeItem, choice)) setActiveItemId(null)
+    setActiveItemId(null)
   }
 
   const blockContainsActiveItem = (block: TextbookReadingBlock) =>
@@ -147,9 +147,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
             )
           })}
         </div>
-        {activeRecord && !activeRecord.resolved && (
-          <p className="reading-inline-choice-error">{text('不正解です。前後の文章を見ながら、もう一度選んでください。', '答错了。请结合前后文重新选择。')}</p>
-        )}
       </div>
     )
   }
