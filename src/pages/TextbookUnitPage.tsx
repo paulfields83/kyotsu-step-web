@@ -51,12 +51,12 @@ function renderResolvedChoice(item: TextbookItem, record: TextbookAnswerRecord) 
   }
 
   return (
-    <span className="reading-inline-result" data-testid={`resolved-${item.id}`}>
-      <span className="reading-inline-wrong">
+    <span data-testid={`resolved-${item.id}`}>
+      <span className="reading-inline-blank reading-inline-blank--wrong">
         <X size={14} aria-hidden="true" />
         <strong>{record.firstValue ?? record.value}</strong>
       </span>
-      <span className="reading-inline-correct">
+      <span className="reading-inline-answer">
         <Check size={14} aria-hidden="true" />
         <strong>{item.answer}</strong>
       </span>
@@ -141,7 +141,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const renderInlineChoicePanel = (block: TextbookReadingBlock) => {
     if (!activeItem || !blockContainsActiveItem(block)) return null
     return (
-      <div className={`reading-inline-choice-panel${activeWrongResult ? ' reading-inline-choice-panel--resolved-wrong' : ''}`} data-testid={`inline-choice-panel-${activeItem.id}`}>
+      <div className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${activeItem.id}`}>
         <div className="reading-inline-choice-panel__head">
           <strong>{activeItem.label}</strong>
           <span>{activeItem.prompt}</span>
@@ -155,7 +155,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
                 type="button"
                 key={choice}
                 data-testid={`textbook-choice-${activeItem.id}-${index}`}
-                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' reading-choice-option--correct' : ''}`}
+                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
                 disabled={Boolean(activeRecord?.resolved)}
                 onClick={() => selectChoice(choice)}
               >
@@ -167,10 +167,9 @@ function TextbookReadingFlow({ unit, section, progress }: {
           })}
         </div>
         {activeWrongResult && (
-          <div className="reading-answer-reveal" data-testid={`answer-reveal-${activeItem.id}`}>
-            <strong>{text('不正解', '回答错误')}</strong>
-            <span>{text(`正解は「${activeItem.answer}」です。`, `正确答案是「${activeItem.answer}」。`)}</span>
-          </div>
+          <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
+            {text(`不正解です。正解は「${activeItem.answer}」です。`, `回答错误。正确答案是「${activeItem.answer}」。`)}
+          </p>
         )}
       </div>
     )
