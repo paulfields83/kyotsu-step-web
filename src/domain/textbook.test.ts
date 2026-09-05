@@ -19,15 +19,15 @@ describe('textbook learning state', () => {
     expect(getTextbookChoices(unit, firstItem)).toEqual(choices)
   })
 
-  it('keeps first-try accuracy while allowing retry until correct', () => {
-    let progress = answerTextbookItem(undefined, unit, firstItem, '変位', 1000)
-    expect(progress.answers[firstItem.id].isFirstCorrect).toBe(false)
-    expect(progress.answers[firstItem.id].resolved).toBe(false)
+  it('reveals the correct answer immediately after a wrong first choice while preserving first-try accuracy', () => {
+    const progress = answerTextbookItem(undefined, unit, firstItem, '変位', 1000)
+    const record = progress.answers[firstItem.id]
 
-    progress = answerTextbookItem(progress, unit, firstItem, '位置ベクトル', 1500)
-    expect(progress.answers[firstItem.id].isFirstCorrect).toBe(false)
-    expect(progress.answers[firstItem.id].resolved).toBe(true)
-    expect(progress.answers[firstItem.id].attemptCount).toBe(2)
+    expect(record.isFirstCorrect).toBe(false)
+    expect(record.firstValue).toBe('変位')
+    expect(record.value).toBe('位置ベクトル')
+    expect(record.resolved).toBe(true)
+    expect(record.attemptCount).toBe(1)
     expect(textbookUnitProgress(unit, progress).completed).toBe(1)
   })
 })
