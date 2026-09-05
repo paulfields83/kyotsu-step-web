@@ -32,15 +32,23 @@ test('textbook mode shows a full subsection and unlocks the next subsection afte
   await expect(page.getByTestId('textbook-item-a-4')).toBeVisible()
 })
 
-test('a wrong textbook choice immediately reveals the correct answer instead of retrying', async ({ page }) => {
+test('a wrong textbook choice stays red, cannot be retried, and reveals the correct answer immediately', async ({ page }) => {
   await page.goto('/learning/textbook/physics-a-displacement-velocity')
 
   await page.getByTestId('textbook-item-a-1').click()
   const panel = page.getByTestId('inline-choice-panel-a-1')
   await expect(panel).toBeVisible()
-  await panel.getByRole('button', { name: '変位', exact: true }).click()
 
-  await expect(panel).toHaveCount(0)
+  const wrongOption = panel.getByRole('button', { name: '変位', exact: true })
+  await wrongOption.click()
+
+  await expect(panel).toBeVisible()
+  await expect(wrongOption).toHaveClass(/reading-choice-option--wrong/)
+  await expect(wrongOption).toBeDisabled()
+  await expect(panel.getByRole('button', { name: '位置ベクトル', exact: true })).toHaveClass(/textbook-choice--correct/)
+  await expect(panel.getByRole('button', { name: '位置ベクトル', exact: true })).toBeDisabled()
+  await expect(page.getByTestId('answer-reveal-a-1')).toContainText('正解は「位置ベクトル」')
+  await expect(page.getByTestId('resolved-a-1')).toContainText('変位')
   await expect(page.getByTestId('resolved-a-1')).toContainText('位置ベクトル')
   await expect(page.getByTestId('textbook-item-a-1')).toHaveCount(0)
 })
