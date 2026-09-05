@@ -3,6 +3,7 @@ import type { TextbookItem, TextbookUnit } from './textbookSchema'
 export type TextbookAnswerRecord = {
   itemId: string
   value: string
+  firstValue?: string
   isFirstCorrect: boolean
   resolved: boolean
   attemptCount: number
@@ -32,7 +33,6 @@ export function normalizeTextbookAnswer(value: string) {
     .replace(/\\/g, '')
     .replace(/[⃗→]/g, '')
 }
-
 
 function stableHash(value: string) {
   let hash = 2166136261
@@ -85,9 +85,16 @@ export function answerTextbookItem(progress: TextbookUnitProgress | undefined, u
   if (previous?.resolved) return progress!
 
   const correct = isTextbookAnswerCorrect(item, value)
-  const nextRecord: TextbookAnswerRecord = previous
-    ? { ...previous, value, resolved: correct, attemptCount: previous.attemptCount + 1, lastAnsweredAt: now }
-    : { itemId: item.id, value, isFirstCorrect: correct, resolved: correct, attemptCount: 1, firstAnsweredAt: now, lastAnsweredAt: now }
+  const nextRecord: TextbookAnswerRecord = {
+    itemId: item.id,
+    value: correct ? value : item.answer,
+    firstValue: previous?.firstValue ?? value,
+    isFirstCorrect: previous?.isFirstCorrect ?? correct,
+    resolved: true,
+    attemptCount: (previous?.attemptCount ?? 0) + 1,
+    firstAnsweredAt: previous?.firstAnsweredAt ?? now,
+    lastAnsweredAt: now,
+  }
 
   const answers = { ...(progress?.answers ?? {}), [item.id]: nextRecord }
   const allItemIds = unit.sections.flatMap((section) => section.items.map((candidate) => candidate.id))
