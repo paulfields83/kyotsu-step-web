@@ -1,10 +1,10 @@
 import { InlineMath } from 'react-katex'
-import { Check, LockKeyhole, RotateCcw } from 'lucide-react'
+import { Check, LockKeyhole, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { textbookRepository } from '../repositories/textbookRepository'
-import { getTextbookChoices, textbookSectionProgress, textbookUnitProgress, type TextbookUnitProgress } from '../domain/textbook'
+import { getTextbookChoices, isTextbookAnswerCorrect, textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
 import type { TextbookItem, TextbookReadingBlock, TextbookReadingPart, TextbookSection, TextbookUnit } from '../domain/textbookSchema'
 import { useAppStore } from '../stores/useAppStore'
 import { useI18n } from '../i18n/runtime'
@@ -40,11 +40,26 @@ function groupReadingFlow(blocks: TextbookReadingBlock[]) {
   return groups
 }
 
-function renderResolvedChoice(item: TextbookItem, value: string) {
+function renderResolvedChoice(item: TextbookItem, record: TextbookAnswerRecord) {
+  if (record.isFirstCorrect) {
+    return (
+      <span className="reading-inline-answer" data-testid={`resolved-${item.id}`}>
+        <Check size={14} aria-hidden="true" />
+        <strong>{record.value}</strong>
+      </span>
+    )
+  }
+
   return (
-    <span className="reading-inline-answer" data-testid={`resolved-${item.id}`}>
-      <Check size={14} aria-hidden="true" />
-      <strong>{value}</strong>
+    <span className="reading-inline-result" data-testid={`resolved-${item.id}`}>
+      <span className="reading-inline-wrong">
+        <X size={14} aria-hidden="true" />
+        <strong>{record.firstValue ?? record.value}</strong>
+      </span>
+      <span className="reading-inline-correct">
+        <Check size={14} aria-hidden="true" />
+        <strong>{item.answer}</strong>
+      </span>
     </span>
   )
 }
@@ -83,7 +98,7 @@ function renderPart(
   const item = section.items.find((candidate) => candidate.id === part.itemId)
   if (!item) return null
   const record = progress?.answers[item.id]
-  if (record?.resolved) return renderResolvedChoice(item, record.value)
+  if (record?.resolved) return renderResolvedChoice(item, record)
   return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text)
 }
 
@@ -107,11 +122,13 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem ? getTextbookChoices(unit, activeItem) : []
+  const activeWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
 
   const selectChoice = (choice: string) => {
-    if (!activeItem) return
+    if (!activeItem || activeRecord?.resolved) return
+    const correct = isTextbookAnswerCorrect(activeItem, choice)
     answerTextbook(unit, activeItem.id, choice)
-    setActiveItemId(null)
+    if (correct) setActiveItemId(null)
   }
 
   const blockContainsActiveItem = (block: TextbookReadingBlock) =>
@@ -124,20 +141,22 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const renderInlineChoicePanel = (block: TextbookReadingBlock) => {
     if (!activeItem || !blockContainsActiveItem(block)) return null
     return (
-      <div className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${activeItem.id}`}>
+      <div className={`reading-inline-choice-panel${activeWrongResult ? ' reading-inline-choice-panel--resolved-wrong' : ''}`} data-testid={`inline-choice-panel-${activeItem.id}`}>
         <div className="reading-inline-choice-panel__head">
           <strong>{activeItem.label}</strong>
           <span>{activeItem.prompt}</span>
         </div>
         <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
           {activeChoices.map((choice, index) => {
-            const selectedWrong = Boolean(activeRecord && !activeRecord.resolved && activeRecord.value === choice)
+            const selectedWrong = Boolean(activeWrongResult && (activeRecord?.firstValue ?? activeRecord?.value) === choice)
+            const revealedCorrect = Boolean(activeWrongResult && isTextbookAnswerCorrect(activeItem, choice))
             return (
               <button
                 type="button"
                 key={choice}
                 data-testid={`textbook-choice-${activeItem.id}-${index}`}
-                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}`}
+                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' reading-choice-option--correct' : ''}`}
+                disabled={Boolean(activeRecord?.resolved)}
                 onClick={() => selectChoice(choice)}
               >
                 <span>{index + 1}</span>
@@ -147,6 +166,12 @@ function TextbookReadingFlow({ unit, section, progress }: {
             )
           })}
         </div>
+        {activeWrongResult && (
+          <div className="reading-answer-reveal" data-testid={`answer-reveal-${activeItem.id}`}>
+            <strong>{text('不正解', '回答错误')}</strong>
+            <span>{text(`正解は「${activeItem.answer}」です。`, `正确答案是「${activeItem.answer}」。`)}</span>
+          </div>
+        )}
       </div>
     )
   }
