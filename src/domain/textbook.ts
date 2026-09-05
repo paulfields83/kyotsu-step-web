@@ -87,7 +87,7 @@ export function answerTextbookItem(progress: TextbookUnitProgress | undefined, u
   const correct = isTextbookAnswerCorrect(item, value)
   const nextRecord: TextbookAnswerRecord = {
     itemId: item.id,
-    value: correct ? value : item.answer,
+    value,
     firstValue: previous?.firstValue ?? value,
     isFirstCorrect: previous?.isFirstCorrect ?? correct,
     resolved: true,
