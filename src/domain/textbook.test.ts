@@ -19,13 +19,14 @@ describe('textbook learning state', () => {
     expect(getTextbookChoices(unit, firstItem)).toEqual(choices)
   })
 
-  it('reveals the correct answer immediately after a wrong first choice while preserving first-try accuracy', () => {
+  it('preserves the wrong first choice, resolves the blank, and leaves the correct answer available from the item', () => {
     const progress = answerTextbookItem(undefined, unit, firstItem, '変位', 1000)
     const record = progress.answers[firstItem.id]
 
     expect(record.isFirstCorrect).toBe(false)
     expect(record.firstValue).toBe('変位')
-    expect(record.value).toBe('位置ベクトル')
+    expect(record.value).toBe('変位')
+    expect(firstItem.answer).toBe('位置ベクトル')
     expect(record.resolved).toBe(true)
     expect(record.attemptCount).toBe(1)
     expect(textbookUnitProgress(unit, progress).completed).toBe(1)
