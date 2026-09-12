@@ -7,6 +7,7 @@ import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookAnswerBook, 
 export type LoadedTextbookUnit = {
   unit: TextbookUnit
   answerBook: TextbookAnswerBook
+  dataDir?: string
 }
 
 const here = dirname(fileURLToPath(import.meta.url))
@@ -36,15 +37,16 @@ function jsonFiles(root: string): string[] {
 
 function loadJsonTextbooks(): LoadedTextbookUnit[] {
   return jsonFiles(dataRoot).map((unitPath) => {
+    const dataDir = dirname(unitPath)
     const unit = TextbookUnitSchema.parse(JSON.parse(readFileSync(unitPath, 'utf8')))
-    const answerPath = join(dirname(unitPath), 'answers.json')
+    const answerPath = join(dataDir, 'answers.json')
     const answerBook = TextbookAnswerBookSchema.parse(JSON.parse(readFileSync(answerPath, 'utf8')))
     if (answerBook.unitId !== unit.unitId) throw new Error(`answer unitId mismatch: ${unit.unitId}`)
-    return { unit, answerBook }
+    return { unit, answerBook, dataDir }
   })
 }
 
-const legacyTextbooks = builtInTextbookUnits.map((unit) => ({ unit, answerBook: legacyAnswerBook(unit) }))
+const legacyTextbooks: LoadedTextbookUnit[] = builtInTextbookUnits.map((unit) => ({ unit, answerBook: legacyAnswerBook(unit) }))
 
 export const loadedTextbookUnits: LoadedTextbookUnit[] = [...legacyTextbooks, ...loadJsonTextbooks()]
 
