@@ -1,33 +1,67 @@
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
 import { createReadStream, existsSync } from 'node:fs'
-import { join, normalize } from 'node:path'
+import { extname, join, normalize } from 'node:path'
 import { isTextbookAnswerCorrect } from '../../src/domain/textbook'
-import { findLoadedTextbook, loadedTextbookUnits, textbookDataRoot } from './textbookData'
+import { findLoadedTextbook, loadedTextbookUnits } from './textbookData'
 import { publicTextbookUnit } from './publicTextbook'
 
 const port = Number(process.env.PORT ?? 8787)
-const frontendOrigin = process.env.FRONTEND_ORIGIN?.trim() || '*'
+const allowedOrigins = (process.env.FRONTEND_ORIGIN?.trim() || '*')
+  .split(',')
+  .map((origin) => origin.trim().replace(/\/$/, ''))
+  .filter(Boolean)
 
-function headers() {
+function headerValue(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value
+}
+
+function requestOrigin(request: IncomingMessage) {
+  const forwardedProto = headerValue(request.headers['x-forwarded-proto'])?.split(',')[0]?.trim()
+  const forwardedHost = headerValue(request.headers['x-forwarded-host'])?.split(',')[0]?.trim()
+  const protocol = forwardedProto || 'http'
+  const host = forwardedHost || request.headers.host || `localhost:${port}`
+  return `${protocol}://${host}`
+}
+
+function corsOrigin(request: IncomingMessage) {
+  if (allowedOrigins.includes('*')) return '*'
+  const origin = request.headers.origin?.replace(/\/$/, '')
+  if (origin && allowedOrigins.includes(origin)) return origin
+  return allowedOrigins[0] ?? '*'
+}
+
+function headers(request: IncomingMessage) {
   return {
     'Content-Type': 'application/json; charset=utf-8',
-    'Access-Control-Allow-Origin': frontendOrigin,
+    'Access-Control-Allow-Origin': corsOrigin(request),
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
     'Cache-Control': 'no-store',
+    Vary: 'Origin',
   }
 }
 
-function sendJson(response: ServerResponse, status: number, value: unknown) {
-  response.writeHead(status, headers())
+function sendJson(request: IncomingMessage, response: ServerResponse, status: number, value: unknown) {
+  response.writeHead(status, headers(request))
   response.end(JSON.stringify(value))
 }
 
-function sendAsset(response: ServerResponse, filePath: string) {
+function assetContentType(fileName: string) {
+  switch (extname(fileName).toLowerCase()) {
+    case '.svg': return 'image/svg+xml; charset=utf-8'
+    case '.jpg':
+    case '.jpeg': return 'image/jpeg'
+    case '.webp': return 'image/webp'
+    default: return 'image/png'
+  }
+}
+
+function sendAsset(request: IncomingMessage, response: ServerResponse, filePath: string, fileName: string) {
   response.writeHead(200, {
-    'Content-Type': 'image/png',
-    'Access-Control-Allow-Origin': frontendOrigin,
+    'Content-Type': assetContentType(fileName),
+    'Access-Control-Allow-Origin': corsOrigin(request),
     'Cache-Control': 'public, max-age=31536000, immutable',
+    Vary: 'Origin',
   })
   createReadStream(filePath).pipe(response)
 }
@@ -46,28 +80,39 @@ async function readJsonBody(request: IncomingMessage) {
 }
 
 const server = createServer(async (request, response) => {
-  if (!request.url) return sendJson(response, 400, { error: 'missing URL' })
+  if (!request.url) return sendJson(request, response, 400, { error: 'missing URL' })
 
   if (request.method === 'OPTIONS') {
-    response.writeHead(204, headers())
+    response.writeHead(204, headers(request))
     return response.end()
   }
 
   const url = new URL(request.url, `http://${request.headers.host ?? 'localhost'}`)
+  const apiOrigin = requestOrigin(request)
 
   if (request.method === 'GET' && url.pathname === '/health') {
-    return sendJson(response, 200, { ok: true })
+    return sendJson(request, response, 200, {
+      ok: true,
+      publishedTextbooks: loadedTextbookUnits.filter(({ unit }) => unit.status === 'published').length,
+    })
   }
 
   if (request.method === 'GET' && url.pathname === '/api/textbooks') {
-    return sendJson(response, 200, loadedTextbookUnits.filter(({ unit }) => unit.status === 'published').map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook)))
+    return sendJson(
+      request,
+      response,
+      200,
+      loadedTextbookUnits
+        .filter(({ unit }) => unit.status === 'published')
+        .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook, apiOrigin)),
+    )
   }
 
   const unitMatch = url.pathname.match(/^\/api\/textbooks\/([^/]+)$/)
   if (request.method === 'GET' && unitMatch) {
     const loaded = findLoadedTextbook(decodeURIComponent(unitMatch[1]))
-    if (!loaded) return sendJson(response, 404, { error: 'textbook unit not found' })
-    return sendJson(response, 200, publicTextbookUnit(loaded.unit, loaded.answerBook))
+    if (!loaded) return sendJson(request, response, 404, { error: 'textbook unit not found' })
+    return sendJson(request, response, 200, publicTextbookUnit(loaded.unit, loaded.answerBook, apiOrigin))
   }
 
   const assetMatch = url.pathname.match(/^\/api\/textbooks\/([^/]+)\/assets\/([^/]+)$/)
@@ -75,14 +120,17 @@ const server = createServer(async (request, response) => {
     const unitId = decodeURIComponent(assetMatch[1])
     const fileName = decodeURIComponent(assetMatch[2])
     const loaded = findLoadedTextbook(unitId)
-    if (!loaded) return sendJson(response, 404, { error: 'textbook unit not found' })
+    if (!loaded) return sendJson(request, response, 404, { error: 'textbook unit not found' })
+    if (!loaded.dataDir) return sendJson(request, response, 404, { error: 'textbook asset not found' })
+
     const safeName = fileName.replace(/[^a-zA-Z0-9._-]/g, '')
-    if (safeName !== fileName) return sendJson(response, 400, { error: 'invalid asset name' })
-    const subjectDir = loaded.unit.subject === 'math-1a' ? 'math-1a' : loaded.unit.subject
-    const unitDir = unitId === 'math-1a-counting-permutation' ? 'counting-permutation' : unitId
-    const assetPath = normalize(join(textbookDataRoot(), subjectDir, unitDir, 'assets', safeName))
-    if (!assetPath.startsWith(normalize(textbookDataRoot())) || !existsSync(assetPath)) return sendJson(response, 404, { error: 'asset not found' })
-    return sendAsset(response, assetPath)
+    if (safeName !== fileName || safeName === '.' || safeName === '..') {
+      return sendJson(request, response, 400, { error: 'invalid asset name' })
+    }
+
+    const assetPath = normalize(join(loaded.dataDir, 'assets', safeName))
+    if (!existsSync(assetPath)) return sendJson(request, response, 404, { error: 'asset not found' })
+    return sendAsset(request, response, assetPath, safeName)
   }
 
   const answerMatch = url.pathname.match(/^\/api\/textbooks\/([^/]+)\/items\/([^/]+)\/answer$/)
@@ -90,32 +138,32 @@ const server = createServer(async (request, response) => {
     const unitId = decodeURIComponent(answerMatch[1])
     const itemId = decodeURIComponent(answerMatch[2])
     const loaded = findLoadedTextbook(unitId)
-    if (!loaded) return sendJson(response, 404, { error: 'textbook unit not found' })
+    if (!loaded) return sendJson(request, response, 404, { error: 'textbook unit not found' })
 
     const item = loaded.unit.sections.flatMap((section) => section.items).find((candidate) => candidate.id === itemId)
-    if (!item) return sendJson(response, 404, { error: 'textbook item not found' })
+    if (!item) return sendJson(request, response, 404, { error: 'textbook item not found' })
     const answer = loaded.answerBook.answers[itemId]
-    if (!answer) return sendJson(response, 500, { error: 'textbook answer key missing' })
+    if (!answer) return sendJson(request, response, 500, { error: 'textbook answer key missing' })
 
     try {
       const body = await readJsonBody(request)
       const value = typeof body === 'object' && body !== null && 'value' in body ? String(body.value) : ''
-      if (!value.trim()) return sendJson(response, 400, { error: 'answer value is required' })
+      if (!value.trim()) return sendJson(request, response, 400, { error: 'answer value is required' })
 
       const correct = isTextbookAnswerCorrect(answer, value)
-      return sendJson(response, 200, {
+      return sendJson(request, response, 200, {
         correct,
         resolved: true,
         ...(correct ? {} : { correctAnswer: answer.answer }),
       })
     } catch (error) {
-      return sendJson(response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
+      return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
     }
   }
 
-  return sendJson(response, 404, { error: 'not found' })
+  return sendJson(request, response, 404, { error: 'not found' })
 })
 
-server.listen(port, () => {
-  console.log(`kyotsu-step-api listening on http://localhost:${port}`)
+server.listen(port, '0.0.0.0', () => {
+  console.log(`kyotsu-step-api listening on 0.0.0.0:${port}`)
 })
