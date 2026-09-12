@@ -1,14 +1,21 @@
 import { getTextbookChoices } from '../../src/domain/textbook'
 import type { TextbookAnswerBook, TextbookUnit } from '../../src/domain/textbookSchema'
 
-export function publicTextbookUnit(unit: TextbookUnit, answerBook: TextbookAnswerBook) {
+function publicAssetSrc(unitId: string, src: string, apiOrigin?: string) {
+  if (!src.startsWith('assets/')) return src
+  const path = `/api/textbooks/${encodeURIComponent(unitId)}/assets/${encodeURIComponent(src.slice('assets/'.length))}`
+  if (!apiOrigin) return path
+  return `${apiOrigin.replace(/\/$/, '')}${path}`
+}
+
+export function publicTextbookUnit(unit: TextbookUnit, answerBook: TextbookAnswerBook, apiOrigin?: string) {
   return {
     ...unit,
     sections: unit.sections.map((section) => ({
       ...section,
       figures: section.figures.map((figure) => ({
         ...figure,
-        src: figure.src.startsWith('assets/') ? `/api/textbooks/${encodeURIComponent(unit.unitId)}/assets/${encodeURIComponent(figure.src.slice('assets/'.length))}` : figure.src,
+        src: publicAssetSrc(unit.unitId, figure.src, apiOrigin),
       })),
       items: section.items.map((item) => {
         const { answer: _answer, acceptedAnswers: _acceptedAnswers, choices: _choices, ...publicItem } = item
