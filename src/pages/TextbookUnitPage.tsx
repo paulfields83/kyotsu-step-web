@@ -318,7 +318,7 @@ export function TextbookUnitPage() {
     <div className="page-stack textbook-page">
       <header className="session-header">
         <div>
-          <p className="eyebrow">TEXTBOOK / PHYSICS</p>
+          <p className="eyebrow">{unit.subject === 'math-1a' ? 'TEXTBOOK / MATH I・A' : 'TEXTBOOK / PHYSICS'}</p>
           <h1>{unit.title}</h1>
           {unit.subtitle && <p>{unit.subtitle}</p>}
         </div>
