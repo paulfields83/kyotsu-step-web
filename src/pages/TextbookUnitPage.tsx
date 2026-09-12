@@ -4,8 +4,9 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { textbookRepository } from '../repositories/textbookRepository'
-import { getTextbookChoices, isTextbookAnswerCorrect, textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
-import type { TextbookItem, TextbookReadingBlock, TextbookReadingPart, TextbookSection, TextbookUnit } from '../domain/textbookSchema'
+import { textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
+import type { TextbookReadingBlock, TextbookReadingPart } from '../domain/textbookSchema'
+import type { PublicTextbookItem, PublicTextbookSection, PublicTextbookUnit, TextbookAnswerResult } from '../domain/textbookPublic'
 import { useAppStore } from '../stores/useAppStore'
 import { useI18n } from '../i18n/runtime'
 
@@ -40,7 +41,41 @@ function groupReadingFlow(blocks: TextbookReadingBlock[]) {
   return groups
 }
 
-function renderResolvedChoice(item: TextbookItem, record: TextbookAnswerRecord) {
+function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedValue: string, result: TextbookAnswerResult) {
+  const now = Date.now()
+  useAppStore.setState((state) => {
+    const progress = state.textbookProgress[unit.unitId]
+    const previous = progress?.answers[itemId]
+    if (previous?.resolved) return state
+
+    const nextRecord: TextbookAnswerRecord = {
+      itemId,
+      value: result.correct ? selectedValue : (result.correctAnswer ?? selectedValue),
+      firstValue: previous?.firstValue ?? selectedValue,
+      isFirstCorrect: previous?.isFirstCorrect ?? result.correct,
+      resolved: true,
+      attemptCount: (previous?.attemptCount ?? 0) + 1,
+      firstAnsweredAt: previous?.firstAnsweredAt ?? now,
+      lastAnsweredAt: now,
+    }
+
+    const answers = { ...(progress?.answers ?? {}), [itemId]: nextRecord }
+    const allItemIds = unit.sections.flatMap((section) => section.items.map((item) => item.id))
+    const completed = allItemIds.every((id) => answers[id]?.resolved)
+    const nextProgress: TextbookUnitProgress = {
+      unitId: unit.unitId,
+      unitRevision: unit.revision,
+      startedAt: progress?.startedAt ?? now,
+      updatedAt: now,
+      answers,
+      ...(completed ? { completedAt: progress?.completedAt ?? now } : {}),
+    }
+
+    return { textbookProgress: { ...state.textbookProgress, [unit.unitId]: nextProgress } }
+  })
+}
+
+function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord) {
   if (record.isFirstCorrect) {
     return (
       <span className="reading-inline-answer" data-testid={`resolved-${item.id}`}>
@@ -58,14 +93,14 @@ function renderResolvedChoice(item: TextbookItem, record: TextbookAnswerRecord) 
       </span>
       <span className="reading-inline-answer">
         <Check size={14} aria-hidden="true" />
-        <strong>{item.answer}</strong>
+        <strong>{record.value}</strong>
       </span>
     </span>
   )
 }
 
 function renderActiveChoice(
-  item: TextbookItem,
+  item: PublicTextbookItem,
   value: string | undefined,
   isWrong: boolean,
   onOpen: (itemId: string) => void,
@@ -87,7 +122,7 @@ function renderActiveChoice(
 
 function renderPart(
   part: TextbookReadingPart,
-  section: TextbookSection,
+  section: PublicTextbookSection,
   progress: TextbookUnitProgress | undefined,
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
@@ -99,17 +134,18 @@ function renderPart(
   if (!item) return null
   const record = progress?.answers[item.id]
   if (record?.resolved) return renderResolvedChoice(item, record)
-  return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text)
+  return renderActiveChoice(item, record?.firstValue, Boolean(record && !record.resolved), onOpen, text)
 }
 
 function TextbookReadingFlow({ unit, section, progress }: {
-  unit: TextbookUnit
-  section: TextbookSection
+  unit: PublicTextbookUnit
+  section: PublicTextbookSection
   progress: TextbookUnitProgress | undefined
 }) {
   const { text } = useI18n()
-  const answerTextbook = useAppStore((state) => state.answerTextbook)
   const [activeItemId, setActiveItemId] = useState<string | null>(null)
+  const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
+  const [submitError, setSubmitError] = useState('')
   const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
 
   const firstIncompleteGroup = groups.findIndex((group) => {
@@ -121,14 +157,22 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
-  const activeChoices = activeItem ? getTextbookChoices(unit, activeItem) : []
+  const activeChoices = activeItem?.choices ?? []
   const activeWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
 
-  const selectChoice = (choice: string) => {
-    if (!activeItem || activeRecord?.resolved) return
-    const correct = isTextbookAnswerCorrect(activeItem, choice)
-    answerTextbook(unit, activeItem.id, choice)
-    if (correct) setActiveItemId(null)
+  const selectChoice = async (choice: string) => {
+    if (!activeItem || activeRecord?.resolved || submittingItemId) return
+    setSubmitError('')
+    setSubmittingItemId(activeItem.id)
+    try {
+      const result = await textbookRepository.submitAnswer(unit.unitId, activeItem.id, choice)
+      recordServerAnswer(unit, activeItem.id, choice, result)
+      if (result.correct) setActiveItemId(null)
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : text('回答を送信できませんでした。', '无法提交答案。'))
+    } finally {
+      setSubmittingItemId(null)
+    }
   }
 
   const blockContainsActiveItem = (block: TextbookReadingBlock) =>
@@ -149,15 +193,15 @@ function TextbookReadingFlow({ unit, section, progress }: {
         <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
           {activeChoices.map((choice, index) => {
             const selectedWrong = Boolean(activeWrongResult && (activeRecord?.firstValue ?? activeRecord?.value) === choice)
-            const revealedCorrect = Boolean(activeWrongResult && isTextbookAnswerCorrect(activeItem, choice))
+            const revealedCorrect = Boolean(activeWrongResult && activeRecord?.value === choice)
             return (
               <button
                 type="button"
                 key={choice}
                 data-testid={`textbook-choice-${activeItem.id}-${index}`}
                 className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
-                disabled={Boolean(activeRecord?.resolved)}
-                onClick={() => selectChoice(choice)}
+                disabled={Boolean(activeRecord?.resolved) || submittingItemId === activeItem.id}
+                onClick={() => void selectChoice(choice)}
               >
                 <span>{index + 1}</span>
                 <strong>{choice}</strong>
@@ -166,9 +210,10 @@ function TextbookReadingFlow({ unit, section, progress }: {
             )
           })}
         </div>
+        {submitError && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
         {activeWrongResult && (
           <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
-            {text(`不正解です。正解は「${activeItem.answer}」です。`, `回答错误。正确答案是「${activeItem.answer}」。`)}
+            {text(`不正解です。正解は「${activeRecord?.value ?? ''}」です。`, `回答错误。正确答案是「${activeRecord?.value ?? ''}」。`)}
           </p>
         )}
       </div>
@@ -221,7 +266,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
               </div>
             )}
           </section>
-        )
+        )}
       })}
     </article>
   )
@@ -229,7 +274,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
 export function TextbookUnitPage() {
   const { unitId = '' } = useParams()
-  const [unit, setUnit] = useState<TextbookUnit | null | undefined>(undefined)
+  const [unit, setUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0)
   const progress = useAppStore((state) => state.textbookProgress[unitId])
   const resetTextbookUnit = useAppStore((state) => state.resetTextbookUnit)
@@ -239,6 +284,8 @@ export function TextbookUnitPage() {
     let active = true
     textbookRepository.getById(unitId).then((value) => {
       if (active) setUnit(value ?? null)
+    }).catch(() => {
+      if (active) setUnit(null)
     })
     return () => { active = false }
   }, [unitId])
@@ -254,7 +301,7 @@ export function TextbookUnitPage() {
   }, [firstIncompleteIndex, unitId])
 
   if (unit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
-  if (!unit) return <ErrorState title={text('教材が見つかりません', '找不到教材')} body={text('この教材は削除されたか、まだ公開されていません。', '该教材可能已被删除或尚未发布。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
+  if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
 
   const summary = textbookUnitProgress(unit, progress)
   const currentSection = unit.sections[selectedSectionIndex]
