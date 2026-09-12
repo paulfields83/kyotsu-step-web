@@ -5,6 +5,14 @@ import { publicTextbookUnit } from '../../backend/src/publicTextbook'
 import { loadedTextbookUnits } from '../../backend/src/textbookData'
 
 const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
+const importedPhysicsUnitIds = [
+  'physics-1b-velocity-composition-decomposition',
+  'physics-1c-relative-velocity',
+  'physics-1d-acceleration',
+  'physics-1e-horizontal-projection',
+  'physics-1f-projectile-motion',
+  'physics-1g-gravity-drag-terminal-velocity',
+]
 
 function choiceRefs(unit: (typeof loadedTextbookUnits)[number]['unit']) {
   return unit.sections.flatMap((section) =>
@@ -18,8 +26,10 @@ function choiceRefs(unit: (typeof loadedTextbookUnits)[number]['unit']) {
 
 describe('backend textbook data', () => {
   it('loads physics and math-1a units through the shared textbook contract', () => {
-    expect(loadedTextbookUnits.map(({ unit }) => unit.unitId)).toContain('physics-a-displacement-velocity')
-    expect(loadedTextbookUnits.map(({ unit }) => unit.unitId)).toContain('math-1a-counting-permutation')
+    const ids = loadedTextbookUnits.map(({ unit }) => unit.unitId)
+    expect(ids).toContain('physics-a-displacement-velocity')
+    expect(ids).toContain('math-1a-counting-permutation')
+    for (const unitId of importedPhysicsUnitIds) expect(ids).toContain(unitId)
   })
 
   it('keeps math item IDs unique while preserving per-section display labels', () => {
@@ -56,13 +66,32 @@ describe('backend textbook data', () => {
     }
   })
 
+  it('keeps imported physics blanks, answers, IDs, and figure assets in sync', () => {
+    for (const unitId of importedPhysicsUnitIds) {
+      const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId)!
+      expect(loaded).toBeTruthy()
+      const itemIds = loaded.unit.sections.flatMap((section) => section.items.map((item) => item.id))
+      expect(itemIds.length).toBeGreaterThan(0)
+      expect(new Set(itemIds).size).toBe(itemIds.length)
+      expect(new Set(choiceRefs(loaded.unit))).toEqual(new Set(itemIds))
+      expect(new Set(Object.keys(loaded.answerBook.answers))).toEqual(new Set(itemIds))
+      expect(loaded.dataDir).toBeTruthy()
+      for (const figure of loaded.unit.sections.flatMap((section) => section.figures)) {
+        expect(existsSync(join(loaded.dataDir!, figure.src))).toBe(true)
+      }
+    }
+  })
+
   it('does not expose private answers in public textbook payloads', () => {
+    for (const loaded of loadedTextbookUnits.filter(({ unit }) => unit.status === 'published')) {
+      const publicPayload = publicTextbookUnit(loaded.unit, loaded.answerBook)
+      const serialized = JSON.stringify(publicPayload)
+      expect(serialized).not.toContain('\"answer\"')
+      expect(serialized).not.toContain('\"acceptedAnswers\"')
+      expect(serialized).not.toContain('\"validator\"')
+    }
     const math = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-counting-permutation')!
-    const publicPayload = publicTextbookUnit(math.unit, math.answerBook)
-    const serialized = JSON.stringify(publicPayload)
-    expect(serialized).not.toContain('\"answer\"')
-    expect(serialized).not.toContain('\"acceptedAnswers\"')
-    expect(publicPayload.sections[0].items[0].choices).toContain('5')
+    expect(publicTextbookUnit(math.unit, math.answerBook).sections[0].items[0].choices).toContain('5')
   })
 
   it('turns backend-owned assets into absolute API URLs when an API origin is provided', () => {
