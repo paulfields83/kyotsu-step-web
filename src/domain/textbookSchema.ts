@@ -3,16 +3,28 @@ import { z } from 'zod'
 const IdSchema = z.string().min(2).regex(/^[a-z0-9][a-z0-9-]*$/, 'ID は小文字英数字とハイフンで指定してください')
 
 export const TextbookAnswerTypeSchema = z.enum(['text', 'formula', 'number'])
+export const TextbookAnswerValidatorSchema = z.enum(['normalized-text', 'number', 'exact', 'math-equivalent'])
 
 export const TextbookItemSchema = z.object({
   id: IdSchema,
   label: z.string().min(1),
   prompt: z.string().min(1),
-  answer: z.string().min(1),
+  answer: z.string().min(1).optional(),
   acceptedAnswers: z.array(z.string().min(1)).default([]),
   answerType: TextbookAnswerTypeSchema.default('text'),
   choices: z.array(z.string().min(1)).min(2).optional(),
   unit: z.string().optional(),
+})
+
+export const TextbookAnswerEntrySchema = z.object({
+  validator: TextbookAnswerValidatorSchema.default('normalized-text'),
+  answer: z.string().min(1),
+  acceptedAnswers: z.array(z.string().min(1)).default([]),
+})
+
+export const TextbookAnswerBookSchema = z.object({
+  unitId: IdSchema,
+  answers: z.record(IdSchema, TextbookAnswerEntrySchema),
 })
 
 export const TextbookFigureSchema = z.object({
@@ -51,7 +63,7 @@ const TextbookUnitBaseSchema = z.object({
   unitId: IdSchema,
   revision: z.number().int().positive(),
   status: z.enum(['draft', 'review', 'published']),
-  subject: z.literal('physics'),
+  subject: z.enum(['physics', 'math-1a']),
   title: z.string().min(1),
   subtitle: z.string().optional(),
   source: z.object({
@@ -108,6 +120,8 @@ export const TextbookUnitSchema = TextbookUnitBaseSchema.superRefine((unit, cont
 export type TextbookUnit = z.infer<typeof TextbookUnitSchema>
 export type TextbookSection = z.infer<typeof TextbookSectionSchema>
 export type TextbookItem = z.infer<typeof TextbookItemSchema>
+export type TextbookAnswerEntry = z.infer<typeof TextbookAnswerEntrySchema>
+export type TextbookAnswerBook = z.infer<typeof TextbookAnswerBookSchema>
 export type TextbookReadingPart = z.infer<typeof TextbookReadingPartSchema>
 export type TextbookReadingBlock = z.infer<typeof TextbookReadingBlockSchema>
 

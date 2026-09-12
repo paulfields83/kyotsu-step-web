@@ -1,0 +1,3690 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-counting-permutation",
+  "revision": 1,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "数学A 場合の数と順列・組合せ",
+  "subtitle": "第1章「場合の数と確率」第1節・第2節",
+  "source": {
+    "type": "reference",
+    "label": "塾_数学A_教科書学習モード_第1節・第2節_完全版.docx",
+    "rightsNote": "ユーザー提供のWord母版から構造化。"
+  },
+  "objectives": [
+    "集合を使って数える対象を整理する。",
+    "和の法則・積の法則を意味から使い分ける。",
+    "順列・円順列・重複順列・組合せ・同じものを含む順列を判断する。"
+  ],
+  "sections": [
+    {
+      "id": "s1-sets",
+      "number": "1-1",
+      "title": "集合と要素の個数",
+      "figures": [
+        {
+          "id": "venn-diagram",
+          "src": "assets/venn-diagram.png",
+          "alt": "集合 A・B と共通部分 A∩B のイメージ",
+          "caption": "集合 A・B と共通部分 A∩B のイメージ"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "s1-sets-h-001",
+          "type": "heading",
+          "text": "集合と要素の個数"
+        },
+        {
+          "id": "s1-sets-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いくつかのものをひとまとめにして考えたものを集合といい、集合の中に入っている1つ1つのものを要素という。例えば A={1,2,3,4,5} には要素が"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-001"
+            },
+            {
+              "type": "text",
+              "text": "個ある。要素の個数が有限個である集合を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-002"
+            },
+            {
+              "type": "text",
+              "text": "集合、無限に続く集合を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-003"
+            },
+            {
+              "type": "text",
+              "text": "集合という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "有限集合 A の要素の個数を n(A) と表す。したがって A={1,2,3,4,5} なら n(A)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-004"
+            },
+            {
+              "type": "text",
+              "text": "である。また、要素を1つももたない集合を空集合 ∅ といい、n(∅)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-005"
+            },
+            {
+              "type": "text",
+              "text": "である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-fig-001",
+          "type": "figure",
+          "figureId": "venn-diagram"
+        },
+        {
+          "id": "s1-sets-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "集合 A と B の両方に属する要素からなる集合を共通部分 A∩B といい、A または B の少なくとも一方に属する要素からなる集合を和集合 A∪B という。A∩B に入るのは A と B の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-006"
+            },
+            {
+              "type": "text",
+              "text": "に入る要素である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和集合の要素数を考える。n(A)+n(B) とすると、A∩B の要素は A の要素として1回、B の要素としてもう"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-007"
+            },
+            {
+              "type": "text",
+              "text": "回数えられるため、合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-008"
+            },
+            {
+              "type": "text",
+              "text": "回数えてしまう。本当は1回だけ数えればよいので、余分な"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-009"
+            },
+            {
+              "type": "text",
+              "text": "回分を引く。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(A∪B) = n(A) + n(B) − "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-010"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "したがって n(A∪B)=n(A)+n(B)−n(A∩B) である。特に A∩B=∅ なら n(A∩B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-011"
+            },
+            {
+              "type": "text",
+              "text": "なので、n(A∪B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-012"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全体集合 U の中で A に属さない要素の集合を A の補集合 Ā とする。U の要素は「A に属するもの」と「A に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-013"
+            },
+            {
+              "type": "text",
+              "text": "もの」に分かれるため、n(U)=n(A)+n(Ā) である。よって、"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(Ā) = "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-014"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-h-010",
+          "type": "heading",
+          "text": "教科書 問1　集合の要素数を公式から求める"
+        },
+        {
+          "id": "s1-sets-p-011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(U)=40, n(A)=23, n(B)=15, n(A∩B)=3 とする。まず B の補集合は、全体 U の中で B に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-015"
+            },
+            {
+              "type": "text",
+              "text": "要素なので、n(B̄)=n(U)−n(B)=40−15="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-016"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に Ā∪B ではなく、(A∪B) の補集合を求める。まず n(A∪B) が必要である。n(A)+n(B) とすると共通部分を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-017"
+            },
+            {
+              "type": "text",
+              "text": "回数えるため、余分な1回分 n(A∩B) を引く。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(A∪B)=23+15−3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-018"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "したがって、（A∪B）の補集合の要素数は n(U)−n(A∪B)=40−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-019"
+            },
+            {
+              "type": "text",
+              "text": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-020"
+            },
+            {
+              "type": "text",
+              "text": "である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-h-015",
+          "type": "heading",
+          "text": "教科書 問2　文章条件を集合へ翻訳する"
+        },
+        {
+          "id": "s1-sets-p-016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "50人にクイズ A,B を出した。A 正解35人、B 正解21人、両方とも不正解7人とする。全体を U、A 正解者の集合を A、B 正解者の集合を B とすると、n(U)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-021"
+            },
+            {
+              "type": "text",
+              "text": ", n(A)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-022"
+            },
+            {
+              "type": "text",
+              "text": ", n(B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-023"
+            },
+            {
+              "type": "text",
+              "text": "である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-017",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「両方とも不正解」は A∪B に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-024"
+            },
+            {
+              "type": "text",
+              "text": "人、すなわち（A∪B）の補集合に属する人である。したがって、その要素数が7なので、少なくとも1問正解した人数は n(A∪B)=50−7="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-025"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-018",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2問とも正解した人は A∩B に属する。和集合の公式より、43=35+21−n(A∩B) だから、n(A∩B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-026"
+            },
+            {
+              "type": "text",
+              "text": "人。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1問だけ正解した人は、「Aだけ正解」と「Bだけ正解」の2つに分かれる。Aだけは 35−13="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-027"
+            },
+            {
+              "type": "text",
+              "text": "人、Bだけは 21−13="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-028"
+            },
+            {
+              "type": "text",
+              "text": "人。この2つは同時に起こらないので、合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-029"
+            },
+            {
+              "type": "text",
+              "text": "人である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-h-020",
+          "type": "heading",
+          "text": "教科書 問3　整数条件を集合へ翻訳する"
+        },
+        {
+          "id": "s1-sets-p-021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1から200までの整数を全体集合 U とし、3の倍数の集合を A、5の倍数の集合を B とする。「3の倍数かつ5の倍数」は A と B の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-030"
+            },
+            {
+              "type": "text",
+              "text": "部分 A∩B、「3の倍数または5の倍数」は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-031"
+            },
+            {
+              "type": "text",
+              "text": "集合 A∪B、「どちらでもない」は A∪B の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-032"
+            },
+            {
+              "type": "text",
+              "text": "集合である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3と5の両方の倍数は最小公倍数"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-033"
+            },
+            {
+              "type": "text",
+              "text": "の倍数である。200=15×13+5 なので、n(A∩B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-034"
+            },
+            {
+              "type": "text",
+              "text": "。また、200=3×66+2 より n(A)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-035"
+            },
+            {
+              "type": "text",
+              "text": "、200=5×40 より n(B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-036"
+            },
+            {
+              "type": "text",
+              "text": "である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-023",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(A∪B)=66+40−13="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-037"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-024",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "よって、3の倍数でも5の倍数でもない数は、全体200個から A∪B の93個を除き、200−93="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-038"
+            },
+            {
+              "type": "text",
+              "text": "個である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-h-025",
+          "type": "heading",
+          "text": "研究　3つの集合の要素の個数"
+        },
+        {
+          "id": "s1-sets-p-026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1から100までの整数について、2の倍数を A、3の倍数を B、7の倍数を C とする。A∪B∪C を数えるとき、n(A)+n(B)+n(C) とすると、2つの集合に共通する要素が重複して数えられる。そこで n(A∩B), n(B∩C), n(C∩A) をそれぞれ"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-039"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ところが、A∩B∩C に入る要素は最初に3回数えられ、その後3つの二重共通部分を引くと合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-040"
+            },
+            {
+              "type": "text",
+              "text": "回引かれるため、最終的に0回になってしまう。本当は1回数えたいので、n(A∩B∩C) を最後に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-041"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(A∪B∪C)=n(A)+n(B)+n(C)−n(A∩B)−n(B∩C)−n(C∩A)+"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-042"
+            }
+          ]
+        },
+        {
+          "id": "s1-sets-p-029",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここでは n(A)=50, n(B)=33, n(C)=14, n(A∩B)=16, n(B∩C)=4, n(C∩A)=7, n(A∩B∩C)=2 なので、50+33+14−16−4−7+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sets-043"
+            },
+            {
+              "type": "text",
+              "text": "個となる。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-a-s1-sets-001",
+          "label": "1",
+          "prompt": "集合と要素の個数 【1】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-023",
+          "label": "23",
+          "prompt": "集合と要素の個数 【23】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-002",
+          "label": "2",
+          "prompt": "集合と要素の個数 【2】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-024",
+          "label": "24",
+          "prompt": "集合と要素の個数 【24】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-003",
+          "label": "3",
+          "prompt": "集合と要素の個数 【3】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-025",
+          "label": "25",
+          "prompt": "集合と要素の個数 【25】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-004",
+          "label": "4",
+          "prompt": "集合と要素の個数 【4】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-026",
+          "label": "26",
+          "prompt": "集合と要素の個数 【26】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-005",
+          "label": "5",
+          "prompt": "集合と要素の個数 【5】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-027",
+          "label": "27",
+          "prompt": "集合と要素の個数 【27】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-006",
+          "label": "6",
+          "prompt": "集合と要素の個数 【6】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-028",
+          "label": "28",
+          "prompt": "集合と要素の個数 【28】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-007",
+          "label": "7",
+          "prompt": "集合と要素の個数 【7】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-029",
+          "label": "29",
+          "prompt": "集合と要素の個数 【29】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-008",
+          "label": "8",
+          "prompt": "集合と要素の個数 【8】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-030",
+          "label": "30",
+          "prompt": "集合と要素の個数 【30】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-009",
+          "label": "9",
+          "prompt": "集合と要素の個数 【9】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-031",
+          "label": "31",
+          "prompt": "集合と要素の個数 【31】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-010",
+          "label": "10",
+          "prompt": "集合と要素の個数 【10】",
+          "answerType": "formula"
+        },
+        {
+          "id": "math-a-s1-sets-032",
+          "label": "32",
+          "prompt": "集合と要素の個数 【32】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-011",
+          "label": "11",
+          "prompt": "集合と要素の個数 【11】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-033",
+          "label": "33",
+          "prompt": "集合と要素の個数 【33】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-012",
+          "label": "12",
+          "prompt": "集合と要素の個数 【12】",
+          "answerType": "formula"
+        },
+        {
+          "id": "math-a-s1-sets-034",
+          "label": "34",
+          "prompt": "集合と要素の個数 【34】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-013",
+          "label": "13",
+          "prompt": "集合と要素の個数 【13】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-035",
+          "label": "35",
+          "prompt": "集合と要素の個数 【35】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-014",
+          "label": "14",
+          "prompt": "集合と要素の個数 【14】",
+          "answerType": "formula"
+        },
+        {
+          "id": "math-a-s1-sets-036",
+          "label": "36",
+          "prompt": "集合と要素の個数 【36】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-015",
+          "label": "15",
+          "prompt": "集合と要素の個数 【15】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-037",
+          "label": "37",
+          "prompt": "集合と要素の個数 【37】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-016",
+          "label": "16",
+          "prompt": "集合と要素の個数 【16】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-038",
+          "label": "38",
+          "prompt": "集合と要素の個数 【38】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-017",
+          "label": "17",
+          "prompt": "集合と要素の個数 【17】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-039",
+          "label": "39",
+          "prompt": "集合と要素の個数 【39】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-018",
+          "label": "18",
+          "prompt": "集合と要素の個数 【18】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-040",
+          "label": "40",
+          "prompt": "集合と要素の個数 【40】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-019",
+          "label": "19",
+          "prompt": "集合と要素の個数 【19】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-041",
+          "label": "41",
+          "prompt": "集合と要素の個数 【41】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sets-020",
+          "label": "20",
+          "prompt": "集合と要素の個数 【20】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-042",
+          "label": "42",
+          "prompt": "集合と要素の個数 【42】",
+          "answerType": "formula"
+        },
+        {
+          "id": "math-a-s1-sets-021",
+          "label": "21",
+          "prompt": "集合と要素の個数 【21】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-043",
+          "label": "43",
+          "prompt": "集合と要素の個数 【43】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sets-022",
+          "label": "22",
+          "prompt": "集合と要素の個数 【22】",
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s1-counting",
+      "number": "1-2",
+      "title": "場合の数",
+      "figures": [
+        {
+          "id": "tree-diagram",
+          "src": "assets/tree-diagram.png",
+          "alt": "樹形図：選択を段階ごとに枝として表す",
+          "caption": "樹形図：選択を段階ごとに枝として表す"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "s1-counting-h-001",
+          "type": "heading",
+          "text": "場合の数"
+        },
+        {
+          "id": "s1-counting-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "場合の数とは、条件に合う異なる結果が全部で何通りあるかを数えたもの。大切なのは、何を「同じ結果」とみなし、何を「別の結果」とみなすかを最初に決めることである。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-fig-001",
+          "type": "figure",
+          "figureId": "tree-diagram"
+        },
+        {
+          "id": "s1-counting-p-003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "結果を漏れなく数える方法の1つが樹形図である。第1段階の選択から枝を分け、それぞれの枝の先で第2段階の選択をさらに分ける。最後の枝の先端1つが、1つの"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-001"
+            },
+            {
+              "type": "text",
+              "text": "に対応する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "樹形図を使うと、「どの選択からどの結果が生まれたか」を見ながら数えられるので、漏れや重複を減らせる。ただし、場合の数が多いときは法則を使った方が効率がよい。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-h-005",
+          "type": "heading",
+          "text": "教科書 問4　先に3勝したチームが優勝"
+        },
+        {
+          "id": "s1-counting-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A,B の2チームが試合をし、先に3勝した方を優勝とする。引き分けはない。A が優勝する場合を、優勝が3試合目・4試合目・5試合目に決まる場合に分ける。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-p-007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A が3試合で優勝するには AAA の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-002"
+            },
+            {
+              "type": "text",
+              "text": "通り。4試合目で優勝するには、最初の3試合で A が2勝、B が1勝であり、4試合目をAが勝つ。この最初の3試合でBの勝つ位置は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-003"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-p-008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "5試合目でAが優勝するには、最初の4試合が2勝2敗で、5試合目をAが勝つ。最初の4試合でAの2勝の位置を選ぶと C(4,2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-004"
+            },
+            {
+              "type": "text",
+              "text": "通り。したがって A 優勝は 1+3+6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-005"
+            },
+            {
+              "type": "text",
+              "text": "通り。Bも対称に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-006"
+            },
+            {
+              "type": "text",
+              "text": "通りなので、優勝の決まり方は合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-007"
+            },
+            {
+              "type": "text",
+              "text": "通りである。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-h-009",
+          "type": "heading",
+          "text": "教科書 問5　大小3個のさいころの和が6"
+        },
+        {
+          "id": "s1-counting-p-010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "大小3個のさいころを区別する。大の目を固定して場合分けすると、残り2個の和が決まる。大が1なら残りの和は5で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-008"
+            },
+            {
+              "type": "text",
+              "text": "通り、大が2なら残りの和は4で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-009"
+            },
+            {
+              "type": "text",
+              "text": "通り、大が3なら残りの和は3で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-010"
+            },
+            {
+              "type": "text",
+              "text": "通り、大が4なら残りの和は2で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-011"
+            },
+            {
+              "type": "text",
+              "text": "通り。大が5以上では和6にできない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-p-011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4+3+2+1 = "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-counting-012"
+            },
+            {
+              "type": "text",
+              "text": "通り"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-a-s1-counting-001",
+          "label": "1",
+          "prompt": "場合の数 【1】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-counting-007",
+          "label": "7",
+          "prompt": "場合の数 【7】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-002",
+          "label": "2",
+          "prompt": "場合の数 【2】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-008",
+          "label": "8",
+          "prompt": "場合の数 【8】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-003",
+          "label": "3",
+          "prompt": "場合の数 【3】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-009",
+          "label": "9",
+          "prompt": "場合の数 【9】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-004",
+          "label": "4",
+          "prompt": "場合の数 【4】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-010",
+          "label": "10",
+          "prompt": "場合の数 【10】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-005",
+          "label": "5",
+          "prompt": "場合の数 【5】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-011",
+          "label": "11",
+          "prompt": "場合の数 【11】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-006",
+          "label": "6",
+          "prompt": "場合の数 【6】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-counting-012",
+          "label": "12",
+          "prompt": "場合の数 【12】",
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s1-sum-rule",
+      "number": "1-3",
+      "title": "和の法則",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-sum-rule-h-001",
+          "type": "heading",
+          "text": "和の法則"
+        },
+        {
+          "id": "s1-sum-rule-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ある場合 A が m 通り、別の場合 B が n 通りあり、A と B が同時に起こらないとする。このとき2つの場合には同じ結果の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-001"
+            },
+            {
+              "type": "text",
+              "text": "がないので、全部の場合の数は m+n 通りになる。この考え方を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-002"
+            },
+            {
+              "type": "text",
+              "text": "という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sum-rule-p-003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A または B ： m + n 通り（A と B が互いに重ならないとき）"
+            }
+          ]
+        },
+        {
+          "id": "s1-sum-rule-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和の法則で重要なのは「足し算」という操作ではなく、分けた場合の間に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-003"
+            },
+            {
+              "type": "text",
+              "text": "がないこと。重なりがあるなら、同じ結果を二重に数えるため単純には足せない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sum-rule-h-005",
+          "type": "heading",
+          "text": "教科書 問6　2個のさいころの和が6の倍数"
+        },
+        {
+          "id": "s1-sum-rule-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "大小2個のさいころの和は最小2、最大12。この範囲の6の倍数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-004"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-005"
+            },
+            {
+              "type": "text",
+              "text": "なので、「和が6」と「和が12」に場合分けする。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sum-rule-p-007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和が6は (1,5),(2,4),(3,3),(4,2),(5,1) の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-006"
+            },
+            {
+              "type": "text",
+              "text": "通り。和が12は (6,6) の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-007"
+            },
+            {
+              "type": "text",
+              "text": "通り。この2つは同時に起こらないので和の法則を用い、5+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-008"
+            },
+            {
+              "type": "text",
+              "text": "通りである。"
+            }
+          ]
+        },
+        {
+          "id": "s1-sum-rule-h-008",
+          "type": "heading",
+          "text": "教科書 問7　2個のさいころの和が4の倍数"
+        },
+        {
+          "id": "s1-sum-rule-p-009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和は2から12なので、4の倍数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-009"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-010"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-011"
+            },
+            {
+              "type": "text",
+              "text": "。和が4は3通り、和が8は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-012"
+            },
+            {
+              "type": "text",
+              "text": "通り、和が12は1通りである。3つの場合は互いに重ならないので、3+5+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-sum-rule-013"
+            },
+            {
+              "type": "text",
+              "text": "通りとなる。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-a-s1-sum-rule-001",
+          "label": "1",
+          "prompt": "和の法則 【1】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sum-rule-008",
+          "label": "8",
+          "prompt": "和の法則 【8】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sum-rule-002",
+          "label": "2",
+          "prompt": "和の法則 【2】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sum-rule-009",
+          "label": "9",
+          "prompt": "和の法則 【9】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sum-rule-003",
+          "label": "3",
+          "prompt": "和の法則 【3】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-sum-rule-010",
+          "label": "10",
+          "prompt": "和の法則 【10】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sum-rule-004",
+          "label": "4",
+          "prompt": "和の法則 【4】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sum-rule-011",
+          "label": "11",
+          "prompt": "和の法則 【11】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sum-rule-005",
+          "label": "5",
+          "prompt": "和の法則 【5】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sum-rule-012",
+          "label": "12",
+          "prompt": "和の法則 【12】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sum-rule-006",
+          "label": "6",
+          "prompt": "和の法則 【6】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sum-rule-013",
+          "label": "13",
+          "prompt": "和の法則 【13】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-sum-rule-007",
+          "label": "7",
+          "prompt": "和の法則 【7】",
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s1-product-rule",
+      "number": "1-4",
+      "title": "積の法則",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-product-rule-h-001",
+          "type": "heading",
+          "text": "積の法則"
+        },
+        {
+          "id": "s1-product-rule-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ある操作 A の選び方が m 通りあり、その"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-001"
+            },
+            {
+              "type": "text",
+              "text": "について次の操作 B の選び方が n 通りずつあるとする。1つの結果を作るには A と B の両方の選択が必要なので、全部の場合の数は m×n 通りになる。この考え方を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-002"
+            },
+            {
+              "type": "text",
+              "text": "という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-product-rule-p-003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A を選び、さらに B を選ぶ ： m × n 通り"
+            }
+          ]
+        },
+        {
+          "id": "s1-product-rule-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和の法則は「どれか1つの場合を選ぶ」、積の法則は「1つの結果を完成させるために複数段階の選択を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-003"
+            },
+            {
+              "type": "text",
+              "text": "行う」という違いがある。"
+            }
+          ]
+        },
+        {
+          "id": "s1-product-rule-h-005",
+          "type": "heading",
+          "text": "教科書 問8　ケーキと飲み物"
+        },
+        {
+          "id": "s1-product-rule-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ケーキ4種類から1つ選び、その選んだケーキのそれぞれについて飲み物3種類から1つ選ぶ。第1段階は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-004"
+            },
+            {
+              "type": "text",
+              "text": "通り、第2段階は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-005"
+            },
+            {
+              "type": "text",
+              "text": "通りなので、積の法則より 4×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-006"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s1-product-rule-h-007",
+          "type": "heading",
+          "text": "教科書 問9　大小3個のさいころ"
+        },
+        {
+          "id": "s1-product-rule-p-008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "大・中・小それぞれのさいころの目は6通り。大を1つ決めたそれぞれについて中が6通り、そのそれぞれについて小が6通りある。したがって、6×6×6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-007"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s1-product-rule-h-009",
+          "type": "heading",
+          "text": "教科書 問10　展開した項の個数"
+        },
+        {
+          "id": "s1-product-rule-p-010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(a+b)(p+q+r) を展開すると、左の括弧から1項を選ぶ方法が2通り、右の括弧から1項を選ぶ方法が3通り。1つの積の項を作るには両方から選ぶので、2×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-008"
+            },
+            {
+              "type": "text",
+              "text": "項。"
+            }
+          ]
+        },
+        {
+          "id": "s1-product-rule-p-011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(a+b)(p+q)(x+y+z) では、2通り、2通り、3通りの選択を順に行うので、2×2×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-009"
+            },
+            {
+              "type": "text",
+              "text": "項となる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-product-rule-h-012",
+          "type": "heading",
+          "text": "教科書 問11　正の約数の個数"
+        },
+        {
+          "id": "s1-product-rule-p-013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "112=2^4×7 と素因数分解する。正の約数を作るとき、2の指数は 0,1,2,3,4 の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-010"
+            },
+            {
+              "type": "text",
+              "text": "通り、7の指数は 0,1 の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-011"
+            },
+            {
+              "type": "text",
+              "text": "通り。これらを独立に選ぶので、5×2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-012"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s1-product-rule-p-014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "540=2^2×3^3×5。2の指数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-013"
+            },
+            {
+              "type": "text",
+              "text": "通り、3の指数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-014"
+            },
+            {
+              "type": "text",
+              "text": "通り、5の指数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-015"
+            },
+            {
+              "type": "text",
+              "text": "通りなので、3×4×2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-product-rule-016"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-a-s1-product-rule-001",
+          "label": "1",
+          "prompt": "積の法則 【1】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-product-rule-009",
+          "label": "9",
+          "prompt": "積の法則 【9】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-002",
+          "label": "2",
+          "prompt": "積の法則 【2】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-product-rule-010",
+          "label": "10",
+          "prompt": "積の法則 【10】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-003",
+          "label": "3",
+          "prompt": "積の法則 【3】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-product-rule-011",
+          "label": "11",
+          "prompt": "積の法則 【11】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-004",
+          "label": "4",
+          "prompt": "積の法則 【4】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-012",
+          "label": "12",
+          "prompt": "積の法則 【12】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-005",
+          "label": "5",
+          "prompt": "積の法則 【5】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-013",
+          "label": "13",
+          "prompt": "積の法則 【13】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-006",
+          "label": "6",
+          "prompt": "積の法則 【6】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-014",
+          "label": "14",
+          "prompt": "積の法則 【14】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-007",
+          "label": "7",
+          "prompt": "積の法則 【7】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-015",
+          "label": "15",
+          "prompt": "積の法則 【15】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-008",
+          "label": "8",
+          "prompt": "積の法則 【8】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-product-rule-016",
+          "label": "16",
+          "prompt": "積の法則 【16】",
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s1-review",
+      "number": "1-R",
+      "title": "第1節　節末問題（自力確認）",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-review-h-001",
+          "type": "heading",
+          "text": "第1節　節末問題（自力確認）"
+        },
+        {
+          "id": "s1-review-h-002",
+          "type": "heading",
+          "text": "節末1　集合 A,B の個数"
+        },
+        {
+          "id": "s1-review-p-003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(U)=100, n(A)=65, n(B)=42, n(A∩B)=17 とする。(1) n(Ā)、(2) n(A∪B)、(3) （A∩B）の補集合の要素数、(4) n(A∩B̄) を求める。まず、それぞれが「全体から何を除くか」「Bのうち共通部分を除くか」を言葉で確認してから式を立てる。答えは"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-017"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-018"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-019"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-020"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-review-h-004",
+          "type": "heading",
+          "text": "節末2　テレビとスマートフォン"
+        },
+        {
+          "id": "s1-review-p-005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "40人中、毎日テレビ1時間以上16人、毎日スマートフォン1時間以上31人。(1) どちらかを1時間以上利用する人数の最大・最小、(2) 両方利用する人数の最大・最小を考える。集合の重なりを最小・最大にするとき、どちらの集合をもう一方へできるだけ"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-021"
+            },
+            {
+              "type": "text",
+              "text": "か、できるだけ"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-022"
+            },
+            {
+              "type": "text",
+              "text": "かを考える。答え：(1) 最大40人・最小31人、(2) 最大16人・最小"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-023"
+            },
+            {
+              "type": "text",
+              "text": "人。"
+            }
+          ]
+        },
+        {
+          "id": "s1-review-h-006",
+          "type": "heading",
+          "text": "節末3　100から200までの4・5の倍数"
+        },
+        {
+          "id": "s1-review-p-007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4の倍数集合を A、5の倍数集合を B とする。100〜200の範囲で n(A)=26, n(B)=21, n(A∩B)=6。(1) 4または5の倍数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-024"
+            },
+            {
+              "type": "text",
+              "text": "個。(2) 4でも5でもない数は全体101個から(1)を除き"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-025"
+            },
+            {
+              "type": "text",
+              "text": "個。(3) 4の倍数だが5の倍数でない数は n(A)−n(A∩B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-026"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s1-review-h-008",
+          "type": "heading",
+          "text": "節末4　硬貨で金額を支払う"
+        },
+        {
+          "id": "s1-review-p-009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 100円・50円・10円硬貨を使って280円を支払う方法は、100円硬貨を0枚・1枚・2枚の場合に分けると 6+4+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-027"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 100円2枚、50円1枚、10円3枚の範囲で0円以上を作る方法は 3×2×4=24通りだが、0円を除くので"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-028"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s1-review-h-010",
+          "type": "heading",
+          "text": "節末5　大小中3個のさいころ"
+        },
+        {
+          "id": "s1-review-p-011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 和が7になる場合は大の目で場合分けし、5+4+3+2+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-029"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 積が奇数になるには3個すべてが奇数なので 3×3×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-030"
+            },
+            {
+              "type": "text",
+              "text": "通り。(3) 積が偶数は全216通りからすべて奇数の27通りを除き"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s1-review-031"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s1-review-p-012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この節では「順序を区別するか」「円では回転を同じとみなすか」「同じものを入れ替えても結果が変わらないか」を判断し、その判断から順列・円順列・重複順列・組合せ・同じものを含む順列へ進む。公式は判断の結果として導く。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-a-s1-review-017",
+          "label": "17",
+          "prompt": "第1節　節末問題（自力確認） 【17】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-025",
+          "label": "25",
+          "prompt": "第1節　節末問題（自力確認） 【25】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-018",
+          "label": "18",
+          "prompt": "第1節　節末問題（自力確認） 【18】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-026",
+          "label": "26",
+          "prompt": "第1節　節末問題（自力確認） 【26】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-019",
+          "label": "19",
+          "prompt": "第1節　節末問題（自力確認） 【19】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-027",
+          "label": "27",
+          "prompt": "第1節　節末問題（自力確認） 【27】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-020",
+          "label": "20",
+          "prompt": "第1節　節末問題（自力確認） 【20】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-028",
+          "label": "28",
+          "prompt": "第1節　節末問題（自力確認） 【28】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-021",
+          "label": "21",
+          "prompt": "第1節　節末問題（自力確認） 【21】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-review-029",
+          "label": "29",
+          "prompt": "第1節　節末問題（自力確認） 【29】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-022",
+          "label": "22",
+          "prompt": "第1節　節末問題（自力確認） 【22】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s1-review-030",
+          "label": "30",
+          "prompt": "第1節　節末問題（自力確認） 【30】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-023",
+          "label": "23",
+          "prompt": "第1節　節末問題（自力確認） 【23】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-031",
+          "label": "31",
+          "prompt": "第1節　節末問題（自力確認） 【31】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s1-review-024",
+          "label": "24",
+          "prompt": "第1節　節末問題（自力確認） 【24】",
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s2-permutation",
+      "number": "2-1",
+      "title": "順列",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s2-permutation-h-001",
+          "type": "heading",
+          "text": "順列"
+        },
+        {
+          "id": "s2-permutation-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "異なる n 個のものから r 個を取り出し、順序を考えて1列に並べる。最初の位置には n 通り、次の位置には"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-001"
+            },
+            {
+              "type": "text",
+              "text": "通り、その次には"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-002"
+            },
+            {
+              "type": "text",
+              "text": "通り……と減っていく。積の法則より、"
+            }
+          ]
+        },
+        {
+          "id": "s2-permutation-f-003",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "nPr = n(n−1)(n−2)…(n−r+1)"
+            }
+          ]
+        },
+        {
+          "id": "s2-permutation-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この並べ方を n 個から r 個とる"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-003"
+            },
+            {
+              "type": "text",
+              "text": "といい、nPr と表す。特に r=n のとき、nPn=n(n−1)…2·1 を n! と書く。0!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-004"
+            },
+            {
+              "type": "text",
+              "text": "と定めるので、nPr=n!/(n−r)! とも表せる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-permutation-h-005",
+          "type": "heading",
+          "text": "教科書 問12　順列の値"
+        },
+        {
+          "id": "s2-permutation-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "8P3=8×7×6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-005"
+            },
+            {
+              "type": "text",
+              "text": "。6P4=6×5×4×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-006"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-permutation-h-007",
+          "type": "heading",
+          "text": "教科書 問13　50枚から2枚を取り1列に並べる"
+        },
+        {
+          "id": "s2-permutation-p-008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1枚目は50通り、そのそれぞれについて2枚目は同じカードを使えないので"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-007"
+            },
+            {
+              "type": "text",
+              "text": "通り。順序を区別するため 50P2=50×49="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-008"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-permutation-h-009",
+          "type": "heading",
+          "text": "教科書 問14　異なる6冊を1列に並べる"
+        },
+        {
+          "id": "s2-permutation-p-010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "6冊すべてを並べるので 6P6=6!=6×5×4×3×2×1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-009"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-permutation-h-011",
+          "type": "heading",
+          "text": "教科書 問15　大人3人・子ども3人"
+        },
+        {
+          "id": "s2-permutation-p-012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 両端を大人にする。両端に置く大人を順序付きで選ぶ方法は 3P2=6通り。残り4人を中央4か所に並べる方法は 4!=24通り。積の法則より 6×24="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-010"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-permutation-p-013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 子ども3人が続いて並ぶとき、子ども3人を1つの「かたまり」とみなす。かたまり1個と大人3人の計4個を並べる方法は 4! 通り。そのそれぞれで子ども3人の内部の並びが3!通りあるので、4!×3!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-011"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-permutation-h-014",
+          "type": "heading",
+          "text": "教科書 問16　0,1,2,3,4,5から異なる4個で4桁の数"
+        },
+        {
+          "id": "s2-permutation-p-015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 奇数にするには一の位が1,3,5の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-012"
+            },
+            {
+              "type": "text",
+              "text": "通り。一の位を決めたあと、千の位は0と使用済みの数字を除いて"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-013"
+            },
+            {
+              "type": "text",
+              "text": "通り。残り2桁は残った4個から順序を区別して2個並べるので 4P2 通り。したがって 3×4×4P2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-014"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-permutation-p-016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 5の倍数なら一の位は0または5。0の場合、残り3桁は5P3=60個。5の場合、千の位は0以外の残り4個から選び、百・十の位は残り4個から2個並べるので 4×4P2=48個。合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-permutation-015"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-a-s2-permutation-001",
+          "label": "1",
+          "prompt": "順列 【1】",
+          "answerType": "formula"
+        },
+        {
+          "id": "math-a-s2-permutation-009",
+          "label": "9",
+          "prompt": "順列 【9】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-002",
+          "label": "2",
+          "prompt": "順列 【2】",
+          "answerType": "formula"
+        },
+        {
+          "id": "math-a-s2-permutation-010",
+          "label": "10",
+          "prompt": "順列 【10】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-003",
+          "label": "3",
+          "prompt": "順列 【3】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s2-permutation-011",
+          "label": "11",
+          "prompt": "順列 【11】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-004",
+          "label": "4",
+          "prompt": "順列 【4】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-012",
+          "label": "12",
+          "prompt": "順列 【12】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-005",
+          "label": "5",
+          "prompt": "順列 【5】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-013",
+          "label": "13",
+          "prompt": "順列 【13】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-006",
+          "label": "6",
+          "prompt": "順列 【6】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-014",
+          "label": "14",
+          "prompt": "順列 【14】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-007",
+          "label": "7",
+          "prompt": "順列 【7】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-015",
+          "label": "15",
+          "prompt": "順列 【15】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-permutation-008",
+          "label": "8",
+          "prompt": "順列 【8】",
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s2-circular-repetition",
+      "number": "2-2",
+      "title": "円順列と重複順列",
+      "figures": [
+        {
+          "id": "circular-permutation",
+          "src": "assets/circular-permutation.png",
+          "alt": "円順列では、全員を同じだけ回転させた配置は同じとみなす",
+          "caption": "円順列では、全員を同じだけ回転させた配置は同じとみなす"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "s2-circular-repetition-h-001",
+          "type": "heading",
+          "text": "円順列と重複順列"
+        },
+        {
+          "id": "s2-circular-repetition-fig-001",
+          "type": "figure",
+          "figureId": "circular-permutation"
+        },
+        {
+          "id": "s2-circular-repetition-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "異なる n 個を円形に並べると、通常の1列の並べ方 n! のうち、1つの円配置を回転させた n 通りが同じ配置になる。したがって円順列の総数は n!/n="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-circular-repetition-p-003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円順列： (n−1)!"
+            }
+          ]
+        },
+        {
+          "id": "s2-circular-repetition-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "また、n 個の場所それぞれに r 種類のもののいずれかを置き、同じ種類を何度使ってもよい場合、各場所で r 通りずつ選べるので r^n 通り。このように繰り返しを許して並べるものを"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-002"
+            },
+            {
+              "type": "text",
+              "text": "という。"
+            }
+          ]
+        },
+        {
+          "id": "s2-circular-repetition-h-005",
+          "type": "heading",
+          "text": "教科書 問17　6人が円卓に座る"
+        },
+        {
+          "id": "s2-circular-repetition-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "6人の円順列なので (6−1)!=5!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-003"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-circular-repetition-h-007",
+          "type": "heading",
+          "text": "教科書 問18　大人3人・子ども3人が交互に円卓に座る"
+        },
+        {
+          "id": "s2-circular-repetition-p-008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず大人3人を円順列で並べると (3−1)!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-004"
+            },
+            {
+              "type": "text",
+              "text": "通り。大人の間の3か所に子ども3人を並べる方法は 3!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-005"
+            },
+            {
+              "type": "text",
+              "text": "通り。よって 2×6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-006"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-circular-repetition-h-009",
+          "type": "heading",
+          "text": "教科書 問19　数字を繰り返し使う4桁の整数"
+        },
+        {
+          "id": "s2-circular-repetition-p-010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 1,2,3,4,5 の5個を何度使ってもよい。各桁5通りなので 5^4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-007"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-circular-repetition-p-011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 0,1,2,3,4 を使う。千の位だけ0にできないので4通り、残り3桁は各5通り。4×5^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-008"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-circular-repetition-h-012",
+          "type": "heading",
+          "text": "教科書 問20　7人をP,Qの2部屋に入れる"
+        },
+        {
+          "id": "s2-circular-repetition-p-013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 各人はPかQの2通りを独立に選べるので 2^7="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-009"
+            },
+            {
+              "type": "text",
+              "text": "通り。どちらか一方が空でもよい。"
+            }
+          ]
+        },
+        {
+          "id": "s2-circular-repetition-p-014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 両方に少なくとも1人入れるなら、(1)から全員P・全員Qの"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-010"
+            },
+            {
+              "type": "text",
+              "text": "通りを除き、128−2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-circular-repetition-011"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-a-s2-circular-repetition-001",
+          "label": "1",
+          "prompt": "円順列と重複順列 【1】",
+          "answerType": "formula"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-007",
+          "label": "7",
+          "prompt": "円順列と重複順列 【7】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-002",
+          "label": "2",
+          "prompt": "円順列と重複順列 【2】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-008",
+          "label": "8",
+          "prompt": "円順列と重複順列 【8】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-003",
+          "label": "3",
+          "prompt": "円順列と重複順列 【3】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-009",
+          "label": "9",
+          "prompt": "円順列と重複順列 【9】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-004",
+          "label": "4",
+          "prompt": "円順列と重複順列 【4】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-010",
+          "label": "10",
+          "prompt": "円順列と重複順列 【10】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-005",
+          "label": "5",
+          "prompt": "円順列と重複順列 【5】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-011",
+          "label": "11",
+          "prompt": "円順列と重複順列 【11】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-circular-repetition-006",
+          "label": "6",
+          "prompt": "円順列と重複順列 【6】",
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s2-combination",
+      "number": "2-3",
+      "title": "組合せ",
+      "figures": [
+        {
+          "id": "octagon",
+          "src": "assets/octagon.png",
+          "alt": "正八角形の頂点から図形・線分を選ぶ",
+          "caption": "正八角形の頂点から図形・線分を選ぶ"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "s2-combination-h-001",
+          "type": "heading",
+          "text": "組合せ"
+        },
+        {
+          "id": "s2-combination-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n 個から r 個を選ぶが、選んだ後の順序を区別しないときは組合せを考える。まず順序を区別して nPr 通りと数えると、同じ1組を r! 通りずつ数えている。したがって r! で割り、"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-f-003",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "nCr = nPr / r! = n! / (r!(n−r)!)"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n 個から r 個を選ぶ組合せの数を nCr と表す。また、r 個を選ぶことは「選ばない n−r 個」を選ぶことと同じなので、nCr="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-001"
+            },
+            {
+              "type": "text",
+              "text": "が成り立つ。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-h-005",
+          "type": "heading",
+          "text": "教科書 問21　組合せの値"
+        },
+        {
+          "id": "s2-combination-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "5C2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-002"
+            },
+            {
+              "type": "text",
+              "text": "、8C4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-003"
+            },
+            {
+              "type": "text",
+              "text": "、7C1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-004"
+            },
+            {
+              "type": "text",
+              "text": "、6C6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-h-007",
+          "type": "heading",
+          "text": "教科書 問22　nCr=nC(n−r) を使う"
+        },
+        {
+          "id": "s2-combination-p-008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "8C6=8C"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-006"
+            },
+            {
+              "type": "text",
+              "text": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-007"
+            },
+            {
+              "type": "text",
+              "text": "、10C7=10C"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-008"
+            },
+            {
+              "type": "text",
+              "text": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-fig-001",
+          "type": "figure",
+          "figureId": "octagon"
+        },
+        {
+          "id": "s2-combination-h-009",
+          "type": "heading",
+          "text": "教科書 問23　正八角形"
+        },
+        {
+          "id": "s2-combination-p-010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 8頂点から4頂点を選べば四角形が1つ決まるので 8C4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-010"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-p-011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 2頂点を選ぶ線分は 8C2=28本。この中に正八角形の辺"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-011"
+            },
+            {
+              "type": "text",
+              "text": "本も含まれるので、対角線は 28−8="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-012"
+            },
+            {
+              "type": "text",
+              "text": "本。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-h-012",
+          "type": "heading",
+          "text": "教科書 問24　A班5人・B班6人から5人選ぶ"
+        },
+        {
+          "id": "s2-combination-p-013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) Aから2人、Bから3人なので 5C2×6C3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-013"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-p-014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) B班から少なくとも1人。全11人から5人選ぶ 11C5 から、Bを1人も選ばずA5人全員を選ぶ 5C5 を除き、11C5−5C5="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-014"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-h-015",
+          "type": "heading",
+          "text": "教科書 問25　8人を4組に2人ずつ分ける"
+        },
+        {
+          "id": "s2-combination-p-016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 組に P,Q,R,S の名前があるとき、Pに8C2、Qに6C2、Rに4C2、Sに2C2。積は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-015"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-p-017",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 組に名前がないと、(1)では同じ分け方を P,Q,R,S の入れ替え"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-016"
+            },
+            {
+              "type": "text",
+              "text": "通りずつ数えている。したがって 2520/4!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-017"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-h-018",
+          "type": "heading",
+          "text": "教科書 問26　7人を人数の異なる／同じ組へ分ける"
+        },
+        {
+          "id": "s2-combination-p-019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 1人・2人・4人の3組では人数が異なるため、どの組かは人数で区別できる。7C1×6C2×4C4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-018"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-combination-p-020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 2人・2人・3人の3組では、2人組2つが区別できない。いったん P,Q と名前を付けて 7C2×5C2×3C3=210 と数え、P,Q の入れ替え2!で割るので"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-combination-019"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-a-s2-combination-001",
+          "label": "1",
+          "prompt": "組合せ 【1】",
+          "answerType": "formula"
+        },
+        {
+          "id": "math-a-s2-combination-011",
+          "label": "11",
+          "prompt": "組合せ 【11】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-002",
+          "label": "2",
+          "prompt": "組合せ 【2】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-012",
+          "label": "12",
+          "prompt": "組合せ 【12】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-003",
+          "label": "3",
+          "prompt": "組合せ 【3】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-013",
+          "label": "13",
+          "prompt": "組合せ 【13】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-004",
+          "label": "4",
+          "prompt": "組合せ 【4】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-014",
+          "label": "14",
+          "prompt": "組合せ 【14】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-005",
+          "label": "5",
+          "prompt": "組合せ 【5】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-015",
+          "label": "15",
+          "prompt": "組合せ 【15】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-006",
+          "label": "6",
+          "prompt": "組合せ 【6】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-016",
+          "label": "16",
+          "prompt": "組合せ 【16】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-007",
+          "label": "7",
+          "prompt": "組合せ 【7】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-017",
+          "label": "17",
+          "prompt": "組合せ 【17】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-008",
+          "label": "8",
+          "prompt": "組合せ 【8】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-018",
+          "label": "18",
+          "prompt": "組合せ 【18】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-009",
+          "label": "9",
+          "prompt": "組合せ 【9】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-019",
+          "label": "19",
+          "prompt": "組合せ 【19】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-combination-010",
+          "label": "10",
+          "prompt": "組合せ 【10】",
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s2-duplicate-permutation",
+      "number": "2-4",
+      "title": "同じものを含む順列",
+      "figures": [
+        {
+          "id": "shortest-path",
+          "src": "assets/shortest-path.png",
+          "alt": "最短経路は「東5回・北4回」の並べ方と考えられる",
+          "caption": "最短経路は「東5回・北4回」の並べ方と考えられる"
+        },
+        {
+          "id": "parallelogram-lines",
+          "src": "assets/parallelogram-lines.png",
+          "alt": "4本の平行線群と5本の平行線群で平行四辺形を作る",
+          "caption": "4本の平行線群と5本の平行線群で平行四辺形を作る"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "s2-duplicate-permutation-h-001",
+          "type": "heading",
+          "text": "同じものを含む順列"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全部で n 個のうち、同じものが p 個、q 個、…あるとする。全部を別物として n! 通り数えると、p 個の同じものの入れ替え p! 通り、q 個の入れ替え q! 通り……だけ同じ結果を重複して数える。したがって、"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-p-003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じものを含む順列： n! / (p! q! …)"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここでも公式の本質は「同じ結果を何回重複して数えたか」を見抜き、その重複回数で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-001"
+            },
+            {
+              "type": "text",
+              "text": "ことにある。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-h-005",
+          "type": "heading",
+          "text": "教科書 問27　1,1,1,1,2,2,2,3 を並べる"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全部8個を別物として8!通りと数える。1の4個の入れ替えは4!通り、2の3個は3!通り、3は1個なので1!通り同じ結果になる。したがって 8!/(4!3!1!)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-002"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-fig-001",
+          "type": "figure",
+          "figureId": "shortest-path"
+        },
+        {
+          "id": "s2-duplicate-permutation-h-007",
+          "type": "heading",
+          "text": "教科書 問28　格子上の最短経路"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) AからBへ最短で進むには、東へ5回、北へ4回、合計9回移動する。東5回と北4回の並べ方なので 9!/(5!4!)=9C5="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-003"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-p-009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) Cを通る場合、A→C は東3回・北3回なので 6!/(3!3!)=20通り、C→B は東2回・北1回なので 3!/(2!1!)=3通り。積の法則より 20×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-004"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-p-010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(3) Cを通らない最短経路は、全126通りからCを通る60通りを除き"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-005"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-h-011",
+          "type": "heading",
+          "text": "研究　重複を許してとる組合せ"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4種類の果物から合計8個選ぶ。種類ごとの個数を「○」、種類の境界を3本の「｜」で表すと、○8個と｜3本の計11個を並べる問題になる。したがって境界3本の位置を選び、11C3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-006"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-p-013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ考えで x+y+z=7 を満たす0以上の整数 x,y,z の組は、○7個と区切り2本の計9個の並べ方なので 9C2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-007"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-p-014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第2節　節末問題（自力確認）"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-h-015",
+          "type": "heading",
+          "text": "節末1　大人4人・子ども4人"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 1列で交互に並ぶ。先頭が大人／子どもの2通りがあり、それぞれ大人4!、子ども4!。よって 2×4!×4!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-008"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 円で交互に並ぶ。大人4人を円順列で3!通り、その間4か所に子ども4人を4!通り並べ、3!×4!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-009"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-h-017",
+          "type": "heading",
+          "text": "節末2　5要素の部分集合"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-018",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "集合 {a,b,c,d,e} の各要素は「部分集合に入れる／入れない」の2通りを独立に選べる。したがって 2^5="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-010"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-h-019",
+          "type": "heading",
+          "text": "節末3　1から9までから異なる3数"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 少なくとも1つ奇数を含む。全9C3=84通りから、3つとも偶数となる4C3=4通りを除き"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-011"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 最大が6なら6を必ず選び、残り2つを1〜5から選ぶので 5C2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-012"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-fig-002",
+          "type": "figure",
+          "figureId": "parallelogram-lines"
+        },
+        {
+          "id": "s2-duplicate-permutation-h-021",
+          "type": "heading",
+          "text": "節末4　平行線から平行四辺形"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 横の4本から2本、斜めの5本から2本選べば1つの平行四辺形が決まるので 4C2×5C2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-013"
+            },
+            {
+              "type": "text",
+              "text": "個。(2) 点Aを頂点にするには、Aを通る2本以外から横方向3本・斜め方向4本を1本ずつ選び、3×4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-014"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-h-023",
+          "type": "heading",
+          "text": "節末5　9人を3組に分ける"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-024",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 2人・3人・4人では人数が異なるので、そのまま 9C2×7C3×4C4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-015"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 3人組3つでは組の入れ替え3!を除き、(9C3×6C3×3C3)/3!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-016"
+            },
+            {
+              "type": "text",
+              "text": "通り。(3) 2人・2人・5人では2人組2つの入れ替え2!を除き、(9C2×7C2×5C5)/2!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-017"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-duplicate-permutation-h-025",
+          "type": "heading",
+          "text": "節末6　赤3個・青4個・白2個を1列に並べる"
+        },
+        {
+          "id": "s2-duplicate-permutation-p-026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ色の玉は区別しない。赤3個が続くので赤3個を1つのかたまりとみなす。すると「赤のかたまり1個・青4個・白2個」の計7個を並べる。青4個・白2個が同じものなので、7!/(4!2!)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-a-s2-duplicate-permutation-018"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-a-s2-duplicate-permutation-001",
+          "label": "1",
+          "prompt": "同じものを含む順列 【1】",
+          "answerType": "text"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-010",
+          "label": "10",
+          "prompt": "同じものを含む順列 【10】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-002",
+          "label": "2",
+          "prompt": "同じものを含む順列 【2】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-011",
+          "label": "11",
+          "prompt": "同じものを含む順列 【11】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-003",
+          "label": "3",
+          "prompt": "同じものを含む順列 【3】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-012",
+          "label": "12",
+          "prompt": "同じものを含む順列 【12】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-004",
+          "label": "4",
+          "prompt": "同じものを含む順列 【4】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-013",
+          "label": "13",
+          "prompt": "同じものを含む順列 【13】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-005",
+          "label": "5",
+          "prompt": "同じものを含む順列 【5】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-014",
+          "label": "14",
+          "prompt": "同じものを含む順列 【14】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-006",
+          "label": "6",
+          "prompt": "同じものを含む順列 【6】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-015",
+          "label": "15",
+          "prompt": "同じものを含む順列 【15】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-007",
+          "label": "7",
+          "prompt": "同じものを含む順列 【7】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-016",
+          "label": "16",
+          "prompt": "同じものを含む順列 【16】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-008",
+          "label": "8",
+          "prompt": "同じものを含む順列 【8】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-017",
+          "label": "17",
+          "prompt": "同じものを含む順列 【17】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-009",
+          "label": "9",
+          "prompt": "同じものを含む順列 【9】",
+          "answerType": "number"
+        },
+        {
+          "id": "math-a-s2-duplicate-permutation-018",
+          "label": "18",
+          "prompt": "同じものを含む順列 【18】",
+          "answerType": "number"
+        }
+      ]
+    }
+  ]
+}
