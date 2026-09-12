@@ -39,11 +39,7 @@ function applyContentCorrections(unit: TextbookUnit, answerBook: TextbookAnswerB
   if (unit.unitId !== 'math-1a-counting-permutation') return { unit, answerBook }
 
   const targetSectionId = 's1-review'
-  const oldItemIds = new Set([
-    'math-a-s1-review-021',
-    'math-a-s1-review-022',
-    'math-a-s1-review-023',
-  ])
+  const oldAnswerItemId = 'math-a-s1-review-023'
   const newItems = [
     {
       id: 'math-a-s1-review-tv-union-max',
@@ -86,12 +82,16 @@ function applyContentCorrections(unit: TextbookUnit, answerBook: TextbookAnswerB
         parts: [
           {
             type: 'text' as const,
-            text: '40人中、毎日テレビ1時間以上16人、毎日スマートフォン1時間以上31人。(1) どちらかを1時間以上利用する人数は、最大',
+            text: '40人中、毎日テレビ1時間以上16人、毎日スマートフォン1時間以上31人。(1) どちらかを1時間以上利用する人数の最大・最小、(2) 両方利用する人数の最大・最小を考える。集合の重なりを最小・最大にするとき、どちらの集合をもう一方へできるだけ',
           },
+          { type: 'choice' as const, itemId: 'math-a-s1-review-021' },
+          { type: 'text' as const, text: 'か、できるだけ' },
+          { type: 'choice' as const, itemId: 'math-a-s1-review-022' },
+          { type: 'text' as const, text: 'かを考える。その上で、(1) どちらかを1時間以上利用する人数は最大' },
           { type: 'choice' as const, itemId: 'math-a-s1-review-tv-union-max' },
           { type: 'text' as const, text: '人、最小' },
           { type: 'choice' as const, itemId: 'math-a-s1-review-tv-union-min' },
-          { type: 'text' as const, text: '人。(2) 両方利用する人数は、最大' },
+          { type: 'text' as const, text: '人。(2) 両方利用する人数は最大' },
           { type: 'choice' as const, itemId: 'math-a-s1-review-tv-both-max' },
           { type: 'text' as const, text: '人、最小' },
           { type: 'choice' as const, itemId: 'math-a-s1-review-tv-both-min' },
@@ -101,8 +101,7 @@ function applyContentCorrections(unit: TextbookUnit, answerBook: TextbookAnswerB
     })
 
     const correctedItems = section.items.flatMap((item) => {
-      if (item.id === 'math-a-s1-review-021') return newItems
-      if (oldItemIds.has(item.id)) return []
+      if (item.id === oldAnswerItemId) return newItems
       return [item]
     })
 
@@ -110,7 +109,7 @@ function applyContentCorrections(unit: TextbookUnit, answerBook: TextbookAnswerB
   })
 
   const answers = { ...answerBook.answers }
-  for (const id of oldItemIds) delete answers[id]
+  delete answers[oldAnswerItemId]
   answers['math-a-s1-review-tv-union-max'] = { validator: 'number', answer: '40', acceptedAnswers: [] }
   answers['math-a-s1-review-tv-union-min'] = { validator: 'number', answer: '31', acceptedAnswers: [] }
   answers['math-a-s1-review-tv-both-max'] = { validator: 'number', answer: '16', acceptedAnswers: [] }
