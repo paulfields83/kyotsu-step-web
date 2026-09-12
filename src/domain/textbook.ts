@@ -1,4 +1,4 @@
-import type { TextbookItem, TextbookUnit } from './textbookSchema'
+import type { TextbookAnswerEntry, TextbookItem, TextbookUnit } from './textbookSchema'
 
 export type TextbookAnswerRecord = {
   itemId: string
@@ -18,6 +18,15 @@ export type TextbookUnitProgress = {
   updatedAt: number
   answers: Record<string, TextbookAnswerRecord>
   completedAt?: number
+}
+
+type TextbookProgressUnit = {
+  unitId: string
+  revision: number
+  sections: Array<{
+    id: string
+    items: Array<{ id: string }>
+  }>
 }
 
 export function normalizeTextbookAnswer(value: string) {
@@ -54,7 +63,9 @@ function stableShuffle(values: string[], seed: string) {
   return next
 }
 
-export function getTextbookChoices(unit: TextbookUnit, item: TextbookItem) {
+export function getTextbookChoices(unit: TextbookUnit, item: TextbookItem, answers?: Record<string, TextbookAnswerEntry>) {
+  const itemAnswer = answers?.[item.id]?.answer ?? item.answer
+  if (!itemAnswer) return item.choices ?? []
   if (item.choices?.length) return stableShuffle(item.choices, item.id)
 
   const currentSection = unit.sections.find((section) => section.items.some((candidate) => candidate.id === item.id))
@@ -62,8 +73,9 @@ export function getTextbookChoices(unit: TextbookUnit, item: TextbookItem) {
   const sameTypeInUnit = unit.sections.flatMap((section) => section.items).filter((candidate) => candidate.answerType === item.answerType)
 
   const pool = [...sameTypeInSection, ...sameTypeInUnit]
-    .map((candidate) => candidate.answer)
-    .filter((answer) => normalizeTextbookAnswer(answer) !== normalizeTextbookAnswer(item.answer))
+    .map((candidate) => answers?.[candidate.id]?.answer ?? candidate.answer)
+    .filter((answer): answer is string => Boolean(answer))
+    .filter((answer) => normalizeTextbookAnswer(answer) !== normalizeTextbookAnswer(itemAnswer))
 
   const distinctDistractors: string[] = []
   for (const answer of pool) {
@@ -72,12 +84,27 @@ export function getTextbookChoices(unit: TextbookUnit, item: TextbookItem) {
     if (distinctDistractors.length === 3) break
   }
 
-  return stableShuffle([item.answer, ...distinctDistractors.slice(0, 3)], item.id)
+  return stableShuffle([itemAnswer, ...distinctDistractors.slice(0, 3)], item.id)
 }
 
-export function isTextbookAnswerCorrect(item: TextbookItem, value: string) {
+export function isTextbookAnswerCorrect(answer: TextbookAnswerEntry | TextbookItem, value: string) {
+  if (!answer.answer) throw new Error(`textbook answer is missing for ${'id' in answer ? answer.id : 'answer entry'}`)
+  const candidates = [answer.answer, ...answer.acceptedAnswers]
+
+  if ('validator' in answer) {
+    if (answer.validator === 'number') {
+      return candidates.some((candidate) => Number(normalizeTextbookAnswer(value)) === Number(normalizeTextbookAnswer(candidate)))
+    }
+    if (answer.validator === 'exact') {
+      const submitted = value.trim()
+      return candidates.some((candidate) => candidate.trim() === submitted)
+    }
+    // TODO(math-equivalent): replace normalized comparison with symbolic equivalence when a math parser is introduced.
+    // Until then, math-equivalent intentionally falls back to the same normalization used by normalized-text.
+  }
+
   const normalized = normalizeTextbookAnswer(value)
-  return [item.answer, ...item.acceptedAnswers].some((answer) => normalizeTextbookAnswer(answer) === normalized)
+  return candidates.some((candidate) => normalizeTextbookAnswer(candidate) === normalized)
 }
 
 export function answerTextbookItem(progress: TextbookUnitProgress | undefined, unit: TextbookUnit, item: TextbookItem, value: string, now: number): TextbookUnitProgress {
@@ -110,7 +137,7 @@ export function answerTextbookItem(progress: TextbookUnitProgress | undefined, u
   }
 }
 
-export function textbookSectionProgress(unit: TextbookUnit, progress: TextbookUnitProgress | undefined, sectionId: string) {
+export function textbookSectionProgress(unit: TextbookProgressUnit, progress: TextbookUnitProgress | undefined, sectionId: string) {
   const section = unit.sections.find((candidate) => candidate.id === sectionId)
   if (!section) return { completed: 0, total: 0 }
   return {
@@ -119,7 +146,7 @@ export function textbookSectionProgress(unit: TextbookUnit, progress: TextbookUn
   }
 }
 
-export function textbookUnitProgress(unit: TextbookUnit, progress: TextbookUnitProgress | undefined) {
+export function textbookUnitProgress(unit: TextbookProgressUnit, progress: TextbookUnitProgress | undefined) {
   const items = unit.sections.flatMap((section) => section.items)
   const completed = items.filter((item) => progress?.answers[item.id]?.resolved).length
   return { completed, total: items.length, percent: items.length ? Math.round((completed / items.length) * 100) : 0 }
