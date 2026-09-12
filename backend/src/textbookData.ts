@@ -35,6 +35,93 @@ function jsonFiles(root: string): string[] {
   })
 }
 
+function applyContentCorrections(unit: TextbookUnit, answerBook: TextbookAnswerBook) {
+  if (unit.unitId !== 'math-1a-counting-permutation') return { unit, answerBook }
+
+  const targetSectionId = 's1-review'
+  const oldItemIds = new Set([
+    'math-a-s1-review-021',
+    'math-a-s1-review-022',
+    'math-a-s1-review-023',
+  ])
+  const newItems = [
+    {
+      id: 'math-a-s1-review-tv-union-max',
+      label: '(1) 最大',
+      prompt: 'テレビまたはスマートフォンを1時間以上利用する人数の最大値',
+      answerType: 'number' as const,
+      acceptedAnswers: [],
+    },
+    {
+      id: 'math-a-s1-review-tv-union-min',
+      label: '(1) 最小',
+      prompt: 'テレビまたはスマートフォンを1時間以上利用する人数の最小値',
+      answerType: 'number' as const,
+      acceptedAnswers: [],
+    },
+    {
+      id: 'math-a-s1-review-tv-both-max',
+      label: '(2) 最大',
+      prompt: 'テレビとスマートフォンの両方を1時間以上利用する人数の最大値',
+      answerType: 'number' as const,
+      acceptedAnswers: [],
+    },
+    {
+      id: 'math-a-s1-review-tv-both-min',
+      label: '(2) 最小',
+      prompt: 'テレビとスマートフォンの両方を1時間以上利用する人数の最小値',
+      answerType: 'number' as const,
+      acceptedAnswers: [],
+    },
+  ]
+
+  const correctedSections = unit.sections.map((section) => {
+    if (section.id !== targetSectionId) return section
+
+    const correctedFlow = section.readingFlow.map((block) => {
+      if (block.id !== 's1-review-p-005') return block
+      return {
+        id: block.id,
+        type: 'paragraph' as const,
+        parts: [
+          {
+            type: 'text' as const,
+            text: '40人中、毎日テレビ1時間以上16人、毎日スマートフォン1時間以上31人。(1) どちらかを1時間以上利用する人数は、最大',
+          },
+          { type: 'choice' as const, itemId: 'math-a-s1-review-tv-union-max' },
+          { type: 'text' as const, text: '人、最小' },
+          { type: 'choice' as const, itemId: 'math-a-s1-review-tv-union-min' },
+          { type: 'text' as const, text: '人。(2) 両方利用する人数は、最大' },
+          { type: 'choice' as const, itemId: 'math-a-s1-review-tv-both-max' },
+          { type: 'text' as const, text: '人、最小' },
+          { type: 'choice' as const, itemId: 'math-a-s1-review-tv-both-min' },
+          { type: 'text' as const, text: '人。' },
+        ],
+      }
+    })
+
+    const correctedItems = section.items.flatMap((item) => {
+      if (item.id === 'math-a-s1-review-021') return newItems
+      if (oldItemIds.has(item.id)) return []
+      return [item]
+    })
+
+    return { ...section, readingFlow: correctedFlow, items: correctedItems }
+  })
+
+  const answers = { ...answerBook.answers }
+  for (const id of oldItemIds) delete answers[id]
+  answers['math-a-s1-review-tv-union-max'] = { validator: 'number', answer: '40', acceptedAnswers: [] }
+  answers['math-a-s1-review-tv-union-min'] = { validator: 'number', answer: '31', acceptedAnswers: [] }
+  answers['math-a-s1-review-tv-both-max'] = { validator: 'number', answer: '16', acceptedAnswers: [] }
+  answers['math-a-s1-review-tv-both-min'] = { validator: 'number', answer: '7', acceptedAnswers: [] }
+
+  return {
+    unit: TextbookUnitSchema.parse({ ...unit, sections: correctedSections }),
+    answerBook: TextbookAnswerBookSchema.parse({ ...answerBook, answers }),
+  }
+}
+
 function loadJsonTextbooks(): LoadedTextbookUnit[] {
   return jsonFiles(dataRoot).map((unitPath) => {
     const dataDir = dirname(unitPath)
@@ -42,7 +129,7 @@ function loadJsonTextbooks(): LoadedTextbookUnit[] {
     const answerPath = join(dataDir, 'answers.json')
     const answerBook = TextbookAnswerBookSchema.parse(JSON.parse(readFileSync(answerPath, 'utf8')))
     if (answerBook.unitId !== unit.unitId) throw new Error(`answer unitId mismatch: ${unit.unitId}`)
-    return { unit, answerBook, dataDir }
+    return { ...applyContentCorrections(unit, answerBook), dataDir }
   })
 }
 
