@@ -12,6 +12,12 @@ const importedPhysicsUnitIds = [
   'physics-1e-horizontal-projection',
   'physics-1f-projectile-motion',
   'physics-1g-gravity-drag-terminal-velocity',
+  'physics-2a-rigid-body-force-action',
+  'physics-2b-moment-of-force',
+  'physics-2c-rigid-body-equilibrium',
+  'physics-2d-force-composition-couple',
+  'physics-2e-center-of-mass',
+  'physics-2f-stability-tipping-condition',
 ]
 
 function choiceRefs(unit: (typeof loadedTextbookUnits)[number]['unit']) {
