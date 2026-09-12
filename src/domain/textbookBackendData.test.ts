@@ -23,6 +23,14 @@ const importedPhysicsUnitIds = [
   'physics-3c-momentum-conservation',
   'physics-3d-restitution-collision-energy',
   'physics-3e-oblique-collision-friction',
+  'physics-4a-circular-motion-kinematics',
+  'physics-4b-circular-motion-acceleration',
+  'physics-4c-centripetal-force',
+  'physics-4d-inertial-force-noninertial-frame',
+  'physics-4e-centrifugal-force',
+  'physics-4f-simple-harmonic-motion-kinematics',
+  'physics-4g-spring-oscillator',
+  'physics-4h-simple-pendulum-energy',
 ]
 
 function choiceRefs(unit: (typeof loadedTextbookUnits)[number]['unit']) {
@@ -97,9 +105,9 @@ describe('backend textbook data', () => {
     for (const loaded of loadedTextbookUnits.filter(({ unit }) => unit.status === 'published')) {
       const publicPayload = publicTextbookUnit(loaded.unit, loaded.answerBook)
       const serialized = JSON.stringify(publicPayload)
-      expect(serialized).not.toContain('\"answer\"')
-      expect(serialized).not.toContain('\"acceptedAnswers\"')
-      expect(serialized).not.toContain('\"validator\"')
+      expect(serialized).not.toContain('"answer"')
+      expect(serialized).not.toContain('"acceptedAnswers"')
+      expect(serialized).not.toContain('"validator"')
     }
     const math = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-counting-permutation')!
     expect(publicTextbookUnit(math.unit, math.answerBook).sections[0].items[0].choices).toContain('5')
