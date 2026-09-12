@@ -31,6 +31,12 @@ const importedPhysicsUnitIds = [
   'physics-4f-simple-harmonic-motion-kinematics',
   'physics-4g-spring-oscillator',
   'physics-4h-simple-pendulum-energy',
+  'physics-5a-kepler-laws',
+  'physics-5b-universal-gravitation',
+  'physics-5c-gravity',
+  'physics-5d-artificial-satellite',
+  'physics-5e-gravitational-potential-energy',
+  'physics-5f-orbits-space-velocities',
 ]
 
 function choiceRefs(unit: (typeof loadedTextbookUnits)[number]['unit']) {
