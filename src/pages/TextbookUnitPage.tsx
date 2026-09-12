@@ -1,5 +1,5 @@
 import { InlineMath } from 'react-katex'
-import { Check, LockKeyhole, RotateCcw, X } from 'lucide-react'
+import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
@@ -148,13 +148,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const [submitError, setSubmitError] = useState('')
   const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
 
-  const firstIncompleteGroup = groups.findIndex((group) => {
-    const itemIds = readingGroupItemIds(group)
-    return itemIds.length > 0 && itemIds.some((itemId) => !progress?.answers[itemId]?.resolved)
-  })
-  const visibleGroupCount = firstIncompleteGroup === -1 ? groups.length : firstIncompleteGroup + 1
-  const visibleGroups = groups.slice(0, visibleGroupCount)
-
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem?.choices ?? []
@@ -253,7 +246,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
   return (
     <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
-      {visibleGroups.map((group, groupIndex) => {
+      {groups.map((group, groupIndex) => {
         const groupItemIds = readingGroupItemIds(group)
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
@@ -308,7 +301,6 @@ export function TextbookUnitPage() {
   const sectionSummary = textbookSectionProgress(unit, progress, currentSection.id)
   const sectionComplete = sectionSummary.completed === sectionSummary.total
   const unitComplete = summary.completed === summary.total
-  const canOpen = (index: number) => unitComplete || index <= firstIncompleteIndex
   const goNext = () => {
     setSelectedSectionIndex((index) => Math.min(unit.sections.length - 1, index + 1))
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -336,16 +328,14 @@ export function TextbookUnitPage() {
         {unit.sections.map((section, index) => {
           const sectionProgress = textbookSectionProgress(unit, progress, section.id)
           const complete = sectionProgress.completed === sectionProgress.total
-          const allowed = canOpen(index)
           return (
             <button
               type="button"
               key={section.id}
-              disabled={!allowed}
               aria-pressed={selectedSectionIndex === index}
-              onClick={() => allowed && setSelectedSectionIndex(index)}
+              onClick={() => setSelectedSectionIndex(index)}
             >
-              <span>{complete ? <Check size={16} aria-hidden="true" /> : allowed ? section.number : <LockKeyhole size={15} aria-hidden="true" />}</span>
+              <span>{complete ? <Check size={16} aria-hidden="true" /> : section.number}</span>
               <strong>{section.title}</strong>
               <small>{sectionProgress.completed}/{sectionProgress.total}</small>
             </button>
