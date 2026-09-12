@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "types": ["node"],
+    "noEmit": true
+  },
+  "include": ["src/**/*.ts", "../src/data/textbookUnits.ts", "../src/domain/textbook.ts", "../src/domain/textbookSchema.ts"]
+}
