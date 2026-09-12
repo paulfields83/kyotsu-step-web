@@ -89,12 +89,22 @@ export function getTextbookChoices(unit: TextbookUnit, item: TextbookItem, answe
 
 export function isTextbookAnswerCorrect(answer: TextbookAnswerEntry | TextbookItem, value: string) {
   if (!answer.answer) throw new Error(`textbook answer is missing for ${'id' in answer ? answer.id : 'answer entry'}`)
-  if ('validator' in answer && answer.validator === 'number') {
-    return Number(normalizeTextbookAnswer(value)) === Number(normalizeTextbookAnswer(answer.answer))
+  const candidates = [answer.answer, ...answer.acceptedAnswers]
+
+  if ('validator' in answer) {
+    if (answer.validator === 'number') {
+      return candidates.some((candidate) => Number(normalizeTextbookAnswer(value)) === Number(normalizeTextbookAnswer(candidate)))
+    }
+    if (answer.validator === 'exact') {
+      const submitted = value.trim()
+      return candidates.some((candidate) => candidate.trim() === submitted)
+    }
+    // TODO(math-equivalent): replace normalized comparison with symbolic equivalence when a math parser is introduced.
+    // Until then, math-equivalent intentionally falls back to the same normalization used by normalized-text.
   }
-  // TODO(math-equivalent): replace exact normalized comparison with symbolic equivalence when a math parser is introduced.
+
   const normalized = normalizeTextbookAnswer(value)
-  return [answer.answer, ...answer.acceptedAnswers].some((candidate) => normalizeTextbookAnswer(candidate) === normalized)
+  return candidates.some((candidate) => normalizeTextbookAnswer(candidate) === normalized)
 }
 
 export function answerTextbookItem(progress: TextbookUnitProgress | undefined, unit: TextbookUnit, item: TextbookItem, value: string, now: number): TextbookUnitProgress {
