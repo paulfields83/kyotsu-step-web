@@ -266,7 +266,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
               </div>
             )}
           </section>
-        )}
+        )
       })}
     </article>
   )
