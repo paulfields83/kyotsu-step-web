@@ -18,6 +18,11 @@ const importedPhysicsUnitIds = [
   'physics-2d-force-composition-couple',
   'physics-2e-center-of-mass',
   'physics-2f-stability-tipping-condition',
+  'physics-3a-momentum',
+  'physics-3b-impulse-momentum-change',
+  'physics-3c-momentum-conservation',
+  'physics-3d-restitution-collision-energy',
+  'physics-3e-oblique-collision-friction',
 ]
 
 function choiceRefs(unit: (typeof loadedTextbookUnits)[number]['unit']) {
