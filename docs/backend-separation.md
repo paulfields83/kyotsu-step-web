@@ -73,6 +73,7 @@ Create a Render **Web Service** from `paulfields83/kyotsu-step-web` with these s
 
 - Branch: `refactor/textbook-backend-split`
 - Runtime: Node
+- Node version: 22 (`.node-version` is included in this branch)
 - Root Directory: leave blank
 - Build Command:
 
