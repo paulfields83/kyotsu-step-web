@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/kyotsu-step-web/',
+  base: process.env.VITE_BASE_PATH?.trim() || '/kyotsu-step-web/',
   server: { port: 4173, strictPort: true },
   preview: { port: 4173, strictPort: true },
   build: {
