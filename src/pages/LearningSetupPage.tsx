@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NumberedSection, RaisedButton } from '../components/ui/Primitives'
 import type { LearningVariant, Question } from '../domain/questionSchema'
-import type { TextbookUnit } from '../domain/textbookSchema'
+import type { PublicTextbookUnit } from '../domain/textbookPublic'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { getQuestionCatalog, useAppStore } from '../stores/useAppStore'
 import { useI18n } from '../i18n/runtime'
@@ -22,7 +22,8 @@ export function LearningSetupPage() {
   const startLearning = useAppStore((state) => state.startLearning)
   const { language, text } = useI18n()
   const catalog = useMemo(() => getQuestionCatalog(customQuestions, language), [customQuestions, language])
-  const [textbookUnits, setTextbookUnits] = useState<TextbookUnit[]>([])
+  const [textbookUnits, setTextbookUnits] = useState<PublicTextbookUnit[]>([])
+  const [textbookLoadError, setTextbookLoadError] = useState(false)
   const [mode, setMode] = useState<LearningMode>('textbook')
   const [subject, setSubject] = useState<Question['subject']>('physics')
   const [variant, setVariant] = useState<LearningVariant>('detailed')
@@ -32,8 +33,13 @@ export function LearningSetupPage() {
 
   useEffect(() => {
     textbookRepository.listPublished().then((units) => {
+      setTextbookLoadError(false)
       setTextbookUnits(units)
       setUnitId((current) => current || units[0]?.unitId || '')
+    }).catch(() => {
+      setTextbookLoadError(true)
+      setTextbookUnits([])
+      setUnitId('')
     })
   }, [])
 
@@ -98,11 +104,17 @@ export function LearningSetupPage() {
 
       {mode === 'textbook' ? (
         <NumberedSection number="03" title={text('単元', '单元')}>
-          <label className="field-label" htmlFor="textbook-unit">{text('学習する単元', '选择学习单元')}</label>
-          <select id="textbook-unit" className="select-control" value={unitId} onChange={(event) => setUnitId(event.target.value)}>
-            {textbookUnits.map((unit) => <option key={unit.unitId} value={unit.unitId}>{unit.title}</option>)}
-          </select>
-          {unitId && <div className="setup-progress-note"><span>{selectedUnitProgress ? text('続きから再開できます', '可以从上次进度继续') : text('最初から開始', '从头开始')}</span><small>{text('難易度選択はありません。教材の順番どおりに進みます。', '没有难度选择，按教材顺序学习。')}</small></div>}
+          {textbookLoadError ? (
+            <div className="issue-box" role="alert">{text('教材 API に接続できません。バックエンドを起動し、VITE_API_BASE_URL を確認してください。', '无法连接教材 API。请启动后端并检查 VITE_API_BASE_URL。')}</div>
+          ) : (
+            <>
+              <label className="field-label" htmlFor="textbook-unit">{text('学習する単元', '选择学习单元')}</label>
+              <select id="textbook-unit" className="select-control" value={unitId} onChange={(event) => setUnitId(event.target.value)}>
+                {textbookUnits.map((unit) => <option key={unit.unitId} value={unit.unitId}>{unit.title}</option>)}
+              </select>
+              {unitId && <div className="setup-progress-note"><span>{selectedUnitProgress ? text('続きから再開できます', '可以从上次进度继续') : text('最初から開始', '从头开始')}</span><small>{text('難易度選択はありません。教材の順番どおりに進みます。', '没有难度选择，按教材顺序学习。')}</small></div>}
+            </>
+          )}
         </NumberedSection>
       ) : (
         <>
