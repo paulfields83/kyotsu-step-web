@@ -64,4 +64,11 @@ describe('backend textbook data', () => {
     expect(serialized).not.toContain('"acceptedAnswers"')
     expect(publicPayload.sections[0].items[0].choices).toContain('5')
   })
+
+  it('turns backend-owned assets into absolute API URLs when an API origin is provided', () => {
+    const math = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-counting-permutation')!
+    const publicPayload = publicTextbookUnit(math.unit, math.answerBook, 'https://api.example.test')
+    const figures = publicPayload.sections.flatMap((section) => section.figures)
+    expect(figures[0].src).toBe('https://api.example.test/api/textbooks/math-1a-counting-permutation/assets/venn-diagram.png')
+  })
 })
