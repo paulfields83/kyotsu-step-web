@@ -20,6 +20,15 @@ export type TextbookUnitProgress = {
   completedAt?: number
 }
 
+type TextbookProgressUnit = {
+  unitId: string
+  revision: number
+  sections: Array<{
+    id: string
+    items: Array<{ id: string }>
+  }>
+}
+
 export function normalizeTextbookAnswer(value: string) {
   return value
     .normalize('NFKC')
@@ -110,7 +119,7 @@ export function answerTextbookItem(progress: TextbookUnitProgress | undefined, u
   }
 }
 
-export function textbookSectionProgress(unit: TextbookUnit, progress: TextbookUnitProgress | undefined, sectionId: string) {
+export function textbookSectionProgress(unit: TextbookProgressUnit, progress: TextbookUnitProgress | undefined, sectionId: string) {
   const section = unit.sections.find((candidate) => candidate.id === sectionId)
   if (!section) return { completed: 0, total: 0 }
   return {
@@ -119,7 +128,7 @@ export function textbookSectionProgress(unit: TextbookUnit, progress: TextbookUn
   }
 }
 
-export function textbookUnitProgress(unit: TextbookUnit, progress: TextbookUnitProgress | undefined) {
+export function textbookUnitProgress(unit: TextbookProgressUnit, progress: TextbookUnitProgress | undefined) {
   const items = unit.sections.flatMap((section) => section.items)
   const completed = items.filter((item) => progress?.answers[item.id]?.resolved).length
   return { completed, total: items.length, percent: items.length ? Math.round((completed / items.length) * 100) : 0 }
