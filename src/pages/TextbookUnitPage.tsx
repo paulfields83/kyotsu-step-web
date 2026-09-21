@@ -41,13 +41,13 @@ function groupReadingFlow(blocks: TextbookReadingBlock[]) {
   return groups
 }
 
-function isStrictGuidedTrial(unit: PublicTextbookUnit) {
-  return unit.unitId === 'math-1a-sets-propositions-trial'
+function isStrictGuidedUnit(unit: PublicTextbookUnit) {
+  return unit.unitId === 'math-1a-sets-propositions'
 }
 
 function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedValue: string, result: TextbookAnswerResult) {
   const now = Date.now()
-  const keepWrongUnresolved = isStrictGuidedTrial(unit) && !result.correct
+  const keepWrongUnresolved = isStrictGuidedUnit(unit) && !result.correct
   useAppStore.setState((state) => {
     const progress = state.textbookProgress[unit.unitId]
     const previous = progress?.answers[itemId]
@@ -166,7 +166,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
       recordServerAnswer(unit, activeItem.id, choice, result)
       if (result.correct) {
         setActiveItemId(null)
-      } else if (isStrictGuidedTrial(unit)) {
+      } else if (isStrictGuidedUnit(unit)) {
         setSubmitError(text('不正解です。正解はまだ表示しません。もう一度考えて選んでください。', '回答错误，暂不显示正确答案。再想一步后重新选择。'))
       }
     } catch (error) {
