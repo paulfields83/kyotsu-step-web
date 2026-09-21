@@ -166,6 +166,15 @@ function TextbookReadingFlow({ unit, section, progress }: {
     return firstIncompleteGroupIndex === -1 ? groups : groups.slice(0, firstIncompleteGroupIndex + 1)
   }, [groups, progress, unit])
 
+  const visibleBlocksForGroup = (group: TextbookReadingBlock[]) => {
+    if (!isStrictGuidedTrial(unit)) return group
+    const firstUnresolvedBlockIndex = group.findIndex((block) => {
+      const itemIds = readingGroupItemIds([block])
+      return itemIds.length > 0 && itemIds.some((itemId) => !progress?.answers[itemId]?.resolved)
+    })
+    return firstUnresolvedBlockIndex === -1 ? group : group.slice(0, firstUnresolvedBlockIndex + 1)
+  }
+
   const selectChoice = async (choice: string) => {
     if (!activeItem || activeRecord?.resolved || submittingItemId) return
     setSubmitError('')
@@ -268,7 +277,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
           <section className="reading-subsection" data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
-            {group.map(renderBlock)}
+            {visibleBlocksForGroup(group).map(renderBlock)}
             {completed && groupIndex < groups.length - 1 && (
               <div className="reading-subsection-complete">
                 <Check size={16} aria-hidden="true" />
