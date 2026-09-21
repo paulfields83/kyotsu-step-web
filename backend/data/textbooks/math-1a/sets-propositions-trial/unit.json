@@ -2,9 +2,9 @@
   "schemaVersion": "1.0",
   "unitId": "math-1a-sets-propositions-trial",
   "revision": 1,
-  "status": "published",
+  "status": "draft",
   "subject": "math-1a",
-  "title": "数学I 集合と命題（厳格誘導・試作）",
+  "title": "数学I 集合と命題（旧試作・非公開）",
   "subtitle": "必要条件・十分条件 / 背理法を小刻みに進める学習モード",
   "source": {
     "type": "reference",
