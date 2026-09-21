@@ -1,0 +1,746 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-sets-propositions-trial",
+  "revision": 1,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "数学I 集合と命題（厳格誘導・試作）",
+  "subtitle": "必要条件・十分条件 / 背理法を小刻みに進める学習モード",
+  "source": {
+    "type": "reference",
+    "label": "啓林館版 α数学I 第3章「集合と命題」＋厳格誘導版学習母本",
+    "rightsNote": "ユーザー提供教材をもとに、学習モードの操作感検証用に再構成。"
+  },
+  "objectives": [
+    "p⇒q と q⇒p を別々に調べて必要条件・十分条件を判断する。",
+    "反例を使って命題が偽であることを確かめる。",
+    "背理法で『結論の否定を仮定→矛盾→元の結論』の流れを一段ずつ追う。"
+  ],
+  "sections": [
+    {
+      "id": "necessary-sufficient",
+      "number": "3",
+      "title": "必要条件と十分条件",
+      "description": "いきなり名称を当てず、矢印を1本ずつ確認してから名前を付ける。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "ns-h-001",
+          "type": "heading",
+          "text": "まず「十分条件」の意味をつくる"
+        },
+        {
+          "id": "ns-p-001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "p が成り立ったとき、q も必ず成り立つかを調べる。この関係を記号で p "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-001"
+            },
+            {
+              "type": "text",
+              "text": " q と書く。"
+            }
+          ]
+        },
+        {
+          "id": "ns-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "p⇒q が真なら、「p まで分かれば q を成立させるのに十分」と考える。したがって p は q の "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-002"
+            },
+            {
+              "type": "text",
+              "text": " 条件という。"
+            }
+          ]
+        },
+        {
+          "id": "ns-h-002",
+          "type": "heading",
+          "text": "次に逆方向も必ず調べる"
+        },
+        {
+          "id": "ns-p-003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "必要条件かどうかは逆方向を調べる。つまり q "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-003"
+            },
+            {
+              "type": "text",
+              "text": " p を確認する。"
+            }
+          ]
+        },
+        {
+          "id": "ns-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "q⇒p が真なら、q が成り立つためには p が必要になる。このとき p は q の "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-004"
+            },
+            {
+              "type": "text",
+              "text": " 条件である。両方向とも真なら必要十分条件になる。"
+            }
+          ]
+        },
+        {
+          "id": "ns-h-003",
+          "type": "heading",
+          "text": "教科書 問14(1)　長方形と対角線"
+        },
+        {
+          "id": "ns-p-005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "p：「四角形 ABCD が長方形である」、q：「AC=BD である」とする。長方形なら対角線の長さは等しいので、p⇒q は "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-005"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "ns-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今度は逆方向。AC=BD でも長方形とは限らない四角形を作れるので、q⇒p は "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-006"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "ns-p-007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整理すると p⇒q は真、q⇒p は偽。したがって「長方形であること」は「AC=BD であること」の "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-007"
+            },
+            {
+              "type": "text",
+              "text": " 条件である。"
+            }
+          ]
+        },
+        {
+          "id": "ns-h-004",
+          "type": "heading",
+          "text": "教科書 問14(2)　x²>0 と x>0"
+        },
+        {
+          "id": "ns-p-008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "p：「x²>0」、q：「x>0」とする。まず p⇒q を調べる。負の数でも2乗すると正になるので、この方向は "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-008"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "ns-p-009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "反例を1つ作る。x="
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-009"
+            },
+            {
+              "type": "text",
+              "text": " なら x²>0 は成り立つが、x>0 は成り立たない。"
+            }
+          ]
+        },
+        {
+          "id": "ns-p-010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "逆に x>0 なら、その2乗も正だから q⇒p は "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-010"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "ns-p-011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "p⇒q は偽、q⇒p は真。したがって「x²>0」は「x>0」であるための "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-011"
+            },
+            {
+              "type": "text",
+              "text": " 条件である。"
+            }
+          ]
+        },
+        {
+          "id": "ns-h-005",
+          "type": "heading",
+          "text": "教科書 問14(3)　両方向が真になる場合"
+        },
+        {
+          "id": "ns-p-012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "p：「x=0」、q：「x(x²+1)=0」とする。x=0 を代入すれば q も成り立つので p⇒q は "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-012"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "ns-p-013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "逆方向では x²+1>0 だから、積 x(x²+1)=0 が成り立つには x=0 でなければならない。したがって q⇒p も "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "ns-p-014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両方向とも真なので、「x=0」は「x(x²+1)=0」であるための "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-ns-014"
+            },
+            {
+              "type": "text",
+              "text": " 条件である。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "m1-ns-001",
+          "label": "1",
+          "prompt": "p と q の向きを表す記号",
+          "answerType": "text",
+          "choices": [
+            "⇒",
+            "⇐",
+            "=",
+            "≠"
+          ]
+        },
+        {
+          "id": "m1-ns-002",
+          "label": "2",
+          "prompt": "p⇒q が真のとき p は q の何条件か",
+          "answerType": "text",
+          "choices": [
+            "十分",
+            "必要",
+            "必要十分",
+            "どちらでもない"
+          ]
+        },
+        {
+          "id": "m1-ns-003",
+          "label": "3",
+          "prompt": "逆方向を表す記号",
+          "answerType": "text",
+          "choices": [
+            "⇒",
+            "⇐",
+            "=",
+            "≠"
+          ]
+        },
+        {
+          "id": "m1-ns-004",
+          "label": "4",
+          "prompt": "q⇒p が真のとき p は q の何条件か",
+          "answerType": "text",
+          "choices": [
+            "必要",
+            "十分",
+            "必要十分",
+            "どちらでもない"
+          ]
+        },
+        {
+          "id": "m1-ns-005",
+          "label": "5",
+          "prompt": "長方形 ⇒ AC=BD の真偽",
+          "answerType": "text",
+          "choices": [
+            "真",
+            "偽"
+          ]
+        },
+        {
+          "id": "m1-ns-006",
+          "label": "6",
+          "prompt": "AC=BD ⇒ 長方形 の真偽",
+          "answerType": "text",
+          "choices": [
+            "真",
+            "偽"
+          ]
+        },
+        {
+          "id": "m1-ns-007",
+          "label": "7",
+          "prompt": "長方形であることは AC=BD の何条件か",
+          "answerType": "text",
+          "choices": [
+            "十分",
+            "必要",
+            "必要十分",
+            "どちらでもない"
+          ]
+        },
+        {
+          "id": "m1-ns-008",
+          "label": "8",
+          "prompt": "x²>0 ⇒ x>0 の真偽",
+          "answerType": "text",
+          "choices": [
+            "真",
+            "偽"
+          ]
+        },
+        {
+          "id": "m1-ns-009",
+          "label": "9",
+          "prompt": "反例になる x",
+          "answerType": "number",
+          "choices": [
+            "-1",
+            "0",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "id": "m1-ns-010",
+          "label": "10",
+          "prompt": "x>0 ⇒ x²>0 の真偽",
+          "answerType": "text",
+          "choices": [
+            "真",
+            "偽"
+          ]
+        },
+        {
+          "id": "m1-ns-011",
+          "label": "11",
+          "prompt": "x²>0 は x>0 の何条件か",
+          "answerType": "text",
+          "choices": [
+            "必要",
+            "十分",
+            "必要十分",
+            "どちらでもない"
+          ]
+        },
+        {
+          "id": "m1-ns-012",
+          "label": "12",
+          "prompt": "x=0 ⇒ x(x²+1)=0 の真偽",
+          "answerType": "text",
+          "choices": [
+            "真",
+            "偽"
+          ]
+        },
+        {
+          "id": "m1-ns-013",
+          "label": "13",
+          "prompt": "x(x²+1)=0 ⇒ x=0 の真偽",
+          "answerType": "text",
+          "choices": [
+            "真",
+            "偽"
+          ]
+        },
+        {
+          "id": "m1-ns-014",
+          "label": "14",
+          "prompt": "両方向が真のときの関係",
+          "answerType": "text",
+          "choices": [
+            "必要十分",
+            "必要",
+            "十分",
+            "どちらでもない"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contradiction-sqrt3",
+      "number": "7",
+      "title": "背理法：√3 は無理数",
+      "description": "結論の否定を仮定し、矛盾が出るところまで一段ずつ追う。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "bp-h-001",
+          "type": "heading",
+          "text": "背理法の出発点"
+        },
+        {
+          "id": "bp-p-001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「√3 は無理数である」ことを証明したい。直接示しにくいので、まず結論の否定を仮定する。つまり √3 は "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-bp-001"
+            },
+            {
+              "type": "text",
+              "text": " であると仮定する。"
+            }
+          ]
+        },
+        {
+          "id": "bp-h-002",
+          "type": "heading",
+          "text": "有理数という仮定を分数にする"
+        },
+        {
+          "id": "bp-p-002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "√3 は正の有理数だと仮定したので、互いに素な自然数 m,n を使って √3=m/n と表せる。両辺を2乗して分母を払うと m²="
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-bp-002"
+            },
+            {
+              "type": "text",
+              "text": " となる。"
+            }
+          ]
+        },
+        {
+          "id": "bp-h-003",
+          "type": "heading",
+          "text": "m が3の倍数だと分かる"
+        },
+        {
+          "id": "bp-p-003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "m²=3n² だから m² は3の倍数である。「a² が3の倍数なら a も3の倍数」という性質より、m は "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-bp-003"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "bp-p-004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "そこで m=3k（k は自然数）とおく。これを m²=3n² に代入すると 9k²=3n²。両辺を3で割ると n²="
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-bp-004"
+            },
+            {
+              "type": "text",
+              "text": " となる。"
+            }
+          ]
+        },
+        {
+          "id": "bp-h-004",
+          "type": "heading",
+          "text": "n も3の倍数になってしまう"
+        },
+        {
+          "id": "bp-p-005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n²=3k² なので n² も3の倍数。したがって n も "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-bp-005"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "bp-h-005",
+          "type": "heading",
+          "text": "最初の条件に戻って矛盾を確認する"
+        },
+        {
+          "id": "bp-p-006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここまでで m も n も3の倍数になった。しかし最初に m,n は "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-bp-006"
+            },
+            {
+              "type": "text",
+              "text": " な自然数として選んだ。"
+            }
+          ]
+        },
+        {
+          "id": "bp-p-007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "m と n が両方3の倍数なら共通因数3をもつ。これは「m,n は互いに素」と "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-bp-007"
+            },
+            {
+              "type": "text",
+              "text": " する。"
+            }
+          ]
+        },
+        {
+          "id": "bp-h-006",
+          "type": "heading",
+          "text": "結論"
+        },
+        {
+          "id": "bp-p-008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "したがって最初の仮定「√3 は有理数」が誤りである。よって √3 は "
+            },
+            {
+              "type": "choice",
+              "itemId": "m1-bp-008"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "m1-bp-001",
+          "label": "1",
+          "prompt": "結論の否定",
+          "answerType": "text",
+          "choices": [
+            "有理数",
+            "無理数",
+            "整数",
+            "自然数"
+          ]
+        },
+        {
+          "id": "m1-bp-002",
+          "label": "2",
+          "prompt": "m² の式",
+          "answerType": "formula",
+          "choices": [
+            "3n²",
+            "n²/3",
+            "3m²",
+            "n²"
+          ]
+        },
+        {
+          "id": "m1-bp-003",
+          "label": "3",
+          "prompt": "m について言えること",
+          "answerType": "text",
+          "choices": [
+            "3の倍数",
+            "2の倍数",
+            "奇数",
+            "素数"
+          ]
+        },
+        {
+          "id": "m1-bp-004",
+          "label": "4",
+          "prompt": "n² の式",
+          "answerType": "formula",
+          "choices": [
+            "3k²",
+            "9k²",
+            "k²/3",
+            "3n²"
+          ]
+        },
+        {
+          "id": "m1-bp-005",
+          "label": "5",
+          "prompt": "n について言えること",
+          "answerType": "text",
+          "choices": [
+            "3の倍数",
+            "2の倍数",
+            "奇数",
+            "素数"
+          ]
+        },
+        {
+          "id": "m1-bp-006",
+          "label": "6",
+          "prompt": "m,n を最初にどう選んだか",
+          "answerType": "text",
+          "choices": [
+            "互いに素",
+            "ともに偶数",
+            "ともに3の倍数",
+            "連続する"
+          ]
+        },
+        {
+          "id": "m1-bp-007",
+          "label": "7",
+          "prompt": "互いに素という条件との関係",
+          "answerType": "text",
+          "choices": [
+            "矛盾",
+            "一致",
+            "同値",
+            "無関係"
+          ]
+        },
+        {
+          "id": "m1-bp-008",
+          "label": "8",
+          "prompt": "最後の結論",
+          "answerType": "text",
+          "choices": [
+            "無理数",
+            "有理数",
+            "整数",
+            "自然数"
+          ]
+        }
+      ]
+    }
+  ]
+}
