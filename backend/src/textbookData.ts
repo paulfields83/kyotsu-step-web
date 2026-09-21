@@ -3,6 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { builtInTextbookUnits } from '../../src/data/textbookUnits'
 import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookAnswerBook, type TextbookUnit } from '../../src/domain/textbookSchema'
+import { strictSetsPropositionsAnswers, strictSetsPropositionsUnit } from './setsPropositionsStrict'
 
 export type LoadedTextbookUnit = {
   unit: TextbookUnit
@@ -133,8 +134,9 @@ function loadJsonTextbooks(): LoadedTextbookUnit[] {
 }
 
 const legacyTextbooks: LoadedTextbookUnit[] = builtInTextbookUnits.map((unit) => ({ unit, answerBook: legacyAnswerBook(unit) }))
+const generatedTextbooks: LoadedTextbookUnit[] = [{ unit: strictSetsPropositionsUnit, answerBook: strictSetsPropositionsAnswers }]
 
-export const loadedTextbookUnits: LoadedTextbookUnit[] = [...legacyTextbooks, ...loadJsonTextbooks()]
+export const loadedTextbookUnits: LoadedTextbookUnit[] = [...legacyTextbooks, ...generatedTextbooks, ...loadJsonTextbooks()]
 
 export function findLoadedTextbook(unitId: string) {
   return loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId && unit.status === 'published')
