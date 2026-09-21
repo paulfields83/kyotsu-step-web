@@ -41,8 +41,13 @@ function groupReadingFlow(blocks: TextbookReadingBlock[]) {
   return groups
 }
 
+function isStrictGuidedTrial(unit: PublicTextbookUnit) {
+  return unit.unitId === 'math-1a-sets-propositions-trial'
+}
+
 function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedValue: string, result: TextbookAnswerResult) {
   const now = Date.now()
+  const keepWrongUnresolved = isStrictGuidedTrial(unit) && !result.correct
   useAppStore.setState((state) => {
     const progress = state.textbookProgress[unit.unitId]
     const previous = progress?.answers[itemId]
@@ -50,10 +55,10 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
 
     const nextRecord: TextbookAnswerRecord = {
       itemId,
-      value: result.correct ? selectedValue : (result.correctAnswer ?? selectedValue),
+      value: keepWrongUnresolved ? selectedValue : (result.correct ? selectedValue : (result.correctAnswer ?? selectedValue)),
       firstValue: previous?.firstValue ?? selectedValue,
       isFirstCorrect: previous?.isFirstCorrect ?? result.correct,
-      resolved: true,
+      resolved: !keepWrongUnresolved,
       attemptCount: (previous?.attemptCount ?? 0) + 1,
       firstAnsweredAt: previous?.firstAnsweredAt ?? now,
       lastAnsweredAt: now,
@@ -152,6 +157,14 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem?.choices ?? []
   const activeWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
+  const visibleGroups = useMemo(() => {
+    if (!isStrictGuidedTrial(unit)) return groups
+    const firstIncompleteGroupIndex = groups.findIndex((group) => {
+      const itemIds = readingGroupItemIds(group)
+      return itemIds.length > 0 && !itemIds.every((itemId) => progress?.answers[itemId]?.resolved)
+    })
+    return firstIncompleteGroupIndex === -1 ? groups : groups.slice(0, firstIncompleteGroupIndex + 1)
+  }, [groups, progress, unit])
 
   const selectChoice = async (choice: string) => {
     if (!activeItem || activeRecord?.resolved || submittingItemId) return
@@ -160,7 +173,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
     try {
       const result = await textbookRepository.submitAnswer(unit.unitId, activeItem.id, choice)
       recordServerAnswer(unit, activeItem.id, choice, result)
-      if (result.correct) setActiveItemId(null)
+      if (result.correct) {
+        setActiveItemId(null)
+      } else if (isStrictGuidedTrial(unit)) {
+        setSubmitError(text('不正解です。正解はまだ表示しません。もう一度考えて選んでください。', '回答错误，暂不显示正确答案。再想一步后重新选择。'))
+      }
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : text('回答を送信できませんでした。', '无法提交答案。'))
     } finally {
@@ -246,7 +263,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
   return (
     <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
-      {groups.map((group, groupIndex) => {
+      {visibleGroups.map((group, groupIndex) => {
         const groupItemIds = readingGroupItemIds(group)
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
@@ -364,7 +381,7 @@ export function TextbookUnitPage() {
         {unitComplete && (
           <div className="textbook-complete-panel" data-testid="textbook-unit-complete">
             <Check size={28} aria-hidden="true" />
-            <div><h2>{text('単元完了', '单元完成')}</h2><p>{text('A 変位と速度の 78 個の確認項目をすべて完了しました。', '已完成 A 位移与速度的全部 78 个确认项目。')}</p></div>
+            <div><h2>{text('単元完了', '单元完成')}</h2><p>{text(`${unit.title} の ${summary.total} 個の確認項目をすべて完了しました。`, `已完成 ${unit.title} 的全部 ${summary.total} 个确认项目。`)}</p></div>
             <Link className="raised-link" to="/learning/setup">{text('問題演習へ進む', '进入做题模式')}</Link>
           </div>
         )}
