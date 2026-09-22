@@ -145,12 +145,24 @@ const importedMathTextbooks: LoadedTextbookUnit[] = mathDocxImport.imported.map(
   assetMap: assets,
 }))
 
-export const textbookImportDiagnostics = mathDocxImport.diagnostics
+const hasImportedCountingProbability = importedMathTextbooks.some(({ unit }) => unit.unitId === 'math-1a-counting-probability')
+const jsonTextbooks = loadJsonTextbooks().map((entry) => {
+  if (hasImportedCountingProbability || entry.unit.unitId !== 'math-1a-counting-permutation') return entry
+  return {
+    ...entry,
+    unit: TextbookUnitSchema.parse({ ...entry.unit, status: 'published' }),
+  }
+})
+
+export const textbookImportDiagnostics = [
+  ...mathDocxImport.diagnostics,
+  ...(hasImportedCountingProbability ? [] : ['Math A DOCX import unavailable; published legacy counting/permutation fallback.']),
+]
 export const loadedTextbookUnits: LoadedTextbookUnit[] = [
   ...legacyTextbooks,
   ...generatedTextbooks,
   ...importedMathTextbooks,
-  ...loadJsonTextbooks(),
+  ...jsonTextbooks,
 ]
 
 export function findLoadedTextbook(unitId: string) {
