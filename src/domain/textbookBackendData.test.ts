@@ -57,6 +57,16 @@ describe('backend textbook data', () => {
     for (const unitId of importedPhysicsUnitIds) expect(ids).toContain(unitId)
   })
 
+  it('groups 集合と命題 into three sections with topic cards', () => {
+    const unit = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-sets-propositions')!
+    expect(unit).toBeTruthy()
+    expect(unit.unit.sections.map((section) => section.title)).toEqual(['集合', '命題', '証明'])
+    expect(unit.unit.sections.map((section) => section.readingFlow.filter((block) => block.type === 'topic').length)).toEqual([8, 5, 5])
+    expect(unit.unit.sections.flatMap((section) => section.items).length).toBeGreaterThan(0)
+    expect(new Set(choiceRefs(unit.unit))).toEqual(new Set(unit.unit.sections.flatMap((section) => section.items.map((item) => item.id))))
+    expect(new Set(Object.keys(unit.answerBook.answers))).toEqual(new Set(unit.unit.sections.flatMap((section) => section.items.map((item) => item.id))))
+  })
+
   it('keeps math item IDs unique while preserving per-section display labels', () => {
     const math = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-counting-permutation')!
     const items = math.unit.sections.flatMap((section) => section.items)
