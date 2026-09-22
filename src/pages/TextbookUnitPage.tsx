@@ -10,6 +10,12 @@ import type { PublicTextbookItem, PublicTextbookSection, PublicTextbookUnit, Tex
 import { useAppStore } from '../stores/useAppStore'
 import { useI18n } from '../i18n/runtime'
 
+function conciseTextbookTitle(unit: PublicTextbookUnit) {
+  return unit.subject === 'math-1a'
+    ? unit.title.replace(/^数学[ⅠⅡⅢIVXIA・\s]+\s*/u, '')
+    : unit.title
+}
+
 function resolveAssetSrc(src: string) {
   if (/^(?:https?:|data:|blob:)/i.test(src)) return src
   const viteBase = (import.meta as ImportMeta & { env?: { BASE_URL?: string } }).env?.BASE_URL ?? '/'
@@ -318,8 +324,8 @@ export function TextbookUnitPage() {
       <header className="session-header">
         <div>
           <p className="eyebrow">{unit.subject === 'math-1a' ? 'TEXTBOOK / MATH I・A' : 'TEXTBOOK / PHYSICS'}</p>
-          <h1>{unit.title}</h1>
-          {unit.subtitle && <p>{unit.subtitle}</p>}
+          <h1>{focusedSection ? `${conciseTextbookTitle(unit)}：${currentSection.title}` : unit.title}</h1>
+          {!focusedSection && unit.subtitle && <p>{unit.subtitle}</p>}
         </div>
         <StatusBadge>{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
       </header>
