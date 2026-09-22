@@ -157,7 +157,15 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const [activeItemId, setActiveItemId] = useState<string | null>(null)
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
   const [submitError, setSubmitError] = useState('')
+  const [selectedGroupIndex, setSelectedGroupIndex] = useState(0)
   const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
+  const hasTopicNavigation = groups.some((group) => group[0]?.type === 'topic')
+
+  useEffect(() => {
+    setSelectedGroupIndex(0)
+    setActiveItemId(null)
+    setSubmitError('')
+  }, [section.id])
 
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
@@ -253,9 +261,47 @@ function TextbookReadingFlow({ unit, section, progress }: {
     )
   }
 
+  const displayedGroups = hasTopicNavigation
+    ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0)))
+    : groups
+
+  const topicLabel = (group: TextbookReadingBlock[], index: number) => {
+    const topic = group[0]
+    const raw = topic?.type === 'topic' ? topic.text : String(index + 1)
+    const match = raw.match(/^(\\d+(?:\\.\\d+)?)\\s+(.+)$/)
+    return match ? { number: match[1], title: match[2] } : { number: String(index + 1), title: raw }
+  }
+
   return (
     <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
-      {groups.map((group, groupIndex) => {
+      {hasTopicNavigation && (
+        <nav className="reading-topic-nav" aria-label={text('知識項目', '知识点')}>
+          {groups.map((group, groupIndex) => {
+            const label = topicLabel(group, groupIndex)
+            const itemIds = readingGroupItemIds(group)
+            const completedCount = itemIds.filter((itemId) => progress?.answers[itemId]?.resolved).length
+            return (
+              <button
+                type="button"
+                key={group[0]?.id ?? groupIndex}
+                aria-pressed={selectedGroupIndex === groupIndex}
+                onClick={() => {
+                  setSelectedGroupIndex(groupIndex)
+                  setActiveItemId(null)
+                  setSubmitError('')
+                }}
+              >
+                <span>{label.number}</span>
+                <strong>{label.title}</strong>
+                <small>{completedCount}/{itemIds.length}</small>
+              </button>
+            )
+          })}
+        </nav>
+      )}
+
+      {displayedGroups.map((group) => {
+        const groupIndex = groups.indexOf(group)
         const groupItemIds = readingGroupItemIds(group)
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
@@ -264,7 +310,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
             {completed && groupIndex < groups.length - 1 && (
               <div className="reading-subsection-complete">
                 <Check size={16} aria-hidden="true" />
-                <span>{text('この小節を完了しました。次の小節へ進めます。', '本小节已完成，可以继续下一小节。')}</span>
+                <span>{text('この小節を完了しました。別の項目も選べます。', '本知识点已完成，可以选择其他知识点。')}</span>
               </div>
             )}
           </section>
