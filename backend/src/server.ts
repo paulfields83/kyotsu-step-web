@@ -2,7 +2,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { createReadStream, existsSync } from 'node:fs'
 import { extname, join, normalize } from 'node:path'
 import { isTextbookAnswerCorrect } from '../../src/domain/textbook'
-import { findLoadedTextbook, loadedTextbookUnits } from './textbookData'
+import { findLoadedTextbook, loadedTextbookUnits, textbookImportDiagnostics } from './textbookData'
 import { publicTextbookUnit } from './publicTextbook'
 
 const port = Number(process.env.PORT ?? 8787)
@@ -56,14 +56,23 @@ function assetContentType(fileName: string) {
   }
 }
 
-function sendAsset(request: IncomingMessage, response: ServerResponse, filePath: string, fileName: string) {
-  response.writeHead(200, {
+function assetHeaders(request: IncomingMessage, fileName: string) {
+  return {
     'Content-Type': assetContentType(fileName),
     'Access-Control-Allow-Origin': corsOrigin(request),
     'Cache-Control': 'public, max-age=31536000, immutable',
     Vary: 'Origin',
-  })
+  }
+}
+
+function sendAsset(request: IncomingMessage, response: ServerResponse, filePath: string, fileName: string) {
+  response.writeHead(200, assetHeaders(request, fileName))
   createReadStream(filePath).pipe(response)
+}
+
+function sendAssetBuffer(request: IncomingMessage, response: ServerResponse, data: Buffer, fileName: string) {
+  response.writeHead(200, assetHeaders(request, fileName))
+  response.end(data)
 }
 
 async function readJsonBody(request: IncomingMessage) {
@@ -94,6 +103,16 @@ const server = createServer(async (request, response) => {
     return sendJson(request, response, 200, {
       ok: true,
       publishedTextbooks: loadedTextbookUnits.filter(({ unit }) => unit.status === 'published').length,
+      mathTextbooks: loadedTextbookUnits
+        .filter(({ unit }) => unit.status === 'published' && unit.subject === 'math-1a')
+        .map(({ unit }) => ({
+          unitId: unit.unitId,
+          title: unit.title,
+          sections: unit.sections.length,
+          items: unit.sections.reduce((total, section) => total + section.items.length, 0),
+          figures: unit.sections.reduce((total, section) => total + section.figures.length, 0),
+        })),
+      textbookImportWarnings: textbookImportDiagnostics,
     })
   }
 
@@ -121,13 +140,15 @@ const server = createServer(async (request, response) => {
     const fileName = decodeURIComponent(assetMatch[2])
     const loaded = findLoadedTextbook(unitId)
     if (!loaded) return sendJson(request, response, 404, { error: 'textbook unit not found' })
-    if (!loaded.dataDir) return sendJson(request, response, 404, { error: 'textbook asset not found' })
-
     const safeName = fileName.replace(/[^a-zA-Z0-9._-]/g, '')
     if (safeName !== fileName || safeName === '.' || safeName === '..') {
       return sendJson(request, response, 400, { error: 'invalid asset name' })
     }
 
+    const importedAsset = loaded.assetMap?.get(safeName)
+    if (importedAsset) return sendAssetBuffer(request, response, importedAsset, safeName)
+
+    if (!loaded.dataDir) return sendJson(request, response, 404, { error: 'textbook asset not found' })
     const assetPath = normalize(join(loaded.dataDir, 'assets', safeName))
     if (!existsSync(assetPath)) return sendJson(request, response, 404, { error: 'asset not found' })
     return sendAsset(request, response, assetPath, safeName)
