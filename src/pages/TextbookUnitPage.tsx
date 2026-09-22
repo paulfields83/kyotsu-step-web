@@ -41,13 +41,8 @@ function groupReadingFlow(blocks: TextbookReadingBlock[]) {
   return groups
 }
 
-function isStrictGuidedUnit(unit: PublicTextbookUnit) {
-  return unit.unitId === 'math-1a-sets-propositions'
-}
-
 function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedValue: string, result: TextbookAnswerResult) {
   const now = Date.now()
-  const keepWrongUnresolved = isStrictGuidedUnit(unit) && !result.correct
   useAppStore.setState((state) => {
     const progress = state.textbookProgress[unit.unitId]
     const previous = progress?.answers[itemId]
@@ -55,10 +50,10 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
 
     const nextRecord: TextbookAnswerRecord = {
       itemId,
-      value: keepWrongUnresolved ? selectedValue : (result.correct ? selectedValue : (result.correctAnswer ?? selectedValue)),
+      value: selectedValue,
       firstValue: previous?.firstValue ?? selectedValue,
       isFirstCorrect: previous?.isFirstCorrect ?? result.correct,
-      resolved: !keepWrongUnresolved,
+      resolved: result.resolved,
       attemptCount: (previous?.attemptCount ?? 0) + 1,
       firstAnsweredAt: previous?.firstAnsweredAt ?? now,
       lastAnsweredAt: now,
@@ -156,7 +151,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem?.choices ?? []
-  const activeWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
+  const activeWrongAttempt = Boolean(activeRecord && !activeRecord.resolved && activeRecord.attemptCount > 0)
   const selectChoice = async (choice: string) => {
     if (!activeItem || activeRecord?.resolved || submittingItemId) return
     setSubmitError('')
@@ -166,8 +161,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
       recordServerAnswer(unit, activeItem.id, choice, result)
       if (result.correct) {
         setActiveItemId(null)
-      } else if (isStrictGuidedUnit(unit)) {
-        setSubmitError(text('不正解です。正解はまだ表示しません。もう一度考えて選んでください。', '回答错误，暂不显示正确答案。再想一步后重新选择。'))
+      } else {
+        setSubmitError(text('不正解です。もう一度答えてください。', '回答错误，请重新作答。'))
       }
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : text('回答を送信できませんでした。', '无法提交答案。'))
@@ -193,14 +188,13 @@ function TextbookReadingFlow({ unit, section, progress }: {
         </div>
         <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
           {activeChoices.map((choice, index) => {
-            const selectedWrong = Boolean(activeWrongResult && (activeRecord?.firstValue ?? activeRecord?.value) === choice)
-            const revealedCorrect = Boolean(activeWrongResult && activeRecord?.value === choice)
+            const selectedWrong = Boolean(activeWrongAttempt && activeRecord?.value === choice)
             return (
               <button
                 type="button"
                 key={choice}
                 data-testid={`textbook-choice-${activeItem.id}-${index}`}
-                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
+                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}`}
                 disabled={Boolean(activeRecord?.resolved) || submittingItemId === activeItem.id}
                 onClick={() => void selectChoice(choice)}
               >
@@ -212,11 +206,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
           })}
         </div>
         {submitError && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
-        {activeWrongResult && (
-          <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
-            {text(`不正解です。正解は「${activeRecord?.value ?? ''}」です。`, `回答错误。正确答案是「${activeRecord?.value ?? ''}」。`)}
-          </p>
-        )}
       </div>
     )
   }
