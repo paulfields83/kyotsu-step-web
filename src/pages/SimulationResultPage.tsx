@@ -36,7 +36,7 @@ export function SimulationResultPage() {
       <NumberedSection number="03" title={text('補強練習', '巩固练习')}>
         {recommendations.length ? <div className="recommendation-list">{recommendations.map((recommendation) => { const question = catalog.find((candidate) => candidate.questionId === recommendation.questionId)!; return <article key={recommendation.questionId}><div><strong>{question.title}</strong><small>{text('誤答した知識・解き方に近い既存問題', '与本次答错的知识和方法相近')}</small></div><RaisedButton onClick={() => beginReinforcement(question.questionId)}>{text('自力確認へ', '开始自主检查')}</RaisedButton></article> })}</div> : <EmptyState title={text('今すぐの追加問題はありません', '暂时没有可追加的题目')} body={text('今回の問題と最近の問題を除くと、条件に合う既存問題がありません。', '排除本次和最近练习的题目后，当前题库中没有符合条件的题目。')} />}
       </NumberedSection>
-      <div className="result-actions"><Link className="raised-link" to="/analysis">{text('分析を見る', '查看分析')}</Link><Link className="raised-link" to="/practice"><Clock3 aria-hidden="true" />{text('問題へ戻る', '返回题目')}</Link></div>
+      <div className="result-actions"><Link className="raised-link" to="/analysis">{text('分析を見る', '查看分析')}</Link><Link className="raised-link" to="/problems"><Clock3 aria-hidden="true" />{text('問題へ戻る', '返回题目')}</Link></div>
     </div>
   )
 }
