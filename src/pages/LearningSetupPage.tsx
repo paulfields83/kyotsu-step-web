@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NumberedSection, RaisedButton } from '../components/ui/Primitives'
 import type { LearningVariant, Question } from '../domain/questionSchema'
+import { textbookSectionProgress } from '../domain/textbook'
 import type { PublicTextbookUnit } from '../domain/textbookPublic'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { getQuestionCatalog, useAppStore } from '../stores/useAppStore'
@@ -28,21 +29,33 @@ export function LearningSetupPage() {
   const [subject, setSubject] = useState<Question['subject']>('physics')
   const [variant, setVariant] = useState<LearningVariant>('detailed')
   const [unitId, setUnitId] = useState('')
+  const [sectionId, setSectionId] = useState('')
   const subjectQuestions = catalog.filter((q) => q.subject === subject && q.status === 'published')
   const subjectTextbookUnits = textbookUnits.filter((unit) => unit.subject === subject)
+  const textbookSectionOptions = subjectTextbookUnits.flatMap((unit) => unit.sections.map((section) => ({
+    value: `${unit.unitId}::${section.id}`,
+    unitId: unit.unitId,
+    sectionId: section.id,
+    label: `${unit.title.replace(/^数学[ⅠⅡⅢIVXIA・\s]+\s*/u, '')}：${section.title}`,
+  })))
   const [questionId, setQuestionId] = useState(subjectQuestions[0]?.questionId ?? catalog[0]?.questionId ?? '')
 
   useEffect(() => {
     textbookRepository.listPublished().then((units) => {
       setTextbookLoadError(false)
       setTextbookUnits(units)
-      setUnitId((current) => current && units.some((unit) => unit.unitId === current && unit.subject === subject)
-        ? current
-        : units.find((unit) => unit.subject === subject)?.unitId ?? '')
+      const subjectUnits = units.filter((unit) => unit.subject === subject)
+      const currentUnit = current && subjectUnits.find((unit) => unit.unitId === current)
+      const nextUnit = currentUnit ?? subjectUnits[0]
+      setUnitId(nextUnit?.unitId ?? '')
+      setSectionId((currentSection) => currentSection && nextUnit?.sections.some((section) => section.id === currentSection)
+        ? currentSection
+        : nextUnit?.sections[0]?.id ?? '')
     }).catch(() => {
       setTextbookLoadError(true)
       setTextbookUnits([])
       setUnitId('')
+      setSectionId('')
     })
   }, [subject])
 
@@ -55,7 +68,9 @@ export function LearningSetupPage() {
   const changeSubject = (next: Question['subject']) => {
     setSubject(next)
     setQuestionId(catalog.find((q) => q.subject === next)?.questionId ?? '')
-    setUnitId(textbookUnits.find((unit) => unit.subject === next)?.unitId ?? '')
+    const nextUnit = textbookUnits.find((unit) => unit.subject === next)
+    setUnitId(nextUnit?.unitId ?? '')
+    setSectionId(nextUnit?.sections[0]?.id ?? '')
   }
 
   const changeMode = (next: LearningMode) => {
@@ -63,10 +78,18 @@ export function LearningSetupPage() {
     if (next === 'practice' && !subjectQuestions.length) changeSubject(defaultSubject)
   }
 
+  const selectedUnit = unitId ? textbookUnits.find((unit) => unit.unitId === unitId) : undefined
   const selectedUnitProgress = unitId ? textbookProgress[unitId] : undefined
+  const selectedSection = selectedUnit?.sections.find((section) => section.id === sectionId)
+  const selectedSectionSummary = selectedUnit && selectedSection
+    ? textbookSectionProgress(selectedUnit, selectedUnitProgress, selectedSection.id)
+    : { completed: 0, total: 0 }
+  const selectedSectionStarted = selectedSection
+    ? selectedSection.items.some((item) => selectedUnitProgress?.answers[item.id])
+    : false
   const begin = () => {
     if (mode === 'textbook') {
-      if (unitId) navigate(`/learning/textbook/${unitId}`)
+      if (unitId && sectionId) navigate(`/learning/textbook/${unitId}?section=${encodeURIComponent(sectionId)}`)
     } else if (questionId) {
       navigate(`/learning/session/${startLearning(questionId, FIXED_PRACTICE_VARIANT)}`)
     }
@@ -102,10 +125,19 @@ export function LearningSetupPage() {
         : subjectTextbookUnits.length === 0 ? <div className="issue-box">{text('この科目の教材はまだありません。', '该科目暂时没有教材。')}</div>
         : <>
           <label className="field-label" htmlFor="textbook-unit">{text('学習する単元', '选择学习单元')}</label>
-          <select id="textbook-unit" className="select-control" value={unitId} onChange={(event) => setUnitId(event.target.value)}>
-            {subjectTextbookUnits.map((unit) => <option key={unit.unitId} value={unit.unitId}>{unit.title}</option>)}
+          <select
+            id="textbook-unit"
+            className="select-control"
+            value={unitId && sectionId ? `${unitId}::${sectionId}` : ''}
+            onChange={(event) => {
+              const [nextUnitId, nextSectionId] = event.target.value.split('::')
+              setUnitId(nextUnitId ?? '')
+              setSectionId(nextSectionId ?? '')
+            }}
+          >
+            {textbookSectionOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
           </select>
-          {unitId && <div className="setup-progress-note"><span>{selectedUnitProgress ? text('続きから再開できます', '可以从上次进度继续') : text('最初から開始', '从头开始')}</span><small>{text('難易度選択はありません。教材の順番どおりに進みます。', '没有难度选择，按教材顺序学习。')}</small></div>}
+          {unitId && sectionId && <div className="setup-progress-note"><span>{selectedSectionStarted ? text('続きから再開できます', '可以从上次进度继续') : text('最初から開始', '从头开始')}</span><small>{text(`${selectedSectionSummary.completed}/${selectedSectionSummary.total} の確認項目を完了`, `已完成 ${selectedSectionSummary.completed}/${selectedSectionSummary.total} 个确认项目`)}</small></div>}
         </>}
     </NumberedSection> : <>
       <NumberedSection number="03" title={text('問題', '题目')}>
@@ -117,8 +149,8 @@ export function LearningSetupPage() {
       {SHOW_GUIDANCE_LEVEL && <NumberedSection number="04" title={text('誘導レベル', '引导强度')}><div className="choice-grid" role="radiogroup" aria-label={text('誘導レベル', '引导强度')}>{variants.map((item) => <button type="button" role="radio" aria-checked={variant === item.value} key={item.value} onClick={() => setVariant(item.value)}><strong>{item.label}</strong><small>{item.description}</small></button>)}</div></NumberedSection>}
     </>}
 
-    <RaisedButton type="button" className="primary-button" data-testid="start-learning" disabled={mode === 'textbook' ? !unitId : !questionId} onClick={begin}>
-      {mode === 'textbook' ? text(selectedUnitProgress ? '続きから学ぶ' : '教科書モードを始める', selectedUnitProgress ? '继续学习' : '开始教科书模式') : text('この設定で問題を解く', '按此设置开始做题')}
+    <RaisedButton type="button" className="primary-button" data-testid="start-learning" disabled={mode === 'textbook' ? !unitId || !sectionId : !questionId} onClick={begin}>
+      {mode === 'textbook' ? text(selectedSectionStarted ? '続きから学ぶ' : '教科書モードを始める', selectedSectionStarted ? '继续学习' : '开始教科书模式') : text('この設定で問題を解く', '按此设置开始做题')}
     </RaisedButton>
   </div>
 }
