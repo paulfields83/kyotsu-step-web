@@ -95,7 +95,7 @@ export function LearningSetupPage() {
     }
   }
 
-  return <div className="page-stack">
+  return <div className="page-stack learning-setup-page">
     <header className="page-hero">
       <p className="eyebrow">LEARNING SETUP</p>
       <h1>{text('学習設定', '学习设置')}</h1>
