@@ -24,7 +24,7 @@ export default function App() {
     <Routes>
       <Route path="/ui-preview" element={<HomePreviewPage />} />
       <Route element={<AppShell />}>
-        <Route path="/" element={<Navigate to="/problems" replace />} />
+        <Route path="/" element={<Navigate to="/ui-preview" replace />} />
         <Route path="/problems" element={<ProblemsPage />} />
         <Route path="/learning/setup" element={<LearningSetupPage />} />
         <Route path="/learning/session/:sessionId" element={<LearningSessionPage />} />
