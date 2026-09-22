@@ -7,16 +7,20 @@ test.beforeEach(async ({ page }) => {
 })
 
 
-test('setup selects a textbook section and opens only that section content', async ({ page }) => {
+test('setup selects a math unit, then a learning item, then switches topic buttons', async ({ page }) => {
   await page.goto('/learning/setup')
   await page.getByRole('button', { name: '数学 I・A' }).click()
 
-  const select = page.locator('#textbook-unit')
-  await expect(select.locator('option')).toContainText(['集合と命題：集合', '集合と命題：命題', '集合と命題：証明'])
-  await select.selectOption({ label: '集合と命題：命題' })
+  const chapter = page.locator('#textbook-chapter')
+  await expect(chapter.locator('option')).toContainText(['集合と命題', '場合の数と確率'])
+  await chapter.selectOption({ label: '集合と命題' })
+
+  const lesson = page.locator('#textbook-lesson')
+  await expect(lesson.locator('option')).toContainText(['集合', '命題', '証明'])
+  await lesson.selectOption({ label: '命題' })
   await page.getByTestId('start-learning').click()
 
-  await expect(page).toHaveURL(/math-1a-sets-propositions\?section=sec-propositions/)
+  await expect(page).toHaveURL(/math-1a-sets-propositions\?target=math-sets-propositions-sec-propositions/)
   await expect(page.getByRole('heading', { name: '集合と命題：命題' })).toBeVisible()
   await expect(page.getByRole('button', { name: /2\.1 命題と真偽/ })).toBeVisible()
   await expect(page.getByRole('button', { name: /2\.2 条件と集合・反例/ })).toBeVisible()
@@ -27,7 +31,30 @@ test('setup selects a textbook section and opens only that section content', asy
   await page.getByRole('button', { name: /2\.2 条件と集合・反例/ }).click()
   await expect(page.getByRole('heading', { name: '2.2 条件と集合・反例' })).toBeVisible()
   await expect(page.getByRole('heading', { name: '2.1 命題と真偽' })).toHaveCount(0)
-  await expect(page.getByRole('heading', { name: '1.1 集合と要素' })).toHaveCount(0)
+})
+
+test('setup groups physics into units and 1A/1B/1C learning items', async ({ page }) => {
+  await page.goto('/learning/setup')
+
+  const chapter = page.locator('#textbook-chapter')
+  await expect(chapter.locator('option')).toContainText([
+    '運動の表し方',
+    '剛体にはたらく力',
+    '運動量と衝突',
+    '円運動と単振動',
+    '万有引力と天体運動',
+  ])
+  await chapter.selectOption({ label: '運動の表し方' })
+
+  const lesson = page.locator('#textbook-lesson')
+  await expect(lesson.locator('option')).toContainText(['1A 変位と速度', '1B 速度の合成と分解', '1C 相対速度'])
+  await lesson.selectOption({ label: '1B 速度の合成と分解' })
+  await page.getByTestId('start-learning').click()
+
+  await expect(page).toHaveURL(/physics-1b-velocity-composition-decomposition\?target=physics-1b-velocity-composition-decomposition/)
+  await expect(page.getByRole('heading', { name: '運動の表し方：1B 速度の合成と分解' })).toBeVisible()
+  await expect(page.getByRole('button', { name: /1B\.1 知識点チェック/ })).toBeVisible()
+  await expect(page.getByRole('button', { name: /1B\.2 図の読み取り/ })).toBeVisible()
 })
 
 test('textbook mode keeps all subsections visible from the start', async ({ page }) => {
