@@ -63,6 +63,7 @@ const AUTHORING_PREFIXES = [
   '誘導の強さ',
   '空欄の役割',
   '対象範囲',
+  '使い方',
 ]
 
 const NOTE_PREFIXES = [
