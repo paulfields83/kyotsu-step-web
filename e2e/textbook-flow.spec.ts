@@ -6,6 +6,23 @@ test.beforeEach(async ({ page }) => {
   await page.reload()
 })
 
+
+test('setup selects a textbook section and opens only that section content', async ({ page }) => {
+  await page.goto('/learning/setup')
+  await page.getByRole('button', { name: '数学 I・A' }).click()
+
+  const select = page.locator('#textbook-unit')
+  await expect(select.locator('option')).toContainText(['集合と命題：集合', '集合と命題：命題', '集合と命題：証明'])
+  await select.selectOption({ label: '集合と命題：命題' })
+  await page.getByTestId('start-learning').click()
+
+  await expect(page).toHaveURL(/math-1a-sets-propositions\?section=sec-propositions/)
+  await expect(page.getByRole('heading', { name: '集合と命題：命題' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '2.1 命題と真偽' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '2.2 条件と集合・反例' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '1.1 集合と要素' })).toHaveCount(0)
+})
+
 test('textbook mode keeps all subsections visible from the start', async ({ page }) => {
   await page.goto('/learning/setup')
   await page.getByTestId('start-learning').click()
