@@ -22,7 +22,7 @@ export function AnalysisPage() {
   const catalog = useMemo(() => getQuestionCatalog(customQuestions, language), [customQuestions, language])
   const analytics = useMemo(() => buildAnalytics(learningSessions, learningAttempts, simulationAttempts, catalog), [catalog, learningAttempts, learningSessions, simulationAttempts])
 
-  if (!analytics.totalSessions) return <div className="page-stack"><header className="page-hero"><p className="eyebrow">ANALYSIS</p><h1>{text('分析', '分析')}</h1><p>{text('知識と解き方を分け、保存された学習結果から更新します。', '把知识掌握与解题方法分开，根据已保存的学习结果持续更新。')}</p></header><EmptyState title={text('分析できる記録がありません', '还没有可分析的记录')} body={text('学習を 1 回完了するか、模擬テストを提出すると、ここに実測値が表示されます。', '完成一次学习或提交一次模拟测试后，这里会显示实际数据。')} action={<Link className="raised-link" to="/practice">{text('学習を始める', '开始学习')}</Link>} /></div>
+  if (!analytics.totalSessions) return <div className="page-stack"><header className="page-hero"><p className="eyebrow">ANALYSIS</p><h1>{text('分析', '分析')}</h1><p>{text('知識と解き方を分け、保存された学習結果から更新します。', '把知识掌握与解题方法分开，根据已保存的学习结果持续更新。')}</p></header><EmptyState title={text('分析できる記録がありません', '还没有可分析的记录')} body={text('学習を 1 回完了するか、模擬テストを提出すると、ここに実測値が表示されます。', '完成一次学习或提交一次模拟测试后，这里会显示实际数据。')} action={<Link className="raised-link" to="/learning/setup">{text('学習を始める', '开始学习')}</Link>} /></div>
 
   return (
     <div className="page-stack">
