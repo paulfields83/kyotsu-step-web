@@ -1,7 +1,7 @@
 import { InlineMath } from 'react-katex'
 import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
@@ -270,6 +270,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
 export function TextbookUnitPage() {
   const { unitId = '' } = useParams()
+  const [searchParams] = useSearchParams()
+  const requestedSectionId = searchParams.get('section')
   const [unit, setUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0)
   const progress = useAppStore((state) => state.textbookProgress[unitId])
@@ -287,8 +289,15 @@ export function TextbookUnitPage() {
   }, [unitId])
 
   useEffect(() => {
-    setSelectedSectionIndex(0)
-  }, [unitId])
+    if (!unit) {
+      setSelectedSectionIndex(0)
+      return
+    }
+    const requestedIndex = requestedSectionId
+      ? unit.sections.findIndex((section) => section.id === requestedSectionId)
+      : -1
+    setSelectedSectionIndex(requestedIndex >= 0 ? requestedIndex : 0)
+  }, [requestedSectionId, unit, unitId])
 
   if (unit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
   if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
@@ -296,6 +305,7 @@ export function TextbookUnitPage() {
   const summary = textbookUnitProgress(unit, progress)
   const currentSection = unit.sections[selectedSectionIndex]
   const sectionSummary = textbookSectionProgress(unit, progress, currentSection.id)
+  const focusedSection = Boolean(requestedSectionId && currentSection.id === requestedSectionId)
   const sectionComplete = sectionSummary.completed === sectionSummary.total
   const unitComplete = summary.completed === summary.total
   const goNext = () => {
@@ -314,31 +324,39 @@ export function TextbookUnitPage() {
         <StatusBadge>{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
       </header>
 
-      <ProgressBar label={text('単元の進み具合', '单元进度')} value={summary.completed} max={summary.total} />
+      <ProgressBar
+        label={focusedSection ? text('この小単元の進み具合', '本小单元进度') : text('単元の進み具合', '单元进度')}
+        value={focusedSection ? sectionSummary.completed : summary.completed}
+        max={focusedSection ? sectionSummary.total : summary.total}
+      />
 
-      <section className="textbook-objectives">
-        <strong>{text('この単元で確認すること', '本单元确认内容')}</strong>
-        <ol>{unit.objectives.map((objective) => <li key={objective}>{objective}</li>)}</ol>
-      </section>
+      {!focusedSection && (
+        <section className="textbook-objectives">
+          <strong>{text('この単元で確認すること', '本单元确认内容')}</strong>
+          <ol>{unit.objectives.map((objective) => <li key={objective}>{objective}</li>)}</ol>
+        </section>
+      )}
 
-      <nav className="textbook-section-nav" aria-label={text('教材の章', '教材章节')}>
-        {unit.sections.map((section, index) => {
-          const sectionProgress = textbookSectionProgress(unit, progress, section.id)
-          const complete = sectionProgress.completed === sectionProgress.total
-          return (
-            <button
-              type="button"
-              key={section.id}
-              aria-pressed={selectedSectionIndex === index}
-              onClick={() => setSelectedSectionIndex(index)}
-            >
-              <span>{complete ? <Check size={16} aria-hidden="true" /> : section.number}</span>
-              <strong>{section.title}</strong>
-              <small>{sectionProgress.completed}/{sectionProgress.total}</small>
-            </button>
-          )
-        })}
-      </nav>
+      {!focusedSection && (
+        <nav className="textbook-section-nav" aria-label={text('教材の章', '教材章节')}>
+          {unit.sections.map((section, index) => {
+            const sectionProgress = textbookSectionProgress(unit, progress, section.id)
+            const complete = sectionProgress.completed === sectionProgress.total
+            return (
+              <button
+                type="button"
+                key={section.id}
+                aria-pressed={selectedSectionIndex === index}
+                onClick={() => setSelectedSectionIndex(index)}
+              >
+                <span>{complete ? <Check size={16} aria-hidden="true" /> : section.number}</span>
+                <strong>{section.title}</strong>
+                <small>{sectionProgress.completed}/{sectionProgress.total}</small>
+              </button>
+            )
+          })}
+        </nav>
+      )}
 
       <section className="textbook-section">
         <header className="textbook-section-heading">
@@ -350,7 +368,7 @@ export function TextbookUnitPage() {
           ? <TextbookReadingFlow unit={unit} section={currentSection} progress={progress} />
           : null}
 
-        {sectionComplete && !unitComplete && selectedSectionIndex < unit.sections.length - 1 && (
+        {!focusedSection && sectionComplete && !unitComplete && selectedSectionIndex < unit.sections.length - 1 && (
           <div className="textbook-next-panel">
             <Check size={22} aria-hidden="true" />
             <div><strong>{text('この章は完了しました', '本章已完成')}</strong><small>{text('次の章へ進めます。', '可以继续下一章。')}</small></div>
