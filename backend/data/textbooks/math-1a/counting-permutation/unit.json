@@ -2,9 +2,9 @@
   "schemaVersion": "1.0",
   "unitId": "math-1a-counting-permutation",
   "revision": 1,
-  "status": "published",
+  "status": "draft",
   "subject": "math-1a",
-  "title": "数学A 場合の数と順列・組合せ",
+  "title": "数学A 場合の数と順列・組合せ（旧版）",
   "subtitle": "第1章「場合の数と確率」第1節・第2節",
   "source": {
     "type": "reference",
