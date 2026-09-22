@@ -26,8 +26,8 @@ function getBackTarget(pathname: string): BackTarget | null {
 
   if (/^\/analysis\//.test(pathname)) return { to: '/analysis', jaLabel: '分析へ戻る', zhLabel: '返回分析' }
   if (pathname === '/mistakes') return { to: '/analysis', jaLabel: '分析へ戻る', zhLabel: '返回分析' }
-  if (pathname === '/history') return { to: '/profile', jaLabel: 'マイページへ戻る', zhLabel: '返回我的' }
-  if (pathname === '/admin') return { to: '/profile', jaLabel: 'マイページへ戻る', zhLabel: '返回我的' }
+  if (pathname === '/history') return { to: '/profile', jaLabel: '設定へ戻る', zhLabel: '返回设置' }
+  if (pathname === '/admin') return { to: '/profile', jaLabel: '設定へ戻る', zhLabel: '返回设置' }
 
   return { to: '/problems', jaLabel: '問題へ戻る', zhLabel: '返回题目' }
 }
@@ -39,11 +39,12 @@ export function AppShell() {
   const isFocusRoute = /\/(learning|simulation)\/session\//.test(location.pathname) || /^\/learning\/textbook\//.test(location.pathname)
   const backTarget = getBackTarget(location.pathname)
   const previousPath = useRef(location.pathname)
+  const showRankingNavigation = false
   const navigation = [
     { to: '/problems', label: text('問題', '题目'), icon: ListChecks },
     { to: '/analysis', label: text('分析', '分析'), icon: BarChart3 },
-    { to: '/ranking', label: text('ランキング', '排行榜'), icon: Trophy },
-    { to: '/profile', label: text('マイページ', '我的'), icon: CircleUserRound },
+    ...(showRankingNavigation ? [{ to: '/ranking', label: text('ランキング', '排行榜'), icon: Trophy }] : []),
+    { to: '/profile', label: text('設定', '设置'), icon: CircleUserRound },
   ]
 
   useEffect(() => {
