@@ -103,6 +103,15 @@ const server = createServer(async (request, response) => {
     return sendJson(request, response, 200, {
       ok: true,
       publishedTextbooks: loadedTextbookUnits.filter(({ unit }) => unit.status === 'published').length,
+      mathTextbooks: loadedTextbookUnits
+        .filter(({ unit }) => unit.status === 'published' && unit.subject === 'math-1a')
+        .map(({ unit }) => ({
+          unitId: unit.unitId,
+          title: unit.title,
+          sections: unit.sections.length,
+          items: unit.sections.reduce((total, section) => total + section.items.length, 0),
+          figures: unit.sections.reduce((total, section) => total + section.figures.length, 0),
+        })),
       textbookImportWarnings: textbookImportDiagnostics,
     })
   }
