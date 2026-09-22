@@ -1,0 +1,660 @@
+{
+  "unitId": "math-1a-numbers-expressions",
+  "answers": {
+    "math-1a-numbers-expressions-s1-main-b001": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b002": {
+      "validator": "number",
+      "answer": "−2",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b003": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b004": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b005": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b006": {
+      "validator": "normalized-text",
+      "answer": "5y",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b007": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b008": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b009": {
+      "validator": "number",
+      "answer": "−3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b010": {
+      "validator": "normalized-text",
+      "answer": "項",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b011": {
+      "validator": "normalized-text",
+      "answer": "定数項",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b012": {
+      "validator": "normalized-text",
+      "answer": "2次式",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b013": {
+      "validator": "normalized-text",
+      "answer": "ab",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b014": {
+      "validator": "normalized-text",
+      "answer": "4次式",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b015": {
+      "validator": "normalized-text",
+      "answer": "2次式",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b016": {
+      "validator": "normalized-text",
+      "answer": "−2x²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b017": {
+      "validator": "normalized-text",
+      "answer": "降べきの順",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b018": {
+      "validator": "normalized-text",
+      "answer": "昇べきの順",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b019": {
+      "validator": "normalized-text",
+      "answer": "−2x²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b020": {
+      "validator": "normalized-text",
+      "answer": "−3x",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b021": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b022": {
+      "validator": "normalized-text",
+      "answer": "−2x²−3x+3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b023": {
+      "validator": "number",
+      "answer": "−1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b024": {
+      "validator": "normalized-text",
+      "answer": "5x²+4x+3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b025": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b026": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b027": {
+      "validator": "number",
+      "answer": "−5",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b028": {
+      "validator": "normalized-text",
+      "answer": "x²−5",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b029": {
+      "validator": "normalized-text",
+      "answer": "足す",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b030": {
+      "validator": "normalized-text",
+      "answer": "掛ける",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b031": {
+      "validator": "number",
+      "answer": "−10",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b032": {
+      "validator": "number",
+      "answer": "7",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b033": {
+      "validator": "normalized-text",
+      "answer": "−10x⁷y³",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b034": {
+      "validator": "normalized-text",
+      "answer": "すべての項",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b035": {
+      "validator": "normalized-text",
+      "answer": "x⁴−3x³+4x²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b036": {
+      "validator": "normalized-text",
+      "answer": "x²+7x+10",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b037": {
+      "validator": "normalized-text",
+      "answer": "2ab",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b038": {
+      "validator": "normalized-text",
+      "answer": "2ab",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b039": {
+      "validator": "normalized-text",
+      "answer": "b²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b040": {
+      "validator": "normalized-text",
+      "answer": "25x²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b041": {
+      "validator": "normalized-text",
+      "answer": "40xy",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b042": {
+      "validator": "normalized-text",
+      "answer": "25x²+40xy+16y²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b043": {
+      "validator": "normalized-text",
+      "answer": "4y²−12y+9",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b044": {
+      "validator": "normalized-text",
+      "answer": "x²−4y²+12y−9",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b045": {
+      "validator": "normalized-text",
+      "answer": "くくり出す",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b046": {
+      "validator": "normalized-text",
+      "answer": "(4x+3y)²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b047": {
+      "validator": "normalized-text",
+      "answer": "−3b と −8b",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b048": {
+      "validator": "normalized-text",
+      "answer": "(x−3b)(x−8b)",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b049": {
+      "validator": "normalized-text",
+      "answer": "たすき掛け",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b050": {
+      "validator": "normalized-text",
+      "answer": "(4x+3)(x+1)",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b051": {
+      "validator": "normalized-text",
+      "answer": "(4x+3y)(3x−2y)",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b052": {
+      "validator": "normalized-text",
+      "answer": "(x+2y−3)(x+2y+2)",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b053": {
+      "validator": "normalized-text",
+      "answer": "a²−ab+b²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b054": {
+      "validator": "normalized-text",
+      "answer": "a²+ab+b²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b055": {
+      "validator": "normalized-text",
+      "answer": "(x−5)(x²+5x+25)",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b056": {
+      "validator": "normalized-text",
+      "answer": "x⁴−4x³+5x²−4x+1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b057": {
+      "validator": "normalized-text",
+      "answer": "目的の係数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b058": {
+      "validator": "normalized-text",
+      "answer": "2bc",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b059": {
+      "validator": "normalized-text",
+      "answer": "2ca",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b060": {
+      "validator": "normalized-text",
+      "answer": "x⁴+10x³+35x²+50x+24",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b061": {
+      "validator": "normalized-text",
+      "answer": "(a²+(b+c)a+bc)",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b062": {
+      "validator": "normalized-text",
+      "answer": "(a+b)(a+c)",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b063": {
+      "validator": "normalized-text",
+      "answer": "3a²b",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b064": {
+      "validator": "normalized-text",
+      "answer": "3ab²",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b065": {
+      "validator": "normalized-text",
+      "answer": "共通因数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s1-main-b066": {
+      "validator": "normalized-text",
+      "answer": "検出できる",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b001": {
+      "validator": "normalized-text",
+      "answer": "有理数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b002": {
+      "validator": "normalized-text",
+      "answer": "無理数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b003": {
+      "validator": "normalized-text",
+      "answer": "循環小数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b004": {
+      "validator": "normalized-text",
+      "answer": "69/99",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b005": {
+      "validator": "normalized-text",
+      "answer": "23/33",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b006": {
+      "validator": "normalized-text",
+      "answer": "実数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b007": {
+      "validator": "normalized-text",
+      "answer": "距離",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b008": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b009": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b010": {
+      "validator": "normalized-text",
+      "answer": "0以上",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b011": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b012": {
+      "validator": "normalized-text",
+      "answer": "√10−3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b013": {
+      "validator": "normalized-text",
+      "answer": "√(ab)",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b014": {
+      "validator": "normalized-text",
+      "answer": "2√3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b015": {
+      "validator": "normalized-text",
+      "answer": "7√2",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b016": {
+      "validator": "normalized-text",
+      "answer": "有理数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b017": {
+      "validator": "normalized-text",
+      "answer": "共役な式",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b018": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b019": {
+      "validator": "normalized-text",
+      "answer": "(√5−√2)/3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b020": {
+      "validator": "normalized-text",
+      "answer": "基本対称式",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b021": {
+      "validator": "normalized-text",
+      "answer": "2xy",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b022": {
+      "validator": "normalized-text",
+      "answer": "3xy(x+y)",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b023": {
+      "validator": "number",
+      "answer": "18",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b024": {
+      "validator": "normalized-text",
+      "answer": "√2+√3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b025": {
+      "validator": "normalized-text",
+      "answer": "2と5だけ",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b026": {
+      "validator": "normalized-text",
+      "answer": "循環小数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b027": {
+      "validator": "normalized-text",
+      "answer": "8, −2",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b028": {
+      "validator": "normalized-text",
+      "answer": "5−2√6",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b029": {
+      "validator": "number",
+      "answer": "40",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b030": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s2-main-b031": {
+      "validator": "normalized-text",
+      "answer": "√3−1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b001": {
+      "validator": "normalized-text",
+      "answer": "変わらない",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b002": {
+      "validator": "normalized-text",
+      "answer": ">",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b003": {
+      "validator": "normalized-text",
+      "answer": "逆向き",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b004": {
+      "validator": "normalized-text",
+      "answer": "2/3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b005": {
+      "validator": "normalized-text",
+      "answer": "≧",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b006": {
+      "validator": "normalized-text",
+      "answer": "共通部分",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b007": {
+      "validator": "normalized-text",
+      "answer": "−2<x≦3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b008": {
+      "validator": "normalized-text",
+      "answer": "整数条件",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b009": {
+      "validator": "normalized-text",
+      "answer": "整数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b010": {
+      "validator": "normalized-text",
+      "answer": "±a",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b011": {
+      "validator": "normalized-text",
+      "answer": "0からの距離",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b012": {
+      "validator": "normalized-text",
+      "answer": "5, −3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b013": {
+      "validator": "normalized-text",
+      "answer": "−7<x<3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b014": {
+      "validator": "normalized-text",
+      "answer": "場合分け",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b015": {
+      "validator": "normalized-text",
+      "answer": "満たすか確認",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b016": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b017": {
+      "validator": "number",
+      "answer": "−1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b018": {
+      "validator": "normalized-text",
+      "answer": "x=1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b019": {
+      "validator": "normalized-text",
+      "answer": "逆向き",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b020": {
+      "validator": "number",
+      "answer": "−2",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b021": {
+      "validator": "normalized-text",
+      "answer": "−2≦x<3",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b022": {
+      "validator": "number",
+      "answer": "−1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b023": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b024": {
+      "validator": "normalized-text",
+      "answer": "1/a",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-main-b025": {
+      "validator": "normalized-text",
+      "answer": "すべての実数",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-end-b001": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-end-b002": {
+      "validator": "normalized-text",
+      "answer": "−4<−b≦−1",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-end-b003": {
+      "validator": "normalized-text",
+      "answer": "−1≦a+b<7",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-end-b004": {
+      "validator": "normalized-text",
+      "answer": "食塩の量",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-end-b005": {
+      "validator": "normalized-text",
+      "answer": "53/9",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-end-b006": {
+      "validator": "normalized-text",
+      "answer": "38/9",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-end-b007": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-end-b008": {
+      "validator": "normalized-text",
+      "answer": "68個",
+      "acceptedAnswers": []
+    },
+    "math-1a-numbers-expressions-s3-end-b009": {
+      "validator": "normalized-text",
+      "answer": "14票",
+      "acceptedAnswers": []
+    }
+  }
+}

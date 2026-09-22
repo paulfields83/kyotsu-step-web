@@ -1,0 +1,2139 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-data-analysis",
+  "revision": 1,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "数学I データの分析",
+  "source": {
+    "type": "reference",
+    "label": "塾 数学I 第5章「データの分析」教科書学習モード完全版",
+    "rightsNote": "ユーザー提供の学習モードWord母本をもとに、静的なバックエンド教材データへ構造化。"
+  },
+  "objectives": [
+    "「データの分析」の考え方を、本文と空欄を通して一段ずつ確認する。"
+  ],
+  "sections": [
+    {
+      "id": "s1-data-analysis",
+      "number": "1",
+      "title": "データの分析",
+      "description": "データの分析を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-data-analysis-topic-01",
+          "type": "topic",
+          "text": "1.1 度数分布表とヒストグラム"
+        },
+        {
+          "id": "s1-data-analysis-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「何を比較したいか → 中心/散らばり/相関の指標を選ぶ → 計算/図示 → 文脈に戻って解釈」の順で進む。"
+        },
+        {
+          "id": "s1-data-analysis-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "データを「代表値だけ」で見るのではなく、分布・散らばり・2変量の関係・探究プロセスまで含めて読む。計算後に必ず意味を言葉へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "データの値を区間に分けたものを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "、区間の幅を階級の幅、中央の値を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "各階級に入るデータ数が度数。度数/全体の個数が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。最初から累計したものが累積度数・累積相対度数。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　度数分布表を読む"
+        },
+        {
+          "id": "s1-data-analysis-t01-n006",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-data-analysis-t01-n007",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-data-analysis-t01-h008",
+          "type": "heading",
+          "text": "問題文　ある階級の度数6、全体30。"
+        },
+        {
+          "id": "s1-data-analysis-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　相対度数=6/30="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "。累積度数はその階級までの度数を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t01-n010",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-data-analysis-topic-02",
+          "type": "topic",
+          "text": "1.2 代表値：平均値・中央値・最頻値"
+        },
+        {
+          "id": "s1-data-analysis-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平均値=データの合計/個数。並べたとき中央にくる値が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "、最も多く現れる値が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "個数が偶数なら中央値は中央2個の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　12か月のデータ"
+        },
+        {
+          "id": "s1-data-analysis-t02-n004",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t02-n005",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t02-h006",
+          "type": "heading",
+          "text": "問題文　12個の値を小さい順に並べる。"
+        },
+        {
+          "id": "s1-data-analysis-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　中央値は6番目と7番目の平均。最頻値は同じ値の出現回数を数えて決める。平均・中央値・最頻値が一致するとは限らない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t02-n008",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-topic-03",
+          "type": "topic",
+          "text": "1.3 仮平均"
+        },
+        {
+          "id": "s1-data-analysis-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "値が170前後に集まるなら、各値から170を引いた差を平均して最後に170を足す。これを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b009"
+            },
+            {
+              "type": "text",
+              "text": " を使う方法という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平均(x−170)=平均x−170 なので計算が簡単になる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-topic-04",
+          "type": "topic",
+          "text": "1.4 範囲・四分位数"
+        },
+        {
+          "id": "s1-data-analysis-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最大値−最小値を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b010"
+            },
+            {
+              "type": "text",
+              "text": "。データを小さい順に並べ、中央値 Q2、下半分の中央値 Q1、上半分の中央値 Q3 を四分位数という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "Q3−Q1 を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b011"
+            },
+            {
+              "type": "text",
+              "text": " といい、中央50%の散らばりを見る。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　箱ひげ図"
+        },
+        {
+          "id": "s1-data-analysis-t04-n004",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t04-n005",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s1-data-analysis-t04-h006",
+          "type": "heading",
+          "text": "問題文　最小値, Q1, Q2, Q3, 最大値を求める。"
+        },
+        {
+          "id": "s1-data-analysis-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　箱は Q1 から Q3、箱の中の線が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "。ひげは最小・最大まで伸ばす。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t04-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　箱の位置と長さから、中心と散らばりを比較する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t04-n009",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        },
+        {
+          "id": "s1-data-analysis-topic-05",
+          "type": "topic",
+          "text": "1.5 偏差・分散・標準偏差"
+        },
+        {
+          "id": "s1-data-analysis-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "各データ−平均値を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b013"
+            },
+            {
+              "type": "text",
+              "text": " という。偏差の合計は0になるため、散らばりには偏差の2乗を使う。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "偏差平方の平均が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "、分散の正の平方根が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。標準偏差は元データと同じ単位で読める。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t05-h003",
+          "type": "heading",
+          "text": "教科書対応問　分散を求める"
+        },
+        {
+          "id": "s1-data-analysis-t05-n004",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t05-n005",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t05-h006",
+          "type": "heading",
+          "text": "問題文　データ x1,…,xn、平均 x̄。"
+        },
+        {
+          "id": "s1-data-analysis-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分散 = "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b016"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t05-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　計算後、値が大きいほど平均からの散らばりが "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t05-n009",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-topic-06",
+          "type": "topic",
+          "text": "1.6 データ変換と平均・分散"
+        },
+        {
+          "id": "s1-data-analysis-t06-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "y=ax+b と変換すると平均は ȳ=a x̄+b。分散は b の影響を受けず、a² 倍。標準偏差は |a| 倍。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t06-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全データに同じ数を足しても "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b018"
+            },
+            {
+              "type": "text",
+              "text": " は変わらない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-topic-07",
+          "type": "topic",
+          "text": "1.7 散布図と相関"
+        },
+        {
+          "id": "s1-data-analysis-t07-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2つの変量を点 (x,y) で表した図が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b019"
+            },
+            {
+              "type": "text",
+              "text": "。右上がりなら正の相関、右下がりなら負の相関。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t07-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点が直線の周りに強く集まるほど相関が強い。相関があっても "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b020"
+            },
+            {
+              "type": "text",
+              "text": " があるとは限らない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-topic-08",
+          "type": "topic",
+          "text": "1.8 共分散と相関係数"
+        },
+        {
+          "id": "s1-data-analysis-t08-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "共分散は (x−x̄)(y−ȳ) の平均。x,y が同じ向きにずれることが多いと "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t08-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "相関係数 r=共分散/(sx sy)。−1≦r≦1。|r| が1に近いほど直線的関係が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b022"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t08-h003",
+          "type": "heading",
+          "text": "教科書対応問　相関係数を読む"
+        },
+        {
+          "id": "s1-data-analysis-t08-n004",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t08-n005",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t08-h006",
+          "type": "heading",
+          "text": "問題文　r=0.85 と r=−0.85。"
+        },
+        {
+          "id": "s1-data-analysis-t08-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　強さは |r| が同じなのでほぼ同程度。符号は向きだけを表し、0.85 は強い "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b023"
+            },
+            {
+              "type": "text",
+              "text": "、−0.85 は強い "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b024"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t08-n008",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-topic-09",
+          "type": "topic",
+          "text": "1.9 統計的探究プロセス"
+        },
+        {
+          "id": "s1-data-analysis-t09-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "問題の発見→問題設定→データ収集→分析→結論・解釈→次の問題へ、という循環で進める。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t09-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最初から計算方法を決めず、何を知りたいかに合うデータを集めることが重要。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t09-h003",
+          "type": "heading",
+          "text": "教科書対応問　調査計画"
+        },
+        {
+          "id": "s1-data-analysis-t09-n004",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t09-n005",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t09-h006",
+          "type": "heading",
+          "text": "問題文　「睡眠時間とテスト得点に関係があるか」を調べる。"
+        },
+        {
+          "id": "s1-data-analysis-t09-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　必要な2変量を同じ生徒から集め、散布図を作る。必要なら相関係数を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t09-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　ただし相関が出ても、睡眠以外の要因を考えず「睡眠が得点を上げた」と "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b025"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t09-n009",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-topic-10",
+          "type": "topic",
+          "text": "1.10 外れ値と代表値の読み方"
+        },
+        {
+          "id": "s1-data-analysis-t10-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全体の傾向から大きく離れた値を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b026"
+            },
+            {
+              "type": "text",
+              "text": " という。外れ値があると平均値や相関係数は強く影響を受けることがある。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t10-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "外れ値を見つけても自動的に削除しない。測定ミスなのか、意味のある特殊事例なのかを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b027"
+            },
+            {
+              "type": "text",
+              "text": " する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t10-h003",
+          "type": "heading",
+          "text": "教科書対応問　平均と中央値は外れ値にどう反応するか"
+        },
+        {
+          "id": "s1-data-analysis-t10-n004",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t10-n005",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t10-h006",
+          "type": "heading",
+          "text": "問題文　10,11,12,13,100 のようなデータを考える。"
+        },
+        {
+          "id": "s1-data-analysis-t10-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　中央値は中央の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b028"
+            },
+            {
+              "type": "text",
+              "text": " だが、平均値は大きな100に引っ張られて大きくなる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t10-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　外れ値がある集団では、中心を表す値として中央値の方が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b029"
+            },
+            {
+              "type": "text",
+              "text": " な場合がある。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t10-n009",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-topic-11",
+          "type": "topic",
+          "text": "1.11 分割表（クロス集計表）"
+        },
+        {
+          "id": "s1-data-analysis-t11-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2つのカテゴリ変量を組み合わせ、人数や割合を表にしたものを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b030"
+            },
+            {
+              "type": "text",
+              "text": " という。行・列の合計だけでなく、条件付きの割合を比べる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t11-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "人数の多い群どうしを生の人数で比べると誤解しやすいので、「その群の中で何％か」という "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b031"
+            },
+            {
+              "type": "text",
+              "text": " に直す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t11-h003",
+          "type": "heading",
+          "text": "教科書対応問　対策本の利用と合格"
+        },
+        {
+          "id": "s1-data-analysis-t11-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-data-analysis-t11-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-data-analysis-t11-h006",
+          "type": "heading",
+          "text": "問題文　利用あり10人合格7人、利用なし20人合格10人とする。"
+        },
+        {
+          "id": "s1-data-analysis-t11-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　利用ありの合格率は 7/10="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b032"
+            },
+            {
+              "type": "text",
+              "text": "、利用なしは10/20="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b033"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t11-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　この表だけで「利用すれば必ず合格しやすくなる」と因果関係を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b034"
+            },
+            {
+              "type": "text",
+              "text": "。他の背景要因もあり得る。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t11-n009",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-data-analysis-topic-12",
+          "type": "topic",
+          "text": "1.12 仮説検定の考え方"
+        },
+        {
+          "id": "s1-data-analysis-t12-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "主張したい仮説に反する「偶然だけで説明できる」仮説を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b035"
+            },
+            {
+              "type": "text",
+              "text": " として置き、その仮説のもとで観測結果以上に極端な結果が起こる割合を調べる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t12-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "その割合が十分小さければ帰無仮説を棄却し、対立仮説を支持する。教科書では判断基準として "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b036"
+            },
+            {
+              "type": "text",
+              "text": " を使う例がある。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t12-h003",
+          "type": "heading",
+          "text": "教科書対応問　さいころの1の目が出やすいか"
+        },
+        {
+          "id": "s1-data-analysis-t12-n004",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t12-n005",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s1-data-analysis-t12-h006",
+          "type": "heading",
+          "text": "問題文　同じさいころを多数回投げ、1が通常より多く出た。"
+        },
+        {
+          "id": "s1-data-analysis-t12-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　まず「各目に偏りがない」を帰無仮説にする。そのもとで観測回数以上に1が出る割合を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t12-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　割合が5%未満なら「偶然だけでは起こりにくい」と判断し、偏りがあるという主張を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b037"
+            },
+            {
+              "type": "text",
+              "text": "。5%以上なら偏りがあるとは判断しない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t12-n009",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t12-h010",
+          "type": "heading",
+          "text": "教科書対応問　仮平均で平均値を計算"
+        },
+        {
+          "id": "s1-data-analysis-t12-n011",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t12-n012",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t12-h013",
+          "type": "heading",
+          "text": "問題文　173,169,163,174,170 の平均を仮平均170で求める。"
+        },
+        {
+          "id": "s1-data-analysis-t12-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　170との差は 3,−1,−7,4,0。差の平均は (3−1−7+4+0)/5="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b038"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t12-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　平均=170−0.2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b039"
+            },
+            {
+              "type": "text",
+              "text": "。大きい数を直接全部足さずに済む。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t12-n016",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t12-h017",
+          "type": "heading",
+          "text": "教科書対応問　変量を加法変換したときの分散"
+        },
+        {
+          "id": "s1-data-analysis-t12-n018",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t12-n019",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t12-h020",
+          "type": "heading",
+          "text": "問題文　すべてのデータに2を足す。"
+        },
+        {
+          "id": "s1-data-analysis-t12-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　平均は2増えるが各値と平均の差は変わらない。したがって分散・標準偏差は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b040"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t12-n022",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t12-h023",
+          "type": "heading",
+          "text": "教科書対応問　変量を2倍したとき"
+        },
+        {
+          "id": "s1-data-analysis-t12-n024",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t12-n025",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t12-h026",
+          "type": "heading",
+          "text": "問題文　すべてのデータを2倍する。"
+        },
+        {
+          "id": "s1-data-analysis-t12-p027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　偏差も2倍、偏差平方は4倍なので分散は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b041"
+            },
+            {
+              "type": "text",
+              "text": "、標準偏差は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b042"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t12-n028",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t12-h029",
+          "type": "heading",
+          "text": "教科書対応問　相関係数と外れ値"
+        },
+        {
+          "id": "s1-data-analysis-t12-n030",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t12-n031",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t12-h032",
+          "type": "heading",
+          "text": "問題文　散布図に1点だけ大きく外れた値がある。"
+        },
+        {
+          "id": "s1-data-analysis-t12-p033",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　相関係数はその1点に影響されるため、係数だけで判断せず "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-main-b043"
+            },
+            {
+              "type": "text",
+              "text": " を必ず確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t12-n034",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-topic-13",
+          "type": "topic",
+          "text": "1.13 章末問題・思考力"
+        },
+        {
+          "id": "s1-data-analysis-t13-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "表・箱ひげ図・散布図・平均分散を組み合わせて読む。計算値の大小だけでなく、どの集団がどんな特徴をもつかを文章にする。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　2集団の比較"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n004",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-n005",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s1-data-analysis-t13-h006",
+          "type": "heading",
+          "text": "問題文　平均が同じ2集団を比較する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　平均だけでは区別できないので、標準偏差・四分位範囲・箱ひげ図を見る。散らばりが小さい方が値は平均付近に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n008",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　変量変換"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n010",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t13-n011",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t13-h012",
+          "type": "heading",
+          "text": "問題文　x の平均6、分散3。y=2x+1。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　y の平均=2·6+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b002"
+            },
+            {
+              "type": "text",
+              "text": "。y の分散=2²·3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n014",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　データから主張を評価"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n016",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s1-data-analysis-t13-n017",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-h018",
+          "type": "heading",
+          "text": "問題文　グラフの一部だけを切り取った広告など。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　軸の範囲、標本数、割合か実数かを確認し、見た目だけで結論を出さない。どの情報が欠けているかを言葉にする。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n020",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　ヒストグラムと標準偏差を同時に読む"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n022",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t13-n023",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t13-h024",
+          "type": "heading",
+          "text": "問題文　3科目のヒストグラムと標準偏差が与えられる。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p025",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　標準偏差が小さいほど平均付近にデータが "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b004"
+            },
+            {
+              "type": "text",
+              "text": "。ヒストグラムの広がりと対応させて科目を特定する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　中央値は小さい順の中央なので、一部の低得点だけが少し動いても中央順位が変わらなければ "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n027",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　四分位数に関する真偽"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n029",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t13-n030",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t13-h031",
+          "type": "heading",
+          "text": "問題文　199個の観測値では、Q1,中央値,Q3 が何番目に対応するかを考える。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p032",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　小さい順に並べたとき中央値は100番目、Q1は下半分99個の中央値で "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b006"
+            },
+            {
+              "type": "text",
+              "text": "、Q3は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b007"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-p033",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　平均値は順位で決まらないので、Q1とQ3の間に必ずあるとは限らない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n034",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p035",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　2集団を結合した平均と分散"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n036",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t13-n037",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t13-h038",
+          "type": "heading",
+          "text": "問題文　6人の平均7・分散1、4人の平均8・分散2を合わせる。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p039",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　全体平均は加重平均 (7·6+8·4)/10="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-p040",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　分散は各群の分散だけを平均するのではなく、x²の平均 − (全体平均)² へ戻って計算する。群平均の差も散らばりに "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n041",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p042",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　標本の平均から主張を判断"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n043",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t13-n044",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t13-h045",
+          "type": "heading",
+          "text": "問題文　商品の平均重量が200gより重いかを仮説検定の考え方で判断する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p046",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　「平均は200gより重くない」を帰無仮説とし、観測された標本平均以上が起こる割合を資料から読む。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-p047",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　0.05より小さければ帰無仮説を棄却、0.05より大きければ「200gより重い」とは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b010"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n048",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p049",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　偏差値とは"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n050",
+          "type": "note",
+          "text": "読む　まず「中心」「散らばり」「2変量の関係」「判断」のどれを見たいのか決め、目的に合う統計量を選ぶ。"
+        },
+        {
+          "id": "s1-data-analysis-t13-n051",
+          "type": "note",
+          "text": "考える　平均/中央値は中心、四分位範囲・分散・標準偏差は散らばり、散布図・相関係数は2変量の関係。仮説検定は「偶然でも起こり得るか」を考える。"
+        },
+        {
+          "id": "s1-data-analysis-t13-h052",
+          "type": "heading",
+          "text": "問題文　偏差値 = (得点−平均)/標準偏差×10+50。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p053",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　得点が平均と同じなら分子0なので偏差値は常に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b011"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-p054",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　同じ得点・同じ平均でも標準偏差が小さい集団ほど平均との差を標準偏差で割った値が大きくなり、偏差値は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b012"
+            },
+            {
+              "type": "text",
+              "text": " を表す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n055",
+          "type": "note",
+          "text": "最後の確認　単位、データ数、外れ値の影響、相関と因果を混同していないかを最後に確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p056",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　グラフを読み取る"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n057",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s1-data-analysis-t13-n058",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s1-data-analysis-t13-h059",
+          "type": "heading",
+          "text": "問題文　同じデータでも縦軸の開始値・目盛幅で見た目の差が変わる。"
+        },
+        {
+          "id": "s1-data-analysis-t13-p060",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　グラフを見るときは軸の範囲、単位、母数、割合/実数、期間を確認し、「視覚的な差」と "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-data-analysis-s1-end-b013"
+            },
+            {
+              "type": "text",
+              "text": " を分ける。"
+            }
+          ]
+        },
+        {
+          "id": "s1-data-analysis-t13-n061",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-data-analysis-s1-main-b001",
+          "label": "1",
+          "prompt": "度数分布表とヒストグラム 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b002",
+          "label": "2",
+          "prompt": "度数分布表とヒストグラム 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b003",
+          "label": "3",
+          "prompt": "度数分布表とヒストグラム 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b004",
+          "label": "4",
+          "prompt": "度数分布表とヒストグラム 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b005",
+          "label": "5",
+          "prompt": "度数分布表とヒストグラム 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b006",
+          "label": "6",
+          "prompt": "代表値：平均値・中央値・最頻値 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b007",
+          "label": "7",
+          "prompt": "代表値：平均値・中央値・最頻値 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b008",
+          "label": "8",
+          "prompt": "代表値：平均値・中央値・最頻値 【8】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b009",
+          "label": "9",
+          "prompt": "仮平均 【9】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b010",
+          "label": "10",
+          "prompt": "範囲・四分位数 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b011",
+          "label": "11",
+          "prompt": "範囲・四分位数 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b012",
+          "label": "12",
+          "prompt": "範囲・四分位数 【12】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b013",
+          "label": "13",
+          "prompt": "偏差・分散・標準偏差 【13】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b014",
+          "label": "14",
+          "prompt": "偏差・分散・標準偏差 【14】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b015",
+          "label": "15",
+          "prompt": "偏差・分散・標準偏差 【15】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b016",
+          "label": "16",
+          "prompt": "偏差・分散・標準偏差 【16】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b017",
+          "label": "17",
+          "prompt": "偏差・分散・標準偏差 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b018",
+          "label": "18",
+          "prompt": "データ変換と平均・分散 【18】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b019",
+          "label": "19",
+          "prompt": "散布図と相関 【19】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b020",
+          "label": "20",
+          "prompt": "散布図と相関 【20】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b021",
+          "label": "21",
+          "prompt": "共分散と相関係数 【21】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b022",
+          "label": "22",
+          "prompt": "共分散と相関係数 【22】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b023",
+          "label": "23",
+          "prompt": "共分散と相関係数 【23】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b024",
+          "label": "24",
+          "prompt": "共分散と相関係数 【24】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b025",
+          "label": "25",
+          "prompt": "統計的探究プロセス 【25】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b026",
+          "label": "26",
+          "prompt": "外れ値と代表値の読み方 【26】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b027",
+          "label": "27",
+          "prompt": "外れ値と代表値の読み方 【27】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b028",
+          "label": "28",
+          "prompt": "外れ値と代表値の読み方 【28】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b029",
+          "label": "29",
+          "prompt": "外れ値と代表値の読み方 【29】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b030",
+          "label": "30",
+          "prompt": "分割表（クロス集計表） 【30】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b031",
+          "label": "31",
+          "prompt": "分割表（クロス集計表） 【31】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b032",
+          "label": "32",
+          "prompt": "分割表（クロス集計表） 【32】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b033",
+          "label": "33",
+          "prompt": "分割表（クロス集計表） 【33】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b034",
+          "label": "34",
+          "prompt": "分割表（クロス集計表） 【34】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b035",
+          "label": "35",
+          "prompt": "仮説検定の考え方 【35】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b036",
+          "label": "36",
+          "prompt": "仮説検定の考え方 【36】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b037",
+          "label": "37",
+          "prompt": "仮説検定の考え方 【37】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b038",
+          "label": "38",
+          "prompt": "仮説検定の考え方 【38】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b039",
+          "label": "39",
+          "prompt": "仮説検定の考え方 【39】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b040",
+          "label": "40",
+          "prompt": "仮説検定の考え方 【40】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b041",
+          "label": "41",
+          "prompt": "仮説検定の考え方 【41】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b042",
+          "label": "42",
+          "prompt": "仮説検定の考え方 【42】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-main-b043",
+          "label": "43",
+          "prompt": "仮説検定の考え方 【43】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b001",
+          "label": "1",
+          "prompt": "章末問題・思考力 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b002",
+          "label": "2",
+          "prompt": "章末問題・思考力 【2】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b003",
+          "label": "3",
+          "prompt": "章末問題・思考力 【3】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b004",
+          "label": "4",
+          "prompt": "章末問題・思考力 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b005",
+          "label": "5",
+          "prompt": "章末問題・思考力 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b006",
+          "label": "6",
+          "prompt": "章末問題・思考力 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b007",
+          "label": "7",
+          "prompt": "章末問題・思考力 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b008",
+          "label": "8",
+          "prompt": "章末問題・思考力 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b009",
+          "label": "9",
+          "prompt": "章末問題・思考力 【9】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b010",
+          "label": "10",
+          "prompt": "章末問題・思考力 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b011",
+          "label": "11",
+          "prompt": "章末問題・思考力 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b012",
+          "label": "12",
+          "prompt": "章末問題・思考力 【12】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-data-analysis-s1-end-b013",
+          "label": "13",
+          "prompt": "章末問題・思考力 【13】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    }
+  ]
+}

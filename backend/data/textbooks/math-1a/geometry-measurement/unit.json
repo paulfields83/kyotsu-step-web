@@ -1,0 +1,2665 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-geometry-measurement",
+  "revision": 1,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "数学I 図形と計量",
+  "source": {
+    "type": "reference",
+    "label": "塾 数学I 第4章「図形と計量」教科書学習モード完全版",
+    "rightsNote": "ユーザー提供の学習モードWord母本をもとに、静的なバックエンド教材データへ構造化。"
+  },
+  "objectives": [
+    "「鋭角の三角比」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「三角比の拡張」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「正弦定理と余弦定理」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「図形の計量」の考え方を、本文と空欄を通して一段ずつ確認する。"
+  ],
+  "sections": [
+    {
+      "id": "s1-geometry-measurement",
+      "number": "1",
+      "title": "鋭角の三角比",
+      "description": "鋭角の三角比を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-geometry-measurement-topic-01",
+          "type": "topic",
+          "text": "1.1 正弦・余弦・正接"
+        },
+        {
+          "id": "s1-geometry-measurement-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直角三角形で、角を1つ決めたときに辺の比が一定になることから sin・cos・tan を作る。毎回「どの角を基準にしたか」を先に確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直角三角形で鋭角 A を基準にする。sin A=対辺/斜辺、cos A=隣辺/斜辺、tan A=対辺/"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ角 A なら三角形の大きさが変わっても比は同じ。だから三角比は辺の長さではなく "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " で決まる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　3-4-5の直角三角形"
+        },
+        {
+          "id": "s1-geometry-measurement-t01-n006",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t01-n007",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s1-geometry-measurement-t01-h008",
+          "type": "heading",
+          "text": "問題文　斜辺5、Aの対辺3、隣辺4。"
+        },
+        {
+          "id": "s1-geometry-measurement-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　sin A="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "、cos A="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "、tan A="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t01-n010",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-topic-02",
+          "type": "topic",
+          "text": "1.2 三角比の相互関係"
+        },
+        {
+          "id": "s1-geometry-measurement-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "sin²A+cos²A="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "。直角三角形の三平方の定理を斜辺²で割ると得られる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "tan A=sin A/"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　sinからcos,tan"
+        },
+        {
+          "id": "s1-geometry-measurement-t02-n004",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t02-n005",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s1-geometry-measurement-t02-h006",
+          "type": "heading",
+          "text": "問題文　Aは鋭角、sin A=3/5。"
+        },
+        {
+          "id": "s1-geometry-measurement-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　cos A>0 なので cos²A=1−9/25=16/25 → cos A="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t02-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　tan A=(3/5)/(4/5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t02-n009",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-topic-03",
+          "type": "topic",
+          "text": "1.3 三角比の表と角度"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三角比の表を使うときは、求めたいのが sin・cos・tan のどれかを先に決める。例えば tan A≈0.37 なら表の tan 欄で近い値を探し、A≈"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b010"
+            },
+            {
+              "type": "text",
+              "text": " などと読む。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h002",
+          "type": "heading",
+          "text": "教科書対応問　高さを測る"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n003",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n004",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h005",
+          "type": "heading",
+          "text": "問題文　地点から建物の頂点を見る仰角が30°、建物までの水平距離が20m。目の高さを無視。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　高さ h は角30°の対辺、20は隣辺。tan30°=h/20。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　h=20tan30°=20/√3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b011"
+            },
+            {
+              "type": "text",
+              "text": " m。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n008",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h009",
+          "type": "heading",
+          "text": "教科書対応問　三角比の表から値を読む"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n010",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n011",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h012",
+          "type": "heading",
+          "text": "問題文　sin78°, cos9°, tan63° を三角比の表から読む。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　列を取り違えないよう、最初に sin / cos / tan のどれを見るか決める。sin78°≈"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "、cos9°≈"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "、tan63°≈"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n014",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h015",
+          "type": "heading",
+          "text": "教科書対応問　三角比の値から角を読む"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n016",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n017",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h018",
+          "type": "heading",
+          "text": "問題文　tan A≈0.4245 のとき A を表から求める。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　tan の欄で0.4245に最も近い値を探すと A≈"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。角度を探す問題でも、使う列は tan。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n020",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h021",
+          "type": "heading",
+          "text": "教科書対応問　塔の高さ"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n022",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n023",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h024",
+          "type": "heading",
+          "text": "問題文　塔の真下から水平に80m離れた点で仰角35°。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p025",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　塔の高さ h とすると tan35°=h/80。したがって h=80tan35°。表の値を使って約 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b016"
+            },
+            {
+              "type": "text",
+              "text": " と見積もる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　目の高さが与えられている場合は、最後にその高さを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n027",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h028",
+          "type": "heading",
+          "text": "教科書対応問　校舎屋上からの俯角"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n029",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n030",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-h031",
+          "type": "heading",
+          "text": "問題文　屋上Pから地上Qを見る俯角23°、水平距離15m。高さを求める。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p032",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　俯角は水平線との角なので、地上側の対応する仰角も23°。高さ h は 15tan23°。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p033",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　「俯角」をそのまま三角形の内角にせず、平行線による錯角で "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s1-main-b018"
+            },
+            {
+              "type": "text",
+              "text": " に直す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometry-measurement-t03-n034",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s1-geometry-measurement-t03-p035",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確認　斜辺が分かるから sin、隣辺が分かるから tan、というように、既知辺と未知辺の組み合わせから比を選ぶ。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b001",
+          "label": "1",
+          "prompt": "正弦・余弦・正接 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b002",
+          "label": "2",
+          "prompt": "正弦・余弦・正接 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b003",
+          "label": "3",
+          "prompt": "正弦・余弦・正接 【3】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b004",
+          "label": "4",
+          "prompt": "正弦・余弦・正接 【4】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b005",
+          "label": "5",
+          "prompt": "正弦・余弦・正接 【5】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b006",
+          "label": "6",
+          "prompt": "三角比の相互関係 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b007",
+          "label": "7",
+          "prompt": "三角比の相互関係 【7】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b008",
+          "label": "8",
+          "prompt": "三角比の相互関係 【8】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b009",
+          "label": "9",
+          "prompt": "三角比の相互関係 【9】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b010",
+          "label": "10",
+          "prompt": "三角比の表と角度 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b011",
+          "label": "11",
+          "prompt": "三角比の表と角度 【11】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b012",
+          "label": "12",
+          "prompt": "三角比の表と角度 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b013",
+          "label": "13",
+          "prompt": "三角比の表と角度 【13】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b014",
+          "label": "14",
+          "prompt": "三角比の表と角度 【14】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b015",
+          "label": "15",
+          "prompt": "三角比の表と角度 【15】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b016",
+          "label": "16",
+          "prompt": "三角比の表と角度 【16】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b017",
+          "label": "17",
+          "prompt": "三角比の表と角度 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s1-main-b018",
+          "label": "18",
+          "prompt": "三角比の表と角度 【18】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "s2-geometry-measurement",
+      "number": "2",
+      "title": "三角比の拡張",
+      "description": "三角比の拡張を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s2-geometry-measurement-topic-01",
+          "type": "topic",
+          "text": "2.1 座標による定義"
+        },
+        {
+          "id": "s2-geometry-measurement-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直角三角形だけでは扱えない90°以上の角を、単位円・座標を使って0°〜180°へ広げる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "原点O、半径rの円上の点P(x,y)、∠XOP=θ とすると sinθ=y/r、cosθ=x/r、tanθ=y/x。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "0°<θ<90°では x,y>0。90°<θ<180°では x<0,y>0 なので sinθは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "、cosθとtanθは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b002"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　120°の三角比"
+        },
+        {
+          "id": "s2-geometry-measurement-t01-n006",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t01-n007",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s2-geometry-measurement-t01-h008",
+          "type": "heading",
+          "text": "問題文　120°=180°−60°。"
+        },
+        {
+          "id": "s2-geometry-measurement-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　sin120°=sin60°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "、cos120°=−cos60°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "、tan120°=−tan60°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t01-n010",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s2-geometry-measurement-topic-02",
+          "type": "topic",
+          "text": "2.2 補角の関係"
+        },
+        {
+          "id": "s2-geometry-measurement-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "sin(180°−θ)=sinθ、cos(180°−θ)=−cosθ、tan(180°−θ)=−tanθ。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "単位円で y 座標は同じ、x 座標だけ符号が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b006"
+            },
+            {
+              "type": "text",
+              "text": " になるから。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-topic-03",
+          "type": "topic",
+          "text": "2.3 0°,90°,180°の値"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "sin0°=0, cos0°=1。sin90°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "、cos90°=0。sin180°=0, cos180°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。tan90°は分母 cos90°=0 のため定義されない。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t03-h002",
+          "type": "heading",
+          "text": "教科書対応問　相互関係の利用"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n003",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n004",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-h005",
+          "type": "heading",
+          "text": "問題文　90°<θ<180°, sinθ=3/5。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　cos²θ=1−9/25=16/25。第2象限相当では cosθ<0 なので "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　tanθ=(3/5)/(−4/5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b010"
+            },
+            {
+              "type": "text",
+              "text": "。符号を忘れない。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n008",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-h009",
+          "type": "heading",
+          "text": "教科書対応問　150°の三角比"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n010",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n011",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-h012",
+          "type": "heading",
+          "text": "問題文　150°=180°−30°。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　sin150°=sin30°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "、cos150°=−cos30°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "、tan150°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n014",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-h015",
+          "type": "heading",
+          "text": "教科書対応問　tanからsin,cos"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n016",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n017",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-h018",
+          "type": "heading",
+          "text": "問題文　Aは鋭角、tanA=3/4。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　直角三角形で対辺3、隣辺4と置けば斜辺は5。したがって sinA="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b014"
+            },
+            {
+              "type": "text",
+              "text": ", cosA="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t03-p020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　相互関係 1+tan²A=1/cos²A を使っても同じ結果になる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n021",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-h022",
+          "type": "heading",
+          "text": "教科書対応問　角の範囲を先に使う"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n023",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n024",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-h025",
+          "type": "heading",
+          "text": "問題文　0°≦θ≦180°, cosθ=−√3/2。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　cos が負になるのは90°より大きい側。基準角30°だから θ="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s2-main-b016"
+            },
+            {
+              "type": "text",
+              "text": "。符号と基準角の2段階で決める。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometry-measurement-t03-n027",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s2-geometry-measurement-t03-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第2節の自力確認　平方根を取るとき ± を機械的に残さず、角の範囲から sin・cos・tan の符号を先に決める。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b001",
+          "label": "1",
+          "prompt": "座標による定義 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b002",
+          "label": "2",
+          "prompt": "座標による定義 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b003",
+          "label": "3",
+          "prompt": "座標による定義 【3】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b004",
+          "label": "4",
+          "prompt": "座標による定義 【4】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b005",
+          "label": "5",
+          "prompt": "座標による定義 【5】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b006",
+          "label": "6",
+          "prompt": "補角の関係 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b007",
+          "label": "7",
+          "prompt": "0°,90°,180°の値 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b008",
+          "label": "8",
+          "prompt": "0°,90°,180°の値 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b009",
+          "label": "9",
+          "prompt": "0°,90°,180°の値 【9】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b010",
+          "label": "10",
+          "prompt": "0°,90°,180°の値 【10】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b011",
+          "label": "11",
+          "prompt": "0°,90°,180°の値 【11】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b012",
+          "label": "12",
+          "prompt": "0°,90°,180°の値 【12】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b013",
+          "label": "13",
+          "prompt": "0°,90°,180°の値 【13】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b014",
+          "label": "14",
+          "prompt": "0°,90°,180°の値 【14】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b015",
+          "label": "15",
+          "prompt": "0°,90°,180°の値 【15】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s2-main-b016",
+          "label": "16",
+          "prompt": "0°,90°,180°の値 【16】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "s3-geometry-measurement",
+      "number": "3",
+      "title": "正弦定理と余弦定理",
+      "description": "正弦定理と余弦定理を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s3-geometry-measurement-topic-01",
+          "type": "topic",
+          "text": "3.1 正弦定理"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一般の三角形で辺と角を結ぶ。まず既知情報を図に書き込み、「対になる辺と角」がそろっているかで定理を選ぶ。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABC で a=BC,b=CA,c=AB、外接円半径R。a/sinA=b/sinB=c/sinC="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "辺とその対角のペアが1組以上分かるとき使いやすい。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　正弦定理で辺を求める"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-n006",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-n007",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-h008",
+          "type": "heading",
+          "text": "問題文　A=30°, B=45°, a=6 のとき b。"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　a/sinA=b/sinB → 6/(1/2)=b/(√2/2)。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t01-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　b=12·√2/2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b002"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t01-n011",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-h012",
+          "type": "heading",
+          "text": "教科書対応問　外接円半径"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-n013",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-n014",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-h015",
+          "type": "heading",
+          "text": "問題文　a=8, A=30°。"
+        },
+        {
+          "id": "s3-geometry-measurement-t01-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　a/sinA=2R → 8/(1/2)=2R → R="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t01-n017",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-topic-02",
+          "type": "topic",
+          "text": "3.2 余弦定理"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a²=b²+c²−2bc cosA。三平方の定理の拡張と考える。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2辺とその間の角が分かると残り1辺、3辺が分かると角を求められる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　2辺と間の角"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-n004",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-n005",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-h006",
+          "type": "heading",
+          "text": "問題文　b=4,c=6,A=60° のとき a。"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　a²=4²+6²−2·4·6·1/2=16+36−24="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t02-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　a="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。長さなので正の平方根。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t02-n009",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-h010",
+          "type": "heading",
+          "text": "教科書対応問　3辺から角"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-n011",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-n012",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-h013",
+          "type": "heading",
+          "text": "問題文　a=8,b=4,c=6 のとき A。"
+        },
+        {
+          "id": "s3-geometry-measurement-t02-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　cosA=(b²+c²−a²)/(2bc)=(16+36−64)/(48)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t02-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　cosA<0 なので A は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。三角比表で角度を求める場合はこの符号も確認。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t02-n016",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-topic-03",
+          "type": "topic",
+          "text": "3.3 三角形の面積"
+        },
+        {
+          "id": "s3-geometry-measurement-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2辺 b,c とその間の角 A が分かれば S=1/2·bc·"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。高さを h=c sinA と置けば導ける。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t03-h002",
+          "type": "heading",
+          "text": "教科書対応問　面積"
+        },
+        {
+          "id": "s3-geometry-measurement-t03-n003",
+          "type": "note",
+          "text": "読む　複雑な図形をそのまま扱わず、計算できる三角形へ分解する。高さ・斜辺・角のどれを橋渡しにするかを決める。"
+        },
+        {
+          "id": "s3-geometry-measurement-t03-n004",
+          "type": "note",
+          "text": "考える　面積は 1/2 ab sin C、3辺だけならヘロン、測量は既知の距離を底辺にして三角比を使う。空間ではまず平面内の三角形を切り出す。"
+        },
+        {
+          "id": "s3-geometry-measurement-t03-h005",
+          "type": "heading",
+          "text": "問題文　b=8,c=5,A=30°。"
+        },
+        {
+          "id": "s3-geometry-measurement-t03-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　S=1/2·8·5·1/2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t03-n007",
+          "type": "note",
+          "text": "最後の確認　長さの単位、角度、面積・体積の次元を最後に確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-topic-04",
+          "type": "topic",
+          "text": "3.4 正弦定理・余弦定理の応用と三角形の形状決定"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3辺 a,b,c の大小から角の種類を判定できる。最大辺を c としたとき、c²<a²+b² なら最大角は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b010"
+            },
+            {
+              "type": "text",
+              "text": "、= なら直角、> なら鈍角。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "これは余弦定理 c²=a²+b²−2ab cosC で、cosC の符号を見ることと同じ。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　三角形の形状を判定"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-n004",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-n005",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-h006",
+          "type": "heading",
+          "text": "問題文　辺の長さが 4,5,6 の三角形。"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　最大辺6について 6²=36、4²+5²=41。36<41 なので最大角も90°未満。したがって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t04-n008",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-h009",
+          "type": "heading",
+          "text": "教科書対応問　正弦定理の解が2つある場合"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-n010",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-n011",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-h012",
+          "type": "heading",
+          "text": "問題文　a,b,A が与えられ sinB が決まるとき。"
+        },
+        {
+          "id": "s3-geometry-measurement-t04-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　0°<B<180° では sinB=sin(180°−B)。したがって B が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b012"
+            },
+            {
+              "type": "text",
+              "text": " になる可能性がある。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t04-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　A+B<180° や辺の大小条件を使い、実際に三角形を作れる方だけ残す。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t04-n015",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-topic-05",
+          "type": "topic",
+          "text": "3.5 ヘロンの公式"
+        },
+        {
+          "id": "s3-geometry-measurement-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3辺 a,b,c が分かる三角形の面積は、s=(a+b+c)/2 とおくと S=√(s(s−a)(s−b)(s−c))。s を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b013"
+            },
+            {
+              "type": "text",
+              "text": " という。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "角が分からないのに無理に余弦定理で角を出すより、3辺が全部既知ならヘロンの公式で直接面積を求められる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t05-h003",
+          "type": "heading",
+          "text": "研究対応　ヘロンの公式"
+        },
+        {
+          "id": "s3-geometry-measurement-t05-n004",
+          "type": "note",
+          "text": "読む　複雑な図形をそのまま扱わず、計算できる三角形へ分解する。高さ・斜辺・角のどれを橋渡しにするかを決める。"
+        },
+        {
+          "id": "s3-geometry-measurement-t05-n005",
+          "type": "note",
+          "text": "考える　面積は 1/2 ab sin C、3辺だけならヘロン、測量は既知の距離を底辺にして三角比を使う。空間ではまず平面内の三角形を切り出す。"
+        },
+        {
+          "id": "s3-geometry-measurement-t05-h006",
+          "type": "heading",
+          "text": "問題文　3辺 5,5,6 の三角形の面積。"
+        },
+        {
+          "id": "s3-geometry-measurement-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　s=(5+5+6)/2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。S=√(8·3·3·2)=√144="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s3-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometry-measurement-t05-n008",
+          "type": "note",
+          "text": "最後の確認　長さの単位、角度、面積・体積の次元を最後に確認する。"
+        },
+        {
+          "id": "s3-geometry-measurement-t05-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定理の使い分け　対辺ペアがある→正弦定理。2辺と間の角/3辺→余弦定理。2辺と間の角で面積→S=1/2 bc sinA。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b001",
+          "label": "1",
+          "prompt": "正弦定理 【1】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b002",
+          "label": "2",
+          "prompt": "正弦定理 【2】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b003",
+          "label": "3",
+          "prompt": "正弦定理 【3】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b004",
+          "label": "4",
+          "prompt": "余弦定理 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b005",
+          "label": "5",
+          "prompt": "余弦定理 【5】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b006",
+          "label": "6",
+          "prompt": "余弦定理 【6】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b007",
+          "label": "7",
+          "prompt": "余弦定理 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b008",
+          "label": "8",
+          "prompt": "三角形の面積 【8】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b009",
+          "label": "9",
+          "prompt": "三角形の面積 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b010",
+          "label": "10",
+          "prompt": "正弦定理・余弦定理の応用と三角形の形状決定 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b011",
+          "label": "11",
+          "prompt": "正弦定理・余弦定理の応用と三角形の形状決定 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b012",
+          "label": "12",
+          "prompt": "正弦定理・余弦定理の応用と三角形の形状決定 【12】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b013",
+          "label": "13",
+          "prompt": "ヘロンの公式 【13】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b014",
+          "label": "14",
+          "prompt": "ヘロンの公式 【14】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s3-main-b015",
+          "label": "15",
+          "prompt": "ヘロンの公式 【15】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s4-geometry-measurement",
+      "number": "4",
+      "title": "図形の計量",
+      "description": "図形の計量を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s4-geometry-measurement-topic-01",
+          "type": "topic",
+          "text": "4.1 高さ・距離の測量"
+        },
+        {
+          "id": "s4-geometry-measurement-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三角比・正弦定理・余弦定理・面積公式を、四角形・測量・空間図形に使う。複雑な図形は三角形へ分ける。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直接測れない長さは、測れる距離と角度から直角三角形を作る。仰角・俯角は水平線との角であり、対応する三角比を選ぶ。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t01-h004",
+          "type": "heading",
+          "text": "教科書対応問　2地点から高さを求める"
+        },
+        {
+          "id": "s4-geometry-measurement-t01-n005",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s4-geometry-measurement-t01-n006",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s4-geometry-measurement-t01-h007",
+          "type": "heading",
+          "text": "問題文　同一直線上の2地点から塔の頂点を見る角度が異なる。"
+        },
+        {
+          "id": "s4-geometry-measurement-t01-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　近い地点までの水平距離を x と置き、遠い地点では x+既知距離。高さ h について tan の式を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-main-b001"
+            },
+            {
+              "type": "text",
+              "text": " 作る。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　連立して x を消去し h を求める。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t01-n010",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s4-geometry-measurement-topic-02",
+          "type": "topic",
+          "text": "4.2 四角形を三角形に分ける"
+        },
+        {
+          "id": "s4-geometry-measurement-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "対角線を1本引けば四角形は2つの三角形。既知の辺・角から一方の三角形で対角線を求め、その長さをもう一方へ "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t02-h002",
+          "type": "heading",
+          "text": "教科書対応問　四角形の面積"
+        },
+        {
+          "id": "s4-geometry-measurement-t02-n003",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t02-n004",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s4-geometry-measurement-t02-h005",
+          "type": "heading",
+          "text": "問題文　対角線を基準に2つの三角形へ分ける。"
+        },
+        {
+          "id": "s4-geometry-measurement-t02-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　各三角形で 1/2 ab sinC を使い、最後に面積を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t02-n007",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-topic-03",
+          "type": "topic",
+          "text": "4.3 空間図形"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "空間でも、必要な3点を含む平面で切れば平面三角形として扱える。まずどの断面に注目するかを決める。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直方体の対角線や四面体の高さでは、三平方と三角比を段階的に使う。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　球・中心・弦"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n004",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n005",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-h006",
+          "type": "heading",
+          "text": "問題文　球の中心Oを含む断面を考えると円になる。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　空間問題をその断面の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " に落とし、半径・弦・中心角へ置き換えて三角比を使う。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n008",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-h009",
+          "type": "heading",
+          "text": "教科書対応問　四角形の未知対角線"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n010",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n011",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-h012",
+          "type": "heading",
+          "text": "問題文　四角形を対角線で2つに分け、一方で余弦定理を使って対角線を出す。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　対角線は2つの三角形に共通するので、最初の三角形で求めた長さを次の三角形の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-main-b005"
+            },
+            {
+              "type": "text",
+              "text": " として使う。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n014",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-h015",
+          "type": "heading",
+          "text": "教科書対応問　円に内接する四角形の面積"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n016",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n017",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-h018",
+          "type": "heading",
+          "text": "問題文　4辺が分かる円に内接する四角形。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　向かい合う角の和が180°なので cos(180°−θ)=−cosθ を使い、2つの余弦定理の式を組み合わせて対角線や cosθ を消去する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　最後は2つの三角形の面積を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n021",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-h022",
+          "type": "heading",
+          "text": "教科書対応問　正四面体の高さと体積"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n023",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n024",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-h025",
+          "type": "heading",
+          "text": "問題文　1辺 a の正四面体。頂点から底面へ下ろした垂線の足は底面正三角形の中心。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　底面正三角形の外接円半径は a/√3。三平方から高さ h²=a²−a²/3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　体積は (1/3)×底面積×高さ。空間でも「底面＋高さ」に分解する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t03-n028",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s4-geometry-measurement-t03-p029",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末の自力確認　複雑な図形ほど、最初に「どの三角形を解くか」を決める。式を増やす前に、未知量を1つ減らす順序を考える。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-topic-04",
+          "type": "topic",
+          "text": "4.4 章末問題・思考力"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定理を選ぶ問題では、計算より先に「なぜその定理が使えるか」を説明する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　未知辺・未知角の連鎖"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n004",
+          "type": "note",
+          "text": "読む　図を見て、どの点がどの辺上にあり、どの比・角・垂直・平行が与えられているかを先に整理する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n005",
+          "type": "note",
+          "text": "考える　使う定理を名前だけで当てず、「その定理を使うために必要な比・角・一直線/一点で交わる条件」がそろっているかを確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-h006",
+          "type": "heading",
+          "text": "問題文　複数の三角形がつながる図形。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　最初に既知情報が最も多い三角形を選ぶ。そこで求めた辺/角を隣の三角形へ "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-end-b001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　最後まで一気に式を作らず、1段階ごとに数値/式を確定する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n009",
+          "type": "note",
+          "text": "最後の確認　比の向き、対応する辺、内分/外分を取り違えていないかを最後に図へ戻って確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　条件を変えて比較"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n011",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n012",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-h013",
+          "type": "heading",
+          "text": "問題文　角度や距離を変えたとき、求める長さがどう変化するかを考える。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　式を作った後、変数が増えると値が増える/減るかを三角比の性質と合わせて説明する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n015",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　正弦定理と余弦定理を連続使用"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n017",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n018",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-h019",
+          "type": "heading",
+          "text": "問題文　b,c,A が与えられたら、まず余弦定理で a を求める。その後、残り角には正弦定理を使う。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　1つの定理だけで全部解こうとせず、最初の計算で得た辺を次の定理へ "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-end-b002"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n021",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　面積と外接円半径"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n023",
+          "type": "note",
+          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n024",
+          "type": "note",
+          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-h025",
+          "type": "heading",
+          "text": "問題文　三角形の面積Sと外接円半径Rの関係を導く。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　正弦定理から sinA=a/(2R)。S=(1/2)bc sinA に代入して S="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-end-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって R="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-end-b004"
+            },
+            {
+              "type": "text",
+              "text": "。2つの公式をつなげて新しい関係を作る。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n028",
+          "type": "note",
+          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p029",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　身のまわりの測量"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n030",
+          "type": "note",
+          "text": "読む　複雑な図形をそのまま扱わず、計算できる三角形へ分解する。高さ・斜辺・角のどれを橋渡しにするかを決める。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n031",
+          "type": "note",
+          "text": "考える　面積は 1/2 ab sin C、3辺だけならヘロン、測量は既知の距離を底辺にして三角比を使う。空間ではまず平面内の三角形を切り出す。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-h032",
+          "type": "heading",
+          "text": "問題文　直接近づけない地点までの距離を、基線と2つの角から求める。"
+        },
+        {
+          "id": "s4-geometry-measurement-t04-p033",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　まず測れる基線を1本決め、両端から目標を見る角を測る。できた三角形で残り角を出し、"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometry-measurement-s4-end-b005"
+            },
+            {
+              "type": "text",
+              "text": " を使う。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometry-measurement-t04-n034",
+          "type": "note",
+          "text": "最後の確認　長さの単位、角度、面積・体積の次元を最後に確認する。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-geometry-measurement-s4-main-b001",
+          "label": "1",
+          "prompt": "高さ・距離の測量 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-main-b002",
+          "label": "2",
+          "prompt": "四角形を三角形に分ける 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-main-b003",
+          "label": "3",
+          "prompt": "四角形を三角形に分ける 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-main-b004",
+          "label": "4",
+          "prompt": "空間図形 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-main-b005",
+          "label": "5",
+          "prompt": "空間図形 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-main-b006",
+          "label": "6",
+          "prompt": "空間図形 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-main-b007",
+          "label": "7",
+          "prompt": "空間図形 【7】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-end-b001",
+          "label": "1",
+          "prompt": "章末問題・思考力 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-end-b002",
+          "label": "2",
+          "prompt": "章末問題・思考力 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-end-b003",
+          "label": "3",
+          "prompt": "章末問題・思考力 【3】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-end-b004",
+          "label": "4",
+          "prompt": "章末問題・思考力 【4】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometry-measurement-s4-end-b005",
+          "label": "5",
+          "prompt": "章末問題・思考力 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    }
+  ]
+}
