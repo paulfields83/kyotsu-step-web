@@ -2,7 +2,6 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { PlaceholderPage } from '../pages/PlaceholderPage'
 import { NotFoundPage } from '../pages/NotFoundPage'
 import { CatalogPreviewPage } from '../pages/CatalogPreviewPage'
-import { LearningSetupPage } from '../pages/LearningSetupPage'
 import { LearningSessionPage } from '../pages/LearningSessionPage'
 import { LearningResultPage } from '../pages/LearningResultPage'
 import { TextbookUnitPage } from '../pages/TextbookUnitPage'
@@ -36,7 +35,7 @@ export default function App() {
         <Route path="/problems" element={<Navigate to="/practice" replace />} />
         <Route path="/profile" element={<Navigate to="/settings" replace />} />
 
-        <Route path="/learning/setup" element={<LearningSetupPage />} />
+        <Route path="/learning/setup" element={<Navigate to="/practice" replace />} />
         <Route path="/learning/session/:sessionId" element={<LearningSessionPage />} />
         <Route path="/learning/result/:sessionId" element={<LearningResultPage />} />
         <Route path="/learning/textbook/:unitId" element={<TextbookUnitPage />} />
