@@ -45,8 +45,7 @@ export function LearningSetupPage() {
       setTextbookLoadError(false)
       setTextbookUnits(units)
       const subjectUnits = units.filter((unit) => unit.subject === subject)
-      const currentUnit = current && subjectUnits.find((unit) => unit.unitId === current)
-      const nextUnit = currentUnit ?? subjectUnits[0]
+      const nextUnit = subjectUnits.find((unit) => unit.unitId === unitId) ?? subjectUnits[0]
       setUnitId(nextUnit?.unitId ?? '')
       setSectionId((currentSection) => currentSection && nextUnit?.sections.some((section) => section.id === currentSection)
         ? currentSection
