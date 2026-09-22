@@ -13,7 +13,6 @@ import {
   type TextbookUnit,
 } from '../../src/domain/textbookSchema'
 
-type ZipEntry = { name: string; data: Buffer }
 type DocParagraph = { kind: 'p'; text: string; style?: string }
 type DocTable = { kind: 'table'; rows: string[][] }
 type DocElement = DocParagraph | DocTable
@@ -496,7 +495,7 @@ function buildSource(
   const sections: TextbookSection[] = []
   const sourcePrefix = `d${sourceIndex + 1}`
 
-  for (const [sectionIndex, rawSection] of rawSections.entries()) {
+  for (const rawSection of rawSections) {
     const sectionId = `s${safeIdPart(rawSection.number)}-${sourcePrefix}`
     const figures = new Map<string, TextbookSection['figures'][number]>()
     const readingFlow: TextbookReadingBlock[] = []
