@@ -19,16 +19,24 @@ describe('textbook learning state', () => {
     expect(getTextbookChoices(unit, firstItem)).toEqual(choices)
   })
 
-  it('preserves the wrong first choice, resolves the blank, and leaves the correct answer available from the item', () => {
-    const progress = answerTextbookItem(undefined, unit, firstItem, '変位', 1000)
-    const record = progress.answers[firstItem.id]
+  it('keeps a wrong first choice unresolved and resolves after a correct retry', () => {
+    const wrongProgress = answerTextbookItem(undefined, unit, firstItem, '変位', 1000)
+    const wrongRecord = wrongProgress.answers[firstItem.id]
 
-    expect(record.isFirstCorrect).toBe(false)
-    expect(record.firstValue).toBe('変位')
-    expect(record.value).toBe('変位')
-    expect(firstItem.answer).toBe('位置ベクトル')
-    expect(record.resolved).toBe(true)
-    expect(record.attemptCount).toBe(1)
-    expect(textbookUnitProgress(unit, progress).completed).toBe(1)
+    expect(wrongRecord.isFirstCorrect).toBe(false)
+    expect(wrongRecord.firstValue).toBe('変位')
+    expect(wrongRecord.value).toBe('変位')
+    expect(wrongRecord.resolved).toBe(false)
+    expect(wrongRecord.attemptCount).toBe(1)
+    expect(textbookUnitProgress(unit, wrongProgress).completed).toBe(0)
+
+    const recovered = answerTextbookItem(wrongProgress, unit, firstItem, '位置ベクトル', 2000)
+    const recoveredRecord = recovered.answers[firstItem.id]
+    expect(recoveredRecord.isFirstCorrect).toBe(false)
+    expect(recoveredRecord.firstValue).toBe('変位')
+    expect(recoveredRecord.value).toBe('位置ベクトル')
+    expect(recoveredRecord.resolved).toBe(true)
+    expect(recoveredRecord.attemptCount).toBe(2)
+    expect(textbookUnitProgress(unit, recovered).completed).toBe(1)
   })
 })
