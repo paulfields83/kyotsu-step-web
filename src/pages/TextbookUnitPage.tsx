@@ -407,6 +407,7 @@ export function TextbookUnitPage() {
   const focusedSection = Boolean(groupedSection || targetedSection || legacySection)
   const targetSelected = Boolean(lessonTarget)
   const targetSummary = lessonTarget?.kind === 'unit' ? summary : sectionSummary
+  const targetComplete = targetSummary.completed === targetSummary.total
   const sectionComplete = sectionSummary.completed === sectionSummary.total
   const unitComplete = summary.completed === summary.total
   const physicsPrefix = lessonTarget?.kind === 'unit' && unit.subject === 'physics' ? physicsTopicPrefix(unit) : undefined
@@ -420,19 +421,19 @@ export function TextbookUnitPage() {
       <header className="session-header">
         <div>
           <p className="eyebrow">{unit.subject === 'math-1a' ? 'TEXTBOOK / MATH I・A' : 'TEXTBOOK / PHYSICS'}</p>
-          <h1>{focusedSection ? `${conciseTextbookTitle(unit)}：${currentSection.title}` : unit.title}</h1>
-          {!focusedSection && unit.subtitle && <p>{unit.subtitle}</p>}
+          <h1>{targetMatch ? `${targetMatch.chapter.label}：${targetMatch.lesson.label}` : focusedSection ? `${conciseTextbookTitle(unit)}：${currentSection.title}` : unit.title}</h1>
+          {!targetSelected && !focusedSection && unit.subtitle && <p>{unit.subtitle}</p>}
         </div>
         <StatusBadge>{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
       </header>
 
       <ProgressBar
-        label={focusedSection ? text('この小単元の進み具合', '本小单元进度') : text('単元の進み具合', '单元进度')}
-        value={focusedSection ? sectionSummary.completed : summary.completed}
-        max={focusedSection ? sectionSummary.total : summary.total}
+        label={targetSelected ? text('この学習項目の進み具合', '本学习部分进度') : focusedSection ? text('この学習項目の進み具合', '本学习部分进度') : text('単元の進み具合', '单元进度')}
+        value={targetSelected ? targetSummary.completed : focusedSection ? sectionSummary.completed : summary.completed}
+        max={targetSelected ? targetSummary.total : focusedSection ? sectionSummary.total : summary.total}
       />
 
-      {!focusedSection && (
+      {!targetSelected && !focusedSection && (
         <section className="textbook-objectives">
           <strong>{text('この単元で確認すること', '本单元确认内容')}</strong>
           <ol>{unit.objectives.map((objective) => <li key={objective}>{objective}</li>)}</ol>
@@ -440,7 +441,7 @@ export function TextbookUnitPage() {
       )}
 
       {!focusedSection && (
-        <nav className="textbook-section-nav" aria-label={text('教材の章', '教材章节')}>
+        <nav className="textbook-section-nav" aria-label={text('知識項目', '知识点')}>
           {unit.sections.map((section, index) => {
             const sectionProgress = textbookSectionProgress(unit, progress, section.id)
             const complete = sectionProgress.completed === sectionProgress.total
@@ -451,7 +452,7 @@ export function TextbookUnitPage() {
                 aria-pressed={selectedSectionIndex === index}
                 onClick={() => setSelectedSectionIndex(index)}
               >
-                <span>{complete ? <Check size={16} aria-hidden="true" /> : section.number}</span>
+                <span>{complete ? <Check size={16} aria-hidden="true" /> : physicsPrefix ? `${physicsPrefix}.${index + 1}` : section.number}</span>
                 <strong>{section.title}</strong>
                 <small>{sectionProgress.completed}/{sectionProgress.total}</small>
               </button>
@@ -462,7 +463,7 @@ export function TextbookUnitPage() {
 
       <section className="textbook-section">
         <header className="textbook-section-heading">
-          <div><span>{currentSection.number}</span><div><h2>{currentSection.title}</h2>{currentSection.description && <p>{currentSection.description}</p>}</div></div>
+          <div><span>{physicsPrefix && !focusedSection ? `${physicsPrefix}.${selectedSectionIndex + 1}` : currentSection.number}</span><div><h2>{currentSection.title}</h2>{currentSection.description && <p>{currentSection.description}</p>}</div></div>
           <strong>{sectionSummary.completed}/{sectionSummary.total}</strong>
         </header>
 
@@ -470,7 +471,7 @@ export function TextbookUnitPage() {
           ? <TextbookReadingFlow unit={unit} section={currentSection} progress={progress} />
           : null}
 
-        {!focusedSection && sectionComplete && !unitComplete && selectedSectionIndex < unit.sections.length - 1 && (
+        {!targetSelected && !focusedSection && sectionComplete && !unitComplete && selectedSectionIndex < unit.sections.length - 1 && (
           <div className="textbook-next-panel">
             <Check size={22} aria-hidden="true" />
             <div><strong>{text('この章は完了しました', '本章已完成')}</strong><small>{text('次の章へ進めます。', '可以继续下一章。')}</small></div>
@@ -478,11 +479,16 @@ export function TextbookUnitPage() {
           </div>
         )}
 
-        {unitComplete && (
+        {(targetSelected ? targetComplete : unitComplete) && (
           <div className="textbook-complete-panel" data-testid="textbook-unit-complete">
             <Check size={28} aria-hidden="true" />
-            <div><h2>{text('単元完了', '单元完成')}</h2><p>{text(`${unit.title} の ${summary.total} 個の確認項目をすべて完了しました。`, `已完成 ${unit.title} 的全部 ${summary.total} 个确认项目。`)}</p></div>
-            <Link className="raised-link" to="/learning/setup">{text('問題演習へ進む', '进入做题模式')}</Link>
+            <div>
+              <h2>{targetSelected ? text('学習項目完了', '学习部分完成') : text('単元完了', '单元完成')}</h2>
+              <p>{targetSelected
+                ? text(`${targetMatch?.lesson.label ?? currentSection.title} の ${targetSummary.total} 個の確認項目をすべて完了しました。`, `已完成 ${targetMatch?.lesson.label ?? currentSection.title} 的全部 ${targetSummary.total} 个确认项目。`)
+                : text(`${unit.title} の ${summary.total} 個の確認項目をすべて完了しました。`, `已完成 ${unit.title} 的全部 ${summary.total} 个确认项目。`)}</p>
+            </div>
+            <Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>
           </div>
         )}
       </section>
