@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { PlaceholderPage } from '../pages/PlaceholderPage'
 import { NotFoundPage } from '../pages/NotFoundPage'
 import { CatalogPreviewPage } from '../pages/CatalogPreviewPage'
+import { LearningSetupPage } from '../pages/LearningSetupPage'
 import { LearningSessionPage } from '../pages/LearningSessionPage'
 import { LearningResultPage } from '../pages/LearningResultPage'
 import { TextbookUnitPage } from '../pages/TextbookUnitPage'
@@ -14,8 +15,7 @@ import { MistakesPage } from '../pages/MistakesPage'
 import { HistoryPage } from '../pages/HistoryPage'
 import { RedesignShell } from '../redesign/layout/RedesignShell'
 import { AppHomePage } from '../redesign/pages/AppHomePage'
-import { CoursePage } from '../redesign/pages/CoursePage'
-import { PracticePage } from '../redesign/pages/PracticePage'
+import { LearningHubPage } from '../redesign/pages/LearningHubPage'
 import { ProgressHubPage } from '../redesign/pages/ProgressHubPage'
 import { SettingsHubPage } from '../redesign/pages/SettingsHubPage'
 
@@ -25,17 +25,14 @@ export default function App() {
       <Route element={<RedesignShell />}>
         <Route path="/" element={<AppHomePage />} />
         <Route path="/ui-preview" element={<Navigate to="/" replace />} />
+        <Route path="/problems" element={<Navigate to="/learn" replace />} />
+        <Route path="/profile" element={<Navigate to="/settings" replace />} />
 
-        <Route path="/courses" element={<CoursePage />} />
-        <Route path="/practice" element={<PracticePage />} />
+        <Route path="/learn" element={<LearningHubPage />} />
         <Route path="/progress" element={<ProgressHubPage />} />
         <Route path="/settings" element={<SettingsHubPage />} />
 
-        <Route path="/learn" element={<Navigate to="/courses" replace />} />
-        <Route path="/problems" element={<Navigate to="/practice" replace />} />
-        <Route path="/profile" element={<Navigate to="/settings" replace />} />
-
-        <Route path="/learning/setup" element={<Navigate to="/practice" replace />} />
+        <Route path="/learning/setup" element={<LearningSetupPage />} />
         <Route path="/learning/session/:sessionId" element={<LearningSessionPage />} />
         <Route path="/learning/result/:sessionId" element={<LearningResultPage />} />
         <Route path="/learning/textbook/:unitId" element={<TextbookUnitPage />} />
