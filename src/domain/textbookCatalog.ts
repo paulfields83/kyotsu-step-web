@@ -165,3 +165,20 @@ export function findTextbookLessonTarget(units: PublicTextbookUnit[], key: strin
 export function physicsTopicPrefix(unit: PublicTextbookUnit) {
   return physicsUnitCode(unit)
 }
+
+
+export function textbookLessonHref(lesson: TextbookLessonTarget) {
+  return `/learning/textbook/${lesson.unitId}?target=${encodeURIComponent(lesson.key)}`
+}
+
+export function textbookLessonItemIds(unit: PublicTextbookUnit | undefined, lesson: TextbookLessonTarget | undefined) {
+  if (!unit || !lesson) return []
+  if (lesson.kind === 'unit') return unit.sections.flatMap((section) => section.items.map((item) => item.id))
+  if (lesson.kind === 'section') {
+    return unit.sections.find((section) => section.id === lesson.sectionId)?.items.map((item) => item.id) ?? []
+  }
+  const sectionIds = new Set(lesson.sectionIds ?? [])
+  return unit.sections
+    .filter((section) => sectionIds.has(section.id))
+    .flatMap((section) => section.items.map((item) => item.id))
+}
