@@ -117,7 +117,7 @@ export function answerTextbookItem(progress: TextbookUnitProgress | undefined, u
     value,
     firstValue: previous?.firstValue ?? value,
     isFirstCorrect: previous?.isFirstCorrect ?? correct,
-    resolved: true,
+    resolved: correct,
     attemptCount: (previous?.attemptCount ?? 0) + 1,
     firstAnsweredAt: previous?.firstAnsweredAt ?? now,
     lastAnsweredAt: now,
