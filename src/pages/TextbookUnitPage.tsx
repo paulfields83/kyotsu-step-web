@@ -1,5 +1,5 @@
 import { InlineMath } from 'react-katex'
-import { Check, RotateCcw, X } from 'lucide-react'
+import { Check, LockKeyhole, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
@@ -62,7 +62,7 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
 
     const nextRecord: TextbookAnswerRecord = {
       itemId,
-      value: selectedValue,
+      value: result.correct ? selectedValue : result.correctAnswer ?? selectedValue,
       firstValue: previous?.firstValue ?? selectedValue,
       isFirstCorrect: previous?.isFirstCorrect ?? result.correct,
       resolved: result.resolved,
@@ -171,7 +171,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem?.choices ?? []
-  const activeWrongAttempt = Boolean(activeRecord && !activeRecord.resolved && activeRecord.attemptCount > 0)
+  const activeWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
   const selectChoice = async (choice: string) => {
     if (!activeItem || activeRecord?.resolved || submittingItemId) return
     setSubmitError('')
@@ -179,11 +179,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
     try {
       const result = await textbookRepository.submitAnswer(unit.unitId, activeItem.id, choice)
       recordServerAnswer(unit, activeItem.id, choice, result)
-      if (result.correct) {
-        setActiveItemId(null)
-      } else {
-        setSubmitError(text('不正解です。もう一度答えてください。', '回答错误，请重新作答。'))
-      }
+      if (result.correct) setActiveItemId(null)
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : text('回答を送信できませんでした。', '无法提交答案。'))
     } finally {
@@ -208,13 +204,14 @@ function TextbookReadingFlow({ unit, section, progress }: {
         </div>
         <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
           {activeChoices.map((choice, index) => {
-            const selectedWrong = Boolean(activeWrongAttempt && activeRecord?.value === choice)
+            const selectedWrong = Boolean(activeWrongResult && (activeRecord?.firstValue ?? activeRecord?.value) === choice)
+            const revealedCorrect = Boolean(activeWrongResult && activeRecord?.value === choice)
             return (
               <button
                 type="button"
                 key={choice}
                 data-testid={`textbook-choice-${activeItem.id}-${index}`}
-                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}`}
+                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
                 disabled={Boolean(activeRecord?.resolved) || submittingItemId === activeItem.id}
                 onClick={() => void selectChoice(choice)}
               >
@@ -225,6 +222,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
             )
           })}
         </div>
+        {activeWrongResult && (
+          <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
+            {text(`不正解です。正解は「${activeRecord?.value ?? ''}」です。`, `回答错误。正确答案是「${activeRecord?.value ?? ''}」。`)}
+          </p>
+        )}
         {submitError && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
       </div>
     )
@@ -262,9 +264,15 @@ function TextbookReadingFlow({ unit, section, progress }: {
     )
   }
 
+  const firstIncompleteGroupIndex = groups.findIndex((group) => {
+    const itemIds = readingGroupItemIds(group)
+    return itemIds.length > 0 && itemIds.some((itemId) => !progress?.answers[itemId]?.resolved)
+  })
+  const unlockedGroupIndex = firstIncompleteGroupIndex === -1 ? Math.max(groups.length - 1, 0) : firstIncompleteGroupIndex
+  const visibleGroupCount = firstIncompleteGroupIndex === -1 ? groups.length : firstIncompleteGroupIndex + 1
   const displayedGroups = hasTopicNavigation
     ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0)))
-    : groups
+    : groups.slice(0, visibleGroupCount)
 
   const topicLabel = (group: TextbookReadingBlock[], index: number) => {
     const topic = group[0]
@@ -281,12 +289,15 @@ function TextbookReadingFlow({ unit, section, progress }: {
             const label = topicLabel(group, groupIndex)
             const itemIds = readingGroupItemIds(group)
             const completedCount = itemIds.filter((itemId) => progress?.answers[itemId]?.resolved).length
+            const allowed = firstIncompleteGroupIndex === -1 || groupIndex <= unlockedGroupIndex
             return (
               <button
                 type="button"
                 key={group[0]?.id ?? groupIndex}
+                disabled={!allowed}
                 aria-pressed={selectedGroupIndex === groupIndex}
                 onClick={() => {
+                  if (!allowed) return
                   setSelectedGroupIndex(groupIndex)
                   setActiveItemId(null)
                   setSubmitError('')
@@ -311,7 +322,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
             {completed && groupIndex < groups.length - 1 && (
               <div className="reading-subsection-complete">
                 <Check size={16} aria-hidden="true" />
-                <span>{text('この小節を完了しました。別の項目も選べます。', '本知识点已完成，可以选择其他知识点。')}</span>
+                <span>{text('この小節を完了しました。次の項目へ進めます。', '本知识点已完成，可以继续下一知识点。')}</span>
               </div>
             )}
           </section>
@@ -410,6 +421,11 @@ export function TextbookUnitPage() {
   const targetComplete = targetSummary.completed === targetSummary.total
   const sectionComplete = sectionSummary.completed === sectionSummary.total
   const unitComplete = summary.completed === summary.total
+  const firstIncompleteSectionIndex = unit.sections.findIndex((section) =>
+    textbookSectionProgress(unit, progress, section.id).completed < section.items.length,
+  )
+  const unlockedSectionIndex = firstIncompleteSectionIndex === -1 ? unit.sections.length - 1 : firstIncompleteSectionIndex
+  const canOpenSection = (index: number) => unitComplete || index <= unlockedSectionIndex
   const physicsPrefix = lessonTarget?.kind === 'unit' && unit.subject === 'physics' ? physicsTopicPrefix(unit) : undefined
   const goNext = () => {
     setSelectedSectionIndex((index) => Math.min(unit.sections.length - 1, index + 1))
@@ -445,14 +461,16 @@ export function TextbookUnitPage() {
           {unit.sections.map((section, index) => {
             const sectionProgress = textbookSectionProgress(unit, progress, section.id)
             const complete = sectionProgress.completed === sectionProgress.total
+            const allowed = canOpenSection(index)
             return (
               <button
                 type="button"
                 key={section.id}
+                disabled={!allowed}
                 aria-pressed={selectedSectionIndex === index}
-                onClick={() => setSelectedSectionIndex(index)}
+                onClick={() => allowed && setSelectedSectionIndex(index)}
               >
-                <span>{complete ? <Check size={16} aria-hidden="true" /> : physicsPrefix ? `${physicsPrefix}.${index + 1}` : section.number}</span>
+                <span>{complete ? <Check size={16} aria-hidden="true" /> : allowed ? (physicsPrefix ? `${physicsPrefix}.${index + 1}` : section.number) : <LockKeyhole size={15} aria-hidden="true" />}</span>
                 <strong>{section.title}</strong>
                 <small>{sectionProgress.completed}/{sectionProgress.total}</small>
               </button>
