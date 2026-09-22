@@ -17,6 +17,5 @@ export type PublicTextbookUnit = Omit<TextbookUnit, 'sections'> & {
 
 export type TextbookAnswerResult = {
   correct: boolean
-  resolved: true
-  correctAnswer?: string
+  resolved: boolean
 }
