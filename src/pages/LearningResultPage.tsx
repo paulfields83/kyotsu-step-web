@@ -21,7 +21,7 @@ export function LearningResultPage() {
   const { language, text } = useI18n()
   const catalog = useMemo(() => getQuestionCatalog(customQuestions, language), [customQuestions, language])
   const question = catalog.find((item) => item.questionId === session?.questionId)
-  if (!session || !session.completedAt || !question) return <ErrorState title={text('学習結果が見つかりません', '找不到学习结果')} body={text('完了した学習セッションから開いてください。', '请从已完成的学习记录中打开。')} action={<Link className="raised-link" to="/problems">{text('問題へ', '返回题目')}</Link>} />
+  if (!session || !session.completedAt || !question) return <ErrorState title={text('学習結果が見つかりません', '找不到学习结果')} body={text('完了した学習セッションから開いてください。', '请从已完成的学习记录中打开。')} action={<Link className="raised-link" to="/practice">{text('問題へ', '返回题目')}</Link>} />
 
   const blankIds = activeBlankIds(question, session.variant)
   const answers = blankIds.map((id) => session.answers[id]).filter(Boolean)
@@ -50,7 +50,7 @@ export function LearningResultPage() {
         {wrongAnswers.length ? <><h3>{text('知識', '知识')}</h3><div className="tag-row">{weakKnowledge.map((tag) => <StatusBadge tone="error" key={tag}>{taxonomyLabel(tag, language)}</StatusBadge>)}</div><h3>{text('解き方', '解题方法')}</h3><div className="tag-row">{weakSkills.map((tag) => <StatusBadge tone="error" key={tag}>{taxonomyLabel(tag, language)}</StatusBadge>)}</div></> : <EmptyState title={text('初回誤答はありません', '没有首次答错的步骤')} body={text('次は空欄を減らすか、模擬テストで独力を確認しましょう。', '下一步可以减少引导，或通过模拟测试检验独立作答。')} />}
       </NumberedSection>
       <NumberedSection number="03" title={text('全体の解説', '完整解析')}><ContentRenderer blocks={question.fullExplanation} assets={question.assets} /></NumberedSection>
-      <div className="result-actions">{related ? <RaisedButton className="primary-button" onClick={startRelated}>{text('同類問題', '同类题')}「{related.title}」</RaisedButton> : <EmptyState title={text('関連問題はありません', '暂无相关题目')} body={text('別の問題を選んで学習を続けられます。', '可以选择其他题目继续学习。')} />}<Link className="raised-link" to="/problems">{text('問題ページへ戻る', '返回题目页')}</Link></div>
+      <div className="result-actions">{related ? <RaisedButton className="primary-button" onClick={startRelated}>{text('同類問題', '同类题')}「{related.title}」</RaisedButton> : <EmptyState title={text('関連問題はありません', '暂无相关题目')} body={text('別の問題を選んで学習を続けられます。', '可以选择其他题目继续学习。')} />}<Link className="raised-link" to="/practice">{text('問題ページへ戻る', '返回题目页')}</Link></div>
     </div>
   )
 }
