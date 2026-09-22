@@ -2,9 +2,9 @@ import { ArrowLeft, BarChart3, BookOpen, House, Languages, ListChecks, Settings2
 import { useEffect } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useI18n } from '../../i18n/runtime'
+import { useAppStore } from '../../stores/useAppStore'
 import { languageMeta, type AppLanguage } from '../../i18n/types'
 import './app-v2.css'
-import './ia-v2.css'
 
 function backTarget(pathname: string) {
   if (pathname === '/' || pathname === '/courses' || pathname === '/practice' || pathname === '/progress' || pathname === '/settings') return null
@@ -18,6 +18,7 @@ function backTarget(pathname: string) {
 export function RedesignShell() {
   const location = useLocation()
   const { language, setLanguage, text } = useI18n()
+  const reduceMotion = useAppStore((state) => state.settings.reduceMotion)
   const back = backTarget(location.pathname)
   const focus = /^\/(learning\/(session|textbook)|simulation\/session)/.test(location.pathname)
 
@@ -35,7 +36,8 @@ export function RedesignShell() {
   ]
 
   return (
-    <div className={`v2-app${focus ? ' v2-app--focus' : ''}`}>
+    <div className={`v2-app${focus ? ' v2-app--focus' : ''}${reduceMotion ? ' v2-app--reduce-motion' : ''}`}>
+      <a className="skip-link" href="#main-content">{text('本文へ移動', '跳到正文')}</a>
       <header className="v2-header">
         <div className="v2-header__left">
           {back ? (
@@ -66,7 +68,7 @@ export function RedesignShell() {
         </div>
       </header>
 
-      <main className="v2-content"><Outlet /></main>
+      <main id="main-content" className="v2-content" tabIndex={-1}><Outlet /></main>
 
       {!focus && (
         <nav className="v2-bottom-nav">
