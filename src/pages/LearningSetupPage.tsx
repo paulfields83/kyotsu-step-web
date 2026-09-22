@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NumberedSection, RaisedButton } from '../components/ui/Primitives'
 import type { LearningVariant, Question } from '../domain/questionSchema'
-import { textbookSectionProgress } from '../domain/textbook'
+import { buildTextbookChapters, textbookLessonHref, textbookLessonItemIds } from '../domain/textbookCatalog'
 import type { PublicTextbookUnit } from '../domain/textbookPublic'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { getQuestionCatalog, useAppStore } from '../stores/useAppStore'
@@ -28,35 +28,40 @@ export function LearningSetupPage() {
   const [mode, setMode] = useState<LearningMode>('textbook')
   const [subject, setSubject] = useState<Question['subject']>('physics')
   const [variant, setVariant] = useState<LearningVariant>('detailed')
-  const [unitId, setUnitId] = useState('')
-  const [sectionId, setSectionId] = useState('')
+  const [chapterKey, setChapterKey] = useState('')
+  const [lessonKey, setLessonKey] = useState('')
   const subjectQuestions = catalog.filter((q) => q.subject === subject && q.status === 'published')
-  const subjectTextbookUnits = textbookUnits.filter((unit) => unit.subject === subject)
-  const textbookSectionOptions = subjectTextbookUnits.flatMap((unit) => unit.sections.map((section) => ({
-    value: `${unit.unitId}::${section.id}`,
-    unitId: unit.unitId,
-    sectionId: section.id,
-    label: `${unit.title.replace(/^数学[ⅠⅡⅢIVXIA・\s]+\s*/u, '')}：${section.title}`,
-  })))
+  const textbookChapters = useMemo(() => buildTextbookChapters(textbookUnits, subject), [textbookUnits, subject])
+  const selectedChapter = textbookChapters.find((chapter) => chapter.key === chapterKey) ?? textbookChapters[0]
+  const selectedLesson = selectedChapter?.lessons.find((lesson) => lesson.key === lessonKey) ?? selectedChapter?.lessons[0]
+  const selectedUnit = selectedLesson ? textbookUnits.find((unit) => unit.unitId === selectedLesson.unitId) : undefined
+  const selectedUnitProgress = selectedUnit ? textbookProgress[selectedUnit.unitId] : undefined
+  const selectedItemIds = textbookLessonItemIds(selectedUnit, selectedLesson)
+  const selectedCompleted = selectedItemIds.filter((itemId) => selectedUnitProgress?.answers[itemId]?.resolved).length
+  const selectedStarted = selectedItemIds.some((itemId) => selectedUnitProgress?.answers[itemId])
   const [questionId, setQuestionId] = useState(subjectQuestions[0]?.questionId ?? catalog[0]?.questionId ?? '')
 
   useEffect(() => {
     textbookRepository.listPublished().then((units) => {
       setTextbookLoadError(false)
       setTextbookUnits(units)
-      const subjectUnits = units.filter((unit) => unit.subject === subject)
-      const nextUnit = subjectUnits.find((unit) => unit.unitId === unitId) ?? subjectUnits[0]
-      setUnitId(nextUnit?.unitId ?? '')
-      setSectionId((currentSection) => currentSection && nextUnit?.sections.some((section) => section.id === currentSection)
-        ? currentSection
-        : nextUnit?.sections[0]?.id ?? '')
     }).catch(() => {
       setTextbookLoadError(true)
       setTextbookUnits([])
-      setUnitId('')
-      setSectionId('')
     })
-  }, [subject])
+  }, [])
+
+  useEffect(() => {
+    if (!textbookChapters.length) {
+      setChapterKey('')
+      setLessonKey('')
+      return
+    }
+    const nextChapter = textbookChapters.find((chapter) => chapter.key === chapterKey) ?? textbookChapters[0]
+    const nextLesson = nextChapter.lessons.find((lesson) => lesson.key === lessonKey) ?? nextChapter.lessons[0]
+    if (nextChapter.key !== chapterKey) setChapterKey(nextChapter.key)
+    if ((nextLesson?.key ?? '') !== lessonKey) setLessonKey(nextLesson?.key ?? '')
+  }, [chapterKey, lessonKey, textbookChapters])
 
   const variants = [
     { value: 'detailed' as LearningVariant, label: text('詳細穴埋め', '详细引导'), description: text('手順を細かく確認', '逐步确认完整过程') },
@@ -67,9 +72,8 @@ export function LearningSetupPage() {
   const changeSubject = (next: Question['subject']) => {
     setSubject(next)
     setQuestionId(catalog.find((q) => q.subject === next)?.questionId ?? '')
-    const nextUnit = textbookUnits.find((unit) => unit.subject === next)
-    setUnitId(nextUnit?.unitId ?? '')
-    setSectionId(nextUnit?.sections[0]?.id ?? '')
+    setChapterKey('')
+    setLessonKey('')
   }
 
   const changeMode = (next: LearningMode) => {
@@ -77,18 +81,15 @@ export function LearningSetupPage() {
     if (next === 'practice' && !subjectQuestions.length) changeSubject(defaultSubject)
   }
 
-  const selectedUnit = unitId ? textbookUnits.find((unit) => unit.unitId === unitId) : undefined
-  const selectedUnitProgress = unitId ? textbookProgress[unitId] : undefined
-  const selectedSection = selectedUnit?.sections.find((section) => section.id === sectionId)
-  const selectedSectionSummary = selectedUnit && selectedSection
-    ? textbookSectionProgress(selectedUnit, selectedUnitProgress, selectedSection.id)
-    : { completed: 0, total: 0 }
-  const selectedSectionStarted = selectedSection
-    ? selectedSection.items.some((item) => selectedUnitProgress?.answers[item.id])
-    : false
+  const changeChapter = (nextChapterKey: string) => {
+    const chapter = textbookChapters.find((candidate) => candidate.key === nextChapterKey)
+    setChapterKey(nextChapterKey)
+    setLessonKey(chapter?.lessons[0]?.key ?? '')
+  }
+
   const begin = () => {
     if (mode === 'textbook') {
-      if (unitId && sectionId) navigate(`/learning/textbook/${unitId}?section=${encodeURIComponent(sectionId)}`)
+      if (selectedLesson) navigate(textbookLessonHref(selectedLesson))
     } else if (questionId) {
       navigate(`/learning/session/${startLearning(questionId, FIXED_PRACTICE_VARIANT)}`)
     }
@@ -116,29 +117,32 @@ export function LearningSetupPage() {
       <div className="segmented-control" role="group" aria-label={text('科目', '科目')}>
         {SUBJECTS.map((value) => <button type="button" key={value} aria-pressed={subject === value} onClick={() => changeSubject(value)}>{subjectLabel(value, language)}</button>)}
       </div>
-      {mode === 'textbook' && <p className="field-help">{text('数学 I・A と物理を分けて教科書を選択できます。', '数学 I・A 和物理已分开，可分别选择教材。')}</p>}
+      {mode === 'textbook' && <p className="field-help">{text('数学 I・A と物理を分けて学習範囲を選択できます。', '数学 I・A 和物理分开选择学习范围。')}</p>}
     </NumberedSection>
 
-    {mode === 'textbook' ? <NumberedSection number="03" title={text('単元', '单元')}>
-      {textbookLoadError ? <div className="issue-box" role="alert">{text('教材 API に接続できません。バックエンドを起動し、VITE_API_BASE_URL を確認してください。', '无法连接教材 API。请启动后端并检查 VITE_API_BASE_URL。')}</div>
-        : subjectTextbookUnits.length === 0 ? <div className="issue-box">{text('この科目の教材はまだありません。', '该科目暂时没有教材。')}</div>
-        : <>
-          <label className="field-label" htmlFor="textbook-unit">{text('学習する単元', '选择学习单元')}</label>
-          <select
-            id="textbook-unit"
-            className="select-control"
-            value={unitId && sectionId ? `${unitId}::${sectionId}` : ''}
-            onChange={(event) => {
-              const [nextUnitId, nextSectionId] = event.target.value.split('::')
-              setUnitId(nextUnitId ?? '')
-              setSectionId(nextSectionId ?? '')
-            }}
-          >
-            {textbookSectionOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
-          </select>
-          {unitId && sectionId && <div className="setup-progress-note"><span>{selectedSectionStarted ? text('続きから再開できます', '可以从上次进度继续') : text('最初から開始', '从头开始')}</span><small>{text(`${selectedSectionSummary.completed}/${selectedSectionSummary.total} の確認項目を完了`, `已完成 ${selectedSectionSummary.completed}/${selectedSectionSummary.total} 个确认项目`)}</small></div>}
-        </>}
-    </NumberedSection> : <>
+    {mode === 'textbook' ? <>
+      <NumberedSection number="03" title={text('単元', '单元')}>
+        {textbookLoadError ? <div className="issue-box" role="alert">{text('教材 API に接続できません。バックエンドを起動し、VITE_API_BASE_URL を確認してください。', '无法连接教材 API。请启动后端并检查 VITE_API_BASE_URL。')}</div>
+          : textbookChapters.length === 0 ? <div className="issue-box">{text('この科目の教材はまだありません。', '该科目暂时没有教材。')}</div>
+          : <>
+            <label className="field-label" htmlFor="textbook-chapter">{text('学習する単元', '选择单元')}</label>
+            <select id="textbook-chapter" className="select-control" value={selectedChapter?.key ?? ''} onChange={(event) => changeChapter(event.target.value)}>
+              {textbookChapters.map((chapter) => <option key={chapter.key} value={chapter.key}>{chapter.label}</option>)}
+            </select>
+          </>}
+      </NumberedSection>
+
+      <NumberedSection number="04" title={text('学習項目', '学习部分')}>
+        {!selectedChapter ? <div className="issue-box">{text('先に単元を選んでください。', '请先选择单元。')}</div>
+          : <>
+            <label className="field-label" htmlFor="textbook-lesson">{text('学習する項目', '选择学习部分')}</label>
+            <select id="textbook-lesson" className="select-control" value={selectedLesson?.key ?? ''} onChange={(event) => setLessonKey(event.target.value)}>
+              {selectedChapter.lessons.map((lesson) => <option key={lesson.key} value={lesson.key}>{lesson.label}</option>)}
+            </select>
+            {selectedLesson && <div className="setup-progress-note"><span>{selectedStarted ? text('続きから再開できます', '可以从上次进度继续') : text('最初から開始', '从头开始')}</span><small>{text(`${selectedCompleted}/${selectedItemIds.length} の確認項目を完了`, `已完成 ${selectedCompleted}/${selectedItemIds.length} 个确认项目`)}</small></div>}
+          </>}
+      </NumberedSection>
+    </> : <>
       <NumberedSection number="03" title={text('問題', '题目')}>
         <label className="field-label" htmlFor="learning-question">{text('学習する問題', '选择学习题目')}</label>
         <select id="learning-question" className="select-control" value={questionId} onChange={(event) => setQuestionId(event.target.value)}>
@@ -148,8 +152,8 @@ export function LearningSetupPage() {
       {SHOW_GUIDANCE_LEVEL && <NumberedSection number="04" title={text('誘導レベル', '引导强度')}><div className="choice-grid" role="radiogroup" aria-label={text('誘導レベル', '引导强度')}>{variants.map((item) => <button type="button" role="radio" aria-checked={variant === item.value} key={item.value} onClick={() => setVariant(item.value)}><strong>{item.label}</strong><small>{item.description}</small></button>)}</div></NumberedSection>}
     </>}
 
-    <RaisedButton type="button" className="primary-button" data-testid="start-learning" disabled={mode === 'textbook' ? !unitId || !sectionId : !questionId} onClick={begin}>
-      {mode === 'textbook' ? text(selectedSectionStarted ? '続きから学ぶ' : '教科書モードを始める', selectedSectionStarted ? '继续学习' : '开始教科书模式') : text('この設定で問題を解く', '按此设置开始做题')}
+    <RaisedButton type="button" className="primary-button" data-testid="start-learning" disabled={mode === 'textbook' ? !selectedLesson : !questionId} onClick={begin}>
+      {mode === 'textbook' ? text(selectedStarted ? '続きから学ぶ' : '教科書モードを始める', selectedStarted ? '继续学习' : '开始教科书模式') : text('この設定で問題を解く', '按此设置开始做题')}
     </RaisedButton>
   </div>
 }
