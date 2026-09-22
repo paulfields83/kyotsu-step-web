@@ -5,6 +5,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
+import { findTextbookLessonTarget, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
 import type { TextbookReadingBlock, TextbookReadingPart } from '../domain/textbookSchema'
 import type { PublicTextbookItem, PublicTextbookSection, PublicTextbookUnit, TextbookAnswerResult } from '../domain/textbookPublic'
 import { useAppStore } from '../stores/useAppStore'
@@ -318,6 +319,38 @@ function TextbookReadingFlow({ unit, section, progress }: {
       })}
     </article>
   )
+}
+
+function groupedLessonSection(unit: PublicTextbookUnit, lesson: TextbookLessonTarget): PublicTextbookSection | undefined {
+  if (lesson.kind !== 'section-group') return undefined
+  const sectionIds = new Set(lesson.sectionIds ?? [])
+  const sourceSections = unit.sections.filter((section) => sectionIds.has(section.id))
+  if (!sourceSections.length) return undefined
+
+  const figures = new Map(sourceSections.flatMap((section) => section.figures).map((figure) => [figure.id, figure]))
+  const prefix = lesson.topicPrefix ?? '1'
+  const readingFlow: TextbookReadingBlock[] = sourceSections.flatMap((section, index) => {
+    const title = section.title.replace(/^第\\d+節[　\\s]*/u, '')
+    return [
+      { id: `group-topic-${lesson.key}-${section.id}`, type: 'topic' as const, text: `${prefix}.${index + 1} ${title}` },
+      ...section.readingFlow,
+    ]
+  })
+
+  return {
+    id: `group-${lesson.key}`,
+    number: prefix,
+    title: lesson.label,
+    description: '',
+    figures: [...figures.values()],
+    readingFlow,
+    items: sourceSections.flatMap((section) => section.items),
+  }
+}
+
+function progressForSection(section: PublicTextbookSection, progress: TextbookUnitProgress | undefined) {
+  const completed = section.items.filter((item) => progress?.answers[item.id]?.resolved).length
+  return { completed, total: section.items.length }
 }
 
 export function TextbookUnitPage() {
