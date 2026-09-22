@@ -399,7 +399,7 @@ export function TextbookUnitPage() {
   }, [requestedSectionId, targetKey, unit, unitId])
 
   if (unit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
-  if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/courses">{text('コースへ戻る', '返回课程')}</Link>} />
+  if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
 
   const targetMatch = targetKey ? findTextbookLessonTarget([unit], targetKey) : undefined
   const lessonTarget = targetMatch?.lesson
@@ -506,7 +506,7 @@ export function TextbookUnitPage() {
                 ? text(`${targetMatch?.lesson.label ?? currentSection.title} の ${targetSummary.total} 個の確認項目をすべて完了しました。`, `已完成 ${targetMatch?.lesson.label ?? currentSection.title} 的全部 ${targetSummary.total} 个确认项目。`)
                 : text(`${unit.title} の ${summary.total} 個の確認項目をすべて完了しました。`, `已完成 ${unit.title} 的全部 ${summary.total} 个确认项目。`)}</p>
             </div>
-            <Link className="raised-link" to="/practice">{text('練習へ進む', '进入练习')}</Link>
+            <Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>
           </div>
         )}
       </section>
