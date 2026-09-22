@@ -1,5 +1,6 @@
 import { Database, Languages, RotateCcw, Settings2, UserRound } from 'lucide-react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import type { Question } from '../../domain/questionSchema'
 import { useAppStore } from '../../stores/useAppStore'
 import { useI18n } from '../../i18n/runtime'
@@ -61,7 +62,11 @@ export function SettingsHubPage() {
         <div className="v2-language-choice">
           <button type="button" aria-pressed={language === 'ja'} onClick={() => setLanguage('ja')}>日本語</button>
           <button type="button" aria-pressed={language === 'zh'} onClick={() => setLanguage('zh')}>中文</button>
-        </div>
+      <section className="v2-menu-list">
+        <Link to="/admin"><div><strong>{text('問題カタログ', '题目目录')}</strong><small>{text('登録済み問題を確認', '查看已登记题目')}</small></div><span>→</span></Link>
+      </section>
+    </div>
+
       </section>
 
       <section className="v2-settings-card">
