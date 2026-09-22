@@ -165,7 +165,8 @@ const server = createServer(async (request, response) => {
       const correct = isTextbookAnswerCorrect(answer, value)
       return sendJson(request, response, 200, {
         correct,
-        resolved: correct,
+        resolved: true,
+        ...(correct ? {} : { correctAnswer: answer.answer }),
       })
     } catch (error) {
       return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
