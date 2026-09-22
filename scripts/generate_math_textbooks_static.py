@@ -19,6 +19,13 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "backend" / "data" / "textbooks" / "math-1a" / "source"
 OUT = ROOT / "backend" / "data" / "textbooks" / "math-1a"
 
+def resolve_source(name: str) -> Path:
+    wanted = unicodedata.normalize("NFC", name)
+    for path in SOURCE.glob("*.docx"):
+        if unicodedata.normalize("NFC", path.name) == wanted:
+            return path
+    raise FileNotFoundError(name)
+
 CONFIGS = [
     ("塾_数学I_第1章_数と式_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx",
      "math-1a-numbers-expressions", "数学I 数と式", "塾 数学I 第1章「数と式」教科書学習モード完全版"),
@@ -456,7 +463,7 @@ def write_unit(unit, answers):
 def main():
     summaries = []
     for filename, unit_id, title, label in CONFIGS:
-        unit, answers, warnings = build_unit(SOURCE / filename, unit_id, title, label, "section")
+        unit, answers, warnings = build_unit(resolve_source(filename), unit_id, title, label, "section")
         if warnings:
             raise RuntimeError(f"{unit_id}: " + "; ".join(warnings))
         validate(unit, answers)
@@ -464,14 +471,14 @@ def main():
         summaries.append((unit_id, len(unit["sections"]), sum(len(section["items"]) for section in unit["sections"])))
 
     first, first_answers, warnings = build_unit(
-        SOURCE / "塾_数学A_教科書学習モード_第1節・第2節_完全版.docx",
+        resolve_source("塾_数学A_教科書学習モード_第1節・第2節_完全版.docx"),
         "math-1a-counting-probability",
         "数学A 場合の数と確率",
         "塾 数学A 第1章「場合の数と確率」第1・第2節 黄金母本",
         "topic",
     )
     latter, latter_answers, latter_warnings = build_unit(
-        SOURCE / "塾_数学A_第1章_第3節・第4節_確率_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx",
+        resolve_source("塾_数学A_第1章_第3節・第4節_確率_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx"),
         "math-1a-counting-probability",
         "数学A 場合の数と確率",
         "塾 数学A 第1章「場合の数と確率」第3・第4節 厳格誘導母本",
