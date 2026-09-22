@@ -1,6 +1,5 @@
 import { Database, Languages, RotateCcw, Settings2, UserRound } from 'lucide-react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import type { Question } from '../../domain/questionSchema'
 import { useAppStore } from '../../stores/useAppStore'
 import { useI18n } from '../../i18n/runtime'
@@ -73,10 +72,6 @@ export function SettingsHubPage() {
           <span><strong>{customQuestions.length}</strong><small>{text('追加問題', '追加题')}</small></span>
         </div>
         <button type="button" className="v2-danger-button" disabled={resetting} onClick={clear}><RotateCcw size={17} />{resetting ? text('消去しました', '已清除') : text('学習記録を消去', '清除学习记录')}</button>
-      </section>
-
-      <section className="v2-menu-list">
-        <Link to="/admin"><div><strong>{text('問題カタログ', '题目目录')}</strong><small>{text('登録済み問題を確認', '查看已登记题目')}</small></div><span>→</span></Link>
       </section>
     </div>
   )
