@@ -242,7 +242,11 @@ function sectionHeading(text: string) {
 function topicHeading(text: string, style?: string) {
   const normalized = normalizeSpace(text)
   const numbered = normalized.match(/^([0-9０-９]+)[　 ]+(.+)$/u)
-  if (numbered && !/[=≦≧<>]/.test(numbered[2])) return numbered[2].trim()
+  if (
+    numbered
+    && normalized.length <= 56
+    && !/[。！？【】=≦≧<>]/.test(numbered[2])
+  ) return numbered[2].trim()
   if (/^第[0-9０-９]+節\s*節末問題/u.test(normalized)) return normalized.replace(/^第[0-9０-９]+節\s*/u, '').trim()
   if (/^(章末問題|章末確認|思考力を養う|思考力)/u.test(normalized)) return normalized
   if (style && /heading|見出し/i.test(style) && !/^第[0-9０-９]+節/u.test(normalized)) return normalized
@@ -250,7 +254,7 @@ function topicHeading(text: string, style?: string) {
 }
 
 function isAnswersMarker(text: string) {
-  return /^解答(?:一覧|例|集)?(?:\s|$)/u.test(normalizeSpace(text))
+  return /^解答(?:一覧|例|集)?/u.test(normalizeSpace(text))
 }
 
 function parseAnswerRow(row: string[]) {
@@ -549,7 +553,7 @@ function buildSource(
             continue
           }
           const ext = mimeExtension(imagePath)
-          const assetName = `${sourcePrefix}-${basename(imagePath, `.${ext}`).replace(/[^a-zA-Z0-9_-]/g, '-') }.${ext}`
+          const assetName = `${sourcePrefix}-${basename(imagePath, `.${ext}`).replace(/[^a-zA-Z0-9_-]/g, '-')}.${ext}`
           const figureId = `${topicId}-fig-${figures.size + 1}`
           assets.set(assetName, image)
           figures.set(figureId, { id: figureId, src: `assets/${assetName}`, alt: `${topic.title} の図`, caption: topic.title })
