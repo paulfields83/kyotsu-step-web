@@ -280,15 +280,9 @@ export function TextbookUnitPage() {
     return () => { active = false }
   }, [unitId])
 
-  const firstIncompleteIndex = useMemo(() => {
-    if (!unit) return 0
-    const index = unit.sections.findIndex((section) => textbookSectionProgress(unit, progress, section.id).completed < section.items.length)
-    return index === -1 ? unit.sections.length - 1 : index
-  }, [progress, unit])
-
   useEffect(() => {
-    setSelectedSectionIndex(firstIncompleteIndex)
-  }, [firstIncompleteIndex, unitId])
+    setSelectedSectionIndex(0)
+  }, [unitId])
 
   if (unit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
   if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
