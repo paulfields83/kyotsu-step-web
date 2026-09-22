@@ -4,15 +4,18 @@ import { fileURLToPath } from 'node:url'
 import { builtInTextbookUnits } from '../../src/data/textbookUnits'
 import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookAnswerBook, type TextbookUnit } from '../../src/domain/textbookSchema'
 import { strictSetsPropositionsAnswers, strictSetsPropositionsUnit } from './setsPropositionsStrict'
+import { loadMathDocxTextbooks } from './mathDocxImporter'
 
 export type LoadedTextbookUnit = {
   unit: TextbookUnit
   answerBook: TextbookAnswerBook
   dataDir?: string
+  assetMap?: Map<string, Buffer>
 }
 
 const here = dirname(fileURLToPath(import.meta.url))
 const dataRoot = join(here, '..', 'data', 'textbooks')
+const mathSourceRoot = join(dataRoot, 'math-1a', 'source')
 
 function legacyAnswerBook(unit: TextbookUnit): TextbookAnswerBook {
   const answers: TextbookAnswerBook['answers'] = {}
@@ -135,8 +138,20 @@ function loadJsonTextbooks(): LoadedTextbookUnit[] {
 
 const legacyTextbooks: LoadedTextbookUnit[] = builtInTextbookUnits.map((unit) => ({ unit, answerBook: legacyAnswerBook(unit) }))
 const generatedTextbooks: LoadedTextbookUnit[] = [{ unit: strictSetsPropositionsUnit, answerBook: strictSetsPropositionsAnswers }]
+const mathDocxImport = loadMathDocxTextbooks(mathSourceRoot)
+const importedMathTextbooks: LoadedTextbookUnit[] = mathDocxImport.imported.map(({ unit, answerBook, assets }) => ({
+  unit,
+  answerBook,
+  assetMap: assets,
+}))
 
-export const loadedTextbookUnits: LoadedTextbookUnit[] = [...legacyTextbooks, ...generatedTextbooks, ...loadJsonTextbooks()]
+export const textbookImportDiagnostics = mathDocxImport.diagnostics
+export const loadedTextbookUnits: LoadedTextbookUnit[] = [
+  ...legacyTextbooks,
+  ...generatedTextbooks,
+  ...importedMathTextbooks,
+  ...loadJsonTextbooks(),
+]
 
 export function findLoadedTextbook(unitId: string) {
   return loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId && unit.status === 'published')
