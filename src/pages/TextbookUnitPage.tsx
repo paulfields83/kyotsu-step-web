@@ -29,9 +29,14 @@ function readingGroupItemIds(blocks: TextbookReadingBlock[]) {
 function groupReadingFlow(blocks: TextbookReadingBlock[]) {
   const groups: TextbookReadingBlock[][] = []
   let current: TextbookReadingBlock[] = []
+  const hasTopics = blocks.some((block) => block.type === 'topic')
 
   for (const block of blocks) {
-    if (block.type === 'heading' && current.some((candidate) => candidate.type === 'heading')) {
+    const startsNewGroup = hasTopics
+      ? block.type === 'topic'
+      : block.type === 'heading' && current.some((candidate) => candidate.type === 'heading')
+
+    if (startsNewGroup && current.length) {
       groups.push(current)
       current = []
     }
@@ -211,7 +216,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
   }
 
   const renderBlock = (block: TextbookReadingBlock) => {
-    if (block.type === 'heading') return <h3 className="reading-subheading" key={block.id}>{block.text}</h3>
+    if (block.type === 'topic') return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
+    if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
     if (block.type === 'note') return <aside className="reading-note" key={block.id}>{block.text}</aside>
 
     if (block.type === 'figure') {
@@ -247,7 +253,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         const groupItemIds = readingGroupItemIds(group)
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
-          <section className="reading-subsection" data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
+          <section className={`reading-subsection${group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
             {group.map(renderBlock)}
             {completed && groupIndex < groups.length - 1 && (
               <div className="reading-subsection-complete">
