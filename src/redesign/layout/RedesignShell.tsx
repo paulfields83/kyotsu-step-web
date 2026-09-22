@@ -4,6 +4,7 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useI18n } from '../../i18n/runtime'
 import { languageMeta, type AppLanguage } from '../../i18n/types'
 import './app-v2.css'
+import './ia-v2.css'
 
 function backTarget(pathname: string) {
   if (pathname === '/' || pathname === '/courses' || pathname === '/practice' || pathname === '/progress' || pathname === '/settings') return null
