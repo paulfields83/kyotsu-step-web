@@ -11,7 +11,6 @@ const staticMathUnitIds = [
   'math-1a-quadratic-functions',
   'math-1a-geometry-measurement',
   'math-1a-data-analysis',
-  'math-1a-math-a-sets',
   'math-1a-counting-probability',
   'math-1a-geometric-properties',
   'math-1a-human-activities',
@@ -99,7 +98,7 @@ describe('backend textbook data', () => {
       '確率と期待値',
       'いろいろな確率',
     ])
-    for (const label of ['数と式', '2次関数', '図形と計量', 'データの分析', '集合', '図形の性質', '数学と人間の活動']) {
+    for (const label of ['数と式', '2次関数', '図形と計量', 'データの分析', '図形の性質', '数学と人間の活動']) {
       expect(mathChapters.map((chapter) => chapter.label)).toContain(label)
     }
 
@@ -114,6 +113,12 @@ describe('backend textbook data', () => {
     expect(physicsChapters[0].lessons[0].label).toBe('1A 変位と速度')
     expect(physicsChapters[0].lessons[1].label).toMatch(/^1B /)
     expect(physicsChapters[0].lessons[2].label).toMatch(/^1C /)
+  })
+
+  it('keeps the standalone Math A 集合 source data hidden because it overlaps 集合と命題', () => {
+    const duplicate = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-math-a-sets')!
+    expect(duplicate).toBeTruthy()
+    expect(duplicate.unit.status).toBe('draft')
   })
 
   it('keeps every new static math unit in one-to-one sync with private answers', () => {
