@@ -268,7 +268,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const topicLabel = (group: TextbookReadingBlock[], index: number) => {
     const topic = group[0]
     const raw = topic?.type === 'topic' ? topic.text : String(index + 1)
-    const match = raw.match(/^(\\d+(?:\\.\\d+)?)\\s+(.+)$/)
+    const match = raw.match(/^(\d+(?:\.\d+)?)\s+(.+)$/)
     return match ? { number: match[1], title: match[2] } : { number: String(index + 1), title: raw }
   }
 
