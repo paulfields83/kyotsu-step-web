@@ -212,7 +212,7 @@ function normalizeSpace(value: string) {
 
 function normalizeHeading(value: string) {
   return normalizeSpace(value)
-    .replace(/^第[0-9０-９]+節\s*/u, '')
+    .replace(/^第\s*[0-9０-９]+\s*節\s*/u, '')
     .replace(/^[0-9０-９]+[.．]?\s*/u, '')
     .replace(/[「」『』（）()・／/：:,.，。\-―–—\s]/g, '')
     .toLowerCase()
@@ -234,7 +234,7 @@ function isAuthoringMeta(text: string) {
 function sectionHeading(text: string) {
   const normalized = normalizeSpace(text)
   if (/節末問題/.test(normalized)) return undefined
-  const match = normalized.match(/^第([0-9０-９]+)節\s+(.+)$/u)
+  const match = normalized.match(/^第\s*([0-9０-９]+)\s*節\s+(.+)$/u)
   if (!match) return undefined
   return { number: toAsciiDigits(match[1]), title: match[2].trim() }
 }
@@ -247,9 +247,9 @@ function topicHeading(text: string, style?: string) {
     && normalized.length <= 56
     && !/[。！？【】=≦≧<>]/.test(numbered[2])
   ) return numbered[2].trim()
-  if (/^第[0-9０-９]+節\s*節末問題/u.test(normalized)) return normalized.replace(/^第[0-9０-９]+節\s*/u, '').trim()
+  if (/^第\s*[0-9０-９]+\s*節\s*節末問題/u.test(normalized)) return normalized.replace(/^第\s*[0-9０-９]+\s*節\s*/u, '').trim()
   if (/^(章末問題|章末確認|思考力を養う|思考力)/u.test(normalized)) return normalized
-  if (style && /heading|見出し/i.test(style) && !/^第[0-9０-９]+節/u.test(normalized)) return normalized
+  if (style && /heading|見出し/i.test(style) && !/^第\s*[0-9０-９]+\s*節/u.test(normalized)) return normalized
   return undefined
 }
 
@@ -345,6 +345,9 @@ function parseRawSections(elements: DocElement[], fallbackTitle: string) {
     if (!text || isAuthoringMeta(text)) continue
     if (/^塾[　\s]/u.test(text)) continue
 
+    const sectionMentions = text.match(/第\s*[0-9０-９]+\s*節/gu) ?? []
+    if (sectionMentions.length > 1) continue
+
     const section = sectionHeading(text)
     if (section) {
       current = { number: section.number, title: section.title, topics: [], pending: [] }
@@ -352,7 +355,7 @@ function parseRawSections(elements: DocElement[], fallbackTitle: string) {
       continue
     }
 
-    if (/^第[0-9０-９]+章/u.test(text) && !current) continue
+    if (/^第\s*[0-9０-９]+\s*章/u.test(text) && !current) continue
 
     current = current ?? ensureSection(sections, fallbackTitle)
     const topic = topicHeading(text, element.style)
