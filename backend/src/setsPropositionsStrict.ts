@@ -130,7 +130,11 @@ const sections:TextbookSection[]=sectionGroups.map((group)=>{
     title:group.title,
     description:group.description,
     figures:[...figureMap.values()],
-    readingFlow:groupTopics.flatMap((topic)=>topic.readingFlow),
+    readingFlow:groupTopics.flatMap((topic,topicIndex)=>topic.readingFlow.map((block)=>(
+      block.type==='topic'
+        ? { ...block, text:`${group.number}.${topicIndex+1} ${block.text}` }
+        : block
+    ))),
     items:groupTopics.flatMap((topic)=>topic.items),
   }
 })
@@ -138,7 +142,7 @@ const sections:TextbookSection[]=sectionGroups.map((group)=>{
 export const strictSetsPropositionsUnit:TextbookUnit=TextbookUnitSchema.parse({
   schemaVersion:'1.0',
   unitId:'math-1a-sets-propositions',
-  revision:2,
+  revision:3,
   status:'published',
   subject:'math-1a',
   title:'数学I 集合と命題',
