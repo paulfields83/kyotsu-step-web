@@ -17,10 +17,12 @@ import { MistakesPage } from '../pages/MistakesPage'
 import { HistoryPage } from '../pages/HistoryPage'
 import { RankingPage } from '../pages/RankingPage'
 import { ProfilePage } from '../pages/ProfilePage'
+import { HomePreviewPage } from '../redesign/pages/HomePreviewPage'
 
 export default function App() {
   return (
     <Routes>
+      <Route path="/ui-preview" element={<HomePreviewPage />} />
       <Route element={<AppShell />}>
         <Route path="/" element={<Navigate to="/problems" replace />} />
         <Route path="/problems" element={<ProblemsPage />} />
