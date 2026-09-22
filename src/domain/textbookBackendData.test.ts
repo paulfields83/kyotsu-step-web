@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { publicTextbookUnit } from '../../backend/src/publicTextbook'
 import { loadedTextbookUnits } from '../../backend/src/textbookData'
+import { buildTextbookChapters } from './textbookCatalog'
 
 const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
 const importedPhysicsUnitIds = [
@@ -68,6 +69,30 @@ describe('backend textbook data', () => {
     expect(unit.unit.sections.flatMap((section) => section.items).length).toBeGreaterThan(0)
     expect(new Set(choiceRefs(unit.unit))).toEqual(new Set(unit.unit.sections.flatMap((section) => section.items.map((item) => item.id))))
     expect(new Set(Object.keys(unit.answerBook.answers))).toEqual(new Set(unit.unit.sections.flatMap((section) => section.items.map((item) => item.id))))
+  })
+
+  it('builds the same unit -> learning item hierarchy for math and physics', () => {
+    const publicUnits = loadedTextbookUnits
+      .filter(({ unit }) => unit.status === 'published')
+      .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook))
+
+    const mathChapters = buildTextbookChapters(publicUnits, 'math-1a')
+    expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題')
+    expect(mathChapters.map((chapter) => chapter.label)).toContain('場合の数と確率')
+    expect(mathChapters.find((chapter) => chapter.label === '集合と命題')?.lessons.map((lesson) => lesson.label)).toEqual(['集合', '命題', '証明'])
+    expect(mathChapters.find((chapter) => chapter.label === '場合の数と確率')?.lessons.map((lesson) => lesson.label)).toEqual(['場合の数', '順列と組合せ'])
+
+    const physicsChapters = buildTextbookChapters(publicUnits, 'physics')
+    expect(physicsChapters.map((chapter) => chapter.label)).toEqual([
+      '運動の表し方',
+      '剛体にはたらく力',
+      '運動量と衝突',
+      '円運動と単振動',
+      '万有引力と天体運動',
+    ])
+    expect(physicsChapters[0].lessons[0].label).toBe('1A 変位と速度')
+    expect(physicsChapters[0].lessons[1].label).toMatch(/^1B /)
+    expect(physicsChapters[0].lessons[2].label).toMatch(/^1C /)
   })
 
   it('keeps math item IDs unique while preserving per-section display labels', () => {
