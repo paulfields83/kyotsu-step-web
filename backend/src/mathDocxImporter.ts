@@ -428,8 +428,8 @@ function assignAnswerGroups(topics: RawTopic[], groups: AnswerGroup[]) {
 
 function answerType(answer: string): TextbookItem['answerType'] {
   const normalized = answer.trim()
-  if (/^[+−-]?\d+(?:\.\d+)?(?:\/\d+(?:\.\d+)?)?$/.test(normalized)) return 'number'
-  if (/[=≦≧<>⇒⇔⊂⊃∩∪√²³^!]|\\frac|\\sqrt|[a-zA-Z]\^?\d/u.test(normalized)) return 'formula'
+  if (/^[+−-]?\d+(?:\.\d+)?$/.test(normalized)) return 'number'
+  if (/[=≦≧<>⇒⇔⊂⊃∩∪√²³^!\/]|\\frac|\\sqrt|[a-zA-Z]\^?\d/u.test(normalized)) return 'formula'
   return 'text'
 }
 
