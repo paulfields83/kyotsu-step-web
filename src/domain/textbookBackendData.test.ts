@@ -6,6 +6,17 @@ import { loadedTextbookUnits } from '../../backend/src/textbookData'
 import { buildTextbookChapters } from './textbookCatalog'
 
 const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
+const staticMathUnitIds = [
+  'math-1a-numbers-expressions',
+  'math-1a-quadratic-functions',
+  'math-1a-geometry-measurement',
+  'math-1a-data-analysis',
+  'math-1a-math-a-sets',
+  'math-1a-counting-probability',
+  'math-1a-geometric-properties',
+  'math-1a-human-activities',
+]
+
 const importedPhysicsUnitIds = [
   'physics-1b-velocity-composition-decomposition',
   'physics-1c-relative-velocity',
@@ -55,6 +66,8 @@ describe('backend textbook data', () => {
     const ids = loadedTextbookUnits.map(({ unit }) => unit.unitId)
     expect(ids).toContain('physics-a-displacement-velocity')
     expect(ids).toContain('math-1a-counting-permutation')
+    expect(ids).toContain('math-1a-sets-propositions')
+    for (const unitId of staticMathUnitIds) expect(ids).toContain(unitId)
     for (const unitId of importedPhysicsUnitIds) expect(ids).toContain(unitId)
   })
 
@@ -80,7 +93,15 @@ describe('backend textbook data', () => {
     expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題')
     expect(mathChapters.map((chapter) => chapter.label)).toContain('場合の数と確率')
     expect(mathChapters.find((chapter) => chapter.label === '集合と命題')?.lessons.map((lesson) => lesson.label)).toEqual(['集合', '命題', '証明'])
-    expect(mathChapters.find((chapter) => chapter.label === '場合の数と確率')?.lessons.map((lesson) => lesson.label)).toEqual(['場合の数', '順列と組合せ'])
+    expect(mathChapters.find((chapter) => chapter.label === '場合の数と確率')?.lessons.map((lesson) => lesson.label)).toEqual([
+      '場合の数',
+      '順列・組合せ',
+      '確率と期待値',
+      'いろいろな確率',
+    ])
+    for (const label of ['数と式', '2次関数', '図形と計量', 'データの分析', '集合', '図形の性質', '数学と人間の活動']) {
+      expect(mathChapters.map((chapter) => chapter.label)).toContain(label)
+    }
 
     const physicsChapters = buildTextbookChapters(publicUnits, 'physics')
     expect(physicsChapters.map((chapter) => chapter.label)).toEqual([
@@ -93,6 +114,20 @@ describe('backend textbook data', () => {
     expect(physicsChapters[0].lessons[0].label).toBe('1A 変位と速度')
     expect(physicsChapters[0].lessons[1].label).toMatch(/^1B /)
     expect(physicsChapters[0].lessons[2].label).toMatch(/^1C /)
+  })
+
+  it('keeps every new static math unit in one-to-one sync with private answers', () => {
+    for (const unitId of staticMathUnitIds) {
+      const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId)!
+      expect(loaded).toBeTruthy()
+      expect(loaded.unit.status).toBe('published')
+      const itemIds = loaded.unit.sections.flatMap((section) => section.items.map((item) => item.id))
+      expect(itemIds.length).toBeGreaterThan(0)
+      expect(new Set(itemIds).size).toBe(itemIds.length)
+      expect(new Set(choiceRefs(loaded.unit))).toEqual(new Set(itemIds))
+      expect(new Set(Object.keys(loaded.answerBook.answers))).toEqual(new Set(itemIds))
+      expect(loaded.dataDir).toBeTruthy()
+    }
   })
 
   it('keeps math item IDs unique while preserving per-section display labels', () => {
