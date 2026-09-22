@@ -4,7 +4,6 @@ import { fileURLToPath } from 'node:url'
 import { builtInTextbookUnits } from '../../src/data/textbookUnits'
 import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookAnswerBook, type TextbookUnit } from '../../src/domain/textbookSchema'
 import { strictSetsPropositionsAnswers, strictSetsPropositionsUnit } from './setsPropositionsStrict'
-import { loadMathDocxTextbooks } from './mathDocxImporter'
 
 export type LoadedTextbookUnit = {
   unit: TextbookUnit
@@ -15,7 +14,6 @@ export type LoadedTextbookUnit = {
 
 const here = dirname(fileURLToPath(import.meta.url))
 const dataRoot = join(here, '..', 'data', 'textbooks')
-const mathSourceRoot = join(dataRoot, 'math-1a', 'source')
 
 function legacyAnswerBook(unit: TextbookUnit): TextbookAnswerBook {
   const answers: TextbookAnswerBook['answers'] = {}
@@ -138,30 +136,15 @@ function loadJsonTextbooks(): LoadedTextbookUnit[] {
 
 const legacyTextbooks: LoadedTextbookUnit[] = builtInTextbookUnits.map((unit) => ({ unit, answerBook: legacyAnswerBook(unit) }))
 const generatedTextbooks: LoadedTextbookUnit[] = [{ unit: strictSetsPropositionsUnit, answerBook: strictSetsPropositionsAnswers }]
-const mathDocxImport = loadMathDocxTextbooks(mathSourceRoot)
-const importedMathTextbooks: LoadedTextbookUnit[] = mathDocxImport.imported.map(({ unit, answerBook, assets }) => ({
-  unit,
-  answerBook,
-  assetMap: assets,
-}))
+const jsonTextbooks = loadJsonTextbooks()
 
-const hasImportedCountingProbability = importedMathTextbooks.some(({ unit }) => unit.unitId === 'math-1a-counting-probability')
-const jsonTextbooks = loadJsonTextbooks().map((entry) => {
-  if (hasImportedCountingProbability || entry.unit.unitId !== 'math-1a-counting-permutation') return entry
-  return {
-    ...entry,
-    unit: TextbookUnitSchema.parse({ ...entry.unit, status: 'published' }),
-  }
-})
-
-export const textbookImportDiagnostics = [
-  ...mathDocxImport.diagnostics,
-  ...(hasImportedCountingProbability ? [] : ['Math A DOCX import unavailable; published legacy counting/permutation fallback.']),
-]
+// Math Word files under backend/data/textbooks/math-1a/source are authoring sources only.
+// Production textbook units are static unit.json + answers.json files so the API is
+// deterministic and does not depend on parsing DOCX files at runtime.
+export const textbookImportDiagnostics: string[] = []
 export const loadedTextbookUnits: LoadedTextbookUnit[] = [
   ...legacyTextbooks,
   ...generatedTextbooks,
-  ...importedMathTextbooks,
   ...jsonTextbooks,
 ]
 
