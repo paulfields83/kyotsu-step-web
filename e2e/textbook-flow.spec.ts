@@ -18,8 +18,15 @@ test('setup selects a textbook section and opens only that section content', asy
 
   await expect(page).toHaveURL(/math-1a-sets-propositions\?section=sec-propositions/)
   await expect(page.getByRole('heading', { name: '集合と命題：命題' })).toBeVisible()
+  await expect(page.getByRole('button', { name: /2\.1 命題と真偽/ })).toBeVisible()
+  await expect(page.getByRole('button', { name: /2\.2 条件と集合・反例/ })).toBeVisible()
+  await expect(page.getByRole('button', { name: /2\.3 必要条件と十分条件/ })).toBeVisible()
   await expect(page.getByRole('heading', { name: '2.1 命題と真偽' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '2.2 条件と集合・反例' })).toHaveCount(0)
+
+  await page.getByRole('button', { name: /2\.2 条件と集合・反例/ }).click()
   await expect(page.getByRole('heading', { name: '2.2 条件と集合・反例' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '2.1 命題と真偽' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: '1.1 集合と要素' })).toHaveCount(0)
 })
 
