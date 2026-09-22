@@ -1,0 +1,2276 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-human-activities",
+  "revision": 1,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "数学A 数学と人間の活動",
+  "source": {
+    "type": "reference",
+    "label": "塾 数学A 第3章「数学と人間の活動」教科書学習モード完全版",
+    "rightsNote": "ユーザー提供の学習モードWord母本をもとに、静的なバックエンド教材データへ構造化。"
+  },
+  "objectives": [
+    "「数学と歴史・文化」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「数学とパズル・ゲーム」の考え方を、本文と空欄を通して一段ずつ確認する。"
+  ],
+  "sections": [
+    {
+      "id": "s1-human-activities",
+      "number": "1",
+      "title": "数学と歴史・文化",
+      "description": "数学と歴史・文化を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-human-activities-topic-01",
+          "type": "topic",
+          "text": "1.1 位取り記数法"
+        },
+        {
+          "id": "s1-human-activities-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「表し方や整数条件を確認 → 進法/余り/最大公約数/不定方程式の道具へ翻訳 → 計算 → 元の意味に戻す」の順で進む。"
+        },
+        {
+          "id": "s1-human-activities-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "記数法・整数・合同式を「計算技術」ではなく、なぜその仕組みが便利なのかから学ぶ。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "数字の位置によって 1,10,100,… の重みを持たせる記数法が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "78215=7·10⁴+8·10³+2·10²+1·10+5。位置を入れ替えると値が変わる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　エジプトの記数法"
+        },
+        {
+          "id": "s1-human-activities-t01-n006",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t01-n007",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t01-h008",
+          "type": "heading",
+          "text": "問題文　同じ記号を必要個数並べる方式と現代の位取り記数法を比較する。"
+        },
+        {
+          "id": "s1-human-activities-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　現代では記号の種類より "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " が桁の大きさを決める。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t01-n010",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-02",
+          "type": "topic",
+          "text": "1.2 2進法"
+        },
+        {
+          "id": "s1-human-activities-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2進法では各位の重みが 1,2,4,8,16,…=2の累乗。1011₂=1·8+0·4+1·2+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "10進数を2進数へ直すときは2で割った余りを下から読む。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　10進→2進"
+        },
+        {
+          "id": "s1-human-activities-t02-n004",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t02-n005",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t02-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "13を2進法で表す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　13=8+4+1=2³+2²+2⁰ なので "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t02-n008",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-03",
+          "type": "topic",
+          "text": "1.3 n進法どうしの変換"
+        },
+        {
+          "id": "s1-human-activities-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(a_k…a_1a_0)_(n) は a_k n^k+…+a_1 n+a_0。例えば 1212_(3)=1·3³+2·3²+1·3+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "10進数からn進数へはnで繰り返し割り、余りを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b006"
+            },
+            {
+              "type": "text",
+              "text": " 読む。小数ではnを繰り返し掛け、整数部分を順に読む。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t03-h003",
+          "type": "heading",
+          "text": "教科書対応問　3進数を10進数へ"
+        },
+        {
+          "id": "s1-human-activities-t03-n004",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t03-n005",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t03-h006",
+          "type": "heading",
+          "text": "問題文　2101_(3) を10進数に直す。"
+        },
+        {
+          "id": "s1-human-activities-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　2·3³+1·3²+0·3+1=54+9+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。各桁の重みを明示して計算する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t03-n008",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-t03-h009",
+          "type": "heading",
+          "text": "教科書対応問　10進数を2進数へ"
+        },
+        {
+          "id": "s1-human-activities-t03-n010",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t03-n011",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t03-h012",
+          "type": "heading",
+          "text": "問題文　100を2進数に直す。"
+        },
+        {
+          "id": "s1-human-activities-t03-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　100=64+32+4=2⁶+2⁵+2²。したがって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t03-n014",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-t03-h015",
+          "type": "heading",
+          "text": "教科書対応問　2進数の加法"
+        },
+        {
+          "id": "s1-human-activities-t03-n016",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t03-n017",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t03-h018",
+          "type": "heading",
+          "text": "問題文　101101₂+11010₂。"
+        },
+        {
+          "id": "s1-human-activities-t03-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　2進法では1+1=10₂ と繰り上がる。筆算するか10進数へ一度直して検算し、答えは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t03-n020",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-04",
+          "type": "topic",
+          "text": "1.4 最大公約数とユークリッドの互除法"
+        },
+        {
+          "id": "s1-human-activities-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a=bq+r のとき gcd(a,b)=gcd(b,"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b010"
+            },
+            {
+              "type": "text",
+              "text": " )。余りへ置き換えても共通の約数は変わらない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "余りが0になるまで繰り返し、最後の0でない余りが "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　252と105"
+        },
+        {
+          "id": "s1-human-activities-t04-n004",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t04-n005",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t04-h006",
+          "type": "heading",
+          "text": "問題文　252=105·2+42、105=42·2+21、42=21·2。"
+        },
+        {
+          "id": "s1-human-activities-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　最後の0でない余りは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b012"
+            },
+            {
+              "type": "text",
+              "text": " なので gcd=21。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t04-n008",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-05",
+          "type": "topic",
+          "text": "1.5 整数の割り算と最大公約数・最小公倍数"
+        },
+        {
+          "id": "s1-human-activities-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "aを0でない整数bで割ると a=bq+r, 0≦r<|b| と一意に表せる。qを商、rを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b013"
+            },
+            {
+              "type": "text",
+              "text": " という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正の整数a,bについて gcd(a,b)·lcm(a,b)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。素因数分解では最大公約数は共通因数の小さい指数、最小公倍数は各因数の大きい指数を取る。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t05-h003",
+          "type": "heading",
+          "text": "教科書対応問　196と120の最大公約数・最小公倍数"
+        },
+        {
+          "id": "s1-human-activities-t05-n004",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s1-human-activities-t05-n005",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s1-human-activities-t05-h006",
+          "type": "heading",
+          "text": "問題文　互除法と積の関係を使う。"
+        },
+        {
+          "id": "s1-human-activities-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　196=120+76, 120=76+44, 76=44+32, 44=32+12, 32=12·2+8, 12=8+4。よって gcd="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t05-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　lcm=196·120/4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b016"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t05-n009",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        },
+        {
+          "id": "s1-human-activities-t05-h010",
+          "type": "heading",
+          "text": "教科書対応問　負の数の商と余り"
+        },
+        {
+          "id": "s1-human-activities-t05-n011",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t05-n012",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t05-h013",
+          "type": "heading",
+          "text": "問題文　−17 を5で割った商と余りを 0≦r<5 で表す。"
+        },
+        {
+          "id": "s1-human-activities-t05-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　−17=5(−4)+3。したがって商 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "、余り "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b018"
+            },
+            {
+              "type": "text",
+              "text": "。余りは負にしない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t05-n015",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-06",
+          "type": "topic",
+          "text": "1.6 1次不定方程式"
+        },
+        {
+          "id": "s1-human-activities-t06-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ax+by=c が整数解をもつための基本条件は gcd(a,b) が c を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b019"
+            },
+            {
+              "type": "text",
+              "text": " こと。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t06-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "互除法を逆にたどると gcd(a,b)=au+bv の形を作れ、1つの整数解を得られる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t06-h003",
+          "type": "heading",
+          "text": "教科書対応問　整数解"
+        },
+        {
+          "id": "s1-human-activities-t06-n004",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t06-n005",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t06-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3x+5y=1。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t06-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　5=3·1+2, 3=2·1+1 より 1=3−(5−3)=2·3−5。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t06-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b020"
+            },
+            {
+              "type": "text",
+              "text": ", y="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b021"
+            },
+            {
+              "type": "text",
+              "text": " が1つの解。一般解はそこから変化させる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t06-n009",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-t06-h010",
+          "type": "heading",
+          "text": "教科書対応問　1次不定方程式の一般解"
+        },
+        {
+          "id": "s1-human-activities-t06-n011",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t06-n012",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t06-h013",
+          "type": "heading",
+          "text": "問題文　3x+5y=1 のすべての整数解。"
+        },
+        {
+          "id": "s1-human-activities-t06-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　1つの解 (2,−1) がある。3(x−2)+5(y+1)=0 → 3(x−2)=−5(y+1)。3と5は互いに素なので x−2=5k。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t06-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b022"
+            },
+            {
+              "type": "text",
+              "text": ", y="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b023"
+            },
+            {
+              "type": "text",
+              "text": " (kは整数)。1つの解だけで終わらず全解を表す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t06-n016",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-07",
+          "type": "topic",
+          "text": "1.7 xy+ax+by+c=0 型の整数解"
+        },
+        {
+          "id": "s1-human-activities-t07-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "xy+ax+by+c=0 では、xy+ax+by+ab=(x+b)(y+a) を作る。両辺に ab−c を調整し、積の形へ "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b024"
+            },
+            {
+              "type": "text",
+              "text": " する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t07-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(x+b)(y+a)=N となれば、N の整数の因数の組を全て調べて x,y を戻す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t07-h003",
+          "type": "heading",
+          "text": "研究対応　xy+2x+3y=6"
+        },
+        {
+          "id": "s1-human-activities-t07-n004",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t07-n005",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t07-h006",
+          "type": "heading",
+          "text": "問題文　左辺に6を加えて (x+3)(y+2)=12。"
+        },
+        {
+          "id": "s1-human-activities-t07-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　12の整数の因数の組を列挙し、x+3=d, y+2=12/d。各 d から整数解を作る。漏れを防ぐため正負の因数を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b025"
+            },
+            {
+              "type": "text",
+              "text": " 調べる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t07-n008",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-08",
+          "type": "topic",
+          "text": "1.8 合同式"
+        },
+        {
+          "id": "s1-human-activities-t08-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a,b を m で割った余りが同じとき a≡b (mod m)。これは m が a−b を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b026"
+            },
+            {
+              "type": "text",
+              "text": " という意味。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t08-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "加法・減法・乗法では両辺を同じ法mで計算してよい。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t08-h003",
+          "type": "heading",
+          "text": "教科書対応問　余りを求める"
+        },
+        {
+          "id": "s1-human-activities-t08-n004",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t08-n005",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t08-h006",
+          "type": "heading",
+          "text": "問題文　2^10 を7で割った余り。"
+        },
+        {
+          "id": "s1-human-activities-t08-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　2³=8≡1 (mod7)。2^9=(2³)³≡1、よって2^10≡"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b027"
+            },
+            {
+              "type": "text",
+              "text": " (mod7)。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t08-n008",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-t08-h009",
+          "type": "heading",
+          "text": "教科書対応問　合同式の加法・乗法"
+        },
+        {
+          "id": "s1-human-activities-t08-n010",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t08-n011",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t08-h012",
+          "type": "heading",
+          "text": "問題文　a≡2, b≡4 (mod5) のとき a+b, ab の余り。"
+        },
+        {
+          "id": "s1-human-activities-t08-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　a+b≡2+4=6≡"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b028"
+            },
+            {
+              "type": "text",
+              "text": " (mod5)、ab≡8≡"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b029"
+            },
+            {
+              "type": "text",
+              "text": " (mod5)。代表値で計算して最後に余りへ直す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t08-n014",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-t08-h015",
+          "type": "heading",
+          "text": "教科書対応問　大きな数の余り"
+        },
+        {
+          "id": "s1-human-activities-t08-n016",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t08-n017",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t08-h018",
+          "type": "heading",
+          "text": "問題文　3^100 を8で割った余り。"
+        },
+        {
+          "id": "s1-human-activities-t08-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　3²=9≡1 (mod8)。3^100=(3²)^50≡1^50≡"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b030"
+            },
+            {
+              "type": "text",
+              "text": "。周期を見つける。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t08-n020",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-09",
+          "type": "topic",
+          "text": "1.9 位置の表し方"
+        },
+        {
+          "id": "s1-human-activities-t09-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "格子状の位置は2つの数の組で表せる。現在の地図の緯度・経度や座標も、「基準」と「方向」と「量」で位置を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b031"
+            },
+            {
+              "type": "text",
+              "text": " する考え方。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t09-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "経路や位置を表すとき、同じ点に複数の表し方がないよう基準・単位を固定する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t09-h003",
+          "type": "heading",
+          "text": "教科書対応問　カードで位置・数を当てる"
+        },
+        {
+          "id": "s1-human-activities-t09-n004",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-human-activities-t09-n005",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-human-activities-t09-h006",
+          "type": "heading",
+          "text": "問題文　2進法の各桁に対応するカードを使って誕生日の日にちを当てる。"
+        },
+        {
+          "id": "s1-human-activities-t09-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　「その数が載っているカード」の先頭値を足すのは、数を2進展開したとき1になっている桁の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b032"
+            },
+            {
+              "type": "text",
+              "text": " ことと同じ。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t09-n008",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-10",
+          "type": "topic",
+          "text": "1.10 地球を測る"
+        },
+        {
+          "id": "s1-human-activities-t10-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "地球の大きさを直接測れなくても、2地点の距離と太陽高度などの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b033"
+            },
+            {
+              "type": "text",
+              "text": " から円周の一部と中心角を対応させて推定できる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t10-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "弧の長さ/円周 = 中心角/360° を使い、既知の地表距離から円周・半径を逆算する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t10-h003",
+          "type": "heading",
+          "text": "教科書対応問　中心角から地球周長を推定"
+        },
+        {
+          "id": "s1-human-activities-t10-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-human-activities-t10-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-human-activities-t10-h006",
+          "type": "heading",
+          "text": "問題文　2地点間800km、中心角7.2° とする。"
+        },
+        {
+          "id": "s1-human-activities-t10-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　7.2°/360°=800/C。360/7.2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b034"
+            },
+            {
+              "type": "text",
+              "text": " なので C≈800·50="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b035"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t10-n008",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-human-activities-topic-11",
+          "type": "topic",
+          "text": "1.11 歴史的な整数問題"
+        },
+        {
+          "id": "s1-human-activities-t11-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "昔の問題も、現代の文字式・不定方程式へ翻訳すると同じ数学で解ける。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t11-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文章の単位・条件を整理し、「何が整数でなければならないか」を明確にする。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t11-h003",
+          "type": "heading",
+          "text": "教科書対応問　余りの性質を文字で証明"
+        },
+        {
+          "id": "s1-human-activities-t11-n004",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s1-human-activities-t11-n005",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s1-human-activities-t11-h006",
+          "type": "heading",
+          "text": "問題文　mを5で割ると2余り、nを5で割ると1余るとき m−2n の余り。"
+        },
+        {
+          "id": "s1-human-activities-t11-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　m=5p+2, n=5q+1 と置く。m−2n=5p+2−10q−2=5(p−2q)。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t11-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって5の倍数で余りは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b036"
+            },
+            {
+              "type": "text",
+              "text": "。合同式なら m≡2,n≡1 より m−2n≡0 と短く書ける。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t11-n009",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s1-human-activities-t11-h010",
+          "type": "heading",
+          "text": "教科書対応問　整数条件を満たす個数問題"
+        },
+        {
+          "id": "s1-human-activities-t11-n011",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s1-human-activities-t11-n012",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s1-human-activities-t11-h013",
+          "type": "heading",
+          "text": "問題文　不定方程式の一般解から、正の整数や範囲条件を満たす解だけを選ぶ。"
+        },
+        {
+          "id": "s1-human-activities-t11-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　一般解に k を入れる範囲を不等式で求め、k が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s1-main-b037"
+            },
+            {
+              "type": "text",
+              "text": " であることを使って候補を絞る。"
+            }
+          ]
+        },
+        {
+          "id": "s1-human-activities-t11-n015",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s1-human-activities-t11-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第1節の自力確認　記数法は「位の重み」、互除法は「余りに置き換える」、合同式は「余りが同じ」という意味へ毎回戻る。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-human-activities-s1-main-b001",
+          "label": "1",
+          "prompt": "位取り記数法 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b002",
+          "label": "2",
+          "prompt": "位取り記数法 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b003",
+          "label": "3",
+          "prompt": "2進法 【3】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b004",
+          "label": "4",
+          "prompt": "2進法 【4】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b005",
+          "label": "5",
+          "prompt": "n進法どうしの変換 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b006",
+          "label": "6",
+          "prompt": "n進法どうしの変換 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b007",
+          "label": "7",
+          "prompt": "n進法どうしの変換 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b008",
+          "label": "8",
+          "prompt": "n進法どうしの変換 【8】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b009",
+          "label": "9",
+          "prompt": "n進法どうしの変換 【9】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b010",
+          "label": "10",
+          "prompt": "最大公約数とユークリッドの互除法 【10】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b011",
+          "label": "11",
+          "prompt": "最大公約数とユークリッドの互除法 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b012",
+          "label": "12",
+          "prompt": "最大公約数とユークリッドの互除法 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b013",
+          "label": "13",
+          "prompt": "整数の割り算と最大公約数・最小公倍数 【13】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b014",
+          "label": "14",
+          "prompt": "整数の割り算と最大公約数・最小公倍数 【14】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b015",
+          "label": "15",
+          "prompt": "整数の割り算と最大公約数・最小公倍数 【15】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b016",
+          "label": "16",
+          "prompt": "整数の割り算と最大公約数・最小公倍数 【16】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b017",
+          "label": "17",
+          "prompt": "整数の割り算と最大公約数・最小公倍数 【17】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b018",
+          "label": "18",
+          "prompt": "整数の割り算と最大公約数・最小公倍数 【18】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b019",
+          "label": "19",
+          "prompt": "1次不定方程式 【19】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b020",
+          "label": "20",
+          "prompt": "1次不定方程式 【20】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b021",
+          "label": "21",
+          "prompt": "1次不定方程式 【21】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b022",
+          "label": "22",
+          "prompt": "1次不定方程式 【22】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b023",
+          "label": "23",
+          "prompt": "1次不定方程式 【23】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b024",
+          "label": "24",
+          "prompt": "xy+ax+by+c=0 型の整数解 【24】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b025",
+          "label": "25",
+          "prompt": "xy+ax+by+c=0 型の整数解 【25】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b026",
+          "label": "26",
+          "prompt": "合同式 【26】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b027",
+          "label": "27",
+          "prompt": "合同式 【27】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b028",
+          "label": "28",
+          "prompt": "合同式 【28】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b029",
+          "label": "29",
+          "prompt": "合同式 【29】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b030",
+          "label": "30",
+          "prompt": "合同式 【30】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b031",
+          "label": "31",
+          "prompt": "位置の表し方 【31】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b032",
+          "label": "32",
+          "prompt": "位置の表し方 【32】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b033",
+          "label": "33",
+          "prompt": "地球を測る 【33】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b034",
+          "label": "34",
+          "prompt": "地球を測る 【34】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b035",
+          "label": "35",
+          "prompt": "地球を測る 【35】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b036",
+          "label": "36",
+          "prompt": "歴史的な整数問題 【36】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-human-activities-s1-main-b037",
+          "label": "37",
+          "prompt": "歴史的な整数問題 【37】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "s2-human-activities",
+      "number": "2",
+      "title": "数学とパズル・ゲーム",
+      "description": "数学とパズル・ゲームを、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s2-human-activities-topic-01",
+          "type": "topic",
+          "text": "2.1 敷き詰め・不変量"
+        },
+        {
+          "id": "s2-human-activities-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「小さい例を試す → 不変量/負け位置を探す → 規則を一般化 → その規則が保たれる理由を確認」の順で進む。"
+        },
+        {
+          "id": "s2-human-activities-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "パズルを試行錯誤だけで解かず、状態を記号化し、不変量・逆算・必勝条件を探す。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "盤面を色分けすると、1つのピースが必ず何色ずつ覆うかなど、操作で変わらない量＝ "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-main-b001"
+            },
+            {
+              "type": "text",
+              "text": " を見つけられる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t01-h004",
+          "type": "heading",
+          "text": "教科書対応問　敷き詰め可能性"
+        },
+        {
+          "id": "s2-human-activities-t01-n005",
+          "type": "note",
+          "text": "読む　まず小さい場合を実際に試し、「毎回変わらない量」や「勝ち負けが決まる位置」を探す。"
+        },
+        {
+          "id": "s2-human-activities-t01-n006",
+          "type": "note",
+          "text": "考える　敷き詰めは色分けなどの不変量、石取りは負け位置から逆算する。一般化する前に小さい例を表にする。"
+        },
+        {
+          "id": "s2-human-activities-t01-h007",
+          "type": "heading",
+          "text": "問題文　欠けた盤面をドミノで敷き詰められるか。"
+        },
+        {
+          "id": "s2-human-activities-t01-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　市松模様に2色で塗り、各ドミノが黒白1マスずつ覆うことを使う。欠けた後の黒白個数が違えば "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-main-b002"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t01-n009",
+          "type": "note",
+          "text": "最後の確認　見つけた規則が一部の例だけでなく、次の手でも保たれるかを確認する。"
+        },
+        {
+          "id": "s2-human-activities-topic-02",
+          "type": "topic",
+          "text": "2.2 石取りゲーム"
+        },
+        {
+          "id": "s2-human-activities-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1回に取れる個数が決まるゲームでは、最後から逆に「相手に渡したい個数」を探す。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1〜3個取れるなら、4の倍数個を相手に渡せる状態が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-main-b003"
+            },
+            {
+              "type": "text",
+              "text": " になる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　1〜3個の石取り"
+        },
+        {
+          "id": "s2-human-activities-t02-n004",
+          "type": "note",
+          "text": "読む　まず小さい場合を実際に試し、「毎回変わらない量」や「勝ち負けが決まる位置」を探す。"
+        },
+        {
+          "id": "s2-human-activities-t02-n005",
+          "type": "note",
+          "text": "考える　敷き詰めは色分けなどの不変量、石取りは負け位置から逆算する。一般化する前に小さい例を表にする。"
+        },
+        {
+          "id": "s2-human-activities-t02-h006",
+          "type": "heading",
+          "text": "問題文　石が10個、1回1〜3個。最後を取った人が勝ち。"
+        },
+        {
+          "id": "s2-human-activities-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　相手に8個を渡したいので最初に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " 取る。その後、相手がk個取れば自分は4−k個取り、再び4の倍数を渡す。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-n008",
+          "type": "note",
+          "text": "最後の確認　見つけた規則が一部の例だけでなく、次の手でも保たれるかを確認する。"
+        },
+        {
+          "id": "s2-human-activities-t02-h009",
+          "type": "heading",
+          "text": "教科書対応問　正多角形の敷き詰め"
+        },
+        {
+          "id": "s2-human-activities-t02-n010",
+          "type": "note",
+          "text": "読む　図を見て、どの点がどの辺上にあり、どの比・角・垂直・平行が与えられているかを先に整理する。"
+        },
+        {
+          "id": "s2-human-activities-t02-n011",
+          "type": "note",
+          "text": "考える　使う定理を名前だけで当てず、「その定理を使うために必要な比・角・一直線/一点で交わる条件」がそろっているかを確認する。"
+        },
+        {
+          "id": "s2-human-activities-t02-h012",
+          "type": "heading",
+          "text": "問題文　同じ正n角形だけで1点のまわりを敷き詰められるか。"
+        },
+        {
+          "id": "s2-human-activities-t02-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　正n角形の内角は 180(n−2)/n 度。1点にk枚集めるには k·内角="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-main-b005"
+            },
+            {
+              "type": "text",
+              "text": " が必要。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　正三角形は6枚、正方形は4枚、正六角形は3枚で360°になる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-n015",
+          "type": "note",
+          "text": "最後の確認　比の向き、対応する辺、内分/外分を取り違えていないかを最後に図へ戻って確認する。"
+        },
+        {
+          "id": "s2-human-activities-t02-h016",
+          "type": "heading",
+          "text": "教科書対応問　複数種類の正多角形"
+        },
+        {
+          "id": "s2-human-activities-t02-n017",
+          "type": "note",
+          "text": "読む　図を見て、どの点がどの辺上にあり、どの比・角・垂直・平行が与えられているかを先に整理する。"
+        },
+        {
+          "id": "s2-human-activities-t02-n018",
+          "type": "note",
+          "text": "考える　使う定理を名前だけで当てず、「その定理を使うために必要な比・角・一直線/一点で交わる条件」がそろっているかを確認する。"
+        },
+        {
+          "id": "s2-human-activities-t02-h019",
+          "type": "heading",
+          "text": "問題文　正三角形と正方形などを混ぜる。"
+        },
+        {
+          "id": "s2-human-activities-t02-p020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　1点のまわりに集まる各内角の和が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-main-b006"
+            },
+            {
+              "type": "text",
+              "text": " になる組を探す。さらに辺長が一致し、全体で矛盾なく続けられるか確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-n021",
+          "type": "note",
+          "text": "最後の確認　比の向き、対応する辺、内分/外分を取り違えていないかを最後に図へ戻って確認する。"
+        },
+        {
+          "id": "s2-human-activities-t02-h022",
+          "type": "heading",
+          "text": "教科書対応問　石取りゲームの必勝位置"
+        },
+        {
+          "id": "s2-human-activities-t02-n023",
+          "type": "note",
+          "text": "読む　まず小さい場合を実際に試し、「毎回変わらない量」や「勝ち負けが決まる位置」を探す。"
+        },
+        {
+          "id": "s2-human-activities-t02-n024",
+          "type": "note",
+          "text": "考える　敷き詰めは色分けなどの不変量、石取りは負け位置から逆算する。一般化する前に小さい例を表にする。"
+        },
+        {
+          "id": "s2-human-activities-t02-h025",
+          "type": "heading",
+          "text": "問題文　1〜3個取れるゲームで、残りが4の倍数なら手番側は不利。"
+        },
+        {
+          "id": "s2-human-activities-t02-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　相手が1,2,3個取ったら自分が3,2,1個取って合計 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-main-b007"
+            },
+            {
+              "type": "text",
+              "text": " 減らし、再び4の倍数を相手に渡す。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-p027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　研究　ルールを変えた石取り"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1〜4個取れる場合。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-p029",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4　相手に渡したいのは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-main-b008"
+            },
+            {
+              "type": "text",
+              "text": " 個。相手がk個なら自分は5−k個取るという補完戦略を作る。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t02-n030",
+          "type": "note",
+          "text": "最後の確認　見つけた規則が一部の例だけでなく、次の手でも保たれるかを確認する。"
+        },
+        {
+          "id": "s2-human-activities-t02-p031",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ゲームの考え方　具体例を全部並べるだけでなく、「勝ち状態/負け状態」を分類して一般化する。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-topic-03",
+          "type": "topic",
+          "text": "2.3 章末問題"
+        },
+        {
+          "id": "s2-human-activities-t03-n001",
+          "type": "note",
+          "text": "読む　まず小さい場合を実際に試し、「毎回変わらない量」や「勝ち負けが決まる位置」を探す。"
+        },
+        {
+          "id": "s2-human-activities-t03-n002",
+          "type": "note",
+          "text": "考える　敷き詰めは色分けなどの不変量、石取りは負け位置から逆算する。一般化する前に小さい例を表にする。"
+        },
+        {
+          "id": "s2-human-activities-t03-n003",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s2-human-activities-t03-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　記数法・整数・ゲームを組み合わせ、問題文を現代の数学表現へ翻訳する。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n005",
+          "type": "note",
+          "text": "最後の確認　見つけた規則が一部の例だけでなく、次の手でも保たれるかを確認する。"
+        },
+        {
+          "id": "s2-human-activities-t03-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　歴史的問題"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n007",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s2-human-activities-t03-n008",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s2-human-activities-t03-h009",
+          "type": "heading",
+          "text": "問題文　古典問題を現代語へ直し、未知数を置いて方程式を作る。"
+        },
+        {
+          "id": "s2-human-activities-t03-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　数量関係を先に表にし、整数条件があるなら解の中から "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-end-b001"
+            },
+            {
+              "type": "text",
+              "text": " だけを残す。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n011",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s2-human-activities-t03-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　合同式を使う"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n013",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s2-human-activities-t03-n014",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s2-human-activities-t03-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "大きな累乗の余り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　周期を見つけて指数をその周期で割り、巨大な数を直接計算しない。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n017",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s2-human-activities-t03-p018",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　n進法と余りを組み合わせる"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n019",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s2-human-activities-t03-n020",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s2-human-activities-t03-h021",
+          "type": "heading",
+          "text": "問題文　ある数のn進表示の末尾から、nで割った余りを読む。"
+        },
+        {
+          "id": "s2-human-activities-t03-p022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　10進法で1の位が10で割った余りを表すのと同じく、n進法の最下位桁は n で割った "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-end-b002"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n023",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s2-human-activities-t03-p024",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　互除法から不定方程式へ"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n025",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s2-human-activities-t03-n026",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s2-human-activities-t03-h027",
+          "type": "heading",
+          "text": "問題文　gcd(a,b)=d を互除法で求めたあと、式を逆にたどる。"
+        },
+        {
+          "id": "s2-human-activities-t03-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　d=ax+by の1組を作り、cがdの倍数なら全体を c/d 倍して ax+by=c の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-end-b003"
+            },
+            {
+              "type": "text",
+              "text": " を得る。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n029",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s2-human-activities-t03-p030",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　年齢当てゲーム"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n031",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s2-human-activities-t03-n032",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s2-human-activities-t03-h033",
+          "type": "heading",
+          "text": "問題文　質問へのYes/Noを2進数の桁として設計する。"
+        },
+        {
+          "id": "s2-human-activities-t03-p034",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　候補が32通りならYes/Noの質問5回で最大2^5="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-human-activities-s2-end-b004"
+            },
+            {
+              "type": "text",
+              "text": " 通りを区別できる。カード式年齢当ては2進法の応用。"
+            }
+          ]
+        },
+        {
+          "id": "s2-human-activities-t03-n035",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-human-activities-s2-main-b001",
+          "label": "1",
+          "prompt": "敷き詰め・不変量 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-main-b002",
+          "label": "2",
+          "prompt": "敷き詰め・不変量 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-main-b003",
+          "label": "3",
+          "prompt": "石取りゲーム 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-main-b004",
+          "label": "4",
+          "prompt": "石取りゲーム 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-main-b005",
+          "label": "5",
+          "prompt": "石取りゲーム 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-main-b006",
+          "label": "6",
+          "prompt": "石取りゲーム 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-main-b007",
+          "label": "7",
+          "prompt": "石取りゲーム 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-main-b008",
+          "label": "8",
+          "prompt": "石取りゲーム 【8】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-end-b001",
+          "label": "1",
+          "prompt": "章末問題 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-end-b002",
+          "label": "2",
+          "prompt": "章末問題 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-end-b003",
+          "label": "3",
+          "prompt": "章末問題 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-human-activities-s2-end-b004",
+          "label": "4",
+          "prompt": "章末問題 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        }
+      ]
+    }
+  ]
+}

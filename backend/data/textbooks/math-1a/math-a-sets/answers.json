@@ -1,0 +1,160 @@
+{
+  "unitId": "math-1a-math-a-sets",
+  "answers": {
+    "math-1a-math-a-sets-s1-main-b001": {
+      "validator": "normalized-text",
+      "answer": "集合",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b002": {
+      "validator": "normalized-text",
+      "answer": "要素",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b003": {
+      "validator": "normalized-text",
+      "answer": "∉",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b004": {
+      "validator": "normalized-text",
+      "answer": "∈",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b005": {
+      "validator": "normalized-text",
+      "answer": "∉",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b006": {
+      "validator": "normalized-text",
+      "answer": "条件",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b007": {
+      "validator": "normalized-text",
+      "answer": "無限集合",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b008": {
+      "validator": "normalized-text",
+      "answer": "{1,2,3,4,6,8,12,24}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b009": {
+      "validator": "normalized-text",
+      "answer": "⊂",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b010": {
+      "validator": "normalized-text",
+      "answer": "=",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b011": {
+      "validator": "normalized-text",
+      "answer": "両方",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b012": {
+      "validator": "normalized-text",
+      "answer": "補集合 Ā",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b013": {
+      "validator": "normalized-text",
+      "answer": "∅",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b014": {
+      "validator": "normalized-text",
+      "answer": "かつ",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b015": {
+      "validator": "normalized-text",
+      "answer": "または",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b016": {
+      "validator": "normalized-text",
+      "answer": "{2,3}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b017": {
+      "validator": "normalized-text",
+      "answer": "{1,2,3,4,6,7,8}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b018": {
+      "validator": "normalized-text",
+      "answer": "{3n｜1≦n≦6, nは整数}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b019": {
+      "validator": "normalized-text",
+      "answer": "{1,2,3,4,6,12}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b020": {
+      "validator": "normalized-text",
+      "answer": "B",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b021": {
+      "validator": "normalized-text",
+      "answer": "{3,5,7}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b022": {
+      "validator": "normalized-text",
+      "answer": "{1,2,3,5,7,9}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b023": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b024": {
+      "validator": "normalized-text",
+      "answer": "含む",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b025": {
+      "validator": "normalized-text",
+      "answer": "{3}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b026": {
+      "validator": "normalized-text",
+      "answer": "{1,2,3,4,5,6,7,9,12}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b027": {
+      "validator": "normalized-text",
+      "answer": "{1,3,5,7,9,11}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b028": {
+      "validator": "normalized-text",
+      "answer": "{x｜0≦x<3 または 6<x≦10}",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b029": {
+      "validator": "normalized-text",
+      "answer": "含まない",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b030": {
+      "validator": "normalized-text",
+      "answer": "かつ",
+      "acceptedAnswers": []
+    },
+    "math-1a-math-a-sets-s1-main-b031": {
+      "validator": "normalized-text",
+      "answer": "入らない",
+      "acceptedAnswers": []
+    }
+  }
+}

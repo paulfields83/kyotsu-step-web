@@ -1,0 +1,141 @@
+{
+  "unitId": "math-1a-sets-propositions-trial",
+  "answers": {
+    "m1-ns-001": {
+      "validator": "exact",
+      "answer": "⇒",
+      "acceptedAnswers": []
+    },
+    "m1-ns-002": {
+      "validator": "normalized-text",
+      "answer": "十分",
+      "acceptedAnswers": [
+        "十分条件"
+      ]
+    },
+    "m1-ns-003": {
+      "validator": "exact",
+      "answer": "⇒",
+      "acceptedAnswers": []
+    },
+    "m1-ns-004": {
+      "validator": "normalized-text",
+      "answer": "必要",
+      "acceptedAnswers": [
+        "必要条件"
+      ]
+    },
+    "m1-ns-005": {
+      "validator": "normalized-text",
+      "answer": "真",
+      "acceptedAnswers": []
+    },
+    "m1-ns-006": {
+      "validator": "normalized-text",
+      "answer": "偽",
+      "acceptedAnswers": []
+    },
+    "m1-ns-007": {
+      "validator": "normalized-text",
+      "answer": "十分",
+      "acceptedAnswers": [
+        "十分条件"
+      ]
+    },
+    "m1-ns-008": {
+      "validator": "normalized-text",
+      "answer": "偽",
+      "acceptedAnswers": []
+    },
+    "m1-ns-009": {
+      "validator": "number",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "m1-ns-010": {
+      "validator": "normalized-text",
+      "answer": "真",
+      "acceptedAnswers": []
+    },
+    "m1-ns-011": {
+      "validator": "normalized-text",
+      "answer": "必要",
+      "acceptedAnswers": [
+        "必要条件"
+      ]
+    },
+    "m1-ns-012": {
+      "validator": "normalized-text",
+      "answer": "真",
+      "acceptedAnswers": []
+    },
+    "m1-ns-013": {
+      "validator": "normalized-text",
+      "answer": "真",
+      "acceptedAnswers": []
+    },
+    "m1-ns-014": {
+      "validator": "normalized-text",
+      "answer": "必要十分",
+      "acceptedAnswers": [
+        "必要十分条件"
+      ]
+    },
+    "m1-bp-001": {
+      "validator": "normalized-text",
+      "answer": "有理数",
+      "acceptedAnswers": []
+    },
+    "m1-bp-002": {
+      "validator": "math-equivalent",
+      "answer": "3n²",
+      "acceptedAnswers": [
+        "3n^2",
+        "3*n^2",
+        "3n2"
+      ]
+    },
+    "m1-bp-003": {
+      "validator": "normalized-text",
+      "answer": "3の倍数",
+      "acceptedAnswers": [
+        "3倍数"
+      ]
+    },
+    "m1-bp-004": {
+      "validator": "math-equivalent",
+      "answer": "3k²",
+      "acceptedAnswers": [
+        "3k^2",
+        "3*k^2",
+        "3k2"
+      ]
+    },
+    "m1-bp-005": {
+      "validator": "normalized-text",
+      "answer": "3の倍数",
+      "acceptedAnswers": [
+        "3倍数"
+      ]
+    },
+    "m1-bp-006": {
+      "validator": "normalized-text",
+      "answer": "互いに素",
+      "acceptedAnswers": [
+        "互いに素な"
+      ]
+    },
+    "m1-bp-007": {
+      "validator": "normalized-text",
+      "answer": "矛盾",
+      "acceptedAnswers": [
+        "矛盾する"
+      ]
+    },
+    "m1-bp-008": {
+      "validator": "normalized-text",
+      "answer": "無理数",
+      "acceptedAnswers": []
+    }
+  }
+}

@@ -1,0 +1,495 @@
+{
+  "unitId": "math-1a-quadratic-functions",
+  "answers": {
+    "math-1a-quadratic-functions-s1-main-b001": {
+      "validator": "normalized-text",
+      "answer": "関数",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b002": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b003": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b004": {
+      "validator": "number",
+      "answer": "−10",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b005": {
+      "validator": "normalized-text",
+      "answer": "4a−10",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b006": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b007": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b008": {
+      "validator": "normalized-text",
+      "answer": "どの象限にも属さない",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b009": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b010": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b011": {
+      "validator": "normalized-text",
+      "answer": "定義域",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b012": {
+      "validator": "normalized-text",
+      "answer": "値域",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b013": {
+      "validator": "normalized-text",
+      "answer": "−x+20",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b014": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b015": {
+      "validator": "normalized-text",
+      "answer": "0<x<10",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b016": {
+      "validator": "normalized-text",
+      "answer": "10<y<20",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b017": {
+      "validator": "normalized-text",
+      "answer": "上に凸",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b018": {
+      "validator": "normalized-text",
+      "answer": "細く",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b019": {
+      "validator": "normalized-text",
+      "answer": "(0,8)",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b020": {
+      "validator": "normalized-text",
+      "answer": "p",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b021": {
+      "validator": "normalized-text",
+      "answer": "(p,q)",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b022": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b023": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b024": {
+      "validator": "normalized-text",
+      "answer": "(2,0)",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b025": {
+      "validator": "normalized-text",
+      "answer": "(p/2)²",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b026": {
+      "validator": "normalized-text",
+      "answer": "くくり出す",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b027": {
+      "validator": "number",
+      "answer": "−2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b028": {
+      "validator": "normalized-text",
+      "answer": "(−2,−3)",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b029": {
+      "validator": "normalized-text",
+      "answer": "a",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b030": {
+      "validator": "normalized-text",
+      "answer": "3本の連立方程式",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b031": {
+      "validator": "normalized-text",
+      "answer": "3/8",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b032": {
+      "validator": "normalized-text",
+      "answer": "(3/8)(x+2)²−7",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b033": {
+      "validator": "normalized-text",
+      "answer": "−y",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b034": {
+      "validator": "normalized-text",
+      "answer": "−x",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b035": {
+      "validator": "normalized-text",
+      "answer": "2x²−4x−2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b036": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b037": {
+      "validator": "normalized-text",
+      "answer": "10<y<20",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b038": {
+      "validator": "normalized-text",
+      "answer": "細い",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b039": {
+      "validator": "normalized-text",
+      "answer": "広い",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b040": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b041": {
+      "validator": "normalized-text",
+      "answer": "(1,3)",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b042": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b043": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b044": {
+      "validator": "number",
+      "answer": "−3",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b045": {
+      "validator": "normalized-text",
+      "answer": "x²+4x+1",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b001": {
+      "validator": "normalized-text",
+      "answer": "最小値",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b002": {
+      "validator": "normalized-text",
+      "answer": "最大値",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b003": {
+      "validator": "normalized-text",
+      "answer": "遠い",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b004": {
+      "validator": "normalized-text",
+      "answer": "端点",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b005": {
+      "validator": "number",
+      "answer": "−2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b006": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b007": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b008": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b009": {
+      "validator": "normalized-text",
+      "answer": "1/2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b010": {
+      "validator": "normalized-text",
+      "answer": "遠い",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b011": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b012": {
+      "validator": "normalized-text",
+      "answer": "2a²−2a",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b013": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b014": {
+      "validator": "normalized-text",
+      "answer": "−a²",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b015": {
+      "validator": "normalized-text",
+      "answer": "定義域",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b016": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b017": {
+      "validator": "normalized-text",
+      "answer": "18cm²",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b018": {
+      "validator": "number",
+      "answer": "−2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b019": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b020": {
+      "validator": "normalized-text",
+      "answer": "増加",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b021": {
+      "validator": "number",
+      "answer": "−11",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b022": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b023": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b024": {
+      "validator": "normalized-text",
+      "answer": "(2−a)²",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b025": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b026": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b027": {
+      "validator": "number",
+      "answer": "25",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b001": {
+      "validator": "normalized-text",
+      "answer": "(−b±√(b²−4ac))/(2a)",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b002": {
+      "validator": "normalized-text",
+      "answer": "判別式",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b003": {
+      "validator": "normalized-text",
+      "answer": "√6",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b004": {
+      "validator": "normalized-text",
+      "answer": "2個",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b005": {
+      "validator": "normalized-text",
+      "answer": "0個",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b006": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b007": {
+      "validator": "normalized-text",
+      "answer": "1個",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b008": {
+      "validator": "normalized-text",
+      "answer": "−1/12",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b009": {
+      "validator": "normalized-text",
+      "answer": "接する",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b010": {
+      "validator": "normalized-text",
+      "answer": "上",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b011": {
+      "validator": "normalized-text",
+      "answer": "x<1 または x>3",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b012": {
+      "validator": "normalized-text",
+      "answer": "−7<0",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b013": {
+      "validator": "normalized-text",
+      "answer": "すべての実数",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b014": {
+      "validator": "normalized-text",
+      "answer": "対称移動",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b015": {
+      "validator": "normalized-text",
+      "answer": "−k",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b016": {
+      "validator": "normalized-text",
+      "answer": "(3±√17)/4",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b017": {
+      "validator": "normalized-text",
+      "answer": "2, −1",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b018": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b019": {
+      "validator": "number",
+      "answer": "−1",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b020": {
+      "validator": "normalized-text",
+      "answer": "−1<x<4",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b021": {
+      "validator": "normalized-text",
+      "answer": "−1<a<2",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b022": {
+      "validator": "normalized-text",
+      "answer": "4−x²",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b023": {
+      "validator": "normalized-text",
+      "answer": "x軸対称",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-end-b001": {
+      "validator": "normalized-text",
+      "answer": "独立な条件",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-end-b002": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-end-b003": {
+      "validator": "normalized-text",
+      "answer": "下に凸ではない（上に凸）",
+      "acceptedAnswers": []
+    }
+  }
+}

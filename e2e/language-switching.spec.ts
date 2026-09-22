@@ -63,8 +63,9 @@ test('uses Chinese in simulation, analysis, ranking, profile, and persists the p
   await page.goto('/ranking')
   await expect(page.getByRole('heading', { name: '排行榜' })).toBeVisible()
   await page.goto('/profile')
-  await expect(page.getByRole('heading', { name: '我的' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '个人信息与设置' })).toBeVisible()
   await expect(page.getByLabel('显示名称')).toHaveValue('学习者')
+  await expect(page.getByRole('group', { name: '显示语言' })).toHaveCount(0)
 
   await page.reload()
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN')

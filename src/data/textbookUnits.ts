@@ -110,8 +110,8 @@ const rawTextbookUnits = [
         title: '図の読み取り',
         description: '図も知識の一部。矢印・方向・記号が「何を表すか」を、文章と図を往復しながら確認する。',
         figures: [
-          { id: 'position-vector-figure', src: '/assets/physics/textbook/a-displacement/position-vector.svg', alt: '原点 O、点 P1、点 P2、位置ベクトル r1 と r2、変位 Δr の関係図', caption: '図1　位置ベクトルと変位' },
-          { id: 'tangent-velocity-figure', src: '/assets/physics/textbook/a-displacement/tangent-velocity.svg', alt: '曲線上の P1 と P2、変位ベクトルと P1 における接線方向の速度ベクトルの図', caption: '図2　曲線運動と瞬間速度' },
+          { id: 'position-vector-figure', src: '/assets/physics/textbook/a-displacement/position-vector.png', alt: '原点 O、点 P1、点 P2、位置ベクトル r1 と r2、変位 Δr の関係図', caption: '図1　位置ベクトルと変位' },
+          { id: 'tangent-velocity-figure', src: '/assets/physics/textbook/a-displacement/tangent-velocity.png', alt: '曲線上の P1 と P2、変位ベクトルと P1 における接線方向の速度ベクトルの図', caption: '図2　曲線運動と瞬間速度' },
         ],
         readingFlow: [
           note('fr-note-1', '図も知識の一部。矢印・方向・記号が「何を表すか」を言葉で説明できるようにする。'),
@@ -161,7 +161,7 @@ const rawTextbookUnits = [
         title: '例題1｜瞬間速度の向き',
         description: '「なぜそう言えるか」を文章で追いながら、各点の瞬間速度の向きを考える。',
         figures: [
-          { id: 'curve-abc-figure', src: '/assets/physics/textbook/a-displacement/curve-abc.svg', alt: '左から右へ進む曲線軌道上に A、B、C の三点がある図', caption: '問1　各点 A・B・C における瞬間速度の向き' },
+          { id: 'curve-abc-figure', src: '/assets/physics/textbook/a-displacement/curve-abc.png', alt: '左から右へ進む曲線軌道上に A、B、C の三点がある図', caption: '問1　各点 A・B・C における瞬間速度の向き' },
         ],
         readingFlow: [
           note('q1-note-1', '解法の流れも文章の中で確認する。「なぜ」→「判断」→「結論」の順で進む。'),
@@ -191,7 +191,7 @@ const rawTextbookUnits = [
         title: '例題2｜変位と平均の速度',
         description: '「何を求めるか」→「式を立てる」→「計算」→「結論」を本文と式の流れに沿って進める。',
         figures: [
-          { id: 'coordinate-figure', src: '/assets/physics/textbook/a-displacement/coordinate.svg', alt: '座標平面上の P1(1.0,2.0) から P2(7.0,6.0) への移動を示す図', caption: '問2　P₁ から P₂ への移動' },
+          { id: 'coordinate-figure', src: '/assets/physics/textbook/a-displacement/coordinate.png', alt: '座標平面上の P1(1.0,2.0) から P2(7.0,6.0) への移動を示す図', caption: '問2　P₁ から P₂ への移動' },
         ],
         readingFlow: [
           heading('q2-h-0', '問2　変位と平均の速度'),

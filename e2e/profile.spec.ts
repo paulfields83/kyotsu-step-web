@@ -6,8 +6,10 @@ test.beforeEach(async ({ page }) => {
   await page.reload()
 })
 
-test('profile settings persist and affect the local demo ranking', async ({ page }) => {
+test('personal settings persist and still affect the hidden ranking feature', async ({ page }) => {
   await page.goto('/profile')
+  await expect(page.getByRole('heading', { name: '個人情報・設定' })).toBeVisible()
+  await expect(page.getByRole('group', { name: '表示言語' })).toHaveCount(0)
   await page.getByLabel('表示名').fill('私の記録')
   await page.getByLabel('既定の科目').selectOption('physics')
   await page.getByRole('checkbox', { name: /動きを減らす/ }).check()

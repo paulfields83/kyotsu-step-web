@@ -1,0 +1,6155 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-counting-probability",
+  "revision": 1,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "数学A 場合の数と確率",
+  "source": {
+    "type": "reference",
+    "label": "塾 数学A 第1章「場合の数と確率」教科書学習モード完全版",
+    "rightsNote": "ユーザー提供の第1・第2節黄金母本と第3・第4節厳格誘導母本を統合して静的なバックエンド教材データへ構造化。"
+  },
+  "objectives": [
+    "「場合の数」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「順列・組合せ」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「確率と期待値」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「いろいろな確率」の考え方を、本文と空欄を通して一段ずつ確認する。"
+  ],
+  "sections": [
+    {
+      "id": "s1-counting-probability",
+      "number": "1",
+      "title": "場合の数",
+      "description": "場合の数を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-counting-probability-topic-01",
+          "type": "topic",
+          "text": "1.1 集合と要素の個数"
+        },
+        {
+          "id": "s1-counting-probability-t01-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この節では、集合を使って「何を数えているのか」を整理し、場合を漏れなく重複なく数える方法を学ぶ。和の法則・積の法則は公式を暗記するのではなく、「なぜ足すのか」「なぜ掛けるのか」を意味から理解する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いくつかのものをひとまとめにして考えたものを集合といい、集合の中に入っている1つ1つのものを要素という。例えば A={1,2,3,4,5} には要素が"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b001"
+            },
+            {
+              "type": "text",
+              "text": "個ある。要素の個数が有限個である集合を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b002"
+            },
+            {
+              "type": "text",
+              "text": "集合、無限に続く集合を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b003"
+            },
+            {
+              "type": "text",
+              "text": "集合という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "有限集合 A の要素の個数を n(A) と表す。したがって A={1,2,3,4,5} なら n(A)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b004"
+            },
+            {
+              "type": "text",
+              "text": "である。また、要素を1つももたない集合を空集合 ∅ といい、n(∅)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b005"
+            },
+            {
+              "type": "text",
+              "text": "である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "集合 A・B と共通部分 A∩B のイメージ"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "集合 A と B の両方に属する要素からなる集合を共通部分 A∩B といい、A または B の少なくとも一方に属する要素からなる集合を和集合 A∪B という。A∩B に入るのは A と B の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b006"
+            },
+            {
+              "type": "text",
+              "text": "に入る要素である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和集合の要素数を考える。n(A)+n(B) とすると、A∩B の要素は A の要素として1回、B の要素としてもう"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b007"
+            },
+            {
+              "type": "text",
+              "text": "回数えられるため、合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b008"
+            },
+            {
+              "type": "text",
+              "text": "回数えてしまう。本当は1回だけ数えればよいので、余分な"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b009"
+            },
+            {
+              "type": "text",
+              "text": "回分を引く。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(A∪B) = n(A) + n(B) − "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b010"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "したがって n(A∪B)=n(A)+n(B)−n(A∩B) である。特に A∩B=∅ なら n(A∩B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b011"
+            },
+            {
+              "type": "text",
+              "text": "なので、n(A∪B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b012"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全体集合 U の中で A に属さない要素の集合を A の補集合 Ā とする。U の要素は「A に属するもの」と「A に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b013"
+            },
+            {
+              "type": "text",
+              "text": "もの」に分かれるため、n(U)=n(A)+n(Ā) である。よって、"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(Ā) = "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b014"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確認　公式を覚える前に、「共通部分を2回数えたから1回引く」「補集合は全体から元の集合を除いた残り」という意味を説明できることが大切。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問1　集合の要素数を公式から求める"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(U)=40, n(A)=23, n(B)=15, n(A∩B)=3 とする。まず B の補集合は、全体 U の中で B に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b015"
+            },
+            {
+              "type": "text",
+              "text": "要素なので、n(B̄)=n(U)−n(B)=40−15="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b016"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に Ā∪B ではなく、(A∪B) の補集合を求める。まず n(A∪B) が必要である。n(A)+n(B) とすると共通部分を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b017"
+            },
+            {
+              "type": "text",
+              "text": "回数えるため、余分な1回分 n(A∩B) を引く。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(A∪B)=23+15−3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b018"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "したがって、（A∪B）の補集合の要素数は n(U)−n(A∪B)=40−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b019"
+            },
+            {
+              "type": "text",
+              "text": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b020"
+            },
+            {
+              "type": "text",
+              "text": "である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p017",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問2　文章条件を集合へ翻訳する"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p018",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "50人にクイズ A,B を出した。A 正解35人、B 正解21人、両方とも不正解7人とする。全体を U、A 正解者の集合を A、B 正解者の集合を B とすると、n(U)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b021"
+            },
+            {
+              "type": "text",
+              "text": ", n(A)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b022"
+            },
+            {
+              "type": "text",
+              "text": ", n(B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b023"
+            },
+            {
+              "type": "text",
+              "text": "である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「両方とも不正解」は A∪B に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b024"
+            },
+            {
+              "type": "text",
+              "text": "人、すなわち（A∪B）の補集合に属する人である。したがって、その要素数が7なので、少なくとも1問正解した人数は n(A∪B)=50−7="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b025"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2問とも正解した人は A∩B に属する。和集合の公式より、43=35+21−n(A∩B) だから、n(A∩B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b026"
+            },
+            {
+              "type": "text",
+              "text": "人。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1問だけ正解した人は、「Aだけ正解」と「Bだけ正解」の2つに分かれる。Aだけは 35−13="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b027"
+            },
+            {
+              "type": "text",
+              "text": "人、Bだけは 21−13="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b028"
+            },
+            {
+              "type": "text",
+              "text": "人。この2つは同時に起こらないので、合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b029"
+            },
+            {
+              "type": "text",
+              "text": "人である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "別の見方　少なくとも1問正解した A∪B から、両方正解した A∩B を除けば「1問だけ正解」が残る。したがって 43−13=30 と一度に求めてもよい。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p023",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問3　整数条件を集合へ翻訳する"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p024",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1から200までの整数を全体集合 U とし、3の倍数の集合を A、5の倍数の集合を B とする。「3の倍数かつ5の倍数」は A と B の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b030"
+            },
+            {
+              "type": "text",
+              "text": "部分 A∩B、「3の倍数または5の倍数」は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b031"
+            },
+            {
+              "type": "text",
+              "text": "集合 A∪B、「どちらでもない」は A∪B の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b032"
+            },
+            {
+              "type": "text",
+              "text": "集合である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p025",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3と5の両方の倍数は最小公倍数"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b033"
+            },
+            {
+              "type": "text",
+              "text": "の倍数である。200=15×13+5 なので、n(A∩B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b034"
+            },
+            {
+              "type": "text",
+              "text": "。また、200=3×66+2 より n(A)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b035"
+            },
+            {
+              "type": "text",
+              "text": "、200=5×40 より n(B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b036"
+            },
+            {
+              "type": "text",
+              "text": "である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(A∪B)=66+40−13="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b037"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "よって、3の倍数でも5の倍数でもない数は、全体200個から A∪B の93個を除き、200−93="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b038"
+            },
+            {
+              "type": "text",
+              "text": "個である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-h028",
+          "type": "heading",
+          "text": "研究　3つの集合の要素の個数"
+        },
+        {
+          "id": "s1-counting-probability-t01-p029",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1から100までの整数について、2の倍数を A、3の倍数を B、7の倍数を C とする。A∪B∪C を数えるとき、n(A)+n(B)+n(C) とすると、2つの集合に共通する要素が重複して数えられる。そこで n(A∩B), n(B∩C), n(C∩A) をそれぞれ"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b039"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p030",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ところが、A∩B∩C に入る要素は最初に3回数えられ、その後3つの二重共通部分を引くと合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b040"
+            },
+            {
+              "type": "text",
+              "text": "回引かれるため、最終的に0回になってしまう。本当は1回数えたいので、n(A∩B∩C) を最後に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b041"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p031",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(A∪B∪C)=n(A)+n(B)+n(C)−n(A∩B)−n(B∩C)−n(C∩A)+"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b042"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t01-p032",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここでは n(A)=50, n(B)=33, n(C)=14, n(A∩B)=16, n(B∩C)=4, n(C∩A)=7, n(A∩B∩C)=2 なので、50+33+14−16−4−7+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t1-b043"
+            },
+            {
+              "type": "text",
+              "text": "個となる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-topic-02",
+          "type": "topic",
+          "text": "1.2 場合の数"
+        },
+        {
+          "id": "s1-counting-probability-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "場合の数とは、条件に合う異なる結果が全部で何通りあるかを数えたもの。大切なのは、何を「同じ結果」とみなし、何を「別の結果」とみなすかを最初に決めることである。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "樹形図：選択を段階ごとに枝として表す"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "結果を漏れなく数える方法の1つが樹形図である。第1段階の選択から枝を分け、それぞれの枝の先で第2段階の選択をさらに分ける。最後の枝の先端1つが、1つの"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b001"
+            },
+            {
+              "type": "text",
+              "text": "に対応する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "樹形図を使うと、「どの選択からどの結果が生まれたか」を見ながら数えられるので、漏れや重複を減らせる。ただし、場合の数が多いときは法則を使った方が効率がよい。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問4　先に3勝したチームが優勝"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A,B の2チームが試合をし、先に3勝した方を優勝とする。引き分けはない。A が優勝する場合を、優勝が3試合目・4試合目・5試合目に決まる場合に分ける。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A が3試合で優勝するには AAA の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b002"
+            },
+            {
+              "type": "text",
+              "text": "通り。4試合目で優勝するには、最初の3試合で A が2勝、B が1勝であり、4試合目をAが勝つ。この最初の3試合でBの勝つ位置は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b003"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "5試合目でAが優勝するには、最初の4試合が2勝2敗で、5試合目をAが勝つ。最初の4試合でAの2勝の位置を選ぶと C(4,2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b004"
+            },
+            {
+              "type": "text",
+              "text": "通り。したがって A 優勝は 1+3+6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b005"
+            },
+            {
+              "type": "text",
+              "text": "通り。Bも対称に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b006"
+            },
+            {
+              "type": "text",
+              "text": "通りなので、優勝の決まり方は合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b007"
+            },
+            {
+              "type": "text",
+              "text": "通りである。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問5　大小3個のさいころの和が6"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "大小3個のさいころを区別する。大の目を固定して場合分けすると、残り2個の和が決まる。大が1なら残りの和は5で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b008"
+            },
+            {
+              "type": "text",
+              "text": "通り、大が2なら残りの和は4で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b009"
+            },
+            {
+              "type": "text",
+              "text": "通り、大が3なら残りの和は3で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b010"
+            },
+            {
+              "type": "text",
+              "text": "通り、大が4なら残りの和は2で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b011"
+            },
+            {
+              "type": "text",
+              "text": "通り。大が5以上では和6にできない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4+3+2+1 = "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t2-b012"
+            },
+            {
+              "type": "text",
+              "text": "通り"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t02-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "数え方の確認　樹形図を描く場合も、場合分けして足す場合も、「すべての結果を1回ずつ数える」ことが共通の目的。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-topic-03",
+          "type": "topic",
+          "text": "1.3 和の法則"
+        },
+        {
+          "id": "s1-counting-probability-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ある場合 A が m 通り、別の場合 B が n 通りあり、A と B が同時に起こらないとする。このとき2つの場合には同じ結果の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b001"
+            },
+            {
+              "type": "text",
+              "text": "がないので、全部の場合の数は m+n 通りになる。この考え方を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b002"
+            },
+            {
+              "type": "text",
+              "text": "という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A または B ： m + n 通り（A と B が互いに重ならないとき）"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t03-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和の法則で重要なのは「足し算」という操作ではなく、分けた場合の間に"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b003"
+            },
+            {
+              "type": "text",
+              "text": "がないこと。重なりがあるなら、同じ結果を二重に数えるため単純には足せない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t03-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問6　2個のさいころの和が6の倍数"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t03-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "大小2個のさいころの和は最小2、最大12。この範囲の6の倍数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b004"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b005"
+            },
+            {
+              "type": "text",
+              "text": "なので、「和が6」と「和が12」に場合分けする。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t03-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和が6は (1,5),(2,4),(3,3),(4,2),(5,1) の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b006"
+            },
+            {
+              "type": "text",
+              "text": "通り。和が12は (6,6) の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b007"
+            },
+            {
+              "type": "text",
+              "text": "通り。この2つは同時に起こらないので和の法則を用い、5+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b008"
+            },
+            {
+              "type": "text",
+              "text": "通りである。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問7　2個のさいころの和が4の倍数"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t03-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和は2から12なので、4の倍数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b009"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b010"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b011"
+            },
+            {
+              "type": "text",
+              "text": "。和が4は3通り、和が8は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b012"
+            },
+            {
+              "type": "text",
+              "text": "通り、和が12は1通りである。3つの場合は互いに重ならないので、3+5+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t3-b013"
+            },
+            {
+              "type": "text",
+              "text": "通りとなる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-topic-04",
+          "type": "topic",
+          "text": "1.4 積の法則"
+        },
+        {
+          "id": "s1-counting-probability-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ある操作 A の選び方が m 通りあり、その"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b001"
+            },
+            {
+              "type": "text",
+              "text": "について次の操作 B の選び方が n 通りずつあるとする。1つの結果を作るには A と B の両方の選択が必要なので、全部の場合の数は m×n 通りになる。この考え方を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b002"
+            },
+            {
+              "type": "text",
+              "text": "という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A を選び、さらに B を選ぶ ： m × n 通り"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和の法則は「どれか1つの場合を選ぶ」、積の法則は「1つの結果を完成させるために複数段階の選択を"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b003"
+            },
+            {
+              "type": "text",
+              "text": "行う」という違いがある。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問8　ケーキと飲み物"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ケーキ4種類から1つ選び、その選んだケーキのそれぞれについて飲み物3種類から1つ選ぶ。第1段階は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b004"
+            },
+            {
+              "type": "text",
+              "text": "通り、第2段階は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b005"
+            },
+            {
+              "type": "text",
+              "text": "通りなので、積の法則より 4×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b006"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問9　大小3個のさいころ"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "大・中・小それぞれのさいころの目は6通り。大を1つ決めたそれぞれについて中が6通り、そのそれぞれについて小が6通りある。したがって、6×6×6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b007"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問10　展開した項の個数"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(a+b)(p+q+r) を展開すると、左の括弧から1項を選ぶ方法が2通り、右の括弧から1項を選ぶ方法が3通り。1つの積の項を作るには両方から選ぶので、2×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b008"
+            },
+            {
+              "type": "text",
+              "text": "項。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(a+b)(p+q)(x+y+z) では、2通り、2通り、3通りの選択を順に行うので、2×2×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b009"
+            },
+            {
+              "type": "text",
+              "text": "項となる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問11　正の約数の個数"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "112=2^4×7 と素因数分解する。正の約数を作るとき、2の指数は 0,1,2,3,4 の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b010"
+            },
+            {
+              "type": "text",
+              "text": "通り、7の指数は 0,1 の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b011"
+            },
+            {
+              "type": "text",
+              "text": "通り。これらを独立に選ぶので、5×2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b012"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t04-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "540=2^2×3^3×5。2の指数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b013"
+            },
+            {
+              "type": "text",
+              "text": "通り、3の指数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b014"
+            },
+            {
+              "type": "text",
+              "text": "通り、5の指数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b015"
+            },
+            {
+              "type": "text",
+              "text": "通りなので、3×4×2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t4-b016"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-topic-05",
+          "type": "topic",
+          "text": "1.5 節末問題（自力確認）"
+        },
+        {
+          "id": "s1-counting-probability-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "使い方　ここからは引導を少し減らす。ただし、「条件の意味 → 場合分け → 法則選択 → 計算」という順番は崩さない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末1　集合 A,B の個数"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n(U)=100, n(A)=65, n(B)=42, n(A∩B)=17 とする。(1) n(Ā)、(2) n(A∪B)、(3) （A∩B）の補集合の要素数、(4) n(A∩B̄) を求める。まず、それぞれが「全体から何を除くか」「Bのうち共通部分を除くか」を言葉で確認してから式を立てる。答えは"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b017"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b018"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b019"
+            },
+            {
+              "type": "text",
+              "text": ","
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b020"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末2　テレビとスマートフォン"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "40人中、毎日テレビ1時間以上16人、毎日スマートフォン1時間以上31人。(1) どちらかを1時間以上利用する人数の最大・最小、(2) 両方利用する人数の最大・最小を考える。集合の重なりを最小・最大にするとき、どちらの集合をもう一方へできるだけ"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b021"
+            },
+            {
+              "type": "text",
+              "text": "か、できるだけ"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b022"
+            },
+            {
+              "type": "text",
+              "text": "かを考える。その上で、(1) どちらかを1時間以上利用する人数は最大"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-union-max"
+            },
+            {
+              "type": "text",
+              "text": "人、最小"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-union-min"
+            },
+            {
+              "type": "text",
+              "text": "人。(2) 両方利用する人数は最大"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-both-max"
+            },
+            {
+              "type": "text",
+              "text": "人、最小"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-both-min"
+            },
+            {
+              "type": "text",
+              "text": "人。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末3　100から200までの4・5の倍数"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4の倍数集合を A、5の倍数集合を B とする。100〜200の範囲で n(A)=26, n(B)=21, n(A∩B)=6。(1) 4または5の倍数は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b024"
+            },
+            {
+              "type": "text",
+              "text": "個。(2) 4でも5でもない数は全体101個から(1)を除き"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b025"
+            },
+            {
+              "type": "text",
+              "text": "個。(3) 4の倍数だが5の倍数でない数は n(A)−n(A∩B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b026"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末4　硬貨で金額を支払う"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 100円・50円・10円硬貨を使って280円を支払う方法は、100円硬貨を0枚・1枚・2枚の場合に分けると 6+4+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b027"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 100円2枚、50円1枚、10円3枚の範囲で0円以上を作る方法は 3×2×4=24通りだが、0円を除くので"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b028"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末5　大小中3個のさいころ"
+            }
+          ]
+        },
+        {
+          "id": "s1-counting-probability-t05-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 和が7になる場合は大の目で場合分けし、5+4+3+2+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b029"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 積が奇数になるには3個すべてが奇数なので 3×3×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b030"
+            },
+            {
+              "type": "text",
+              "text": "通り。(3) 積が偶数は全216通りからすべて奇数の27通りを除き"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s1-t5-b031"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-counting-probability-s1-t1-b001",
+          "label": "1",
+          "prompt": "集合と要素の個数 【1】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b002",
+          "label": "2",
+          "prompt": "集合と要素の個数 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b003",
+          "label": "3",
+          "prompt": "集合と要素の個数 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b004",
+          "label": "4",
+          "prompt": "集合と要素の個数 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b005",
+          "label": "5",
+          "prompt": "集合と要素の個数 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b006",
+          "label": "6",
+          "prompt": "集合と要素の個数 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b007",
+          "label": "7",
+          "prompt": "集合と要素の個数 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b008",
+          "label": "8",
+          "prompt": "集合と要素の個数 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b009",
+          "label": "9",
+          "prompt": "集合と要素の個数 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b010",
+          "label": "10",
+          "prompt": "集合と要素の個数 【10】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b011",
+          "label": "11",
+          "prompt": "集合と要素の個数 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b012",
+          "label": "12",
+          "prompt": "集合と要素の個数 【12】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b013",
+          "label": "13",
+          "prompt": "集合と要素の個数 【13】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b014",
+          "label": "14",
+          "prompt": "集合と要素の個数 【14】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b015",
+          "label": "15",
+          "prompt": "集合と要素の個数 【15】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b016",
+          "label": "16",
+          "prompt": "集合と要素の個数 【16】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b017",
+          "label": "17",
+          "prompt": "集合と要素の個数 【17】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b018",
+          "label": "18",
+          "prompt": "集合と要素の個数 【18】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b019",
+          "label": "19",
+          "prompt": "集合と要素の個数 【19】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b020",
+          "label": "20",
+          "prompt": "集合と要素の個数 【20】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b021",
+          "label": "21",
+          "prompt": "集合と要素の個数 【21】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b022",
+          "label": "22",
+          "prompt": "集合と要素の個数 【22】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b023",
+          "label": "23",
+          "prompt": "集合と要素の個数 【23】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b024",
+          "label": "24",
+          "prompt": "集合と要素の個数 【24】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b025",
+          "label": "25",
+          "prompt": "集合と要素の個数 【25】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b026",
+          "label": "26",
+          "prompt": "集合と要素の個数 【26】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b027",
+          "label": "27",
+          "prompt": "集合と要素の個数 【27】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b028",
+          "label": "28",
+          "prompt": "集合と要素の個数 【28】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b029",
+          "label": "29",
+          "prompt": "集合と要素の個数 【29】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b030",
+          "label": "30",
+          "prompt": "集合と要素の個数 【30】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b031",
+          "label": "31",
+          "prompt": "集合と要素の個数 【31】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b032",
+          "label": "32",
+          "prompt": "集合と要素の個数 【32】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b033",
+          "label": "33",
+          "prompt": "集合と要素の個数 【33】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b034",
+          "label": "34",
+          "prompt": "集合と要素の個数 【34】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b035",
+          "label": "35",
+          "prompt": "集合と要素の個数 【35】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b036",
+          "label": "36",
+          "prompt": "集合と要素の個数 【36】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b037",
+          "label": "37",
+          "prompt": "集合と要素の個数 【37】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b038",
+          "label": "38",
+          "prompt": "集合と要素の個数 【38】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b039",
+          "label": "39",
+          "prompt": "集合と要素の個数 【39】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b040",
+          "label": "40",
+          "prompt": "集合と要素の個数 【40】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b041",
+          "label": "41",
+          "prompt": "集合と要素の個数 【41】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b042",
+          "label": "42",
+          "prompt": "集合と要素の個数 【42】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t1-b043",
+          "label": "43",
+          "prompt": "集合と要素の個数 【43】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b001",
+          "label": "1",
+          "prompt": "場合の数 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b002",
+          "label": "2",
+          "prompt": "場合の数 【2】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b003",
+          "label": "3",
+          "prompt": "場合の数 【3】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b004",
+          "label": "4",
+          "prompt": "場合の数 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b005",
+          "label": "5",
+          "prompt": "場合の数 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b006",
+          "label": "6",
+          "prompt": "場合の数 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b007",
+          "label": "7",
+          "prompt": "場合の数 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b008",
+          "label": "8",
+          "prompt": "場合の数 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b009",
+          "label": "9",
+          "prompt": "場合の数 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b010",
+          "label": "10",
+          "prompt": "場合の数 【10】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b011",
+          "label": "11",
+          "prompt": "場合の数 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t2-b012",
+          "label": "12",
+          "prompt": "場合の数 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b001",
+          "label": "1",
+          "prompt": "和の法則 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b002",
+          "label": "2",
+          "prompt": "和の法則 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b003",
+          "label": "3",
+          "prompt": "和の法則 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b004",
+          "label": "4",
+          "prompt": "和の法則 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b005",
+          "label": "5",
+          "prompt": "和の法則 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b006",
+          "label": "6",
+          "prompt": "和の法則 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b007",
+          "label": "7",
+          "prompt": "和の法則 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b008",
+          "label": "8",
+          "prompt": "和の法則 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b009",
+          "label": "9",
+          "prompt": "和の法則 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b010",
+          "label": "10",
+          "prompt": "和の法則 【10】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b011",
+          "label": "11",
+          "prompt": "和の法則 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b012",
+          "label": "12",
+          "prompt": "和の法則 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t3-b013",
+          "label": "13",
+          "prompt": "和の法則 【13】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b001",
+          "label": "1",
+          "prompt": "積の法則 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b002",
+          "label": "2",
+          "prompt": "積の法則 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b003",
+          "label": "3",
+          "prompt": "積の法則 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b004",
+          "label": "4",
+          "prompt": "積の法則 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b005",
+          "label": "5",
+          "prompt": "積の法則 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b006",
+          "label": "6",
+          "prompt": "積の法則 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b007",
+          "label": "7",
+          "prompt": "積の法則 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b008",
+          "label": "8",
+          "prompt": "積の法則 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b009",
+          "label": "9",
+          "prompt": "積の法則 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b010",
+          "label": "10",
+          "prompt": "積の法則 【10】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b011",
+          "label": "11",
+          "prompt": "積の法則 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b012",
+          "label": "12",
+          "prompt": "積の法則 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b013",
+          "label": "13",
+          "prompt": "積の法則 【13】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b014",
+          "label": "14",
+          "prompt": "積の法則 【14】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b015",
+          "label": "15",
+          "prompt": "積の法則 【15】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t4-b016",
+          "label": "16",
+          "prompt": "積の法則 【16】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b017",
+          "label": "17",
+          "prompt": "節末問題（自力確認） 【17】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b018",
+          "label": "18",
+          "prompt": "節末問題（自力確認） 【18】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b019",
+          "label": "19",
+          "prompt": "節末問題（自力確認） 【19】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b020",
+          "label": "20",
+          "prompt": "節末問題（自力確認） 【20】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b021",
+          "label": "21",
+          "prompt": "節末問題（自力確認） 【21】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b022",
+          "label": "22",
+          "prompt": "節末問題（自力確認） 【22】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b024",
+          "label": "24",
+          "prompt": "節末問題（自力確認） 【24】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b025",
+          "label": "25",
+          "prompt": "節末問題（自力確認） 【25】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b026",
+          "label": "26",
+          "prompt": "節末問題（自力確認） 【26】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b027",
+          "label": "27",
+          "prompt": "節末問題（自力確認） 【27】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b028",
+          "label": "28",
+          "prompt": "節末問題（自力確認） 【28】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b029",
+          "label": "29",
+          "prompt": "節末問題（自力確認） 【29】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b030",
+          "label": "30",
+          "prompt": "節末問題（自力確認） 【30】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-b031",
+          "label": "31",
+          "prompt": "節末問題（自力確認） 【31】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-union-max",
+          "label": "(1) 最大",
+          "prompt": "テレビとスマートフォンの集合の最大・最小",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-union-min",
+          "label": "(1) 最小",
+          "prompt": "テレビとスマートフォンの集合の最大・最小",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-both-max",
+          "label": "(2) 最大",
+          "prompt": "テレビとスマートフォンの集合の最大・最小",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s1-t5-both-min",
+          "label": "(2) 最小",
+          "prompt": "テレビとスマートフォンの集合の最大・最小",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s2-counting-probability",
+      "number": "2",
+      "title": "順列・組合せ",
+      "description": "順列・組合せを、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s2-counting-probability-topic-01",
+          "type": "topic",
+          "text": "2.1 順列"
+        },
+        {
+          "id": "s2-counting-probability-t01-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この節では「順序を区別するか」「円では回転を同じとみなすか」「同じものを入れ替えても結果が変わらないか」を判断し、その判断から順列・円順列・重複順列・組合せ・同じものを含む順列へ進む。公式は判断の結果として導く。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "異なる n 個のものから r 個を取り出し、順序を考えて1列に並べる。最初の位置には n 通り、次の位置には"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b001"
+            },
+            {
+              "type": "text",
+              "text": "通り、その次には"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b002"
+            },
+            {
+              "type": "text",
+              "text": "通り……と減っていく。積の法則より、"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "nPr = n(n−1)(n−2)…(n−r+1)"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この並べ方を n 個から r 個とる"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b003"
+            },
+            {
+              "type": "text",
+              "text": "といい、nPr と表す。特に r=n のとき、nPn=n(n−1)…2·1 を n! と書く。0!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b004"
+            },
+            {
+              "type": "text",
+              "text": "と定めるので、nPr=n!/(n−r)! とも表せる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問12　順列の値"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "8P3=8×7×6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b005"
+            },
+            {
+              "type": "text",
+              "text": "。6P4=6×5×4×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b006"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問13　50枚から2枚を取り1列に並べる"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1枚目は50通り、そのそれぞれについて2枚目は同じカードを使えないので"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b007"
+            },
+            {
+              "type": "text",
+              "text": "通り。順序を区別するため 50P2=50×49="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b008"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問14　異なる6冊を1列に並べる"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "6冊すべてを並べるので 6P6=6!=6×5×4×3×2×1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b009"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問15　大人3人・子ども3人"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 両端を大人にする。両端に置く大人を順序付きで選ぶ方法は 3P2=6通り。残り4人を中央4か所に並べる方法は 4!=24通り。積の法則より 6×24="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b010"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 子ども3人が続いて並ぶとき、子ども3人を1つの「かたまり」とみなす。かたまり1個と大人3人の計4個を並べる方法は 4! 通り。そのそれぞれで子ども3人の内部の並びが3!通りあるので、4!×3!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b011"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問16　0,1,2,3,4,5から異なる4個で4桁の数"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 奇数にするには一の位が1,3,5の"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b012"
+            },
+            {
+              "type": "text",
+              "text": "通り。一の位を決めたあと、千の位は0と使用済みの数字を除いて"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b013"
+            },
+            {
+              "type": "text",
+              "text": "通り。残り2桁は残った4個から順序を区別して2個並べるので 4P2 通り。したがって 3×4×4P2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b014"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t01-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 5の倍数なら一の位は0または5。0の場合、残り3桁は5P3=60個。5の場合、千の位は0以外の残り4個から選び、百・十の位は残り4個から2個並べるので 4×4P2=48個。合計"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t1-b015"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-topic-02",
+          "type": "topic",
+          "text": "2.2 円順列と重複順列"
+        },
+        {
+          "id": "s2-counting-probability-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円順列では、全員を同じだけ回転させた配置は同じとみなす"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "異なる n 個を円形に並べると、通常の1列の並べ方 n! のうち、1つの円配置を回転させた n 通りが同じ配置になる。したがって円順列の総数は n!/n="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円順列： (n−1)!"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "また、n 個の場所それぞれに r 種類のもののいずれかを置き、同じ種類を何度使ってもよい場合、各場所で r 通りずつ選べるので r^n 通り。このように繰り返しを許して並べるものを"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b002"
+            },
+            {
+              "type": "text",
+              "text": "という。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問17　6人が円卓に座る"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "6人の円順列なので (6−1)!=5!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b003"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問18　大人3人・子ども3人が交互に円卓に座る"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず大人3人を円順列で並べると (3−1)!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b004"
+            },
+            {
+              "type": "text",
+              "text": "通り。大人の間の3か所に子ども3人を並べる方法は 3!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b005"
+            },
+            {
+              "type": "text",
+              "text": "通り。よって 2×6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b006"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問19　数字を繰り返し使う4桁の整数"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 1,2,3,4,5 の5個を何度使ってもよい。各桁5通りなので 5^4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b007"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 0,1,2,3,4 を使う。千の位だけ0にできないので4通り、残り3桁は各5通り。4×5^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b008"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問20　7人をP,Qの2部屋に入れる"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 各人はPかQの2通りを独立に選べるので 2^7="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b009"
+            },
+            {
+              "type": "text",
+              "text": "通り。どちらか一方が空でもよい。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t02-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 両方に少なくとも1人入れるなら、(1)から全員P・全員Qの"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b010"
+            },
+            {
+              "type": "text",
+              "text": "通りを除き、128−2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t2-b011"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-topic-03",
+          "type": "topic",
+          "text": "2.3 組合せ"
+        },
+        {
+          "id": "s2-counting-probability-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n 個から r 個を選ぶが、選んだ後の順序を区別しないときは組合せを考える。まず順序を区別して nPr 通りと数えると、同じ1組を r! 通りずつ数えている。したがって r! で割り、"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "nCr = nPr / r! = n! / (r!(n−r)!)"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "n 個から r 個を選ぶ組合せの数を nCr と表す。また、r 個を選ぶことは「選ばない n−r 個」を選ぶことと同じなので、nCr="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b001"
+            },
+            {
+              "type": "text",
+              "text": "が成り立つ。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問21　組合せの値"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "5C2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b002"
+            },
+            {
+              "type": "text",
+              "text": "、8C4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b003"
+            },
+            {
+              "type": "text",
+              "text": "、7C1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b004"
+            },
+            {
+              "type": "text",
+              "text": "、6C6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問22　nCr=nC(n−r) を使う"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "8C6=8C"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b006"
+            },
+            {
+              "type": "text",
+              "text": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b007"
+            },
+            {
+              "type": "text",
+              "text": "、10C7=10C"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b008"
+            },
+            {
+              "type": "text",
+              "text": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正八角形の頂点から図形・線分を選ぶ"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問23　正八角形"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 8頂点から4頂点を選べば四角形が1つ決まるので 8C4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b010"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 2頂点を選ぶ線分は 8C2=28本。この中に正八角形の辺"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b011"
+            },
+            {
+              "type": "text",
+              "text": "本も含まれるので、対角線は 28−8="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b012"
+            },
+            {
+              "type": "text",
+              "text": "本。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問24　A班5人・B班6人から5人選ぶ"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) Aから2人、Bから3人なので 5C2×6C3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b013"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) B班から少なくとも1人。全11人から5人選ぶ 11C5 から、Bを1人も選ばずA5人全員を選ぶ 5C5 を除き、11C5−5C5="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b014"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問25　8人を4組に2人ずつ分ける"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 組に P,Q,R,S の名前があるとき、Pに8C2、Qに6C2、Rに4C2、Sに2C2。積は"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b015"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p017",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 組に名前がないと、(1)では同じ分け方を P,Q,R,S の入れ替え"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b016"
+            },
+            {
+              "type": "text",
+              "text": "通りずつ数えている。したがって 2520/4!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b017"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p018",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問26　7人を人数の異なる／同じ組へ分ける"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 1人・2人・4人の3組では人数が異なるため、どの組かは人数で区別できる。7C1×6C2×4C4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b018"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t03-p020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) 2人・2人・3人の3組では、2人組2つが区別できない。いったん P,Q と名前を付けて 7C2×5C2×3C3=210 と数え、P,Q の入れ替え2!で割るので"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t3-b019"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-topic-04",
+          "type": "topic",
+          "text": "2.4 同じものを含む順列"
+        },
+        {
+          "id": "s2-counting-probability-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全部で n 個のうち、同じものが p 個、q 個、…あるとする。全部を別物として n! 通り数えると、p 個の同じものの入れ替え p! 通り、q 個の入れ替え q! 通り……だけ同じ結果を重複して数える。したがって、"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じものを含む順列： n! / (p! q! …)"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここでも公式の本質は「同じ結果を何回重複して数えたか」を見抜き、その重複回数で"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t4-b001"
+            },
+            {
+              "type": "text",
+              "text": "ことにある。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問27　1,1,1,1,2,2,2,3 を並べる"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全部8個を別物として8!通りと数える。1の4個の入れ替えは4!通り、2の3個は3!通り、3は1個なので1!通り同じ結果になる。したがって 8!/(4!3!1!)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t4-b002"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最短経路は「東5回・北4回」の並べ方と考えられる"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "教科書 問28　格子上の最短経路"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) AからBへ最短で進むには、東へ5回、北へ4回、合計9回移動する。東5回と北4回の並べ方なので 9!/(5!4!)=9C5="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t4-b003"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(2) Cを通る場合、A→C は東3回・北3回なので 6!/(3!3!)=20通り、C→B は東2回・北1回なので 3!/(2!1!)=3通り。積の法則より 20×3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t4-b004"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(3) Cを通らない最短経路は、全126通りからCを通る60通りを除き"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t4-b005"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-h011",
+          "type": "heading",
+          "text": "研究　重複を許してとる組合せ"
+        },
+        {
+          "id": "s2-counting-probability-t04-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4種類の果物から合計8個選ぶ。種類ごとの個数を「○」、種類の境界を3本の「｜」で表すと、○8個と｜3本の計11個を並べる問題になる。したがって境界3本の位置を選び、11C3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t4-b006"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t04-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ考えで x+y+z=7 を満たす0以上の整数 x,y,z の組は、○7個と区切り2本の計9個の並べ方なので 9C2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t4-b007"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-topic-05",
+          "type": "topic",
+          "text": "2.5 節末問題（自力確認）"
+        },
+        {
+          "id": "s2-counting-probability-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末1　大人4人・子ども4人"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 1列で交互に並ぶ。先頭が大人／子どもの2通りがあり、それぞれ大人4!、子ども4!。よって 2×4!×4!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b008"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 円で交互に並ぶ。大人4人を円順列で3!通り、その間4か所に子ども4人を4!通り並べ、3!×4!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b009"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末2　5要素の部分集合"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "集合 {a,b,c,d,e} の各要素は「部分集合に入れる／入れない」の2通りを独立に選べる。したがって 2^5="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b010"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p005",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末3　1から9までから異なる3数"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 少なくとも1つ奇数を含む。全9C3=84通りから、3つとも偶数となる4C3=4通りを除き"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b011"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 最大が6なら6を必ず選び、残り2つを1〜5から選ぶので 5C2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b012"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4本の平行線群と5本の平行線群で平行四辺形を作る"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末4　平行線から平行四辺形"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 横の4本から2本、斜めの5本から2本選べば1つの平行四辺形が決まるので 4C2×5C2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b013"
+            },
+            {
+              "type": "text",
+              "text": "個。(2) 点Aを頂点にするには、Aを通る2本以外から横方向3本・斜め方向4本を1本ずつ選び、3×4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b014"
+            },
+            {
+              "type": "text",
+              "text": "個。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末5　9人を3組に分ける"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(1) 2人・3人・4人では人数が異なるので、そのまま 9C2×7C3×4C4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b015"
+            },
+            {
+              "type": "text",
+              "text": "通り。(2) 3人組3つでは組の入れ替え3!を除き、(9C3×6C3×3C3)/3!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b016"
+            },
+            {
+              "type": "text",
+              "text": "通り。(3) 2人・2人・5人では2人組2つの入れ替え2!を除き、(9C2×7C2×5C5)/2!="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b017"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "節末6　赤3個・青4個・白2個を1列に並べる"
+            }
+          ]
+        },
+        {
+          "id": "s2-counting-probability-t05-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ色の玉は区別しない。赤3個が続くので赤3個を1つのかたまりとみなす。すると「赤のかたまり1個・青4個・白2個」の計7個を並べる。青4個・白2個が同じものなので、7!/(4!2!)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s2-t5-b018"
+            },
+            {
+              "type": "text",
+              "text": "通り。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-counting-probability-s2-t1-b001",
+          "label": "1",
+          "prompt": "順列 【1】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b002",
+          "label": "2",
+          "prompt": "順列 【2】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b003",
+          "label": "3",
+          "prompt": "順列 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b004",
+          "label": "4",
+          "prompt": "順列 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b005",
+          "label": "5",
+          "prompt": "順列 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b006",
+          "label": "6",
+          "prompt": "順列 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b007",
+          "label": "7",
+          "prompt": "順列 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b008",
+          "label": "8",
+          "prompt": "順列 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b009",
+          "label": "9",
+          "prompt": "順列 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b010",
+          "label": "10",
+          "prompt": "順列 【10】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b011",
+          "label": "11",
+          "prompt": "順列 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b012",
+          "label": "12",
+          "prompt": "順列 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b013",
+          "label": "13",
+          "prompt": "順列 【13】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b014",
+          "label": "14",
+          "prompt": "順列 【14】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t1-b015",
+          "label": "15",
+          "prompt": "順列 【15】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b001",
+          "label": "1",
+          "prompt": "円順列と重複順列 【1】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b002",
+          "label": "2",
+          "prompt": "円順列と重複順列 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b003",
+          "label": "3",
+          "prompt": "円順列と重複順列 【3】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b004",
+          "label": "4",
+          "prompt": "円順列と重複順列 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b005",
+          "label": "5",
+          "prompt": "円順列と重複順列 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b006",
+          "label": "6",
+          "prompt": "円順列と重複順列 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b007",
+          "label": "7",
+          "prompt": "円順列と重複順列 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b008",
+          "label": "8",
+          "prompt": "円順列と重複順列 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b009",
+          "label": "9",
+          "prompt": "円順列と重複順列 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b010",
+          "label": "10",
+          "prompt": "円順列と重複順列 【10】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t2-b011",
+          "label": "11",
+          "prompt": "円順列と重複順列 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b001",
+          "label": "1",
+          "prompt": "組合せ 【1】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b002",
+          "label": "2",
+          "prompt": "組合せ 【2】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b003",
+          "label": "3",
+          "prompt": "組合せ 【3】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b004",
+          "label": "4",
+          "prompt": "組合せ 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b005",
+          "label": "5",
+          "prompt": "組合せ 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b006",
+          "label": "6",
+          "prompt": "組合せ 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b007",
+          "label": "7",
+          "prompt": "組合せ 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b008",
+          "label": "8",
+          "prompt": "組合せ 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b009",
+          "label": "9",
+          "prompt": "組合せ 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b010",
+          "label": "10",
+          "prompt": "組合せ 【10】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b011",
+          "label": "11",
+          "prompt": "組合せ 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b012",
+          "label": "12",
+          "prompt": "組合せ 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b013",
+          "label": "13",
+          "prompt": "組合せ 【13】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b014",
+          "label": "14",
+          "prompt": "組合せ 【14】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b015",
+          "label": "15",
+          "prompt": "組合せ 【15】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b016",
+          "label": "16",
+          "prompt": "組合せ 【16】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b017",
+          "label": "17",
+          "prompt": "組合せ 【17】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b018",
+          "label": "18",
+          "prompt": "組合せ 【18】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t3-b019",
+          "label": "19",
+          "prompt": "組合せ 【19】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t4-b001",
+          "label": "1",
+          "prompt": "同じものを含む順列 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t4-b002",
+          "label": "2",
+          "prompt": "同じものを含む順列 【2】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t4-b003",
+          "label": "3",
+          "prompt": "同じものを含む順列 【3】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t4-b004",
+          "label": "4",
+          "prompt": "同じものを含む順列 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t4-b005",
+          "label": "5",
+          "prompt": "同じものを含む順列 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t4-b006",
+          "label": "6",
+          "prompt": "同じものを含む順列 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t4-b007",
+          "label": "7",
+          "prompt": "同じものを含む順列 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b008",
+          "label": "8",
+          "prompt": "節末問題（自力確認） 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b009",
+          "label": "9",
+          "prompt": "節末問題（自力確認） 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b010",
+          "label": "10",
+          "prompt": "節末問題（自力確認） 【10】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b011",
+          "label": "11",
+          "prompt": "節末問題（自力確認） 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b012",
+          "label": "12",
+          "prompt": "節末問題（自力確認） 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b013",
+          "label": "13",
+          "prompt": "節末問題（自力確認） 【13】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b014",
+          "label": "14",
+          "prompt": "節末問題（自力確認） 【14】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b015",
+          "label": "15",
+          "prompt": "節末問題（自力確認） 【15】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b016",
+          "label": "16",
+          "prompt": "節末問題（自力確認） 【16】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b017",
+          "label": "17",
+          "prompt": "節末問題（自力確認） 【17】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s2-t5-b018",
+          "label": "18",
+          "prompt": "節末問題（自力確認） 【18】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s3-counting-probability",
+      "number": "3",
+      "title": "確率と期待値",
+      "description": "確率と期待値を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s3-counting-probability-topic-01",
+          "type": "topic",
+          "text": "3.1 試行・事象・全事象"
+        },
+        {
+          "id": "s3-counting-probability-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「全事象を決める → 求める事象を言葉にする → 排反/独立/条件付き/余事象を判断 → 確率を計算 → 0〜1を確認」の順で進む。"
+        },
+        {
+          "id": "s3-counting-probability-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "場合の数で「全体」と「求める事象」を数え、確率へつなぐ。結果が同様に確からしいかを毎回確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "偶然に結果が決まる実験を試行という。起こりうる結果全体を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b001"
+            },
+            {
+              "type": "text",
+              "text": " U、条件を満たす結果の集合を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " A という。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-topic-02",
+          "type": "topic",
+          "text": "3.2 同様に確からしいときの確率"
+        },
+        {
+          "id": "s3-counting-probability-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全事象が n通り、事象Aが a通りで、各結果が同様に確からしいなら P(A)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。分母と分子は同じ基準で数える。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t02-h002",
+          "type": "heading",
+          "text": "教科書対応問　2枚の硬貨"
+        },
+        {
+          "id": "s3-counting-probability-t02-n003",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t02-n004",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t02-h005",
+          "type": "heading",
+          "text": "問題文　2枚を区別して投げ、表裏が1枚ずつ出る確率。"
+        },
+        {
+          "id": "s3-counting-probability-t02-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　全事象は HH,HT,TH,TT の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " 通り。1枚ずつは HT,TH の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b005"
+            },
+            {
+              "type": "text",
+              "text": " 通り。よって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t02-n007",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t02-h008",
+          "type": "heading",
+          "text": "教科書対応問　3枚の硬貨"
+        },
+        {
+          "id": "s3-counting-probability-t02-n009",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t02-n010",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t02-h011",
+          "type": "heading",
+          "text": "問題文　3枚を区別して投げ、1枚だけ表。"
+        },
+        {
+          "id": "s3-counting-probability-t02-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　全事象 2³="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b007"
+            },
+            {
+              "type": "text",
+              "text": " 通り。表1枚は HTT,THT,TTH の3通り。確率 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t02-n013",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-topic-03",
+          "type": "topic",
+          "text": "3.3 確率の加法法則"
+        },
+        {
+          "id": "s3-counting-probability-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A,B が同時に起こらない（排反）なら P(A∪B)=P(A)+P(B)。一般には P(A∪B)=P(A)+P(B)−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-topic-04",
+          "type": "topic",
+          "text": "3.4 余事象"
+        },
+        {
+          "id": "s3-counting-probability-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A が起こらない事象を Ā。P(Ā)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b010"
+            },
+            {
+              "type": "text",
+              "text": "。「少なくとも1回」は「1回も起こらない」の余事象を使うと数えやすい。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t04-h002",
+          "type": "heading",
+          "text": "教科書対応問　少なくとも1回"
+        },
+        {
+          "id": "s3-counting-probability-t04-n003",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t04-n004",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t04-h005",
+          "type": "heading",
+          "text": "問題文　硬貨を3回投げて少なくとも1回表。"
+        },
+        {
+          "id": "s3-counting-probability-t04-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　反対は3回とも裏で確率 (1/2)³="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "。よって 1−1/8="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t04-n007",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-topic-05",
+          "type": "topic",
+          "text": "3.5 期待値"
+        },
+        {
+          "id": "s3-counting-probability-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確率変数 X が x1,x2,… をとるとき E(X)=Σ xi·P(X=xi)。つまり「値×確率」を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-h002",
+          "type": "heading",
+          "text": "教科書対応問　くじの期待値"
+        },
+        {
+          "id": "s3-counting-probability-t05-n003",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-n004",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h005",
+          "type": "heading",
+          "text": "問題文　100円が確率1/4、0円が確率3/4。"
+        },
+        {
+          "id": "s3-counting-probability-t05-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　E=100·1/4+0·3/4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。期待値は1回の結果ではなく長期平均の目安。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-n007",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h008",
+          "type": "heading",
+          "text": "教科書対応問　さいころ1個の事象"
+        },
+        {
+          "id": "s3-counting-probability-t05-n009",
+          "type": "note",
+          "text": "読む　集合を表す条件を言葉にし、「両方」「少なくとも一方」「入らない」のどれかを先に判断する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-n010",
+          "type": "note",
+          "text": "考える　両方→共通部分、少なくとも一方→和集合、全体から外す→補集合。区間では端点を含むかも1つずつ確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h011",
+          "type": "heading",
+          "text": "問題文　1個のさいころで偶数が出る事象A、3の倍数が出る事象B。"
+        },
+        {
+          "id": "s3-counting-probability-t05-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　A=(2, 4, 6), B=(3, 6)。A∩B="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "、A∪B="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b016"
+            },
+            {
+              "type": "text",
+              "text": "。事象をまず集合として書く。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-n013",
+          "type": "note",
+          "text": "最後の確認　同じ要素を二重に書いていないか、全体集合の外へ出ていないか、端点の = を落としていないかを見る。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h014",
+          "type": "heading",
+          "text": "教科書対応問　排反事象を判定"
+        },
+        {
+          "id": "s3-counting-probability-t05-n015",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-n016",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h017",
+          "type": "heading",
+          "text": "問題文　1〜30のカードで「素数」「5の倍数」「6の倍数」「8の倍数」などの事象を比べる。"
+        },
+        {
+          "id": "s3-counting-probability-t05-p018",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　2事象が排反かは共通する結果が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b017"
+            },
+            {
+              "type": "text",
+              "text": " かで判断する。例えば6の倍数と8の倍数には24があるので排反ではない。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-n019",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h020",
+          "type": "heading",
+          "text": "教科書対応問　2個のさいころの和が6の倍数"
+        },
+        {
+          "id": "s3-counting-probability-t05-n021",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-n022",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h023",
+          "type": "heading",
+          "text": "問題文　大小2個のさいころの和は2〜12。6の倍数は6と12。"
+        },
+        {
+          "id": "s3-counting-probability-t05-p024",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　和6は5通り、和12は1通りで、この2事象は排反。全36通りだから確率は (5+1)/36="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b018"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-n025",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h026",
+          "type": "heading",
+          "text": "教科書対応問　2または3の倍数のカード"
+        },
+        {
+          "id": "s3-counting-probability-t05-n027",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-n028",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h029",
+          "type": "heading",
+          "text": "問題文　1〜50から1枚。2の倍数または3の倍数。"
+        },
+        {
+          "id": "s3-counting-probability-t05-p030",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　2の倍数25枚、3の倍数16枚、両方＝6の倍数8枚。和事象は 25+16−8="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b019"
+            },
+            {
+              "type": "text",
+              "text": " 枚。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-p031",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　確率は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b020"
+            },
+            {
+              "type": "text",
+              "text": "。重なりがあるので単純に足さない。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-n032",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h033",
+          "type": "heading",
+          "text": "教科書対応問　4枚の硬貨で少なくとも1枚表"
+        },
+        {
+          "id": "s3-counting-probability-t05-n034",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-n035",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t05-p036",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4枚同時に投げる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-p037",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　直接1枚、2枚、3枚、4枚表を数えるより、余事象「全部裏」1通りを見る。全16通りなので 1−1/16="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-n038",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h039",
+          "type": "heading",
+          "text": "教科書対応問　玉の個数の期待値"
+        },
+        {
+          "id": "s3-counting-probability-t05-n040",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-n041",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h042",
+          "type": "heading",
+          "text": "問題文　赤2個・白5個から3個同時に取る。赤玉の個数Xの期待値。"
+        },
+        {
+          "id": "s3-counting-probability-t05-p043",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　X=0,1,2 の確率を組合せで出して ΣxP(X=x) を計算する。別の見方では3回の各取り出しについて「赤なら1、白なら0」と考えると、線形性から E(X)=3·(2/7)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b022"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-n044",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h045",
+          "type": "heading",
+          "text": "節末対応　確率の基本性質"
+        },
+        {
+          "id": "s3-counting-probability-t05-n046",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-n047",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s3-counting-probability-t05-h048",
+          "type": "heading",
+          "text": "問題文　どんな事象Aでも 0≦P(A)≦1、P(U)=1、P(∅)=0。"
+        },
+        {
+          "id": "s3-counting-probability-t05-p049",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　A⊂B なら P(A)≦"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s3-main-b023"
+            },
+            {
+              "type": "text",
+              "text": "。B−A の確率は P(B)−P(A) と考えられる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-counting-probability-t05-n050",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s3-counting-probability-t05-p051",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第3節の自力確認　確率を出す前に、分母の全事象が本当に同様に確からしいかを確認する。硬貨やさいころを区別する/しないも最初に決める。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-counting-probability-s3-main-b001",
+          "label": "1",
+          "prompt": "試行・事象・全事象 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b002",
+          "label": "2",
+          "prompt": "試行・事象・全事象 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b003",
+          "label": "3",
+          "prompt": "同様に確からしいときの確率 【3】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b004",
+          "label": "4",
+          "prompt": "同様に確からしいときの確率 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b005",
+          "label": "5",
+          "prompt": "同様に確からしいときの確率 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b006",
+          "label": "6",
+          "prompt": "同様に確からしいときの確率 【6】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b007",
+          "label": "7",
+          "prompt": "同様に確からしいときの確率 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b008",
+          "label": "8",
+          "prompt": "同様に確からしいときの確率 【8】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b009",
+          "label": "9",
+          "prompt": "確率の加法法則 【9】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b010",
+          "label": "10",
+          "prompt": "余事象 【10】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b011",
+          "label": "11",
+          "prompt": "余事象 【11】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b012",
+          "label": "12",
+          "prompt": "余事象 【12】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b013",
+          "label": "13",
+          "prompt": "期待値 【13】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b014",
+          "label": "14",
+          "prompt": "期待値 【14】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b015",
+          "label": "15",
+          "prompt": "期待値 【15】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b016",
+          "label": "16",
+          "prompt": "期待値 【16】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b017",
+          "label": "17",
+          "prompt": "期待値 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b018",
+          "label": "18",
+          "prompt": "期待値 【18】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b019",
+          "label": "19",
+          "prompt": "期待値 【19】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b020",
+          "label": "20",
+          "prompt": "期待値 【20】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b021",
+          "label": "21",
+          "prompt": "期待値 【21】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b022",
+          "label": "22",
+          "prompt": "期待値 【22】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s3-main-b023",
+          "label": "23",
+          "prompt": "期待値 【23】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        }
+      ]
+    },
+    {
+      "id": "s4-counting-probability",
+      "number": "4",
+      "title": "いろいろな確率",
+      "description": "いろいろな確率を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s4-counting-probability-topic-01",
+          "type": "topic",
+          "text": "4.1 独立試行"
+        },
+        {
+          "id": "s4-counting-probability-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「全事象を決める → 求める事象を言葉にする → 排反/独立/条件付き/余事象を判断 → 確率を計算 → 0〜1を確認」の順で進む。"
+        },
+        {
+          "id": "s4-counting-probability-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "独立試行、反復試行、条件付き確率、独立、原因の確率まで進む。条件が付いたら「分母が変わる」ことを最優先で確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ある試行の結果が他の試行の確率に影響しないとき独立。A,B が独立なら P(A∩B)=P(A)"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t01-h004",
+          "type": "heading",
+          "text": "教科書対応問　さいころを2回"
+        },
+        {
+          "id": "s4-counting-probability-t01-n005",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t01-n006",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t01-h007",
+          "type": "heading",
+          "text": "問題文　1回目に6、2回目に偶数。"
+        },
+        {
+          "id": "s4-counting-probability-t01-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　独立なので 1/6·3/6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b002"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t01-n009",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-topic-02",
+          "type": "topic",
+          "text": "4.2 反復試行"
+        },
+        {
+          "id": "s4-counting-probability-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1回の成功確率 p、失敗 q=1−p。同じ試行を n回、ちょうど r回成功する確率は nCr p^r q^"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「どの r回で成功するか」が nCr、各並びの確率が p^r q^(n−r)。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　コインを5回"
+        },
+        {
+          "id": "s4-counting-probability-t02-n004",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t02-n005",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t02-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "表がちょうど2回。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　成功位置は 5C2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " 通り。各並びは (1/2)^5。確率 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t02-n008",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-topic-03",
+          "type": "topic",
+          "text": "4.3 条件付き確率"
+        },
+        {
+          "id": "s4-counting-probability-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "B が起こったという条件の下で A が起こる確率 P_B(A)=P(A∩B)/"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "条件Bが付いたら、全事象を B の中へ "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b007"
+            },
+            {
+              "type": "text",
+              "text": " と考える。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t03-h003",
+          "type": "heading",
+          "text": "教科書対応問　カードの条件付き確率"
+        },
+        {
+          "id": "s4-counting-probability-t03-n004",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t03-n005",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t03-h006",
+          "type": "heading",
+          "text": "問題文　カードを1枚引き「赤である」と分かった後でハートである確率を考えるタイプ。"
+        },
+        {
+          "id": "s4-counting-probability-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　分母は全カードではなく "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b008"
+            },
+            {
+              "type": "text",
+              "text": " の枚数。分子は赤かつハート。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t03-n008",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-topic-04",
+          "type": "topic",
+          "text": "4.4 確率の乗法定理"
+        },
+        {
+          "id": "s4-counting-probability-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "P(A∩B)=P(A)·P_A(B)。順に起こる出来事で「Aが起こり、その後B」を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t04-h002",
+          "type": "heading",
+          "text": "教科書対応問　袋から戻さず2個"
+        },
+        {
+          "id": "s4-counting-probability-t04-n003",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t04-n004",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t04-h005",
+          "type": "heading",
+          "text": "問題文　1個目が赤、2個目も赤。"
+        },
+        {
+          "id": "s4-counting-probability-t04-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　1個目の確率×「1個目が赤だった後」の2個目の条件付き確率を掛ける。戻さないので分母・赤の個数が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b010"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t04-n007",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-topic-05",
+          "type": "topic",
+          "text": "4.5 事象の独立"
+        },
+        {
+          "id": "s4-counting-probability-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A,B が独立 ⇔ P(A∩B)=P(A)P(B)。独立なら P_A(B)=P(B)。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「排反」と「独立」は別。排反な2事象は同時に起こらないが、独立は一方が他方の確率を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-topic-06",
+          "type": "topic",
+          "text": "4.6 原因の確率"
+        },
+        {
+          "id": "s4-counting-probability-t06-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "工場X/Yなど複数の原因があり、結果「不良」が観測された後で原因を逆に推定する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず P(原因∩結果)=P(原因)·P_原因(結果) を各原因で出し、結果全体で割る。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-h003",
+          "type": "heading",
+          "text": "教科書対応問　工場X/Y"
+        },
+        {
+          "id": "s4-counting-probability-t06-n004",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-n005",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h006",
+          "type": "heading",
+          "text": "問題文　60%がX、40%がY。Xの不良率2%、Yの不良率3%。不良品がY製である確率。"
+        },
+        {
+          "id": "s4-counting-probability-t06-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　P(Y∩不良)=0.4·0.03="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "。不良全体=0.6·0.02+0.4·0.03="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　よって 0.012/0.024="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-n009",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h010",
+          "type": "heading",
+          "text": "教科書対応問　独立試行で少なくとも1回"
+        },
+        {
+          "id": "s4-counting-probability-t06-n011",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-n012",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h013",
+          "type": "heading",
+          "text": "問題文　命中率0.7の射撃を2回。少なくとも1回命中。"
+        },
+        {
+          "id": "s4-counting-probability-t06-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　余事象は2回とも外れる。外れる確率0.3、独立なので0.3²=0.09。よって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-n015",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h016",
+          "type": "heading",
+          "text": "教科書対応問　反復試行・3回成功"
+        },
+        {
+          "id": "s4-counting-probability-t06-n017",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-n018",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h019",
+          "type": "heading",
+          "text": "問題文　成功確率1/3の試行を5回、ちょうど3回成功。"
+        },
+        {
+          "id": "s4-counting-probability-t06-p020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　成功する3回の位置は 5C3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b016"
+            },
+            {
+              "type": "text",
+              "text": "。各並びは (1/3)³(2/3)²。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　確率は 10·1/27·4/9="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-n022",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h023",
+          "type": "heading",
+          "text": "教科書対応問　条件付き確率を人数で読む"
+        },
+        {
+          "id": "s4-counting-probability-t06-n024",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-n025",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h026",
+          "type": "heading",
+          "text": "問題文　100人中、Aを満たす40人、Bを満たす50人、両方20人。Bの条件下でA。"
+        },
+        {
+          "id": "s4-counting-probability-t06-p027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　条件Bにより分母はBの50人に縮む。そのうちAも満たす20人なので P_B(A)=20/50="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b018"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-n028",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h029",
+          "type": "heading",
+          "text": "教科書対応問　戻さない抽出"
+        },
+        {
+          "id": "s4-counting-probability-t06-n030",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s4-counting-probability-t06-n031",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h032",
+          "type": "heading",
+          "text": "問題文　赤3白2の袋から2個を順に戻さず取る。2個とも赤。"
+        },
+        {
+          "id": "s4-counting-probability-t06-p033",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　1個目赤 3/5。その後は赤2・全4なので2/4。積は 3/5·2/4="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b019"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-n034",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h035",
+          "type": "heading",
+          "text": "教科書対応問　独立かどうかを確認"
+        },
+        {
+          "id": "s4-counting-probability-t06-n036",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-n037",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h038",
+          "type": "heading",
+          "text": "問題文　A,B の確率が P(A)=1/2, P(B)=1/3, P(A∩B)=1/6。"
+        },
+        {
+          "id": "s4-counting-probability-t06-p039",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　P(A)P(B)=1/2·1/3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b020"
+            },
+            {
+              "type": "text",
+              "text": " で P(A∩B) と一致するので A,B は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-n040",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h041",
+          "type": "heading",
+          "text": "研究対応　感染検査の信頼性"
+        },
+        {
+          "id": "s4-counting-probability-t06-n042",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-n043",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t06-h044",
+          "type": "heading",
+          "text": "問題文　有病率が低い集団で陽性になったとき、本当に感染している確率を考える。"
+        },
+        {
+          "id": "s4-counting-probability-t06-p045",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　「陽性の精度」だけを見ず、感染者から陽性になる場合と非感染者から偽陽性になる場合を両方数える。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-p046",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　求めるのは P(感染｜陽性)=P(感染∩陽性)/P(陽性)。原因の確率では母集団の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-main-b022"
+            },
+            {
+              "type": "text",
+              "text": " が重要。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t06-n047",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t06-p048",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第4節の自力確認　「独立だから掛ける」ではなく、掛け算自体は乗法定理で常に使える。独立なら条件付き確率が元の確率と同じになる。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-topic-07",
+          "type": "topic",
+          "text": "4.7 章末問題・思考力"
+        },
+        {
+          "id": "s4-counting-probability-t07-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "場合の数・順列組合せと確率を混ぜる。まず全事象の数え方を決め、その後で確率へ進む。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　カード・くじ"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n004",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-n005",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t07-h006",
+          "type": "heading",
+          "text": "問題文　順序を区別するか、戻すか戻さないかを最初に決める。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　全事象と事象Aで同じ数え方を使い、最後に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-end-b001"
+            },
+            {
+              "type": "text",
+              "text": " にする。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n008",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　少なくとも・ちょうど"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n010",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-n011",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t07-h012",
+          "type": "heading",
+          "text": "問題文　「少なくとも1回」なら余事象、「ちょうどr回」なら反復試行公式。言葉から型を選ぶ。"
+        },
+        {
+          "id": "s4-counting-probability-t07-n013",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　公平なゲーム"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n015",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-n016",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t07-h017",
+          "type": "heading",
+          "text": "問題文　期待値を計算し、参加料や賞金が公平か判断する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p018",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　公平の基準は参加者の期待損益が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-end-b002"
+            },
+            {
+              "type": "text",
+              "text": " になること。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n019",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　条件付き確率と場合の数"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n021",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-n022",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t07-h023",
+          "type": "heading",
+          "text": "問題文　複数の箱・袋から選んで玉を取り出す問題。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p024",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　最初の選択（箱を選ぶ）と、その後の抽出を樹形図にし、各枝の確率を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-end-b003"
+            },
+            {
+              "type": "text",
+              "text": "。同じ最終事象へ至る枝は最後に足す。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n025",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　期待値でゲームを比較"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n027",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-n028",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s4-counting-probability-t07-h029",
+          "type": "heading",
+          "text": "問題文　2つのゲームの賞金分布が異なる。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p030",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　各ゲームで E(X)=ΣxP(X=x) を求め、参加料を引いた期待損益で比較する。最大賞金だけではなく "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-end-b004"
+            },
+            {
+              "type": "text",
+              "text": " を見る。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n031",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p032",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　中断した試合の賞金分配"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n033",
+          "type": "note",
+          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+        },
+        {
+          "id": "s4-counting-probability-t07-n034",
+          "type": "note",
+          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+        },
+        {
+          "id": "s4-counting-probability-t07-h035",
+          "type": "heading",
+          "text": "問題文　先に規定勝数を取るゲームが途中で中断したとき、残りを仮想的に続けた勝率から賞金を分ける。"
+        },
+        {
+          "id": "s4-counting-probability-t07-p036",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　現在の勝敗数から各選手が最終的に優勝する確率を計算し、賞金をその "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-counting-probability-s4-end-b005"
+            },
+            {
+              "type": "text",
+              "text": " で配分する考え方。"
+            }
+          ]
+        },
+        {
+          "id": "s4-counting-probability-t07-n037",
+          "type": "note",
+          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-counting-probability-s4-main-b001",
+          "label": "1",
+          "prompt": "独立試行 【1】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b002",
+          "label": "2",
+          "prompt": "独立試行 【2】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b003",
+          "label": "3",
+          "prompt": "反復試行 【3】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b004",
+          "label": "4",
+          "prompt": "反復試行 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b005",
+          "label": "5",
+          "prompt": "反復試行 【5】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b006",
+          "label": "6",
+          "prompt": "条件付き確率 【6】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b007",
+          "label": "7",
+          "prompt": "条件付き確率 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b008",
+          "label": "8",
+          "prompt": "条件付き確率 【8】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b009",
+          "label": "9",
+          "prompt": "確率の乗法定理 【9】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b010",
+          "label": "10",
+          "prompt": "確率の乗法定理 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b011",
+          "label": "11",
+          "prompt": "事象の独立 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b012",
+          "label": "12",
+          "prompt": "原因の確率 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b013",
+          "label": "13",
+          "prompt": "原因の確率 【13】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b014",
+          "label": "14",
+          "prompt": "原因の確率 【14】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b015",
+          "label": "15",
+          "prompt": "原因の確率 【15】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b016",
+          "label": "16",
+          "prompt": "原因の確率 【16】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b017",
+          "label": "17",
+          "prompt": "原因の確率 【17】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b018",
+          "label": "18",
+          "prompt": "原因の確率 【18】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b019",
+          "label": "19",
+          "prompt": "原因の確率 【19】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b020",
+          "label": "20",
+          "prompt": "原因の確率 【20】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b021",
+          "label": "21",
+          "prompt": "原因の確率 【21】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-main-b022",
+          "label": "22",
+          "prompt": "原因の確率 【22】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-end-b001",
+          "label": "1",
+          "prompt": "章末問題・思考力 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-end-b002",
+          "label": "2",
+          "prompt": "章末問題・思考力 【2】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-end-b003",
+          "label": "3",
+          "prompt": "章末問題・思考力 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-end-b004",
+          "label": "4",
+          "prompt": "章末問題・思考力 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-counting-probability-s4-end-b005",
+          "label": "5",
+          "prompt": "章末問題・思考力 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "unitId": "math-1a-geometric-properties",
+  "answers": {
+    "math-1a-geometric-properties-s1-main-b001": {
+      "validator": "normalized-text",
+      "answer": "相似",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b002": {
+      "validator": "normalized-text",
+      "answer": "外角の性質",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b003": {
+      "validator": "normalized-text",
+      "answer": "DE:BC",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b004": {
+      "validator": "normalized-text",
+      "answer": "m:nに内分",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b005": {
+      "validator": "normalized-text",
+      "answer": "内分点",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b006": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b007": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b008": {
+      "validator": "normalized-text",
+      "answer": "AC",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b009": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b010": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b011": {
+      "validator": "normalized-text",
+      "answer": "2:1",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b012": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b013": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b014": {
+      "validator": "normalized-text",
+      "answer": "外心",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b015": {
+      "validator": "normalized-text",
+      "answer": "内心",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b016": {
+      "validator": "normalized-text",
+      "answer": "垂心",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b017": {
+      "validator": "normalized-text",
+      "answer": "外心",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b018": {
+      "validator": "normalized-text",
+      "answer": "傍心",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b019": {
+      "validator": "normalized-text",
+      "answer": "外角の二等分線",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b020": {
+      "validator": "normalized-text",
+      "answer": "115°",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b021": {
+      "validator": "normalized-text",
+      "answer": "7:9",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b022": {
+      "validator": "normalized-text",
+      "answer": "7/2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b023": {
+      "validator": "normalized-text",
+      "answer": "9/2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b024": {
+      "validator": "normalized-text",
+      "answer": "垂直二等分線",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b025": {
+      "validator": "normalized-text",
+      "answer": "正三角形",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b026": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b027": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b028": {
+      "validator": "normalized-text",
+      "answer": "一直線上",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b029": {
+      "validator": "normalized-text",
+      "answer": "AF:FB=15:8",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b030": {
+      "validator": "normalized-text",
+      "answer": "統一",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b031": {
+      "validator": "normalized-text",
+      "answer": "1点で交わる",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b032": {
+      "validator": "normalized-text",
+      "answer": "一直線上",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b033": {
+      "validator": "normalized-text",
+      "answer": "大きい",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b034": {
+      "validator": "normalized-text",
+      "answer": "a+b",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b035": {
+      "validator": "normalized-text",
+      "answer": "2<x<8",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s1-main-b036": {
+      "validator": "normalized-text",
+      "answer": "∠C>∠B",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b001": {
+      "validator": "normalized-text",
+      "answer": "等しい",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b002": {
+      "validator": "normalized-text",
+      "answer": "2倍",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b003": {
+      "validator": "normalized-text",
+      "answer": "35°",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b004": {
+      "validator": "normalized-text",
+      "answer": "180°",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b005": {
+      "validator": "normalized-text",
+      "answer": "同一円周上",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b006": {
+      "validator": "normalized-text",
+      "answer": "等しい",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b007": {
+      "validator": "normalized-text",
+      "answer": "PC·PD",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b008": {
+      "validator": "normalized-text",
+      "answer": "PA·PB",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b009": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b010": {
+      "validator": "normalized-text",
+      "answer": "垂直",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b011": {
+      "validator": "normalized-text",
+      "answer": "同一円周上",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b012": {
+      "validator": "normalized-text",
+      "answer": "108°",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b013": {
+      "validator": "normalized-text",
+      "answer": "等しい",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b014": {
+      "validator": "normalized-text",
+      "answer": "PB",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b015": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b016": {
+      "validator": "normalized-text",
+      "answer": "垂直二等分線",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s3-main-b001": {
+      "validator": "normalized-text",
+      "answer": "垂直二等分線",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s3-main-b002": {
+      "validator": "normalized-text",
+      "answer": "角の二等分線",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s3-main-b003": {
+      "validator": "normalized-text",
+      "answer": "交点",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s3-main-b004": {
+      "validator": "normalized-text",
+      "answer": "垂直二等分線",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s3-main-b005": {
+      "validator": "normalized-text",
+      "answer": "√(ab)",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s3-main-b006": {
+      "validator": "normalized-text",
+      "answer": "二等分線",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s3-main-b007": {
+      "validator": "normalized-text",
+      "answer": "垂直二等分線",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s3-main-b008": {
+      "validator": "normalized-text",
+      "answer": "交点",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-main-b001": {
+      "validator": "normalized-text",
+      "answer": "ねじれの位置",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-main-b002": {
+      "validator": "normalized-text",
+      "answer": "三垂線の定理",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-main-b003": {
+      "validator": "normalized-text",
+      "answer": "垂直",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-main-b004": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-main-b005": {
+      "validator": "normalized-text",
+      "answer": "5種類",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-main-b006": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-main-b007": {
+      "validator": "normalized-text",
+      "answer": "ねじれの位置",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-main-b008": {
+      "validator": "normalized-text",
+      "answer": "垂直",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-main-b009": {
+      "validator": "normalized-text",
+      "answer": "5種類",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-end-b001": {
+      "validator": "normalized-text",
+      "answer": "仮定",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-end-b002": {
+      "validator": "normalized-text",
+      "answer": "定義",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-end-b003": {
+      "validator": "normalized-text",
+      "answer": "1つ選ぶ",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s4-end-b004": {
+      "validator": "normalized-text",
+      "answer": "円周角・軌跡",
+      "acceptedAnswers": []
+    }
+  }
+}

@@ -1,0 +1,206 @@
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
+import { describe, expect, it } from 'vitest'
+import { publicTextbookUnit } from '../../backend/src/publicTextbook'
+import { loadedTextbookUnits } from '../../backend/src/textbookData'
+import { buildTextbookChapters } from './textbookCatalog'
+
+const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
+const staticMathUnitIds = [
+  'math-1a-numbers-expressions',
+  'math-1a-quadratic-functions',
+  'math-1a-geometry-measurement',
+  'math-1a-data-analysis',
+  'math-1a-counting-probability',
+  'math-1a-geometric-properties',
+  'math-1a-human-activities',
+]
+
+const importedPhysicsUnitIds = [
+  'physics-1b-velocity-composition-decomposition',
+  'physics-1c-relative-velocity',
+  'physics-1d-acceleration',
+  'physics-1e-horizontal-projection',
+  'physics-1f-projectile-motion',
+  'physics-1g-gravity-drag-terminal-velocity',
+  'physics-2a-rigid-body-force-action',
+  'physics-2b-moment-of-force',
+  'physics-2c-rigid-body-equilibrium',
+  'physics-2d-force-composition-couple',
+  'physics-2e-center-of-mass',
+  'physics-2f-stability-tipping-condition',
+  'physics-3a-momentum',
+  'physics-3b-impulse-momentum-change',
+  'physics-3c-momentum-conservation',
+  'physics-3d-restitution-collision-energy',
+  'physics-3e-oblique-collision-friction',
+  'physics-4a-circular-motion-kinematics',
+  'physics-4b-circular-motion-acceleration',
+  'physics-4c-centripetal-force',
+  'physics-4d-inertial-force-noninertial-frame',
+  'physics-4e-centrifugal-force',
+  'physics-4f-simple-harmonic-motion-kinematics',
+  'physics-4g-spring-oscillator',
+  'physics-4h-simple-pendulum-energy',
+  'physics-5a-kepler-laws',
+  'physics-5b-universal-gravitation',
+  'physics-5c-gravity',
+  'physics-5d-artificial-satellite',
+  'physics-5e-gravitational-potential-energy',
+  'physics-5f-orbits-space-velocities',
+]
+
+function choiceRefs(unit: (typeof loadedTextbookUnits)[number]['unit']) {
+  return unit.sections.flatMap((section) =>
+    section.readingFlow.flatMap((block) =>
+      block.type === 'paragraph' || block.type === 'formula'
+        ? block.parts.filter((part) => part.type === 'choice').map((part) => part.itemId)
+        : [],
+    ),
+  )
+}
+
+describe('backend textbook data', () => {
+  it('loads physics and math-1a units through the shared textbook contract', () => {
+    const ids = loadedTextbookUnits.map(({ unit }) => unit.unitId)
+    expect(ids).toContain('physics-a-displacement-velocity')
+    expect(ids).toContain('math-1a-counting-permutation')
+    expect(ids).toContain('math-1a-sets-propositions')
+    for (const unitId of staticMathUnitIds) expect(ids).toContain(unitId)
+    for (const unitId of importedPhysicsUnitIds) expect(ids).toContain(unitId)
+  })
+
+  it('groups 集合と命題 into three sections with topic cards', () => {
+    const unit = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-sets-propositions')!
+    expect(unit).toBeTruthy()
+    expect(unit.unit.sections.map((section) => section.title)).toEqual(['集合', '命題', '証明'])
+    expect(unit.unit.sections.map((section) => section.readingFlow.filter((block) => block.type === 'topic').length)).toEqual([8, 5, 5])
+    expect(unit.unit.sections[0].readingFlow.find((block) => block.type === 'topic')).toMatchObject({ text: '1.1 集合と要素' })
+    expect(unit.unit.sections[1].readingFlow.find((block) => block.type === 'topic')).toMatchObject({ text: '2.1 命題と真偽' })
+    expect(unit.unit.sections[2].readingFlow.find((block) => block.type === 'topic')).toMatchObject({ text: '3.1 対偶を用いた証明' })
+    expect(unit.unit.sections.flatMap((section) => section.items).length).toBeGreaterThan(0)
+    expect(new Set(choiceRefs(unit.unit))).toEqual(new Set(unit.unit.sections.flatMap((section) => section.items.map((item) => item.id))))
+    expect(new Set(Object.keys(unit.answerBook.answers))).toEqual(new Set(unit.unit.sections.flatMap((section) => section.items.map((item) => item.id))))
+  })
+
+  it('builds the same unit -> learning item hierarchy for math and physics', () => {
+    const publicUnits = loadedTextbookUnits
+      .filter(({ unit }) => unit.status === 'published')
+      .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook))
+
+    const mathChapters = buildTextbookChapters(publicUnits, 'math-1a')
+    expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題')
+    expect(mathChapters.map((chapter) => chapter.label)).toContain('場合の数と確率')
+    expect(mathChapters.find((chapter) => chapter.label === '集合と命題')?.lessons.map((lesson) => lesson.label)).toEqual(['集合', '命題', '証明'])
+    expect(mathChapters.find((chapter) => chapter.label === '場合の数と確率')?.lessons.map((lesson) => lesson.label)).toEqual([
+      '場合の数',
+      '順列・組合せ',
+      '確率と期待値',
+      'いろいろな確率',
+    ])
+    for (const label of ['数と式', '2次関数', '図形と計量', 'データの分析', '図形の性質', '数学と人間の活動']) {
+      expect(mathChapters.map((chapter) => chapter.label)).toContain(label)
+    }
+
+    const physicsChapters = buildTextbookChapters(publicUnits, 'physics')
+    expect(physicsChapters.map((chapter) => chapter.label)).toEqual([
+      '運動の表し方',
+      '剛体にはたらく力',
+      '運動量と衝突',
+      '円運動と単振動',
+      '万有引力と天体運動',
+    ])
+    expect(physicsChapters[0].lessons[0].label).toBe('1A 変位と速度')
+    expect(physicsChapters[0].lessons[1].label).toMatch(/^1B /)
+    expect(physicsChapters[0].lessons[2].label).toMatch(/^1C /)
+  })
+
+  it('keeps the standalone Math A 集合 source data hidden because it overlaps 集合と命題', () => {
+    const duplicate = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-math-a-sets')!
+    expect(duplicate).toBeTruthy()
+    expect(duplicate.unit.status).toBe('draft')
+  })
+
+  it('keeps every new static math unit in one-to-one sync with private answers', () => {
+    for (const unitId of staticMathUnitIds) {
+      const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId)!
+      expect(loaded).toBeTruthy()
+      expect(loaded.unit.status).toBe('published')
+      const itemIds = loaded.unit.sections.flatMap((section) => section.items.map((item) => item.id))
+      expect(itemIds.length).toBeGreaterThan(0)
+      expect(new Set(itemIds).size).toBe(itemIds.length)
+      expect(new Set(choiceRefs(loaded.unit))).toEqual(new Set(itemIds))
+      expect(new Set(Object.keys(loaded.answerBook.answers))).toEqual(new Set(itemIds))
+      expect(loaded.dataDir).toBeTruthy()
+    }
+  })
+
+  it('keeps math item IDs unique while preserving per-section display labels', () => {
+    const math = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-counting-permutation')!
+    const items = math.unit.sections.flatMap((section) => section.items)
+    expect(items.length).toBeGreaterThan(0)
+    expect(new Set(items.map((item) => item.id)).size).toBe(items.length)
+    expect(math.unit.sections[0].items[0]).toMatchObject({ id: 'math-a-s1-sets-001', label: '1' })
+    expect(math.unit.sections[1].items[0]).toMatchObject({ id: 'math-a-s1-counting-001', label: '1' })
+  })
+
+  it('keeps math blanks, items, and private answers in one-to-one sync', () => {
+    const math = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-counting-permutation')!
+    const itemIds = new Set(math.unit.sections.flatMap((section) => section.items.map((item) => item.id)))
+    const referencedIds = new Set(choiceRefs(math.unit))
+    const answerIds = new Set(Object.keys(math.answerBook.answers))
+    expect(referencedIds).toEqual(itemIds)
+    expect(answerIds).toEqual(itemIds)
+  })
+
+  it('keeps every math figure reference backed by an extracted asset file', () => {
+    const math = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-counting-permutation')!
+    const figures = math.unit.sections.flatMap((section) => section.figures)
+    expect(figures.map((figure) => figure.id)).toEqual([
+      'venn-diagram',
+      'tree-diagram',
+      'circular-permutation',
+      'octagon',
+      'shortest-path',
+      'parallelogram-lines',
+    ])
+    for (const figure of figures) {
+      expect(existsSync(join(mathRoot, figure.src))).toBe(true)
+    }
+  })
+
+  it('keeps imported physics blanks, answers, IDs, and figure assets in sync', () => {
+    for (const unitId of importedPhysicsUnitIds) {
+      const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId)!
+      expect(loaded).toBeTruthy()
+      const itemIds = loaded.unit.sections.flatMap((section) => section.items.map((item) => item.id))
+      expect(itemIds.length).toBeGreaterThan(0)
+      expect(new Set(itemIds).size).toBe(itemIds.length)
+      expect(new Set(choiceRefs(loaded.unit))).toEqual(new Set(itemIds))
+      expect(new Set(Object.keys(loaded.answerBook.answers))).toEqual(new Set(itemIds))
+      expect(loaded.dataDir).toBeTruthy()
+      for (const figure of loaded.unit.sections.flatMap((section) => section.figures)) {
+        expect(existsSync(join(loaded.dataDir!, figure.src))).toBe(true)
+      }
+    }
+  })
+
+  it('does not expose private answers in public textbook payloads', () => {
+    for (const loaded of loadedTextbookUnits.filter(({ unit }) => unit.status === 'published')) {
+      const publicPayload = publicTextbookUnit(loaded.unit, loaded.answerBook)
+      const serialized = JSON.stringify(publicPayload)
+      expect(serialized).not.toContain('"answer"')
+      expect(serialized).not.toContain('"acceptedAnswers"')
+      expect(serialized).not.toContain('"validator"')
+    }
+    const math = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-counting-permutation')!
+    expect(publicTextbookUnit(math.unit, math.answerBook).sections[0].items[0].choices).toContain('5')
+  })
+
+  it('turns backend-owned assets into absolute API URLs when an API origin is provided', () => {
+    const math = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-counting-permutation')!
+    const publicPayload = publicTextbookUnit(math.unit, math.answerBook, 'https://api.example.test')
+    const figures = publicPayload.sections.flatMap((section) => section.figures)
+    expect(figures[0].src).toBe('https://api.example.test/api/textbooks/math-1a-counting-permutation/assets/venn-diagram.png')
+  })
+})

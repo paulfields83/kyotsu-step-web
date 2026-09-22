@@ -1,0 +1,3738 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-quadratic-functions",
+  "revision": 1,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "数学I 2次関数",
+  "source": {
+    "type": "reference",
+    "label": "塾 数学I 第2章「2次関数」教科書学習モード完全版",
+    "rightsNote": "ユーザー提供の学習モードWord母本をもとに、静的なバックエンド教材データへ構造化。"
+  },
+  "objectives": [
+    "「関数とグラフ」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「2次関数の最大・最小」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「2次関数と方程式・不等式」の考え方を、本文と空欄を通して一段ずつ確認する。"
+  ],
+  "sections": [
+    {
+      "id": "s1-quadratic-functions",
+      "number": "1",
+      "title": "関数とグラフ",
+      "description": "関数とグラフを、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-quadratic-functions-topic-01",
+          "type": "topic",
+          "text": "1.1 関数と関数値"
+        },
+        {
+          "id": "s1-quadratic-functions-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「式の形 → 軸・頂点 → 定義域 → 必要な点 → グラフ」の順に見る。平方完成は頂点を見るための道具として使う。"
+        },
+        {
+          "id": "s1-quadratic-functions-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "関数の意味→座標→定義域・値域→2次関数のグラフ→平方完成→移動→関数決定の順で進む。式だけでなく「グラフのどこを見るか」を常に言葉にする。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "x の値を1つ決めると y の値がただ1つ決まるとき、y は x の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "。y=f(x) と表す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "f(2) は式の x に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " を代入した値。f(a−1) では x 全体を a−1 に置き換えるので、かっこを付けて代入する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　関数値"
+        },
+        {
+          "id": "s1-quadratic-functions-t01-n006",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t01-n007",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t01-h008",
+          "type": "heading",
+          "text": "問題文　f(x)=4x−6 の f(2), f(−1), f(a−1) を求める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　f(2)=4·2−6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "、f(−1)=4(−1)−6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t01-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　f(a−1)=4(a−1)−6=4a−4−6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t01-n011",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-topic-02",
+          "type": "topic",
+          "text": "1.2 座標と象限"
+        },
+        {
+          "id": "s1-quadratic-functions-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点 P(a,b) の a は x 座標、b は y 座標。a>0,b>0 は第 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b006"
+            },
+            {
+              "type": "text",
+              "text": " 象限、a<0,b>0 は第 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b007"
+            },
+            {
+              "type": "text",
+              "text": " 象限。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a<0,b<0 は第3象限、a>0,b<0 は第4象限。座標軸上の点は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　符号から象限"
+        },
+        {
+          "id": "s1-quadratic-functions-t02-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-quadratic-functions-t02-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t02-h006",
+          "type": "heading",
+          "text": "問題文　a>0,b<0 の点 (a,b) はどの象限か。"
+        },
+        {
+          "id": "s1-quadratic-functions-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x 正、y 負なので第 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b009"
+            },
+            {
+              "type": "text",
+              "text": " 象限。ab<0 だけなら符号が逆ということしか分からず、第2または第 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b010"
+            },
+            {
+              "type": "text",
+              "text": " 象限。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t02-n008",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-quadratic-functions-topic-03",
+          "type": "topic",
+          "text": "1.3 定義域と値域"
+        },
+        {
+          "id": "s1-quadratic-functions-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "変数 x がとれる範囲を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "、それに対応して y がとる範囲を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b012"
+            },
+            {
+              "type": "text",
+              "text": " という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文章題では、式だけでなく長さ・個数などの意味から x の範囲を決める。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t03-h003",
+          "type": "heading",
+          "text": "教科書対応問　40cmの針金で長方形"
+        },
+        {
+          "id": "s1-quadratic-functions-t03-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-quadratic-functions-t03-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t03-h006",
+          "type": "heading",
+          "text": "問題文　縦 x cm、横 y cm、周の長さ40cm、横が縦より長い。"
+        },
+        {
+          "id": "s1-quadratic-functions-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　2(x+y)=40 より y="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。長さなので x>0。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t03-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　y>x より −x+20>x → x<"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。したがって定義域は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。y=20−x だから値域は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b016"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t03-n009",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-quadratic-functions-topic-04",
+          "type": "topic",
+          "text": "1.4 2次関数 y=ax² のグラフ"
+        },
+        {
+          "id": "s1-quadratic-functions-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "y=ax² のグラフは放物線。a>0 なら下に凸、a<0 なら "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "|a| が大きいほどグラフは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b018"
+            },
+            {
+              "type": "text",
+              "text": "、|a| が小さいほど広がる。軸は y 軸、頂点は原点。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　y=x²−4, y=−2x²+8"
+        },
+        {
+          "id": "s1-quadratic-functions-t04-n004",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t04-n005",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t04-h006",
+          "type": "heading",
+          "text": "問題文　y=x²−4 は y=x² を下へ4平行移動。頂点は (0,−4)。"
+        },
+        {
+          "id": "s1-quadratic-functions-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　y=−2x²+8 は上に凸、頂点 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b019"
+            },
+            {
+              "type": "text",
+              "text": "。x=0 を軸に左右対称。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t04-n008",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-topic-05",
+          "type": "topic",
+          "text": "1.5 y=a(x−p)²+q"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "y=ax² を x 方向に p、y 方向に q だけ移動すると y=a(x−p)²+q。軸は x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b020"
+            },
+            {
+              "type": "text",
+              "text": "、頂点は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "符号に注意：x−2 なら右へ2、x+3=x−(−3) なら左へ "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b022"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t05-h003",
+          "type": "heading",
+          "text": "教科書対応問　軸と頂点"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-n004",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-n005",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-h006",
+          "type": "heading",
+          "text": "問題文　y=3(x−2)² の軸と頂点を求める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　形をそのまま読む。軸 x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b023"
+            },
+            {
+              "type": "text",
+              "text": "、頂点 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b024"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t05-n008",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-h009",
+          "type": "heading",
+          "text": "教科書対応問　y=−2(x+3)²"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-n010",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-n011",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-h012",
+          "type": "heading",
+          "text": "問題文　x+3=x−(−3) なので軸 x=−3、頂点 (−3,0)。a<0 なので上に凸。"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-n013",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-topic-06",
+          "type": "topic",
+          "text": "1.6 平方完成"
+        },
+        {
+          "id": "s1-quadratic-functions-t06-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "y=ax²+bx+c の軸・頂点を出すには平方完成する。x²+px=(x+p/2)²−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b025"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t06-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "係数 a≠1 ならまず x² と x の項から a を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b026"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t06-h003",
+          "type": "heading",
+          "text": "教科書対応問　y=2x²+8x+5"
+        },
+        {
+          "id": "s1-quadratic-functions-t06-n004",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t06-n005",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t06-h006",
+          "type": "heading",
+          "text": "問題文　2(x²+4x)+5=2{(x+2)²−4}+5=2(x+2)²−3。"
+        },
+        {
+          "id": "s1-quadratic-functions-t06-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　軸 x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b027"
+            },
+            {
+              "type": "text",
+              "text": "、頂点 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b028"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t06-n008",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-topic-07",
+          "type": "topic",
+          "text": "1.7 2次関数の決定"
+        },
+        {
+          "id": "s1-quadratic-functions-t07-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "頂点 (p,q) が分かるなら y=a(x−p)²+q と置き、もう1点を代入して "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b029"
+            },
+            {
+              "type": "text",
+              "text": " を決める。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t07-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3点が分かるなら y=ax²+bx+c と置き、3点を代入した "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b030"
+            },
+            {
+              "type": "text",
+              "text": " を解く。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t07-h003",
+          "type": "heading",
+          "text": "教科書対応問　頂点と通る点から決定"
+        },
+        {
+          "id": "s1-quadratic-functions-t07-n004",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t07-n005",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t07-h006",
+          "type": "heading",
+          "text": "問題文　頂点 (−2,−7)、点 (2,−1) を通る放物線。"
+        },
+        {
+          "id": "s1-quadratic-functions-t07-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　y=a(x+2)²−7。点(2,−1)を代入すると −1=16a−7 → 16a=6 → a="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b031"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t07-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　よって y="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b032"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t07-n009",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-topic-08",
+          "type": "topic",
+          "text": "1.8 グラフの平行移動・対称移動"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "グラフ y=f(x) を x 方向 p、y 方向 q に移動すると y−q=f(x−p)。つまり x を x−p、y を y−q に置き換える。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "x軸対称は y を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b033"
+            },
+            {
+              "type": "text",
+              "text": "、y軸対称は x を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b034"
+            },
+            {
+              "type": "text",
+              "text": "、原点対称は両方を負にする。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h003",
+          "type": "heading",
+          "text": "研究対応　平行移動"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h006",
+          "type": "heading",
+          "text": "問題文　y=−2x²+x+1 を x 方向 −3、y方向1だけ移動。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　p=−3,q=1 なので y−1=f(x+3)。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　y−1=−2(x+3)²+(x+3)+1。整理して求める。置き換える向きを逆にしない。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n009",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h010",
+          "type": "heading",
+          "text": "研究対応　対称移動"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n011",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n012",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h013",
+          "type": "heading",
+          "text": "問題文　y=−2x²+4x+2 を x軸対称。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　y を −y に置き換え −y=−2x²+4x+2 → y="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b035"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n015",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h016",
+          "type": "heading",
+          "text": "教科書対応問　定義域・値域を図から読む"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n017",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n018",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h019",
+          "type": "heading",
+          "text": "問題文　関数 y=−x+20、0<x<10 の値域を求める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p020",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x が0に近いほど y は20に近づくが x=0 は含まないので y<20。x が10に近いほど y は10に近づくが10も含まないので y>"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b036"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって値域は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b037"
+            },
+            {
+              "type": "text",
+              "text": "。端点を含むかは定義域の不等号を引き継ぐ。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n022",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h023",
+          "type": "heading",
+          "text": "教科書対応問　基本放物線の比較"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n024",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n025",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h026",
+          "type": "heading",
+          "text": "問題文　y=x², y=2x², y=(1/2)x² を同じ座標上で比べる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　頂点と軸はすべて原点・y軸で同じ。|a| が大きい y=2x² が最も "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b038"
+            },
+            {
+              "type": "text",
+              "text": "、|a| が小さい y=(1/2)x² が最も "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b039"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n028",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h029",
+          "type": "heading",
+          "text": "教科書対応問　一般形から平方完成"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n030",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n031",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h032",
+          "type": "heading",
+          "text": "問題文　y=−3x²+6x を平方完成する。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p033",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　−3(x²−2x)=−3((x−1)²−1)=−3(x−1)²+3。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p034",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　軸 x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b040"
+            },
+            {
+              "type": "text",
+              "text": "、頂点 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b041"
+            },
+            {
+              "type": "text",
+              "text": "。負の係数なので上に凸。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n035",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h036",
+          "type": "heading",
+          "text": "教科書対応問　3点から2次関数を決める"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n037",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n038",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h039",
+          "type": "heading",
+          "text": "問題文　(0,1),(1,0),(2,3) を通る y=ax²+bx+c。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p040",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x=0 から c="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b042"
+            },
+            {
+              "type": "text",
+              "text": "。x=1 から a+b+1=0、x=2 から4a+2b+1=3。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p041",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　a+b=−1、2a+b=1 を引いて a="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b043"
+            },
+            {
+              "type": "text",
+              "text": ", b="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b044"
+            },
+            {
+              "type": "text",
+              "text": "。よって y=2x²−3x+1。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n042",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h043",
+          "type": "heading",
+          "text": "教科書対応問　y軸対称・原点対称"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n044",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n045",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-h046",
+          "type": "heading",
+          "text": "問題文　y=x²−4x+1 の y軸対称を求める。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p047",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　y軸対称は x を −x に置き換える。y=(−x)²−4(−x)+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b045"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p048",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　原点対称なら x→−x, y→−y を同時に行う。"
+            }
+          ]
+        },
+        {
+          "id": "s1-quadratic-functions-t08-n049",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s1-quadratic-functions-t08-p050",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第1節の自力確認　グラフの問題は「開き方→軸→頂点→必要なら切片→定義域」の順で見る。移動は点の移動と式の置き換えを対応させる。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b001",
+          "label": "1",
+          "prompt": "関数と関数値 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b002",
+          "label": "2",
+          "prompt": "関数と関数値 【2】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b003",
+          "label": "3",
+          "prompt": "関数と関数値 【3】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b004",
+          "label": "4",
+          "prompt": "関数と関数値 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b005",
+          "label": "5",
+          "prompt": "関数と関数値 【5】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b006",
+          "label": "6",
+          "prompt": "座標と象限 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b007",
+          "label": "7",
+          "prompt": "座標と象限 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b008",
+          "label": "8",
+          "prompt": "座標と象限 【8】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b009",
+          "label": "9",
+          "prompt": "座標と象限 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b010",
+          "label": "10",
+          "prompt": "座標と象限 【10】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b011",
+          "label": "11",
+          "prompt": "定義域と値域 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b012",
+          "label": "12",
+          "prompt": "定義域と値域 【12】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b013",
+          "label": "13",
+          "prompt": "定義域と値域 【13】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b014",
+          "label": "14",
+          "prompt": "定義域と値域 【14】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b015",
+          "label": "15",
+          "prompt": "定義域と値域 【15】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b016",
+          "label": "16",
+          "prompt": "定義域と値域 【16】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b017",
+          "label": "17",
+          "prompt": "2次関数 y=ax² のグラフ 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b018",
+          "label": "18",
+          "prompt": "2次関数 y=ax² のグラフ 【18】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b019",
+          "label": "19",
+          "prompt": "2次関数 y=ax² のグラフ 【19】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b020",
+          "label": "20",
+          "prompt": "y=a(x−p)²+q 【20】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b021",
+          "label": "21",
+          "prompt": "y=a(x−p)²+q 【21】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b022",
+          "label": "22",
+          "prompt": "y=a(x−p)²+q 【22】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b023",
+          "label": "23",
+          "prompt": "y=a(x−p)²+q 【23】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b024",
+          "label": "24",
+          "prompt": "y=a(x−p)²+q 【24】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b025",
+          "label": "25",
+          "prompt": "平方完成 【25】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b026",
+          "label": "26",
+          "prompt": "平方完成 【26】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b027",
+          "label": "27",
+          "prompt": "平方完成 【27】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b028",
+          "label": "28",
+          "prompt": "平方完成 【28】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b029",
+          "label": "29",
+          "prompt": "2次関数の決定 【29】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b030",
+          "label": "30",
+          "prompt": "2次関数の決定 【30】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b031",
+          "label": "31",
+          "prompt": "2次関数の決定 【31】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b032",
+          "label": "32",
+          "prompt": "2次関数の決定 【32】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b033",
+          "label": "33",
+          "prompt": "グラフの平行移動・対称移動 【33】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b034",
+          "label": "34",
+          "prompt": "グラフの平行移動・対称移動 【34】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b035",
+          "label": "35",
+          "prompt": "グラフの平行移動・対称移動 【35】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b036",
+          "label": "36",
+          "prompt": "グラフの平行移動・対称移動 【36】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b037",
+          "label": "37",
+          "prompt": "グラフの平行移動・対称移動 【37】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b038",
+          "label": "38",
+          "prompt": "グラフの平行移動・対称移動 【38】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b039",
+          "label": "39",
+          "prompt": "グラフの平行移動・対称移動 【39】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b040",
+          "label": "40",
+          "prompt": "グラフの平行移動・対称移動 【40】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b041",
+          "label": "41",
+          "prompt": "グラフの平行移動・対称移動 【41】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b042",
+          "label": "42",
+          "prompt": "グラフの平行移動・対称移動 【42】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b043",
+          "label": "43",
+          "prompt": "グラフの平行移動・対称移動 【43】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b044",
+          "label": "44",
+          "prompt": "グラフの平行移動・対称移動 【44】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b045",
+          "label": "45",
+          "prompt": "グラフの平行移動・対称移動 【45】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        }
+      ]
+    },
+    {
+      "id": "s2-quadratic-functions",
+      "number": "2",
+      "title": "2次関数の最大・最小",
+      "description": "2次関数の最大・最小を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s2-quadratic-functions-topic-01",
+          "type": "topic",
+          "text": "2.1 定義域がない場合"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「平方完成 → 頂点 → 定義域との位置関係 → 頂点か端点か → 値とそのときのx」の順を固定する。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平方完成して軸と頂点を出し、定義域との位置関係を必ず図で確認する。パラメータ問題は「軸がどこにあるか」で場合分けする。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "y=a(x−p)²+q で a>0 なら頂点で "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b001"
+            },
+            {
+              "type": "text",
+              "text": " q をとり最大値はない。a<0 なら頂点で "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " q をとり最小値はない。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t01-h004",
+          "type": "heading",
+          "text": "教科書対応問　y=2x²−8x+3"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-n005",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-n006",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-h007",
+          "type": "heading",
+          "text": "問題文　平方完成して y=2(x−2)²−5。a>0 なので x=2 で最小値 −5、最大値なし。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-n008",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-h009",
+          "type": "heading",
+          "text": "教科書対応問　y=−3x²+6x+1"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-n010",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-n011",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-h012",
+          "type": "heading",
+          "text": "問題文　y=−3(x−1)²+4。a<0 なので x=1 で最大値 4、最小値なし。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-n013",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        },
+        {
+          "id": "s2-quadratic-functions-topic-02",
+          "type": "topic",
+          "text": "2.2 定義域がある場合"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "頂点が定義域内なら、下に凸では頂点が最小。最大は両端のうち軸から "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b003"
+            },
+            {
+              "type": "text",
+              "text": " 方。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "頂点が定義域外なら、定義域内では単調に増加または減少するので "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " で最大・最小が決まる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　−1≦x≦1"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-n004",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-n005",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-h006",
+          "type": "heading",
+          "text": "問題文　y=x²+4x+1。平方完成すると (x+2)²−3、軸 x=−2 は定義域の左。"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　区間 [−1,1] では増加するので、x=−1 で最小 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "、x=1 で最大 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t02-n008",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-h009",
+          "type": "heading",
+          "text": "教科書対応問　端点を含まない"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-n010",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-n011",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-h012",
+          "type": "heading",
+          "text": "問題文　y=x²−2x+3, −1≦x<2。"
+        },
+        {
+          "id": "s2-quadratic-functions-t02-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　y=(x−1)²+2。頂点 x=1 は含まれるので最小値 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t02-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　最大は左端 x=−1 の値6と、右端2に近づくときの値3を比べる。x=−1 で最大値 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t02-n015",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s2-quadratic-functions-topic-03",
+          "type": "topic",
+          "text": "2.3 パラメータを含む定義域"
+        },
+        {
+          "id": "s2-quadratic-functions-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "y=2x²−2x, 0≦x≦a のように a が動くと、定義域の右端が動く。まず軸 x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b009"
+            },
+            {
+              "type": "text",
+              "text": " と a の位置関係で場合分け。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最大値なら軸から最も "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b010"
+            },
+            {
+              "type": "text",
+              "text": " 点、最小値なら下に凸なので頂点が入るかを見る。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t03-h003",
+          "type": "heading",
+          "text": "教科書対応問　y=2x²−2x, 0≦x≦a"
+        },
+        {
+          "id": "s2-quadratic-functions-t03-n004",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s2-quadratic-functions-t03-n005",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s2-quadratic-functions-t03-h006",
+          "type": "heading",
+          "text": "問題文　a>0。最大値を求める。"
+        },
+        {
+          "id": "s2-quadratic-functions-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　端点は x=0 と x=a。値は0と 2a²−2a。どちらが大きいかを 2a(a−1) の符号で判断。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t03-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　0<a≦1 では 2a²−2a≦0 なので最大 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "（x=0）。a>1 では最大 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "（x=a）。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t03-n009",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        },
+        {
+          "id": "s2-quadratic-functions-topic-04",
+          "type": "topic",
+          "text": "2.4 軸そのものが動く"
+        },
+        {
+          "id": "s2-quadratic-functions-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "y=x²−2ax=(x−a)²−a², 0≦x≦3。軸 x=a が定義域の左・中・右のどこにあるかで場合分け。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a<0, 0≦a≦3, a>3 の3つが基本。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　最小値"
+        },
+        {
+          "id": "s2-quadratic-functions-t04-n004",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s2-quadratic-functions-t04-n005",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t04-h006",
+          "type": "heading",
+          "text": "問題文　y=(x−a)²−a², 0≦x≦3。"
+        },
+        {
+          "id": "s2-quadratic-functions-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　a<0 なら軸は左で x=0 が最小 → "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t04-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　0≦a≦3 なら頂点が区間内 → 最小 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t04-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3　a>3 なら軸は右で x=3 が最小 → 9−6a。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t04-n010",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s2-quadratic-functions-topic-05",
+          "type": "topic",
+          "text": "2.5 最大・最小の応用"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文章題では、まず求めたい量を y として1つの変数 x の2次式にする。次に x の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b015"
+            },
+            {
+              "type": "text",
+              "text": " を現実条件から決め、最後に最大・最小を調べる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h002",
+          "type": "heading",
+          "text": "教科書対応問　幅12cmの板を折る"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n003",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n004",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h005",
+          "type": "heading",
+          "text": "問題文　両側を x cm 折り上げると底の幅は 12−2x、断面積 S=x(12−2x)。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　S=−2x²+12x=−2(x−3)²+18。0<x<6 の中で x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b016"
+            },
+            {
+              "type": "text",
+              "text": " のとき最大 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n007",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h008",
+          "type": "heading",
+          "text": "節末対応　価格と売上"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n009",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n010",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h011",
+          "type": "heading",
+          "text": "問題文　150円で500個、1円値上げごとに2個販売数が減る。値上げ x 円。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　価格 150+x、個数 500−2x。売上 R=(150+x)(500−2x)。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　2次関数に展開・平方完成して最大を求める。現実条件 500−2x≧0 も確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n014",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h015",
+          "type": "heading",
+          "text": "教科書対応問　頂点が区間内にある最大最小"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n016",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n017",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h018",
+          "type": "heading",
+          "text": "問題文　y=(x−1)²−2, −1≦x≦3。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　軸 x=1 は区間内なので最小は頂点で "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b018"
+            },
+            {
+              "type": "text",
+              "text": "。最大は両端を比べ、x=−1,3 は軸から同距離なのでどちらも y="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b019"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n020",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h021",
+          "type": "heading",
+          "text": "教科書対応問　頂点が区間外"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n022",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n023",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h024",
+          "type": "heading",
+          "text": "問題文　y=−(x−4)²+5, 0≦x≦2。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p025",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　軸 x=4 は区間の右。区間内では x が増えるほど頂点へ近づき y は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b020"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって x=0 で最小 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "、x=2 で最大 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b022"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n027",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h028",
+          "type": "heading",
+          "text": "教科書対応問　パラメータと最小値"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n029",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n030",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h031",
+          "type": "heading",
+          "text": "問題文　y=(x−a)², 0≦x≦2 の最小値を a の位置で分ける。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p032",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　a<0 なら最も近い端点 x=0 で a²。0≦a≦2 なら頂点が入り最小 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b023"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p033",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　a>2 なら x=2 で最小 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b024"
+            },
+            {
+              "type": "text",
+              "text": "。軸の位置で3場合。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n034",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h035",
+          "type": "heading",
+          "text": "教科書対応問　最大値から定数を決める"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n036",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n037",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h038",
+          "type": "heading",
+          "text": "問題文　y=−x²+4x+k の最大値が7。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p039",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　y=−(x−2)²+4+k だから最大値は4+k。4+k=7 より k="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b025"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n040",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h041",
+          "type": "heading",
+          "text": "教科書対応問　長方形の面積最大"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n042",
+          "type": "note",
+          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n043",
+          "type": "note",
+          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-h044",
+          "type": "heading",
+          "text": "問題文　周の長さ20の長方形。1辺を x とすると他辺10−x。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p045",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　S=x(10−x)=−x²+10x=−(x−5)²+25。0<x<10 で x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b026"
+            },
+            {
+              "type": "text",
+              "text": " のとき最大 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b027"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-quadratic-functions-t05-n046",
+          "type": "note",
+          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+        },
+        {
+          "id": "s2-quadratic-functions-t05-p047",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第2節の自力確認　最大・最小は「平方完成」だけで終わらない。軸と定義域を必ず同じ数直線上で確認し、端点を含む/含まないも見る。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b001",
+          "label": "1",
+          "prompt": "定義域がない場合 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b002",
+          "label": "2",
+          "prompt": "定義域がない場合 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b003",
+          "label": "3",
+          "prompt": "定義域がある場合 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b004",
+          "label": "4",
+          "prompt": "定義域がある場合 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b005",
+          "label": "5",
+          "prompt": "定義域がある場合 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b006",
+          "label": "6",
+          "prompt": "定義域がある場合 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b007",
+          "label": "7",
+          "prompt": "定義域がある場合 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b008",
+          "label": "8",
+          "prompt": "定義域がある場合 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b009",
+          "label": "9",
+          "prompt": "パラメータを含む定義域 【9】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b010",
+          "label": "10",
+          "prompt": "パラメータを含む定義域 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b011",
+          "label": "11",
+          "prompt": "パラメータを含む定義域 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b012",
+          "label": "12",
+          "prompt": "パラメータを含む定義域 【12】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b013",
+          "label": "13",
+          "prompt": "軸そのものが動く 【13】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b014",
+          "label": "14",
+          "prompt": "軸そのものが動く 【14】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b015",
+          "label": "15",
+          "prompt": "最大・最小の応用 【15】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b016",
+          "label": "16",
+          "prompt": "最大・最小の応用 【16】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b017",
+          "label": "17",
+          "prompt": "最大・最小の応用 【17】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b018",
+          "label": "18",
+          "prompt": "最大・最小の応用 【18】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b019",
+          "label": "19",
+          "prompt": "最大・最小の応用 【19】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b020",
+          "label": "20",
+          "prompt": "最大・最小の応用 【20】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b021",
+          "label": "21",
+          "prompt": "最大・最小の応用 【21】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b022",
+          "label": "22",
+          "prompt": "最大・最小の応用 【22】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b023",
+          "label": "23",
+          "prompt": "最大・最小の応用 【23】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b024",
+          "label": "24",
+          "prompt": "最大・最小の応用 【24】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b025",
+          "label": "25",
+          "prompt": "最大・最小の応用 【25】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b026",
+          "label": "26",
+          "prompt": "最大・最小の応用 【26】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b027",
+          "label": "27",
+          "prompt": "最大・最小の応用 【27】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        }
+      ]
+    },
+    {
+      "id": "s3-quadratic-functions",
+      "number": "3",
+      "title": "2次関数と方程式・不等式",
+      "description": "2次関数と方程式・不等式を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s3-quadratic-functions-topic-01",
+          "type": "topic",
+          "text": "3.1 2次方程式と解の公式"
+        },
+        {
+          "id": "s3-quadratic-functions-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を不等号へ翻訳 → 係数の符号を見る → 解く → 数直線/場合分け条件で確認」の順で進む。"
+        },
+        {
+          "id": "s3-quadratic-functions-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2次方程式の解と放物線の x 軸との共有点を同じものとして理解し、判別式→共有点→2次不等式へつなぐ。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ax²+bx+c=0 (a≠0) の解は x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "。根号の中 D=b²−4ac を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " という。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "b=2b′ の形なら x=(−b′±√(b′²−ac))/a と簡単に使える。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　x²+2x−5=0"
+        },
+        {
+          "id": "s3-quadratic-functions-t01-n006",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s3-quadratic-functions-t01-n007",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t01-h008",
+          "type": "heading",
+          "text": "問題文　a=1,b=2,c=−5。D=4+20=24。"
+        },
+        {
+          "id": "s3-quadratic-functions-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x=(−2±√24)/2=−1±"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t01-n010",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-topic-02",
+          "type": "topic",
+          "text": "3.2 実数解の個数と判別式"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "D>0 なら異なる実数解 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "、D=0 なら重解で実数解1個、D<0 なら実数解 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "これは放物線 y=ax²+bx+c と x 軸の共有点の個数と同じ。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　異なる実数解の個数"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-n004",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-n005",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-h006",
+          "type": "heading",
+          "text": "問題文　9x²−6x+1=0。"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　D=(−6)²−4·9·1=36−36="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b006"
+            },
+            {
+              "type": "text",
+              "text": " だから実数解は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "（重解）。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t02-n008",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-h009",
+          "type": "heading",
+          "text": "教科書対応問　パラメータと判別式"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-n010",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-n011",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-h012",
+          "type": "heading",
+          "text": "問題文　3x²−x−m=0 が異なる2実数解をもつ m の範囲。"
+        },
+        {
+          "id": "s3-quadratic-functions-t02-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　D=(−1)²−4·3·(−m)=1+12m。異なる2解なので D>0。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t02-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　1+12m>0 → m>"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t02-n015",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-topic-03",
+          "type": "topic",
+          "text": "3.3 放物線と直線の共有点"
+        },
+        {
+          "id": "s3-quadratic-functions-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "y=f(x) と y=g(x) の共有点は f(x)=g(x) を解く。できた2次方程式の判別式で共有点の個数を判断できる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "D=0 は直線が放物線に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b009"
+            },
+            {
+              "type": "text",
+              "text": " 場合。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-topic-04",
+          "type": "topic",
+          "text": "3.4 2次不等式"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ax²+bx+c>0 は放物線 y=ax²+bx+c が x 軸より "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b010"
+            },
+            {
+              "type": "text",
+              "text": " にある x の範囲。<0 は下にある範囲。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず方程式 ax²+bx+c=0 の解を求め、x 軸との交点を決める。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　(x−1)(x−3)>0"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-n004",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-n005",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-h006",
+          "type": "heading",
+          "text": "問題文　交点 x=1,3。係数が正なので下に凸。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x 軸より上になる外側を選び、"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t04-n008",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-h009",
+          "type": "heading",
+          "text": "教科書対応問　(x−1)(x−3)≦0"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-n010",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-n011",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-h012",
+          "type": "heading",
+          "text": "問題文　同じグラフで x 軸以下の内側。等号を含むので交点も入れ、1≦x≦3。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-n013",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-h014",
+          "type": "heading",
+          "text": "教科書対応問　実数解なしの2次式"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-n015",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-n016",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-p017",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "x²+x+2>0。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t04-p018",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　D=1−8="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "。下に凸で x 軸と交わらないので常に正。したがって解は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t04-n019",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-topic-05",
+          "type": "topic",
+          "text": "3.5 絶対値を含むグラフ"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "y=|f(x)| は f(x)≧0 の部分はそのまま、f(x)<0 の部分を x 軸について "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b014"
+            },
+            {
+              "type": "text",
+              "text": " する。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "方程式 |f(x)|=k は f(x)=k または f(x)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b015"
+            },
+            {
+              "type": "text",
+              "text": " と分ける。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第3節の自力確認　2次不等式では因数分解だけで符号を暗記しない。放物線の開き方と x 軸との位置を描き、どの区間が上/下かを見る。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h004",
+          "type": "heading",
+          "text": "教科書対応問　解の公式の使い分け"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n005",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n006",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h007",
+          "type": "heading",
+          "text": "問題文　2x²−3x−1=0 を解く。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　D=(−3)²−4·2·(−1)=17。x=(3±√17)/4。答えは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b016"
+            },
+            {
+              "type": "text",
+              "text": "。因数分解できないと判断したら解の公式へ進む。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n009",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h010",
+          "type": "heading",
+          "text": "教科書対応問　重解条件"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n011",
+          "type": "note",
+          "text": "読む　方程式として解くのか、実数解の個数だけ見るのか、グラフの共有点を見るのかを最初に区別する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n012",
+          "type": "note",
+          "text": "考える　解が必要なら因数分解/解の公式、個数なら判別式、共有点なら連立して2次方程式、2次不等式ならグラフと x 軸の位置関係を使う。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h013",
+          "type": "heading",
+          "text": "問題文　x²−2kx+k+2=0 が重解をもつ k。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　D=(−2k)²−4(k+2)=4(k²−k−2)=4(k−2)(k+1)。重解だから D=0。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　よって k="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n016",
+          "type": "note",
+          "text": "最後の確認　判別式の符号、a の符号、等号を含むかを最後に確認して答えの区間を決める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h017",
+          "type": "heading",
+          "text": "教科書対応問　放物線と直線の共有点"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n018",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n019",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h020",
+          "type": "heading",
+          "text": "問題文　y=x² と y=2x+m の共有点が1個になる m。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x²=2x+m → x²−2x−m=0。共有点1個は重解なので D=4+4m="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b018"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　m="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b019"
+            },
+            {
+              "type": "text",
+              "text": "。接するという図形条件を判別式へ翻訳する。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n023",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h024",
+          "type": "heading",
+          "text": "教科書対応問　2次不等式・上に凸"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n025",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n026",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h027",
+          "type": "heading",
+          "text": "問題文　−x²+3x+4>0 を解く。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　−(x−4)(x+1)>0 ⇔ (x−4)(x+1)<0。根は −1,4。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p029",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　2つの根の間で積が負なので "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b020"
+            },
+            {
+              "type": "text",
+              "text": "。グラフでは上に凸で x軸より上の部分。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n030",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h031",
+          "type": "heading",
+          "text": "教科書対応問　解がすべての実数になる条件"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n032",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n033",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-h034",
+          "type": "heading",
+          "text": "問題文　x²−2ax+a+2>0 がすべての実数で成り立つ条件を考える。"
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p035",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x² の係数は正。すべてで正にするには x軸と交わらない、つまり判別式 D<0。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p036",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　D=4a²−4(a+2)=4(a²−a−2)=4(a−2)(a+1)<0 より "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p037",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3　研究　絶対値グラフを折り返す"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p038",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4　y=|x²−4| のグラフ。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p039",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "5　x²−4≧0、つまり x≦−2 または x≧2 ではそのまま。−2<x<2 では符号を反転して y="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b022"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-p040",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "6　x軸より下にあった部分を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b023"
+            },
+            {
+              "type": "text",
+              "text": " に折り返す。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t05-n041",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-topic-06",
+          "type": "topic",
+          "text": "3.6 章末問題・思考力"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "関数決定、最大最小、判別式、不等式を組み合わせる。グラフを頭の中だけで済ませず、必ず軸と主要点を図示して考える。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t06-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　条件から2次関数を決める"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n004",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n005",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-h006",
+          "type": "heading",
+          "text": "問題文　複数の点・軸・頂点条件から式を決める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　頂点が分かれば頂点形式、3点が分かれば一般形。未知係数の個数と同じだけ "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-end-b001"
+            },
+            {
+              "type": "text",
+              "text": " が必要。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n008",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　共有点とパラメータ"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n010",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n011",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-h012",
+          "type": "heading",
+          "text": "問題文　放物線と直線が接するように定数を決める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　連立して2次方程式を作り、「接する」→実数解1個→判別式 D="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-end-b002"
+            },
+            {
+              "type": "text",
+              "text": " と翻訳する。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n014",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　運動を2次関数で表す"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n016",
+          "type": "note",
+          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n017",
+          "type": "note",
+          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-h018",
+          "type": "heading",
+          "text": "問題文　地上から物体を投げ上げた高さを時間 t の2次関数で表すタイプ。"
+        },
+        {
+          "id": "s3-quadratic-functions-t06-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　高さ h(t) は上に凸ではなく "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-end-b003"
+            },
+            {
+              "type": "text",
+              "text": " 放物線。頂点の時刻が最高点。地面に戻る時刻は h(t)=0 の正の解。"
+            }
+          ]
+        },
+        {
+          "id": "s3-quadratic-functions-t06-n020",
+          "type": "note",
+          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b001",
+          "label": "1",
+          "prompt": "2次方程式と解の公式 【1】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b002",
+          "label": "2",
+          "prompt": "2次方程式と解の公式 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b003",
+          "label": "3",
+          "prompt": "2次方程式と解の公式 【3】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b004",
+          "label": "4",
+          "prompt": "実数解の個数と判別式 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b005",
+          "label": "5",
+          "prompt": "実数解の個数と判別式 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b006",
+          "label": "6",
+          "prompt": "実数解の個数と判別式 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b007",
+          "label": "7",
+          "prompt": "実数解の個数と判別式 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b008",
+          "label": "8",
+          "prompt": "実数解の個数と判別式 【8】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b009",
+          "label": "9",
+          "prompt": "放物線と直線の共有点 【9】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b010",
+          "label": "10",
+          "prompt": "2次不等式 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b011",
+          "label": "11",
+          "prompt": "2次不等式 【11】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b012",
+          "label": "12",
+          "prompt": "2次不等式 【12】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b013",
+          "label": "13",
+          "prompt": "2次不等式 【13】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b014",
+          "label": "14",
+          "prompt": "絶対値を含むグラフ 【14】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b015",
+          "label": "15",
+          "prompt": "絶対値を含むグラフ 【15】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b016",
+          "label": "16",
+          "prompt": "絶対値を含むグラフ 【16】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b017",
+          "label": "17",
+          "prompt": "絶対値を含むグラフ 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b018",
+          "label": "18",
+          "prompt": "絶対値を含むグラフ 【18】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b019",
+          "label": "19",
+          "prompt": "絶対値を含むグラフ 【19】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b020",
+          "label": "20",
+          "prompt": "絶対値を含むグラフ 【20】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b021",
+          "label": "21",
+          "prompt": "絶対値を含むグラフ 【21】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b022",
+          "label": "22",
+          "prompt": "絶対値を含むグラフ 【22】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b023",
+          "label": "23",
+          "prompt": "絶対値を含むグラフ 【23】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-end-b001",
+          "label": "1",
+          "prompt": "章末問題・思考力 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-end-b002",
+          "label": "2",
+          "prompt": "章末問題・思考力 【2】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-end-b003",
+          "label": "3",
+          "prompt": "章末問題・思考力 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    }
+  ]
+}

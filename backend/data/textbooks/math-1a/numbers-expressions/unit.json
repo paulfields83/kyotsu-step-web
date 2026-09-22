@@ -1,0 +1,4693 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-numbers-expressions",
+  "revision": 1,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "数学I 数と式",
+  "source": {
+    "type": "reference",
+    "label": "塾 数学I 第1章「数と式」教科書学習モード完全版",
+    "rightsNote": "ユーザー提供の学習モードWord母本をもとに、静的なバックエンド教材データへ構造化。"
+  },
+  "objectives": [
+    "「多項式」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「実数」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「1次不等式」の考え方を、本文と空欄を通して一段ずつ確認する。"
+  ],
+  "sections": [
+    {
+      "id": "s1-numbers-expressions",
+      "number": "1",
+      "title": "多項式",
+      "description": "多項式を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-numbers-expressions-topic-01",
+          "type": "topic",
+          "text": "1.1 単項式・次数・係数"
+        },
+        {
+          "id": "s1-numbers-expressions-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「式の形を見る → 使える規則を選ぶ → 1段ずつ変形 → 元の式で確認」の順を固定する。公式名を当てる前に、なぜその公式が使える形かを言葉で確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字式を「何を1つの項とみるか」「どの文字に着目するか」から整理し、展開・因数分解まで進む。公式は先に暗記せず、分配法則や重複のない形から作る。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "数や文字を掛け合わせた1つの式を単項式という。例えば −2x は x が1個なので次数は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "、係数は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b002"
+            },
+            {
+              "type": "text",
+              "text": "。x² は次数 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "、係数 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "複数の文字を含むときは「どの文字に着目するか」を先に決める。5x³y を x に着目すれば y は数と同じ扱いなので、x の次数は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "、係数は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "。x と y の両方に着目すれば次数は 3+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　次数と係数"
+        },
+        {
+          "id": "s1-numbers-expressions-t01-n006",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-numbers-expressions-t01-n007",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-numbers-expressions-t01-h008",
+          "type": "heading",
+          "text": "問題文　−3x²y² の次数と係数を答える。"
+        },
+        {
+          "id": "s1-numbers-expressions-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　まず「次数」は掛け合わされている文字の指数の合計を見る。x² と y² なので 2+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t01-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　数の部分は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b009"
+            },
+            {
+              "type": "text",
+              "text": " だから、係数は −3。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t01-n011",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-topic-02",
+          "type": "topic",
+          "text": "1.2 多項式・項・定数項"
+        },
+        {
+          "id": "s1-numbers-expressions-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "単項式の和として表される式を多項式という。多項式の1つ1つの単項式を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b010"
+            },
+            {
+              "type": "text",
+              "text": " といい、各項の次数の最大値をその多項式の次数とする。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "x に着目するとき、x を含まない項は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "。例えば x²+(a+b)x+ab は x について "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "、定数項は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　着目する文字を変える"
+        },
+        {
+          "id": "s1-numbers-expressions-t02-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-numbers-expressions-t02-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-numbers-expressions-t02-h006",
+          "type": "heading",
+          "text": "問題文　x⁴−x³y² を x と y のそれぞれに着目して次数を考える。"
+        },
+        {
+          "id": "s1-numbers-expressions-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x に着目すると、各項の x の次数は4と3なので全体は x について "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t02-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　y に着目すると、最も高い y の次数は2なので y について "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。同じ式でも着目する文字で答えが変わる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t02-n009",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-topic-03",
+          "type": "topic",
+          "text": "1.3 同類項・降べき・昇べき"
+        },
+        {
+          "id": "s1-numbers-expressions-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字の部分が同じ項を同類項という。3x² と −5x² は同類項なので、係数だけを 3−5 と計算して "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b016"
+            },
+            {
+              "type": "text",
+              "text": " にまとめられる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整理するとき、次数の高い順を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "、低い順を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b018"
+            },
+            {
+              "type": "text",
+              "text": " という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t03-h003",
+          "type": "heading",
+          "text": "教科書対応問　多項式を整理する"
+        },
+        {
+          "id": "s1-numbers-expressions-t03-n004",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t03-n005",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t03-h006",
+          "type": "heading",
+          "text": "問題文　3x²−5x+6−5x²+2x−3 を x について降べきの順に整理する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x² の項、x の項、定数項を分ける。x² は (3−5)x²="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b019"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t03-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　x は (−5+2)x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b020"
+            },
+            {
+              "type": "text",
+              "text": "、定数は 6−3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "。したがって答えは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b022"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t03-n009",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t03-n010",
+          "type": "note",
+          "text": "注意　x に着目しているのに bx の b を文字として別の項扱いしない。b は係数の一部として扱う。"
+        },
+        {
+          "id": "s1-numbers-expressions-topic-04",
+          "type": "topic",
+          "text": "1.4 多項式の加法・減法"
+        },
+        {
+          "id": "s1-numbers-expressions-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "多項式を足すときは同じ次数の項をまとめる。引くときは、引く多項式全体に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b023"
+            },
+            {
+              "type": "text",
+              "text": " を掛けるつもりで符号を変える。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A=4x²+3x+1, B=x²+x+2 なら A+B="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b024"
+            },
+            {
+              "type": "text",
+              "text": "。A−3B は 3B を先に作ると符号ミスを減らせる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　縦にそろえて計算"
+        },
+        {
+          "id": "s1-numbers-expressions-t04-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-numbers-expressions-t04-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-numbers-expressions-t04-h006",
+          "type": "heading",
+          "text": "問題文　A−3B を計算する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　3B=3x²+3x+6。A−3B=(4x²+3x+1)−(3x²+3x+6)。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t04-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　x² の係数は 4−3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b025"
+            },
+            {
+              "type": "text",
+              "text": "、x の係数は 3−3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b026"
+            },
+            {
+              "type": "text",
+              "text": "、定数は 1−6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b027"
+            },
+            {
+              "type": "text",
+              "text": "。よって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b028"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t04-n009",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-topic-05",
+          "type": "topic",
+          "text": "1.5 単項式の乗法・指数法則"
+        },
+        {
+          "id": "s1-numbers-expressions-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a^m×a^n では同じ a を合計 m+n 個掛けるので a^(m+n)。指数は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b029"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(a^m)^n は a^m を n 回掛けるので a^(mn)。指数は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b030"
+            },
+            {
+              "type": "text",
+              "text": "。また (ab)^n=a^n b^n。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t05-h003",
+          "type": "heading",
+          "text": "教科書対応問　単項式の積"
+        },
+        {
+          "id": "s1-numbers-expressions-t05-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s1-numbers-expressions-t05-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s1-numbers-expressions-t05-h006",
+          "type": "heading",
+          "text": "問題文　2x³y²×(−5x⁴y) を計算する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　数は 2×(−5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b031"
+            },
+            {
+              "type": "text",
+              "text": "。x は x³×x⁴=x^7=x^"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b032"
+            },
+            {
+              "type": "text",
+              "text": "、y は y²×y=y³。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t05-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b033"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t05-n009",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-topic-06",
+          "type": "topic",
+          "text": "1.6 展開と分配法則"
+        },
+        {
+          "id": "s1-numbers-expressions-t06-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A(B+C)=AB+AC。かっこの外の項を、かっこの中の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b034"
+            },
+            {
+              "type": "text",
+              "text": " に掛ける。これが展開の基本。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t06-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "x²(x²−3x+4) なら x²·x² −3x²·x +4x²="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b035"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t06-h003",
+          "type": "heading",
+          "text": "教科書対応問　2つの多項式の積"
+        },
+        {
+          "id": "s1-numbers-expressions-t06-n004",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t06-n005",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t06-h006",
+          "type": "heading",
+          "text": "問題文　(x+2)(x+5) を展開する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t06-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x を後ろの2項に掛けて x²+5x、2を後ろの2項に掛けて 2x+10。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t06-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　同類項 5x+2x をまとめて "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b036"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t06-n009",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-topic-07",
+          "type": "topic",
+          "text": "1.7 乗法公式"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(a+b)²=a²+"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b037"
+            },
+            {
+              "type": "text",
+              "text": "+b²、(a−b)²=a²−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b038"
+            },
+            {
+              "type": "text",
+              "text": "+b²。真ん中の項の符号だけが変わる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t07-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(a+b)(a−b)=a²−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b039"
+            },
+            {
+              "type": "text",
+              "text": "。また (x+a)(x+b)=x²+(a+b)x+ab。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t07-h003",
+          "type": "heading",
+          "text": "教科書対応問　公式の形を見抜く"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-n004",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-n005",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-h006",
+          "type": "heading",
+          "text": "問題文　(5x+4y)² を展開する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　a=5x, b=4y と見る。a²="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b040"
+            },
+            {
+              "type": "text",
+              "text": "、2ab=2·5x·4y="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b041"
+            },
+            {
+              "type": "text",
+              "text": "、b²=16y²。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t07-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "よって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b042"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t07-n009",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-h010",
+          "type": "heading",
+          "text": "教科書対応問　まとまりを作る"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-n011",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-n012",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-h013",
+          "type": "heading",
+          "text": "問題文　(x−2y+3)(x+2y−3) を展開する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t07-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　後半の 2y−3 を1つのまとまり A と見ると、(x−A)(x+A)=x²−A²。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t07-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　A²=(2y−3)²="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b043"
+            },
+            {
+              "type": "text",
+              "text": " だから、答えは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b044"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t07-n016",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-topic-08",
+          "type": "topic",
+          "text": "1.8 因数分解：共通因数と公式"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "因数分解は展開の逆。まず全項に共通する因数があれば最初に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b045"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t08-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a²+2ab+b²=(a+b)²、a²−2ab+b²=(a−b)²、a²−b²=(a+b)(a−b)。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t08-h003",
+          "type": "heading",
+          "text": "教科書対応問　平方の公式"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-n004",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-n005",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-h006",
+          "type": "heading",
+          "text": "問題文　16x²+24xy+9y² を因数分解する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　16x²=(4x)²、9y²=(3y)²。真ん中 24xy=2·4x·3y なので完全平方。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t08-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b046"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t08-n009",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-h010",
+          "type": "heading",
+          "text": "教科書対応問　x²+(a+b)x+ab 型"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-n011",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-n012",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-h013",
+          "type": "heading",
+          "text": "問題文　x²−11bx+24b² を因数分解する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t08-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　積が 24b²、和が −11b になる2つは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b047"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t08-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b048"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t08-n016",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-topic-09",
+          "type": "topic",
+          "text": "1.9 たすき掛け"
+        },
+        {
+          "id": "s1-numbers-expressions-t09-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ax²+bx+c で a≠1 のとき、先頭 a を2つに、定数 c を2つに分け、斜めの積の和が x の係数になる組を探す。これが "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b049"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t09-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4x²+7x+3 なら 4x と x、3 と1を組み、4x·1+x·3=7x。よって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b050"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t09-h003",
+          "type": "heading",
+          "text": "教科書対応問　複数文字の因数分解"
+        },
+        {
+          "id": "s1-numbers-expressions-t09-n004",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t09-n005",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t09-h006",
+          "type": "heading",
+          "text": "問題文　12x²+xy−6y² を因数分解する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t09-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　12x² は 4x·3x、−6y² は 3y·(−2y) などに分け、交差項が xy になる組を探す。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t09-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　(4x+3y)(3x−2y) を展開すると12x²+(9−8)xy−6y²。したがって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b051"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t09-n009",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-topic-10",
+          "type": "topic",
+          "text": "1.10 置き換えを使う因数分解"
+        },
+        {
+          "id": "s1-numbers-expressions-t10-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(x+2y)²−(x+2y)−6 では A=x+2y と置けば A²−A−6。積 −6、和 −1 から (A−3)(A+2)。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t10-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元に戻して "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b052"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-topic-11",
+          "type": "topic",
+          "text": "1.11 3次の公式"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(a+b)³=a³+3a²b+3ab²+b³、(a−b)³=a³−3a²b+3ab²−b³。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a³+b³=(a+b)("
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b053"
+            },
+            {
+              "type": "text",
+              "text": ")、a³−b³=(a−b)("
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b054"
+            },
+            {
+              "type": "text",
+              "text": ")。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h003",
+          "type": "heading",
+          "text": "教科書対応問　立方和・立方差"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n004",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n005",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h006",
+          "type": "heading",
+          "text": "問題文　x³−125 を因数分解する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　125=5³ なので x³−5³。立方差の公式から "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b055"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n008",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第1節の自力確認　節末では、公式名を先に当てるのではなく「共通因数→公式形→置き換え→たすき掛け」の順で候補を確認する。展開は最後に同類項をまとめ、因数分解は掛け戻して確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h010",
+          "type": "heading",
+          "text": "節末対応　複雑な展開"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n011",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n012",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h013",
+          "type": "heading",
+          "text": "問題文　(x²−x+1)(x²−3x+1) を展開する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　各項を掛けると x⁴−3x³+x² −x³+3x²−x +x²−3x+1。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　同類項をまとめて "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b056"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n016",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h017",
+          "type": "heading",
+          "text": "節末対応　式を全部展開せず係数だけ求める"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n018",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n019",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h020",
+          "type": "heading",
+          "text": "問題文　積の展開式の x⁴ の係数を求めるタイプ。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x⁴ ができる組だけを探す。不要な項まで展開しないことがポイント。必要な積の係数を足して "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b057"
+            },
+            {
+              "type": "text",
+              "text": " を得る。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n022",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h023",
+          "type": "heading",
+          "text": "教科書対応問　3項の平方"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n024",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n025",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h026",
+          "type": "heading",
+          "text": "問題文　(a+b−c)² を展開する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　3項の平方は、各項の平方 a²,b²,c² に加えて、異なる2項の積を2倍した項を作る。符号も元の項の符号を引き継ぐ。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　(a+b−c)²=a²+b²+c²+2ab−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b058"
+            },
+            {
+              "type": "text",
+              "text": "−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b059"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n029",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h030",
+          "type": "heading",
+          "text": "教科書対応問　4つの因数を工夫して展開"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n031",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n032",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h033",
+          "type": "heading",
+          "text": "問題文　(x+1)(x+2)(x+3)(x+4) を展開する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p034",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　順番どおりに全部掛けるより、和が同じになる組を作る。(x+1)(x+4)=x²+5x+4、(x+2)(x+3)=x²+5x+6。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p035",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　A=x²+5x と置くと (A+4)(A+6)=A²+10A+24。戻して "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b060"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n036",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h037",
+          "type": "heading",
+          "text": "教科書対応問　複数文字を1文字について整理して因数分解"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n038",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n039",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-h040",
+          "type": "heading",
+          "text": "問題文　a²(b+c)+b²(c+a)+c²(a+b)+2abc を因数分解する。"
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p041",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　a について整理すると (b+c)a²+(b²+c²+2bc)a+bc(b+c)。真ん中は (b+c)²a。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p042",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　(b+c)"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b061"
+            },
+            {
+              "type": "text",
+              "text": "=(b+c)"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b062"
+            },
+            {
+              "type": "text",
+              "text": "。よって (a+b)(b+c)(c+a)。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p043",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3　研究　3次式の展開公式を自分で確かめる"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p044",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4　(a+b)³ の公式を、(a+b)²(a+b) から作る。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p045",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "5　(a²+2ab+b²)(a+b) を分配して、a³+a²b+2a²b+2ab²+ab²+b³。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p046",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "6　同類項をまとめると a³+"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b063"
+            },
+            {
+              "type": "text",
+              "text": "+"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b064"
+            },
+            {
+              "type": "text",
+              "text": "+b³。公式は2次の公式から生成できる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p047",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "7　第1節 節末　因数分解の方法選択"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p048",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "8　複雑な式を見たら、いきなりたすき掛けを始めず順番に候補を確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p049",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "9　最初に全項の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b065"
+            },
+            {
+              "type": "text",
+              "text": " を探す。次に平方差・完全平方・x²+(a+b)x+ab 型、置き換え、最後に文字について整理する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-p050",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "10　因数分解後は展開して元の式へ戻るかを確認すると、符号ミスを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s1-main-b066"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-numbers-expressions-t11-n051",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b001",
+          "label": "1",
+          "prompt": "単項式・次数・係数 【1】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b002",
+          "label": "2",
+          "prompt": "単項式・次数・係数 【2】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b003",
+          "label": "3",
+          "prompt": "単項式・次数・係数 【3】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b004",
+          "label": "4",
+          "prompt": "単項式・次数・係数 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b005",
+          "label": "5",
+          "prompt": "単項式・次数・係数 【5】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b006",
+          "label": "6",
+          "prompt": "単項式・次数・係数 【6】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b007",
+          "label": "7",
+          "prompt": "単項式・次数・係数 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b008",
+          "label": "8",
+          "prompt": "単項式・次数・係数 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b009",
+          "label": "9",
+          "prompt": "単項式・次数・係数 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b010",
+          "label": "10",
+          "prompt": "多項式・項・定数項 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b011",
+          "label": "11",
+          "prompt": "多項式・項・定数項 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b012",
+          "label": "12",
+          "prompt": "多項式・項・定数項 【12】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b013",
+          "label": "13",
+          "prompt": "多項式・項・定数項 【13】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b014",
+          "label": "14",
+          "prompt": "多項式・項・定数項 【14】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b015",
+          "label": "15",
+          "prompt": "多項式・項・定数項 【15】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b016",
+          "label": "16",
+          "prompt": "同類項・降べき・昇べき 【16】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b017",
+          "label": "17",
+          "prompt": "同類項・降べき・昇べき 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b018",
+          "label": "18",
+          "prompt": "同類項・降べき・昇べき 【18】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b019",
+          "label": "19",
+          "prompt": "同類項・降べき・昇べき 【19】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b020",
+          "label": "20",
+          "prompt": "同類項・降べき・昇べき 【20】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b021",
+          "label": "21",
+          "prompt": "同類項・降べき・昇べき 【21】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b022",
+          "label": "22",
+          "prompt": "同類項・降べき・昇べき 【22】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b023",
+          "label": "23",
+          "prompt": "多項式の加法・減法 【23】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b024",
+          "label": "24",
+          "prompt": "多項式の加法・減法 【24】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b025",
+          "label": "25",
+          "prompt": "多項式の加法・減法 【25】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b026",
+          "label": "26",
+          "prompt": "多項式の加法・減法 【26】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b027",
+          "label": "27",
+          "prompt": "多項式の加法・減法 【27】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b028",
+          "label": "28",
+          "prompt": "多項式の加法・減法 【28】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b029",
+          "label": "29",
+          "prompt": "単項式の乗法・指数法則 【29】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b030",
+          "label": "30",
+          "prompt": "単項式の乗法・指数法則 【30】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b031",
+          "label": "31",
+          "prompt": "単項式の乗法・指数法則 【31】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b032",
+          "label": "32",
+          "prompt": "単項式の乗法・指数法則 【32】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b033",
+          "label": "33",
+          "prompt": "単項式の乗法・指数法則 【33】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b034",
+          "label": "34",
+          "prompt": "展開と分配法則 【34】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b035",
+          "label": "35",
+          "prompt": "展開と分配法則 【35】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b036",
+          "label": "36",
+          "prompt": "展開と分配法則 【36】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b037",
+          "label": "37",
+          "prompt": "乗法公式 【37】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b038",
+          "label": "38",
+          "prompt": "乗法公式 【38】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b039",
+          "label": "39",
+          "prompt": "乗法公式 【39】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b040",
+          "label": "40",
+          "prompt": "乗法公式 【40】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b041",
+          "label": "41",
+          "prompt": "乗法公式 【41】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b042",
+          "label": "42",
+          "prompt": "乗法公式 【42】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b043",
+          "label": "43",
+          "prompt": "乗法公式 【43】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b044",
+          "label": "44",
+          "prompt": "乗法公式 【44】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b045",
+          "label": "45",
+          "prompt": "因数分解：共通因数と公式 【45】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b046",
+          "label": "46",
+          "prompt": "因数分解：共通因数と公式 【46】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b047",
+          "label": "47",
+          "prompt": "因数分解：共通因数と公式 【47】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b048",
+          "label": "48",
+          "prompt": "因数分解：共通因数と公式 【48】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b049",
+          "label": "49",
+          "prompt": "たすき掛け 【49】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b050",
+          "label": "50",
+          "prompt": "たすき掛け 【50】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b051",
+          "label": "51",
+          "prompt": "たすき掛け 【51】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b052",
+          "label": "52",
+          "prompt": "置き換えを使う因数分解 【52】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b053",
+          "label": "53",
+          "prompt": "3次の公式 【53】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b054",
+          "label": "54",
+          "prompt": "3次の公式 【54】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b055",
+          "label": "55",
+          "prompt": "3次の公式 【55】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b056",
+          "label": "56",
+          "prompt": "3次の公式 【56】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b057",
+          "label": "57",
+          "prompt": "3次の公式 【57】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b058",
+          "label": "58",
+          "prompt": "3次の公式 【58】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b059",
+          "label": "59",
+          "prompt": "3次の公式 【59】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b060",
+          "label": "60",
+          "prompt": "3次の公式 【60】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b061",
+          "label": "61",
+          "prompt": "3次の公式 【61】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b062",
+          "label": "62",
+          "prompt": "3次の公式 【62】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b063",
+          "label": "63",
+          "prompt": "3次の公式 【63】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b064",
+          "label": "64",
+          "prompt": "3次の公式 【64】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b065",
+          "label": "65",
+          "prompt": "3次の公式 【65】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s1-main-b066",
+          "label": "66",
+          "prompt": "3次の公式 【66】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "s2-numbers-expressions",
+      "number": "2",
+      "title": "実数",
+      "description": "実数を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s2-numbers-expressions-topic-01",
+          "type": "topic",
+          "text": "2.1 有理数と無理数"
+        },
+        {
+          "id": "s2-numbers-expressions-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「数の種類を判定 → 根号・小数・分数の扱いやすい形へ直す → 計算 → 値や符号を確認」の順で進む。"
+        },
+        {
+          "id": "s2-numbers-expressions-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "数の分類→小数表示→絶対値→根号計算へ進む。根号の公式は「平方して元に戻るか」を意識し、分母の有理化は何を掛ければ根号が消えるかを考える。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数や分数で表せる数を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "、有理数ではない実数を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " という。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数でない有理数を小数で表すと、有限小数または "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b003"
+            },
+            {
+              "type": "text",
+              "text": " になる。逆に有限小数・循環小数は分数で表せる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　循環小数を分数にする"
+        },
+        {
+          "id": "s2-numbers-expressions-t01-n006",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s2-numbers-expressions-t01-n007",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t01-h008",
+          "type": "heading",
+          "text": "問題文　0.696969… を分数で表す。"
+        },
+        {
+          "id": "s2-numbers-expressions-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x=0.696969… と置く。循環部分は2桁なので 100x=69.696969…。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t01-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　100x−x=69 より 99x=69、x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t01-n011",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-topic-02",
+          "type": "topic",
+          "text": "2.2 実数と数直線"
+        },
+        {
+          "id": "s2-numbers-expressions-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "有理数と無理数を合わせたものが "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "。すべての実数は数直線上の点と対応する。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値 |a| は0から a までの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。したがって |a|≧0 であり、|−5|="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　2点間の距離"
+        },
+        {
+          "id": "s2-numbers-expressions-t02-n004",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t02-n005",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s2-numbers-expressions-t02-h006",
+          "type": "heading",
+          "text": "問題文　数直線上の A(−1), B(−9) の距離 AB を求める。"
+        },
+        {
+          "id": "s2-numbers-expressions-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　距離は差の絶対値なので AB=|−9−(−1)|=|−8|="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t02-n008",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-topic-03",
+          "type": "topic",
+          "text": "2.3 平方根と根号"
+        },
+        {
+          "id": "s2-numbers-expressions-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a>0 の平方根は ±√a。√a は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b010"
+            },
+            {
+              "type": "text",
+              "text": " の方を表す。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "√(a²)=|a| である。a が負の可能性もあるので、単純に a としない。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t03-h003",
+          "type": "heading",
+          "text": "教科書対応問　整数部分と小数部分"
+        },
+        {
+          "id": "s2-numbers-expressions-t03-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s2-numbers-expressions-t03-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s2-numbers-expressions-t03-h006",
+          "type": "heading",
+          "text": "問題文　√10 の整数部分と小数部分を求める。"
+        },
+        {
+          "id": "s2-numbers-expressions-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　3²=9<10<16=4² だから 3<√10<4。整数部分は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b011"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t03-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　小数部分は √10−整数部分なので "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t03-n009",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-topic-04",
+          "type": "topic",
+          "text": "2.4 根号を含む積と商"
+        },
+        {
+          "id": "s2-numbers-expressions-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a,b>0 のとき √a√b="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "、√a/√b=√(a/b)。まず根号の中の平方数を外へ出して簡単にする。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "√12=√(4·3)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　根号の加減"
+        },
+        {
+          "id": "s2-numbers-expressions-t04-n004",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s2-numbers-expressions-t04-n005",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t04-h006",
+          "type": "heading",
+          "text": "問題文　3√8+2√18−√50 を簡単にする。"
+        },
+        {
+          "id": "s2-numbers-expressions-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　√8=2√2、√18=3√2、√50=5√2。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t04-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　よって 6√2+6√2−5√2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t04-n009",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-topic-05",
+          "type": "topic",
+          "text": "2.5 分母の有理化"
+        },
+        {
+          "id": "s2-numbers-expressions-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分母に √a があるときは分子・分母に同じ √a を掛け、分母を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b016"
+            },
+            {
+              "type": "text",
+              "text": " にする。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1/√3 = √3/3。分母が √a+√b の形なら "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b017"
+            },
+            {
+              "type": "text",
+              "text": " √a−√b を掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t05-h003",
+          "type": "heading",
+          "text": "教科書対応問　共役を使う有理化"
+        },
+        {
+          "id": "s2-numbers-expressions-t05-n004",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s2-numbers-expressions-t05-n005",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t05-h006",
+          "type": "heading",
+          "text": "問題文　1/(√5+√2) を有理化する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　分子・分母に √5−√2 を掛ける。分母は (√5+√2)(√5−√2)=5−2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b018"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t05-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b019"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t05-n009",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-topic-06",
+          "type": "topic",
+          "text": "2.6 対称式と基本対称式"
+        },
+        {
+          "id": "s2-numbers-expressions-t06-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "x と y を入れ替えても変わらない式を対称式という。x+y と xy を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b020"
+            },
+            {
+              "type": "text",
+              "text": " という。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t06-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "x²+y²=(x+y)²−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "、x³+y³=(x+y)³−"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b022"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t06-h003",
+          "type": "heading",
+          "text": "研究対応　基本対称式で値を求める"
+        },
+        {
+          "id": "s2-numbers-expressions-t06-n004",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s2-numbers-expressions-t06-n005",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t06-h006",
+          "type": "heading",
+          "text": "問題文　x+y=2√5, xy=1 のとき x²+y² を求める。"
+        },
+        {
+          "id": "s2-numbers-expressions-t06-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x²+y²=(x+y)²−2xy=(2√5)²−2·1=20−2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b023"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t06-n008",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-topic-07",
+          "type": "topic",
+          "text": "2.7 二重根号"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "√(a+b+2√ab)=√a+√b。中の形を「平方の展開」に戻す。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "√(a+b−2√ab)=|√a−√b|。大小関係を見て符号を決める。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h003",
+          "type": "heading",
+          "text": "教科書対応問　二重根号を外す"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n004",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n005",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h006",
+          "type": "heading",
+          "text": "問題文　√(5+2√6) を簡単にする。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　積が6、和が5になる正の数は2と3。5+2√6=2+3+2√(2·3)。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "よって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b024"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n009",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第2節の自力確認　根号計算では、足し算・引き算の前に必ず根号の中を簡単にする。有理化では何を掛ければ「平方差」になるかを見る。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h011",
+          "type": "heading",
+          "text": "教科書対応問　有限小数になる分数の判定"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n012",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n013",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h014",
+          "type": "heading",
+          "text": "問題文　既約分数 a/b が有限小数になる条件を確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　10^n=2^n5^n なので、既約分数の分母を素因数分解したとき、素因数が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b025"
+            },
+            {
+              "type": "text",
+              "text": " なら有限小数になる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　例えば 7/40 は 40=2³·5 なので有限小数、1/12 は12に3を含むので "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b026"
+            },
+            {
+              "type": "text",
+              "text": " になる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n017",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h018",
+          "type": "heading",
+          "text": "教科書対応問　絶対値を距離として読む"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n019",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n020",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h021",
+          "type": "heading",
+          "text": "問題文　|x−3|=5 を解く。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　|x−3| は数直線上で x と3の距離。3から距離5の点は左右に2つあり、x=3+5 または x=3−5。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p023",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　したがって x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b027"
+            },
+            {
+              "type": "text",
+              "text": "。式変形の前に距離として図に置くと意味が見える。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n024",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h025",
+          "type": "heading",
+          "text": "教科書対応問　根号を含む積の計算"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n026",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n027",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h028",
+          "type": "heading",
+          "text": "問題文　(√2−√3)² を計算する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p029",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　(a−b)² を使い、2−2√6+3="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b028"
+            },
+            {
+              "type": "text",
+              "text": "。根号どうしの積 √2√3=√6 を落とさない。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n030",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h031",
+          "type": "heading",
+          "text": "教科書対応問　対称式 x³+y³"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n032",
+          "type": "note",
+          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n033",
+          "type": "note",
+          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-h034",
+          "type": "heading",
+          "text": "問題文　x+y=4, xy=2 のとき x³+y³ を求める。"
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p035",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x³+y³=(x+y)³−3xy(x+y)。値を代入して 4³−3·2·4=64−24="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b029"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p036",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　x,y を個別に解かなくても、基本対称式だけで値が決まる。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p037",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3　第2節 節末　整数部分・小数部分"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p038",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4　√3+1 の整数部分を a、小数部分を b とする。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p039",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "5　1<√3<2 だから 2<√3+1<3。よって a="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b030"
+            },
+            {
+              "type": "text",
+              "text": "、b=√3+1−2="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s2-main-b031"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-p040",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "6　「小数部分」は必ず 0≦b<1 になっているか最後に確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s2-numbers-expressions-t07-n041",
+          "type": "note",
+          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b001",
+          "label": "1",
+          "prompt": "有理数と無理数 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b002",
+          "label": "2",
+          "prompt": "有理数と無理数 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b003",
+          "label": "3",
+          "prompt": "有理数と無理数 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b004",
+          "label": "4",
+          "prompt": "有理数と無理数 【4】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b005",
+          "label": "5",
+          "prompt": "有理数と無理数 【5】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b006",
+          "label": "6",
+          "prompt": "実数と数直線 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b007",
+          "label": "7",
+          "prompt": "実数と数直線 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b008",
+          "label": "8",
+          "prompt": "実数と数直線 【8】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b009",
+          "label": "9",
+          "prompt": "実数と数直線 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b010",
+          "label": "10",
+          "prompt": "平方根と根号 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b011",
+          "label": "11",
+          "prompt": "平方根と根号 【11】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b012",
+          "label": "12",
+          "prompt": "平方根と根号 【12】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b013",
+          "label": "13",
+          "prompt": "根号を含む積と商 【13】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b014",
+          "label": "14",
+          "prompt": "根号を含む積と商 【14】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b015",
+          "label": "15",
+          "prompt": "根号を含む積と商 【15】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b016",
+          "label": "16",
+          "prompt": "分母の有理化 【16】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b017",
+          "label": "17",
+          "prompt": "分母の有理化 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b018",
+          "label": "18",
+          "prompt": "分母の有理化 【18】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b019",
+          "label": "19",
+          "prompt": "分母の有理化 【19】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b020",
+          "label": "20",
+          "prompt": "対称式と基本対称式 【20】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b021",
+          "label": "21",
+          "prompt": "対称式と基本対称式 【21】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b022",
+          "label": "22",
+          "prompt": "対称式と基本対称式 【22】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b023",
+          "label": "23",
+          "prompt": "対称式と基本対称式 【23】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b024",
+          "label": "24",
+          "prompt": "二重根号 【24】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b025",
+          "label": "25",
+          "prompt": "二重根号 【25】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b026",
+          "label": "26",
+          "prompt": "二重根号 【26】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b027",
+          "label": "27",
+          "prompt": "二重根号 【27】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b028",
+          "label": "28",
+          "prompt": "二重根号 【28】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b029",
+          "label": "29",
+          "prompt": "二重根号 【29】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b030",
+          "label": "30",
+          "prompt": "二重根号 【30】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s2-main-b031",
+          "label": "31",
+          "prompt": "二重根号 【31】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        }
+      ]
+    },
+    {
+      "id": "s3-numbers-expressions",
+      "number": "3",
+      "title": "1次不等式",
+      "description": "1次不等式を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s3-numbers-expressions-topic-01",
+          "type": "topic",
+          "text": "3.1 不等式の基本性質"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を不等号へ翻訳 → 係数の符号を見る → 解く → 数直線/場合分け条件で確認」の順で進む。"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "不等式は等式と似ているが、負の数で掛けたり割ったりすると不等号の向きが逆になる。絶対値では距離として読む方法と場合分けの両方を使う。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a<b なら a+c<b+c。両辺に同じ数を足しても大小関係は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "c>0 なら ac<bc、c<0 なら ac"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b002"
+            },
+            {
+              "type": "text",
+              "text": "bc。負の数を掛ける・割ると不等号は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　1次不等式"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-n006",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-n007",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-h008",
+          "type": "heading",
+          "text": "問題文　3x+5<7 を解く。"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　両辺から5を引いて 3x<2。3は正なので不等号の向きはそのまま。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t01-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "x<"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t01-n011",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-h012",
+          "type": "heading",
+          "text": "教科書対応問　移項後に負で割る"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-n013",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-n014",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-h015",
+          "type": "heading",
+          "text": "問題文　3x+4≦5x−2 を解く。"
+        },
+        {
+          "id": "s3-numbers-expressions-t01-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x を左、定数を右へ集めると −2x≦−6。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t01-p017",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　両辺を −2 で割るので不等号を逆にして x"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "3。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t01-n018",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-topic-02",
+          "type": "topic",
+          "text": "3.2 連立不等式"
+        },
+        {
+          "id": "s3-numbers-expressions-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2つ以上の不等式を同時に満たす x を求める。各不等式を別々に解き、最後に数直線上の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b006"
+            },
+            {
+              "type": "text",
+              "text": " を取る。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t02-h002",
+          "type": "heading",
+          "text": "教科書対応問　連立不等式"
+        },
+        {
+          "id": "s3-numbers-expressions-t02-n003",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t02-n004",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t02-h005",
+          "type": "heading",
+          "text": "問題文　x>−2 と x≦3 を同時に満たす範囲を求める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t02-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　両方を満たすのは −2より大きく3以下。よって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t02-n007",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-topic-03",
+          "type": "topic",
+          "text": "3.3 文章題を不等式へ"
+        },
+        {
+          "id": "s3-numbers-expressions-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文章題では、求める量を x と置き、「少なくとも」「より多い」「以下」などの言葉を不等号へ翻訳する。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後に出た x の範囲の中から、人数・個数なら "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b008"
+            },
+            {
+              "type": "text",
+              "text": " も確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t03-h003",
+          "type": "heading",
+          "text": "教科書対応問　代金・個数"
+        },
+        {
+          "id": "s3-numbers-expressions-t03-n004",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t03-n005",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t03-h006",
+          "type": "heading",
+          "text": "問題文　1個の値段と予算から買える最大個数を求めるタイプ。"
+        },
+        {
+          "id": "s3-numbers-expressions-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　「合計金額≦予算」として不等式を作る。解いた後、個数なので小数解をそのまま使わず "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b009"
+            },
+            {
+              "type": "text",
+              "text": " に直す。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t03-n008",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-topic-04",
+          "type": "topic",
+          "text": "3.4 絶対値を含む方程式・不等式"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a>0 のとき |x|=a の解は x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b010"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "|x|<a は −a<x<a、|x|>a は x<−a または x>a。絶対値を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b011"
+            },
+            {
+              "type": "text",
+              "text": " と考える。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　|x−1|=4"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-h006",
+          "type": "heading",
+          "text": "問題文　x−1 を1つのまとまり A と見る。|A|=4 だから A=±4。"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　x−1=4 または x−1=−4。したがって x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t04-n008",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-h009",
+          "type": "heading",
+          "text": "教科書対応問　|x+2|<5"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-n010",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-n011",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-h012",
+          "type": "heading",
+          "text": "問題文　−5<x+2<5 と直す。"
+        },
+        {
+          "id": "s3-numbers-expressions-t04-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　3辺すべてから2を引いて "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t04-n014",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-topic-05",
+          "type": "topic",
+          "text": "3.5 絶対値の中に x を含む式：場合分け"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "|x+3|=3x+1 のように右辺も x を含むときは、x+3≧0 と x+3<0 に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "各場合で絶対値を外して方程式を解き、最後に出た解がその場合の条件を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b015"
+            },
+            {
+              "type": "text",
+              "text": " する。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h003",
+          "type": "heading",
+          "text": "研究対応　場合分けの流れ"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n004",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n005",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h006",
+          "type": "heading",
+          "text": "問題文　|x+3|=3x+1 を解く。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　場合1：x≧−3 なら x+3=3x+1 → 2=2x → x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b016"
+            },
+            {
+              "type": "text",
+              "text": "。条件を満たす。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　場合2：x<−3 なら −x−3=3x+1 → −4=4x → x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。これは x<−3 を満たさないので不適。よって解は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b018"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n009",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h010",
+          "type": "heading",
+          "text": "節末対応　文字定数を含む不等式"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n011",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n012",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h013",
+          "type": "heading",
+          "text": "問題文　a≠1 とし ax<x−2a を x について解くタイプ。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　(a−1)x<−2a と整理する。ここから a−1 の符号で場合分け。a>1 なら正なのでそのまま、a<1 なら負なので不等号を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b019"
+            },
+            {
+              "type": "text",
+              "text": " にする。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n015",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p016",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第3節の自力確認　不等式では「何で割ったか」、絶対値では「どの条件で外したか」を必ず答案に残す。条件確認を省くと余分な解を含めやすい。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h017",
+          "type": "heading",
+          "text": "教科書対応問　かっこ・分数を含む1次不等式"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n018",
+          "type": "note",
+          "text": "読む　式をすぐ計算せず、まず「同類項・共通因数・公式の形・置き換え」のどれが見えているかを確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n019",
+          "type": "note",
+          "text": "考える　展開なら全ての項を漏れなく掛け、因数分解なら「展開したら元に戻る形」を逆向きに探す。途中でまとまりを1文字に置くと見やすくなることがある。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h020",
+          "type": "heading",
+          "text": "問題文　2(3x+2)>3(x−1)+1 を解く。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　まず展開して 6x+4>3x−2。xを左、定数を右へ集めて 3x>−6。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　正の3で割り x>"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b020"
+            },
+            {
+              "type": "text",
+              "text": "。負で割っていないので向きは変わらない。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n023",
+          "type": "note",
+          "text": "最後の確認　最後に、展開なら同類項をまとめたか、因数分解なら掛け戻して元の式になるかを確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h024",
+          "type": "heading",
+          "text": "教科書対応問　連立不等式を数直線で共通化"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n025",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n026",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h027",
+          "type": "heading",
+          "text": "問題文　2x−1<5 と 3x+2≧−4 を同時に満たす x。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　1本目は x<3、2本目は x≧−2。両方を満たす部分だけ残し "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n029",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h030",
+          "type": "heading",
+          "text": "教科書対応問　|x|>a 型"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n031",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n032",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h033",
+          "type": "heading",
+          "text": "問題文　|2x−1|>3 を解く。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p034",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　|A|>3 は A<−3 または A>3。2x−1<−3 または 2x−1>3。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p035",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　x<"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b022"
+            },
+            {
+              "type": "text",
+              "text": " または x>"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b023"
+            },
+            {
+              "type": "text",
+              "text": "。外側の2区間になる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n036",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h037",
+          "type": "heading",
+          "text": "教科書対応問　文字定数で場合分け"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n038",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n039",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-h040",
+          "type": "heading",
+          "text": "問題文　ax<1 を x について解く。"
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p041",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　a>0 なら x<1/a、a<0 なら負で割るので x>"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b024"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-p042",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　a=0 なら不等式は 0<1 で常に真だから解は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-main-b025"
+            },
+            {
+              "type": "text",
+              "text": "。文字係数では0の場合も独立に確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t05-n043",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-topic-06",
+          "type": "topic",
+          "text": "3.6 章末問題・思考力"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n001",
+          "type": "note",
+          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3節の知識を混ぜて使う。ここでもいきなり自力試験にせず、方法を選ぶ判断軸を残す。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　範囲の計算"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n004",
+          "type": "note",
+          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n005",
+          "type": "note",
+          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-h006",
+          "type": "heading",
+          "text": "問題文　−2≦a<3, 1≦b<4 のとき 2a, −b, a+b, a−b の範囲を求める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　2a は正の2を掛けるので −4≦2a<"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-end-b001"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　−b は負の数を掛けるので不等号が逆向きになり "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-end-b002"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3　a+b は最小どうし・最大どうしを足して "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-end-b003"
+            },
+            {
+              "type": "text",
+              "text": "。a−b=a+(−b) と考える。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n010",
+          "type": "note",
+          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　食塩水"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n012",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n013",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-h014",
+          "type": "heading",
+          "text": "問題文　濃度の異なる食塩水を混ぜる問題。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　食塩の量＝食塩水の量×濃度。混ぜる前後で "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-end-b004"
+            },
+            {
+              "type": "text",
+              "text": " を等式にする。濃度を％のまま掛けず小数または分数に直す。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n016",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p017",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　みかんの個数"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n018",
+          "type": "note",
+          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n019",
+          "type": "note",
+          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-h020",
+          "type": "heading",
+          "text": "問題文　1人6個ずつ配ると38個余り、1人15個ずつでは最後の1人分が不足する。人数を x 人とする。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　みかんは 6x+38 個。「15個ずつを x−1 人には配れるが x 人には足りない」から 15(x−1)<6x+38<15x。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　左から x<"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-end-b005"
+            },
+            {
+              "type": "text",
+              "text": "、右から x>"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-end-b006"
+            },
+            {
+              "type": "text",
+              "text": "。人数は整数なので x="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-end-b007"
+            },
+            {
+              "type": "text",
+              "text": "。みかんは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-end-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n023",
+          "type": "note",
+          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p024",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　投票で必ず当選する最低票"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n025",
+          "type": "note",
+          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n026",
+          "type": "note",
+          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-h027",
+          "type": "heading",
+          "text": "問題文　40人から2人の代表を選ぶ。Aが x 票取ったとき、残り40−x票を他の候補が分ける。"
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　A以外の2人が同時に x 票以上取れなければAは必ず当選。つまり残り票が 2x 未満：40−x<2x。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-p029",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　40<3x より x>13.33… なので最低は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-numbers-expressions-s3-end-b009"
+            },
+            {
+              "type": "text",
+              "text": "。条件を変えても「残り票が他候補の必要票数に届くか」を見る。"
+            }
+          ]
+        },
+        {
+          "id": "s3-numbers-expressions-t06-n030",
+          "type": "note",
+          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b001",
+          "label": "1",
+          "prompt": "不等式の基本性質 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b002",
+          "label": "2",
+          "prompt": "不等式の基本性質 【2】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b003",
+          "label": "3",
+          "prompt": "不等式の基本性質 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b004",
+          "label": "4",
+          "prompt": "不等式の基本性質 【4】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b005",
+          "label": "5",
+          "prompt": "不等式の基本性質 【5】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b006",
+          "label": "6",
+          "prompt": "連立不等式 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b007",
+          "label": "7",
+          "prompt": "連立不等式 【7】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b008",
+          "label": "8",
+          "prompt": "文章題を不等式へ 【8】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b009",
+          "label": "9",
+          "prompt": "文章題を不等式へ 【9】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b010",
+          "label": "10",
+          "prompt": "絶対値を含む方程式・不等式 【10】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b011",
+          "label": "11",
+          "prompt": "絶対値を含む方程式・不等式 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b012",
+          "label": "12",
+          "prompt": "絶対値を含む方程式・不等式 【12】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b013",
+          "label": "13",
+          "prompt": "絶対値を含む方程式・不等式 【13】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b014",
+          "label": "14",
+          "prompt": "絶対値の中に x を含む式：場合分け 【14】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b015",
+          "label": "15",
+          "prompt": "絶対値の中に x を含む式：場合分け 【15】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b016",
+          "label": "16",
+          "prompt": "絶対値の中に x を含む式：場合分け 【16】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b017",
+          "label": "17",
+          "prompt": "絶対値の中に x を含む式：場合分け 【17】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b018",
+          "label": "18",
+          "prompt": "絶対値の中に x を含む式：場合分け 【18】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b019",
+          "label": "19",
+          "prompt": "絶対値の中に x を含む式：場合分け 【19】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b020",
+          "label": "20",
+          "prompt": "絶対値の中に x を含む式：場合分け 【20】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b021",
+          "label": "21",
+          "prompt": "絶対値の中に x を含む式：場合分け 【21】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b022",
+          "label": "22",
+          "prompt": "絶対値の中に x を含む式：場合分け 【22】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b023",
+          "label": "23",
+          "prompt": "絶対値の中に x を含む式：場合分け 【23】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b024",
+          "label": "24",
+          "prompt": "絶対値の中に x を含む式：場合分け 【24】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-main-b025",
+          "label": "25",
+          "prompt": "絶対値の中に x を含む式：場合分け 【25】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-end-b001",
+          "label": "1",
+          "prompt": "章末問題・思考力 【1】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-end-b002",
+          "label": "2",
+          "prompt": "章末問題・思考力 【2】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-end-b003",
+          "label": "3",
+          "prompt": "章末問題・思考力 【3】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-end-b004",
+          "label": "4",
+          "prompt": "章末問題・思考力 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-end-b005",
+          "label": "5",
+          "prompt": "章末問題・思考力 【5】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-end-b006",
+          "label": "6",
+          "prompt": "章末問題・思考力 【6】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-end-b007",
+          "label": "7",
+          "prompt": "章末問題・思考力 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-end-b008",
+          "label": "8",
+          "prompt": "章末問題・思考力 【8】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-numbers-expressions-s3-end-b009",
+          "label": "9",
+          "prompt": "章末問題・思考力 【9】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    }
+  ]
+}
