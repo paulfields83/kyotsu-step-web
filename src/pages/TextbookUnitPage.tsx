@@ -356,6 +356,7 @@ function progressForSection(section: PublicTextbookSection, progress: TextbookUn
 export function TextbookUnitPage() {
   const { unitId = '' } = useParams()
   const [searchParams] = useSearchParams()
+  const targetKey = searchParams.get('target')
   const requestedSectionId = searchParams.get('section')
   const [unit, setUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0)
@@ -378,21 +379,37 @@ export function TextbookUnitPage() {
       setSelectedSectionIndex(0)
       return
     }
-    const requestedIndex = requestedSectionId
-      ? unit.sections.findIndex((section) => section.id === requestedSectionId)
+    const target = targetKey ? findTextbookLessonTarget([unit], targetKey)?.lesson : undefined
+    const sectionId = target?.kind === 'section' ? target.sectionId : requestedSectionId
+    const requestedIndex = sectionId
+      ? unit.sections.findIndex((section) => section.id === sectionId)
       : -1
     setSelectedSectionIndex(requestedIndex >= 0 ? requestedIndex : 0)
-  }, [requestedSectionId, unit, unitId])
+  }, [requestedSectionId, targetKey, unit, unitId])
 
   if (unit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
   if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
 
+  const targetMatch = targetKey ? findTextbookLessonTarget([unit], targetKey) : undefined
+  const lessonTarget = targetMatch?.lesson
+  const groupedSection = lessonTarget ? groupedLessonSection(unit, lessonTarget) : undefined
+  const targetedSection = lessonTarget?.kind === 'section'
+    ? unit.sections.find((section) => section.id === lessonTarget.sectionId)
+    : undefined
+  const legacySection = requestedSectionId
+    ? unit.sections.find((section) => section.id === requestedSectionId)
+    : undefined
+  const currentSection = groupedSection ?? targetedSection ?? legacySection ?? unit.sections[selectedSectionIndex]
   const summary = textbookUnitProgress(unit, progress)
-  const currentSection = unit.sections[selectedSectionIndex]
-  const sectionSummary = textbookSectionProgress(unit, progress, currentSection.id)
-  const focusedSection = Boolean(requestedSectionId && currentSection.id === requestedSectionId)
+  const sectionSummary = groupedSection
+    ? progressForSection(groupedSection, progress)
+    : textbookSectionProgress(unit, progress, currentSection.id)
+  const focusedSection = Boolean(groupedSection || targetedSection || legacySection)
+  const targetSelected = Boolean(lessonTarget)
+  const targetSummary = lessonTarget?.kind === 'unit' ? summary : sectionSummary
   const sectionComplete = sectionSummary.completed === sectionSummary.total
   const unitComplete = summary.completed === summary.total
+  const physicsPrefix = lessonTarget?.kind === 'unit' && unit.subject === 'physics' ? physicsTopicPrefix(unit) : undefined
   const goNext = () => {
     setSelectedSectionIndex((index) => Math.min(unit.sections.length - 1, index + 1))
     window.scrollTo({ top: 0, behavior: 'smooth' })
