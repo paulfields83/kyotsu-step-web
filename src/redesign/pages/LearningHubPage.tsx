@@ -34,8 +34,8 @@ export function LearningHubPage() {
   const chapters = useMemo(() => buildTextbookChapters(units, subject), [subject, units])
   const questions = useMemo(() => catalog.filter((question) => question.subject === subject && question.status === 'published'), [catalog, subject])
 
-  const startPractice = (questionId: string, light = false) => {
-    navigate(`/learning/session/${startLearning(questionId, light ? 'selfCheck' : 'standard')}`)
+  const startPractice = (questionId: string) => {
+    navigate(`/learning/session/${startLearning(questionId, 'standard')}`)
   }
 
   return (
@@ -106,7 +106,7 @@ export function LearningHubPage() {
         <section className="v2-practice-list">
           <div className="v2-practice-intro">
             <div><span className="v2-eyebrow">PRACTICE</span><h2>{text('問題を選ぶ', '选择题目')}</h2></div>
-            <Link to="/simulation/setup">{text('模擬テストへ', '进入模拟测试')} <ArrowRight size={16} /></Link>
+            <Link to="/simulation/setup">{text('共通テスト模擬へ', '进入共通测试模拟')} <ArrowRight size={16} /></Link>
           </div>
           {!questions.length && <div className="v2-empty-card">{text('公開中の問題はまだありません。', '暂时没有已发布题目。')}</div>}
           {questions.map((question) => (
@@ -120,11 +120,9 @@ export function LearningHubPage() {
                 <p>{question.taxonomy.knowledgeTags.slice(0, 3).join(' ・ ')}</p>
               </div>
               <div className="v2-practice-actions">
-                <button type="button" onClick={() => startPractice(question.questionId, false)}>
-                  <strong>Standard</strong><small>{text('引導つき', '正常引导')}</small>
-                </button>
-                <button type="button" onClick={() => startPractice(question.questionId, true)}>
-                  <strong>Light</strong><small>{text('必要時だけヒント', '按需查看提示')}</small>
+                <button type="button" onClick={() => startPractice(question.questionId)}>
+                  <strong>{text('問題を解く', '开始练习')}</strong>
+                  <small>{text('解答プロセスに沿って進む', '按解题过程作答')}</small>
                 </button>
               </div>
             </article>
