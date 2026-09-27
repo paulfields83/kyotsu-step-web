@@ -631,7 +631,7 @@ body:has(.v2-app) {
   .v2-stat-grid article { padding: .75rem .6rem; }
   .v2-quick-grid { grid-template-columns: 1fr; }
   .v2-practice-card { grid-template-columns: 1fr; }
-  .v2-practice-actions { grid-template-columns: repeat(2, 1fr); min-width: 0; }
+  .v2-practice-actions { grid-template-columns: 1fr; min-width: 0; }
   .v2-mastery-list > a { grid-template-columns: minmax(0, 1fr) 100px auto; }
 }
 
