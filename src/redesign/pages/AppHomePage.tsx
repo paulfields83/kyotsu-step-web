@@ -168,7 +168,7 @@ export function AppHomePage() {
 
       <section className="v2-quick-grid">
         <Link to="/mistakes"><span>{text('復習', '复习')}</span><strong>{text('間違えた問題をやり直す', '重做错题')}</strong><ArrowRight size={18} /></Link>
-        <Link to="/simulation/setup"><span>{text('模擬', '模拟')}</span><strong>{text('実力をテストする', '测试当前水平')}</strong><ArrowRight size={18} /></Link>
+        <Link to="/simulation/setup"><span>{text('共通テスト模擬', '共通测试模拟')}</span><strong>{text('本番形式で実力を確認', '按正式考试形式检验水平')}</strong><ArrowRight size={18} /></Link>
       </section>
     </div>
   )
