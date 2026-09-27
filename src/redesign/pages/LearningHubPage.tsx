@@ -10,6 +10,7 @@ import { useI18n } from '../../i18n/runtime'
 import { difficultyLabel } from '../../i18n/labels'
 
 type Mode = 'knowledge' | 'practice'
+type PracticeMode = 'practice' | 'simulation'
 
 export function LearningHubPage() {
   const navigate = useNavigate()
@@ -22,6 +23,7 @@ export function LearningHubPage() {
   const [loading, setLoading] = useState(true)
   const [subject, setSubject] = useState<Question['subject']>(defaultSubject)
   const [mode, setMode] = useState<Mode>('knowledge')
+  const [practiceMode, setPracticeMode] = useState<PracticeMode>('practice')
 
   useEffect(() => {
     textbookRepository.listPublished()
@@ -104,29 +106,48 @@ export function LearningHubPage() {
         </section>
       ) : (
         <section className="v2-practice-list">
-          <div className="v2-practice-intro">
-            <div><span className="v2-eyebrow">PRACTICE</span><h2>{text('問題を選ぶ', '选择题目')}</h2></div>
-            <Link to="/simulation/setup">{text('共通テスト模擬へ', '进入共通测试模拟')} <ArrowRight size={16} /></Link>
+          <div className="v2-mode-switch" role="group" aria-label={text('問題練習の種類', '题目练习类型')}>
+            <button type="button" aria-pressed={practiceMode === 'practice'} onClick={() => setPracticeMode('practice')}>
+              <ListChecks size={17} />{text('練習', '练习')}
+            </button>
+            <button type="button" aria-pressed={practiceMode === 'simulation'} onClick={() => setPracticeMode('simulation')}>
+              {text('模擬テスト', '模拟测试')}
+            </button>
           </div>
-          {!questions.length && <div className="v2-empty-card">{text('公開中の問題はまだありません。', '暂时没有已发布题目。')}</div>}
-          {questions.map((question) => (
-            <article className="v2-practice-card" key={question.questionId}>
-              <div className="v2-practice-card__body">
-                <div className="v2-tag-row">
-                  <span>{difficultyLabel(question.difficulty, language)}</span>
-                  <span>rev.{question.revision}</span>
-                </div>
-                <h3>{question.title}</h3>
-                <p>{question.taxonomy.knowledgeTags.slice(0, 3).join(' ・ ')}</p>
+
+          {practiceMode === 'practice' ? (
+            <>
+              <div className="v2-practice-intro">
+                <div><span className="v2-eyebrow">PRACTICE</span><h2>{text('問題を選ぶ', '选择题目')}</h2></div>
               </div>
-              <div className="v2-practice-actions">
-                <button type="button" onClick={() => startPractice(question.questionId)}>
-                  <strong>{text('問題を解く', '开始练习')}</strong>
-                  <small>{text('解答プロセスに沿って進む', '按解题过程作答')}</small>
-                </button>
-              </div>
-            </article>
-          ))}
+              {!questions.length && <div className="v2-empty-card">{text('公開中の問題はまだありません。', '暂时没有已发布题目。')}</div>}
+              {questions.map((question) => (
+                <article className="v2-practice-card" key={question.questionId}>
+                  <div className="v2-practice-card__body">
+                    <div className="v2-tag-row">
+                      <span>{difficultyLabel(question.difficulty, language)}</span>
+                      <span>rev.{question.revision}</span>
+                    </div>
+                    <h3>{question.title}</h3>
+                    <p>{question.taxonomy.knowledgeTags.slice(0, 3).join(' ・ ')}</p>
+                  </div>
+                  <div className="v2-practice-actions">
+                    <button type="button" onClick={() => startPractice(question.questionId)}>
+                      <strong>{text('問題を解く', '开始练习')}</strong>
+                      <small>{text('解答プロセスに沿って進む', '按解题过程作答')}</small>
+                    </button>
+                  </div>
+                </article>
+              ))}
+            </>
+          ) : (
+            <div className="v2-empty-card">
+              <p>{text('模擬テストでは、回答中に正解や解析を表示しません。', '模拟测试中，作答时不显示答案和解析。')}</p>
+              <Link className="v2-primary-action" to="/simulation/setup">
+                {text('模擬テストを設定', '设置模拟测试')} <ArrowRight size={18} />
+              </Link>
+            </div>
+          )}
         </section>
       )}
     </div>
