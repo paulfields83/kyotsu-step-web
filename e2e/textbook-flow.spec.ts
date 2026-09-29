@@ -23,10 +23,11 @@ test('setup selects a math unit, then a learning item, then switches topic butto
   await expect(page).toHaveURL(/math-1a-sets-propositions\?target=math-sets-propositions-sec-propositions/)
   await expect(page.getByRole('heading', { name: '集合と命題：命題' })).toBeVisible()
   await expect(page.getByRole('button', { name: /2\.1 命題と真偽/ })).toBeVisible()
-  await expect(page.getByRole('button', { name: /2\.2 条件と集合・反例/ })).toBeDisabled()
-  await expect(page.getByRole('button', { name: /2\.3 必要条件と十分条件/ })).toBeDisabled()
+  await expect(page.getByRole('button', { name: /2\.2 条件と集合・反例/ })).toBeEnabled()
+  await expect(page.getByRole('button', { name: /2\.3 必要条件と十分条件/ })).toBeEnabled()
   await expect(page.getByRole('heading', { name: '2.1 命題と真偽' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: '2.2 条件と集合・反例' })).toHaveCount(0)
+  await page.getByRole('button', { name: /2\.2 条件と集合・反例/ }).click()
+  await expect(page.getByRole('heading', { name: '2.2 条件と集合・反例' })).toBeVisible()
 })
 
 test('setup groups physics into units and 1A/1B/1C learning items', async ({ page }) => {
@@ -50,32 +51,20 @@ test('setup groups physics into units and 1A/1B/1C learning items', async ({ pag
   await expect(page).toHaveURL(/physics-1b-velocity-composition-decomposition\?target=physics-1b-velocity-composition-decomposition/)
   await expect(page.getByRole('heading', { name: '運動の表し方：1B 速度の合成と分解' })).toBeVisible()
   await expect(page.getByRole('button', { name: /1B\.1 知識点チェック/ })).toBeEnabled()
-  await expect(page.getByRole('button', { name: /1B\.2 図の読み取り/ })).toBeDisabled()
+  await expect(page.getByRole('button', { name: /1B\.2 図の読み取り/ })).toBeEnabled()
 })
 
-test('textbook mode unlocks the next subsection after the current one is resolved', async ({ page }) => {
+test('textbook mode exposes later subsections and their choices from the start', async ({ page }) => {
   await page.goto('/learning/setup')
   await page.getByTestId('start-learning').click()
 
   await expect(page.getByTestId('textbook-reading-flow')).toContainText('1-1')
   await expect(page.getByTestId('textbook-item-a-1')).toBeVisible()
-  await expect(page.getByTestId('textbook-item-a-2')).toBeVisible()
-  await expect(page.getByTestId('textbook-item-a-3')).toBeVisible()
-  await expect(page.getByText('1-2　変位')).toHaveCount(0)
-
-  for (const [itemId, answer] of [
-    ['a-1', '位置ベクトル'],
-    ['a-2', '位置'],
-    ['a-3', '位置'],
-  ] as const) {
-    await page.getByTestId(`textbook-item-${itemId}`).click()
-    const inlinePanel = page.getByTestId(`inline-choice-panel-${itemId}`)
-    await inlinePanel.getByRole('button', { name: answer, exact: true }).click()
-    await expect(inlinePanel).toHaveCount(0)
-  }
-
   await expect(page.getByText('1-2　変位')).toBeVisible()
   await expect(page.getByTestId('textbook-item-a-4')).toBeVisible()
+
+  await page.getByTestId('textbook-item-a-4').click()
+  await expect(page.getByTestId('inline-choice-panel-a-4')).toBeVisible()
 })
 
 test('a wrong textbook choice is resolved immediately and reveals the correct answer', async ({ page }) => {
@@ -96,10 +85,15 @@ test('a wrong textbook choice is resolved immediately and reveals the correct an
   await expect(page.getByTestId('resolved-a-1')).toContainText('位置ベクトル')
 })
 
-test('future textbook sections stay locked until the current section is complete', async ({ page }) => {
+test('future textbook sections are available without completing the current section', async ({ page }) => {
   await page.goto('/learning/textbook/physics-a-displacement-velocity')
-  await expect(page.getByRole('button', { name: /図の読み取り/ })).toBeDisabled()
-  await expect(page.getByRole('button', { name: /例題1/ })).toBeDisabled()
+  const figureSection = page.getByRole('button', { name: /図の読み取り/ })
+  const exampleSection = page.getByRole('button', { name: /例題1/ })
+  await expect(figureSection).toBeEnabled()
+  await expect(exampleSection).toBeEnabled()
+
+  await figureSection.click()
+  await expect(page.getByRole('heading', { name: /図の読み取り/ })).toBeVisible()
 })
 
 test('opening a textbook blank keeps the sentence visible and expands choices directly underneath', async ({ page }) => {
