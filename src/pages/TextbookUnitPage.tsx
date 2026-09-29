@@ -1,5 +1,5 @@
 import { InlineMath } from 'react-katex'
-import { Check, LockKeyhole, RotateCcw, X } from 'lucide-react'
+import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
@@ -264,15 +264,9 @@ function TextbookReadingFlow({ unit, section, progress }: {
     )
   }
 
-  const firstIncompleteGroupIndex = groups.findIndex((group) => {
-    const itemIds = readingGroupItemIds(group)
-    return itemIds.length > 0 && itemIds.some((itemId) => !progress?.answers[itemId]?.resolved)
-  })
-  const unlockedGroupIndex = firstIncompleteGroupIndex === -1 ? Math.max(groups.length - 1, 0) : firstIncompleteGroupIndex
-  const visibleGroupCount = firstIncompleteGroupIndex === -1 ? groups.length : firstIncompleteGroupIndex + 1
   const displayedGroups = hasTopicNavigation
     ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0)))
-    : groups.slice(0, visibleGroupCount)
+    : groups
 
   const topicLabel = (group: TextbookReadingBlock[], index: number) => {
     const topic = group[0]
@@ -289,15 +283,12 @@ function TextbookReadingFlow({ unit, section, progress }: {
             const label = topicLabel(group, groupIndex)
             const itemIds = readingGroupItemIds(group)
             const completedCount = itemIds.filter((itemId) => progress?.answers[itemId]?.resolved).length
-            const allowed = firstIncompleteGroupIndex === -1 || groupIndex <= unlockedGroupIndex
             return (
               <button
                 type="button"
                 key={group[0]?.id ?? groupIndex}
-                disabled={!allowed}
                 aria-pressed={selectedGroupIndex === groupIndex}
                 onClick={() => {
-                  if (!allowed) return
                   setSelectedGroupIndex(groupIndex)
                   setActiveItemId(null)
                   setSubmitError('')
@@ -421,11 +412,6 @@ export function TextbookUnitPage() {
   const targetComplete = targetSummary.completed === targetSummary.total
   const sectionComplete = sectionSummary.completed === sectionSummary.total
   const unitComplete = summary.completed === summary.total
-  const firstIncompleteSectionIndex = unit.sections.findIndex((section) =>
-    textbookSectionProgress(unit, progress, section.id).completed < section.items.length,
-  )
-  const unlockedSectionIndex = firstIncompleteSectionIndex === -1 ? unit.sections.length - 1 : firstIncompleteSectionIndex
-  const canOpenSection = (index: number) => unitComplete || index <= unlockedSectionIndex
   const physicsPrefix = lessonTarget?.kind === 'unit' && unit.subject === 'physics' ? physicsTopicPrefix(unit) : undefined
   const goNext = () => {
     setSelectedSectionIndex((index) => Math.min(unit.sections.length - 1, index + 1))
@@ -461,16 +447,14 @@ export function TextbookUnitPage() {
           {unit.sections.map((section, index) => {
             const sectionProgress = textbookSectionProgress(unit, progress, section.id)
             const complete = sectionProgress.completed === sectionProgress.total
-            const allowed = canOpenSection(index)
             return (
               <button
                 type="button"
                 key={section.id}
-                disabled={!allowed}
                 aria-pressed={selectedSectionIndex === index}
-                onClick={() => allowed && setSelectedSectionIndex(index)}
+                onClick={() => setSelectedSectionIndex(index)}
               >
-                <span>{complete ? <Check size={16} aria-hidden="true" /> : allowed ? (physicsPrefix ? `${physicsPrefix}.${index + 1}` : section.number) : <LockKeyhole size={15} aria-hidden="true" />}</span>
+                <span>{complete ? <Check size={16} aria-hidden="true" /> : (physicsPrefix ? `${physicsPrefix}.${index + 1}` : section.number)}</span>
                 <strong>{section.title}</strong>
                 <small>{sectionProgress.completed}/{sectionProgress.total}</small>
               </button>
