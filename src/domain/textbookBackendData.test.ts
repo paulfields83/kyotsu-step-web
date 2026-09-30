@@ -6,6 +6,7 @@ import { loadedTextbookUnits } from '../../backend/src/textbookData'
 import { buildTextbookChapters } from './textbookCatalog'
 
 const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
+const setsRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'sets-propositions')
 const staticMathUnitIds = [
   'math-1a-numbers-expressions',
   'math-1a-quadratic-functions',
@@ -167,6 +168,14 @@ describe('backend textbook data', () => {
     for (const figure of figures) {
       expect(existsSync(join(mathRoot, figure.src))).toBe(true)
     }
+  })
+
+  it('keeps 集合と命題 figures as backend SVG assets', () => {
+    const sets = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-sets-propositions')!
+    const figures = sets.unit.sections.flatMap((section) => section.figures)
+    expect(figures.length).toBeGreaterThanOrEqual(10)
+    expect(figures.every((figure) => figure.src.startsWith('assets/') && figure.src.endsWith('.svg'))).toBe(true)
+    for (const figure of figures) expect(existsSync(join(setsRoot, figure.src))).toBe(true)
   })
 
   it('keeps imported physics blanks, answers, IDs, and figure assets in sync', () => {
