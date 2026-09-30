@@ -491,6 +491,7 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   margin: .05rem 0 .55rem;
   padding: .8rem;
 }
+.learning-flow--practice .reading-choice-options { grid-template-columns: 1fr; }
 .learning-flow--practice .reading-choice-option {
   grid-template-columns: 30px minmax(0, 1fr);
 }
