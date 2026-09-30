@@ -230,36 +230,129 @@ const F = {
     <circle cx="371.67" cy="240" r="8" fill="#ea580c"/><text x="392" y="232" font-size="20" fill="#ea580c">G</text>
     <text x="380" y="405" text-anchor="middle" font-size="20" fill="#475569">3本の中線は G で交わり、各中線を 2:1 に分ける</text>`),
 
-  centers: fig('triangle-centers','外心・内心・垂心の位置を比較する模式図','三角形の中心は作り方が異なる',
-    `<text x="130" y="45" text-anchor="middle" font-size="20" font-weight="700">外心</text><text x="380" y="45" text-anchor="middle" font-size="20" font-weight="700">内心</text><text x="630" y="45" text-anchor="middle" font-size="20" font-weight="700">垂心</text>
-    <g fill="none" stroke="#1f2937" stroke-width="3"><polygon points="50,300 210,300 130,95"/><polygon points="300,300 460,300 380,95"/><polygon points="550,300 710,300 630,95"/></g><g fill="#ea580c"><circle cx="130" cy="220" r="8"/><circle cx="380" cy="230" r="8"/><circle cx="630" cy="200" r="8"/></g>`),
+  centers: fig('triangle-centers','外心・内心・垂心をそれぞれの構成線とともに比較する図','外心＝垂直二等分線、内心＝角の二等分線、垂心＝高さの交点',
+    `<g transform="translate(5 0)">
+      <text x="110" y="35" text-anchor="middle" font-size="20" font-weight="700">外心 O</text>
+      <polygon points="100,60 25,245 205,225" fill="none" stroke="#1f2937" stroke-width="3"/>
+      <line x1="-2.25" y1="126.25" x2="127.25" y2="178.75" stroke="#2563eb" stroke-width="2.5"/>
+      <line x1="94.75" y1="179.25" x2="210.25" y2="105.75" stroke="#2563eb" stroke-width="2.5"/>
+      <circle cx="107.88" cy="170.9" r="7" fill="#ea580c"/><text x="122" y="163" font-size="17" fill="#ea580c">O</text>
+      <text x="110" y="275" text-anchor="middle" font-size="16" fill="#475569">垂直二等分線</text>
+    </g>
+    <g transform="translate(255 0)">
+      <text x="110" y="35" text-anchor="middle" font-size="20" font-weight="700">内心 I</text>
+      <polygon points="100,60 25,245 205,225" fill="none" stroke="#1f2937" stroke-width="3"/>
+      <line x1="100" y1="60" x2="115.92" y2="234.9" stroke="#2563eb" stroke-width="2.5"/>
+      <line x1="25" y1="245" x2="155.05" y2="146.51" stroke="#2563eb" stroke-width="2.5"/>
+      <circle cx="110.92" cy="179.94" r="7" fill="#ea580c"/><text x="125" y="172" font-size="17" fill="#ea580c">I</text>
+      <text x="110" y="275" text-anchor="middle" font-size="16" fill="#475569">角の二等分線</text>
+    </g>
+    <g transform="translate(505 0)">
+      <text x="110" y="35" text-anchor="middle" font-size="20" font-weight="700">垂心 H</text>
+      <polygon points="100,60 25,245 205,225" fill="none" stroke="#1f2937" stroke-width="3"/>
+      <line x1="100" y1="60" x2="119.39" y2="234.51" stroke="#2563eb" stroke-width="2.5"/>
+      <line x1="25" y1="245" x2="162.18" y2="157.71" stroke="#2563eb" stroke-width="2.5"/>
+      <circle cx="114.25" cy="188.21" r="7" fill="#ea580c"/><text x="129" y="180" font-size="17" fill="#ea580c">H</text>
+      <text x="110" y="275" text-anchor="middle" font-size="16" fill="#475569">高さ</text>
+    </g>
+    <text x="380" y="345" text-anchor="middle" font-size="18" fill="#475569">点の位置ではなく「どの線の交点か」で判別する</text>`),
 
-  ceva: fig('ceva','三角形の3本の線分が一点で交わるチェバの定理の図','辺上の3点と共点条件を確認する',
-    `<polygon points="120,330 640,330 360,70" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="360" y1="70" x2="470" y2="330" stroke="#2563eb" stroke-width="3"/><line x1="120" y1="330" x2="500" y2="200" stroke="#2563eb" stroke-width="3"/><line x1="640" y1="330" x2="230" y2="200" stroke="#2563eb" stroke-width="3"/><circle cx="370" cy="225" r="8" fill="#ea580c"/>`),
+  ceva: fig('ceva','D,E,F が各辺上にあり AD,BE,CF が1点 P で交わるチェバの定理の図','3本の線は同一点 P を通る',
+    `<polygon points="375,65 90,340 670,330" fill="none" stroke="#1f2937" stroke-width="4"/>
+    <line x1="375" y1="65" x2="432.66" y2="334.09" stroke="#2563eb" stroke-width="3"/>
+    <line x1="90" y1="340" x2="490.2" y2="168.49" stroke="#2563eb" stroke-width="3"/>
+    <line x1="670" y1="330" x2="287.4" y2="149.53" stroke="#2563eb" stroke-width="3"/>
+    <circle cx="405" cy="205" r="8" fill="#ea580c"/>
+    <circle cx="432.66" cy="334.09" r="5" fill="#2563eb"/><circle cx="490.2" cy="168.49" r="5" fill="#2563eb"/><circle cx="287.4" cy="149.53" r="5" fill="#2563eb"/>
+    <text x="375" y="48" text-anchor="middle" font-size="19">A</text><text x="74" y="363" text-anchor="middle" font-size="19">B</text><text x="686" y="353" text-anchor="middle" font-size="19">C</text>
+    <text x="432.66" y="363" text-anchor="middle" font-size="18" fill="#2563eb">D</text><text x="508" y="163" font-size="18" fill="#2563eb">E</text><text x="270" y="142" text-anchor="end" font-size="18" fill="#2563eb">F</text>
+    <text x="420" y="195" font-size="18" fill="#ea580c">P</text>
+    <text x="380" y="405" text-anchor="middle" font-size="19" fill="#475569">AD・BE・CF は同じ点 P で交わる</text>`),
 
-  menelaus: fig('menelaus','三角形を横切る一直線と3辺上の点を示す図','メネラウスの定理では3点が一直線上にある',
-    `<polygon points="120,330 640,330 360,70" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="80" y1="255" x2="690" y2="180" stroke="#2563eb" stroke-width="4"/><g fill="#ea580c"><circle cx="165" cy="244" r="7"/><circle cx="455" cy="208" r="7"/><circle cx="585" cy="192" r="7"/></g><text x="380" y="385" text-anchor="middle" font-size="21" fill="#475569">3点が一直線上</text>`),
+  menelaus: fig('menelaus','三角形の3辺または延長と一直線が交わる D,E,F を示すメネラウスの定理の図','D,E,F は同じ直線上にあり、各点は対応する辺または延長との交点',
+    `<polygon points="370,65 115,335 650,335" fill="none" stroke="#1f2937" stroke-width="4"/>
+    <line x1="150" y1="180" x2="730" y2="338" stroke="#2563eb" stroke-width="4"/>
+    <circle cx="238.57" cy="204.16" r="6" fill="#ea580c"/><circle cx="623.05" cy="309.01" r="6" fill="#ea580c"/><circle cx="718.33" cy="335" r="6" fill="#ea580c"/>
+    <text x="370" y="48" text-anchor="middle" font-size="19">A</text><text x="99" y="358" text-anchor="middle" font-size="19">B</text><text x="666" y="358" text-anchor="middle" font-size="19">C</text>
+    <text x="222" y="196" text-anchor="end" font-size="18" fill="#ea580c">F</text><text x="638" y="300" font-size="18" fill="#ea580c">E</text><text x="718" y="365" text-anchor="middle" font-size="18" fill="#ea580c">D</text>
+    <text x="380" y="405" text-anchor="middle" font-size="19" fill="#475569">D・E・F は1本の直線上</text>`),
 
   cyclic: fig('cyclic-angle','同じ弧に対する円周角が等しいことを示す図','同じ弧を見込む円周角は等しい',
     `<circle cx="380" cy="210" r="150" fill="none" stroke="#1f2937" stroke-width="4"/><circle cx="260" cy="300" r="6" fill="#1f2937"/><circle cx="500" cy="300" r="6" fill="#1f2937"/><circle cx="300" cy="90" r="6" fill="#2563eb"/><circle cx="460" cy="90" r="6" fill="#ea580c"/><line x1="300" y1="90" x2="260" y2="300" stroke="#2563eb" stroke-width="3"/><line x1="300" y1="90" x2="500" y2="300" stroke="#2563eb" stroke-width="3"/><line x1="460" y1="90" x2="260" y2="300" stroke="#ea580c" stroke-width="3"/><line x1="460" y1="90" x2="500" y2="300" stroke="#ea580c" stroke-width="3"/>`),
 
-  cyclicQuad: fig('cyclic-quadrilateral','円に内接する四角形を示す図','内接四角形では対角の和が180°',
-    `<circle cx="380" cy="210" r="150" fill="none" stroke="#64748b" stroke-width="3"/><polygon points="300,80 520,155 445,335 225,265" fill="none" stroke="#2563eb" stroke-width="4"/><text x="380" y="385" text-anchor="middle" font-size="21" fill="#475569">対角どうしの関係を見る</text>`),
+  cyclicQuad: fig('cyclic-quadrilateral','同じ円周上の4点 A,B,C,D を結んだ内接四角形','4頂点は同一円周上にあり、向かい合う角の和が180°になる',
+    `<circle cx="380" cy="210" r="145" fill="none" stroke="#64748b" stroke-width="3"/>
+    <polygon points="248.59,148.72 307.5,335.57 505.57,282.5 463.17,91.22" fill="none" stroke="#2563eb" stroke-width="4"/>
+    <text x="230" y="158" font-size="19">A</text><text x="297" y="362" font-size="19">B</text><text x="520" y="290" font-size="19">C</text><text x="475" y="82" font-size="19">D</text>
+    <text x="380" y="405" text-anchor="middle" font-size="20" fill="#475569">A,B,C,D はすべて同一円周上</text>`),
 
-  tangentChord: fig('tangent-chord','円の接線と弦が作る角を示す図','接弦定理は接線と弦の角を円周角へ結びつける',
-    `<circle cx="360" cy="220" r="140" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="500" y1="60" x2="500" y2="380" stroke="#2563eb" stroke-width="4"/><line x1="500" y1="220" x2="260" y2="115" stroke="#ea580c" stroke-width="4"/><circle cx="500" cy="220" r="7" fill="#1f2937"/><path d="M500 180 A42 42 0 0 0 470 190" fill="none" stroke="#ea580c" stroke-width="3"/>`),
+  tangentChord: fig('tangent-chord','接点 T の接線と弦 TA の角、同じ弦 TA を見る円周角 TBA を示す図','接弦定理で比較する2つの角を同じ図に明示する',
+    `<circle cx="370" cy="220" r="135" fill="none" stroke="#1f2937" stroke-width="4"/>
+    <line x1="505" y1="65" x2="505" y2="380" stroke="#2563eb" stroke-width="4"/>
+    <line x1="505" y1="220" x2="274.54" y2="315.46" stroke="#ea580c" stroke-width="4"/>
+    <line x1="302.5" y1="103.09" x2="505" y2="220" stroke="#64748b" stroke-width="3"/>
+    <line x1="302.5" y1="103.09" x2="274.54" y2="315.46" stroke="#64748b" stroke-width="3"/>
+    <path d="M505 178 A42 42 0 0 0 467.8 200.5" fill="none" stroke="#ea580c" stroke-width="3"/>
+    <path d="M339 124 A42 42 0 0 0 294 145" fill="none" stroke="#ea580c" stroke-width="3"/>
+    <circle cx="505" cy="220" r="6" fill="#1f2937"/><circle cx="274.54" cy="315.46" r="5" fill="#1f2937"/><circle cx="302.5" cy="103.09" r="5" fill="#1f2937"/>
+    <text x="522" y="227" font-size="19">T</text><text x="255" y="335" font-size="19">A</text><text x="286" y="92" font-size="19">B</text>
+    <text x="380" y="410" text-anchor="middle" font-size="20" fill="#475569">接線と弦 TA の角 ＝ ∠TBA</text>`),
 
-  power: fig('power-of-point','円外の点から2本の割線を引く方べきの定理の図','同じ外部点からの線分の積が等しくなる',
-    `<circle cx="430" cy="210" r="130" fill="none" stroke="#1f2937" stroke-width="4"/><circle cx="100" cy="210" r="7" fill="#ea580c"/><line x1="100" y1="210" x2="650" y2="120" stroke="#2563eb" stroke-width="3"/><line x1="100" y1="210" x2="640" y2="300" stroke="#2563eb" stroke-width="3"/><text x="80" y="190" font-size="20" fill="#ea580c">P</text>`),
+  power: fig('power-of-point','円外の点 P から2本の割線 P-A-B, P-C-D と接線 PT を引いた図','A,B,C,D は円との交点で、PA·PB=PC·PD=PT² を満たす',
+    `<circle cx="470" cy="215" r="108" fill="none" stroke="#1f2937" stroke-width="4"/>
+    <line x1="115" y1="215" x2="720" y2="81.9" stroke="#2563eb" stroke-width="3"/>
+    <line x1="115" y1="215" x2="710" y2="381.6" stroke="#2563eb" stroke-width="3"/>
+    <line x1="115" y1="215" x2="437.14" y2="112.12" stroke="#16a34a" stroke-width="4"/>
+    <circle cx="115" cy="215" r="7" fill="#ea580c"/>
+    <circle cx="378.94" cy="156.93" r="5" fill="#2563eb"/><circle cx="528.28" cy="124.08" r="5" fill="#2563eb"/>
+    <circle cx="396.02" cy="293.69" r="5" fill="#2563eb"/><circle cx="492.36" cy="320.66" r="5" fill="#2563eb"/>
+    <circle cx="437.14" cy="112.12" r="5" fill="#16a34a"/>
+    <text x="95" y="198" font-size="19" fill="#ea580c">P</text><text x="378.94" y="140" text-anchor="middle" font-size="18" fill="#2563eb">A</text><text x="528.28" y="108" text-anchor="middle" font-size="18" fill="#2563eb">B</text>
+    <text x="396.02" y="318" text-anchor="middle" font-size="18" fill="#2563eb">C</text><text x="492.36" y="345" text-anchor="middle" font-size="18" fill="#2563eb">D</text><text x="437.14" y="95" text-anchor="middle" font-size="18" fill="#16a34a">T</text>
+    <text x="380" y="410" text-anchor="middle" font-size="19" fill="#475569">PA·PB = PC·PD = PT²</text>`),
 
-  twoCircles: fig('two-circles','2つの円の位置関係を示す図','中心間距離と半径の和・差で位置関係を分類する',
-    `<circle cx="295" cy="210" r="120" fill="none" stroke="#2563eb" stroke-width="4"/><circle cx="470" cy="210" r="90" fill="none" stroke="#ea580c" stroke-width="4"/><line x1="295" y1="210" x2="470" y2="210" stroke="#64748b" stroke-width="3" stroke-dasharray="7 7"/><circle cx="295" cy="210" r="6" fill="#2563eb"/><circle cx="470" cy="210" r="6" fill="#ea580c"/><text x="382" y="195" text-anchor="middle" font-size="20" fill="#475569">中心間距離</text>`),
+  twoCircles: fig('two-circles','2つの円の共通弦と中心線、共通接線と半径の垂直関係を示す2図','共通弦は中心を結ぶ線に垂直、接点への半径は共通接線に垂直',
+    `<text x="245" y="40" text-anchor="middle" font-size="20" font-weight="700">共通弦</text>
+    <circle cx="185" cy="205" r="88" fill="none" stroke="#2563eb" stroke-width="3"/><circle cx="305" cy="205" r="88" fill="none" stroke="#ea580c" stroke-width="3"/>
+    <line x1="185" y1="205" x2="305" y2="205" stroke="#64748b" stroke-width="2.5" stroke-dasharray="7 7"/><line x1="245" y1="140.63" x2="245" y2="269.37" stroke="#16a34a" stroke-width="4"/>
+    <circle cx="185" cy="205" r="5" fill="#2563eb"/><circle cx="305" cy="205" r="5" fill="#ea580c"/>
+    <text x="245" y="335" text-anchor="middle" font-size="18" fill="#475569">共通弦 ⟂ 中心線</text>
+    <text x="585" y="40" text-anchor="middle" font-size="20" font-weight="700">共通接線</text>
+    <circle cx="515" cy="205" r="70" fill="none" stroke="#2563eb" stroke-width="3"/><circle cx="650" cy="205" r="70" fill="none" stroke="#ea580c" stroke-width="3"/>
+    <line x1="455" y1="135" x2="710" y2="135" stroke="#16a34a" stroke-width="4"/><line x1="515" y1="205" x2="515" y2="135" stroke="#64748b" stroke-width="3"/><line x1="650" y1="205" x2="650" y2="135" stroke="#64748b" stroke-width="3"/>
+    <path d="M515 149 h14 v-14" fill="none" stroke="#64748b" stroke-width="2.5"/><path d="M650 149 h14 v-14" fill="none" stroke="#64748b" stroke-width="2.5"/>
+    <text x="585" y="335" text-anchor="middle" font-size="18" fill="#475569">半径 ⟂ 接線</text>`),
 
   construction: fig('basic-construction','コンパスと直線による垂直二等分線の作図模式図','作図では同じ半径の円弧の交点を利用する',
     `<line x1="160" y1="260" x2="600" y2="260" stroke="#1f2937" stroke-width="4"/><circle cx="160" cy="260" r="7" fill="#1f2937"/><circle cx="600" cy="260" r="7" fill="#1f2937"/><path d="M160 260 m0 -190 a190 190 0 0 1 0 380" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="7 7"/><path d="M600 260 m0 -190 a190 190 0 0 0 0 380" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="7 7"/><line x1="380" y1="65" x2="380" y2="390" stroke="#16a34a" stroke-width="4"/>`),
 
   linePlane: fig('line-plane','直線と平面の交わり方を示す空間模式図','平行・交差・平面上の3種類を区別する',
     `<polygon points="130,300 540,300 650,180 240,180" fill="#f8fafc" stroke="#64748b" stroke-width="3"/><line x1="90" y1="120" x2="610" y2="120" stroke="#2563eb" stroke-width="4"/><line x1="350" y1="70" x2="400" y2="340" stroke="#ea580c" stroke-width="4"/><line x1="210" y1="250" x2="550" y2="250" stroke="#16a34a" stroke-width="4"/><text x="610" y="105" font-size="19" fill="#2563eb">平行</text><text x="405" y="80" font-size="19" fill="#ea580c">交わる</text><text x="530" y="240" font-size="19" fill="#16a34a">平面上</text>`),
+
+  fiveCenters: fig('five-centers-summary','三角形の五心を交わる線の種類で整理した比較図','重心・外心・内心・垂心・傍心を構成線で区別する',
+    `<g font-size="16" text-anchor="middle">
+    <g transform="translate(20 70)"><rect width="135" height="220" rx="12" fill="#f8fafc" stroke="#cbd5e1"/><text x="67" y="30" font-weight="700">重心 G</text><polygon points="25,175 110,175 65,65" fill="none" stroke="#1f2937" stroke-width="2.5"/><line x1="65" y1="65" x2="67" y2="175" stroke="#2563eb" stroke-width="2.5"/><line x1="25" y1="175" x2="88" y2="120" stroke="#2563eb" stroke-width="2.5"/><text x="67" y="205" fill="#475569">中線</text></g>
+    <g transform="translate(165 70)"><rect width="135" height="220" rx="12" fill="#f8fafc" stroke="#cbd5e1"/><text x="67" y="30" font-weight="700">外心 O</text><polygon points="25,175 110,175 65,65" fill="none" stroke="#1f2937" stroke-width="2.5"/><line x1="67" y1="50" x2="67" y2="195" stroke="#2563eb" stroke-width="2.5"/><line x1="10" y1="120" x2="125" y2="120" stroke="#2563eb" stroke-width="2.5"/><text x="67" y="205" fill="#475569">垂直二等分線</text></g>
+    <g transform="translate(310 70)"><rect width="135" height="220" rx="12" fill="#f8fafc" stroke="#cbd5e1"/><text x="67" y="30" font-weight="700">内心 I</text><polygon points="25,175 110,175 65,65" fill="none" stroke="#1f2937" stroke-width="2.5"/><line x1="65" y1="65" x2="67" y2="175" stroke="#2563eb" stroke-width="2.5"/><line x1="25" y1="175" x2="78" y2="112" stroke="#2563eb" stroke-width="2.5"/><text x="67" y="205" fill="#475569">内角二等分線</text></g>
+    <g transform="translate(455 70)"><rect width="135" height="220" rx="12" fill="#f8fafc" stroke="#cbd5e1"/><text x="67" y="30" font-weight="700">垂心 H</text><polygon points="25,175 110,175 65,65" fill="none" stroke="#1f2937" stroke-width="2.5"/><line x1="65" y1="65" x2="67" y2="175" stroke="#2563eb" stroke-width="2.5"/><line x1="25" y1="175" x2="94" y2="92" stroke="#2563eb" stroke-width="2.5"/><text x="67" y="205" fill="#475569">高さ</text></g>
+    <g transform="translate(600 70)"><rect width="135" height="220" rx="12" fill="#fff7ed" stroke="#fed7aa"/><text x="67" y="30" font-weight="700">傍心 Iₐ</text><polygon points="25,175 110,175 65,65" fill="none" stroke="#1f2937" stroke-width="2.5"/><line x1="65" y1="65" x2="67" y2="200" stroke="#ea580c" stroke-width="2.5"/><line x1="10" y1="190" x2="96" y2="85" stroke="#ea580c" stroke-width="2.5"/><text x="67" y="205" fill="#9a3412">内・外角二等分線</text></g></g>
+    <text x="380" y="350" text-anchor="middle" font-size="20" fill="#475569">五心は「どの線を交わらせた点か」を区別する</text>`),
+
+  cevaReverse: fig('ceva-reverse','比の積が1という条件から3本 AD,BE,CF が共点になるチェバの逆の図','数値条件から共点を結論する向きを示す',
+    `<polygon points="375,65 90,340 670,330" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="375" y1="65" x2="432.66" y2="334.09" stroke="#2563eb" stroke-width="3"/><line x1="90" y1="340" x2="490.2" y2="168.49" stroke="#2563eb" stroke-width="3"/><line x1="670" y1="330" x2="287.4" y2="149.53" stroke="#2563eb" stroke-width="3"/><circle cx="405" cy="205" r="8" fill="#ea580c"/><text x="380" y="405" text-anchor="middle" font-size="19" fill="#475569">(BD/DC)(CE/EA)(AF/FB)=1 ⇒ 3本は共点</text>`),
+
+  menelausReverse: fig('menelaus-reverse','比の積が1という条件から D,E,F が一直線になるメネラウスの逆の図','数値条件から共線を結論する向きを示す',
+    `<polygon points="370,65 115,335 650,335" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="150" y1="180" x2="730" y2="338" stroke="#2563eb" stroke-width="4"/><circle cx="238.57" cy="204.16" r="6" fill="#ea580c"/><circle cx="623.05" cy="309.01" r="6" fill="#ea580c"/><circle cx="718.33" cy="335" r="6" fill="#ea580c"/><text x="380" y="405" text-anchor="middle" font-size="19" fill="#475569">比の積=1 ⇒ D・E・F は一直線上</text>`),
+
+  threePerpendicular: fig('three-perpendicular','平面 α、点 P、垂足 H、斜線 PQ、射影 HQ、平面内直線 l を3D座標から投影した三垂線の定理の図','PH⊥α、l⊥HQ を満たし、その結果 l⊥PQ になる',
+    `<polygon points="382.28,400.32 756.68,202.72 549.32,93.28 174.92,290.88" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>
+    <line x1="365" y1="300" x2="365" y2="112.8" stroke="#ea580c" stroke-width="4"/>
+    <line x1="365" y1="112.8" x2="581" y2="186" stroke="#2563eb" stroke-width="4"/>
+    <line x1="365" y1="300" x2="581" y2="186" stroke="#16a34a" stroke-width="4"/>
+    <line x1="445.35" y1="342.41" x2="284.65" y2="257.59" stroke="#7c3aed" stroke-width="4"/>
+    <circle cx="365" cy="300" r="6" fill="#1f2937"/><circle cx="365" cy="112.8" r="6" fill="#1f2937"/><circle cx="581" cy="186" r="6" fill="#1f2937"/>
+    <text x="365" y="92" text-anchor="middle" font-size="19">P</text><text x="347" y="325" font-size="19">H</text><text x="596" y="194" font-size="19">Q</text><text x="188" y="276" font-size="19" fill="#475569">平面 α</text><text x="278" y="248" font-size="19" fill="#7c3aed">l</text>
+    <text x="380" y="420" text-anchor="middle" font-size="19" fill="#475569">PH⊥α，l⊥HQ（射影） ⇒ l⊥PQ</text>`),
 
   polyhedra: fig('polyhedra-euler','多面体の頂点・辺・面を示す立方体','オイラーの公式では頂点・辺・面を数える',
     `<rect x="190" y="140" width="280" height="210" fill="none" stroke="#1f2937" stroke-width="4"/><rect x="300" y="70" width="280" height="210" fill="none" stroke="#2563eb" stroke-width="4"/><line x1="190" y1="140" x2="300" y2="70" stroke="#1f2937" stroke-width="4"/><line x1="470" y1="140" x2="580" y2="70" stroke="#1f2937" stroke-width="4"/><line x1="470" y1="350" x2="580" y2="280" stroke="#1f2937" stroke-width="4"/><line x1="190" y1="350" x2="300" y2="280" stroke="#1f2937" stroke-width="4"/><text x="380" y="395" text-anchor="middle" font-size="21" fill="#475569">V − E + F = 2</text>`),
@@ -282,8 +375,14 @@ const F = {
   parallelSimilarity: fig('parallel-similarity','三角形内の平行線で相似が生じる図','平行線から等しい角を作り相似へつなげる',
     `<polygon points="120,340 650,340 380,70" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="230" y1="230" x2="540" y2="230" stroke="#2563eb" stroke-width="4"/><text x="195" y="230" font-size="20">D</text><text x="555" y="230" font-size="20">E</text><text x="380" y="55" text-anchor="middle" font-size="20">A</text><text x="95" y="365" font-size="20">B</text><text x="660" y="365" font-size="20">C</text><text x="385" y="205" text-anchor="middle" font-size="20" fill="#2563eb">DE ∥ BC</text>`),
 
-  triangleInequality: fig('triangle-side-angle','三角形の辺の大小と向かいの角の大小を対応させる図','長い辺の向かいの角ほど大きい',
-    `<polygon points="120,330 620,330 430,80" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="120" y1="330" x2="430" y2="80" stroke="#2563eb" stroke-width="5"/><text x="255" y="185" font-size="21" fill="#2563eb">長い辺</text><path d="M570 330 A55 55 0 0 0 548 292" fill="none" stroke="#ea580c" stroke-width="4"/><text x="585" y="285" font-size="21" fill="#ea580c">大きい角</text>`),
+  triangleInequality: fig('triangle-side-angle','BC が最長辺で、その向かいの角 A が最大になる不等辺三角形','実際の辺長の大小と向かいの角の大小を対応させる',
+    `<polygon points="380,80 120,340 680,340" fill="none" stroke="#1f2937" stroke-width="4"/>
+    <line x1="120" y1="340" x2="680" y2="340" stroke="#2563eb" stroke-width="6"/>
+    <path d="M 343.23 116.77 A 52 52 0 0 1 419.55 113.78" fill="none" stroke="#ea580c" stroke-width="4"/>
+    <text x="405" y="132" font-size="21" fill="#ea580c">∠A</text>
+    <text x="400" y="375" text-anchor="middle" font-size="20" fill="#2563eb">a=BC（最長）</text>
+    <text x="380" y="58" text-anchor="middle" font-size="19">A</text><text x="104" y="363" text-anchor="middle" font-size="19">B</text><text x="696" y="363" text-anchor="middle" font-size="19">C</text>
+    <text x="380" y="410" text-anchor="middle" font-size="20" fill="#475569">a&gt;b なら、その向かいの角も A&gt;B</text>`),
 
   tiling: fig('regular-tiling','正多角形が1点のまわりに集まる敷き詰め図','1点のまわりの内角の和が360°になる必要がある',
     `<g transform="translate(380 215)">${Array.from({length:6},(_,i)=>{const a=i*Math.PI/3;const x=Math.cos(a)*95,y=Math.sin(a)*95;return `<polygon points="0,0 ${x},${y} ${Math.cos(a+Math.PI/3)*95},${Math.sin(a+Math.PI/3)*95}" fill="${i%2?'#ffedd5':'#dbeafe'}" stroke="#64748b" stroke-width="2"/>`}).join('')}</g><circle cx="380" cy="215" r="6" fill="#1f2937"/><text x="380" y="390" text-anchor="middle" font-size="21" fill="#475569">中心まわりの角の和 = 360°</text>`),
@@ -365,10 +464,11 @@ const plans: Record<string, Placement[]> = {
     { topicId:'s1-geometric-properties-topic-03', figure:F.angleBisector, afterParagraph:1 },
     { topicId:'s1-geometric-properties-topic-04', figure:F.centroid, afterParagraph:1 },
     { topicId:'s1-geometric-properties-topic-05', figure:F.centers, afterParagraph:1 },
-    { topicId:'s1-geometric-properties-topic-06', figure:F.centers, afterParagraph:1 },
+    { topicId:'s1-geometric-properties-topic-06', figure:F.fiveCenters, afterParagraph:1 },
     { topicId:'s1-geometric-properties-topic-07', figure:F.ceva, afterParagraph:1 },
     { topicId:'s1-geometric-properties-topic-08', figure:F.menelaus, afterParagraph:1 },
-    { topicId:'s1-geometric-properties-topic-09', figure:F.ceva, afterParagraph:1 },
+    { topicId:'s1-geometric-properties-topic-09', figure:F.cevaReverse, afterParagraph:1 },
+    { topicId:'s1-geometric-properties-topic-09', figure:F.menelausReverse, afterParagraph:2 },
     { topicId:'s1-geometric-properties-topic-10', figure:F.triangleInequality, afterParagraph:1 },
     { topicId:'s2-geometric-properties-topic-01', figure:F.cyclic, afterParagraph:1 },
     { topicId:'s2-geometric-properties-topic-02', figure:F.cyclicQuad, afterParagraph:1 },
@@ -377,7 +477,7 @@ const plans: Record<string, Placement[]> = {
     { topicId:'s2-geometric-properties-topic-05', figure:F.twoCircles, afterParagraph:1 },
     { topicId:'s3-geometric-properties-topic-01', figure:F.construction, afterParagraph:1 },
     { topicId:'s4-geometric-properties-topic-01', figure:F.linePlane, afterParagraph:1 },
-    { topicId:'s4-geometric-properties-topic-02', figure:F.linePlane, afterParagraph:1 },
+    { topicId:'s4-geometric-properties-topic-02', figure:F.threePerpendicular, afterParagraph:1 },
     { topicId:'s4-geometric-properties-topic-03', figure:F.polyhedra, afterParagraph:1 },
   ],
   'math-1a-human-activities': [
