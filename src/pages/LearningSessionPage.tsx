@@ -67,7 +67,7 @@ export function LearningSessionPage() {
   const activate = (blankId: string) => {
     activateLearning(sessionId, blankId)
     setMultiSelection([])
-    setChoiceOpen(true)
+    if (isCommonTest) setChoiceOpen(true)
   }
 
   const submitOption = (optionId: string) => {
@@ -98,7 +98,13 @@ export function LearningSessionPage() {
     }
 
     setMultiSelection([])
-    setChoiceOpen(true)
+    if (isCommonTest) setChoiceOpen(true)
+  }
+
+  const submitInline = (blankId: string, selectedOptionIds: string[]) => {
+    answerLearning(sessionId, blankId, selectedOptionIds)
+    const updated = useAppStore.getState().learningSessions[sessionId]
+    if (updated?.completedAt) navigate(`/learning/result/${sessionId}`)
   }
 
   const submitMultiple = () => {
@@ -235,11 +241,11 @@ export function LearningSessionPage() {
         <>
           <ProgressBar label={text('空欄の進み具合', '填空进度')} value={completedCount} max={enabledBlankIds.length} />
           <article className="question-paper"><ContentRenderer blocks={question.stem} assets={question.assets} /></article>
-          <section><h2 className="solution-heading">{text('連続解答', '连续解答')}</h2><LearningFlowRenderer question={question} session={session} onActivate={activate} onExplain={showExplanation} onRevisit={revisitLearning.bind(null, sessionId)} /></section>
+          <section><h2 className="solution-heading">{text('連続解答', '连续解答')}</h2><LearningFlowRenderer question={question} session={session} onActivate={activate} onExplain={showExplanation} onRevisit={revisitLearning.bind(null, sessionId)} inlineChoices onSubmitInline={submitInline} /></section>
         </>
       )}
 
-      <BottomSheet open={(!isCommonTest || screen === 'guide') && choiceOpen && Boolean(activeBlank)} title={activeBlank?.prompt ?? text('回答を選ぶ', '选择答案')} onClose={() => setChoiceOpen(false)}>
+      <BottomSheet open={isCommonTest && screen === 'guide' && choiceOpen && Boolean(activeBlank)} title={activeBlank?.prompt ?? text('回答を選ぶ', '选择答案')} onClose={() => setChoiceOpen(false)}>
         <div className="option-list">
           {activeBlank?.options.map((option) => <button type="button" key={option.id} data-testid={`option-${option.id}`} aria-pressed={multiSelection.includes(option.id)} className="option-button" onClick={() => submitOption(option.id)}><ContentRenderer blocks={option.content} assets={question.assets} /></button>)}
           {activeBlank?.answerType === 'multi-choice' && <RaisedButton className="primary-button" disabled={!multiSelection.length} onClick={submitMultiple}>{text('選択を確定', '确认选择')}</RaisedButton>}
