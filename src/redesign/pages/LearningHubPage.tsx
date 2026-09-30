@@ -34,7 +34,7 @@ export function LearningHubPage() {
 
   const catalog = useMemo(() => getQuestionCatalog(customQuestions, language), [customQuestions, language])
   const chapters = useMemo(() => buildTextbookChapters(units, subject), [subject, units])
-  const questions = useMemo(() => catalog.filter((question) => question.subject === subject && question.status === 'published'), [catalog, subject])
+  const questions = useMemo(() => catalog.filter((question) => question.subject === subject && question.status === 'published' && question.examLevel !== 'common-test'), [catalog, subject])
 
   const startPractice = (questionId: string) => {
     navigate(`/learning/session/${startLearning(questionId, 'standard')}`)
