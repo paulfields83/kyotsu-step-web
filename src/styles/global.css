@@ -526,4 +526,7 @@ button.reading-inline-blank:hover { background: var(--color-section); }
 }
 .practice-taxonomy-controls .field-label { margin-top: .2rem; }
 .practice-step-block { display: grid; gap: .5rem; }
+.practice-step-heading { display: flex; align-items: baseline; gap: .65rem; margin-top: .35rem; }
+.practice-step-heading span { color: var(--color-primary); font-size: .78rem; font-weight: 800; letter-spacing: .08em; }
+.practice-step-heading strong { color: var(--color-text); font-size: 1rem; }
 .practice-step-block > .content-renderer { padding-top: .15rem; }
