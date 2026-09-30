@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { builtInTextbookUnits } from '../../src/data/textbookUnits'
 import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookAnswerBook, type TextbookUnit } from '../../src/domain/textbookSchema'
 import { strictSetsPropositionsAnswers, strictSetsPropositionsUnit } from './setsPropositionsStrict'
+import { applyMathLearningFigures } from './mathLearningFigures'
 
 export type LoadedTextbookUnit = {
   unit: TextbookUnit
@@ -130,7 +131,8 @@ function loadJsonTextbooks(): LoadedTextbookUnit[] {
     const answerPath = join(dataDir, 'answers.json')
     const answerBook = TextbookAnswerBookSchema.parse(JSON.parse(readFileSync(answerPath, 'utf8')))
     if (answerBook.unitId !== unit.unitId) throw new Error(`answer unitId mismatch: ${unit.unitId}`)
-    return { ...applyContentCorrections(unit, answerBook), dataDir }
+    const corrected = applyContentCorrections(unit, answerBook)
+    return { unit: applyMathLearningFigures(corrected.unit), answerBook: corrected.answerBook, dataDir }
   })
 }
 
