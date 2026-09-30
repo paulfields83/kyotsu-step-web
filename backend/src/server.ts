@@ -4,6 +4,8 @@ import { extname, join, normalize } from 'node:path'
 import { isTextbookAnswerCorrect } from '../../src/domain/textbook'
 import { findLoadedTextbook, loadedTextbookUnits, textbookImportDiagnostics } from './textbookData'
 import { publicTextbookUnit } from './publicTextbook'
+import { findPracticeQuestion, loadedPracticeUnits } from './practiceData'
+import { publicPracticeQuestion, publicPracticeSummary } from './publicPractice'
 
 const port = Number(process.env.PORT ?? 8787)
 const allowedOrigins = (process.env.FRONTEND_ORIGIN?.trim() || '*')
@@ -113,6 +115,17 @@ const server = createServer(async (request, response) => {
           figures: unit.sections.reduce((total, section) => total + section.figures.length, 0),
         })),
       textbookImportWarnings: textbookImportDiagnostics,
+      publishedPracticeQuestions: loadedPracticeUnits.reduce(
+        (total, unit) => total + unit.questions.filter((question) => question.status === 'published').length,
+        0,
+      ),
+      practiceUnits: loadedPracticeUnits.map((unit) => ({
+        subject: unit.catalog.subject,
+        course: unit.catalog.course,
+        majorUnit: unit.catalog.majorUnit.id,
+        subcategories: unit.catalog.subcategories.length,
+        questions: unit.questions.filter((question) => question.status === 'published').length,
+      })),
     })
   }
 
@@ -125,6 +138,99 @@ const server = createServer(async (request, response) => {
         .filter(({ unit }) => unit.status === 'published')
         .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook, apiOrigin)),
     )
+  }
+
+  if (request.method === 'GET' && url.pathname === '/api/practice/catalog') {
+    const subject = url.searchParams.get('subject')
+    const course = url.searchParams.get('course')
+    const majorUnit = url.searchParams.get('majorUnit')
+
+    const catalogs = loadedPracticeUnits
+      .filter((unit) => !subject || unit.catalog.subject === subject)
+      .filter((unit) => !course || unit.catalog.course === course)
+      .filter((unit) => !majorUnit || unit.catalog.majorUnit.id === majorUnit)
+      .map((unit) => {
+        const published = unit.questions.filter((question) => question.status === 'published')
+        return {
+          ...unit.catalog,
+          subcategories: unit.catalog.subcategories.map((subcategory) => ({
+            ...subcategory,
+            questionCount: published.filter((question) => question.subcategory === subcategory.id).length,
+            problemTypes: subcategory.problemTypes.map((problemType) => ({
+              ...problemType,
+              questionCount: published.filter(
+                (question) => question.subcategory === subcategory.id && question.problemType === problemType.id,
+              ).length,
+            })),
+          })),
+        }
+      })
+
+    return sendJson(request, response, 200, catalogs)
+  }
+
+  if (request.method === 'GET' && url.pathname === '/api/practice/questions') {
+    const subject = url.searchParams.get('subject')
+    const course = url.searchParams.get('course')
+    const majorUnit = url.searchParams.get('majorUnit')
+    const subcategory = url.searchParams.get('subcategory')
+    const problemType = url.searchParams.get('problemType')
+
+    const questions = loadedPracticeUnits
+      .flatMap((unit) => unit.questions)
+      .filter((question) => question.status === 'published')
+      .filter((question) => !subject || question.subject === subject)
+      .filter((question) => !course || question.course === course)
+      .filter((question) => !majorUnit || question.majorUnit === majorUnit)
+      .filter((question) => !subcategory || question.subcategory === subcategory)
+      .filter((question) => !problemType || question.problemType === problemType)
+      .map(publicPracticeSummary)
+
+    return sendJson(request, response, 200, questions)
+  }
+
+  const practiceQuestionMatch = url.pathname.match(/^\/api\/practice\/questions\/([^/]+)$/)
+  if (request.method === 'GET' && practiceQuestionMatch) {
+    const loaded = findPracticeQuestion(decodeURIComponent(practiceQuestionMatch[1]))
+    if (!loaded) return sendJson(request, response, 404, { error: 'practice question not found' })
+    return sendJson(request, response, 200, publicPracticeQuestion(loaded.question))
+  }
+
+  const practiceAnswerMatch = url.pathname.match(/^\/api\/practice\/questions\/([^/]+)\/blanks\/([^/]+)\/answer$/)
+  if (request.method === 'POST' && practiceAnswerMatch) {
+    const loaded = findPracticeQuestion(decodeURIComponent(practiceAnswerMatch[1]))
+    if (!loaded) return sendJson(request, response, 404, { error: 'practice question not found' })
+
+    const blankId = decodeURIComponent(practiceAnswerMatch[2])
+    const blank = loaded.question.blanks.find((candidate) => candidate.id === blankId)
+    if (!blank) return sendJson(request, response, 404, { error: 'practice blank not found' })
+
+    try {
+      const body = await readJsonBody(request)
+      const rawOptionIds = typeof body === 'object' && body !== null && 'optionIds' in body
+        ? (body as { optionIds?: unknown }).optionIds
+        : undefined
+      const optionIds = Array.isArray(rawOptionIds) ? rawOptionIds.map(String) : []
+      if (!optionIds.length) return sendJson(request, response, 400, { error: 'optionIds is required' })
+
+      const selected = [...new Set(optionIds)].sort()
+      const correctIds = [...blank.correctOptionIds].sort()
+      const correct = selected.length === correctIds.length && selected.every((value, index) => value === correctIds[index])
+      const selectedWrongReason = blank.options.find((option) => selected.includes(option.id))?.wrongReason
+
+      return sendJson(request, response, 200, {
+        correct,
+        resolved: correct,
+        selectedOptionIds: selected,
+        ...(correct
+          ? { correctOptionIds: blank.correctOptionIds, explanation: blank.explanation }
+          : selectedWrongReason
+            ? { wrongReason: selectedWrongReason }
+            : {}),
+      })
+    } catch (error) {
+      return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
+    }
   }
 
   const unitMatch = url.pathname.match(/^\/api\/textbooks\/([^/]+)$/)
