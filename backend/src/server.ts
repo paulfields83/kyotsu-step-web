@@ -6,6 +6,7 @@ import { findLoadedTextbook, loadedTextbookUnits, textbookImportDiagnostics } fr
 import { publicTextbookUnit } from './publicTextbook'
 import { findPracticeQuestion, loadedPracticeUnits } from './practiceData'
 import { publicPracticeQuestion, publicPracticeSummary } from './publicPractice'
+import { loadedPracticeSourceItems } from './practiceSourceData'
 
 const port = Number(process.env.PORT ?? 8787)
 const allowedOrigins = (process.env.FRONTEND_ORIGIN?.trim() || '*')
@@ -119,6 +120,7 @@ const server = createServer(async (request, response) => {
         (total, unit) => total + unit.questions.filter((question) => question.status === 'published').length,
         0,
       ),
+      practiceSourceItems: loadedPracticeSourceItems.length,
       practiceUnits: loadedPracticeUnits.map((unit) => ({
         subject: unit.catalog.subject,
         course: unit.catalog.course,
