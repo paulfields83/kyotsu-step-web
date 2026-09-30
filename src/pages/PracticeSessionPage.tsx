@@ -197,13 +197,17 @@ export function PracticeSessionPage() {
       <section>
         <h2 className="solution-heading">{text('連続解答', '连续解答')}</h2>
         <div className="learning-flow learning-flow--practice">
-          {question.solutionSteps.map((step) => {
+          {question.solutionSteps.map((step, stepIndex) => {
             const stepIndexes = step.blankIds.map((blankId) => orderedBlankIds.indexOf(blankId)).filter((index) => index >= 0)
             const firstStepIndex = Math.min(...stepIndexes)
             if (firstUnresolvedIndex >= 0 && firstStepIndex > firstUnresolvedIndex) return null
 
             return (
               <div key={step.id} className="practice-step-block">
+                <div className="practice-step-heading">
+                  <span>STEP {stepIndex + 1}</span>
+                  <strong>{step.operation}</strong>
+                </div>
                 <ContentRenderer blocks={step.content} assets={[]} />
                 {step.blankIds.map((blankId) => {
                   const blank = blankById.get(blankId)
