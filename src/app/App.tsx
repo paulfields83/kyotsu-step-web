@@ -5,6 +5,7 @@ import { CatalogPreviewPage } from '../pages/CatalogPreviewPage'
 import { LearningSetupPage } from '../pages/LearningSetupPage'
 import { LearningSessionPage } from '../pages/LearningSessionPage'
 import { LearningResultPage } from '../pages/LearningResultPage'
+import { PracticeSessionPage } from '../pages/PracticeSessionPage'
 import { TextbookUnitPage } from '../pages/TextbookUnitPage'
 import { SimulationSetupPage } from '../pages/SimulationSetupPage'
 import { SimulationSessionPage } from '../pages/SimulationSessionPage'
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/learning/setup" element={<LearningSetupPage />} />
         <Route path="/learning/session/:sessionId" element={<LearningSessionPage />} />
         <Route path="/learning/result/:sessionId" element={<LearningResultPage />} />
+        <Route path="/practice/session/:questionId" element={<PracticeSessionPage />} />
         <Route path="/learning/textbook/:unitId" element={<TextbookUnitPage />} />
 
         <Route path="/simulation/setup" element={<SimulationSetupPage />} />
