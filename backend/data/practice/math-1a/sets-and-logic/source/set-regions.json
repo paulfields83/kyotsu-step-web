@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "subject": "math-1a",
+  "course": "math-i",
+  "majorUnit": "sets-and-logic",
+  "subcategory": "set-regions",
+  "source": {
+    "label": "4STEP 数学I+A 第2章「集合と命題」全問版テンプレート",
+    "coverage": "問90～120、演習問題A 8～10、演習問題B 11～12",
+    "excluded": ["例題13", "例題14"],
+    "itemCount": 36,
+    "rightsNote": "アップロードされた制作テンプレートの問題本文・ミニガイド・解答・要点を、アプリ制作のソース層として保持。"
+  },
+  "items": [
+    {
+      "sourceQuestionId": "math-i-4step-set-098",
+      "sourceNumber": "98",
+      "contentHash": "a557da9a22012b30",
+      "title": "領域から集合を復元",
+      "sourcePage": 26,
+      "sourceLevel": "STEP B",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "set-regions",
+      "problemType": "region-reconstruction",
+      "problemText": "U={1,2,3,4,5,6,7,8,9} を全体集合とする。A∩B={2}、A∩B̄={4,6,8}、Ā∩B̄={1,9} のとき、次を求めよ。\n(1) A∪B　(2) B̄　(3) Ā∩B",
+      "miniGuide": "Uを「両方・Aだけ・Bだけ・どちらでもない」の4領域に分け、未提示の領域を差し引きで求める。",
+      "answer": "(1) {2,3,4,5,6,7,8}\n(2) {1,4,6,8,9}\n(3) {3,5,7}",
+      "keyPoint": "未提示のBだけの領域はUから他の3領域を除いたもの。",
+      "authoringStatus": "source-ready"
+    }
+  ]
+}
