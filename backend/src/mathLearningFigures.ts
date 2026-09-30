@@ -227,6 +227,27 @@ const F = {
   domino: fig('domino-invariant','市松模様の盤面とドミノ1枚が黒白1マスずつ覆う図','色分けすると操作で変わらない量を見つけられる',
     `<g>${Array.from({length:32},(_,i)=>{const r=Math.floor(i/8),c=i%8;return `<rect x="${150+c*55}" y="${70+r*55}" width="55" height="55" fill="${(r+c)%2===0?'#e2e8f0':'#64748b'}" stroke="#fff" stroke-width="1"/>`}).join('')}</g><rect x="260" y="125" width="110" height="55" fill="none" stroke="#ea580c" stroke-width="5"/><text x="380" y="335" text-anchor="middle" font-size="21" fill="#475569">ドミノ1枚は黒1・白1を覆う</text>`),
 
+  gridPath: fig('grid-shortest-path','格子上の最短経路を東・北の並びとして表す図','最短経路は必要な東移動と北移動の並べ方に置き換える',
+    `<g stroke="#cbd5e1" stroke-width="2">${Array.from({length:6},(_,i)=>`<line x1="${140+i*90}" y1="80" x2="${140+i*90}" y2="350"/>`).join('')}${Array.from({length:4},(_,i)=>`<line x1="140" y1="${80+i*90}" x2="590" y2="${80+i*90}"/>`).join('')}</g><circle cx="140" cy="350" r="8" fill="#2563eb"/><circle cx="590" cy="80" r="8" fill="#ea580c"/><path d="M140 350 H320 V260 H410 V170 H590 V80" fill="none" stroke="#16a34a" stroke-width="5"/><text x="120" y="380" font-size="20" fill="#2563eb">A</text><text x="605" y="75" font-size="20" fill="#ea580c">B</text><text x="380" y="405" text-anchor="middle" font-size="20" fill="#475569">東・北の順番だけが変わる</text>`),
+
+  parallelSimilarity: fig('parallel-similarity','三角形内の平行線で相似が生じる図','平行線から等しい角を作り相似へつなげる',
+    `<polygon points="120,340 650,340 380,70" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="230" y1="230" x2="540" y2="230" stroke="#2563eb" stroke-width="4"/><text x="195" y="230" font-size="20">D</text><text x="555" y="230" font-size="20">E</text><text x="380" y="55" text-anchor="middle" font-size="20">A</text><text x="95" y="365" font-size="20">B</text><text x="660" y="365" font-size="20">C</text><text x="385" y="205" text-anchor="middle" font-size="20" fill="#2563eb">DE ∥ BC</text>`),
+
+  triangleInequality: fig('triangle-side-angle','三角形の辺の大小と向かいの角の大小を対応させる図','長い辺の向かいの角ほど大きい',
+    `<polygon points="120,330 620,330 430,80" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="120" y1="330" x2="430" y2="80" stroke="#2563eb" stroke-width="5"/><text x="255" y="185" font-size="21" fill="#2563eb">長い辺</text><path d="M570 330 A55 55 0 0 0 548 292" fill="none" stroke="#ea580c" stroke-width="4"/><text x="585" y="285" font-size="21" fill="#ea580c">大きい角</text>`),
+
+  tiling: fig('regular-tiling','正多角形が1点のまわりに集まる敷き詰め図','1点のまわりの内角の和が360°になる必要がある',
+    `<g transform="translate(380 215)">${Array.from({length:6},(_,i)=>{const a=i*Math.PI/3;const x=Math.cos(a)*95,y=Math.sin(a)*95;return `<polygon points="0,0 ${x},${y} ${Math.cos(a+Math.PI/3)*95},${Math.sin(a+Math.PI/3)*95}" fill="${i%2?'#ffedd5':'#dbeafe'}" stroke="#64748b" stroke-width="2"/>`}).join('')}</g><circle cx="380" cy="215" r="6" fill="#1f2937"/><text x="380" y="390" text-anchor="middle" font-size="21" fill="#475569">中心まわりの角の和 = 360°</text>`),
+
+  hypothesis: fig('hypothesis-test-flow','仮説検定の判断手順を示す流れ図','帰無仮説のもとで極端な結果の起こりやすさを調べる',
+    `<g text-anchor="middle" font-size="19" font-weight="700"><rect x="80" y="150" width="160" height="70" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/><text x="160" y="180">帰無仮説を</text><text x="160" y="205">置く</text><rect x="300" y="150" width="160" height="70" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="3"/><text x="380" y="180">極端な結果の</text><text x="380" y="205">割合を求める</text><rect x="520" y="150" width="160" height="70" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/><text x="600" y="180">十分小さいか</text><text x="600" y="205">判断</text></g><path d="M240 185 H300 M460 185 H520" stroke="#94a3b8" stroke-width="3"/><path d="M292 178 l12 7 l-12 7 z M512 178 l12 7 l-12 7 z" fill="#94a3b8"/><text x="380" y="300" text-anchor="middle" font-size="20" fill="#475569">小さい → 偶然だけでは説明しにくい</text>`),
+
+  trigSpecial: fig('trig-special-angles','0°・90°・180°の座標と三角比の符号を示す半円図','半円上の座標で特別角の値と符号を確認する',
+    `<line x1="100" y1="270" x2="660" y2="270" stroke="#334155" stroke-width="2.5"/><line x1="380" y1="65" x2="380" y2="330" stroke="#334155" stroke-width="2.5"/><path d="M180 270 A200 200 0 0 1 580 270" fill="none" stroke="#2563eb" stroke-width="4"/><g fill="#ea580c"><circle cx="580" cy="270" r="8"/><circle cx="380" cy="70" r="8"/><circle cx="180" cy="270" r="8"/></g><g font-size="20" fill="#475569"><text x="600" y="295">0°</text><text x="390" y="55">90°</text><text x="145" y="295">180°</text></g>`),
+
+  heron: fig('heron-triangle','3辺だけが分かっている三角形の模式図','3辺が既知ならヘロンの公式で面積を直接求められる',
+    `<polygon points="120,330 640,330 390,80" fill="none" stroke="#1f2937" stroke-width="4"/><text x="370" y="365" text-anchor="middle" font-size="22">c</text><text x="235" y="205" font-size="22">b</text><text x="520" y="205" font-size="22">a</text><text x="380" y="410" text-anchor="middle" font-size="20" fill="#475569">角を求めず3辺から面積へ</text>`),
+
   stoneGame: fig('stone-game','石取りゲームの残り個数を段階で示す図','負け位置を逆算して4の倍数を相手に渡す',
     `<g fill="#2563eb">${Array.from({length:12},(_,i)=>`<circle cx="${115+(i%6)*95}" cy="${130+Math.floor(i/6)*100}" r="20"/>`).join('')}</g><text x="380" y="320" text-anchor="middle" font-size="22" fill="#475569">残り個数を小さい場合から逆算</text><rect x="250" y="345" width="260" height="45" rx="20" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/><text x="380" y="375" text-anchor="middle" font-size="21" fill="#ea580c">4の倍数が目印</text>`)
 }
@@ -245,6 +266,7 @@ const plans: Record<string, Placement[]> = {
     { topicId:'s1-quadratic-functions-topic-04', figure:F.quadBasic, afterParagraph:1 },
     { topicId:'s1-quadratic-functions-topic-05', figure:F.quadVertex, afterParagraph:1 },
     { topicId:'s1-quadratic-functions-topic-08', figure:F.quadShift, afterParagraph:1 },
+    { topicId:'s2-quadratic-functions-topic-01', figure:F.quadVertex, afterParagraph:1 },
     { topicId:'s2-quadratic-functions-topic-02', figure:F.quadMaxMin, afterParagraph:1 },
     { topicId:'s2-quadratic-functions-topic-03', figure:F.quadMaxMin, afterParagraph:1 },
     { topicId:'s2-quadratic-functions-topic-04', figure:F.quadMaxMin, afterParagraph:1 },
@@ -257,9 +279,11 @@ const plans: Record<string, Placement[]> = {
     { topicId:'s1-geometry-measurement-topic-01', figure:F.trigRight, afterParagraph:1 },
     { topicId:'s2-geometry-measurement-topic-01', figure:F.trigCoordinate, afterParagraph:1 },
     { topicId:'s2-geometry-measurement-topic-02', figure:F.trigCoordinate, afterParagraph:1 },
+    { topicId:'s2-geometry-measurement-topic-03', figure:F.trigSpecial, afterParagraph:1 },
     { topicId:'s3-geometry-measurement-topic-01', figure:F.sineLaw, afterParagraph:1 },
     { topicId:'s3-geometry-measurement-topic-02', figure:F.cosineLaw, afterParagraph:1 },
     { topicId:'s3-geometry-measurement-topic-03', figure:F.triangleArea, afterParagraph:1 },
+    { topicId:'s3-geometry-measurement-topic-05', figure:F.heron, afterParagraph:1 },
     { topicId:'s4-geometry-measurement-topic-01', figure:F.measurement, afterParagraph:1 },
     { topicId:'s4-geometry-measurement-topic-02', figure:F.quadrilateralSplit, afterParagraph:1 },
     { topicId:'s4-geometry-measurement-topic-03', figure:F.spatial, afterParagraph:1 },
@@ -271,19 +295,23 @@ const plans: Record<string, Placement[]> = {
     { topicId:'s1-data-analysis-topic-07', figure:F.scatter, afterParagraph:1 },
     { topicId:'s1-data-analysis-topic-09', figure:F.statsCycle, afterParagraph:1 },
     { topicId:'s1-data-analysis-topic-10', figure:F.outlier, afterParagraph:1 },
+    { topicId:'s1-data-analysis-topic-12', figure:F.hypothesis, afterParagraph:2 },
   ],
   'math-1a-counting-probability': [
     { topicId:'s1-counting-probability-topic-02', figure:F.countTree, afterParagraph:1 },
     { topicId:'s1-counting-probability-topic-04', figure:F.countTree, afterParagraph:1 },
     { topicId:'s2-counting-probability-topic-02', figure:F.circular, afterParagraph:1 },
     { topicId:'s2-counting-probability-topic-03', figure:F.choose, afterParagraph:1 },
+    { topicId:'s2-counting-probability-topic-04', figure:F.gridPath, afterParagraph:6 },
     { topicId:'s3-counting-probability-topic-01', figure:F.sampleSpace, afterParagraph:1 },
     { topicId:'s3-counting-probability-topic-04', figure:F.complementProb, afterParagraph:1 },
     { topicId:'s4-counting-probability-topic-02', figure:F.probTree, afterParagraph:1 },
     { topicId:'s4-counting-probability-topic-03', figure:F.probTree, afterParagraph:1 },
     { topicId:'s4-counting-probability-topic-06', figure:F.probTree, afterParagraph:1 },
+    { topicId:'s4-counting-probability-topic-07', figure:F.probTree, afterParagraph:1 },
   ],
   'math-1a-geometric-properties': [
+    { topicId:'s1-geometric-properties-topic-01', figure:F.parallelSimilarity, afterParagraph:2 },
     { topicId:'s1-geometric-properties-topic-02', figure:F.internalExternal, afterParagraph:1 },
     { topicId:'s1-geometric-properties-topic-03', figure:F.angleBisector, afterParagraph:1 },
     { topicId:'s1-geometric-properties-topic-04', figure:F.centroid, afterParagraph:1 },
@@ -292,6 +320,7 @@ const plans: Record<string, Placement[]> = {
     { topicId:'s1-geometric-properties-topic-07', figure:F.ceva, afterParagraph:1 },
     { topicId:'s1-geometric-properties-topic-08', figure:F.menelaus, afterParagraph:1 },
     { topicId:'s1-geometric-properties-topic-09', figure:F.ceva, afterParagraph:1 },
+    { topicId:'s1-geometric-properties-topic-10', figure:F.triangleInequality, afterParagraph:1 },
     { topicId:'s2-geometric-properties-topic-01', figure:F.cyclic, afterParagraph:1 },
     { topicId:'s2-geometric-properties-topic-02', figure:F.cyclicQuad, afterParagraph:1 },
     { topicId:'s2-geometric-properties-topic-03', figure:F.tangentChord, afterParagraph:1 },
@@ -309,6 +338,7 @@ const plans: Record<string, Placement[]> = {
     { topicId:'s1-human-activities-topic-10', figure:F.earth, afterParagraph:1 },
     { topicId:'s2-human-activities-topic-01', figure:F.domino, afterParagraph:1 },
     { topicId:'s2-human-activities-topic-02', figure:F.stoneGame, afterParagraph:1 },
+    { topicId:'s2-human-activities-topic-02', figure:F.tiling, afterParagraph:4 },
   ],
 }
 
