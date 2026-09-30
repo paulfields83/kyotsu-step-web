@@ -46,6 +46,7 @@ function PracticeBlank({
   onActivate,
   onExplain,
   onSubmit,
+  isOpen,
 }: {
   question: Question
   session: LearningSession
@@ -54,12 +55,12 @@ function PracticeBlank({
   onActivate: (blankId: string) => void
   onExplain: (blankId: string) => void
   onSubmit: (blankId: string, selectedOptionIds: string[]) => void
+  isOpen: boolean
 }) {
   const { text } = useI18n()
   const [multiSelection, setMultiSelection] = useState<string[]>([])
   const answer = session.answers[blank.id]
   const resolved = isLearningAnswerResolved(answer)
-  const isActive = session.activeBlankId === blank.id
   const prompt = splitBlankPrompt(blank.prompt)
   const selectedWrong = !resolved ? (answer?.lastSelectedOptionIds ?? answer?.firstSelectedOptionIds ?? []) : []
   const correctId = blank.correctOptionIds[0]
@@ -79,7 +80,7 @@ function PracticeBlank({
   }
 
   return (
-    <div className={`practice-blank-block${isActive ? ' practice-blank-block--active' : ''}`} data-testid={`practice-block-${blank.id}`}>
+    <div className={`practice-blank-block${isOpen ? ' practice-blank-block--active' : ''}`} data-testid={`practice-block-${blank.id}`}>
       <div className="practice-blank-line">
         {prompt.before && <span>{prompt.before}</span>}
         {resolved ? (
@@ -93,7 +94,7 @@ function PracticeBlank({
             data-testid={`blank-${blank.id}`}
             className={`reading-inline-blank${answer ? ' reading-inline-blank--wrong' : ''}`}
             onClick={() => onActivate(blank.id)}
-            aria-expanded={isActive}
+            aria-expanded={isOpen}
           >
             {answer ? <X size={14} aria-hidden="true" /> : <Circle size={13} aria-hidden="true" />}
             <span>{prompt.marker || blankNumber}</span>
@@ -103,7 +104,7 @@ function PracticeBlank({
         {prompt.after && <span>{prompt.after}</span>}
       </div>
 
-      {!resolved && isActive && (
+      {!resolved && isOpen && (
         <div className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${blank.id}`}>
           <div className="reading-inline-choice-panel__head">
             <strong>{text(`空欄 ${blankNumber}`, `填空 ${blankNumber}`)}</strong>
@@ -122,7 +123,7 @@ function PracticeBlank({
                   onClick={() => submitOption(option.id)}
                 >
                   <span>{String.fromCharCode(65 + index)}</span>
-                  <strong><ContentRenderer blocks={option.content} assets={question.assets} /></strong>
+                  <div className="practice-option-content"><ContentRenderer blocks={option.content} assets={question.assets} /></div>
                 </button>
               )
             })}
@@ -157,16 +158,22 @@ export function LearningFlowRenderer({ question, session, onActivate, onExplain,
 }) {
   const { text } = useI18n()
   const interactive = new Set(question.learning.variants[session.variant])
+  const [openInlineBlankId, setOpenInlineBlankId] = useState<string | null>(null)
   let blankNumber = 0
 
-  const firstUnresolvedBlankId = question.learning.solutionFlow.find((block) =>
+  const firstUnresolvedIndex = question.learning.solutionFlow.findIndex((block) =>
     block.type === 'blank'
     && interactive.has(block.blankId)
     && !isLearningAnswerResolved(session.answers[block.blankId]),
   )
-  const cutoffIndex = inlineChoices && firstUnresolvedBlankId
-    ? question.learning.solutionFlow.findIndex((block) => block.type === 'blank' && block.blankId === firstUnresolvedBlankId.blankId)
+  const cutoffIndex = inlineChoices && firstUnresolvedIndex >= 0
+    ? firstUnresolvedIndex
     : question.learning.solutionFlow.length - 1
+
+  const activateInline = (blankId: string) => {
+    setOpenInlineBlankId((current) => current === blankId ? null : blankId)
+    onActivate(blankId)
+  }
 
   return (
     <div className={`learning-flow${inlineChoices ? ' learning-flow--practice' : ''}`} aria-label={text('連続解答', '连续解答')}>
@@ -191,9 +198,10 @@ export function LearningFlowRenderer({ question, session, onActivate, onExplain,
               session={session}
               blank={blank}
               blankNumber={blankNumber}
-              onActivate={onActivate}
+              onActivate={activateInline}
               onExplain={onExplain}
               onSubmit={onSubmitInline}
+              isOpen={openInlineBlankId === blank.id}
             />
           )
         }
