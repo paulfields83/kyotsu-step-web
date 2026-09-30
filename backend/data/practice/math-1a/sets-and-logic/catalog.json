@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "1.0",
+  "subject": "math-1a",
+  "course": "math-i",
+  "majorUnit": {
+    "id": "sets-and-logic",
+    "label": "集合と命題",
+    "order": 3
+  },
+  "subcategories": [
+    {
+      "id": "set-basics",
+      "label": "集合の基本",
+      "order": 1,
+      "problemTypes": [
+        {
+          "id": "elements-and-subsets",
+          "label": "要素・部分集合",
+          "order": 1
+        },
+        {
+          "id": "set-notation",
+          "label": "集合の表し方",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "set-operations",
+      "label": "集合の演算",
+      "order": 2,
+      "problemTypes": [
+        {
+          "id": "intersection-and-union",
+          "label": "共通部分・和集合",
+          "order": 1
+        },
+        {
+          "id": "complement",
+          "label": "補集合",
+          "order": 2
+        },
+        {
+          "id": "de-morgan",
+          "label": "ド・モルガンの法則",
+          "order": 3
+        },
+        {
+          "id": "compound-set-operations",
+          "label": "集合演算の総合",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "set-regions",
+      "label": "集合の領域",
+      "order": 3,
+      "problemTypes": [
+        {
+          "id": "venn-regions",
+          "label": "ベン図と領域",
+          "order": 1
+        },
+        {
+          "id": "region-reconstruction",
+          "label": "領域から集合を復元",
+          "order": 2
+        },
+        {
+          "id": "cardinality",
+          "label": "要素数",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "propositions",
+      "label": "命題と条件",
+      "order": 4,
+      "problemTypes": [
+        {
+          "id": "truth-value",
+          "label": "命題の真偽",
+          "order": 1
+        },
+        {
+          "id": "conditions",
+          "label": "条件",
+          "order": 2
+        },
+        {
+          "id": "counterexample",
+          "label": "反例",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "necessary-sufficient",
+      "label": "必要条件・十分条件",
+      "order": 5,
+      "problemTypes": [
+        {
+          "id": "solution-set-inclusion",
+          "label": "解集合と包含関係",
+          "order": 1
+        },
+        {
+          "id": "inequality-conditions",
+          "label": "不等式・絶対値条件",
+          "order": 2
+        },
+        {
+          "id": "parameter-conditions",
+          "label": "文字・パラメータを含む条件",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "proposition-negation",
+      "label": "命題の否定",
+      "order": 6,
+      "problemTypes": [
+        {
+          "id": "basic-negation",
+          "label": "命題の否定",
+          "order": 1
+        },
+        {
+          "id": "quantified-negation",
+          "label": "「すべて」「ある」の否定",
+          "order": 2
+        },
+        {
+          "id": "quantified-negation-and-counterexample",
+          "label": "否定と反例による真偽判定",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "converse-inverse-contrapositive",
+      "label": "逆・裏・対偶",
+      "order": 7,
+      "problemTypes": [
+        {
+          "id": "identify-transformations",
+          "label": "逆・裏・対偶を作る",
+          "order": 1
+        },
+        {
+          "id": "truth-values-of-transformations",
+          "label": "逆・裏・対偶の真偽",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "proofs",
+      "label": "証明",
+      "order": 8,
+      "problemTypes": [
+        {
+          "id": "contrapositive-proof",
+          "label": "対偶による証明",
+          "order": 1
+        },
+        {
+          "id": "contradiction-proof",
+          "label": "背理法",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}
