@@ -7,12 +7,17 @@ import { defs5 } from './setsPropositionsDefs5'
 import { defs6 } from './setsPropositionsDefs6'
 import type { SectionDef } from './setsPropositionsTypes'
 
-const svgData = (svg: string) => `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`
 const figures: Record<string,{src:string;alt:string;caption:string}> = {
-  venn:{src:svgData(`<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360"><rect width="100%" height="100%" fill="white"/><circle cx="315" cy="180" r="120" fill="none" stroke="#222" stroke-width="4"/><circle cx="445" cy="180" r="120" fill="none" stroke="#222" stroke-width="4"/><text x="245" y="80" font-size="34">A</text><text x="500" y="80" font-size="34">B</text><text x="380" y="190" text-anchor="middle" font-size="28">A∩B</text></svg>`),alt:'集合 A・B と共通部分 A∩B の模式図',caption:'共通部分 A∩B のイメージ'},
-  numline:{src:svgData(`<svg xmlns="http://www.w3.org/2000/svg" width="920" height="260" viewBox="0 0 920 260"><rect width="100%" height="100%" fill="white"/><line x1="70" y1="130" x2="850" y2="130" stroke="#222" stroke-width="3"/><line x1="150" y1="72" x2="650" y2="72" stroke="#3574b8" stroke-width="12"/><circle cx="150" cy="72" r="10" fill="white" stroke="#222" stroke-width="3"/><circle cx="650" cy="72" r="10" fill="white" stroke="#222" stroke-width="3"/><text x="400" y="48" text-anchor="middle" font-size="26">A : −3&lt;x&lt;4</text><line x1="250" y1="218" x2="750" y2="218" stroke="#d06b3c" stroke-width="12"/><circle cx="250" cy="218" r="10" fill="#222"/><circle cx="750" cy="218" r="10" fill="#222"/><text x="500" y="248" text-anchor="middle" font-size="26">B : −2≦x≦5</text></svg>`),alt:'区間 A と B を重ねた数直線',caption:'区間の共通部分・和集合を数直線で確認する'},
-  'section1-q2-diagrams':{src:svgData(`<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520"><rect width="100%" height="100%" fill="white"/><text x="130" y="45" font-size="28">①</text><text x="380" y="45" font-size="28">②</text><text x="630" y="45" font-size="28">③</text><text x="880" y="45" font-size="28">④</text><g transform="translate(20,70)"><circle cx="65" cy="160" r="50" fill="none" stroke="#3574b8" stroke-width="4"/><circle cx="160" cy="160" r="50" fill="none" stroke="#d06b3c" stroke-width="4"/></g><g transform="translate(270,70)"><circle cx="90" cy="160" r="70" fill="none" stroke="#3574b8" stroke-width="4"/><circle cx="145" cy="160" r="70" fill="none" stroke="#d06b3c" stroke-width="4"/></g><g transform="translate(520,70)"><circle cx="110" cy="160" r="95" fill="none" stroke="#3574b8" stroke-width="4"/><circle cx="110" cy="160" r="48" fill="none" stroke="#d06b3c" stroke-width="4"/></g><g transform="translate(770,70)"><circle cx="110" cy="160" r="95" fill="none" stroke="#d06b3c" stroke-width="4"/><circle cx="110" cy="160" r="48" fill="none" stroke="#3574b8" stroke-width="4"/></g></svg>`),alt:'包含関係を選ぶ4つの模式図',caption:'第1節節末2の選択図'},
-  'q14-counterexample':{src:svgData(`<svg xmlns="http://www.w3.org/2000/svg" width="620" height="460" viewBox="0 0 620 460"><rect width="100%" height="100%" fill="white"/><polygon points="145,90 455,135 520,345 80,300" fill="none" stroke="#222" stroke-width="5"/><line x1="145" y1="90" x2="520" y2="345" stroke="#3574b8" stroke-width="4"/><line x1="455" y1="135" x2="80" y2="300" stroke="#d06b3c" stroke-width="4"/><text x="310" y="420" text-anchor="middle" font-size="26">AC = BD でも、長方形とは限らない</text></svg>`),alt:'AC=BD でも長方形ではない反例図',caption:'問14の反例図'},
+  venn:{src:'assets/venn.svg',alt:'集合 A・B と共通部分 A∩B の模式図',caption:'共通部分 A∩B と和集合 A∪B の位置関係'},
+  numline:{src:'assets/numline.svg',alt:'区間 A と B を上下に並べた数直線',caption:'区間の端点と包含を数直線で確認する'},
+  'section1-q2-diagrams':{src:'assets/section1-q2-diagrams.svg',alt:'包含関係を選ぶ4つの模式図',caption:'包含関係を図に読み替える'},
+  'q14-counterexample':{src:'assets/q14-counterexample.svg',alt:'対角線が等しいが長方形ではない二等辺台形',caption:'AC=BD でも長方形とは限らない反例'},
+  'subset-relationship':{src:'assets/subset-relationship.svg',alt:'内側の集合が外側の集合に含まれる包含関係の模式図',caption:'部分集合は「内側の集合の全要素が外側にも入る」と読む'},
+  'three-set-venn':{src:'assets/three-set-venn.svg',alt:'集合 A・B・C の3集合ベン図',caption:'3集合すべてに共通する領域を確認する'},
+  'complement-region':{src:'assets/complement-region.svg',alt:'全体集合 U の中で集合 A の外側を示す模式図',caption:'補集合は全体集合 U の中で A に入らない部分'},
+  demorgan:{src:'assets/demorgan.svg',alt:'ド・モルガンの法則の両辺が同じ領域になることを示す図',caption:'A∩B の補集合と Ā∪B̄ が同じ領域になる'},
+  'condition-counterexample':{src:'assets/condition-counterexample.svg',alt:'命題が真の場合の集合関係と反例の位置を示す模式図',caption:'命題の真偽を「仮定の範囲」と「結論の範囲」で見る'},
+  'negation-numberline':{src:'assets/negation-numberline.svg',alt:'x≦a とその否定 x>a を示す数直線',caption:'否定では境界 a の含み方も反転する'},
 }
 const defs: SectionDef[] = [...defs1,...defs2,...defs3,...defs4,...defs5,...defs6]
 
@@ -142,7 +147,7 @@ const sections:TextbookSection[]=sectionGroups.map((group)=>{
 export const strictSetsPropositionsUnit:TextbookUnit=TextbookUnitSchema.parse({
   schemaVersion:'1.0',
   unitId:'math-1a-sets-propositions',
-  revision:3,
+  revision:4,
   status:'published',
   subject:'math-1a',
   title:'数学I 集合と命題',
