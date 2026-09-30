@@ -1,5 +1,4 @@
 import { validateQuestionCatalog } from '../domain/questionSchema'
-import { mathSetLogicPracticeQuestions } from './mathSetLogicPractice'
 
 const text = (id: string, value: string) => ({ id, type: 'text' as const, text: value })
 const dialogue = (id: string, speaker: string, value: string) => ({ id, type: 'text' as const, text: value, speaker })
@@ -341,7 +340,6 @@ const rawQuestionsZh = [
     fullExplanation: [text('mg-full-1', '向右的 v 与指向纸面内的 B 得到 v×B 向上；负电荷使磁力反向，所以实际磁力向下。磁力与速度垂直，不改变速率，轨道顺时针弯曲。')],
     relatedQuestions: { sameKnowledge: ['physics-motion-01'], sameMethod: ['physics-motion-01'], reinforcement: ['physics-motion-01'] },
   },
-  ...mathSetLogicPracticeQuestions,
 ]
 
 export const builtInQuestionsZh = validateQuestionCatalog(rawQuestionsZh)
