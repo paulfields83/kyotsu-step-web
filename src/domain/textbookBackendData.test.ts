@@ -170,6 +170,24 @@ describe('backend textbook data', () => {
     }
   })
 
+  it('adds learning figures across published Math I・A units', () => {
+    const expectedUnits = [
+      'math-1a-numbers-expressions',
+      'math-1a-quadratic-functions',
+      'math-1a-geometry-measurement',
+      'math-1a-data-analysis',
+      'math-1a-counting-probability',
+      'math-1a-geometric-properties',
+      'math-1a-human-activities',
+    ]
+    for (const unitId of expectedUnits) {
+      const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId)!
+      const figureBlocks = loaded.unit.sections.flatMap((section) => section.readingFlow).filter((block) => block.type === 'figure')
+      expect(figureBlocks.length).toBeGreaterThan(0)
+      expect(loaded.unit.sections.flatMap((section) => section.figures).every((figure) => figure.src.startsWith('data:image/svg+xml'))).toBe(true)
+    }
+  })
+
   it('keeps 集合と命題 figures as backend SVG assets', () => {
     const sets = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-sets-propositions')!
     const figures = sets.unit.sections.flatMap((section) => section.figures)
