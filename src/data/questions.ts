@@ -1,5 +1,4 @@
 import { validateQuestionCatalog } from '../domain/questionSchema'
-import { mathSetLogicPracticeQuestions } from './mathSetLogicPractice'
 
 const text = (id: string, value: string) => ({ id, type: 'text' as const, text: value })
 const dialogue = (id: string, speaker: string, value: string) => ({ id, type: 'text' as const, text: value, speaker })
@@ -341,7 +340,6 @@ const rawQuestions = [
     fullExplanation: [text('mg-full-1', '右向き v と紙面奥向き B では v×B は上向き。負電荷なので力は下向きです。磁気力は速度に垂直で仕事をしないため速さは一定、軌道は時計回りに曲がります。')],
     relatedQuestions: { sameKnowledge: ['physics-motion-01'], sameMethod: ['physics-motion-01'], reinforcement: ['physics-motion-01'] },
   },
-  ...mathSetLogicPracticeQuestions,
 ]
 
 export const builtInQuestions = validateQuestionCatalog(rawQuestions)
