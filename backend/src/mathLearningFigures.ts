@@ -370,10 +370,15 @@ export function applyMathLearningFigures(unit: TextbookUnit): TextbookUnit {
       paragraphCount += 1
       const after = sectionPlans
         .filter((plan) => plan.topicId === currentTopic && (plan.afterParagraph ?? 1) === paragraphCount)
-        .filter((plan) => !inserted.has(plan.figure.id))
+        .filter((plan) => !inserted.has(`${plan.topicId}:${plan.figure.id}:${plan.afterParagraph ?? 1}`))
       for (const plan of after) {
-        inserted.add(plan.figure.id)
-        readingFlow.push({ id: `figure-${plan.figure.id}`, type: 'figure', figureId: plan.figure.id })
+        const placementKey = `${plan.topicId}:${plan.figure.id}:${plan.afterParagraph ?? 1}`
+        inserted.add(placementKey)
+        readingFlow.push({
+          id: `figure-${plan.topicId}-${plan.figure.id}`,
+          type: 'figure',
+          figureId: plan.figure.id,
+        })
       }
     }
 
