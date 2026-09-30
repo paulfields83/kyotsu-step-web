@@ -11,14 +11,15 @@ type BlankState = PracticeAnswerResult & {
   selectedLabel: string
 }
 
-function splitPrompt(prompt: string) {
-  const match = prompt.match(/【[^】]+】/)
-  if (!match || match.index === undefined) return { before: prompt, marker: '□', after: '' }
-  return {
-    before: prompt.slice(0, match.index),
-    marker: match[0].slice(1, -1),
-    after: prompt.slice(match.index + match[0].length),
-  }
+const circledMarkers = ['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩','⑪','⑫','⑬','⑭','⑮','⑯','⑰','⑱','⑲','⑳']
+
+function promptParts(prompt: string) {
+  return prompt.split(/(【[^】]+】)/g).filter(Boolean)
+}
+
+function markerValue(part: string) {
+  const match = part.match(/^【([^】]+)】$/)
+  return match?.[1]
 }
 
 function PracticeBlankLine({
@@ -29,6 +30,8 @@ function PracticeBlankLine({
   busy,
   onToggle,
   onAnswered,
+  currentMarker,
+  resolvedLabelsByMarker,
 }: {
   questionId: string
   blank: PublicPracticeBlank
@@ -37,9 +40,16 @@ function PracticeBlankLine({
   busy: boolean
   onToggle: () => void
   onAnswered: (blankId: string, state: BlankState) => void
+  currentMarker: string
+  resolvedLabelsByMarker: Record<string, string>
 }) {
   const { text } = useI18n()
-  const prompt = splitPrompt(blank.prompt)
+  const parts = promptParts(blank.prompt)
+  const resolvedPrompt = parts.map((part) => {
+    const marker = markerValue(part)
+    if (!marker || marker === currentMarker) return part
+    return resolvedLabelsByMarker[marker] ?? part
+  }).join('')
 
   const choose = async (optionId: string) => {
     if (busy || answer?.resolved) return
@@ -52,26 +62,40 @@ function PracticeBlankLine({
   return (
     <div className={`practice-blank-block${open ? ' practice-blank-block--active' : ''}`}>
       <div className="practice-blank-line">
-        {prompt.before && <span>{prompt.before}</span>}
-        {answer?.resolved ? (
-          <span className="reading-inline-answer">
-            <Check size={14} aria-hidden="true" />
-            <strong>{answer.selectedLabel}</strong>
-          </span>
-        ) : (
-          <button type="button" className={`reading-inline-blank${answer && !answer.correct ? ' reading-inline-blank--wrong' : ''}`} onClick={onToggle} aria-expanded={open}>
-            {answer && !answer.correct ? <X size={14} aria-hidden="true" /> : <Circle size={13} aria-hidden="true" />}
-            <span>{prompt.marker}</span>
-            <strong>{answer && !answer.correct ? answer.selectedLabel : text('選択', '选择')}</strong>
-          </button>
-        )}
-        {prompt.after && <span>{prompt.after}</span>}
+        {parts.map((part, index) => {
+          const marker = markerValue(part)
+          if (!marker) return <span key={`${blank.id}-text-${index}`}>{part}</span>
+          if (marker !== currentMarker) {
+            const substituted = resolvedLabelsByMarker[marker]
+            return substituted
+              ? <strong key={`${blank.id}-ref-${index}`} className="practice-substituted-value">{substituted}</strong>
+              : <span key={`${blank.id}-ref-${index}`}>{part}</span>
+          }
+          return answer?.resolved ? (
+            <span key={`${blank.id}-current-${index}`} className="reading-inline-answer">
+              <Check size={14} aria-hidden="true" />
+              <strong>{answer.selectedLabel}</strong>
+            </span>
+          ) : (
+            <button
+              type="button"
+              key={`${blank.id}-current-${index}`}
+              className={`reading-inline-blank${answer && !answer.correct ? ' reading-inline-blank--wrong' : ''}`}
+              onClick={onToggle}
+              aria-expanded={open}
+            >
+              {answer && !answer.correct ? <X size={14} aria-hidden="true" /> : <Circle size={13} aria-hidden="true" />}
+              <span>{marker}</span>
+              <strong>{answer && !answer.correct ? answer.selectedLabel : text('選択', '选择')}</strong>
+            </button>
+          )
+        })}
       </div>
 
       {!answer?.resolved && open && (
         <div className="reading-inline-choice-panel">
           <div className="reading-inline-choice-panel__head">
-            <strong>{blank.prompt}</strong>
+            <strong>{resolvedPrompt}</strong>
           </div>
           <div className="reading-choice-options" role="group" aria-label={blank.prompt}>
             {blank.options.map((option, index) => {
@@ -129,6 +153,13 @@ export function PracticeSessionPage() {
   const firstUnresolvedIndex = orderedBlankIds.findIndex((blankId) => !answers[blankId]?.resolved)
   const completedCount = orderedBlankIds.filter((blankId) => answers[blankId]?.resolved).length
   const complete = orderedBlankIds.length > 0 && completedCount === orderedBlankIds.length
+  const resolvedLabelsByMarker = Object.fromEntries(
+    orderedBlankIds.flatMap((blankId, index) => {
+      const marker = circledMarkers[index]
+      const label = answers[blankId]?.resolved ? answers[blankId]?.selectedLabel : undefined
+      return marker && label ? [[marker, label]] : []
+    }),
+  )
 
   if (loading) return <div className="page-stack"><div className="v2-empty-card">{text('問題を読み込んでいます…', '正在读取题目…')}</div></div>
   if (loadError || !question) return (
@@ -188,6 +219,8 @@ export function PracticeSessionPage() {
                       open={openBlankId === blankId}
                       busy={busyBlankId === blankId}
                       onToggle={() => setOpenBlankId((current) => current === blankId ? null : blankId)}
+                      currentMarker={circledMarkers[blankIndex] ?? String(blankIndex + 1)}
+                      resolvedLabelsByMarker={resolvedLabelsByMarker}
                       onAnswered={(id, state) => {
                         setBusyBlankId(id)
                         handleAnswered(id, state)
