@@ -1,0 +1,1967 @@
+{
+  "schemaVersion": "1.0",
+  "questions": [
+    {
+      "schemaVersion": "1.0",
+      "questionId": "math-i-set-practice-q01",
+      "revision": 1,
+      "status": "published",
+      "subject": "math-1a",
+      "course": "math-i",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "set-operations",
+      "problemType": "compound-set-operations",
+      "title": "普通練習｜集合の演算を順序よく整理する",
+      "difficulty": "basic",
+      "source": {
+        "type": "reference",
+        "label": "4STEP 題型参照・Kyotsu Step 再構成",
+        "rightsNote": "題型・操作を参照し、数値・文章・解答の流れは再構成。"
+      },
+      "stem": [
+        {
+          "id": "q01-stem-1",
+          "type": "text",
+          "text": "全体集合を次のように定める。"
+        },
+        {
+          "id": "q01-stem-2",
+          "type": "latex",
+          "latex": "U=\\\\{1,2,3,\\\\ldots,12\\\\}",
+          "display": "block"
+        },
+        {
+          "id": "q01-stem-3",
+          "type": "text",
+          "text": "U の部分集合 A、B を次のように定める。"
+        },
+        {
+          "id": "q01-stem-4",
+          "type": "latex",
+          "latex": "A=\\\\{x\\\\mid x\\\\text{ は12以下の正の偶数}\\\\}",
+          "display": "block"
+        },
+        {
+          "id": "q01-stem-5",
+          "type": "latex",
+          "latex": "B=\\\\{x\\\\mid x\\\\text{ は12以下の正の3の倍数}\\\\}",
+          "display": "block"
+        },
+        {
+          "id": "q01-stem-6",
+          "type": "text",
+          "text": "A∩B、A∪B、Ā、B̄、Ā∩B̄ を求めよ。"
+        }
+      ],
+      "solutionSteps": [
+        {
+          "id": "q01-f1",
+          "dependsOn": [],
+          "basis": [
+            "問題条件"
+          ],
+          "purpose": "集合演算の前に A と B の要素を確定する。",
+          "operation": "条件から要素を列挙",
+          "content": [
+            {
+              "id": "q01-f1-c1",
+              "type": "text",
+              "text": "まず A の要素を列挙する。"
+            }
+          ],
+          "blankIds": [
+            "q01-b1"
+          ]
+        },
+        {
+          "id": "q01-f2",
+          "dependsOn": [
+            "q01-f1"
+          ],
+          "basis": [
+            "問題条件"
+          ],
+          "purpose": "B の要素を確定して A と比較できるようにする。",
+          "operation": "条件から要素を列挙",
+          "content": [
+            {
+              "id": "q01-f2-c1",
+              "type": "text",
+              "text": "次に B の要素を列挙する。"
+            }
+          ],
+          "blankIds": [
+            "q01-b2"
+          ]
+        },
+        {
+          "id": "q01-f3",
+          "dependsOn": [
+            "q01-f1",
+            "q01-f2"
+          ],
+          "basis": [
+            "共通部分の定義"
+          ],
+          "purpose": "A と B の両方に含まれる要素を求める。",
+          "operation": "共通要素を抽出",
+          "content": [
+            {
+              "id": "q01-f3-c1",
+              "type": "text",
+              "text": "両方に現れる要素だけを選ぶ。"
+            }
+          ],
+          "blankIds": [
+            "q01-b3"
+          ]
+        },
+        {
+          "id": "q01-f4",
+          "dependsOn": [
+            "q01-f1",
+            "q01-f2"
+          ],
+          "basis": [
+            "和集合の定義"
+          ],
+          "purpose": "A または B に含まれる要素を求める。",
+          "operation": "重複を除いて統合",
+          "content": [
+            {
+              "id": "q01-f4-c1",
+              "type": "text",
+              "text": "A または B に入る要素を重複なくまとめる。"
+            }
+          ],
+          "blankIds": [
+            "q01-b4"
+          ]
+        },
+        {
+          "id": "q01-f5",
+          "dependsOn": [
+            "q01-f1"
+          ],
+          "basis": [
+            "補集合の定義",
+            "全体集合 U"
+          ],
+          "purpose": "A に入らない要素を求める。",
+          "operation": "U から A を除く",
+          "content": [
+            {
+              "id": "q01-f5-c1",
+              "type": "text",
+              "text": "U から A の要素を除く。"
+            }
+          ],
+          "blankIds": [
+            "q01-b5"
+          ]
+        },
+        {
+          "id": "q01-f6",
+          "dependsOn": [
+            "q01-f2"
+          ],
+          "basis": [
+            "補集合の定義",
+            "全体集合 U"
+          ],
+          "purpose": "B に入らない要素を求める。",
+          "operation": "U から B を除く",
+          "content": [
+            {
+              "id": "q01-f6-c1",
+              "type": "text",
+              "text": "U から B の要素を除く。"
+            }
+          ],
+          "blankIds": [
+            "q01-b6"
+          ]
+        },
+        {
+          "id": "q01-f7",
+          "dependsOn": [
+            "q01-f5",
+            "q01-f6"
+          ],
+          "basis": [
+            "共通部分の定義"
+          ],
+          "purpose": "A にも B にも入らない要素を確定する。",
+          "operation": "補集合どうしの共通部分",
+          "content": [
+            {
+              "id": "q01-f7-c1",
+              "type": "text",
+              "text": "最後に Ā と B̄ の共通部分を取る。"
+            }
+          ],
+          "blankIds": [
+            "q01-b7"
+          ]
+        }
+      ],
+      "blanks": [
+        {
+          "id": "q01-b1",
+          "stepId": "q01-f1",
+          "prompt": "A={【①】}",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q01-b1-a",
+              "label": "2,4,6,8,10,12"
+            },
+            {
+              "id": "q01-b1-b",
+              "label": "1,3,5,7,9,11",
+              "wrongReason": "偶数ではなく奇数を列挙している。"
+            },
+            {
+              "id": "q01-b1-c",
+              "label": "2,3,5,7,11",
+              "wrongReason": "12以下の正の偶数という条件を満たしていない。"
+            },
+            {
+              "id": "q01-b1-d",
+              "label": "3,6,9,12",
+              "wrongReason": "これは3の倍数である。"
+            }
+          ],
+          "correctOptionIds": [
+            "q01-b1-a"
+          ],
+          "explanation": "12以下の正の偶数は 2,4,6,8,10,12。"
+        },
+        {
+          "id": "q01-b2",
+          "stepId": "q01-f2",
+          "prompt": "B={【②】}",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q01-b2-a",
+              "label": "1,2,3,4"
+            },
+            {
+              "id": "q01-b2-b",
+              "label": "3,6,9,12"
+            },
+            {
+              "id": "q01-b2-c",
+              "label": "2,4,6,8,10,12",
+              "wrongReason": "これは偶数の集合 A。"
+            },
+            {
+              "id": "q01-b2-d",
+              "label": "4,8,12",
+              "wrongReason": "3の倍数をすべて含んでいない。"
+            }
+          ],
+          "correctOptionIds": [
+            "q01-b2-b"
+          ],
+          "explanation": "12以下の正の3の倍数は 3,6,9,12。"
+        },
+        {
+          "id": "q01-b3",
+          "stepId": "q01-f3",
+          "prompt": "A∩B=【③】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q01-b3-a",
+              "label": "{2,3}"
+            },
+            {
+              "id": "q01-b3-b",
+              "label": "{6,12}"
+            },
+            {
+              "id": "q01-b3-c",
+              "label": "{3,6,9}"
+            },
+            {
+              "id": "q01-b3-d",
+              "label": "{2,4,6,12}"
+            }
+          ],
+          "correctOptionIds": [
+            "q01-b3-b"
+          ],
+          "explanation": "A と B の両方に含まれるのは 6 と 12。"
+        },
+        {
+          "id": "q01-b4",
+          "stepId": "q01-f4",
+          "prompt": "A∪B=【④】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q01-b4-a",
+              "label": "{6,12}"
+            },
+            {
+              "id": "q01-b4-b",
+              "label": "{1,5,7,11}"
+            },
+            {
+              "id": "q01-b4-c",
+              "label": "{2,3,4,6,8,9,10,12}"
+            },
+            {
+              "id": "q01-b4-d",
+              "label": "{2,3,4,6,8,10,12}"
+            }
+          ],
+          "correctOptionIds": [
+            "q01-b4-c"
+          ],
+          "explanation": "A または B に入る要素を重複なく並べる。"
+        },
+        {
+          "id": "q01-b5",
+          "stepId": "q01-f5",
+          "prompt": "Ā=【⑤】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q01-b5-a",
+              "label": "{2,4,6,8,10,12}"
+            },
+            {
+              "id": "q01-b5-b",
+              "label": "{1,3,5,7,9,11}"
+            },
+            {
+              "id": "q01-b5-c",
+              "label": "{1,2,4,5,7,8,10,11}"
+            },
+            {
+              "id": "q01-b5-d",
+              "label": "{3,6,9,12}"
+            }
+          ],
+          "correctOptionIds": [
+            "q01-b5-b"
+          ],
+          "explanation": "U から A の偶数を除く。"
+        },
+        {
+          "id": "q01-b6",
+          "stepId": "q01-f6",
+          "prompt": "B̄=【⑥】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q01-b6-a",
+              "label": "{1,3,5,7,9,11}"
+            },
+            {
+              "id": "q01-b6-b",
+              "label": "{2,4,6,8,10,12}"
+            },
+            {
+              "id": "q01-b6-c",
+              "label": "{1,5,7,11}"
+            },
+            {
+              "id": "q01-b6-d",
+              "label": "{1,2,4,5,7,8,10,11}"
+            }
+          ],
+          "correctOptionIds": [
+            "q01-b6-d"
+          ],
+          "explanation": "U から 3,6,9,12 を除く。"
+        },
+        {
+          "id": "q01-b7",
+          "stepId": "q01-f7",
+          "prompt": "Ā∩B̄=【⑦】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q01-b7-a",
+              "label": "{6,12}"
+            },
+            {
+              "id": "q01-b7-b",
+              "label": "∅"
+            },
+            {
+              "id": "q01-b7-c",
+              "label": "{1,5,7,11}"
+            },
+            {
+              "id": "q01-b7-d",
+              "label": "{2,3,4,6,8,9,10,12}"
+            }
+          ],
+          "correctOptionIds": [
+            "q01-b7-c"
+          ],
+          "explanation": "A にも B にも入らない要素は 1,5,7,11。"
+        }
+      ],
+      "interaction": {
+        "reveal": "sequential",
+        "options": "inline-expand",
+        "substituteCorrectAnswer": true,
+        "lockFutureSteps": true
+      }
+    },
+    {
+      "schemaVersion": "1.0",
+      "questionId": "math-i-set-practice-q02",
+      "revision": 1,
+      "status": "published",
+      "subject": "math-1a",
+      "course": "math-i",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "set-regions",
+      "problemType": "region-reconstruction",
+      "title": "普通練習｜領域の情報から集合を復元する",
+      "difficulty": "standard",
+      "source": {
+        "type": "reference",
+        "label": "4STEP 題型参照・Kyotsu Step 再構成"
+      },
+      "stem": [
+        {
+          "id": "q02-stem-1",
+          "type": "latex",
+          "latex": "U=\\\\{1,2,3,\\\\ldots,10\\\\}",
+          "display": "block"
+        },
+        {
+          "id": "q02-stem-2",
+          "type": "latex",
+          "latex": "A\\\\cap B=\\\\{2,6\\\\},\\\\quad A\\\\cap\\\\overline{B}=\\\\{4,8,10\\\\}",
+          "display": "block"
+        },
+        {
+          "id": "q02-stem-3",
+          "type": "latex",
+          "latex": "\\\\overline{A}\\\\cap B=\\\\{1,3,9\\\\}",
+          "display": "block"
+        },
+        {
+          "id": "q02-stem-4",
+          "type": "text",
+          "text": "A、B、A∪B、B̄、Ā∩B̄ を求めよ。"
+        }
+      ],
+      "solutionSteps": [
+        {
+          "id": "q02-f1",
+          "dependsOn": [],
+          "basis": [
+            "全体集合 U",
+            "与えられた3領域"
+          ],
+          "purpose": "未確定の「どちらでもない」領域を求める。",
+          "operation": "U から既知の領域を除く",
+          "content": [
+            {
+              "id": "q02-f1-c1",
+              "type": "text",
+              "text": "4領域のうち、まだ与えられていない部分を求める。"
+            }
+          ],
+          "blankIds": [
+            "q02-b1"
+          ]
+        },
+        {
+          "id": "q02-f2",
+          "dependsOn": [
+            "q02-f1"
+          ],
+          "basis": [
+            "A は A∩B と A∩B̄ の和"
+          ],
+          "purpose": "A 全体を復元する。",
+          "operation": "領域を統合",
+          "content": [
+            {
+              "id": "q02-f2-c1",
+              "type": "text",
+              "text": "A に属する2領域を合わせる。"
+            }
+          ],
+          "blankIds": [
+            "q02-b2"
+          ]
+        },
+        {
+          "id": "q02-f3",
+          "dependsOn": [
+            "q02-f1"
+          ],
+          "basis": [
+            "B は A∩B と Ā∩B の和"
+          ],
+          "purpose": "B 全体を復元する。",
+          "operation": "領域を統合",
+          "content": [
+            {
+              "id": "q02-f3-c1",
+              "type": "text",
+              "text": "B に属する2領域を合わせる。"
+            }
+          ],
+          "blankIds": [
+            "q02-b3"
+          ]
+        },
+        {
+          "id": "q02-f4",
+          "dependsOn": [
+            "q02-f2",
+            "q02-f3"
+          ],
+          "basis": [
+            "和集合の定義"
+          ],
+          "purpose": "A または B に属する要素を求める。",
+          "operation": "A と B を統合",
+          "content": [
+            {
+              "id": "q02-f4-c1",
+              "type": "text",
+              "text": "A と B を重複なく合わせる。"
+            }
+          ],
+          "blankIds": [
+            "q02-b4"
+          ]
+        },
+        {
+          "id": "q02-f5",
+          "dependsOn": [
+            "q02-f3"
+          ],
+          "basis": [
+            "補集合の定義"
+          ],
+          "purpose": "B に属さない要素を求める。",
+          "operation": "U から B を除く",
+          "content": [
+            {
+              "id": "q02-f5-c1",
+              "type": "text",
+              "text": "U から B を除く。"
+            }
+          ],
+          "blankIds": [
+            "q02-b5"
+          ]
+        },
+        {
+          "id": "q02-f6",
+          "dependsOn": [
+            "q02-f4"
+          ],
+          "basis": [
+            "補集合の定義"
+          ],
+          "purpose": "A にも B にも属さない領域を確認する。",
+          "operation": "A∪B の補集合",
+          "content": [
+            {
+              "id": "q02-f6-c1",
+              "type": "text",
+              "text": "最後に (A∪B)ᶜ を求めて最初の領域と一致するか確認する。"
+            }
+          ],
+          "blankIds": [
+            "q02-b6"
+          ]
+        }
+      ],
+      "blanks": [
+        {
+          "id": "q02-b1",
+          "stepId": "q02-f1",
+          "prompt": "Ā∩B̄=【①】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q02-b1-a",
+              "label": "{1,3,9}"
+            },
+            {
+              "id": "q02-b1-b",
+              "label": "{5,7}"
+            },
+            {
+              "id": "q02-b1-c",
+              "label": "{4,8,10}"
+            },
+            {
+              "id": "q02-b1-d",
+              "label": "{2,6}"
+            }
+          ],
+          "correctOptionIds": [
+            "q02-b1-b"
+          ],
+          "explanation": "既知の3領域に現れない 5,7 が残る。"
+        },
+        {
+          "id": "q02-b2",
+          "stepId": "q02-f2",
+          "prompt": "A=【②】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q02-b2-a",
+              "label": "{2,4,6,8,10}"
+            },
+            {
+              "id": "q02-b2-b",
+              "label": "{1,2,3,6,9}"
+            },
+            {
+              "id": "q02-b2-c",
+              "label": "{2,6}"
+            },
+            {
+              "id": "q02-b2-d",
+              "label": "{4,8,10}"
+            }
+          ],
+          "correctOptionIds": [
+            "q02-b2-a"
+          ],
+          "explanation": "A∩B̄ と A∩B を合わせる。"
+        },
+        {
+          "id": "q02-b3",
+          "stepId": "q02-f3",
+          "prompt": "B=【③】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q02-b3-a",
+              "label": "{2,4,6,8,10}"
+            },
+            {
+              "id": "q02-b3-b",
+              "label": "{1,3,9}"
+            },
+            {
+              "id": "q02-b3-c",
+              "label": "{1,2,3,6,9}"
+            },
+            {
+              "id": "q02-b3-d",
+              "label": "{2,6}"
+            }
+          ],
+          "correctOptionIds": [
+            "q02-b3-c"
+          ],
+          "explanation": "Ā∩B と A∩B を合わせる。"
+        },
+        {
+          "id": "q02-b4",
+          "stepId": "q02-f4",
+          "prompt": "A∪B=【④】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q02-b4-a",
+              "label": "{2,6}"
+            },
+            {
+              "id": "q02-b4-b",
+              "label": "{1,2,3,4,6,8,9,10}"
+            },
+            {
+              "id": "q02-b4-c",
+              "label": "{4,5,7,8,10}"
+            },
+            {
+              "id": "q02-b4-d",
+              "label": "U"
+            }
+          ],
+          "correctOptionIds": [
+            "q02-b4-b"
+          ],
+          "explanation": "A と B の要素を重複なく合わせる。"
+        },
+        {
+          "id": "q02-b5",
+          "stepId": "q02-f5",
+          "prompt": "B̄=【⑤】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q02-b5-a",
+              "label": "{1,2,3,6,9}"
+            },
+            {
+              "id": "q02-b5-b",
+              "label": "{5,7}"
+            },
+            {
+              "id": "q02-b5-c",
+              "label": "{4,5,7,8,10}"
+            },
+            {
+              "id": "q02-b5-d",
+              "label": "{1,3,4,8,9,10}"
+            }
+          ],
+          "correctOptionIds": [
+            "q02-b5-c"
+          ],
+          "explanation": "U から B={1,2,3,6,9} を除く。"
+        },
+        {
+          "id": "q02-b6",
+          "stepId": "q02-f6",
+          "prompt": "(A∪B)ᶜ=【⑥】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q02-b6-a",
+              "label": "{5,7}"
+            },
+            {
+              "id": "q02-b6-b",
+              "label": "{1,2,3,4,6,8,9,10}"
+            },
+            {
+              "id": "q02-b6-c",
+              "label": "{2,6}"
+            },
+            {
+              "id": "q02-b6-d",
+              "label": "∅"
+            }
+          ],
+          "correctOptionIds": [
+            "q02-b6-a"
+          ],
+          "explanation": "A∪B に含まれないのは 5,7。"
+        }
+      ],
+      "interaction": {
+        "reveal": "sequential",
+        "options": "inline-expand",
+        "substituteCorrectAnswer": true,
+        "lockFutureSteps": true
+      }
+    },
+    {
+      "schemaVersion": "1.0",
+      "questionId": "math-i-logic-practice-q03",
+      "revision": 1,
+      "status": "published",
+      "subject": "math-1a",
+      "course": "math-i",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "necessary-sufficient",
+      "problemType": "solution-set-inclusion",
+      "title": "普通練習｜集合の包含で必要条件と十分条件を判断する",
+      "difficulty": "standard",
+      "source": {
+        "type": "reference",
+        "label": "4STEP 題型参照・Kyotsu Step 再構成"
+      },
+      "stem": [
+        {
+          "id": "q03-stem-1",
+          "type": "text",
+          "text": "x は実数とする。"
+        },
+        {
+          "id": "q03-stem-2",
+          "type": "latex",
+          "latex": "p:\\\\ x=3,\\\\qquad q:\\\\ x^2-5x+6=0",
+          "display": "block"
+        },
+        {
+          "id": "q03-stem-3",
+          "type": "latex",
+          "latex": "r:\\\\ |x-1|<2,\\\\qquad s:\\\\ -1<x<3",
+          "display": "block"
+        },
+        {
+          "id": "q03-stem-4",
+          "type": "text",
+          "text": "p と q、r と s の必要・十分関係を答えよ。"
+        }
+      ],
+      "solutionSteps": [
+        {
+          "id": "q03-f1",
+          "dependsOn": [],
+          "basis": [
+            "条件 q"
+          ],
+          "purpose": "q を集合として比較できる形にする。",
+          "operation": "因数分解",
+          "content": [
+            {
+              "id": "q03-f1-c1",
+              "type": "text",
+              "text": "まず q の二次方程式を因数分解する。"
+            }
+          ],
+          "blankIds": [
+            "q03-b1"
+          ]
+        },
+        {
+          "id": "q03-f2",
+          "dependsOn": [
+            "q03-f1"
+          ],
+          "basis": [
+            "零積の法則"
+          ],
+          "purpose": "q の解集合 Q を確定する。",
+          "operation": "方程式を解く",
+          "content": [
+            {
+              "id": "q03-f2-c1",
+              "type": "text",
+              "text": "q を満たす x を求める。"
+            }
+          ],
+          "blankIds": [
+            "q03-b2"
+          ]
+        },
+        {
+          "id": "q03-f3",
+          "dependsOn": [
+            "q03-f2"
+          ],
+          "basis": [
+            "p の解集合 P={3}"
+          ],
+          "purpose": "必要・十分を包含関係で判断する。",
+          "operation": "集合の包含を比較",
+          "content": [
+            {
+              "id": "q03-f3-c1",
+              "type": "text",
+              "text": "P={3} と Q を比較する。"
+            }
+          ],
+          "blankIds": [
+            "q03-b3",
+            "q03-b4",
+            "q03-b5"
+          ]
+        },
+        {
+          "id": "q03-f4",
+          "dependsOn": [],
+          "basis": [
+            "絶対値不等式の変形"
+          ],
+          "purpose": "r と s が同じ条件か確認する。",
+          "operation": "絶対値不等式を外す",
+          "content": [
+            {
+              "id": "q03-f4-c1",
+              "type": "latex",
+              "latex": "|x-1|<2\\\\iff -1<x<3",
+              "display": "block"
+            }
+          ],
+          "blankIds": [
+            "q03-b6"
+          ]
+        }
+      ],
+      "blanks": [
+        {
+          "id": "q03-b1",
+          "stepId": "q03-f1",
+          "prompt": "x²−5x+6=【①】=0",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q03-b1-a",
+              "label": "(x−2)(x−3)"
+            },
+            {
+              "id": "q03-b1-b",
+              "label": "(x+2)(x+3)"
+            },
+            {
+              "id": "q03-b1-c",
+              "label": "(x−1)(x−6)"
+            },
+            {
+              "id": "q03-b1-d",
+              "label": "(x−2)(x+3)"
+            }
+          ],
+          "correctOptionIds": [
+            "q03-b1-a"
+          ],
+          "explanation": "積が6、和が−5になる組は −2 と −3。"
+        },
+        {
+          "id": "q03-b2",
+          "stepId": "q03-f2",
+          "prompt": "Q=【②】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q03-b2-a",
+              "label": "{3}"
+            },
+            {
+              "id": "q03-b2-b",
+              "label": "{−2,−3}"
+            },
+            {
+              "id": "q03-b2-c",
+              "label": "{1,6}"
+            },
+            {
+              "id": "q03-b2-d",
+              "label": "{2,3}"
+            }
+          ],
+          "correctOptionIds": [
+            "q03-b2-d"
+          ],
+          "explanation": "(x−2)(x−3)=0 より x=2,3。"
+        },
+        {
+          "id": "q03-b3",
+          "stepId": "q03-f3",
+          "prompt": "P と Q の包含関係：【③】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q03-b3-a",
+              "label": "Q⊂P"
+            },
+            {
+              "id": "q03-b3-b",
+              "label": "P⊂Q"
+            },
+            {
+              "id": "q03-b3-c",
+              "label": "P=Q"
+            },
+            {
+              "id": "q03-b3-d",
+              "label": "P∩Q=∅"
+            }
+          ],
+          "correctOptionIds": [
+            "q03-b3-b"
+          ],
+          "explanation": "P={3} のすべての要素は Q={2,3} に含まれる。"
+        },
+        {
+          "id": "q03-b4",
+          "stepId": "q03-f3",
+          "prompt": "p は q であるための【④】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q03-b4-a",
+              "label": "必要条件だが十分条件ではない"
+            },
+            {
+              "id": "q03-b4-b",
+              "label": "必要十分条件"
+            },
+            {
+              "id": "q03-b4-c",
+              "label": "十分条件だが必要条件ではない"
+            },
+            {
+              "id": "q03-b4-d",
+              "label": "必要条件でも十分条件でもない"
+            }
+          ],
+          "correctOptionIds": [
+            "q03-b4-c"
+          ],
+          "explanation": "p⇒q は真、q⇒p は x=2 が反例。"
+        },
+        {
+          "id": "q03-b5",
+          "stepId": "q03-f3",
+          "prompt": "q⇒p の反例：【⑤】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q03-b5-a",
+              "label": "x=2"
+            },
+            {
+              "id": "q03-b5-b",
+              "label": "x=3"
+            },
+            {
+              "id": "q03-b5-c",
+              "label": "x=0"
+            },
+            {
+              "id": "q03-b5-d",
+              "label": "x=6"
+            }
+          ],
+          "correctOptionIds": [
+            "q03-b5-a"
+          ],
+          "explanation": "x=2 は q を満たすが p:x=3 は満たさない。"
+        },
+        {
+          "id": "q03-b6",
+          "stepId": "q03-f4",
+          "prompt": "r は s であるための【⑥】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q03-b6-a",
+              "label": "十分条件だが必要条件ではない"
+            },
+            {
+              "id": "q03-b6-b",
+              "label": "必要条件だが十分条件ではない"
+            },
+            {
+              "id": "q03-b6-c",
+              "label": "必要条件でも十分条件でもない"
+            },
+            {
+              "id": "q03-b6-d",
+              "label": "必要十分条件"
+            }
+          ],
+          "correctOptionIds": [
+            "q03-b6-d"
+          ],
+          "explanation": "r と s は同じ解集合を表す。"
+        }
+      ],
+      "interaction": {
+        "reveal": "sequential",
+        "options": "inline-expand",
+        "substituteCorrectAnswer": true,
+        "lockFutureSteps": true
+      }
+    },
+    {
+      "schemaVersion": "1.0",
+      "questionId": "math-i-logic-practice-q04",
+      "revision": 1,
+      "status": "published",
+      "subject": "math-1a",
+      "course": "math-i",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "proposition-negation",
+      "problemType": "quantified-negation-and-counterexample",
+      "title": "普通練習｜「すべて」と「ある」を含む命題を否定する",
+      "difficulty": "standard",
+      "source": {
+        "type": "reference",
+        "label": "4STEP 題型参照・Kyotsu Step 再構成"
+      },
+      "stem": [
+        {
+          "id": "q04-stem-1",
+          "type": "text",
+          "text": "次の命題について、否定を述べ、もとの命題の真偽を調べよ。"
+        },
+        {
+          "id": "q04-stem-2",
+          "type": "text",
+          "text": "(1) すべての実数 x について"
+        },
+        {
+          "id": "q04-stem-3",
+          "type": "latex",
+          "latex": "x^2-4x+5>0",
+          "display": "block"
+        },
+        {
+          "id": "q04-stem-4",
+          "type": "text",
+          "text": "(2) すべての実数 x について"
+        },
+        {
+          "id": "q04-stem-5",
+          "type": "latex",
+          "latex": "x^2\\\\ge x",
+          "display": "block"
+        }
+      ],
+      "solutionSteps": [
+        {
+          "id": "q04-f1",
+          "dependsOn": [],
+          "basis": [
+            "量化命題の否定"
+          ],
+          "purpose": "(1) の否定を正確に作る。",
+          "operation": "「すべて」を「ある」に変え述語を否定",
+          "content": [
+            {
+              "id": "q04-f1-c1",
+              "type": "text",
+              "text": "「すべての x について p」の否定は「ある x について p でない」。"
+            }
+          ],
+          "blankIds": [
+            "q04-b1"
+          ]
+        },
+        {
+          "id": "q04-f2",
+          "dependsOn": [],
+          "basis": [
+            "平方完成"
+          ],
+          "purpose": "(1) の式が常に正か判定する。",
+          "operation": "平方完成",
+          "content": [
+            {
+              "id": "q04-f2-c1",
+              "type": "text",
+              "text": "式を平方完成して最小値を調べる。"
+            }
+          ],
+          "blankIds": [
+            "q04-b2",
+            "q04-b3"
+          ]
+        },
+        {
+          "id": "q04-f3",
+          "dependsOn": [],
+          "basis": [
+            "量化命題の否定"
+          ],
+          "purpose": "(2) の否定を作る。",
+          "operation": "不等号を否定",
+          "content": [
+            {
+              "id": "q04-f3-c1",
+              "type": "text",
+              "text": "(2) も同じ規則で否定する。"
+            }
+          ],
+          "blankIds": [
+            "q04-b4"
+          ]
+        },
+        {
+          "id": "q04-f4",
+          "dependsOn": [
+            "q04-f3"
+          ],
+          "basis": [
+            "反例"
+          ],
+          "purpose": "元の命題が偽であることを示す。",
+          "operation": "否定を満たす具体例を探す",
+          "content": [
+            {
+              "id": "q04-f4-c1",
+              "type": "text",
+              "text": "否定を満たす x を一つ見つける。"
+            }
+          ],
+          "blankIds": [
+            "q04-b5",
+            "q04-b6"
+          ]
+        }
+      ],
+      "blanks": [
+        {
+          "id": "q04-b1",
+          "stepId": "q04-f1",
+          "prompt": "(1) の否定：ある実数 x について【①】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q04-b1-a",
+              "label": "x²−4x+5<0"
+            },
+            {
+              "id": "q04-b1-b",
+              "label": "x²−4x+5≧0"
+            },
+            {
+              "id": "q04-b1-c",
+              "label": "x²−4x+5≦0"
+            },
+            {
+              "id": "q04-b1-d",
+              "label": "x²−4x+5=0"
+            }
+          ],
+          "correctOptionIds": [
+            "q04-b1-c"
+          ],
+          "explanation": ">0 の否定は ≦0。"
+        },
+        {
+          "id": "q04-b2",
+          "stepId": "q04-f2",
+          "prompt": "x²−4x+5=【②】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q04-b2-a",
+              "label": "(x−2)²+1"
+            },
+            {
+              "id": "q04-b2-b",
+              "label": "(x−2)²−1"
+            },
+            {
+              "id": "q04-b2-c",
+              "label": "(x+2)²+1"
+            },
+            {
+              "id": "q04-b2-d",
+              "label": "x(x−4)+5"
+            }
+          ],
+          "correctOptionIds": [
+            "q04-b2-a"
+          ],
+          "explanation": "x²−4x+5=(x−2)²+1。"
+        },
+        {
+          "id": "q04-b3",
+          "stepId": "q04-f2",
+          "prompt": "(1) のもとの命題は【③】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q04-b3-a",
+              "label": "偽"
+            },
+            {
+              "id": "q04-b3-b",
+              "label": "真"
+            },
+            {
+              "id": "q04-b3-c",
+              "label": "判断できない"
+            },
+            {
+              "id": "q04-b3-d",
+              "label": "x=2のときだけ真"
+            }
+          ],
+          "correctOptionIds": [
+            "q04-b3-b"
+          ],
+          "explanation": "(x−2)²+1 は常に 1 以上。"
+        },
+        {
+          "id": "q04-b4",
+          "stepId": "q04-f3",
+          "prompt": "(2) の否定：ある実数 x について【④】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q04-b4-a",
+              "label": "x²≦x"
+            },
+            {
+              "id": "q04-b4-b",
+              "label": "x²>x"
+            },
+            {
+              "id": "q04-b4-c",
+              "label": "x²=x"
+            },
+            {
+              "id": "q04-b4-d",
+              "label": "x²<x"
+            }
+          ],
+          "correctOptionIds": [
+            "q04-b4-d"
+          ],
+          "explanation": "x²≧x の否定は x²<x。"
+        },
+        {
+          "id": "q04-b5",
+          "stepId": "q04-f4",
+          "prompt": "反例：x=【⑤】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q04-b5-a",
+              "label": "1/2"
+            },
+            {
+              "id": "q04-b5-b",
+              "label": "0"
+            },
+            {
+              "id": "q04-b5-c",
+              "label": "1"
+            },
+            {
+              "id": "q04-b5-d",
+              "label": "2"
+            }
+          ],
+          "correctOptionIds": [
+            "q04-b5-a"
+          ],
+          "explanation": "x=1/2 なら 1/4<1/2。"
+        },
+        {
+          "id": "q04-b6",
+          "stepId": "q04-f4",
+          "prompt": "(2) のもとの命題は【⑥】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q04-b6-a",
+              "label": "真"
+            },
+            {
+              "id": "q04-b6-b",
+              "label": "必要十分"
+            },
+            {
+              "id": "q04-b6-c",
+              "label": "偽"
+            },
+            {
+              "id": "q04-b6-d",
+              "label": "反例なし"
+            }
+          ],
+          "correctOptionIds": [
+            "q04-b6-c"
+          ],
+          "explanation": "反例が1つあるので「すべての実数」についての命題は偽。"
+        }
+      ],
+      "interaction": {
+        "reveal": "sequential",
+        "options": "inline-expand",
+        "substituteCorrectAnswer": true,
+        "lockFutureSteps": true
+      }
+    },
+    {
+      "schemaVersion": "1.0",
+      "questionId": "math-i-proof-practice-q05",
+      "revision": 1,
+      "status": "published",
+      "subject": "math-1a",
+      "course": "math-i",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "proofs",
+      "problemType": "contrapositive-proof",
+      "title": "普通練習｜対偶を用いて整数の命題を証明する",
+      "difficulty": "standard",
+      "source": {
+        "type": "reference",
+        "label": "4STEP 題型参照・Kyotsu Step 再構成"
+      },
+      "stem": [
+        {
+          "id": "q05-stem-1",
+          "type": "text",
+          "text": "整数 n について、次の命題を対偶を用いて証明せよ。"
+        },
+        {
+          "id": "q05-stem-2",
+          "type": "latex",
+          "latex": "n^2\\\\text{ が4の倍数}\\\\;\\\\Longrightarrow\\\\; n\\\\text{ は偶数}",
+          "display": "block"
+        }
+      ],
+      "solutionSteps": [
+        {
+          "id": "q05-f1",
+          "dependsOn": [],
+          "basis": [
+            "命題と対偶は同値"
+          ],
+          "purpose": "直接証明しやすい対偶へ変える。",
+          "operation": "対偶を作る",
+          "content": [
+            {
+              "id": "q05-f1-c1",
+              "type": "text",
+              "text": "p⇒q の代わりに ¬q⇒¬p を証明する。"
+            }
+          ],
+          "blankIds": [
+            "q05-b1"
+          ]
+        },
+        {
+          "id": "q05-f2",
+          "dependsOn": [
+            "q05-f1"
+          ],
+          "basis": [
+            "奇数の表現"
+          ],
+          "purpose": "対偶の仮定を代数式にする。",
+          "operation": "奇数を 2k+1 と置く",
+          "content": [
+            {
+              "id": "q05-f2-c1",
+              "type": "text",
+              "text": "n が奇数と仮定し、整数 k を用いて表す。"
+            }
+          ],
+          "blankIds": [
+            "q05-b2"
+          ]
+        },
+        {
+          "id": "q05-f3",
+          "dependsOn": [
+            "q05-f2"
+          ],
+          "basis": [
+            "平方展開"
+          ],
+          "purpose": "4で割った余りを読み取れる形にする。",
+          "operation": "平方して整理",
+          "content": [
+            {
+              "id": "q05-f3-c1",
+              "type": "text",
+              "text": "n² を計算し、4の倍数部分と余りに分ける。"
+            }
+          ],
+          "blankIds": [
+            "q05-b3",
+            "q05-b4"
+          ]
+        },
+        {
+          "id": "q05-f4",
+          "dependsOn": [
+            "q05-f3"
+          ],
+          "basis": [
+            "命題と対偶は同値"
+          ],
+          "purpose": "対偶から元の命題を結論する。",
+          "operation": "同値性で結論",
+          "content": [
+            {
+              "id": "q05-f4-c1",
+              "type": "text",
+              "text": "対偶が真なら元の命題も真である。"
+            }
+          ],
+          "blankIds": [
+            "q05-b5"
+          ]
+        }
+      ],
+      "blanks": [
+        {
+          "id": "q05-b1",
+          "stepId": "q05-f1",
+          "prompt": "対偶：n が奇数ならば【①】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q05-b1-a",
+              "label": "n² は4の倍数である"
+            },
+            {
+              "id": "q05-b1-b",
+              "label": "n² は4の倍数ではない"
+            },
+            {
+              "id": "q05-b1-c",
+              "label": "n² は奇数ではない"
+            },
+            {
+              "id": "q05-b1-d",
+              "label": "n は4の倍数ではない"
+            }
+          ],
+          "correctOptionIds": [
+            "q05-b1-b"
+          ],
+          "explanation": "結論「n は偶数」を否定すると「n は奇数」。仮定も否定して順序を逆にする。"
+        },
+        {
+          "id": "q05-b2",
+          "stepId": "q05-f2",
+          "prompt": "n=【②】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q05-b2-a",
+              "label": "2k"
+            },
+            {
+              "id": "q05-b2-b",
+              "label": "4k+1"
+            },
+            {
+              "id": "q05-b2-c",
+              "label": "k+1"
+            },
+            {
+              "id": "q05-b2-d",
+              "label": "2k+1"
+            }
+          ],
+          "correctOptionIds": [
+            "q05-b2-d"
+          ],
+          "explanation": "任意の奇数は 2k+1 と表せる。"
+        },
+        {
+          "id": "q05-b3",
+          "stepId": "q05-f3",
+          "prompt": "n²=(2k+1)²=4k²+4k+1=【③】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q05-b3-a",
+              "label": "4k(k+1)+1"
+            },
+            {
+              "id": "q05-b3-b",
+              "label": "4k(k+1)"
+            },
+            {
+              "id": "q05-b3-c",
+              "label": "2k(k+1)+1"
+            },
+            {
+              "id": "q05-b3-d",
+              "label": "4k²+1"
+            }
+          ],
+          "correctOptionIds": [
+            "q05-b3-a"
+          ],
+          "explanation": "4k²+4k+1=4k(k+1)+1。"
+        },
+        {
+          "id": "q05-b4",
+          "stepId": "q05-f3",
+          "prompt": "n² を4で割った余りは【④】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q05-b4-a",
+              "label": "0"
+            },
+            {
+              "id": "q05-b4-b",
+              "label": "2"
+            },
+            {
+              "id": "q05-b4-c",
+              "label": "1"
+            },
+            {
+              "id": "q05-b4-d",
+              "label": "3"
+            }
+          ],
+          "correctOptionIds": [
+            "q05-b4-c"
+          ],
+          "explanation": "4k(k+1) は4の倍数なので余りは1。"
+        },
+        {
+          "id": "q05-b5",
+          "stepId": "q05-f4",
+          "prompt": "もとの命題は【⑤】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q05-b5-a",
+              "label": "偽"
+            },
+            {
+              "id": "q05-b5-b",
+              "label": "真"
+            },
+            {
+              "id": "q05-b5-c",
+              "label": "必要条件"
+            },
+            {
+              "id": "q05-b5-d",
+              "label": "反例をもつ"
+            }
+          ],
+          "correctOptionIds": [
+            "q05-b5-b"
+          ],
+          "explanation": "命題と対偶は同値。"
+        }
+      ],
+      "interaction": {
+        "reveal": "sequential",
+        "options": "inline-expand",
+        "substituteCorrectAnswer": true,
+        "lockFutureSteps": true
+      }
+    },
+    {
+      "schemaVersion": "1.0",
+      "questionId": "math-i-proof-practice-q06",
+      "revision": 1,
+      "status": "published",
+      "subject": "math-1a",
+      "course": "math-i",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "proofs",
+      "problemType": "contradiction-proof",
+      "title": "普通練習｜背理法で無理数であることを証明する",
+      "difficulty": "standard",
+      "source": {
+        "type": "reference",
+        "label": "4STEP 題型参照・Kyotsu Step 再構成"
+      },
+      "stem": [
+        {
+          "id": "q06-stem-1",
+          "type": "text",
+          "text": "√2 が無理数であることを用いて、次の数が無理数であることを証明せよ。"
+        },
+        {
+          "id": "q06-stem-2",
+          "type": "latex",
+          "latex": "3+2\\\\sqrt{2}",
+          "display": "block"
+        }
+      ],
+      "solutionSteps": [
+        {
+          "id": "q06-f1",
+          "dependsOn": [],
+          "basis": [
+            "背理法"
+          ],
+          "purpose": "結論を否定して矛盾を導く準備をする。",
+          "operation": "無理数の否定を仮定",
+          "content": [
+            {
+              "id": "q06-f1-c1",
+              "type": "text",
+              "text": "3+2√2 が有理数であると仮定する。"
+            }
+          ],
+          "blankIds": [
+            "q06-b1"
+          ]
+        },
+        {
+          "id": "q06-f2",
+          "dependsOn": [
+            "q06-f1"
+          ],
+          "basis": [
+            "有理数 r と置く"
+          ],
+          "purpose": "√2 を単独で表して数の種類を比較する。",
+          "operation": "移項",
+          "content": [
+            {
+              "id": "q06-f2-c1",
+              "type": "latex",
+              "latex": "3+2\\\\sqrt{2}=r",
+              "display": "block"
+            }
+          ],
+          "blankIds": [
+            "q06-b2"
+          ]
+        },
+        {
+          "id": "q06-f3",
+          "dependsOn": [
+            "q06-f2"
+          ],
+          "basis": [
+            "等式変形"
+          ],
+          "purpose": "√2 を有理数の式として表す。",
+          "operation": "両辺を2で割る",
+          "content": [
+            {
+              "id": "q06-f3-c1",
+              "type": "text",
+              "text": "さらに √2 を孤立させる。"
+            }
+          ],
+          "blankIds": [
+            "q06-b3"
+          ]
+        },
+        {
+          "id": "q06-f4",
+          "dependsOn": [
+            "q06-f3"
+          ],
+          "basis": [
+            "有理数の四則演算の閉性"
+          ],
+          "purpose": "右辺が有理数であることを確定する。",
+          "operation": "数の種類を判定",
+          "content": [
+            {
+              "id": "q06-f4-c1",
+              "type": "text",
+              "text": "r が有理数であることを使う。"
+            }
+          ],
+          "blankIds": [
+            "q06-b4"
+          ]
+        },
+        {
+          "id": "q06-f5",
+          "dependsOn": [
+            "q06-f4"
+          ],
+          "basis": [
+            "√2 は無理数"
+          ],
+          "purpose": "仮定から矛盾が生じることを確認する。",
+          "operation": "既知の事実と比較",
+          "content": [
+            {
+              "id": "q06-f5-c1",
+              "type": "text",
+              "text": "√2 が有理数になる結論は既知の事実と両立しない。"
+            }
+          ],
+          "blankIds": [
+            "q06-b5"
+          ]
+        },
+        {
+          "id": "q06-f6",
+          "dependsOn": [
+            "q06-f5"
+          ],
+          "basis": [
+            "背理法"
+          ],
+          "purpose": "最初の仮定を否定して結論する。",
+          "operation": "矛盾から結論",
+          "content": [
+            {
+              "id": "q06-f6-c1",
+              "type": "text",
+              "text": "有理数だという仮定を棄却する。"
+            }
+          ],
+          "blankIds": [
+            "q06-b6"
+          ]
+        }
+      ],
+      "blanks": [
+        {
+          "id": "q06-b1",
+          "stepId": "q06-f1",
+          "prompt": "3+2√2 が【①】であると仮定する。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q06-b1-a",
+              "label": "無理数"
+            },
+            {
+              "id": "q06-b1-b",
+              "label": "有理数"
+            },
+            {
+              "id": "q06-b1-c",
+              "label": "整数"
+            },
+            {
+              "id": "q06-b1-d",
+              "label": "自然数"
+            }
+          ],
+          "correctOptionIds": [
+            "q06-b1-b"
+          ],
+          "explanation": "「無理数である」の否定として有理数であると仮定する。"
+        },
+        {
+          "id": "q06-b2",
+          "stepId": "q06-f2",
+          "prompt": "2√2=【②】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q06-b2-a",
+              "label": "r+3"
+            },
+            {
+              "id": "q06-b2-b",
+              "label": "3−r"
+            },
+            {
+              "id": "q06-b2-c",
+              "label": "r−3"
+            },
+            {
+              "id": "q06-b2-d",
+              "label": "2r−3"
+            }
+          ],
+          "correctOptionIds": [
+            "q06-b2-c"
+          ],
+          "explanation": "両辺から3を引く。"
+        },
+        {
+          "id": "q06-b3",
+          "stepId": "q06-f3",
+          "prompt": "√2=【③】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q06-b3-a",
+              "label": "(r−3)/2"
+            },
+            {
+              "id": "q06-b3-b",
+              "label": "(r+3)/2"
+            },
+            {
+              "id": "q06-b3-c",
+              "label": "2/(r−3)"
+            },
+            {
+              "id": "q06-b3-d",
+              "label": "r−3/2"
+            }
+          ],
+          "correctOptionIds": [
+            "q06-b3-a"
+          ],
+          "explanation": "2√2=r−3 の両辺を2で割る。"
+        },
+        {
+          "id": "q06-b4",
+          "stepId": "q06-f4",
+          "prompt": "(r−3)/2 は【④】。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q06-b4-a",
+              "label": "無理数"
+            },
+            {
+              "id": "q06-b4-b",
+              "label": "自然数"
+            },
+            {
+              "id": "q06-b4-c",
+              "label": "判断できない数"
+            },
+            {
+              "id": "q06-b4-d",
+              "label": "有理数"
+            }
+          ],
+          "correctOptionIds": [
+            "q06-b4-d"
+          ],
+          "explanation": "有理数は整数との加減乗除で閉じている。"
+        },
+        {
+          "id": "q06-b5",
+          "stepId": "q06-f5",
+          "prompt": "これは √2 が無理数であることと【⑤】する。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q06-b5-a",
+              "label": "一致"
+            },
+            {
+              "id": "q06-b5-b",
+              "label": "矛盾"
+            },
+            {
+              "id": "q06-b5-c",
+              "label": "同値"
+            },
+            {
+              "id": "q06-b5-d",
+              "label": "包含"
+            }
+          ],
+          "correctOptionIds": [
+            "q06-b5-b"
+          ],
+          "explanation": "√2 が有理数だという結論は既知の事実と矛盾する。"
+        },
+        {
+          "id": "q06-b6",
+          "stepId": "q06-f6",
+          "prompt": "したがって 3+2√2 は【⑥】である。",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q06-b6-a",
+              "label": "有理数"
+            },
+            {
+              "id": "q06-b6-b",
+              "label": "整数"
+            },
+            {
+              "id": "q06-b6-c",
+              "label": "無理数"
+            },
+            {
+              "id": "q06-b6-d",
+              "label": "0"
+            }
+          ],
+          "correctOptionIds": [
+            "q06-b6-c"
+          ],
+          "explanation": "有理数だという仮定が矛盾したため無理数。"
+        }
+      ],
+      "interaction": {
+        "reveal": "sequential",
+        "options": "inline-expand",
+        "substituteCorrectAnswer": true,
+        "lockFutureSteps": true
+      }
+    }
+  ]
+}
