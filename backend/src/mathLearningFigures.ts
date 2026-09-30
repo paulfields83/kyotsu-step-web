@@ -64,22 +64,42 @@ const F = {
     <path d="M240 95 Q380 325 520 95" fill="none" stroke="#ea580c" stroke-width="4"/>
     <text x="575" y="115" font-size="20" fill="#2563eb">a&gt;0</text><text x="585" y="245" font-size="20" fill="#16a34a">|a| が小さい</text><text x="535" y="90" font-size="20" fill="#ea580c">a&lt;0</text>`),
 
-  quadVertex: fig('quadratic-vertex-form','放物線の頂点と軸を示す図','y=a(x−p)²+q では頂点が (p,q)',
-    `<line x1="80" y1="330" x2="690" y2="330" stroke="#334155" stroke-width="2.5"/><line x1="150" y1="60" x2="150" y2="365" stroke="#334155" stroke-width="2.5"/>
-    <path d="M220 315 Q430 70 640 315" fill="none" stroke="#2563eb" stroke-width="4"/><line x1="430" y1="65" x2="430" y2="340" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="8 8"/>
-    <circle cx="430" cy="70" r="7" fill="#ea580c"/><text x="455" y="92" font-size="22" fill="#ea580c">(p,q)</text><text x="430" y="365" text-anchor="middle" font-size="20" fill="#475569">x=p</text>`),
+  quadVertex: fig('quadratic-vertex-form','y=a(x-p)²+q の頂点 (p,q) と軸 x=p を正確に示す放物線','頂点 (p,q) は放物線上にあり、対称軸は必ず x=p を通る',
+    `<line x1="100" y1="330" x2="690" y2="330" stroke="#334155" stroke-width="2.5"/>
+    <line x1="150" y1="55" x2="150" y2="360" stroke="#334155" stroke-width="2.5"/>
+    <path d="M 250 300 Q 430 -60 610 300" fill="none" stroke="#2563eb" stroke-width="4"/>
+    <line x1="430" y1="70" x2="430" y2="350" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="8 8"/>
+    <circle cx="430" cy="120" r="8" fill="#ea580c"/>
+    <text x="458" y="110" font-size="22" fill="#ea580c">(p,q)</text>
+    <text x="430" y="380" text-anchor="middle" font-size="20" fill="#475569">x=p</text>`),
 
-  quadShift: fig('quadratic-shift','放物線の平行移動と対称移動を示す図','頂点の移動でグラフ全体の位置が変わる',
-    `<line x1="70" y1="330" x2="700" y2="330" stroke="#334155" stroke-width="2.5"/><line x1="220" y1="55" x2="220" y2="365" stroke="#334155" stroke-width="2.5"/>
-    <path d="M90 300 Q220 90 350 300" fill="none" stroke="#94a3b8" stroke-width="3"/><path d="M320 300 Q500 95 680 300" fill="none" stroke="#2563eb" stroke-width="4"/>
-    <path d="M235 130 C300 90 350 85 420 100" fill="none" stroke="#ea580c" stroke-width="3"/><path d="M420 100 l-14 -9 l2 17 z" fill="#ea580c"/>
-    <text x="350" y="72" text-anchor="middle" font-size="21" fill="#ea580c">平行移動</text>`),
+  quadShift: fig('quadratic-shift','同一の放物線を平行移動した図と x 軸対称にした図','平行移動では形を変えず、対称移動では座標の符号だけを規則通り変える',
+    `<text x="195" y="38" text-anchor="middle" font-size="21" font-weight="700">平行移動</text>
+    <line x1="55" y1="300" x2="335" y2="300" stroke="#334155" stroke-width="2"/>
+    <line x1="165" y1="55" x2="165" y2="350" stroke="#334155" stroke-width="2"/>
+    <path d="M 70 290 Q 165 0 260 290" fill="none" stroke="#94a3b8" stroke-width="3"/>
+    <path d="M 125 255 Q 220 -35 315 255" fill="none" stroke="#2563eb" stroke-width="4"/>
+    <path d="M 175 180 C 195 150 220 132 250 122" fill="none" stroke="#ea580c" stroke-width="3"/>
+    <path d="M 250 122 l-13 -8 l2 16 z" fill="#ea580c"/>
+    <text x="560" y="38" text-anchor="middle" font-size="21" font-weight="700">x軸対称</text>
+    <line x1="425" y1="220" x2="695" y2="220" stroke="#334155" stroke-width="2"/>
+    <line x1="560" y1="55" x2="560" y2="370" stroke="#334155" stroke-width="2"/>
+    <path d="M 460 260 Q 560 20 660 260" fill="none" stroke="#2563eb" stroke-width="4"/>
+    <path d="M 460 180 Q 560 420 660 180" fill="none" stroke="#ea580c" stroke-width="4"/>
+    <text x="560" y="405" text-anchor="middle" font-size="18" fill="#475569">y=f(x) ↔ y=−f(x)</text>`),
 
-  domainRange: fig('quadratic-domain-range','定義域を限定した放物線と値域を示す図','定義域の端点と頂点から値域を読む',
-    `<line x1="80" y1="330" x2="690" y2="330" stroke="#334155" stroke-width="2.5"/><line x1="180" y1="60" x2="180" y2="365" stroke="#334155" stroke-width="2.5"/>
-    <path d="M220 290 Q390 90 560 290" fill="none" stroke="#cbd5e1" stroke-width="3"/><path d="M280 210 Q390 90 500 210" fill="none" stroke="#2563eb" stroke-width="6"/>
-    <line x1="280" y1="210" x2="280" y2="330" stroke="#94a3b8" stroke-dasharray="7 7"/><line x1="500" y1="210" x2="500" y2="330" stroke="#94a3b8" stroke-dasharray="7 7"/>
-    <circle cx="390" cy="90" r="7" fill="#ea580c"/><text x="390" y="55" text-anchor="middle" font-size="20" fill="#ea580c">最小値</text>`),
+  domainRange: fig('quadratic-domain-range','上に開く放物線を定義域で切り取り、頂点が最小値になることを示す図','定義域の端点と頂点を実際の放物線上で比較して値域を読む',
+    `<line x1="110" y1="330" x2="680" y2="330" stroke="#334155" stroke-width="2.5"/>
+    <line x1="140" y1="60" x2="140" y2="360" stroke="#334155" stroke-width="2.5"/>
+    <path d="M 200 300 Q 400 -60 600 300" fill="none" stroke="#cbd5e1" stroke-width="3"/>
+    <path d="M 250 221.25 Q 400 18.75 550 221.25" fill="none" stroke="#2563eb" stroke-width="6"/>
+    <line x1="250" y1="221.25" x2="250" y2="330" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 7"/>
+    <line x1="550" y1="221.25" x2="550" y2="330" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 7"/>
+    <circle cx="250" cy="221.25" r="6" fill="#2563eb"/><circle cx="550" cy="221.25" r="6" fill="#2563eb"/>
+    <circle cx="400" cy="120" r="7" fill="#ea580c"/>
+    <text x="400" y="94" text-anchor="middle" font-size="20" fill="#ea580c">最小値</text>
+    <text x="250" y="360" text-anchor="middle" font-size="18" fill="#475569">x=a</text>
+    <text x="550" y="360" text-anchor="middle" font-size="18" fill="#475569">x=b</text>`),
 
   quadMaxMin: fig('quadratic-max-min','軸が定義域の内外にある場合を比較する図','最大・最小は頂点と端点の位置関係で決まる',
     `<text x="190" y="45" text-anchor="middle" font-size="23" font-weight="700">軸が区間内</text><text x="570" y="45" text-anchor="middle" font-size="23" font-weight="700">軸が区間外</text>
@@ -105,8 +125,14 @@ const F = {
   absGraph: fig('absolute-value-graph','負の部分を x 軸の上側へ折り返す絶対値グラフ','y=|f(x)| は f(x)&lt;0 の部分を上へ反転する',
     `<line x1="80" y1="230" x2="690" y2="230" stroke="#334155" stroke-width="2.5"/><path d="M100 120 Q380 360 660 120" fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="8 7"/><path d="M100 120 Q240 230 380 110 Q520 230 660 120" fill="none" stroke="#2563eb" stroke-width="4"/><text x="380" y="385" text-anchor="middle" font-size="21" fill="#475569">x軸より下の部分を上へ折り返す</text>`),
 
-  trigRight: fig('trig-right-triangle','直角三角形の辺と角を示す図','sin・cos・tan は注目する角に対する辺の比',
-    `<polygon points="150,320 600,320 150,90" fill="none" stroke="#1f2937" stroke-width="4"/><path d="M150 300 h20 v20" fill="none" stroke="#64748b" stroke-width="3"/><path d="M520 320 A80 80 0 0 0 565 284" fill="none" stroke="#ea580c" stroke-width="3"/><text x="535" y="292" font-size="22" fill="#ea580c">θ</text><text x="360" y="350" text-anchor="middle" font-size="20">隣辺</text><text x="115" y="210" text-anchor="middle" font-size="20">対辺</text><text x="395" y="185" text-anchor="middle" font-size="20">斜辺</text>`),
+  trigRight: fig('trig-right-triangle','直角三角形で角 A に対する対辺・隣辺・斜辺を示す図','本文と同じ角 A を基準にして sin・cos・tan の辺の対応を読む',
+    `<polygon points="610,330 150,330 150,95" fill="none" stroke="#1f2937" stroke-width="4"/>
+    <path d="M150 310 h20 v20" fill="none" stroke="#64748b" stroke-width="3"/>
+    <path d="M 562 330 A 48 48 0 0 1 569 305" fill="none" stroke="#ea580c" stroke-width="3"/>
+    <text x="565" y="296" font-size="22" fill="#ea580c">A</text>
+    <text x="365" y="363" text-anchor="middle" font-size="20">隣辺</text>
+    <text x="112" y="220" text-anchor="middle" font-size="20">対辺</text>
+    <text x="405" y="190" text-anchor="middle" font-size="20">斜辺</text>`),
 
   trigCoordinate: fig('trig-coordinate','半円上の点と座標で三角比を定義する図','座標による定義で 0°〜180° に拡張する',
     `<line x1="80" y1="260" x2="690" y2="260" stroke="#334155" stroke-width="2.5"/><line x1="380" y1="55" x2="380" y2="365" stroke="#334155" stroke-width="2.5"/><path d="M180 260 A200 200 0 0 1 580 260" fill="none" stroke="#2563eb" stroke-width="4"/><line x1="380" y1="260" x2="265" y2="96" stroke="#ea580c" stroke-width="4"/><circle cx="265" cy="96" r="7" fill="#ea580c"/><line x1="265" y1="96" x2="265" y2="260" stroke="#94a3b8" stroke-dasharray="7 7"/><text x="245" y="78" font-size="21" fill="#ea580c">P(x,y)</text><text x="295" y="245" font-size="20">θ</text>`),
@@ -144,8 +170,19 @@ const F = {
     <g fill="#16a34a">${[[575,160],[600,275],[625,120],[650,225],[675,185],[700,295]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="6"/>`).join('')}</g>
     <g stroke="#94a3b8" stroke-width="2"><line x1="50" y1="320" x2="220" y2="320"/><line x1="50" y1="80" x2="50" y2="320"/><line x1="305" y1="320" x2="475" y2="320"/><line x1="305" y1="80" x2="305" y2="320"/><line x1="560" y1="320" x2="730" y2="320"/><line x1="560" y1="80" x2="560" y2="320"/></g>`),
 
-  dataTransform: fig('data-transform','データ全体を平行移動・拡大するイメージ図','一定値の加算は位置をずらし、定数倍は散らばりも変える',
-    `<line x1="90" y1="210" x2="690" y2="210" stroke="#334155" stroke-width="2.5"/><g fill="#2563eb"><circle cx="180" cy="210" r="7"/><circle cx="230" cy="210" r="7"/><circle cx="300" cy="210" r="7"/></g><g fill="#ea580c"><circle cx="420" cy="210" r="7"/><circle cx="470" cy="210" r="7"/><circle cx="540" cy="210" r="7"/></g><path d="M325 145 C360 120 390 120 420 145" fill="none" stroke="#64748b" stroke-width="3"/><path d="M420 145 l-14 -7 l3 16 z" fill="#64748b"/><text x="370" y="110" text-anchor="middle" font-size="20" fill="#475569">+a で全体が同じだけ移動</text>`),
+  dataTransform: fig('data-transform','データに定数を足す変換と定数倍する変換を比較する2つの数直線','＋b は散らばりを変えずに位置を移し、×a は中心と散らばりの両方を拡大縮小する',
+    `<text x="195" y="45" text-anchor="middle" font-size="21" font-weight="700">y=x+b</text>
+    <text x="565" y="45" text-anchor="middle" font-size="21" font-weight="700">y=ax</text>
+    <line x1="55" y1="190" x2="335" y2="190" stroke="#334155" stroke-width="2.5"/>
+    <circle cx="125" cy="165" r="7" fill="#2563eb"/><circle cx="178" cy="165" r="7" fill="#2563eb"/><circle cx="230" cy="165" r="7" fill="#2563eb"/>
+    <circle cx="195" cy="215" r="7" fill="#ea580c"/><circle cx="248" cy="215" r="7" fill="#ea580c"/><circle cx="300" cy="215" r="7" fill="#ea580c"/>
+    <path d="M145 115 C180 95 205 95 240 115" fill="none" stroke="#64748b" stroke-width="2.5"/><path d="M240 115 l-12 -7 l2 14 z" fill="#64748b"/>
+    <text x="195" y="282" text-anchor="middle" font-size="18" fill="#475569">＋b：間隔は変わらない</text>
+    <line x1="425" y1="190" x2="705" y2="190" stroke="#334155" stroke-width="2.5"/>
+    <circle cx="495" cy="165" r="7" fill="#2563eb"/><circle cx="548" cy="165" r="7" fill="#2563eb"/><circle cx="600" cy="165" r="7" fill="#2563eb"/>
+    <circle cx="455" cy="215" r="7" fill="#ea580c"/><circle cx="550" cy="215" r="7" fill="#ea580c"/><circle cx="645" cy="215" r="7" fill="#ea580c"/>
+    <text x="565" y="282" text-anchor="middle" font-size="18" fill="#475569">×a：間隔も |a| 倍</text>
+    <text x="380" y="360" text-anchor="middle" font-size="20" fill="#1f2937">平均：a x̄+b　　分散：a²倍　　標準偏差：|a|倍</text>`),
 
   statsCycle: fig('statistical-process','統計的探究の流れを循環で示す図','問い→収集→分析→解釈→次の問いの循環',
     `<g font-size="20" font-weight="700" text-anchor="middle"><rect x="300" y="45" width="160" height="55" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/><text x="380" y="79">問いを立てる</text><rect x="520" y="175" width="150" height="55" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/><text x="595" y="209">データ収集</text><rect x="300" y="305" width="160" height="55" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/><text x="380" y="339">分析・解釈</text><rect x="90" y="175" width="150" height="55" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="3"/><text x="165" y="209">次の問い</text></g><path d="M455 95 C520 110 555 140 575 172 M520 225 C485 280 450 300 430 305 M300 330 C230 315 190 275 170 230 M165 175 C190 120 240 95 300 82" fill="none" stroke="#94a3b8" stroke-width="3"/>`),
@@ -175,11 +212,23 @@ const F = {
     `<line x1="100" y1="180" x2="660" y2="180" stroke="#334155" stroke-width="3"/><circle cx="180" cy="180" r="7" fill="#1f2937"/><circle cx="430" cy="180" r="7" fill="#2563eb"/><circle cx="590" cy="180" r="7" fill="#1f2937"/><text x="180" y="220" text-anchor="middle" font-size="21">A</text><text x="430" y="220" text-anchor="middle" font-size="21" fill="#2563eb">P</text><text x="590" y="220" text-anchor="middle" font-size="21">B</text><text x="385" y="120" text-anchor="middle" font-size="21" fill="#475569">内分点は A と B の間</text>
     <line x1="100" y1="330" x2="700" y2="330" stroke="#334155" stroke-width="3"/><circle cx="180" cy="330" r="7" fill="#1f2937"/><circle cx="430" cy="330" r="7" fill="#1f2937"/><circle cx="620" cy="330" r="7" fill="#ea580c"/><text x="620" y="370" text-anchor="middle" font-size="21" fill="#ea580c">Q</text>`),
 
-  angleBisector: fig('angle-bisector','三角形の角の二等分線と辺の比を示す図','角の二等分線定理の対応する辺を確認する',
-    `<polygon points="120,330 640,330 360,80" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="360" y1="80" x2="390" y2="330" stroke="#2563eb" stroke-width="4"/><path d="M340 112 A42 42 0 0 1 360 122 M360 122 A42 42 0 0 1 380 112" fill="none" stroke="#ea580c" stroke-width="3"/><text x="390" y="355" text-anchor="middle" font-size="21" fill="#2563eb">D</text>`),
+  angleBisector: fig('angle-bisector','不等辺三角形 ABC の角 A の二等分線 AD と辺の比を示す図','AD は実際の角の二等分線で、BD:DC=AB:AC を満たす',
+    `<polygon points="350,70 100,340 650,340" fill="none" stroke="#1f2937" stroke-width="4"/>
+    <line x1="350" y1="70" x2="362.3" y2="340" stroke="#2563eb" stroke-width="4"/>
+    <path d="M 319.69 104.33 A 46 46 0 0 1 352.09 115.95" fill="none" stroke="#ea580c" stroke-width="3"/>
+    <path d="M 352.09 115.95 A 46 46 0 0 1 382.29 102.76" fill="none" stroke="#ea580c" stroke-width="3"/>
+    <text x="350" y="50" text-anchor="middle" font-size="20">A</text><text x="82" y="364" text-anchor="middle" font-size="20">B</text><text x="668" y="364" text-anchor="middle" font-size="20">C</text>
+    <text x="362.3" y="370" text-anchor="middle" font-size="20" fill="#2563eb">D</text>
+    <text x="380" y="410" text-anchor="middle" font-size="20" fill="#475569">BD : DC = AB : AC</text>`),
 
-  centroid: fig('triangle-centroid','三角形の3本の中線が1点で交わる図','重心は3本の中線の交点',
-    `<polygon points="120,330 640,330 360,70" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="360" y1="70" x2="380" y2="330" stroke="#2563eb" stroke-width="3"/><line x1="120" y1="330" x2="500" y2="200" stroke="#2563eb" stroke-width="3"/><line x1="640" y1="330" x2="240" y2="200" stroke="#2563eb" stroke-width="3"/><circle cx="373" cy="238" r="8" fill="#ea580c"/><text x="392" y="235" font-size="21" fill="#ea580c">G</text>`),
+  centroid: fig('triangle-centroid','不等辺三角形の3本の中線と重心 G を示す図','各中線は辺の中点へ引かれ、3本は G で交わる',
+    `<polygon points="365,65 95,340 655,315" fill="none" stroke="#1f2937" stroke-width="4"/>
+    <line x1="365" y1="65" x2="375" y2="327.5" stroke="#2563eb" stroke-width="3"/>
+    <line x1="95" y1="340" x2="510" y2="190" stroke="#2563eb" stroke-width="3"/>
+    <line x1="655" y1="315" x2="230" y2="202.5" stroke="#2563eb" stroke-width="3"/>
+    <circle cx="375" cy="327.5" r="5" fill="#64748b"/><circle cx="510" cy="190" r="5" fill="#64748b"/><circle cx="230" cy="202.5" r="5" fill="#64748b"/>
+    <circle cx="371.67" cy="240" r="8" fill="#ea580c"/><text x="392" y="232" font-size="20" fill="#ea580c">G</text>
+    <text x="380" y="405" text-anchor="middle" font-size="20" fill="#475569">3本の中線は G で交わり、各中線を 2:1 に分ける</text>`),
 
   centers: fig('triangle-centers','外心・内心・垂心の位置を比較する模式図','三角形の中心は作り方が異なる',
     `<text x="130" y="45" text-anchor="middle" font-size="20" font-weight="700">外心</text><text x="380" y="45" text-anchor="middle" font-size="20" font-weight="700">内心</text><text x="630" y="45" text-anchor="middle" font-size="20" font-weight="700">垂心</text>
