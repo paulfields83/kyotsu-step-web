@@ -135,7 +135,11 @@ function loadJsonTextbooks(): LoadedTextbookUnit[] {
 }
 
 const legacyTextbooks: LoadedTextbookUnit[] = builtInTextbookUnits.map((unit) => ({ unit, answerBook: legacyAnswerBook(unit) }))
-const generatedTextbooks: LoadedTextbookUnit[] = [{ unit: strictSetsPropositionsUnit, answerBook: strictSetsPropositionsAnswers }]
+const generatedTextbooks: LoadedTextbookUnit[] = [{
+  unit: strictSetsPropositionsUnit,
+  answerBook: strictSetsPropositionsAnswers,
+  dataDir: join(dataRoot, 'math-1a', 'sets-propositions'),
+}]
 const jsonTextbooks = loadJsonTextbooks()
 
 // Math Word files under backend/data/textbooks/math-1a/source are authoring sources only.
