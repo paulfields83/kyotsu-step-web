@@ -4,9 +4,11 @@ import { builtInQuestions } from '../data/questions'
 import { formatQuestionIssues, validateQuestionCatalog } from './questionSchema'
 
 describe('question catalog schema', () => {
-  it('accepts the five built-in versioned questions', () => {
-    expect(builtInQuestions).toHaveLength(5)
-    expect(new Set(builtInQuestions.map((question) => question.questionId)).size).toBe(5)
+  it('accepts the built-in versioned question catalog', () => {
+    expect(builtInQuestions).toHaveLength(11)
+    expect(new Set(builtInQuestions.map((question) => question.questionId)).size).toBe(11)
+    expect(builtInQuestions.map((question) => question.questionId)).toContain('math-i-set-practice-q01')
+    expect(builtInQuestions.map((question) => question.questionId)).toContain('math-i-proof-practice-q06')
   })
 
   it('requires common-test questions to keep the final choice outside the guide flow', () => {
