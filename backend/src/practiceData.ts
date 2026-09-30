@@ -70,11 +70,19 @@ function loadPracticeUnits(): LoadedPracticeUnit[] {
   return catalogFiles(dataRoot).map((catalogPath) => {
     const dataDir = dirname(catalogPath)
     const catalog = PracticeCatalogSchema.parse(JSON.parse(readFileSync(catalogPath, 'utf8')))
-    const questionsPath = join(dataDir, 'questions.json')
-    if (!existsSync(questionsPath)) throw new Error(`missing questions.json beside ${catalogPath}`)
-    const questionSet = PracticeQuestionSetSchema.parse(JSON.parse(readFileSync(questionsPath, 'utf8')))
-    validateHierarchy(catalog, questionSet.questions)
-    return { catalog, questions: questionSet.questions, dataDir }
+    const questionsDir = join(dataDir, 'questions')
+    const questionFiles = existsSync(questionsDir)
+      ? readdirSync(questionsDir, { withFileTypes: true })
+          .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
+          .map((entry) => join(questionsDir, entry.name))
+          .sort()
+      : [join(dataDir, 'questions.json')].filter((path) => existsSync(path))
+    if (!questionFiles.length) throw new Error(`missing practice questions beside ${catalogPath}`)
+    const questions = questionFiles.flatMap((path) =>
+      PracticeQuestionSetSchema.parse(JSON.parse(readFileSync(path, 'utf8'))).questions,
+    )
+    validateHierarchy(catalog, questions)
+    return { catalog, questions, dataDir }
   })
 }
 
