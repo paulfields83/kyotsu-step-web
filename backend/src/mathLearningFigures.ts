@@ -1,4 +1,4 @@
-import { TextbookUnitSchema, type TextbookUnit } from '../../src/domain/textbookSchema'
+import { TextbookUnitSchema, type TextbookReadingBlock, type TextbookUnit } from '../../src/domain/textbookSchema'
 
 type Figure = { id: string; src: string; alt: string; caption?: string }
 type Placement = { topicId: string; figure: Figure; afterParagraph?: number }
@@ -327,23 +327,25 @@ export function applyMathLearningFigures(unit: TextbookUnit): TextbookUnit {
     let currentTopic = ''
     let paragraphCount = 0
     const inserted = new Set<string>()
-    const readingFlow = section.readingFlow.flatMap((block) => {
+    const readingFlow: TextbookReadingBlock[] = []
+
+    for (const block of section.readingFlow) {
+      readingFlow.push(block)
       if (block.type === 'topic') {
         currentTopic = block.id
         paragraphCount = 0
-        return [block]
+        continue
       }
-      if (block.type !== 'paragraph') return [block]
+      if (block.type !== 'paragraph') continue
       paragraphCount += 1
       const after = sectionPlans
         .filter((plan) => plan.topicId === currentTopic && (plan.afterParagraph ?? 1) === paragraphCount)
         .filter((plan) => !inserted.has(plan.figure.id))
-        .map((plan) => {
-          inserted.add(plan.figure.id)
-          return { id: `figure-${plan.figure.id}`, type: 'figure' as const, figureId: plan.figure.id }
-        })
-      return [block, ...after]
-    })
+      for (const plan of after) {
+        inserted.add(plan.figure.id)
+        readingFlow.push({ id: `figure-${plan.figure.id}`, type: 'figure', figureId: plan.figure.id })
+      }
+    }
 
     return { ...section, figures: [...figureMap.values()], readingFlow }
   })
