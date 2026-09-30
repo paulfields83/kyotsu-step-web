@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "subject": "math-1a",
+  "course": "math-i",
+  "majorUnit": "sets-and-logic",
+  "subcategory": "proposition-negation",
+  "source": {
+    "label": "4STEP 数学I+A 第2章「集合と命題」全問版テンプレート",
+    "coverage": "問90～120、演習問題A 8～10、演習問題B 11～12",
+    "excluded": ["例題13", "例題14"],
+    "itemCount": 36,
+    "rightsNote": "アップロードされた制作テンプレートの問題本文・ミニガイド・解答・要点を、アプリ制作のソース層として保持。"
+  },
+  "items": [
+    {
+      "sourceQuestionId": "math-i-4step-set-105",
+      "sourceNumber": "105",
+      "contentHash": "007689a4fdfd29c1",
+      "title": "条件の否定",
+      "sourcePage": 28,
+      "sourceLevel": "STEP A",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "proposition-negation",
+      "problemType": "basic-negation",
+      "problemText": "x、yを実数とする。次の条件の否定を述べよ。\n(1) x>−5　(2) x+y≠0　(3) xは有理数である",
+      "miniGuide": "等号を落とさず、元の条件と重ならず、全体を覆う条件にする。",
+      "answer": "(1) x≦−5　(2) x+y=0　(3) xは無理数である",
+      "keyPoint": "「>」の否定は「≦」。",
+      "authoringStatus": "source-ready"
+    },
+    {
+      "sourceQuestionId": "math-i-4step-set-107",
+      "sourceNumber": "107",
+      "contentHash": "7b9a57e2ae14a638",
+      "title": "複合条件の否定",
+      "sourcePage": 28,
+      "sourceLevel": "STEP A",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "proposition-negation",
+      "problemType": "basic-negation",
+      "problemText": "x、yを実数、nを自然数とする。次の条件の否定を述べよ。\n(1) x=2 かつ y≠−1\n(2) x>8 または x=3\n(3) 5<x≦10\n(4) nは偶数または5の倍数\n(5) x、yの少なくとも一方は無理数",
+      "miniGuide": "「かつ」の否定は否定どうしの「または」、「または」の否定は否定どうしの「かつ」。",
+      "answer": "(1) x≠2 または y=−1\n(2) x≦8 かつ x≠3\n(3) x≦5 または x>10\n(4) nは奇数 かつ 5の倍数でない\n(5) x、yはともに有理数",
+      "keyPoint": "(5)の『少なくとも一方』の否定は『ともに～でない』。",
+      "authoringStatus": "source-ready"
+    },
+    {
+      "sourceQuestionId": "math-i-4step-set-112",
+      "sourceNumber": "112",
+      "contentHash": "58330d256cfb7dad",
+      "title": "量化命題の否定",
+      "sourcePage": 29,
+      "sourceLevel": "発展後練習",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "proposition-negation",
+      "problemType": "quantified-negation",
+      "problemText": "次の命題の否定を述べ、もとの命題とその否定の真偽を調べよ。\n(1) すべての実数xについて (x−1)²≠0\n(2) ある自然数nについて n²=5n",
+      "miniGuide": "『すべて』の否定は『ある』、『ある』の否定は『すべて』。条件自体も否定する。",
+      "answer": "(1) 否定：ある実数xについて(x−1)²=0。もと：偽、否定：真（x=1）。\n(2) 否定：すべての自然数nについてn²≠5n。もと：真（n=5）、否定：偽。",
+      "keyPoint": "量化語と条件の両方を変える。",
+      "authoringStatus": "source-ready"
+    }
+  ]
+}
