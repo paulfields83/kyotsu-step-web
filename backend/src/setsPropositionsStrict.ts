@@ -15,7 +15,7 @@ const figures: Record<string,{src:string;alt:string;caption:string}> = {
   'subset-relationship':{src:'assets/subset-relationship.svg',alt:'内側の集合が外側の集合に含まれる包含関係の模式図',caption:'部分集合は「内側の集合の全要素が外側にも入る」と読む'},
   'three-set-venn':{src:'assets/three-set-venn.svg',alt:'集合 A・B・C の3集合ベン図',caption:'3集合すべてに共通する領域を確認する'},
   'complement-region':{src:'assets/complement-region.svg',alt:'全体集合 U の中で集合 A の外側を示す模式図',caption:'補集合は全体集合 U の中で A に入らない部分'},
-  demorgan:{src:'assets/demorgan.svg',alt:'ド・モルガンの法則の両辺が同じ領域になることを示す図',caption:'A∩B の補集合と Ā∪B̄ が同じ領域になる'},
+  demorgan:{src:'assets/demorgan.svg',alt:'ド・モルガンの2つの法則で左右の式が同じ領域になることを比較する図',caption:'2つのド・モルガンの法則を領域で確認する'},
   'condition-counterexample':{src:'assets/condition-counterexample.svg',alt:'命題が真の場合の集合関係と反例の位置を示す模式図',caption:'命題の真偽を「仮定の範囲」と「結論の範囲」で見る'},
   'negation-numberline':{src:'assets/negation-numberline.svg',alt:'x≦a とその否定 x>a を示す数直線',caption:'否定では境界 a の含み方も反転する'},
 }
