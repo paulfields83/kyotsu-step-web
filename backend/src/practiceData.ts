@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { gunzipSync } from 'node:zlib'
 import {
   PracticeCatalogSchema,
   PracticeQuestionSetSchema,
@@ -70,17 +71,34 @@ function loadPracticeUnits(): LoadedPracticeUnit[] {
   return catalogFiles(dataRoot).map((catalogPath) => {
     const dataDir = dirname(catalogPath)
     const catalog = PracticeCatalogSchema.parse(JSON.parse(readFileSync(catalogPath, 'utf8')))
-    const questionsDir = join(dataDir, 'questions')
-    const questionFiles = existsSync(questionsDir)
-      ? readdirSync(questionsDir, { withFileTypes: true })
-          .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
-          .map((entry) => join(questionsDir, entry.name))
-          .sort()
-      : [join(dataDir, 'questions.json')].filter((path) => existsSync(path))
-    if (!questionFiles.length) throw new Error(`missing practice questions beside ${catalogPath}`)
-    const questions = questionFiles.flatMap((path) =>
-      PracticeQuestionSetSchema.parse(JSON.parse(readFileSync(path, 'utf8'))).questions,
-    )
+    const bundleDir = join(dataDir, 'questions-bundle')
+    let questions: PracticeQuestion[]
+
+    if (existsSync(bundleDir)) {
+      const parts = readdirSync(bundleDir, { withFileTypes: true })
+        .filter((entry) => entry.isFile() && entry.name.endsWith('.b64'))
+        .map((entry) => join(bundleDir, entry.name))
+        .sort()
+
+      if (!parts.length) throw new Error(`empty practice question bundle beside ${catalogPath}`)
+      const encoded = parts.map((path) => readFileSync(path, 'utf8').trim()).join('')
+      const decoded = gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8')
+      questions = PracticeQuestionSetSchema.parse(JSON.parse(decoded)).questions
+    } else {
+      const questionsDir = join(dataDir, 'questions')
+      const questionFiles = existsSync(questionsDir)
+        ? readdirSync(questionsDir, { withFileTypes: true })
+            .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
+            .map((entry) => join(questionsDir, entry.name))
+            .sort()
+        : [join(dataDir, 'questions.json')].filter((path) => existsSync(path))
+
+      if (!questionFiles.length) throw new Error(`missing practice questions beside ${catalogPath}`)
+      questions = questionFiles.flatMap((path) =>
+        PracticeQuestionSetSchema.parse(JSON.parse(readFileSync(path, 'utf8'))).questions,
+      )
+    }
+
     validateHierarchy(catalog, questions)
     return { catalog, questions, dataDir }
   })
