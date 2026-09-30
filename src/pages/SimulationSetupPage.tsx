@@ -24,7 +24,7 @@ export function SimulationSetupPage() {
   const [timeMode, setTimeMode] = useState<SimulationSession['timeMode']>('unlimited')
   const [strategy, setStrategy] = useState<Strategy>('range')
 
-  const subjectQuestions = catalog.filter((question) => question.subject === subject && question.status === 'published')
+  const subjectQuestions = catalog.filter((question) => question.subject === subject && question.status === 'published' && question.examLevel === 'common-test')
   const units = [...new Set(subjectQuestions.map((question) => question.taxonomy.majorUnit))]
   const wrongCounts = new Map<string, number>()
   learningAttempts.forEach((attempt) => {
