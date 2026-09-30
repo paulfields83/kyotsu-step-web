@@ -458,3 +458,59 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   .learning-setup-page .learning-mode-grid { grid-template-columns: 1fr; }
   .settings-actions { grid-template-columns: 1fr; }
 }
+
+
+/* Ordinary guided practice: keep choices in the document flow */
+.learning-flow--practice { gap: .55rem; }
+.learning-flow--practice > .content-renderer { padding: .2rem 0; }
+.learning-flow--practice > .content-renderer > p { line-height: 1.8; }
+.practice-blank-block { display: grid; gap: .55rem; min-width: 0; }
+.practice-blank-line {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .25rem;
+  padding: .45rem .15rem;
+  border-bottom: 1px solid var(--color-line);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+.practice-blank-block--active .practice-blank-line { border-bottom-color: var(--color-primary); }
+.practice-blank-line > span:not(.reading-inline-answer) { white-space: pre-wrap; }
+.practice-blank-line .reading-inline-blank,
+.practice-blank-line .reading-inline-answer { margin: 0 .08rem; }
+.practice-inline-render { display: inline-block; min-width: 0; }
+.practice-inline-render .content-renderer { display: inline; }
+.practice-inline-render .content-renderer > p { display: inline; margin: 0; }
+.practice-option-content { min-width: 0; }
+.practice-option-content .content-renderer { gap: .15rem; }
+.practice-option-content .content-renderer > p { margin: 0; overflow-wrap: anywhere; }
+.learning-flow--practice .reading-inline-choice-panel {
+  width: min(100%, 760px);
+  margin: .05rem 0 .55rem;
+  padding: .8rem;
+}
+.learning-flow--practice .reading-choice-option {
+  grid-template-columns: 30px minmax(0, 1fr);
+}
+.learning-flow--practice .reading-choice-option > span { align-self: start; margin-top: .05rem; }
+.practice-inline-error { display: flex; align-items: center; justify-content: space-between; gap: .65rem; flex-wrap: wrap; }
+.practice-inline-error p { margin: 0; color: var(--color-error); font-size: .78rem; }
+.practice-inline-confirm {
+  min-height: 44px;
+  padding: .55rem .8rem;
+  border: 2px solid var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+.practice-inline-confirm:disabled { opacity: .45; cursor: default; }
+.learning-page:not(:has(.common-test-stepper)) .question-paper .content-renderer { gap: .55rem; }
+.learning-page:not(:has(.common-test-stepper)) .question-paper .content-renderer > p { line-height: 1.75; }
+.learning-page:not(:has(.common-test-stepper)) .question-paper .formula-scroll { margin: .05rem 0; padding: .2rem 0; text-align: left; }
+@media (max-width: 680px) {
+  .learning-flow--practice .reading-choice-options { grid-template-columns: 1fr; }
+  .practice-blank-line { font-size: .96rem; }
+}
