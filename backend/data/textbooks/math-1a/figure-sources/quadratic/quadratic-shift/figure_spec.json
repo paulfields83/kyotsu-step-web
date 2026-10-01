@@ -1,0 +1,21 @@
+{
+  "figure_id": "quadratic-shift",
+  "unit": "math-1a-quadratic-functions",
+  "topic": "1.8 グラフの平行移動・対称移動",
+  "insert_after": "s1-quadratic-functions-topic-08 paragraph 1",
+  "teaching_goal": "平行移動では放物線の形が変わらず、x軸対称では各点の y 座標だけが符号反転することを比較する。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/quadratic-functions/unit.json / topic 1.8",
+    "word": "塾_数学I_第2章_2次関数_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 8 グラフの平行移動・対称移動",
+    "textbook_guide": "教科書 p.60-67 / Guide PDF 71-79"
+  },
+  "figure_type": "function",
+  "precision": "exact",
+  "objects": ["f(x)=0.5x^2", "g(x)=f(x-2)+1", "h(x)=-g(x)"],
+  "constraints": ["f and g have identical quadratic coefficient", "V_f=(0,0) maps to V_g=(2,1)", "every point (x,y) on g maps to (x,-y) on h"],
+  "labels": ["f(x)", "g(x)=f(x-2)+1", "h(x)=-g(x)", "(x,y)->(x+2,y+1)", "(x,y)->(x,-y)"],
+  "forbidden": ["different curvature after translation", "reflection about the wrong axis", "hand-drawn curves"],
+  "engine": "PGFPlots",
+  "qa_rules": ["second derivatives of f and g are equal", "g(x)==f(x-2)+1", "h(x)==-g(x)"],
+  "status": "math_checked"
+}

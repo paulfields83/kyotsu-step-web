@@ -1,0 +1,21 @@
+{
+  "figure_id": "two-circles",
+  "unit": "math-1a-geometric-properties",
+  "topic": "2.5 2つの円",
+  "insert_after": "s2-geometric-properties-topic-05 paragraph 1",
+  "teaching_goal": "交わる2円の共通弦と中心線の垂直関係、および共通接線と各半径の垂直関係を2つの正確な構成で示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 2.5",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 5 2つの円",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["two intersecting equal circles", "their common chord", "center line", "two equal circles with a common external tangent", "radii to tangent points"],
+  "constraints": ["both common-chord endpoints lie on both circles", "common chord perpendicular center line", "each tangent radius perpendicular common tangent"],
+  "labels": ["O_1", "O_2", "X", "Y", "T_1", "T_2", "90 degrees"],
+  "forbidden": ["only showing center distance", "missing common chord", "missing tangent right-angle marks"],
+  "engine": "TikZ analytic circle construction",
+  "qa_rules": ["circle intersection incidence", "chord-centerline dot product zero", "radius-tangent dot products zero"],
+  "status": "math_checked"
+}

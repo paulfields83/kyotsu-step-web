@@ -1,0 +1,129 @@
+{
+  "figure_id": "three-perpendicular",
+  "source_sha256": "199f884737488f5d3b8909087b956f3449902385370ed670b22abbd5fcc4bfc8",
+  "engine": "tikz-3dplot from analytic 3D coordinates",
+  "math_qa": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "spec-id",
+        "passed": true,
+        "detail": "three-perpendicular == three-perpendicular"
+      },
+      {
+        "name": "spec-unit",
+        "passed": true,
+        "detail": "figure_spec.json contains unit"
+      },
+      {
+        "name": "spec-topic",
+        "passed": true,
+        "detail": "figure_spec.json contains topic"
+      },
+      {
+        "name": "spec-teaching_goal",
+        "passed": true,
+        "detail": "figure_spec.json contains teaching_goal"
+      },
+      {
+        "name": "spec-source",
+        "passed": true,
+        "detail": "figure_spec.json contains source"
+      },
+      {
+        "name": "spec-objects",
+        "passed": true,
+        "detail": "figure_spec.json contains objects"
+      },
+      {
+        "name": "spec-constraints",
+        "passed": true,
+        "detail": "figure_spec.json contains constraints"
+      },
+      {
+        "name": "spec-labels",
+        "passed": true,
+        "detail": "figure_spec.json contains labels"
+      },
+      {
+        "name": "spec-forbidden",
+        "passed": true,
+        "detail": "figure_spec.json contains forbidden"
+      },
+      {
+        "name": "spec-engine",
+        "passed": true,
+        "detail": "figure_spec.json contains engine"
+      },
+      {
+        "name": "spec-qa_rules",
+        "passed": true,
+        "detail": "figure_spec.json contains qa_rules"
+      },
+      {
+        "name": "spec-status",
+        "passed": true,
+        "detail": "figure_spec.json contains status"
+      },
+      {
+        "name": "standalone-source",
+        "passed": true,
+        "detail": "independently compilable standalone document"
+      },
+      {
+        "name": "no-svg-source",
+        "passed": true,
+        "detail": "source is TeX/TikZ rather than handwritten SVG"
+      },
+      {
+        "name": "3d-engine",
+        "passed": true,
+        "detail": "3D coordinates use tikz-3dplot"
+      },
+      {
+        "name": "source-model-binding",
+        "passed": true,
+        "detail": "verified model values and constructions are present in figure.tex"
+      },
+      {
+        "name": "plane-incidence",
+        "passed": true,
+        "detail": "H,Q belong to z=0"
+      },
+      {
+        "name": "PH-plane-normal",
+        "passed": true,
+        "detail": "PH is parallel to plane normal"
+      },
+      {
+        "name": "l-perp-HQ",
+        "passed": true,
+        "detail": "l dot HQ=0"
+      },
+      {
+        "name": "l-perp-PQ",
+        "passed": true,
+        "detail": "l dot PQ=0"
+      },
+      {
+        "name": "projection",
+        "passed": true,
+        "detail": "HQ is the projection of PQ onto z=0"
+      }
+    ]
+  },
+  "compile_qa": {
+    "status": "pass",
+    "standalone_tex": "figure.tex",
+    "review_pdf": "figure.pdf",
+    "generated_svg": "figure.svg"
+  },
+  "visual_qa": {
+    "status": "pass",
+    "review_surface": "PDF and 2x PNG preview"
+  },
+  "publish_qa": {
+    "status": "pass",
+    "asset": "geometric-properties/assets/three-perpendicular.svg"
+  }
+}

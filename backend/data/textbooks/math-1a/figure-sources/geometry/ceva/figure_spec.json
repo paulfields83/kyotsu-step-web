@@ -1,0 +1,21 @@
+{
+  "figure_id": "ceva",
+  "unit": "math-1a-geometric-properties",
+  "topic": "1.7 チェバの定理",
+  "insert_after": "s1-geometric-properties-topic-07 paragraph 1",
+  "teaching_goal": "三角形内部の点 P から各頂点を通る直線と対辺との交点 D,E,F を構成し、AD,BE,CF が厳密に共点であることを示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 1.7",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 5 チェバの定理",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["triangle ABC", "interior point P", "D=AP∩BC", "E=BP∩CA", "F=CP∩AB"],
+  "constraints": ["D on BC", "E on CA", "F on AB", "AD,BE,CF concurrent at P", "Ceva ratio product equals 1"],
+  "labels": ["A", "B", "C", "D", "E", "F", "P"],
+  "forbidden": ["orange point offset from the true intersection", "side points placed independently"],
+  "engine": "TikZ line-intersection construction",
+  "qa_rules": ["point-on-side checks", "concurrent(AD,BE,CF)", "BD/DC*CE/EA*AF/FB==1"],
+  "status": "math_checked"
+}

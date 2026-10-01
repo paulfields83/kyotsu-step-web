@@ -19,7 +19,7 @@
 | numline | 1.4 共通部分と和集合 | 教科書 pp.102–103 / Guide pp.133–134 | −3<x<4 と −2≦x≦5 の開閉端点を区別する。 | endpoints checked |
 | three-set-venn | 1.5 空集合・部分集合・3つの集合 | 教科書 p.103 / Guide p.134 | 3集合の共通部分の位置だけを示し、具体的要素は表示しない。 | no answer leakage |
 | complement-region | 1.6 全体集合と補集合 | 教科書 p.104 / Guide pp.135–136 | 補集合が U の中の A 外部であることを示す。 | region checked |
-| demorgan | 1.7 ド・モルガンの法則 | 教科書 p.105 / Guide pp.136–137 | A∩B の補集合と Ā∪B̄ が同じ領域であることを左右比較する。 | regions identical |
+| demorgan | 1.7 ド・モルガンの法則 | 教科書 p.105 / Guide pp.136–137 | A∩B の補集合と Ā∪B̄ が同じ領域であることを左右比較する。V3 では右辺を2つの補集合の和として LaTeX/TikZ で構成する。 | truth table checked / regions identical / PDF visual QA passed |
 | section1-q2-diagrams | 1.8 第1節節末 | 教科書 p.106 / Guide pp.138–139 | 4種類の包含関係を区別する。 | ① disjoint / ③ B inside A / ④ A inside B |
 | condition-counterexample | 2.2 条件と集合・反例 | 教科書 pp.108–109 / Guide pp.140–141 | 真の命題と反例の位置を集合の包含で理解する。P⊂Q の文字答えは画像に直接表示しない。 | no direct blank answer |
 | q14-counterexample | 2.3 必要条件と十分条件 | 教科書 p.109 / Guide p.142 | AC=BD でも長方形とは限らない反例。二等辺台形を使用。 | AC and BD equal by symmetry; non-rectangle |

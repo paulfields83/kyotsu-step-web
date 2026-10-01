@@ -1,0 +1,21 @@
+{
+  "figure_id": "angle-bisector",
+  "unit": "math-1a-geometric-properties",
+  "topic": "1.3 角の二等分線定理",
+  "insert_after": "s1-geometric-properties-topic-03 paragraph 1",
+  "teaching_goal": "不等辺三角形で AD が角 A を二等分し、D が辺 BC を AB:AC の比に内分することを同時に示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 1.3",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 2 角の二等分線定理",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。対応教科書ページ番号は母本内に未記載。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["scalene triangle ABC", "D on BC", "angle bisector AD", "two equal angle marks"],
+  "constraints": ["D belongs to segment BC", "angle BAD equals angle DAC", "BD/DC equals AB/AC"],
+  "labels": ["A", "B", "C", "D", "BD/DC=AB/AC"],
+  "forbidden": ["isosceles-looking triangle", "D guessed near the midpoint", "equal-angle marks outside angle A"],
+  "engine": "TikZ geometric construction",
+  "qa_rules": ["point_on_line(D,BC)", "angle(BAD)==angle(DAC)", "BD/DC==AB/AC"],
+  "status": "math_checked"
+}

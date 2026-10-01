@@ -1,0 +1,21 @@
+{
+  "figure_id": "trig-right-triangle",
+  "unit": "math-1a-geometry-measurement",
+  "topic": "1.1 正弦・余弦・正接",
+  "insert_after": "s1-geometry-measurement-topic-01 paragraph 1",
+  "teaching_goal": "本文と同じ鋭角 A を基準にし、対辺・隣辺・斜辺と sin A, cos A, tan A の対応を一貫した記号で示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometry-measurement/unit.json / topic 1.1",
+    "word": "塾_数学I_第4章_図形と計量_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 第1節 鋭角の三角比",
+    "textbook_guide": "教科書 p.120-121 / Guide PDF 151以降の該当節"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["right triangle ABC", "right angle at B", "reference angle A", "AB=4.8", "BC=3.6", "AC=6"],
+  "constraints": ["AB perpendicular BC", "AC is the hypotenuse", "sin A=BC/AC", "cos A=AB/AC", "tan A=BC/AB"],
+  "labels": ["A", "opposite BC", "adjacent AB", "hypotenuse AC"],
+  "forbidden": ["using theta while the prose uses A", "wrong side-role mapping"],
+  "engine": "TikZ exact right-triangle construction",
+  "qa_rules": ["right-angle dot product zero", "Pythagorean relation", "three trigonometric ratios"],
+  "status": "math_checked"
+}

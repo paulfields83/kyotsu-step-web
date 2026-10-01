@@ -5,7 +5,7 @@
 - Word 母本 / 啓林館 α数学I・A / Guide を数学内容の照合基準にする。
 - 数学関係を先に固定し、見栄えのために点・線・角・包含関係を変えない。
 - 空欄の答えを画像だけで直接漏らさない。
-- SVG をコード生成し、alt / caption を必ず付ける。
+- 数学図は Figure Spec → LaTeX/TikZ/PGFPlots → PDF review → SVG の順で生成し、alt / caption を必ず付ける。
 - ラベルと図形境界を重ねない。色だけに意味を依存させない。
 
 ## 追加対象
@@ -33,6 +33,7 @@
 
 ## 実装
 `backend/src/mathLearningFigures.ts` が静的 textbook unit を読み込んだ後に figure を付与する。
+V3 対象は `assets/<figure_id>.svg` を参照し、インライン SVG 座標図を使用しない。
 既存の `数学I 集合と命題` は専用 SVG asset 実装を維持する。
 
 
@@ -58,3 +59,26 @@
 - 2円: 共通弦⊥中心線、半径⊥共通接線を分けて表示。
 - 三垂線: 3D 座標上で PH⊥α, l⊥HQ, l⊥PQ を満たす構図を2D投影。
 - ラベルは図形境界上に置かず、本文と同じ記号を使用。
+
+## V3 LaTeX 自动作图（2026-10-01）
+
+V2 で座標を直接記述していた重点 21 図を、独立コンパイル可能な LaTeX source から再制作した。各図の一式は
+`backend/data/textbooks/math-1a/figure-sources/<category>/<figure_id>/` に置く。
+
+- `figure_spec.json`: 教学目的、教材・Word 対応、数学对象、约束、禁止事项、QA 规则。
+- `figure.tex`: 独立した `standalone` 文書。関数・データ図は PGFPlots、平面図形は TikZ、三垂線は `tikz-3dplot`。
+- `figure.pdf`: 数学・視覚確認用の1ページ review PDF。
+- `figure.svg`: 同じ TeX source から生成した font-embedded SVG。
+- `qa_results.json`: source hash、数値検証、コンパイル、視覚確認、asset 公開結果。
+
+### 自動検証
+
+`pnpm figures:verify` は、TeX source が検証対象の式・座標・構成を実際に参照していることを確認したうえで、次を数値計算する。
+
+- 二次関数: 頂点、軸、定義域端点、値域、最大・最小、平行・対称移動。
+- 平面幾何: 共点、共線、共円、垂直、辺角順序、角二等分線、五心、Ceva / Menelaus と逆、接弦、方べき、2円。
+- 空間幾何: 3D 座標上の平面所属、射影、内積ゼロ。
+- データ変換: 平均・分散・標準偏差の変換。
+- 三角比と集合: 角 A の辺対応、ド・モルガンの真理値一致。
+
+`pnpm figures:build -- --visual-approved` は数値 QA 後に TeX をコンパイルし、PDF / SVG / PNG review を生成して backend asset を更新する。

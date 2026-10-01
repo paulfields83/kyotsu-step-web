@@ -1,0 +1,21 @@
+{
+  "figure_id": "triangle-centers",
+  "unit": "math-1a-geometric-properties",
+  "topic": "1.5 外心・内心・垂心",
+  "insert_after": "s1-geometric-properties-topic-05 paragraph 1",
+  "teaching_goal": "外心・内心・垂心を点の位置ではなく、それぞれ垂直二等分線・角の二等分線・高さの交点として比較する。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 1.5",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 4 外心・内心・垂心",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["circumcenter O", "incenter I", "orthocenter H", "defining lines", "circumcircle", "incircle"],
+  "constraints": ["OA=OB=OC", "distance(I,AB)=distance(I,BC)=distance(I,CA)", "AH perpendicular BC", "BH perpendicular CA", "CH perpendicular AB"],
+  "labels": ["O", "I", "H", "perpendicular bisectors", "angle bisectors", "altitudes"],
+  "forbidden": ["three similar triangles with an unexplained dot", "missing construction lines"],
+  "engine": "TikZ exact coordinate construction",
+  "qa_rules": ["equal circumradii", "equal incenter distances", "three altitude dot products are zero"],
+  "status": "math_checked"
+}

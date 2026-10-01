@@ -7,6 +7,32 @@ import { buildTextbookChapters } from './textbookCatalog'
 
 const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
 const setsRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'sets-propositions')
+const generatedFigureIdsByUnit: Record<string, string[]> = {
+  'math-1a-quadratic-functions': [
+    'quadratic-domain-range',
+    'quadratic-vertex-form',
+    'quadratic-shift',
+    'quadratic-max-min',
+  ],
+  'math-1a-geometry-measurement': ['trig-right-triangle'],
+  'math-1a-data-analysis': ['data-transform'],
+  'math-1a-geometric-properties': [
+    'angle-bisector',
+    'triangle-centroid',
+    'triangle-centers',
+    'five-centers-summary',
+    'ceva',
+    'menelaus',
+    'ceva-reverse',
+    'menelaus-reverse',
+    'triangle-side-angle',
+    'cyclic-quadrilateral',
+    'tangent-chord',
+    'power-of-point',
+    'two-circles',
+    'three-perpendicular',
+  ],
+}
 const staticMathUnitIds = [
   'math-1a-numbers-expressions',
   'math-1a-quadratic-functions',
@@ -170,7 +196,7 @@ describe('backend textbook data', () => {
     }
   })
 
-  it('adds learning figures across published Math I・A units', () => {
+  it('adds learning figures and serves the rebuilt figures as backend SVG assets', () => {
     const expectedUnits = [
       'math-1a-numbers-expressions',
       'math-1a-quadratic-functions',
@@ -184,7 +210,13 @@ describe('backend textbook data', () => {
       const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId)!
       const figureBlocks = loaded.unit.sections.flatMap((section) => section.readingFlow).filter((block) => block.type === 'figure')
       expect(figureBlocks.length).toBeGreaterThan(0)
-      expect(loaded.unit.sections.flatMap((section) => section.figures).every((figure) => figure.src.startsWith('data:image/svg+xml'))).toBe(true)
+      const figures = loaded.unit.sections.flatMap((section) => section.figures)
+      for (const figureId of generatedFigureIdsByUnit[unitId] ?? []) {
+        const figure = figures.find(({ id }) => id === figureId)
+        expect(figure, `${unitId}/${figureId}`).toBeTruthy()
+        expect(figure!.src).toBe(`assets/${figureId}.svg`)
+        expect(existsSync(join(loaded.dataDir!, figure!.src))).toBe(true)
+      }
     }
   })
 
