@@ -326,6 +326,15 @@ function TextbookReadingFlow({ unit, section, progress }: {
       if (researchMatch) {
         return <h4 className="reading-subheading textbook-research-heading" key={block.id}>{`研究　${researchMatch[1]}`}</h4>
       }
+      const metaMatch = plain.match(/^(コンピュータの活用|第[0-9]+節の自力確認|作図の記述)[　\s]*(.*)$/u)
+      if (metaMatch) {
+        return (
+          <aside className="reading-note textbook-meta-note" key={block.id}>
+            <strong>{metaMatch[1]}</strong>
+            {metaMatch[2] && <span>{metaMatch[2]}</span>}
+          </aside>
+        )
+      }
     }
 
     if (block.type === 'figure') {
@@ -422,10 +431,14 @@ function TextbookReadingFlow({ unit, section, progress }: {
         return candidate.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
       }
       const isExampleBoundary = (candidate: TextbookReadingBlock) => {
+        const raw = plainBlockText(candidate).trim()
+        if (!raw) return false
+        if (candidate.type === 'heading') {
+          return /^(?:研究|探究|発展|参考|注意)[　\s]/u.test(raw)
+        }
         if (candidate.type !== 'paragraph') return false
-        const raw = plainBlockText(candidate)
         return /^[0-9]+[　\s]*研究(?:[　\s]|$)/u.test(raw)
-          || /^(?:コンピュータの活用|第[0-9]+節の自力確認|作図の記述)/u.test(raw)
+          || /^(?:研究|探究|発展|参考|注意|コンピュータの活用|第[0-9]+節の自力確認|作図の記述)[　\s]?/u.test(raw)
       }
 
       const problemIndex = problem ? chunk.findIndex((candidate) => candidate.id === problem.id) : -1
