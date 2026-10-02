@@ -97,7 +97,7 @@
         {
           "id": "s1-quadratic-functions-t01-h008",
           "type": "heading",
-          "text": "問題文　f(x)=4x−6 の f(2), f(−1), f(a−1) を求める。"
+          "text": "問題文　f(x)=4x−6 の f(2), f(−1), f(a−1) を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t01-p009",
@@ -517,7 +517,7 @@
         {
           "id": "s1-quadratic-functions-t05-h006",
           "type": "heading",
-          "text": "問題文　y=3(x−2)² の軸と頂点を求める。"
+          "text": "問題文　y=3(x−2)² の軸と頂点を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t05-p007",
@@ -942,7 +942,7 @@
         {
           "id": "s1-quadratic-functions-t08-h019",
           "type": "heading",
-          "text": "問題文　関数 y=−x+20、0<x<10 の値域を求める。"
+          "text": "問題文　関数 y=−x+20、0<x<10 の値域を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t08-p020",
@@ -1054,7 +1054,7 @@
         {
           "id": "s1-quadratic-functions-t08-h032",
           "type": "heading",
-          "text": "問題文　y=−3x²+6x を平方完成する。"
+          "text": "問題文　y=−3x²+6x を平方完成せよ。"
         },
         {
           "id": "s1-quadratic-functions-t08-p033",
@@ -1184,7 +1184,7 @@
         {
           "id": "s1-quadratic-functions-t08-h046",
           "type": "heading",
-          "text": "問題文　y=x²−4x+1 の y軸対称を求める。"
+          "text": "問題文　y=x²−4x+1 の y軸対称を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t08-p047",
@@ -1925,7 +1925,7 @@
         {
           "id": "s2-quadratic-functions-t03-h006",
           "type": "heading",
-          "text": "問題文　a>0。最大値を求める。"
+          "text": "問題文　a>0。最大値を求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t03-p007",
@@ -3210,7 +3210,7 @@
         {
           "id": "s3-quadratic-functions-t05-h007",
           "type": "heading",
-          "text": "問題文　2x²−3x−1=0 を解く。"
+          "text": "問題文　2x²−3x−1=0 を解け。"
         },
         {
           "id": "s3-quadratic-functions-t05-p008",
@@ -3367,7 +3367,7 @@
         {
           "id": "s3-quadratic-functions-t05-h027",
           "type": "heading",
-          "text": "問題文　−x²+3x+4>0 を解く。"
+          "text": "問題文　−x²+3x+4>0 を解け。"
         },
         {
           "id": "s3-quadratic-functions-t05-p028",
@@ -3420,7 +3420,7 @@
         {
           "id": "s3-quadratic-functions-t05-h034",
           "type": "heading",
-          "text": "問題文　x²−2ax+a+2>0 がすべての実数で成り立つ条件を考える。"
+          "text": "問題文　x²−2ax+a+2>0 がすべての実数で成り立つ条件を考えよ。"
         },
         {
           "id": "s3-quadratic-functions-t05-p035",
