@@ -261,11 +261,11 @@ const sections:TextbookSection[]=sectionGroups.map((group)=>{
 export const strictSetsPropositionsUnit:TextbookUnit=TextbookUnitSchema.parse({
   schemaVersion:'1.0',
   unitId:'math-1a-sets-propositions',
-  revision:4,
+  revision:5,
   status:'published',
   subject:'math-1a',
   title:'数学I 集合と命題',
-  subtitle:'集合 ／ 命題 ／ 証明｜厳格誘導 Standard',
+  subtitle:'集合 ／ 命題 ／ 証明｜解題軌道・厳格誘導',
   source:{
     type:'reference',
     label:'啓林館版 α数学I 第3章「集合と命題」＋教科書学習モード完全版・厳格誘導版',
