@@ -322,7 +322,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
     if (hasSolutionTrack && block.type === 'paragraph') {
       const plain = block.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
-      const researchMatch = plain.match(/^\\d+[　\\s]*研究[　\\s]*(.+)$/u)
+      const researchMatch = plain.match(/^[0-9]+[　\s]*研究[　\s]*(.+)$/u)
       if (researchMatch) {
         return <h4 className="reading-subheading textbook-research-heading" key={block.id}>{`研究　${researchMatch[1]}`}</h4>
       }
@@ -424,8 +424,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
       const isExampleBoundary = (candidate: TextbookReadingBlock) => {
         if (candidate.type !== 'paragraph') return false
         const raw = plainBlockText(candidate)
-        return /^\\d+[　\\s]*研究(?:[　\\s]|$)/u.test(raw)
-          || /^(?:コンピュータの活用|第\\d+節の自力確認|作図の記述)/u.test(raw)
+        return /^[0-9]+[　\s]*研究(?:[　\s]|$)/u.test(raw)
+          || /^(?:コンピュータの活用|第[0-9]+節の自力確認|作図の記述)/u.test(raw)
       }
 
       const problemIndex = problem ? chunk.findIndex((candidate) => candidate.id === problem.id) : -1
