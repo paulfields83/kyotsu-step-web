@@ -415,12 +415,12 @@
         {
           "id": "s1-quadratic-functions-t04-n004",
           "type": "note",
-          "text": "着眼点　係数aの符号と大きさに着目する。"
+          "text": "着眼点　基本形y=ax²から、上下の平行移動と係数aの符号を読む。"
         },
         {
           "id": "s1-quadratic-functions-t04-n005",
           "type": "note",
-          "text": "使う知識　aの符号で開く向きを、|a|でグラフの広がり方を判断する。"
+          "text": "使う知識　y=ax²+q は上下にqだけ移動し、aの符号で開く向きが決まる。"
         },
         {
           "id": "s1-quadratic-functions-t04-h006",
@@ -448,7 +448,7 @@
         {
           "id": "s1-quadratic-functions-t04-n008",
           "type": "note",
-          "text": "確認　頂点が原点であることを確認する。"
+          "text": "確認　頂点のy座標と開く向きをそれぞれ確認する。"
         },
         {
           "id": "s1-quadratic-functions-topic-05",
@@ -507,12 +507,12 @@
         {
           "id": "s1-quadratic-functions-t05-n004",
           "type": "note",
-          "text": "着眼点　軸と頂点が読み取れる形に直す。"
+          "text": "着眼点　すでにy=a(x−p)²+qの形なので、pとqを直接読む。"
         },
         {
           "id": "s1-quadratic-functions-t05-n005",
           "type": "note",
-          "text": "使う知識　平方完成して y=a(x-p)²+q の形にする。"
+          "text": "使う知識　軸はx=p、頂点は(p,q)である。"
         },
         {
           "id": "s1-quadratic-functions-t05-h006",
@@ -548,7 +548,7 @@
         {
           "id": "s1-quadratic-functions-t05-n008",
           "type": "note",
-          "text": "確認　展開して元の式に戻るかを確認する。"
+          "text": "確認　x−pの符号を取り違えていないかを確認する。"
         },
         {
           "id": "s1-quadratic-functions-t05-h009",
@@ -932,12 +932,12 @@
         {
           "id": "s1-quadratic-functions-t08-n017",
           "type": "note",
-          "text": "着眼点　グラフ上の点がどの向きにどれだけ動くかを見る。"
+          "text": "着眼点　定義域0<x<10の両端でyがどの値に近づくかを見る。"
         },
         {
           "id": "s1-quadratic-functions-t08-n018",
           "type": "note",
-          "text": "使う知識　x方向・y方向の移動を式の置き換えに対応させる。"
+          "text": "使う知識　一次関数の増減と、端点を含まない不等号を使って値域を決める。"
         },
         {
           "id": "s1-quadratic-functions-t08-h019",
@@ -983,7 +983,7 @@
         {
           "id": "s1-quadratic-functions-t08-n022",
           "type": "note",
-          "text": "確認　移動の向きと符号を取り違えていないかを確認する。"
+          "text": "確認　値域の端点も含まないことを確認する。"
         },
         {
           "id": "s1-quadratic-functions-t08-h023",
@@ -993,12 +993,12 @@
         {
           "id": "s1-quadratic-functions-t08-n024",
           "type": "note",
-          "text": "着眼点　グラフ上の点がどの向きにどれだけ動くかを見る。"
+          "text": "着眼点　3つの式で係数aの絶対値だけが異なることに着目する。"
         },
         {
           "id": "s1-quadratic-functions-t08-n025",
           "type": "note",
-          "text": "使う知識　x方向・y方向の移動を式の置き換えに対応させる。"
+          "text": "使う知識　y=ax²では、|a|が大きいほど放物線は細く、|a|が小さいほど広くなる。"
         },
         {
           "id": "s1-quadratic-functions-t08-h026",
@@ -1034,7 +1034,7 @@
         {
           "id": "s1-quadratic-functions-t08-n028",
           "type": "note",
-          "text": "確認　移動の向きと符号を取り違えていないかを確認する。"
+          "text": "確認　3つとも頂点が原点であることを確認する。"
         },
         {
           "id": "s1-quadratic-functions-t08-h029",
@@ -1044,12 +1044,12 @@
         {
           "id": "s1-quadratic-functions-t08-n030",
           "type": "note",
-          "text": "着眼点　グラフ上の点がどの向きにどれだけ動くかを見る。"
+          "text": "着眼点　x²とxの項をまとめ、軸と頂点が読める形に直す。"
         },
         {
           "id": "s1-quadratic-functions-t08-n031",
           "type": "note",
-          "text": "使う知識　x方向・y方向の移動を式の置き換えに対応させる。"
+          "text": "使う知識　平方完成してy=a(x−p)²+qの形にする。"
         },
         {
           "id": "s1-quadratic-functions-t08-h032",
@@ -1095,7 +1095,7 @@
         {
           "id": "s1-quadratic-functions-t08-n035",
           "type": "note",
-          "text": "確認　移動の向きと符号を取り違えていないかを確認する。"
+          "text": "確認　完成した式を展開して元の式に戻るかを確認する。"
         },
         {
           "id": "s1-quadratic-functions-t08-h036",
@@ -1105,12 +1105,12 @@
         {
           "id": "s1-quadratic-functions-t08-n037",
           "type": "note",
-          "text": "着眼点　グラフ上の点がどの向きにどれだけ動くかを見る。"
+          "text": "着眼点　3点の座標をy=ax²+bx+cに代入すると、a、b、cの3本の式ができる。"
         },
         {
           "id": "s1-quadratic-functions-t08-n038",
           "type": "note",
-          "text": "使う知識　x方向・y方向の移動を式の置き換えに対応させる。"
+          "text": "使う知識　3本の連立方程式を解いてa、b、cを決める。"
         },
         {
           "id": "s1-quadratic-functions-t08-h039",
@@ -1164,7 +1164,7 @@
         {
           "id": "s1-quadratic-functions-t08-n042",
           "type": "note",
-          "text": "確認　移動の向きと符号を取り違えていないかを確認する。"
+          "text": "確認　求めた式が3点すべてを通るかを確認する。"
         },
         {
           "id": "s1-quadratic-functions-t08-h043",
@@ -1174,12 +1174,12 @@
         {
           "id": "s1-quadratic-functions-t08-n044",
           "type": "note",
-          "text": "着眼点　グラフ上の点がどの向きにどれだけ動くかを見る。"
+          "text": "着眼点　対称移動では、座標がどのように変わるかを見る。"
         },
         {
           "id": "s1-quadratic-functions-t08-n045",
           "type": "note",
-          "text": "使う知識　x方向・y方向の移動を式の置き換えに対応させる。"
+          "text": "使う知識　y軸対称ではxを−xに、原点対称ではxを−x、yを−yに置き換える。"
         },
         {
           "id": "s1-quadratic-functions-t08-h046",
@@ -1217,7 +1217,7 @@
         {
           "id": "s1-quadratic-functions-t08-n049",
           "type": "note",
-          "text": "確認　移動の向きと符号を取り違えていないかを確認する。"
+          "text": "確認　どの軸・点について対称なのかを確認する。"
         },
         {
           "id": "s1-quadratic-functions-t08-p050",
@@ -1635,12 +1635,12 @@
         {
           "id": "s2-quadratic-functions-t01-n005",
           "type": "note",
-          "text": "着眼点　放物線の頂点と定義域の位置関係に着目する。"
+          "text": "着眼点　定義域がないので、平方完成して頂点から最小値または最大値を読む。"
         },
         {
           "id": "s2-quadratic-functions-t01-n006",
           "type": "note",
-          "text": "使う知識　平方完成して軸・頂点を求め、頂点と端点の値を比較する。"
+          "text": "使う知識　上に開く放物線は頂点で最小値をとり、上方向には限りなく大きくなる。"
         },
         {
           "id": "s2-quadratic-functions-t01-h007",
@@ -1668,7 +1668,7 @@
         {
           "id": "s2-quadratic-functions-t01-n008",
           "type": "note",
-          "text": "確認　最大・最小をとるxが定義域に入っているかを確認する。"
+          "text": "確認　最大値が存在するかどうかも確認する。"
         },
         {
           "id": "s2-quadratic-functions-t01-h009",
@@ -1678,12 +1678,12 @@
         {
           "id": "s2-quadratic-functions-t01-n010",
           "type": "note",
-          "text": "着眼点　放物線の頂点と定義域の位置関係に着目する。"
+          "text": "着眼点　定義域がないので、平方完成して頂点から最大値または最小値を読む。"
         },
         {
           "id": "s2-quadratic-functions-t01-n011",
           "type": "note",
-          "text": "使う知識　平方完成して軸・頂点を求め、頂点と端点の値を比較する。"
+          "text": "使う知識　下に開く放物線は頂点で最大値をとり、下方向には限りなく小さくなる。"
         },
         {
           "id": "s2-quadratic-functions-t01-h012",
@@ -1711,7 +1711,7 @@
         {
           "id": "s2-quadratic-functions-t01-n013",
           "type": "note",
-          "text": "確認　最大・最小をとるxが定義域に入っているかを確認する。"
+          "text": "確認　最小値が存在するかどうかも確認する。"
         },
         {
           "id": "s2-quadratic-functions-topic-02",
@@ -3012,12 +3012,12 @@
         {
           "id": "s3-quadratic-functions-t04-n004",
           "type": "note",
-          "text": "着眼点　移項して未知数の項を1つにまとめる。"
+          "text": "着眼点　境界となるx=1、3と、2次式の符号がどこで正になるかを見る。"
         },
         {
           "id": "s3-quadratic-functions-t04-n005",
           "type": "note",
-          "text": "使う知識　等式と同様に整理し、負の数を掛けたり割ったりするときは不等号の向きを変える。"
+          "text": "使う知識　上に開く放物線では、2つの実数解の外側で2次式の値が正になる。"
         },
         {
           "id": "s3-quadratic-functions-t04-h006",
@@ -3045,7 +3045,7 @@
         {
           "id": "s3-quadratic-functions-t04-n008",
           "type": "note",
-          "text": "確認　不等号の向きと解の範囲を確認する。"
+          "text": "確認　不等号が>0なのでx=1、3を含めない。"
         },
         {
           "id": "s3-quadratic-functions-t04-h009",
@@ -3098,12 +3098,12 @@
         {
           "id": "s3-quadratic-functions-t04-n015",
           "type": "note",
-          "text": "着眼点　x²+x+2 のグラフがx軸と交わるかどうかを判別式で調べる。"
+          "text": "着眼点　判別式でx軸との共有点の有無を調べ、放物線がx軸のどちら側にあるかを見る。"
         },
         {
           "id": "s3-quadratic-functions-t04-n016",
           "type": "note",
-          "text": "使う知識　x²の係数が正で、判別式D<0なら、2次式はすべての実数xで正になる。"
+          "text": "使う知識　D<0ならx軸と交わらないので、x²の係数の符号から2次式の符号を判断する。"
         },
         {
           "id": "s3-quadratic-functions-t04-p017",
@@ -3139,7 +3139,7 @@
         {
           "id": "s3-quadratic-functions-t04-n019",
           "type": "note",
-          "text": "確認　D<0でx軸と交わらず、しかも上に開くことの両方を確認する。"
+          "text": "確認　判別式だけでなく、放物線の開く向きも確認する。"
         },
         {
           "id": "s3-quadratic-functions-topic-05",
@@ -3200,12 +3200,12 @@
         {
           "id": "s3-quadratic-functions-t05-n005",
           "type": "note",
-          "text": "着眼点　絶対値を数直線上の距離として読む。"
+          "text": "着眼点　因数分解しにくい形なので、a、b、cを読み取って解の公式を使う。"
         },
         {
           "id": "s3-quadratic-functions-t05-n006",
           "type": "note",
-          "text": "使う知識　|x-a| の意味を距離に置き換えるか、必要に応じて場合分けする。"
+          "text": "使う知識　x={−b±√(b²−4ac)}/2a を用いる。"
         },
         {
           "id": "s3-quadratic-functions-t05-h007",
@@ -3233,7 +3233,7 @@
         {
           "id": "s3-quadratic-functions-t05-n009",
           "type": "note",
-          "text": "確認　境界の等号を含むかどうかを確認する。"
+          "text": "確認　bの符号と判別式の計算を確認する。"
         },
         {
           "id": "s3-quadratic-functions-t05-h010",
@@ -3243,12 +3243,12 @@
         {
           "id": "s3-quadratic-functions-t05-n011",
           "type": "note",
-          "text": "着眼点　絶対値を数直線上の距離として読む。"
+          "text": "着眼点　重解をもつとき、2次方程式の判別式が0になることに着目する。"
         },
         {
           "id": "s3-quadratic-functions-t05-n012",
           "type": "note",
-          "text": "使う知識　|x-a| の意味を距離に置き換えるか、必要に応じて場合分けする。"
+          "text": "使う知識　D=b²−4ac=0として、文字kについて解く。"
         },
         {
           "id": "s3-quadratic-functions-t05-h013",
@@ -3286,7 +3286,7 @@
         {
           "id": "s3-quadratic-functions-t05-n016",
           "type": "note",
-          "text": "確認　境界の等号を含むかどうかを確認する。"
+          "text": "確認　求めたkで本当にD=0になるかを確認する。"
         },
         {
           "id": "s3-quadratic-functions-t05-h017",
@@ -3296,12 +3296,12 @@
         {
           "id": "s3-quadratic-functions-t05-n018",
           "type": "note",
-          "text": "着眼点　絶対値を数直線上の距離として読む。"
+          "text": "着眼点　共有点の個数を、2つの式を連立してできる2次方程式の実数解の個数に置き換える。"
         },
         {
           "id": "s3-quadratic-functions-t05-n019",
           "type": "note",
-          "text": "使う知識　|x-a| の意味を距離に置き換えるか、必要に応じて場合分けする。"
+          "text": "使う知識　共有点が1個なら、連立して得た2次方程式の判別式は0になる。"
         },
         {
           "id": "s3-quadratic-functions-t05-h020",
@@ -3347,7 +3347,7 @@
         {
           "id": "s3-quadratic-functions-t05-n023",
           "type": "note",
-          "text": "確認　境界の等号を含むかどうかを確認する。"
+          "text": "確認　D=0という条件をmについて正しく解いたかを確認する。"
         },
         {
           "id": "s3-quadratic-functions-t05-h024",
@@ -3357,12 +3357,12 @@
         {
           "id": "s3-quadratic-functions-t05-n025",
           "type": "note",
-          "text": "着眼点　絶対値を数直線上の距離として読む。"
+          "text": "着眼点　まず2次方程式−x²+3x+4=0の解を求め、放物線がx軸のどちら側にあるかを見る。"
         },
         {
           "id": "s3-quadratic-functions-t05-n026",
           "type": "note",
-          "text": "使う知識　|x-a| の意味を距離に置き換えるか、必要に応じて場合分けする。"
+          "text": "使う知識　下に開く放物線では、2つの実数解の間で2次式の値が正になる。"
         },
         {
           "id": "s3-quadratic-functions-t05-h027",
@@ -3400,7 +3400,7 @@
         {
           "id": "s3-quadratic-functions-t05-n030",
           "type": "note",
-          "text": "確認　境界の等号を含むかどうかを確認する。"
+          "text": "確認　>0なので境界の解を含めない。"
         },
         {
           "id": "s3-quadratic-functions-t05-h031",
