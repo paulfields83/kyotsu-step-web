@@ -1471,7 +1471,25 @@
         {
           "id": "s2-geometric-properties-t03-h005",
           "type": "heading",
-          "text": "問題文　接線と弦の角が40°。同じ弦を見る円周角は 40°。"
+          "text": "問題文　接線と弦の角が40°。同じ弦を見る円周角を求める。"
+        },
+        {
+          "id": "s2-geometric-properties-t03-p005a",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　接弦定理より、接線と弦の角に等しい円周角は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
         },
         {
           "id": "s2-geometric-properties-t03-n006",
@@ -1941,6 +1959,19 @@
           "prompt": "2つの円 【16】",
           "acceptedAnswers": [],
           "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b017",
+          "label": "17",
+          "prompt": "接線角の例題 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text",
+          "choices": [
+            "30°",
+            "40°",
+            "50°",
+            "80°"
+          ]
         }
       ]
     },
