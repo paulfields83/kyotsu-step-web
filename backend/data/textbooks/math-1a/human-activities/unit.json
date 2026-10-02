@@ -88,7 +88,7 @@
         {
           "id": "s1-human-activities-t01-h008",
           "type": "heading",
-          "text": "問題文　同じ記号を必要個数並べる方式と現代の位取り記数法を比較する。"
+          "text": "問題文　同じ記号を必要個数並べる方式と現代の位取り記数法を比較せよ。"
         },
         {
           "id": "s1-human-activities-t01-p009",
@@ -2048,7 +2048,7 @@
         {
           "id": "s2-human-activities-t03-h021",
           "type": "heading",
-          "text": "問題文　ある数のn進表示の末尾から、nで割った余りを読む。"
+          "text": "問題文　ある数のn進表示の末尾から、nで割った余りを読み取れ。"
         },
         {
           "id": "s2-human-activities-t03-p022",
