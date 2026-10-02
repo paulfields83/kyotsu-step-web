@@ -78,12 +78,12 @@
         {
           "id": "s1-human-activities-t01-n006",
           "type": "note",
-          "text": "着眼点　各桁がどの位の値を表すかを見る。"
+          "text": "着眼点　同じ記号を繰り返す表し方と、桁の位置で値が決まる表し方の違いを見る。"
         },
         {
           "id": "s1-human-activities-t01-n007",
           "type": "note",
-          "text": "使う知識　各桁の数字に基数の累乗を掛けて値を表す。"
+          "text": "使う知識　位取り記数法では、同じ数字でも置かれた位によって表す値が変わる。"
         },
         {
           "id": "s1-human-activities-t01-h008",
@@ -111,7 +111,7 @@
         {
           "id": "s1-human-activities-t01-n010",
           "type": "note",
-          "text": "確認　位の指数を右端から0として数えているかを確認する。"
+          "text": "確認　記号の種類と桁の位置の役割を区別する。"
         },
         {
           "id": "s1-human-activities-topic-02",
@@ -324,12 +324,12 @@
         {
           "id": "s1-human-activities-t03-n016",
           "type": "note",
-          "text": "着眼点　まず10進法に直すか、割り算を繰り返して目的の基数へ直す。"
+          "text": "着眼点　各桁で0+0、0+1、1+1を計算し、1+1では次の位へ繰り上げる。"
         },
         {
           "id": "s1-human-activities-t03-n017",
           "type": "note",
-          "text": "使う知識　位取り記数法の定義を用いて基数を変換する。"
+          "text": "使う知識　2進法では1+1=10₂として筆算する。"
         },
         {
           "id": "s1-human-activities-t03-h018",
@@ -357,7 +357,7 @@
         {
           "id": "s1-human-activities-t03-n020",
           "type": "note",
-          "text": "確認　変換後の各桁が基数未満になっているかを確認する。"
+          "text": "確認　繰り上がりを次の桁に反映したかを確認する。"
         },
         {
           "id": "s1-human-activities-topic-04",
@@ -553,12 +553,12 @@
         {
           "id": "s1-human-activities-t05-n011",
           "type": "note",
-          "text": "着眼点　2数の素因数や最大公約数との関係を見る。"
+          "text": "着眼点　余りrは必ず0≦r<5を満たすように商を決める。"
         },
         {
           "id": "s1-human-activities-t05-n012",
           "type": "note",
-          "text": "使う知識　ab=gcd(a,b)lcm(a,b) などを用いる。"
+          "text": "使う知識　整数aをbで割るとa=bq+r、0≦r<bと表せる。"
         },
         {
           "id": "s1-human-activities-t05-h013",
@@ -594,7 +594,7 @@
         {
           "id": "s1-human-activities-t05-n015",
           "type": "note",
-          "text": "確認　最大公約数と最小公倍数を取り違えていないかを確認する。"
+          "text": "確認　負の余りをそのまま答えていないかを確認する。"
         },
         {
           "id": "s1-human-activities-topic-06",
@@ -1038,12 +1038,12 @@
         {
           "id": "s1-human-activities-t09-n004",
           "type": "note",
-          "text": "着眼点　位置を表す基準点と方向を決める。"
+          "text": "着眼点　各カードが2進法のどの桁に対応しているかを見る。"
         },
         {
           "id": "s1-human-activities-t09-n005",
           "type": "note",
-          "text": "使う知識　座標や方位など、決めた基準にしたがって位置を数で表す。"
+          "text": "使う知識　『入っているカードの値を足す』操作を2進表示の1の桁に対応させる。"
         },
         {
           "id": "s1-human-activities-t09-h006",
@@ -1071,7 +1071,7 @@
         {
           "id": "s1-human-activities-t09-n008",
           "type": "note",
-          "text": "確認　基準と向きを途中で変えていないかを確認する。"
+          "text": "確認　各カードの重み1、2、4、8、…を正しく足したかを確認する。"
         },
         {
           "id": "s1-human-activities-topic-10",
@@ -1190,12 +1190,12 @@
         {
           "id": "s1-human-activities-t11-n004",
           "type": "note",
-          "text": "着眼点　問題文の条件を整数の式に表す。"
+          "text": "着眼点　『5で割ると2余る』『5で割ると1余る』を文字式で表す。"
         },
         {
           "id": "s1-human-activities-t11-n005",
           "type": "note",
-          "text": "使う知識　約数・倍数・不定方程式など、条件に合う整数の性質を用いる。"
+          "text": "使う知識　m=5a+2、n=5b+1とおき、m−2nを5の倍数と余りの形に整理する。"
         },
         {
           "id": "s1-human-activities-t11-h006",
@@ -1233,7 +1233,7 @@
         {
           "id": "s1-human-activities-t11-n009",
           "type": "note",
-          "text": "確認　得た整数解が元の文章条件を満たすかを確認する。"
+          "text": "確認　a、bを整数として置いているかを確認する。"
         },
         {
           "id": "s1-human-activities-t11-h010",
@@ -1243,12 +1243,12 @@
         {
           "id": "s1-human-activities-t11-n011",
           "type": "note",
-          "text": "着眼点　問題文の条件を整数の式に表す。"
+          "text": "着眼点　一般解に含まれる整数kについて、正の整数条件や範囲条件を不等式に直す。"
         },
         {
           "id": "s1-human-activities-t11-n012",
           "type": "note",
-          "text": "使う知識　約数・倍数・不定方程式など、条件に合う整数の性質を用いる。"
+          "text": "使う知識　kの取りうる整数範囲を求め、その個数を数える。"
         },
         {
           "id": "s1-human-activities-t11-h013",
@@ -1276,7 +1276,7 @@
         {
           "id": "s1-human-activities-t11-n015",
           "type": "note",
-          "text": "確認　得た整数解が元の文章条件を満たすかを確認する。"
+          "text": "確認　境界を含むかどうかと、kが整数であることを確認する。"
         },
         {
           "id": "s1-human-activities-t11-p016",
@@ -1723,12 +1723,12 @@
         {
           "id": "s2-human-activities-t02-n010",
           "type": "note",
-          "text": "着眼点　最後に勝つ形から逆向きに、勝ち位置・負け位置を調べる。"
+          "text": "着眼点　1点のまわりに集まる正n角形の内角の和が360°になる条件を見る。"
         },
         {
           "id": "s2-human-activities-t02-n011",
           "type": "note",
-          "text": "使う知識　小さい場合から手を調べ、周期や不変なパターンを見つける。"
+          "text": "使う知識　正n角形の内角180(n−2)/n が360°を割り切るかを調べる。"
         },
         {
           "id": "s2-human-activities-t02-h012",
@@ -1766,7 +1766,7 @@
         {
           "id": "s2-human-activities-t02-n015",
           "type": "note",
-          "text": "確認　相手のどの手に対しても対応できる戦略になっているかを確認する。"
+          "text": "確認　1点に集まる枚数が整数になるかを確認する。"
         },
         {
           "id": "s2-human-activities-t02-h016",
@@ -1776,12 +1776,12 @@
         {
           "id": "s2-human-activities-t02-n017",
           "type": "note",
-          "text": "着眼点　最後に勝つ形から逆向きに、勝ち位置・負け位置を調べる。"
+          "text": "着眼点　異なる正多角形の内角を組み合わせて、1点のまわりが360°になるかを見る。"
         },
         {
           "id": "s2-human-activities-t02-n018",
           "type": "note",
-          "text": "使う知識　小さい場合から手を調べ、周期や不変なパターンを見つける。"
+          "text": "使う知識　各正多角形の内角を求め、その和が360°になる組合せを調べる。"
         },
         {
           "id": "s2-human-activities-t02-h019",
@@ -1809,7 +1809,7 @@
         {
           "id": "s2-human-activities-t02-n021",
           "type": "note",
-          "text": "確認　相手のどの手に対しても対応できる戦略になっているかを確認する。"
+          "text": "確認　実際に同じ頂点のまわりへ配置できる組合せかを確認する。"
         },
         {
           "id": "s2-human-activities-t02-h022",
