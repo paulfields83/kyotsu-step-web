@@ -4148,7 +4148,7 @@
         {
           "id": "s3-counting-probability-t02-h005",
           "type": "heading",
-          "text": "問題文　2枚を区別して投げ、表裏が1枚ずつ出る確率。"
+          "text": "問題文　区別できる2枚の硬貨を同時に投げるとき，表と裏が1枚ずつ出る確率を求めよ。"
         },
         {
           "id": "s3-counting-probability-t02-p006",
@@ -4207,7 +4207,7 @@
         {
           "id": "s3-counting-probability-t02-h011",
           "type": "heading",
-          "text": "問題文　3枚を区別して投げ、1枚だけ表。"
+          "text": "問題文　区別できる3枚の硬貨を同時に投げるとき，表がちょうど1枚出る確率を求めよ。"
         },
         {
           "id": "s3-counting-probability-t02-p012",
@@ -4304,7 +4304,7 @@
         {
           "id": "s3-counting-probability-t04-h005",
           "type": "heading",
-          "text": "問題文　硬貨を3回投げて少なくとも1回表。"
+          "text": "問題文　硬貨を3回投げるとき，少なくとも1回表が出る確率を求めよ。"
         },
         {
           "id": "s3-counting-probability-t04-p006",
@@ -4378,7 +4378,7 @@
         {
           "id": "s3-counting-probability-t05-h005",
           "type": "heading",
-          "text": "問題文　100円が確率1/4、0円が確率3/4。"
+          "text": "問題文　100円を得る確率が1/4，0円を得る確率が3/4であるとき，得られる金額の期待値を求めよ。"
         },
         {
           "id": "s3-counting-probability-t05-p006",
@@ -4421,7 +4421,7 @@
         {
           "id": "s3-counting-probability-t05-h011",
           "type": "heading",
-          "text": "問題文　1個のさいころで偶数が出る事象A、3の倍数が出る事象B。"
+          "text": "問題文　1個のさいころを投げる。偶数が出る事象をA，3の倍数が出る事象をBとするとき，A∩B，A∪Bを求めよ。"
         },
         {
           "id": "s3-counting-probability-t05-p012",
@@ -4472,7 +4472,7 @@
         {
           "id": "s3-counting-probability-t05-h017",
           "type": "heading",
-          "text": "問題文　1〜30のカードで「素数」「5の倍数」「6の倍数」「8の倍数」などの事象を比べる。"
+          "text": "問題文　1から30までの番号を書いたカードから1枚を選ぶ。「素数」「5の倍数」「6の倍数」「8の倍数」などの事象について，排反である組を判定せよ。"
         },
         {
           "id": "s3-counting-probability-t05-p018",
@@ -4515,7 +4515,7 @@
         {
           "id": "s3-counting-probability-t05-h023",
           "type": "heading",
-          "text": "問題文　大小2個のさいころの和は2〜12。6の倍数は6と12。"
+          "text": "問題文　大小2個のさいころを同時に投げるとき，出た目の和が6の倍数になる確率を求めよ。"
         },
         {
           "id": "s3-counting-probability-t05-p024",
@@ -4558,7 +4558,7 @@
         {
           "id": "s3-counting-probability-t05-h029",
           "type": "heading",
-          "text": "問題文　1〜50から1枚。2の倍数または3の倍数。"
+          "text": "問題文　1から50までの番号を書いたカードから1枚を選ぶとき，2の倍数または3の倍数を引く確率を求めよ。"
         },
         {
           "id": "s3-counting-probability-t05-p030",
@@ -4662,7 +4662,7 @@
         {
           "id": "s3-counting-probability-t05-h042",
           "type": "heading",
-          "text": "問題文　赤2個・白5個から3個同時に取る。赤玉の個数Xの期待値。"
+          "text": "問題文　赤玉2個，白玉5個の袋から同時に3個取り出す。取り出した赤玉の個数をXとするとき，Xの期待値を求めよ。"
         },
         {
           "id": "s3-counting-probability-t05-p043",
@@ -4705,7 +4705,7 @@
         {
           "id": "s3-counting-probability-t05-h048",
           "type": "heading",
-          "text": "問題文　どんな事象Aでも 0≦P(A)≦1、P(U)=1、P(∅)=0。"
+          "text": "問題文　確率の基本性質を用いて，A⊂B のとき P(A)≦P(B) が成り立つことを確かめよ。"
         },
         {
           "id": "s3-counting-probability-t05-p049",
@@ -4968,7 +4968,7 @@
         {
           "id": "s4-counting-probability-t01-h007",
           "type": "heading",
-          "text": "問題文　1回目に6、2回目に偶数。"
+          "text": "問題文　さいころを2回投げるとき，1回目に6が出て，2回目に偶数が出る確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t01-p008",
@@ -5136,7 +5136,7 @@
         {
           "id": "s4-counting-probability-t03-h006",
           "type": "heading",
-          "text": "問題文　カードを1枚引き「赤である」と分かった後でハートである確率を考えるタイプ。"
+          "text": "問題文　カードを1枚引き，赤であることが分かっているとき，そのカードがハートである条件付き確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t03-p007",
@@ -5202,7 +5202,7 @@
         {
           "id": "s4-counting-probability-t04-h005",
           "type": "heading",
-          "text": "問題文　1個目が赤、2個目も赤。"
+          "text": "問題文　袋から玉を2個，順に戻さず取り出すとき，1個目も2個目も赤である確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t04-p006",
@@ -5303,7 +5303,7 @@
         {
           "id": "s4-counting-probability-t06-h006",
           "type": "heading",
-          "text": "問題文　60%がX、40%がY。Xの不良率2%、Yの不良率3%。不良品がY製である確率。"
+          "text": "問題文　製品の60%を工場X，40%を工場Yが生産し，不良率はそれぞれ2%，3%である。不良品が工場Y製である確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t06-p007",
@@ -5372,7 +5372,7 @@
         {
           "id": "s4-counting-probability-t06-h013",
           "type": "heading",
-          "text": "問題文　命中率0.7の射撃を2回。少なくとも1回命中。"
+          "text": "問題文　1回の命中率が0.7の射撃を2回行うとき，少なくとも1回命中する確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t06-p014",
@@ -5415,7 +5415,7 @@
         {
           "id": "s4-counting-probability-t06-h019",
           "type": "heading",
-          "text": "問題文　成功確率1/3の試行を5回、ちょうど3回成功。"
+          "text": "問題文　成功確率1/3の試行を5回行うとき，ちょうど3回成功する確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t06-p020",
@@ -5476,7 +5476,7 @@
         {
           "id": "s4-counting-probability-t06-h026",
           "type": "heading",
-          "text": "問題文　100人中、Aを満たす40人、Bを満たす50人、両方20人。Bの条件下でA。"
+          "text": "問題文　100人のうちAを満たす人が40人，Bを満たす人が50人，AとBの両方を満たす人が20人いる。Bを満たす人の中から1人選んだとき，その人がAも満たす確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t06-p027",
@@ -5519,7 +5519,7 @@
         {
           "id": "s4-counting-probability-t06-h032",
           "type": "heading",
-          "text": "問題文　赤3白2の袋から2個を順に戻さず取る。2個とも赤。"
+          "text": "問題文　赤玉3個，白玉2個の袋から2個を順に戻さず取り出すとき，2個とも赤である確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t06-p033",
@@ -5562,7 +5562,7 @@
         {
           "id": "s4-counting-probability-t06-h038",
           "type": "heading",
-          "text": "問題文　A,B の確率が P(A)=1/2, P(B)=1/3, P(A∩B)=1/6。"
+          "text": "問題文　P(A)=1/2，P(B)=1/3，P(A∩B)=1/6 のとき，事象AとBが独立かどうかを判定せよ。"
         },
         {
           "id": "s4-counting-probability-t06-p039",
@@ -5701,7 +5701,7 @@
         {
           "id": "s4-counting-probability-t07-h006",
           "type": "heading",
-          "text": "問題文　順序を区別するか、戻すか戻さないかを最初に決める。"
+          "text": "問題文　カードやくじを用いる確率の問題で，順序を区別するか，取り出したものを戻すかどうかを確認して，全事象と求める事象の数を求めよ。"
         },
         {
           "id": "s4-counting-probability-t07-p007",
@@ -5749,7 +5749,7 @@
         {
           "id": "s4-counting-probability-t07-h012",
           "type": "heading",
-          "text": "問題文　「少なくとも1回」なら余事象、「ちょうどr回」なら反復試行公式。言葉から型を選ぶ。"
+          "text": "問題文　「少なくとも1回起こる」場合と「ちょうどr回起こる」場合について，それぞれ適切な方法を選んで確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t07-n013",
@@ -5779,7 +5779,7 @@
         {
           "id": "s4-counting-probability-t07-h017",
           "type": "heading",
-          "text": "問題文　期待値を計算し、参加料や賞金が公平か判断する。"
+          "text": "問題文　ゲームの期待値を求め，参加料や賞金の設定が公平かどうかを判断せよ。"
         },
         {
           "id": "s4-counting-probability-t07-p018",
@@ -5827,7 +5827,7 @@
         {
           "id": "s4-counting-probability-t07-h023",
           "type": "heading",
-          "text": "問題文　複数の箱・袋から選んで玉を取り出す問題。"
+          "text": "問題文　複数の箱または袋から1つを選び，その後に玉を取り出す。樹形図を用いて目的の事象が起こる確率を求めよ。"
         },
         {
           "id": "s4-counting-probability-t07-p024",
@@ -5865,17 +5865,17 @@
         {
           "id": "s4-counting-probability-t07-n027",
           "type": "note",
-          "text": "着眼点　問題文の条件を整理し、「章末問題・思考力」で使う性質に着目する。"
+          "text": "着眼点　最大賞金ではなく，各賞金とその確率を合わせてゲーム全体を比較する。"
         },
         {
           "id": "s4-counting-probability-t07-n028",
           "type": "note",
-          "text": "使う知識　「章末問題・思考力」で学んだ定義・公式を用いて、途中を省かずに進める。"
+          "text": "使う知識　各ゲームについて E(X)=ΣxP(X=x) を求め，必要なら参加料を差し引いて期待損益を比べる。"
         },
         {
           "id": "s4-counting-probability-t07-h029",
           "type": "heading",
-          "text": "問題文　2つのゲームの賞金分布が異なる。"
+          "text": "問題文　賞金分布の異なる2つのゲームについて期待値を求め，どちらが有利かを比較せよ。"
         },
         {
           "id": "s4-counting-probability-t07-p030",
@@ -5898,7 +5898,7 @@
         {
           "id": "s4-counting-probability-t07-n031",
           "type": "note",
-          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+          "text": "確認　確率の和が1になっているか，期待値の計算にすべての結果を含めたかを確かめる。"
         },
         {
           "id": "s4-counting-probability-t07-p032",
@@ -5913,17 +5913,17 @@
         {
           "id": "s4-counting-probability-t07-n033",
           "type": "note",
-          "text": "読む　最初に「全結果」と「求める事象」を分ける。同様に確からしいか、順序を区別するか、戻す/戻さないかを確認する。"
+          "text": "着眼点　現在の勝敗数から，残りの試合で起こりうる勝敗の並びを整理する。"
         },
         {
           "id": "s4-counting-probability-t07-n034",
           "type": "note",
-          "text": "考える　基本は 有利な場合/全場合。少なくともなら余事象、独立試行なら積、反復試行なら「成功する回の選び方×各確率」、条件付きなら条件後の世界を分母にする。"
+          "text": "使う知識　各選手が最終的に優勝する確率を求め，その確率を賞金配分の比として用いる。"
         },
         {
           "id": "s4-counting-probability-t07-h035",
           "type": "heading",
-          "text": "問題文　先に規定勝数を取るゲームが途中で中断したとき、残りを仮想的に続けた勝率から賞金を分ける。"
+          "text": "問題文　先に規定勝数を取った方が勝つゲームが途中で中断された。残りの試合を続けたと仮定して各選手の優勝確率を求め，その比に応じて賞金を分配せよ。"
         },
         {
           "id": "s4-counting-probability-t07-p036",
@@ -5946,7 +5946,7 @@
         {
           "id": "s4-counting-probability-t07-n037",
           "type": "note",
-          "text": "最後の確認　確率が0〜1に入るか、場合を重複して数えていないか、期待値なら「値×その確率」を全て足したか確認する。"
+          "text": "確認　各選手の優勝確率の和が1になっているかを確かめる。"
         }
       ],
       "items": [
