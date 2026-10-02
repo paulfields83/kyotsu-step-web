@@ -1,0 +1,109 @@
+{
+  "figure_id": "counting-tree",
+  "source_sha256": "ccf7406c2e8378d98e8c0fe0b0b5661014aa8852213256f85a2c209a07590823",
+  "engine": "TikZ tree construction",
+  "math_qa": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "spec-id",
+        "passed": true,
+        "detail": "counting-tree == counting-tree"
+      },
+      {
+        "name": "spec-unit",
+        "passed": true,
+        "detail": "figure_spec.json contains unit"
+      },
+      {
+        "name": "spec-topic",
+        "passed": true,
+        "detail": "figure_spec.json contains topic"
+      },
+      {
+        "name": "spec-teaching_goal",
+        "passed": true,
+        "detail": "figure_spec.json contains teaching_goal"
+      },
+      {
+        "name": "spec-source",
+        "passed": true,
+        "detail": "figure_spec.json contains source"
+      },
+      {
+        "name": "spec-objects",
+        "passed": true,
+        "detail": "figure_spec.json contains objects"
+      },
+      {
+        "name": "spec-constraints",
+        "passed": true,
+        "detail": "figure_spec.json contains constraints"
+      },
+      {
+        "name": "spec-labels",
+        "passed": true,
+        "detail": "figure_spec.json contains labels"
+      },
+      {
+        "name": "spec-forbidden",
+        "passed": true,
+        "detail": "figure_spec.json contains forbidden"
+      },
+      {
+        "name": "spec-engine",
+        "passed": true,
+        "detail": "figure_spec.json contains engine"
+      },
+      {
+        "name": "spec-qa_rules",
+        "passed": true,
+        "detail": "figure_spec.json contains qa_rules"
+      },
+      {
+        "name": "spec-status",
+        "passed": true,
+        "detail": "figure_spec.json contains status"
+      },
+      {
+        "name": "standalone-source",
+        "passed": true,
+        "detail": "independently compilable standalone document"
+      },
+      {
+        "name": "no-svg-source",
+        "passed": true,
+        "detail": "source is TeX/TikZ rather than handwritten SVG"
+      },
+      {
+        "name": "source-model-binding",
+        "passed": true,
+        "detail": "verified model values and constructions are present in figure.tex"
+      },
+      {
+        "name": "product-rule",
+        "passed": true,
+        "detail": "three first choices and two second choices give six leaves"
+      },
+      {
+        "name": "unique-leaves",
+        "passed": true,
+        "detail": "each outcome is counted once"
+      }
+    ]
+  },
+  "compile_qa": {
+    "status": "pass",
+    "standalone_tex": "figure.tex",
+    "review_pdf": "figure.pdf",
+    "generated_svg": "figure.svg"
+  },
+  "visual_qa": {
+    "status": "pass",
+    "review_surface": "PDF and 2x PNG preview"
+  },
+  "publish_qa": {
+    "status": "pass",
+    "asset": "counting-probability/assets/counting-tree.svg"
+  }
+}

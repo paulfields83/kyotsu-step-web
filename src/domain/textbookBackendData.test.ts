@@ -8,6 +8,13 @@ import { buildTextbookChapters } from './textbookCatalog'
 const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
 const setsRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'sets-propositions')
 const generatedFigureIdsByUnit: Record<string, string[]> = {
+  'math-1a-numbers-expressions': [
+    'tasuki-cross',
+    'real-number-line',
+    'simultaneous-inequalities',
+    'absolute-value-distance',
+    'absolute-value-cases',
+  ],
   'math-1a-quadratic-functions': [
     'quadratic-domain-range',
     'quadratic-vertex-form',
@@ -20,8 +27,36 @@ const generatedFigureIdsByUnit: Record<string, string[]> = {
     'quadratic-inequality',
     'absolute-value-graph',
   ],
-  'math-1a-geometry-measurement': ['trig-right-triangle'],
-  'math-1a-data-analysis': ['data-transform'],
+  'math-1a-geometry-measurement': [
+    'trig-right-triangle',
+    'trig-coordinate',
+    'trig-special-angles',
+    'sine-law',
+    'cosine-law',
+    'triangle-area',
+    'heron-triangle',
+    'height-distance',
+    'quadrilateral-split',
+    'spatial-measurement',
+  ],
+  'math-1a-data-analysis': [
+    'data-transform',
+    'histogram',
+    'boxplot-quartiles',
+    'scatter-correlation',
+    'statistical-process',
+    'outlier-boxplot',
+    'hypothesis-test-flow',
+  ],
+  'math-1a-counting-probability': [
+    'counting-tree',
+    'circular-permutation',
+    'combination-selection',
+    'grid-shortest-path',
+    'sample-space',
+    'complement-event',
+    'probability-tree',
+  ],
   'math-1a-geometric-properties': [
     'parallel-similarity',
     'internal-external-division',
@@ -43,6 +78,14 @@ const generatedFigureIdsByUnit: Record<string, string[]> = {
     'line-plane',
     'three-perpendicular',
     'polyhedra-euler',
+  ],
+  'math-1a-human-activities': [
+    'place-value',
+    'position-grid',
+    'earth-measurement',
+    'domino-invariant',
+    'stone-game',
+    'regular-tiling',
   ],
 }
 const staticMathUnitIds = [

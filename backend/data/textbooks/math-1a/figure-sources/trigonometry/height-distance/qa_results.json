@@ -1,0 +1,109 @@
+{
+  "figure_id": "height-distance",
+  "source_sha256": "2d9382efdd3d19974b0f5328114f2fa866a533d6666b7fb1ccdc6c9d3ebf9d66",
+  "engine": "TikZ coordinate construction",
+  "math_qa": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "spec-id",
+        "passed": true,
+        "detail": "height-distance == height-distance"
+      },
+      {
+        "name": "spec-unit",
+        "passed": true,
+        "detail": "figure_spec.json contains unit"
+      },
+      {
+        "name": "spec-topic",
+        "passed": true,
+        "detail": "figure_spec.json contains topic"
+      },
+      {
+        "name": "spec-teaching_goal",
+        "passed": true,
+        "detail": "figure_spec.json contains teaching_goal"
+      },
+      {
+        "name": "spec-source",
+        "passed": true,
+        "detail": "figure_spec.json contains source"
+      },
+      {
+        "name": "spec-objects",
+        "passed": true,
+        "detail": "figure_spec.json contains objects"
+      },
+      {
+        "name": "spec-constraints",
+        "passed": true,
+        "detail": "figure_spec.json contains constraints"
+      },
+      {
+        "name": "spec-labels",
+        "passed": true,
+        "detail": "figure_spec.json contains labels"
+      },
+      {
+        "name": "spec-forbidden",
+        "passed": true,
+        "detail": "figure_spec.json contains forbidden"
+      },
+      {
+        "name": "spec-engine",
+        "passed": true,
+        "detail": "figure_spec.json contains engine"
+      },
+      {
+        "name": "spec-qa_rules",
+        "passed": true,
+        "detail": "figure_spec.json contains qa_rules"
+      },
+      {
+        "name": "spec-status",
+        "passed": true,
+        "detail": "figure_spec.json contains status"
+      },
+      {
+        "name": "standalone-source",
+        "passed": true,
+        "detail": "independently compilable standalone document"
+      },
+      {
+        "name": "no-svg-source",
+        "passed": true,
+        "detail": "source is TeX/TikZ rather than handwritten SVG"
+      },
+      {
+        "name": "source-model-binding",
+        "passed": true,
+        "detail": "verified model values and constructions are present in figure.tex"
+      },
+      {
+        "name": "right-model",
+        "passed": true,
+        "detail": "ground and height are perpendicular"
+      },
+      {
+        "name": "tangent-height",
+        "passed": true,
+        "detail": "h=d tan theta"
+      }
+    ]
+  },
+  "compile_qa": {
+    "status": "pass",
+    "standalone_tex": "figure.tex",
+    "review_pdf": "figure.pdf",
+    "generated_svg": "figure.svg"
+  },
+  "visual_qa": {
+    "status": "pass",
+    "review_surface": "PDF and 2x PNG preview"
+  },
+  "publish_qa": {
+    "status": "pass",
+    "asset": "geometry-measurement/assets/height-distance.svg"
+  }
+}

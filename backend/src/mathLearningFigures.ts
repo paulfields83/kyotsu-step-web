@@ -3,16 +3,6 @@ import { TextbookUnitSchema, type TextbookReadingBlock, type TextbookUnit } from
 type Figure = { id: string; src: string; alt: string; caption?: string }
 type Placement = { topicId: string; figure: Figure; afterParagraph?: number }
 
-const svgData = (width: number, height: number, body: string) =>
-  `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"><rect width="100%" height="100%" fill="white"/>${body}</svg>`)}`
-
-const fig = (id: string, alt: string, caption: string, body: string, width = 760, height = 420): Figure => ({
-  id,
-  src: svgData(width, height, body),
-  alt,
-  caption,
-})
-
 const assetFig = (id: string, alt: string, caption: string): Figure => ({
   id,
   src: `assets/${id}.svg`,
@@ -20,44 +10,16 @@ const assetFig = (id: string, alt: string, caption: string): Figure => ({
   caption,
 })
 
-const axis = (x1=80,y1=320,x2=680,y2=320) =>
-  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#334155" stroke-width="2.5"/>`
-
 const F = {
-  tasuki: fig('tasuki-cross','たすき掛けで交差する積を確認する模式図','斜めの積の和が中央の係数になることを確認する',
-    `<text x="380" y="48" text-anchor="middle" font-size="25" font-weight="700" fill="#1f2937">たすき掛け</text>
-    <text x="160" y="135" font-size="28" fill="#2563eb">a</text><text x="160" y="285" font-size="28" fill="#2563eb">b</text>
-    <text x="600" y="135" font-size="28" fill="#ea580c">c</text><text x="600" y="285" font-size="28" fill="#ea580c">d</text>
-    <line x1="195" y1="125" x2="565" y2="275" stroke="#64748b" stroke-width="3"/><line x1="195" y1="275" x2="565" y2="125" stroke="#64748b" stroke-width="3"/>
-    <text x="380" y="182" text-anchor="middle" font-size="24" fill="#475569">ad</text><text x="380" y="252" text-anchor="middle" font-size="24" fill="#475569">bc</text>
-    <text x="380" y="355" text-anchor="middle" font-size="22" fill="#1f2937">ad + bc を確認</text>`),
+  tasuki: assetFig('tasuki-cross','たすき掛けで交差する積を確認する模式図','斜めの積の和が中央の係数になることを確認する'),
 
-  realLine: fig('real-number-line','実数を数直線上の点として表す図','有理数・無理数を含む実数は数直線上の点に対応する',
-    `<text x="380" y="52" text-anchor="middle" font-size="25" font-weight="700" fill="#1f2937">実数と数直線</text>
-    ${axis(70,220,690,220)}
-    <path d="M690 220 l-14 -8 v16 z" fill="#334155"/>
-    <g stroke="#334155" stroke-width="2"><line x1="160" y1="205" x2="160" y2="235"/><line x1="280" y1="205" x2="280" y2="235"/><line x1="400" y1="205" x2="400" y2="235"/><line x1="520" y1="205" x2="520" y2="235"/><line x1="610" y1="205" x2="610" y2="235"/></g>
-    <g font-size="22" fill="#334155" text-anchor="middle"><text x="160" y="270">−1</text><text x="280" y="270">0</text><text x="400" y="270">1</text><text x="520" y="270">√2</text><text x="610" y="270">2</text></g>
-    <circle cx="520" cy="220" r="7" fill="#ea580c"/><text x="520" y="175" text-anchor="middle" font-size="20" fill="#ea580c">無理数も1点</text>`),
+  realLine: assetFig('real-number-line','実数を数直線上の点として表す図','有理数・無理数を含む実数は数直線上の点に対応する'),
 
-  inequalities: fig('simultaneous-inequalities','2つの不等式の範囲と共通部分を示す数直線','連立不等式は2つの範囲の重なりを読む',
-    `<text x="380" y="45" text-anchor="middle" font-size="24" font-weight="700" fill="#1f2937">連立不等式＝共通部分</text>
-    <line x1="90" y1="140" x2="680" y2="140" stroke="#334155" stroke-width="2.5"/><line x1="210" y1="140" x2="560" y2="140" stroke="#2563eb" stroke-width="9"/><circle cx="210" cy="140" r="9" fill="white" stroke="#2563eb" stroke-width="3"/><circle cx="560" cy="140" r="9" fill="#2563eb"/>
-    <line x1="90" y1="260" x2="680" y2="260" stroke="#334155" stroke-width="2.5"/><line x1="320" y1="260" x2="650" y2="260" stroke="#ea580c" stroke-width="9"/><circle cx="320" cy="260" r="9" fill="#ea580c"/>
-    <rect x="320" y="315" width="240" height="34" rx="17" fill="#dcfce7"/><text x="440" y="339" text-anchor="middle" font-size="21" fill="#166534">重なる範囲が解</text>`),
+  inequalities: assetFig('simultaneous-inequalities','2つの不等式の範囲と共通部分を示す数直線','連立不等式は2つの範囲の重なりを読む'),
 
-  absDistance: fig('absolute-value-distance','絶対値を原点からの距離として示す数直線','|x| は原点から x までの距離',
-    `<text x="380" y="52" text-anchor="middle" font-size="25" font-weight="700" fill="#1f2937">絶対値＝距離</text>
-    ${axis(80,230,680,230)}<circle cx="380" cy="230" r="7" fill="#334155"/><text x="380" y="270" text-anchor="middle" font-size="22">0</text>
-    <circle cx="570" cy="230" r="8" fill="#2563eb"/><text x="570" y="270" text-anchor="middle" font-size="22">x</text>
-    <line x1="388" y1="180" x2="562" y2="180" stroke="#ea580c" stroke-width="4"/><path d="M388 180 l14 -8 v16 z" fill="#ea580c"/><path d="M562 180 l-14 -8 v16 z" fill="#ea580c"/>
-    <text x="475" y="158" text-anchor="middle" font-size="23" fill="#ea580c">|x|</text>`),
+  absDistance: assetFig('absolute-value-distance','絶対値を原点からの距離として示す数直線','|x| は原点から x までの距離'),
 
-  absCase: fig('absolute-value-cases','絶対値の中身の符号で場合分けする流れ','境界で区切って絶対値を外す',
-    `<text x="380" y="48" text-anchor="middle" font-size="24" font-weight="700" fill="#1f2937">絶対値は境界で場合分け</text>
-    <rect x="80" y="120" width="220" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/><text x="190" y="155" text-anchor="middle" font-size="21" fill="#1f2937">中身 ≧ 0</text><text x="190" y="188" text-anchor="middle" font-size="20" fill="#2563eb">そのまま外す</text>
-    <rect x="460" y="120" width="220" height="90" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/><text x="570" y="155" text-anchor="middle" font-size="21" fill="#1f2937">中身 &lt; 0</text><text x="570" y="188" text-anchor="middle" font-size="20" fill="#ea580c">符号を反転</text>
-    <line x1="380" y1="80" x2="380" y2="270" stroke="#94a3b8" stroke-dasharray="8 8" stroke-width="2.5"/><text x="380" y="305" text-anchor="middle" font-size="21" fill="#475569">中身 = 0 が境界</text>`),
+  absCase: assetFig('absolute-value-cases','絶対値の中身の符号で場合分けする流れ','境界で区切って絶対値を外す'),
 
   quadrants: assetFig('coordinate-quadrants','座標平面の4つの象限と各象限の座標符号を示す図','x・y の符号と象限の対応'),
 
@@ -81,67 +43,43 @@ const F = {
 
   trigRight: assetFig('trig-right-triangle','直角三角形で角 A に対する対辺・隣辺・斜辺を示す図','本文と同じ角 A を基準にして sin・cos・tan の辺の対応を読む'),
 
-  trigCoordinate: fig('trig-coordinate','半円上の点と座標で三角比を定義する図','座標による定義で 0°〜180° に拡張する',
-    `<line x1="80" y1="260" x2="690" y2="260" stroke="#334155" stroke-width="2.5"/><line x1="380" y1="55" x2="380" y2="365" stroke="#334155" stroke-width="2.5"/><path d="M180 260 A200 200 0 0 1 580 260" fill="none" stroke="#2563eb" stroke-width="4"/><line x1="380" y1="260" x2="265" y2="96" stroke="#ea580c" stroke-width="4"/><circle cx="265" cy="96" r="7" fill="#ea580c"/><line x1="265" y1="96" x2="265" y2="260" stroke="#94a3b8" stroke-dasharray="7 7"/><text x="245" y="78" font-size="21" fill="#ea580c">P(x,y)</text><text x="295" y="245" font-size="20">θ</text>`),
+  trigCoordinate: assetFig('trig-coordinate','半円上の点と座標で三角比を定義する図','座標による定義で 0°〜180° に拡張する'),
 
-  sineLaw: fig('sine-law','三角形と外接円を用いた正弦定理の模式図','辺とその対角、外接円半径 R の対応',
-    `<circle cx="380" cy="215" r="155" fill="none" stroke="#94a3b8" stroke-width="3"/><polygon points="250,105 535,170 330,340" fill="none" stroke="#1f2937" stroke-width="4"/><circle cx="380" cy="215" r="6" fill="#ea580c"/><line x1="380" y1="215" x2="535" y2="170" stroke="#ea580c" stroke-width="3"/><text x="430" y="188" font-size="20" fill="#ea580c">R</text><text x="225" y="92" font-size="22">A</text><text x="548" y="170" font-size="22">B</text><text x="320" y="370" font-size="22">C</text>`),
+  sineLaw: assetFig('sine-law','三角形と外接円を用いた正弦定理の模式図','辺とその対角、外接円半径 R の対応'),
 
-  cosineLaw: fig('cosine-law','三角形の2辺とその間の角を示す図','余弦定理は2辺とその間の角から向かいの辺を結ぶ',
-    `<polygon points="130,320 610,320 330,90" fill="none" stroke="#1f2937" stroke-width="4"/><text x="360" y="355" font-size="21">c</text><text x="210" y="205" font-size="21">b</text><text x="500" y="205" font-size="21">a</text><path d="M175 320 A45 45 0 0 0 160 288" fill="none" stroke="#ea580c" stroke-width="3"/><text x="185" y="285" font-size="21" fill="#ea580c">A</text>`),
+  cosineLaw: assetFig('cosine-law','三角形の2辺とその間の角を示す図','余弦定理は2辺とその間の角から向かいの辺を結ぶ'),
 
-  triangleArea: fig('triangle-area','2辺とその間の角から三角形の面積を考える図','高さを b sin A と見ると面積公式につながる',
-    `<polygon points="130,330 630,330 350,100" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="350" y1="100" x2="350" y2="330" stroke="#94a3b8" stroke-width="3" stroke-dasharray="7 7"/><path d="M350 310 h20 v20" fill="none" stroke="#64748b" stroke-width="3"/><text x="365" y="220" font-size="20" fill="#475569">高さ</text><text x="240" y="360" font-size="20">c</text><text x="220" y="205" font-size="20">b</text>`),
+  triangleArea: assetFig('triangle-area','2辺とその間の角から三角形の面積を考える図','高さを b sin A と見ると面積公式につながる'),
 
-  measurement: fig('height-distance','仰角と水平距離から高さを測る模式図','測量では実物を直角三角形に置き換える',
-    `<line x1="90" y1="335" x2="690" y2="335" stroke="#334155" stroke-width="3"/><line x1="585" y1="335" x2="585" y2="80" stroke="#1f2937" stroke-width="5"/><line x1="180" y1="335" x2="585" y2="95" stroke="#2563eb" stroke-width="4"/><path d="M245 335 A65 65 0 0 0 236 302" fill="none" stroke="#ea580c" stroke-width="3"/><text x="250" y="300" font-size="21" fill="#ea580c">仰角</text><text x="390" y="365" text-anchor="middle" font-size="20">水平距離</text><text x="610" y="205" font-size="20">高さ</text>`),
+  measurement: assetFig('height-distance','仰角と水平距離から高さを測る模式図','測量では実物を直角三角形に置き換える'),
 
-  quadrilateralSplit: fig('quadrilateral-split','四角形を対角線で2つの三角形に分ける図','複雑な図形は三角形へ分割して計量する',
-    `<polygon points="130,110 590,80 650,315 100,340" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="130" y1="110" x2="650" y2="315" stroke="#2563eb" stroke-width="4"/><text x="370" y="230" font-size="22" fill="#2563eb">対角線</text><text x="380" y="385" text-anchor="middle" font-size="20" fill="#475569">2つの三角形に分けて考える</text>`),
+  quadrilateralSplit: assetFig('quadrilateral-split','四角形を対角線で2つの三角形に分ける図','複雑な図形は三角形へ分割して計量する'),
 
-  spatial: fig('spatial-measurement','立体を平面三角形へ落として考える模式図','空間図形でも必要な断面・三角形を取り出す',
-    `<polygon points="190,310 490,310 610,225 310,225" fill="none" stroke="#1f2937" stroke-width="3"/><line x1="190" y1="310" x2="190" y2="110" stroke="#1f2937" stroke-width="3"/><line x1="490" y1="310" x2="490" y2="110" stroke="#1f2937" stroke-width="3"/><line x1="610" y1="225" x2="610" y2="55" stroke="#1f2937" stroke-width="3"/><line x1="310" y1="225" x2="310" y2="55" stroke="#1f2937" stroke-width="3"/><polygon points="190,110 490,110 610,55 310,55" fill="none" stroke="#1f2937" stroke-width="3"/><line x1="190" y1="310" x2="610" y2="55" stroke="#2563eb" stroke-width="4"/><line x1="190" y1="310" x2="490" y2="110" stroke="#ea580c" stroke-width="4"/>`),
+  spatial: assetFig('spatial-measurement','立体を平面三角形へ落として考える模式図','空間図形でも必要な断面・三角形を取り出す'),
 
-  histogram: fig('histogram','階級ごとの度数を柱の面積で表すヒストグラム','ヒストグラムでは階級の境界と高さを読む',
-    `<line x1="90" y1="330" x2="690" y2="330" stroke="#334155" stroke-width="2.5"/><line x1="90" y1="70" x2="90" y2="330" stroke="#334155" stroke-width="2.5"/>
-    <g fill="#dbeafe" stroke="#2563eb" stroke-width="2"><rect x="120" y="250" width="90" height="80"/><rect x="210" y="190" width="90" height="140"/><rect x="300" y="105" width="90" height="225"/><rect x="390" y="145" width="90" height="185"/><rect x="480" y="220" width="90" height="110"/></g><text x="390" y="380" text-anchor="middle" font-size="20" fill="#475569">階級</text><text x="35" y="200" transform="rotate(-90 35 200)" text-anchor="middle" font-size="20" fill="#475569">度数</text>`),
+  histogram: assetFig('histogram','階級ごとの度数を柱の面積で表すヒストグラム','ヒストグラムでは階級の境界と高さを読む'),
 
-  boxplot: fig('boxplot-quartiles','箱ひげ図と最小値・四分位数・中央値・最大値の位置','箱ひげ図は5数要約を1本の軸上で読む',
-    `<line x1="100" y1="220" x2="660" y2="220" stroke="#334155" stroke-width="2.5"/><line x1="150" y1="190" x2="150" y2="250" stroke="#334155" stroke-width="3"/><line x1="610" y1="190" x2="610" y2="250" stroke="#334155" stroke-width="3"/><rect x="250" y="155" width="260" height="130" fill="#eff6ff" stroke="#2563eb" stroke-width="4"/><line x1="385" y1="155" x2="385" y2="285" stroke="#ea580c" stroke-width="4"/>
-    <g font-size="18" fill="#475569" text-anchor="middle"><text x="150" y="315">最小</text><text x="250" y="315">Q1</text><text x="385" y="315">中央値</text><text x="510" y="315">Q3</text><text x="610" y="315">最大</text></g>`),
+  boxplot: assetFig('boxplot-quartiles','箱ひげ図と最小値・四分位数・中央値・最大値の位置','箱ひげ図は5数要約を1本の軸上で読む'),
 
-  scatter: fig('scatter-correlation','正の相関・負の相関・相関なしを比較する散布図','散布図では点の全体的な傾向を見る',
-    `<text x="125" y="45" text-anchor="middle" font-size="21" font-weight="700">正の相関</text><text x="380" y="45" text-anchor="middle" font-size="21" font-weight="700">負の相関</text><text x="635" y="45" text-anchor="middle" font-size="21" font-weight="700">相関なし</text>
-    <g fill="#2563eb">${[[70,280],[95,250],[120,230],[145,190],[170,165],[195,130]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="6"/>`).join('')}</g>
-    <g fill="#ea580c">${[[325,125],[350,145],[375,185],[400,200],[425,245],[450,275]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="6"/>`).join('')}</g>
-    <g fill="#16a34a">${[[575,160],[600,275],[625,120],[650,225],[675,185],[700,295]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="6"/>`).join('')}</g>
-    <g stroke="#94a3b8" stroke-width="2"><line x1="50" y1="320" x2="220" y2="320"/><line x1="50" y1="80" x2="50" y2="320"/><line x1="305" y1="320" x2="475" y2="320"/><line x1="305" y1="80" x2="305" y2="320"/><line x1="560" y1="320" x2="730" y2="320"/><line x1="560" y1="80" x2="560" y2="320"/></g>`),
+  scatter: assetFig('scatter-correlation','正の相関・負の相関・相関なしを比較する散布図','散布図では点の全体的な傾向を見る'),
 
   dataTransform: assetFig('data-transform','データに定数を足す変換と定数倍する変換を比較する2つの数直線','＋b は散らばりを変えずに位置を移し、×a は中心と散らばりの両方を拡大縮小する'),
 
-  statsCycle: fig('statistical-process','統計的探究の流れを循環で示す図','問い→収集→分析→解釈→次の問いの循環',
-    `<g font-size="20" font-weight="700" text-anchor="middle"><rect x="300" y="45" width="160" height="55" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/><text x="380" y="79">問いを立てる</text><rect x="520" y="175" width="150" height="55" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/><text x="595" y="209">データ収集</text><rect x="300" y="305" width="160" height="55" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/><text x="380" y="339">分析・解釈</text><rect x="90" y="175" width="150" height="55" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="3"/><text x="165" y="209">次の問い</text></g><path d="M455 95 C520 110 555 140 575 172 M520 225 C485 280 450 300 430 305 M300 330 C230 315 190 275 170 230 M165 175 C190 120 240 95 300 82" fill="none" stroke="#94a3b8" stroke-width="3"/>`),
+  statsCycle: assetFig('statistical-process','統計的探究の流れを循環で示す図','問い→収集→分析→解釈→次の問いの循環'),
 
-  outlier: fig('outlier-boxplot','箱ひげ図の外側に離れた値を示す図','外れ値は分布全体と離れた位置に現れる',
-    `<line x1="120" y1="220" x2="570" y2="220" stroke="#334155" stroke-width="2.5"/><rect x="250" y="165" width="210" height="110" fill="#eff6ff" stroke="#2563eb" stroke-width="4"/><line x1="355" y1="165" x2="355" y2="275" stroke="#ea580c" stroke-width="4"/><circle cx="655" cy="220" r="9" fill="#ea580c"/><text x="655" y="185" text-anchor="middle" font-size="20" fill="#ea580c">外れ値候補</text>`),
+  outlier: assetFig('outlier-boxplot','箱ひげ図の外側に離れた値を示す図','外れ値は分布全体と離れた位置に現れる'),
 
-  countTree: fig('counting-tree','選択肢を枝分かれで数える樹形図','積の法則は各段階の選択肢を枝で表すと見やすい',
-    `<circle cx="90" cy="210" r="7" fill="#1f2937"/><g stroke="#64748b" stroke-width="3"><line x1="97" y1="210" x2="270" y2="105"/><line x1="97" y1="210" x2="270" y2="210"/><line x1="97" y1="210" x2="270" y2="315"/><line x1="270" y1="105" x2="520" y2="70"/><line x1="270" y1="105" x2="520" y2="140"/><line x1="270" y1="210" x2="520" y2="175"/><line x1="270" y1="210" x2="520" y2="245"/><line x1="270" y1="315" x2="520" y2="280"/><line x1="270" y1="315" x2="520" y2="350"/></g><g font-size="20" fill="#475569"><text x="280" y="95">A</text><text x="280" y="205">B</text><text x="280" y="310">C</text><text x="535" y="78">1</text><text x="535" y="148">2</text><text x="535" y="183">1</text><text x="535" y="253">2</text></g>`),
+  countTree: assetFig('counting-tree','選択肢を枝分かれで数える樹形図','積の法則は各段階の選択肢を枝で表すと見やすい'),
 
-  circular: fig('circular-permutation','円卓上に人を並べる円順列の模式図','回転して一致する並びは同じものとして扱う',
-    `<circle cx="380" cy="210" r="110" fill="#f8fafc" stroke="#64748b" stroke-width="3"/><g fill="#2563eb">${[[380,70],[500,130],[500,290],[380,350],[260,290],[260,130]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="24"/>`).join('')}</g><text x="380" y="215" text-anchor="middle" font-size="22" fill="#475569">円卓</text><path d="M565 165 A190 190 0 0 1 570 260" fill="none" stroke="#ea580c" stroke-width="3"/><path d="M570 260 l-10 -12 l16 -1 z" fill="#ea580c"/><text x="610" y="220" font-size="20" fill="#ea580c">回転</text>`),
+  circular: assetFig('circular-permutation','円卓上に人を並べる円順列の模式図','回転して一致する並びは同じものとして扱う'),
 
-  choose: fig('combination-selection','複数の対象から順序を気にせず選ぶ模式図','組合せでは選んだ集合だけを区別する',
-    `<g>${[0,1,2,3,4,5].map(i=>`<circle cx="${145+i*95}" cy="185" r="34" fill="${i===1||i===4?'#dbeafe':'#f8fafc'}" stroke="${i===1||i===4?'#2563eb':'#94a3b8'}" stroke-width="3"/><text x="${145+i*95}" y="193" text-anchor="middle" font-size="22" fill="#1f2937">${String.fromCharCode(65+i)}</text>`).join('')}</g><text x="380" y="290" text-anchor="middle" font-size="21" fill="#475569">選ぶ順番ではなく、選ばれた組を数える</text>`),
+  choose: assetFig('combination-selection','複数の対象から順序を気にせず選ぶ模式図','組合せでは選んだ集合だけを区別する'),
 
-  sampleSpace: fig('sample-space','全事象を長方形、事象をその内部の領域で表す図','確率ではまず全事象と事象の範囲を分ける',
-    `<rect x="100" y="70" width="560" height="280" rx="12" fill="#f8fafc" stroke="#1f2937" stroke-width="4"/><ellipse cx="320" cy="210" rx="150" ry="95" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/><text x="125" y="105" font-size="24" font-weight="700">全事象 Ω</text><text x="320" y="220" text-anchor="middle" font-size="28" font-weight="700" fill="#2563eb">事象 A</text>`),
+  sampleSpace: assetFig('sample-space','全事象を長方形、事象をその内部の領域で表す図','確率ではまず全事象と事象の範囲を分ける'),
 
-  complementProb: fig('complement-event','事象 A とその余事象を全事象内で分けた図','A と Ā は全事象をちょうど2つに分ける',
-    `<rect x="100" y="70" width="560" height="280" rx="12" fill="#fff7ed" stroke="#1f2937" stroke-width="4"/><ellipse cx="330" cy="210" rx="140" ry="95" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/><text x="330" y="220" text-anchor="middle" font-size="28" fill="#2563eb">A</text><text x="565" y="220" text-anchor="middle" font-size="28" fill="#ea580c">Ā</text><text x="380" y="390" text-anchor="middle" font-size="21" fill="#475569">P(A)+P(Ā)=1</text>`),
+  complementProb: assetFig('complement-event','事象 A とその余事象を全事象内で分けた図','A と Ā は全事象をちょうど2つに分ける'),
 
-  probTree: fig('probability-tree','2段階の試行を確率付きの樹形図で示す図','条件付き確率・反復試行は枝ごとの確率を追う',
-    `<circle cx="95" cy="210" r="7" fill="#1f2937"/><g stroke="#64748b" stroke-width="3"><line x1="102" y1="210" x2="300" y2="125"/><line x1="102" y1="210" x2="300" y2="295"/><line x1="300" y1="125" x2="560" y2="80"/><line x1="300" y1="125" x2="560" y2="170"/><line x1="300" y1="295" x2="560" y2="250"/><line x1="300" y1="295" x2="560" y2="340"/></g><g font-size="19" fill="#475569"><text x="185" y="145">p</text><text x="185" y="290">1−p</text><text x="420" y="95">q</text><text x="420" y="175">1−q</text></g>`),
+  probTree: assetFig('probability-tree','2段階の試行を確率付きの樹形図で示す図','条件付き確率・反復試行は枝ごとの確率を追う'),
 
   internalExternal: assetFig('internal-external-division','線分 AB を 2:1 に内分する点 P と外分する点 Q を正確な位置で比較する図','内分点は線分上、外分点は延長上にあり、どちらも指定された比を満たす'),
 
@@ -179,39 +117,31 @@ const F = {
 
   polyhedra: assetFig('polyhedra-euler','3D座標から投影した立方体で頂点・辺・面と個数を示す図','立方体では V=8, E=12, F=6 なので V−E+F=2'),
 
-  placeValue: fig('place-value','位取り記数法の各桁と重みを示す図','各桁は基数の累乗を重みとして持つ',
-    `<g font-size="22" text-anchor="middle"><rect x="120" y="130" width="520" height="120" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>${[0,1,2,3].map(i=>`<line x1="${250+i*130}" y1="130" x2="${250+i*130}" y2="250" stroke="#cbd5e1" stroke-width="2"/>`).join('')}<text x="185" y="185">a₃</text><text x="315" y="185">a₂</text><text x="445" y="185">a₁</text><text x="575" y="185">a₀</text><text x="185" y="225">b³</text><text x="315" y="225">b²</text><text x="445" y="225">b¹</text><text x="575" y="225">b⁰</text></g>`),
+  placeValue: assetFig('place-value','位取り記数法の各桁と重みを示す図','各桁は基数の累乗を重みとして持つ'),
 
-  positionGrid: fig('position-grid','格子上の位置を2つの数で表す座標模式図','基準・方向・量を固定すると位置を一意に表せる',
-    `<g stroke="#cbd5e1" stroke-width="1.5">${[0,1,2,3,4,5].map(i=>`<line x1="${160+i*80}" y1="80" x2="${160+i*80}" y2="340"/>`).join('')}${[0,1,2,3].map(i=>`<line x1="160" y1="${100+i*70}" x2="560" y2="${100+i*70}"/>`).join('')}</g><circle cx="400" cy="240" r="9" fill="#ea580c"/><text x="420" y="230" font-size="21" fill="#ea580c">(x,y)</text><line x1="160" y1="340" x2="610" y2="340" stroke="#334155" stroke-width="2.5"/><line x1="160" y1="340" x2="160" y2="50" stroke="#334155" stroke-width="2.5"/>`),
+  positionGrid: assetFig('position-grid','格子上の位置を2つの数で表す座標模式図','基準・方向・量を固定すると位置を一意に表せる'),
 
-  earth: fig('earth-measurement','地球断面と2地点・中心角を示す測量模式図','地表距離と中心角の比から地球周長を推定する',
-    `<circle cx="380" cy="230" r="150" fill="none" stroke="#2563eb" stroke-width="4"/><circle cx="380" cy="230" r="7" fill="#1f2937"/><line x1="380" y1="230" x2="305" y2="100" stroke="#64748b" stroke-width="3"/><line x1="380" y1="230" x2="455" y2="100" stroke="#64748b" stroke-width="3"/><path d="M340 160 A80 80 0 0 1 420 160" fill="none" stroke="#ea580c" stroke-width="3"/><text x="380" y="145" text-anchor="middle" font-size="21" fill="#ea580c">中心角</text><path d="M305 100 A150 150 0 0 1 455 100" fill="none" stroke="#16a34a" stroke-width="6"/><text x="380" y="65" text-anchor="middle" font-size="20" fill="#16a34a">地表距離</text>`),
+  earth: assetFig('earth-measurement','地球断面と2地点・中心角を示す測量模式図','地表距離と中心角の比から地球周長を推定する'),
 
-  domino: fig('domino-invariant','市松模様の盤面とドミノ1枚が黒白1マスずつ覆う図','色分けすると操作で変わらない量を見つけられる',
-    `<g>${Array.from({length:32},(_,i)=>{const r=Math.floor(i/8),c=i%8;return `<rect x="${150+c*55}" y="${70+r*55}" width="55" height="55" fill="${(r+c)%2===0?'#e2e8f0':'#64748b'}" stroke="#fff" stroke-width="1"/>`}).join('')}</g><rect x="260" y="125" width="110" height="55" fill="none" stroke="#ea580c" stroke-width="5"/><text x="380" y="335" text-anchor="middle" font-size="21" fill="#475569">ドミノ1枚は黒1・白1を覆う</text>`),
+  domino: assetFig('domino-invariant','市松模様の盤面とドミノ1枚が黒白1マスずつ覆う図','色分けすると操作で変わらない量を見つけられる'),
 
-  gridPath: fig('grid-shortest-path','格子上の最短経路を東・北の並びとして表す図','最短経路は必要な東移動と北移動の並べ方に置き換える',
-    `<g stroke="#cbd5e1" stroke-width="2">${Array.from({length:6},(_,i)=>`<line x1="${140+i*90}" y1="80" x2="${140+i*90}" y2="350"/>`).join('')}${Array.from({length:4},(_,i)=>`<line x1="140" y1="${80+i*90}" x2="590" y2="${80+i*90}"/>`).join('')}</g><circle cx="140" cy="350" r="8" fill="#2563eb"/><circle cx="590" cy="80" r="8" fill="#ea580c"/><path d="M140 350 H320 V260 H410 V170 H590 V80" fill="none" stroke="#16a34a" stroke-width="5"/><text x="120" y="380" font-size="20" fill="#2563eb">A</text><text x="605" y="75" font-size="20" fill="#ea580c">B</text><text x="380" y="405" text-anchor="middle" font-size="20" fill="#475569">東・北の順番だけが変わる</text>`),
+  gridPath: assetFig('grid-shortest-path','格子上の最短経路を東・北の並びとして表す図','最短経路は必要な東移動と北移動の並べ方に置き換える'),
 
   parallelSimilarity: assetFig('parallel-similarity','三角形 ABC の2辺上に D,E を同率で取り DE∥BC とした相似図','平行線から等しい角を作り △ADE∽△ABC と辺の比へつなげる'),
 
   triangleInequality: assetFig('triangle-side-angle','BC が最長辺で、その向かいの角 A が最大になる不等辺三角形','実際の辺長の大小と向かいの角の大小を対応させる'),
 
-  tiling: fig('regular-tiling','正多角形が1点のまわりに集まる敷き詰め図','1点のまわりの内角の和が360°になる必要がある',
-    `<g transform="translate(380 215)">${Array.from({length:6},(_,i)=>{const a=i*Math.PI/3;const x=Math.cos(a)*95,y=Math.sin(a)*95;return `<polygon points="0,0 ${x},${y} ${Math.cos(a+Math.PI/3)*95},${Math.sin(a+Math.PI/3)*95}" fill="${i%2?'#ffedd5':'#dbeafe'}" stroke="#64748b" stroke-width="2"/>`}).join('')}</g><circle cx="380" cy="215" r="6" fill="#1f2937"/><text x="380" y="390" text-anchor="middle" font-size="21" fill="#475569">中心まわりの角の和 = 360°</text>`),
+  tiling: assetFig('regular-tiling','正多角形が1点のまわりに集まる敷き詰め図','1点のまわりの内角の和が360°になる必要がある'),
 
-  hypothesis: fig('hypothesis-test-flow','仮説検定の判断手順を示す流れ図','帰無仮説のもとで極端な結果の起こりやすさを調べる',
-    `<g text-anchor="middle" font-size="19" font-weight="700"><rect x="80" y="150" width="160" height="70" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/><text x="160" y="180">帰無仮説を</text><text x="160" y="205">置く</text><rect x="300" y="150" width="160" height="70" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="3"/><text x="380" y="180">極端な結果の</text><text x="380" y="205">割合を求める</text><rect x="520" y="150" width="160" height="70" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/><text x="600" y="180">十分小さいか</text><text x="600" y="205">判断</text></g><path d="M240 185 H300 M460 185 H520" stroke="#94a3b8" stroke-width="3"/><path d="M292 178 l12 7 l-12 7 z M512 178 l12 7 l-12 7 z" fill="#94a3b8"/><text x="380" y="300" text-anchor="middle" font-size="20" fill="#475569">小さい → 偶然だけでは説明しにくい</text>`),
+  hypothesis: assetFig('hypothesis-test-flow','仮説検定の判断手順を示す流れ図','帰無仮説のもとで極端な結果の起こりやすさを調べる'),
 
-  trigSpecial: fig('trig-special-angles','0°・90°・180°の座標と三角比の符号を示す半円図','半円上の座標で特別角の値と符号を確認する',
-    `<line x1="100" y1="270" x2="660" y2="270" stroke="#334155" stroke-width="2.5"/><line x1="380" y1="65" x2="380" y2="330" stroke="#334155" stroke-width="2.5"/><path d="M180 270 A200 200 0 0 1 580 270" fill="none" stroke="#2563eb" stroke-width="4"/><g fill="#ea580c"><circle cx="580" cy="270" r="8"/><circle cx="380" cy="70" r="8"/><circle cx="180" cy="270" r="8"/></g><g font-size="20" fill="#475569"><text x="600" y="295">0°</text><text x="390" y="55">90°</text><text x="145" y="295">180°</text></g>`),
+  trigSpecial: assetFig('trig-special-angles','0°・90°・180°の座標と三角比の符号を示す半円図','半円上の座標で特別角の値と符号を確認する'),
 
-  heron: fig('heron-triangle','3辺だけが分かっている三角形の模式図','3辺が既知ならヘロンの公式で面積を直接求められる',
-    `<polygon points="120,330 640,330 390,80" fill="none" stroke="#1f2937" stroke-width="4"/><text x="370" y="365" text-anchor="middle" font-size="22">c</text><text x="235" y="205" font-size="22">b</text><text x="520" y="205" font-size="22">a</text><text x="380" y="410" text-anchor="middle" font-size="20" fill="#475569">角を求めず3辺から面積へ</text>`),
+  heron: assetFig('heron-triangle','3辺だけが分かっている三角形の模式図','3辺が既知ならヘロンの公式で面積を直接求められる'),
 
-  stoneGame: fig('stone-game','石取りゲームの残り個数を段階で示す図','負け位置を逆算して4の倍数を相手に渡す',
-    `<g fill="#2563eb">${Array.from({length:12},(_,i)=>`<circle cx="${115+(i%6)*95}" cy="${130+Math.floor(i/6)*100}" r="20"/>`).join('')}</g><text x="380" y="320" text-anchor="middle" font-size="22" fill="#475569">残り個数を小さい場合から逆算</text><rect x="250" y="345" width="260" height="45" rx="20" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/><text x="380" y="375" text-anchor="middle" font-size="21" fill="#ea580c">4の倍数が目印</text>`)
+  stoneGame: assetFig('stone-game','石取りゲームの残り個数を段階で示す図','負け位置を逆算して4の倍数を相手に渡す'),
+
+
 }
 
 const plans: Record<string, Placement[]> = {

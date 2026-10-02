@@ -116,7 +116,7 @@ try {
     const directory = join(sourceRoot, entry.sourceDir)
     const source = readFileSync(join(directory, 'figure.tex'), 'utf8')
     const { input, texPackages } = latexForTikzJax(source)
-    const dvi = await tex(input, { texPackages })
+    const dvi = await tex(input, { texPackages, showConsole: process.env.FIGURE_TEX_DEBUG === '1' })
     let svg = await dvi2svg(dvi, { disableOptimize: false })
     svg = decorateSvg(embedFonts(svg), result.spec)
 

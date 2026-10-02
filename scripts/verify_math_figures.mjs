@@ -38,6 +38,39 @@ export const expectedFigures = [
   ['polyhedra-euler', 'geometry/polyhedra-euler', 'geometric-properties/assets/polyhedra-euler.svg'],
   ['data-transform', 'statistics/data-transform', 'data-analysis/assets/data-transform.svg'],
   ['trig-right-triangle', 'trigonometry/trig-right-triangle', 'geometry-measurement/assets/trig-right-triangle.svg'],
+  ['tasuki-cross', 'algebra/tasuki-cross', 'numbers-expressions/assets/tasuki-cross.svg'],
+  ['real-number-line', 'algebra/real-number-line', 'numbers-expressions/assets/real-number-line.svg'],
+  ['simultaneous-inequalities', 'algebra/simultaneous-inequalities', 'numbers-expressions/assets/simultaneous-inequalities.svg'],
+  ['absolute-value-distance', 'algebra/absolute-value-distance', 'numbers-expressions/assets/absolute-value-distance.svg'],
+  ['absolute-value-cases', 'algebra/absolute-value-cases', 'numbers-expressions/assets/absolute-value-cases.svg'],
+  ['trig-coordinate', 'trigonometry/trig-coordinate', 'geometry-measurement/assets/trig-coordinate.svg'],
+  ['trig-special-angles', 'trigonometry/trig-special-angles', 'geometry-measurement/assets/trig-special-angles.svg'],
+  ['sine-law', 'trigonometry/sine-law', 'geometry-measurement/assets/sine-law.svg'],
+  ['cosine-law', 'trigonometry/cosine-law', 'geometry-measurement/assets/cosine-law.svg'],
+  ['triangle-area', 'trigonometry/triangle-area', 'geometry-measurement/assets/triangle-area.svg'],
+  ['heron-triangle', 'trigonometry/heron-triangle', 'geometry-measurement/assets/heron-triangle.svg'],
+  ['height-distance', 'trigonometry/height-distance', 'geometry-measurement/assets/height-distance.svg'],
+  ['quadrilateral-split', 'trigonometry/quadrilateral-split', 'geometry-measurement/assets/quadrilateral-split.svg'],
+  ['spatial-measurement', 'trigonometry/spatial-measurement', 'geometry-measurement/assets/spatial-measurement.svg'],
+  ['histogram', 'statistics/histogram', 'data-analysis/assets/histogram.svg'],
+  ['boxplot-quartiles', 'statistics/boxplot-quartiles', 'data-analysis/assets/boxplot-quartiles.svg'],
+  ['scatter-correlation', 'statistics/scatter-correlation', 'data-analysis/assets/scatter-correlation.svg'],
+  ['statistical-process', 'statistics/statistical-process', 'data-analysis/assets/statistical-process.svg'],
+  ['outlier-boxplot', 'statistics/outlier-boxplot', 'data-analysis/assets/outlier-boxplot.svg'],
+  ['hypothesis-test-flow', 'statistics/hypothesis-test-flow', 'data-analysis/assets/hypothesis-test-flow.svg'],
+  ['counting-tree', 'probability/counting-tree', 'counting-probability/assets/counting-tree.svg'],
+  ['circular-permutation', 'probability/circular-permutation', 'counting-probability/assets/circular-permutation.svg'],
+  ['combination-selection', 'probability/combination-selection', 'counting-probability/assets/combination-selection.svg'],
+  ['grid-shortest-path', 'probability/grid-shortest-path', 'counting-probability/assets/grid-shortest-path.svg'],
+  ['sample-space', 'probability/sample-space', 'counting-probability/assets/sample-space.svg'],
+  ['complement-event', 'probability/complement-event', 'counting-probability/assets/complement-event.svg'],
+  ['probability-tree', 'probability/probability-tree', 'counting-probability/assets/probability-tree.svg'],
+  ['place-value', 'human-activities/place-value', 'human-activities/assets/place-value.svg'],
+  ['position-grid', 'human-activities/position-grid', 'human-activities/assets/position-grid.svg'],
+  ['earth-measurement', 'human-activities/earth-measurement', 'human-activities/assets/earth-measurement.svg'],
+  ['domino-invariant', 'human-activities/domino-invariant', 'human-activities/assets/domino-invariant.svg'],
+  ['stone-game', 'human-activities/stone-game', 'human-activities/assets/stone-game.svg'],
+  ['regular-tiling', 'human-activities/regular-tiling', 'human-activities/assets/regular-tiling.svg'],
   ['demorgan', 'sets/demorgan', 'sets-propositions/assets/demorgan.svg'],
 ].map(([id, sourceDir, asset]) => ({ id, sourceDir, asset }))
 
@@ -82,6 +115,11 @@ const variance = (values) => {
   const m = mean(values)
   return mean(values.map((value) => (value - m) ** 2))
 }
+const correlation = (xs, ys) => {
+  const mx = mean(xs), my = mean(ys)
+  const covariance = mean(xs.map((x, index) => (x - mx) * (ys[index] - my)))
+  return covariance / Math.sqrt(variance(xs) * variance(ys))
+}
 const insideTriangle = (p, a, b, c) => {
   const s1 = cross2(sub(b, a), sub(p, a))
   const s2 = cross2(sub(c, b), sub(p, b))
@@ -116,9 +154,17 @@ function validateFiles(entry, checks) {
     'quadratic-inequality',
     'absolute-value-graph',
     'data-transform',
+    'real-number-line',
+    'simultaneous-inequalities',
+    'absolute-value-distance',
+    'histogram',
+    'boxplot-quartiles',
+    'scatter-correlation',
+    'outlier-boxplot',
+    'position-grid',
   ])
   if (pgfIds.has(entry.id)) requireCheck(checks, 'pgfplots-formula', tex.includes('\\addplot'), 'function/statistics geometry comes from PGFPlots')
-  if (['line-plane', 'three-perpendicular', 'polyhedra-euler'].includes(entry.id)) requireCheck(checks, '3d-engine', tex.includes('tikz-3dplot'), '3D coordinates use tikz-3dplot')
+  if (['line-plane', 'three-perpendicular', 'polyhedra-euler', 'spatial-measurement'].includes(entry.id)) requireCheck(checks, '3d-engine', tex.includes('tikz-3dplot'), '3D coordinates use tikz-3dplot')
   const sourceBindings = {
     'quadratic-domain-range': [/domain=-2:3/, /coordinates \{\(-2,3\) \(3,8\)\}/, /coordinates \{\(0,-1\)\}/],
     'quadratic-vertex-form': [/\{2\*\(x-1\.5\)\^2-2\}/, /coordinates \{\(1\.5,-2\)\}/, /axis cs:1\.5,-3\.1/],
@@ -152,6 +198,39 @@ function validateFiles(entry, checks) {
     'polyhedra-euler': [/\(A\) at \(0,0,0\)/, /\(B\) at \(3,0,0\)/, /\(G\) at \(3,3,3\)/, /F=6/, /E=12/, /V=8/, /V-E\+F=8-12\+6=2/],
     'data-transform': [/coordinates \{\(-2,0\) \(-\.5,0\) \(1\.5,0\) \(2\.5,0\)\}/, /coordinates \{\(1,1\) \(2\.5,1\) \(4\.5,1\) \(5\.5,1\)\}/, /coordinates \{\(4,1\) \(1,1\) \(-3,1\) \(-5,1\)\}/],
     'trig-right-triangle': [/\(A\) at \(0,0\)/, /\(B\) at \(4\.8,0\)/, /\(C\) at \(4\.8,3\.6\)/, /\\sin A=\\frac\{BC\}\{AC\}/],
+    'tasuki-cross': [/\(ax\+b\)\(cx\+d\)/, /ad\+bc/, /acx\^2/],
+    'real-number-line': [/1\.41421356/, /\\sqrt2/, /\\mathrm\{Q\}/],
+    'simultaneous-inequalities': [/coordinates \{\(1,2\)\(4,2\)\}/, /coordinates \{\(2,1\.2\)\(4\.8,1\.2\)\}/, /2\\le x\\le4/],
+    'absolute-value-distance': [/coordinates \{\(0,0\)\}/, /coordinates \{\(-3,0\)\(3,0\)\}/, /\|-3\|=3/, /\|3\|=3/],
+    'absolute-value-cases': [/x-a\\ge0/, /x-a<0/, /x\\ge a/, /x<a/],
+    'trig-coordinate': [/\(P\) at \(120:1\)/, /\(H\) at \(-\.5,0\)/, /x=\\cos\\theta/, /y=\\sin\\theta/, /OP=1/],
+    'trig-special-angles': [/\(1,0\).*0\^\\circ/, /\(0,1\).*90\^\\circ/, /\(-1,0\).*180\^\\circ/],
+    'sine-law': [/\(A\) at \(140:3\)/, /\(B\) at \(250:3\)/, /\(C\) at \(20:3\)/, /\\frac\{a\}\{\\sin A\}=2R/],
+    'cosine-law': [/\(A\) at \(0,0\)/, /\(B\) at \(5,0\)/, /\(C\) at \(1\.5,3\)/, /a\^2=b\^2\+c\^2-2bc\\cos A/],
+    'triangle-area': [/\(D\) at \(1\.8,0\)/, /h=b\\sin A/, /S=\\frac12bc\\sin A/],
+    'heron-triangle': [/\(B\) at \(4,0\)/, /\(C\) at \(4,3\)/, /S=\\sqrt\{6\(6-3\)\(6-4\)\(6-5\)\}=6/],
+    'height-distance': [/\(B\) at \(6,0\)/, /\(C\) at \(6,3\.6\)/, /h=d\\tan\\theta/],
+    'quadrilateral-split': [/\(A\)--\(C\)/, /S_\{ABCD\}=S_\{ABC\}\+S_\{ACD\}/],
+    'spatial-measurement': [/\(A\) at \(0,0,0\)/, /\(G\) at \(4,3,2\)/, /AG\^2=AC\^2\+CG\^2/],
+    histogram: [/coordinates \{\(0,2\)\(10,5\)\(20,8\)\(30,4\)\(40,1\)\(50,0\)\}/, /ybar interval/],
+    'boxplot-quartiles': [/xtick=\{1,3,5,7,9\}/, /axis cs:3,\.55.*axis cs:7,1\.45/, /axis cs:5,\.55/],
+    'scatter-correlation': [/\(0,0\)\(\.5,\.7\).*\(2\.5,3\.4\)/, /\(4,4\).*\(6\.5,\.7\)/, /r\\approx0/],
+    'statistical-process': [/\(q\) \{Question\}/, /\(c\) \{Collect\}/, /\(a\) \{Analyze\}/, /\(i\) \{Interpret\}/],
+    'outlier-boxplot': [/xtick=\{0,2,3\.5,5,8,9\.5,11\}/, /axis cs:9\.5,\.3/, /coordinates \{\(11,1\)\}/],
+    'hypothesis-test-flow': [/\(h\) \{\$H_0\$\}/, /\(p\) \{\$p\$-value\}/, /p<0\.05/, /p\\ge0\.05/],
+    'counting-tree': [/3\\times2=6/, /\{1\/A,2\/B,3\/C\}/, /\(L\\i-A\)/],
+    'circular-permutation': [/\{90\/A,18\/B,306\/C,234\/D,162\/E\}/, /\(5-1\)!=24/],
+    'combination-selection': [/\{1\/B,4\/E\}/, /\\\{B,E\\\}=\\\{E,B\\\}/, /_\{5\}C_\{2\}=10/],
+    'grid-shortest-path': [/grid \(4,3\)/, /4E\+3N/, /_\{7\}C_\{3\}=35/],
+    'sample-space': [/\\Omega=\\\{1,2,3,4,5,6\\\}/, /A=\\\{2,4,6\\\}/],
+    'complement-event': [/A\\cap\\overline A=\\emptyset/, /A\\cup\\overline A=\\Omega/],
+    'probability-tree': [/\$pq\$/, /\$p\(1-q\)\$/, /\$\(1-p\)q\$/, /\$\(1-p\)\(1-q\)\$/],
+    'place-value': [/314=3\\cdot10\^2\+1\\cdot10\^1\+4\\cdot10\^0/, /0\/3\/\$10\^2\$/],
+    'position-grid': [/coordinates \{\(3,2\)\}/, /P\(3,2\)/],
+    'earth-measurement': [/\(A\) at \(60:3\)/, /\(B\) at \(100:3\)/, /\\theta=40\^\\circ/, /s=R\\theta/],
+    'domino-invariant': [/mod\(\\r\+\\c,2\)/, /\(1,1\) rectangle \(3,2\)/, /\\Delta\(B-W\)=0/],
+    'stone-game': [/\{4,8,12\}/, /take \$1,2,\$ or \$3\$ stones/, /\$\+4\$/],
+    'regular-tiling': [/\{0,\.\.\.,5\}/, /60\*\\k/, /6\\times60\^\\circ=360\^\\circ/],
     demorgan: [/\\overline\{A\\cap B\}/, /\\overline A\\cup\\overline B/, /even odd rule/],
   }
   const missingBindings = sourceBindings[entry.id].filter((pattern) => !pattern.test(tex)).map(String)
@@ -378,6 +457,141 @@ function verifyModel(id, checks) {
     requireCheck(checks, 'right-angle', perpendicular(sub(A, B), sub(C, B)), 'AB perpendicular BC')
     requireCheck(checks, 'pythagorean', approx(distance(A, C) ** 2, distance(A, B) ** 2 + distance(B, C) ** 2), 'AC is hypotenuse')
     requireCheck(checks, 'ratios', approx(distance(B, C) / distance(A, C), 0.6) && approx(distance(A, B) / distance(A, C), 0.8) && approx(distance(B, C) / distance(A, B), 0.75), 'sin A=.6, cos A=.8, tan A=.75')
+  } else if (id === 'tasuki-cross') {
+    const a = 2, b = 3, c = 5, d = 7
+    requireCheck(checks, 'middle-coefficient', a * d + b * c === 29, 'cross products give ad+bc')
+    requireCheck(checks, 'expansion', [a * c, a * d + b * c, b * d].join(',') === '10,29,21', '(2x+3)(5x+7)=10x^2+29x+21')
+  } else if (id === 'real-number-line') {
+    const root2 = Math.sqrt(2)
+    requireCheck(checks, 'irrational-position', root2 > 1 && root2 < 2, '1<sqrt(2)<2')
+    requireCheck(checks, 'decimal-binding', approx(root2, 1.41421356, 1e-7), 'plotted decimal equals sqrt(2)')
+  } else if (id === 'simultaneous-inequalities') {
+    const first = (x) => x > 1 && x <= 4, second = (x) => x >= 2
+    requireCheck(checks, 'intersection', [2, 3, 4].every((x) => first(x) && second(x)), '[2,4] belongs to both intervals')
+    requireCheck(checks, 'boundaries', !first(1) && first(4) && second(2), 'open at 1, closed at 2 and 4')
+    requireCheck(checks, 'outside', !([1.5, 4.5].some((x) => first(x) && second(x))), 'values outside [2,4] are excluded')
+  } else if (id === 'absolute-value-distance') {
+    requireCheck(checks, 'positive-distance', approx(distance(point(0, 0), point(3, 0)), Math.abs(3)), 'distance from 0 to 3 equals |3|')
+    requireCheck(checks, 'negative-distance', approx(distance(point(0, 0), point(-3, 0)), Math.abs(-3)), 'distance from 0 to -3 equals |-3|')
+  } else if (id === 'absolute-value-cases') {
+    const a = 2
+    for (const x of [-1, 2, 5]) requireCheck(checks, `case-${x}`, approx(Math.abs(x - a), x >= a ? x - a : a - x), `absolute-value branch is correct at x=${x}`)
+  } else if (id === 'trig-coordinate') {
+    const theta = 120 * Math.PI / 180, P = point(Math.cos(theta), Math.sin(theta)), H = point(Math.cos(theta), 0)
+    requireCheck(checks, 'unit-circle', approx(norm(P), 1), 'OP=1')
+    requireCheck(checks, 'coordinate-values', approx(P.x, -0.5) && approx(P.y, Math.sqrt(3) / 2), 'P=(cos120,sin120)')
+    requireCheck(checks, 'projection', perpendicular(sub(P, H), sub(H, point(0, 0))), 'PH is perpendicular to x-axis')
+  } else if (id === 'trig-special-angles') {
+    const cases = [[0, 1, 0], [90, 0, 1], [180, -1, 0]]
+    requireCheck(checks, 'special-values', cases.every(([degree, x, y]) => approx(Math.cos(degree * Math.PI / 180), x) && approx(Math.sin(degree * Math.PI / 180), y)), 'coordinates equal (cos theta,sin theta)')
+  } else if (id === 'sine-law') {
+    const O = point(0, 0), A = polar(140, 3), B = polar(250, 3), C = polar(20, 3)
+    requireCheck(checks, 'circumcircle', [A, B, C].every((p) => approx(distance(O, p), 3)), 'A,B,C lie on the circle of radius 3')
+    requireCheck(checks, 'sine-law', approx(distance(B, C) / Math.sin(angleAt(B, A, C)), 6), 'a/sin A=2R')
+  } else if (id === 'cosine-law') {
+    const A = point(0, 0), B = point(5, 0), C = point(1.5, 3)
+    const a = distance(B, C), b = distance(C, A), c = distance(A, B), angleA = angleAt(B, A, C)
+    requireCheck(checks, 'cosine-law', approx(a ** 2, b ** 2 + c ** 2 - 2 * b * c * Math.cos(angleA)), 'a^2=b^2+c^2-2bc cos A')
+  } else if (id === 'triangle-area') {
+    const A = point(0, 0), B = point(5, 0), C = point(1.8, 3), D = point(1.8, 0)
+    const b = distance(C, A), c = distance(A, B), angleA = angleAt(B, A, C)
+    requireCheck(checks, 'altitude', perpendicular(sub(C, D), sub(B, A)) && collinear(A, B, D), 'CD is the altitude to AB')
+    requireCheck(checks, 'area', approx(0.5 * c * distance(C, D), 0.5 * b * c * Math.sin(angleA)), 'base-height area equals sine formula')
+  } else if (id === 'heron-triangle') {
+    const sides = [3, 4, 5], s = sides.reduce((sum, value) => sum + value, 0) / 2
+    requireCheck(checks, 'semiperimeter', s === 6, 's=6')
+    requireCheck(checks, 'heron-area', approx(Math.sqrt(s * (s - 3) * (s - 4) * (s - 5)), 6), 'Heron area is 6')
+    requireCheck(checks, 'right-triangle', 3 ** 2 + 4 ** 2 === 5 ** 2, '3-4-5 side lengths are consistent')
+  } else if (id === 'height-distance') {
+    const d = 6, h = 3.6, theta = Math.atan2(h, d)
+    requireCheck(checks, 'right-model', perpendicular(point(d, 0), point(0, h)), 'ground and height are perpendicular')
+    requireCheck(checks, 'tangent-height', approx(h, d * Math.tan(theta)), 'h=d tan theta')
+  } else if (id === 'quadrilateral-split') {
+    const A = point(0, 0), B = point(5, 0.5), C = point(4, 3.5), D = point(-0.5, 2.5)
+    const triangleArea = (P, Q, R) => Math.abs(cross2(sub(Q, P), sub(R, P))) / 2
+    const polygonArea = Math.abs(cross2(A, B) + cross2(B, C) + cross2(C, D) + cross2(D, A)) / 2
+    requireCheck(checks, 'area-additivity', approx(polygonArea, triangleArea(A, B, C) + triangleArea(A, C, D)), 'S_ABCD=S_ABC+S_ACD')
+  } else if (id === 'spatial-measurement') {
+    const A = point(0, 0, 0), B = point(4, 0, 0), C = point(4, 3, 0), G = point(4, 3, 2)
+    requireCheck(checks, 'base-diagonal', approx(distance(A, C) ** 2, distance(A, B) ** 2 + distance(B, C) ** 2), 'AC^2=AB^2+BC^2')
+    requireCheck(checks, 'space-diagonal', approx(distance(A, G) ** 2, distance(A, C) ** 2 + distance(C, G) ** 2), 'AG^2=AC^2+CG^2')
+    requireCheck(checks, 'projection', C.z === 0 && G.x === C.x && G.y === C.y, 'CG is perpendicular to the base plane')
+  } else if (id === 'histogram') {
+    const frequencies = [2, 5, 8, 4, 1]
+    requireCheck(checks, 'frequency-total', frequencies.reduce((sum, value) => sum + value, 0) === 20, 'total frequency is 20')
+    requireCheck(checks, 'modal-class', Math.max(...frequencies) === frequencies[2], '20-30 is the modal class')
+    requireCheck(checks, 'equal-widths', [10, 10, 10, 10, 10].every((width) => width === 10), 'all class widths equal 10')
+  } else if (id === 'boxplot-quartiles') {
+    const fiveNumber = [1, 3, 5, 7, 9]
+    requireCheck(checks, 'five-number-order', fiveNumber.every((value, index) => index === 0 || fiveNumber[index - 1] <= value), 'min<=Q1<=median<=Q3<=max')
+    requireCheck(checks, 'iqr', fiveNumber[3] - fiveNumber[1] === 4, 'IQR=7-3=4')
+  } else if (id === 'scatter-correlation') {
+    const positiveX = [0, .5, 1, 1.5, 2, 2.5], positiveY = [0, .7, 1.3, 2, 2.7, 3.4]
+    const negativeX = [4, 4.5, 5, 5.5, 6, 6.5], negativeY = [4, 3.4, 2.8, 2, 1.4, .7]
+    const neutralX = [8, 8.4, 8.8, 9.2, 9.6, 10], neutralY = [.8, 3.7, 1.9, 4.4, 1.1, 3]
+    requireCheck(checks, 'positive-correlation', correlation(positiveX, positiveY) > 0.98, 'first group has strong positive correlation')
+    requireCheck(checks, 'negative-correlation', correlation(negativeX, negativeY) < -0.98, 'second group has strong negative correlation')
+    requireCheck(checks, 'near-zero-correlation', Math.abs(correlation(neutralX, neutralY)) < 0.25, 'third group has near-zero correlation')
+  } else if (id === 'statistical-process') {
+    const stages = ['Question', 'Collect', 'Analyze', 'Interpret'], edges = [[0, 1], [1, 2], [2, 3], [3, 0]]
+    requireCheck(checks, 'four-stages', new Set(stages).size === 4, 'four distinct inquiry stages')
+    requireCheck(checks, 'closed-cycle', edges.every(([, to], index) => to === (index + 1) % 4), 'last stage returns to the first')
+  } else if (id === 'outlier-boxplot') {
+    const q1 = 2, q3 = 5, fence = 9.5, outlier = 11
+    requireCheck(checks, 'fence', approx(fence, q3 + 1.5 * (q3 - q1)), 'upper fence=Q3+1.5IQR')
+    requireCheck(checks, 'outlier', outlier > fence, '11 lies beyond the upper fence')
+  } else if (id === 'hypothesis-test-flow') {
+    const decision = (p) => p < 0.05 ? 'reject' : 'keep'
+    requireCheck(checks, 'reject-branch', decision(0.04) === 'reject', 'p<0.05 rejects H0')
+    requireCheck(checks, 'keep-branch', decision(0.05) === 'keep' && decision(0.2) === 'keep', 'p>=0.05 keeps H0')
+  } else if (id === 'counting-tree') {
+    const leaves = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+    requireCheck(checks, 'product-rule', leaves.length === 3 * 2, 'three first choices and two second choices give six leaves')
+    requireCheck(checks, 'unique-leaves', new Set(leaves).size === leaves.length, 'each outcome is counted once')
+  } else if (id === 'circular-permutation') {
+    const factorial = (n) => n <= 1 ? 1 : n * factorial(n - 1)
+    requireCheck(checks, 'rotation-classes', factorial(5) / 5 === factorial(4), 'fixing one seat removes rotational duplicates')
+    requireCheck(checks, 'count', factorial(4) === 24, '(5-1)!=24')
+  } else if (id === 'combination-selection') {
+    const choose = (n, r) => Array.from({ length: r }, (_, index) => n - index).reduce((product, value) => product * value, 1) / Array.from({ length: r }, (_, index) => index + 1).reduce((product, value) => product * value, 1)
+    requireCheck(checks, 'combination-count', choose(5, 2) === 10, '5C2=10')
+    requireCheck(checks, 'order-ignored', new Set(['B', 'E']).size === new Set(['E', 'B']).size, '{B,E}={E,B}')
+  } else if (id === 'grid-shortest-path') {
+    const choose = (n, r) => Array.from({ length: r }, (_, index) => n - index).reduce((product, value) => product * value, 1) / Array.from({ length: r }, (_, index) => index + 1).reduce((product, value) => product * value, 1)
+    requireCheck(checks, 'step-count', 4 + 3 === 7, 'every shortest path has seven steps')
+    requireCheck(checks, 'path-count', choose(7, 3) === 35, 'choose three north steps among seven positions')
+  } else if (id === 'sample-space') {
+    const omega = new Set([1, 2, 3, 4, 5, 6]), event = new Set([2, 4, 6])
+    requireCheck(checks, 'subset', [...event].every((value) => omega.has(value)), 'A is a subset of Omega')
+    requireCheck(checks, 'event-size', event.size === 3 && omega.size === 6, '|A|=3, |Omega|=6')
+  } else if (id === 'complement-event') {
+    const omega = new Set([1, 2, 3, 4, 5, 6]), event = new Set([2, 4, 6]), complement = new Set([...omega].filter((value) => !event.has(value)))
+    requireCheck(checks, 'disjoint', [...event].every((value) => !complement.has(value)), 'A intersect complement(A) is empty')
+    requireCheck(checks, 'union', new Set([...event, ...complement]).size === omega.size, 'A union complement(A)=Omega')
+  } else if (id === 'probability-tree') {
+    const p = .3, q = .4, leaves = [p * q, p * (1 - q), (1 - p) * q, (1 - p) * (1 - q)]
+    requireCheck(checks, 'branch-sums', approx(p + (1 - p), 1) && approx(q + (1 - q), 1), 'each binary branch sums to one')
+    requireCheck(checks, 'leaf-sum', approx(leaves.reduce((sum, value) => sum + value, 0), 1), 'leaf probabilities sum to one')
+  } else if (id === 'place-value') {
+    requireCheck(checks, 'decimal-expansion', 3 * 10 ** 2 + 1 * 10 + 4 === 314, '314=3*10^2+1*10+4')
+  } else if (id === 'position-grid') {
+    const P = point(3, 2)
+    requireCheck(checks, 'coordinate-projections', P.x === 3 && P.y === 2, 'P projects to x=3 and y=2')
+  } else if (id === 'earth-measurement') {
+    const radius = 3, theta = 40 * Math.PI / 180
+    requireCheck(checks, 'central-angle', approx(theta, 2 * Math.PI / 9), '40 degrees=2pi/9 radians')
+    requireCheck(checks, 'arc-length', approx(radius * theta, 2 * Math.PI / 3), 's=R theta')
+  } else if (id === 'domino-invariant') {
+    const colors = Array.from({ length: 4 }, (_, row) => Array.from({ length: 4 }, (_, column) => (row + column) % 2))
+    requireCheck(checks, 'balanced-board', colors.flat().filter(Boolean).length === 8, '4x4 board has eight cells of each color')
+    requireCheck(checks, 'domino-balance', colors[1][1] !== colors[1][2], 'adjacent cells have opposite colors')
+    requireCheck(checks, 'invariant', (8 - 1) - (8 - 1) === 0, 'one domino preserves B-W')
+  } else if (id === 'stone-game') {
+    const losing = [0]
+    for (let n = 1; n <= 12; n += 1) if (![1, 2, 3].some((take) => n >= take && losing.includes(n - take))) losing.push(n)
+    requireCheck(checks, 'losing-positions', losing.join(',') === '0,4,8,12', `losing positions=${losing.join(',')}`)
+  } else if (id === 'regular-tiling') {
+    requireCheck(checks, 'angle-sum', 6 * 60 === 360, 'six 60-degree angles meet around one point')
   } else if (id === 'demorgan') {
     for (const inA of [false, true]) for (const inB of [false, true]) {
       const left = !(inA && inB)
