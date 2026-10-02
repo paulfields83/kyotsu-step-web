@@ -232,8 +232,95 @@ function TextbookReadingFlow({ unit, section, progress }: {
     )
   }
 
+  const hasSolutionTrack = section.readingFlow.some(
+    (block) => block.type === 'note' && block.text.startsWith('着眼点　'),
+  )
+  const exampleSolutionBlockIds = new Set<string>()
+  const exampleFirstSolutionBlockIds = new Set<string>()
+  if (hasSolutionTrack) {
+    let insideExample = false
+    let afterProblem = false
+    let firstSolutionSeen = false
+    for (const candidate of section.readingFlow) {
+      if (candidate.type === 'heading' && candidate.text.startsWith('教科書対応問')) {
+        insideExample = true
+        afterProblem = false
+        firstSolutionSeen = false
+        continue
+      }
+      if (!insideExample) continue
+      if (candidate.type === 'topic' || (candidate.type === 'heading' && candidate.text.startsWith('教科書対応問'))) {
+        insideExample = false
+        afterProblem = false
+        firstSolutionSeen = false
+        continue
+      }
+      if (candidate.type === 'heading' && candidate.text.startsWith('問題文')) {
+        afterProblem = true
+        continue
+      }
+      if (candidate.type === 'note' && candidate.text.startsWith('確認　')) {
+        afterProblem = false
+        continue
+      }
+      if (afterProblem && (candidate.type === 'paragraph' || candidate.type === 'formula')) {
+        exampleSolutionBlockIds.add(candidate.id)
+        if (!firstSolutionSeen) {
+          exampleFirstSolutionBlockIds.add(candidate.id)
+          firstSolutionSeen = true
+        }
+      }
+    }
+  }
+
   const renderBlock = (block: TextbookReadingBlock) => {
     if (block.type === 'topic') return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
+
+    if (hasSolutionTrack && block.type === 'heading' && block.text.startsWith('教科書対応問')) {
+      return (
+        <div className="textbook-example-title" key={block.id}>
+          <span className="screen-kicker">EXAMPLE</span>
+          <h4>{block.text.replace(/^教科書対応問[　\s]*/u, '')}</h4>
+        </div>
+      )
+    }
+
+    if (hasSolutionTrack && block.type === 'heading' && block.text.startsWith('問題文')) {
+      return (
+        <article className="question-paper textbook-example-problem" key={block.id}>
+          <span className="screen-kicker">{text('問題', '题目')}</span>
+          <p>{block.text.replace(/^問題文[　\s]*/u, '')}</p>
+        </article>
+      )
+    }
+
+    if (hasSolutionTrack && block.type === 'note') {
+      const noteKinds = [
+        { prefix: '着眼点　', step: 'STEP 1', labelJa: '着眼点', labelZh: '着眼点' },
+        { prefix: '使う知識　', step: 'STEP 2', labelJa: '使う知識', labelZh: '调用知识' },
+      ] as const
+      const kind = noteKinds.find((candidate) => block.text.startsWith(candidate.prefix))
+      if (kind) {
+        return (
+          <div className="practice-step-block textbook-example-step" key={block.id}>
+            <div className="practice-step-heading">
+              <span>{kind.step}</span>
+              <strong>{text(kind.labelJa, kind.labelZh)}</strong>
+            </div>
+            <p>{block.text.slice(kind.prefix.length)}</p>
+          </div>
+        )
+      }
+      if (block.text.startsWith('確認　')) {
+        return (
+          <div className="textbook-example-check" key={block.id}>
+            <span>CHECK</span>
+            <p>{block.text.slice('確認　'.length)}</p>
+          </div>
+        )
+      }
+    }
+
     if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
     if (block.type === 'note') return <aside className="reading-note" key={block.id}>{block.text}</aside>
 
@@ -253,6 +340,25 @@ function TextbookReadingFlow({ unit, section, progress }: {
         {renderPart(part, section, progress, setActiveItemId, text)}
       </span>
     ))
+
+    if (hasSolutionTrack && exampleSolutionBlockIds.has(block.id)) {
+      return (
+        <div className="practice-step-block textbook-example-step textbook-example-solve" key={block.id}>
+          {exampleFirstSolutionBlockIds.has(block.id) && (
+            <div className="practice-step-heading">
+              <span>STEP 3</span>
+              <strong>{text('解く', '解题')}</strong>
+            </div>
+          )}
+          <div className="practice-blank-block">
+            <div className="practice-blank-line">
+              {content}
+            </div>
+            {renderInlineChoicePanel(block)}
+          </div>
+        </div>
+      )
+    }
 
     return (
       <div className="reading-block-with-choice" key={block.id}>
@@ -439,25 +545,20 @@ export function TextbookUnitPage() {
       </header>
 
       {showGeometryComparison && (
-        <section className="textbook-test-compare" data-testid="geometry-guidance-compare">
-          <div>
-            <strong>{text('例題ガイド比較', '例题引导对比')}</strong>
-            <small>{text('同じページで旧版と今回の解題軌道テスト版を切り替えられます。', '同一页面可切换原版与本次“真实解题轨道”测试版。')}</small>
+        <section className="textbook-source-switch" data-testid="geometry-guidance-compare">
+          <div className="textbook-source-switch__meta">
+            <span className="status-badge">TEST</span>
+            <div>
+              <strong>{text('例題ガイド比較', '例题引导对比')}</strong>
+              <small>{text('内容だけを切り替えて比較します。', '只切换内容进行对比。')}</small>
+            </div>
           </div>
-          <div className="textbook-test-compare__buttons">
-            <button
-              type="button"
-              aria-pressed={sourceMode === 'original'}
-              onClick={() => switchSource('original')}
-            >
+          <div className="segmented-control textbook-source-switch__control">
+            <button type="button" aria-pressed={sourceMode === 'original'} onClick={() => switchSource('original')}>
               {text('原版', '原版')}
             </button>
-            <button
-              type="button"
-              aria-pressed={sourceMode === 'test'}
-              onClick={() => switchSource('test')}
-            >
-              {text('TEST 解題軌道v1', 'TEST 解题轨道v1')}
+            <button type="button" aria-pressed={sourceMode === 'test'} onClick={() => switchSource('test')}>
+              {text('解題軌道', '解题轨道')}
             </button>
           </div>
         </section>
