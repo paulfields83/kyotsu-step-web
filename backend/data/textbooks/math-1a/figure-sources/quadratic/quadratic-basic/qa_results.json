@@ -1,0 +1,119 @@
+{
+  "figure_id": "quadratic-basic",
+  "source_sha256": "fd4be0135b2960e8acd662f03114c9fb0b6c4ecf9d9d8c27da861b3bfb7d592f",
+  "engine": "PGFPlots",
+  "math_qa": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "spec-id",
+        "passed": true,
+        "detail": "quadratic-basic == quadratic-basic"
+      },
+      {
+        "name": "spec-unit",
+        "passed": true,
+        "detail": "figure_spec.json contains unit"
+      },
+      {
+        "name": "spec-topic",
+        "passed": true,
+        "detail": "figure_spec.json contains topic"
+      },
+      {
+        "name": "spec-teaching_goal",
+        "passed": true,
+        "detail": "figure_spec.json contains teaching_goal"
+      },
+      {
+        "name": "spec-source",
+        "passed": true,
+        "detail": "figure_spec.json contains source"
+      },
+      {
+        "name": "spec-objects",
+        "passed": true,
+        "detail": "figure_spec.json contains objects"
+      },
+      {
+        "name": "spec-constraints",
+        "passed": true,
+        "detail": "figure_spec.json contains constraints"
+      },
+      {
+        "name": "spec-labels",
+        "passed": true,
+        "detail": "figure_spec.json contains labels"
+      },
+      {
+        "name": "spec-forbidden",
+        "passed": true,
+        "detail": "figure_spec.json contains forbidden"
+      },
+      {
+        "name": "spec-engine",
+        "passed": true,
+        "detail": "figure_spec.json contains engine"
+      },
+      {
+        "name": "spec-qa_rules",
+        "passed": true,
+        "detail": "figure_spec.json contains qa_rules"
+      },
+      {
+        "name": "spec-status",
+        "passed": true,
+        "detail": "figure_spec.json contains status"
+      },
+      {
+        "name": "standalone-source",
+        "passed": true,
+        "detail": "independently compilable standalone document"
+      },
+      {
+        "name": "no-svg-source",
+        "passed": true,
+        "detail": "source is TeX/TikZ rather than handwritten SVG"
+      },
+      {
+        "name": "pgfplots-formula",
+        "passed": true,
+        "detail": "function/statistics geometry comes from PGFPlots"
+      },
+      {
+        "name": "source-model-binding",
+        "passed": true,
+        "detail": "verified model values and constructions are present in figure.tex"
+      },
+      {
+        "name": "common-vertex",
+        "passed": true,
+        "detail": "all four vertices are O=(0,0)"
+      },
+      {
+        "name": "width-order",
+        "passed": true,
+        "detail": "2x^2 > x^2 > (1/2)x^2 at x=1"
+      },
+      {
+        "name": "opening-directions",
+        "passed": true,
+        "detail": "sign(a) determines opening direction"
+      }
+    ]
+  },
+  "compile_qa": {
+    "status": "pass",
+    "standalone_tex": "figure.tex",
+    "review_pdf": "figure.pdf",
+    "generated_svg": "figure.svg"
+  },
+  "visual_qa": {
+    "status": "pass",
+    "review_surface": "PDF and 2x PNG preview"
+  },
+  "publish_qa": {
+    "status": "pass",
+    "asset": "quadratic-functions/assets/quadratic-basic.svg"
+  }
+}

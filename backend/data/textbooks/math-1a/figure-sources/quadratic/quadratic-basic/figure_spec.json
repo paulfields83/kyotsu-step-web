@@ -1,0 +1,21 @@
+{
+  "figure_id": "quadratic-basic",
+  "unit": "math-1a-quadratic-functions",
+  "topic": "1.4 2次関数 y=ax² のグラフ",
+  "insert_after": "s1-quadratic-functions-topic-04 paragraph 1",
+  "teaching_goal": "y=ax² の頂点と対称軸を固定したまま、a の符号で開く向きが変わり、|a| の大小で幅が変わることを比較する。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/quadratic-functions/unit.json / topic 1.4",
+    "word": "backend/data/textbooks/math-1a/source/塾_数学I_第2章_2次関数_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 4 2次関数 y=ax² のグラフ",
+    "textbook_guide": "教科書 p.54-55 / Guide PDF 65-66"
+  },
+  "figure_type": "function",
+  "precision": "exact",
+  "objects": ["y=x^2", "y=2x^2", "y=(1/2)x^2", "y=-x^2", "common vertex O=(0,0)", "common axis x=0"],
+  "constraints": ["all four curves pass through O", "positive a opens upward", "negative a opens downward", "at equal nonzero x, 2x^2 is narrower than x^2 and (1/2)x^2 is wider"],
+  "labels": ["four exact equations", "O=(0,0)", "narrower", "wider"],
+  "forbidden": ["Bezier approximation", "different vertices", "incorrect width ordering", "handwritten SVG coordinates"],
+  "engine": "PGFPlots",
+  "qa_rules": ["all vertices equal (0,0)", "opening directions follow sign(a)", "value ordering at x=1 is 2 > 1 > 1/2", "compiled PDF has one cropped page"],
+  "status": "math_checked"
+}

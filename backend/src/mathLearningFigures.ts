@@ -59,17 +59,9 @@ const F = {
     <rect x="460" y="120" width="220" height="90" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/><text x="570" y="155" text-anchor="middle" font-size="21" fill="#1f2937">中身 &lt; 0</text><text x="570" y="188" text-anchor="middle" font-size="20" fill="#ea580c">符号を反転</text>
     <line x1="380" y1="80" x2="380" y2="270" stroke="#94a3b8" stroke-dasharray="8 8" stroke-width="2.5"/><text x="380" y="305" text-anchor="middle" font-size="21" fill="#475569">中身 = 0 が境界</text>`),
 
-  quadrants: fig('coordinate-quadrants','座標平面の4つの象限を示す図','x・y の符号と象限の対応',
-    `<line x1="80" y1="210" x2="680" y2="210" stroke="#334155" stroke-width="2.5"/><line x1="380" y1="55" x2="380" y2="365" stroke="#334155" stroke-width="2.5"/>
-    <text x="535" y="125" font-size="26" fill="#2563eb">I</text><text x="220" y="125" font-size="26" fill="#2563eb">II</text><text x="220" y="310" font-size="26" fill="#2563eb">III</text><text x="535" y="310" font-size="26" fill="#2563eb">IV</text>
-    <text x="690" y="215" font-size="20">x</text><text x="390" y="65" font-size="20">y</text>`),
+  quadrants: assetFig('coordinate-quadrants','座標平面の4つの象限と各象限の座標符号を示す図','x・y の符号と象限の対応'),
 
-  quadBasic: fig('quadratic-basic','係数 a による放物線の開き方の違い','y=ax² の開く向きと幅を比べる',
-    `<line x1="80" y1="320" x2="690" y2="320" stroke="#334155" stroke-width="2.5"/><line x1="380" y1="60" x2="380" y2="365" stroke="#334155" stroke-width="2.5"/>
-    <path d="M220 300 Q380 55 540 300" fill="none" stroke="#2563eb" stroke-width="4"/>
-    <path d="M120 300 Q380 180 640 300" fill="none" stroke="#16a34a" stroke-width="4"/>
-    <path d="M240 95 Q380 325 520 95" fill="none" stroke="#ea580c" stroke-width="4"/>
-    <text x="575" y="115" font-size="20" fill="#2563eb">a&gt;0</text><text x="585" y="245" font-size="20" fill="#16a34a">|a| が小さい</text><text x="535" y="90" font-size="20" fill="#ea580c">a&lt;0</text>`),
+  quadBasic: assetFig('quadratic-basic','係数 a の符号と絶対値による放物線の開き方の違い','y=ax² の開く向きと幅を比べる'),
 
   quadVertex: assetFig('quadratic-vertex-form','y=a(x-p)²+q の頂点 (p,q) と軸 x=p を正確に示す放物線','頂点 (p,q) は放物線上にあり、対称軸は必ず x=p を通る'),
 
@@ -79,23 +71,13 @@ const F = {
 
   quadMaxMin: assetFig('quadratic-max-min','軸が定義域の内外にある場合を比較する図','最大・最小は頂点と端点の位置関係で決まる'),
 
-  discriminant: fig('quadratic-discriminant','判別式と x 軸との共有点の個数を対応させる3図','D&gt;0, D=0, D&lt;0 と共有点の個数',
-    `<g stroke="#334155" stroke-width="2"><line x1="35" y1="245" x2="235" y2="245"/><line x1="270" y1="245" x2="470" y2="245"/><line x1="505" y1="245" x2="705" y2="245"/></g>
-    <path d="M55 300 Q135 100 215 300" fill="none" stroke="#2563eb" stroke-width="4"/><path d="M290 280 Q370 245 450 280" fill="none" stroke="#16a34a" stroke-width="4"/><path d="M525 195 Q605 55 685 195" fill="none" stroke="#ea580c" stroke-width="4"/>
-    <text x="135" y="355" text-anchor="middle" font-size="20">D&gt;0</text><text x="370" y="355" text-anchor="middle" font-size="20">D=0</text><text x="605" y="355" text-anchor="middle" font-size="20">D&lt;0</text>`),
+  discriminant: assetFig('quadratic-discriminant','判別式と x 軸との共有点の個数を同じ尺度で対応させる3図','D&gt;0, D=0, D&lt;0 と共有点の個数'),
 
-  lineIntersect: fig('parabola-line-intersection','放物線と直線の共有点を示す図','連立すると共有点の x 座標を求める問題になる',
-    `<line x1="70" y1="330" x2="700" y2="330" stroke="#334155" stroke-width="2.5"/><line x1="170" y1="60" x2="170" y2="365" stroke="#334155" stroke-width="2.5"/>
-    <path d="M220 300 Q400 60 580 300" fill="none" stroke="#2563eb" stroke-width="4"/><line x1="130" y1="300" x2="650" y2="110" stroke="#ea580c" stroke-width="4"/>
-    <circle cx="296" cy="239" r="7" fill="#1f2937"/><circle cx="514" cy="160" r="7" fill="#1f2937"/><text x="405" y="390" text-anchor="middle" font-size="21" fill="#475569">交点＝両方の式を同時に満たす点</text>`),
+  lineIntersect: assetFig('parabola-line-intersection','放物線 y=x²−1 と直線 y=x+1 の共有点を示す図','連立すると共有点の x 座標を求める問題になる'),
 
-  quadIneq: fig('quadratic-inequality','放物線の x 軸に対する上下と不等式の解を示す図','2次不等式はグラフが x 軸より上か下かで読む',
-    `<line x1="75" y1="245" x2="690" y2="245" stroke="#334155" stroke-width="2.5"/><path d="M120 90 Q380 390 640 90" fill="none" stroke="#2563eb" stroke-width="4"/>
-    <circle cx="245" cy="245" r="7" fill="#ea580c"/><circle cx="515" cy="245" r="7" fill="#ea580c"/>
-    <line x1="245" y1="300" x2="515" y2="300" stroke="#ea580c" stroke-width="10" stroke-linecap="round"/><text x="380" y="350" text-anchor="middle" font-size="21" fill="#ea580c">符号を見る区間</text>`),
+  quadIneq: assetFig('quadratic-inequality','放物線 f(x)=(x−1)(x−3) の x 軸に対する上下と符号区間を示す図','2次不等式はグラフが x 軸より上か下かで読む'),
 
-  absGraph: fig('absolute-value-graph','負の部分を x 軸の上側へ折り返す絶対値グラフ','y=|f(x)| は f(x)&lt;0 の部分を上へ反転する',
-    `<line x1="80" y1="230" x2="690" y2="230" stroke="#334155" stroke-width="2.5"/><path d="M100 120 Q380 360 660 120" fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="8 7"/><path d="M100 120 Q240 230 380 110 Q520 230 660 120" fill="none" stroke="#2563eb" stroke-width="4"/><text x="380" y="385" text-anchor="middle" font-size="21" fill="#475569">x軸より下の部分を上へ折り返す</text>`),
+  absGraph: assetFig('absolute-value-graph','y=x²−1 の負の部分だけを x 軸の上側へ折り返した絶対値グラフ','y=|f(x)| は f(x)&lt;0 の部分を上へ反転する'),
 
   trigRight: assetFig('trig-right-triangle','直角三角形で角 A に対する対辺・隣辺・斜辺を示す図','本文と同じ角 A を基準にして sin・cos・tan の辺の対応を読む'),
 

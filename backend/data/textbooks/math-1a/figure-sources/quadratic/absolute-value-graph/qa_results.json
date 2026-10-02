@@ -1,0 +1,124 @@
+{
+  "figure_id": "absolute-value-graph",
+  "source_sha256": "4b2c1023d6d033277e1c13077ccb84a07984b407cc18f7ac3fc0d7c314e4060b",
+  "engine": "PGFPlots",
+  "math_qa": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "spec-id",
+        "passed": true,
+        "detail": "absolute-value-graph == absolute-value-graph"
+      },
+      {
+        "name": "spec-unit",
+        "passed": true,
+        "detail": "figure_spec.json contains unit"
+      },
+      {
+        "name": "spec-topic",
+        "passed": true,
+        "detail": "figure_spec.json contains topic"
+      },
+      {
+        "name": "spec-teaching_goal",
+        "passed": true,
+        "detail": "figure_spec.json contains teaching_goal"
+      },
+      {
+        "name": "spec-source",
+        "passed": true,
+        "detail": "figure_spec.json contains source"
+      },
+      {
+        "name": "spec-objects",
+        "passed": true,
+        "detail": "figure_spec.json contains objects"
+      },
+      {
+        "name": "spec-constraints",
+        "passed": true,
+        "detail": "figure_spec.json contains constraints"
+      },
+      {
+        "name": "spec-labels",
+        "passed": true,
+        "detail": "figure_spec.json contains labels"
+      },
+      {
+        "name": "spec-forbidden",
+        "passed": true,
+        "detail": "figure_spec.json contains forbidden"
+      },
+      {
+        "name": "spec-engine",
+        "passed": true,
+        "detail": "figure_spec.json contains engine"
+      },
+      {
+        "name": "spec-qa_rules",
+        "passed": true,
+        "detail": "figure_spec.json contains qa_rules"
+      },
+      {
+        "name": "spec-status",
+        "passed": true,
+        "detail": "figure_spec.json contains status"
+      },
+      {
+        "name": "standalone-source",
+        "passed": true,
+        "detail": "independently compilable standalone document"
+      },
+      {
+        "name": "no-svg-source",
+        "passed": true,
+        "detail": "source is TeX/TikZ rather than handwritten SVG"
+      },
+      {
+        "name": "pgfplots-formula",
+        "passed": true,
+        "detail": "function/statistics geometry comes from PGFPlots"
+      },
+      {
+        "name": "source-model-binding",
+        "passed": true,
+        "detail": "verified model values and constructions are present in figure.tex"
+      },
+      {
+        "name": "fixed-roots",
+        "passed": true,
+        "detail": "roots stay at -1 and 1"
+      },
+      {
+        "name": "outside-unchanged",
+        "passed": true,
+        "detail": "|f|=f outside [-1,1]"
+      },
+      {
+        "name": "inside-reflected",
+        "passed": true,
+        "detail": "|f|=-f inside (-1,1)"
+      },
+      {
+        "name": "nonnegative",
+        "passed": true,
+        "detail": "|f(x)| is nonnegative"
+      }
+    ]
+  },
+  "compile_qa": {
+    "status": "pass",
+    "standalone_tex": "figure.tex",
+    "review_pdf": "figure.pdf",
+    "generated_svg": "figure.svg"
+  },
+  "visual_qa": {
+    "status": "pass",
+    "review_surface": "PDF and 2x PNG preview"
+  },
+  "publish_qa": {
+    "status": "pass",
+    "asset": "quadratic-functions/assets/absolute-value-graph.svg"
+  }
+}

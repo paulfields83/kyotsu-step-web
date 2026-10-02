@@ -13,6 +13,19 @@ const dataRoot = join(repoRoot, 'backend', 'data', 'textbooks', 'math-1a')
 const fontRoot = join(repoRoot, 'node_modules', 'node-tikzjax', 'css', 'bakoma', 'ttf')
 const qaPreviewRoot = join('/tmp', 'kyotsu-step-math-figure-qa')
 const visualApproved = process.argv.includes('--visual-approved')
+const onlyIds = process.argv.find((argument) => argument.startsWith('--only='))
+  ?.slice('--only='.length)
+  .split(',')
+  .filter(Boolean)
+const selectedFigures = onlyIds
+  ? expectedFigures.filter((entry) => onlyIds.includes(entry.id))
+  : expectedFigures
+
+if (onlyIds) {
+  const foundIds = new Set(selectedFigures.map((entry) => entry.id))
+  const unknownIds = onlyIds.filter((id) => !foundIds.has(id))
+  if (unknownIds.length > 0) throw new Error(`Unknown figure ids: ${unknownIds.join(', ')}`)
+}
 
 function latexForTikzJax(source) {
   const texPackages = {}
@@ -98,7 +111,7 @@ const context = await browser.newContext({ deviceScaleFactor: 2 })
 const page = await context.newPage()
 
 try {
-  for (const entry of expectedFigures) {
+  for (const entry of selectedFigures) {
     const result = verified.get(entry.id)
     const directory = join(sourceRoot, entry.sourceDir)
     const source = readFileSync(join(directory, 'figure.tex'), 'utf8')

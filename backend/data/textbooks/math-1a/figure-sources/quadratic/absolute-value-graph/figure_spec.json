@@ -1,0 +1,21 @@
+{
+  "figure_id": "absolute-value-graph",
+  "unit": "math-1a-quadratic-functions",
+  "topic": "3.5 絶対値を含むグラフ",
+  "insert_after": "s3-quadratic-functions-topic-05 paragraph 1",
+  "teaching_goal": "y=|f(x)| は f(x) が負の部分だけを x 軸について反転し、非負の部分はそのまま残すことを示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/quadratic-functions/unit.json / topic 3.5",
+    "word": "backend/data/textbooks/math-1a/source/塾_数学I_第2章_2次関数_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 5 絶対値を含むグラフ",
+    "textbook_guide": "教科書 p.75-95 の第3節範囲。母本は小項目ごとのページを細分していない。"
+  },
+  "figure_type": "function",
+  "precision": "exact",
+  "objects": ["f(x)=x^2-1", "|f(x)|=|x^2-1|", "roots x=-1 and x=1", "reflected arc y=1-x^2 on [-1,1]"],
+  "constraints": ["outside [-1,1], |f(x)|=f(x)", "inside (-1,1), |f(x)|=-f(x)=1-x^2", "roots remain fixed", "all output values are nonnegative"],
+  "labels": ["y=f(x)", "y=|f(x)|", "reflect where f(x)<0"],
+  "forbidden": ["reflecting positive portions", "moving the roots", "negative values on the absolute-value graph", "handwritten SVG coordinates"],
+  "engine": "PGFPlots",
+  "qa_rules": ["roots stay at -1 and 1", "piecewise identity holds on both regions", "absolute-value curve is nonnegative", "compiled PDF has one cropped page"],
+  "status": "math_checked"
+}

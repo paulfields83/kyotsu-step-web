@@ -10,6 +10,12 @@ export const expectedFigures = [
   ['quadratic-vertex-form', 'quadratic/quadratic-vertex-form', 'quadratic-functions/assets/quadratic-vertex-form.svg'],
   ['quadratic-shift', 'quadratic/quadratic-shift', 'quadratic-functions/assets/quadratic-shift.svg'],
   ['quadratic-max-min', 'quadratic/quadratic-max-min', 'quadratic-functions/assets/quadratic-max-min.svg'],
+  ['coordinate-quadrants', 'quadratic/coordinate-quadrants', 'quadratic-functions/assets/coordinate-quadrants.svg'],
+  ['quadratic-basic', 'quadratic/quadratic-basic', 'quadratic-functions/assets/quadratic-basic.svg'],
+  ['quadratic-discriminant', 'quadratic/quadratic-discriminant', 'quadratic-functions/assets/quadratic-discriminant.svg'],
+  ['parabola-line-intersection', 'quadratic/parabola-line-intersection', 'quadratic-functions/assets/parabola-line-intersection.svg'],
+  ['quadratic-inequality', 'quadratic/quadratic-inequality', 'quadratic-functions/assets/quadratic-inequality.svg'],
+  ['absolute-value-graph', 'quadratic/absolute-value-graph', 'quadratic-functions/assets/absolute-value-graph.svg'],
   ['angle-bisector', 'geometry/angle-bisector', 'geometric-properties/assets/angle-bisector.svg'],
   ['triangle-centroid', 'geometry/triangle-centroid', 'geometric-properties/assets/triangle-centroid.svg'],
   ['triangle-centers', 'geometry/triangle-centers', 'geometric-properties/assets/triangle-centers.svg'],
@@ -92,7 +98,19 @@ function validateFiles(entry, checks) {
   }
   requireCheck(checks, 'standalone-source', /\\documentclass\[[^\]]*\]\{standalone\}/.test(tex), 'independently compilable standalone document')
   requireCheck(checks, 'no-svg-source', !/<svg\b|<path\b|viewBox=/.test(tex), 'source is TeX/TikZ rather than handwritten SVG')
-  const pgfIds = new Set(['quadratic-domain-range', 'quadratic-vertex-form', 'quadratic-shift', 'quadratic-max-min', 'data-transform'])
+  const pgfIds = new Set([
+    'quadratic-domain-range',
+    'quadratic-vertex-form',
+    'quadratic-shift',
+    'quadratic-max-min',
+    'coordinate-quadrants',
+    'quadratic-basic',
+    'quadratic-discriminant',
+    'parabola-line-intersection',
+    'quadratic-inequality',
+    'absolute-value-graph',
+    'data-transform',
+  ])
   if (pgfIds.has(entry.id)) requireCheck(checks, 'pgfplots-formula', tex.includes('\\addplot'), 'function/statistics geometry comes from PGFPlots')
   if (entry.id === 'three-perpendicular') requireCheck(checks, '3d-engine', tex.includes('tikz-3dplot'), '3D coordinates use tikz-3dplot')
   const sourceBindings = {
@@ -100,6 +118,12 @@ function validateFiles(entry, checks) {
     'quadratic-vertex-form': [/\{2\*\(x-1\.5\)\^2-2\}/, /coordinates \{\(1\.5,-2\)\}/, /axis cs:1\.5,-3\.1/],
     'quadratic-shift': [/\.5\*\(x-2\)\^2\+1/, /-\(\.5\*\(x-2\)\^2\+1\)/, /coordinates \{\(2,1\)\}/],
     'quadratic-max-min': [/\{\(x-1\)\^2-2\}/, /\{2\*x\^2-2\*x\}/, /\{\(x-1\)\^2\}/],
+    'coordinate-quadrants': [/coordinates \{\(2,1\.5\)\}/, /coordinates \{\(-2,1\.5\)\}/, /coordinates \{\(-2,-1\.5\)\}/, /coordinates \{\(2,-1\.5\)\}/],
+    'quadratic-basic': [/\{x\^2\}/, /\{2\*x\^2\}/, /\{\.5\*x\^2\}/, /\{-x\^2\}/, /coordinates \{\(0,0\)\}/],
+    'quadratic-discriminant': [/\{x\^2-1\}/, /coordinates \{\(-1,0\) \(1,0\)\}/, /\{x\^2\}/, /coordinates \{\(0,0\)\}/, /\{x\^2\+1\}/],
+    'parabola-line-intersection': [/\{x\^2-1\}/, /\{x\+1\}/, /coordinates \{\(-1,0\) \(2,3\)\}/],
+    'quadratic-inequality': [/\{\(x-1\)\*\(x-3\)\}/, /coordinates \{\(1,0\) \(3,0\)\}/, /f\(x\)>0/, /f\(x\)<0/],
+    'absolute-value-graph': [/\{x\^2-1\}/, /\{abs\(x\^2-1\)\}/, /domain=-1:1/, /\{1-x\^2\}/, /coordinates \{\(-1,0\) \(1,0\)\}/],
     'angle-bisector': [/\\pgfmathsetmacro\{\\ratio\}\{\\AB\/\(\\AB\+\\AC\)\}/, /\(B\)!\\ratio!\(C\)/],
     'triangle-centroid': [/\(B\)!\.5!\(C\)/, /name intersections=\{of=medianA and medianB,by=G\}/],
     'triangle-centers': [/\(O\) at \(2\.4,1\.2294118\)/, /\(I\) at \(1\.52154,1\.20510\)/, /\(H\) at \(\.8,\.9411765\)/],
@@ -150,6 +174,45 @@ function verifyModel(id, checks) {
     requireCheck(checks, 'fixed-domain-max', approx(fixed(-1), 2) && approx(fixed(3), 2), 'maximum at closed endpoints')
     requireCheck(checks, 'moving-endpoint-boundary', approx(0.5, 0.5), 'axis x=1/2 is the case boundary for [0,a]')
     requireCheck(checks, 'moving-axis-boundaries', !(-0.5 >= 0 && -0.5 <= 2) && (1 >= 0 && 1 <= 2) && !(2.5 >= 0 && 2.5 <= 2), 'axis left/inside/right split at 0 and 2')
+  } else if (id === 'coordinate-quadrants') {
+    const points = [point(2, 1.5), point(-2, 1.5), point(-2, -1.5), point(2, -1.5)]
+    const quadrants = points.map(({ x, y }) => x > 0 && y > 0 ? 1 : x < 0 && y > 0 ? 2 : x < 0 && y < 0 ? 3 : 4)
+    requireCheck(checks, 'quadrant-signs', quadrants.join(',') === '1,2,3,4', `quadrants=${quadrants.join(',')}`)
+    requireCheck(checks, 'off-axes', points.every(({ x, y }) => x !== 0 && y !== 0), 'example points do not lie on an axis')
+  } else if (id === 'quadratic-basic') {
+    const functions = [(x) => x ** 2, (x) => 2 * x ** 2, (x) => 0.5 * x ** 2, (x) => -(x ** 2)]
+    requireCheck(checks, 'common-vertex', functions.every((f) => approx(f(0), 0)), 'all four vertices are O=(0,0)')
+    requireCheck(checks, 'width-order', functions[1](1) > functions[0](1) && functions[0](1) > functions[2](1), '2x^2 > x^2 > (1/2)x^2 at x=1')
+    requireCheck(checks, 'opening-directions', functions[0](1) > 0 && functions[1](1) > 0 && functions[2](1) > 0 && functions[3](1) < 0, 'sign(a) determines opening direction')
+  } else if (id === 'quadratic-discriminant') {
+    const cases = [
+      { a: 1, b: 0, c: -1, roots: [-1, 1] },
+      { a: 1, b: 0, c: 0, roots: [0] },
+      { a: 1, b: 0, c: 1, roots: [] },
+    ]
+    const discriminants = cases.map(({ a, b, c }) => b ** 2 - 4 * a * c)
+    requireCheck(checks, 'discriminants', discriminants.join(',') === '4,0,-4', `D=${discriminants.join(',')}`)
+    requireCheck(checks, 'root-counts', cases.map(({ roots }) => roots.length).join(',') === '2,1,0', 'root counts are 2,1,0')
+    requireCheck(checks, 'root-incidence', cases.every(({ a, b, c, roots }) => roots.every((x) => approx(a * x ** 2 + b * x + c, 0))), 'all marked roots lie on y=0')
+  } else if (id === 'parabola-line-intersection') {
+    const parabola = (x) => x ** 2 - 1
+    const line = (x) => x + 1
+    const roots = [-1, 2]
+    requireCheck(checks, 'intersection-equations', roots.every((x) => approx(parabola(x), line(x))), 'both x values satisfy both equations')
+    requireCheck(checks, 'intersection-points', approx(parabola(-1), 0) && approx(parabola(2), 3), 'P=(-1,0), Q=(2,3)')
+  } else if (id === 'quadratic-inequality') {
+    const f = (x) => (x - 1) * (x - 3)
+    requireCheck(checks, 'roots', approx(f(1), 0) && approx(f(3), 0), 'roots are x=1,3')
+    requireCheck(checks, 'sign-left', f(0) > 0, 'f(x)>0 for x<1')
+    requireCheck(checks, 'sign-inside', f(2) < 0, 'f(x)<0 for 1<x<3')
+    requireCheck(checks, 'sign-right', f(4) > 0, 'f(x)>0 for x>3')
+  } else if (id === 'absolute-value-graph') {
+    const f = (x) => x ** 2 - 1
+    const g = (x) => Math.abs(f(x))
+    requireCheck(checks, 'fixed-roots', approx(g(-1), 0) && approx(g(1), 0), 'roots stay at -1 and 1')
+    requireCheck(checks, 'outside-unchanged', [-2, 2].every((x) => approx(g(x), f(x))), '|f|=f outside [-1,1]')
+    requireCheck(checks, 'inside-reflected', [-0.5, 0, 0.5].every((x) => approx(g(x), -f(x))), '|f|=-f inside (-1,1)')
+    requireCheck(checks, 'nonnegative', [-2, -1, 0, 1, 2].every((x) => g(x) >= 0), '|f(x)| is nonnegative')
   } else if (id === 'angle-bisector') {
     const A = point(1.2, 4), B = point(0, 0), C = point(6, 0)
     const ratio = distance(A, B) / (distance(A, B) + distance(A, C))
