@@ -970,14 +970,14 @@
           ]
         },
         {
+          "id": "s1-geometric-properties-t10-n012",
+          "type": "note",
+          "text": "確認　一直線に潰れる場合を除くため、不等号に等号を付けていないか確認する。"
+        },
+        {
           "id": "s1-geometric-properties-t10-p008",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "2　研究　辺の大小と対角の大小の証明"
-            }
-          ]
+          "type": "heading",
+          "text": "研究　辺の大小と対角の大小の証明"
         },
         {
           "id": "s1-geometric-properties-t10-p009",
@@ -985,7 +985,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "3　AB>AC なら ∠C>∠B を示す。"
+              "text": "問題　AB>AC なら ∠C>∠B を示す。"
             }
           ]
         },
@@ -995,7 +995,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "4　長い辺AB上に AD=AC となるDをとり、二等辺三角形ACDを作る。外角・内角の大小をつないで "
+              "text": "証明　長い辺AB上に AD=AC となるDをとり、二等辺三角形ACDを作る。外角・内角の大小をつないで "
             },
             {
               "type": "choice",
@@ -1013,14 +1013,9 @@
           "parts": [
             {
               "type": "text",
-              "text": "5　定理を使うだけでなく「補助点をどこに置けば既知の二等辺三角形ができるか」を学ぶ。"
+              "text": "着眼点　補助点を置いて既知の二等辺三角形を作り、角の大小関係へつなげる。"
             }
           ]
-        },
-        {
-          "id": "s1-geometric-properties-t10-n012",
-          "type": "note",
-          "text": "確認　一直線に潰れる場合を除くため、不等号に等号を付けていないか確認する。"
         },
         {
           "id": "s1-geometric-properties-t10-p013",
