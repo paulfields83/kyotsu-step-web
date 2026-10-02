@@ -558,22 +558,48 @@
         {
           "id": "s1-quadratic-functions-t05-n010",
           "type": "note",
-          "text": "着眼点　軸と頂点が読み取れる形に直す。"
+          "text": "着眼点　y=a(x−p)²+q の形から、p、q、aの符号をそのまま読み取る。"
         },
         {
           "id": "s1-quadratic-functions-t05-n011",
           "type": "note",
-          "text": "使う知識　平方完成して y=a(x-p)²+q の形にする。"
+          "text": "使う知識　軸はx=p、頂点は(p,q)で、a<0ならグラフは上に凸になる。"
         },
         {
           "id": "s1-quadratic-functions-t05-h012",
           "type": "heading",
-          "text": "問題文　x+3=x−(−3) なので軸 x=−3、頂点 (−3,0)。a<0 なので上に凸。"
+          "text": "問題文　2次関数 y=−2(x+3)² の軸と頂点を求め、グラフの開く向きを答えよ。"
+        },
+        {
+          "id": "s1-quadratic-functions-t05-p012a",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　y=−2{x−(−3)}² とみると、軸は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b046"
+            },
+            {
+              "type": "text",
+              "text": "、頂点は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s1-main-b047"
+            },
+            {
+              "type": "text",
+              "text": "。係数が負なので、グラフは上に凸である。"
+            }
+          ]
         },
         {
           "id": "s1-quadratic-functions-t05-n013",
           "type": "note",
-          "text": "確認　展開して元の式に戻るかを確認する。"
+          "text": "確認　x+3=x−(−3)であることに注意し、軸の符号を取り違えていないか確認する。"
         },
         {
           "id": "s1-quadratic-functions-topic-06",
@@ -818,7 +844,7 @@
         {
           "id": "s1-quadratic-functions-t08-n004",
           "type": "note",
-          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+          "text": "着眼点　平行移動・対称移動で、グラフ上の点や軸がどこへ移るかを確認する。"
         },
         {
           "id": "s1-quadratic-functions-t08-n005",
@@ -1519,6 +1545,32 @@
           "prompt": "グラフの平行移動・対称移動 【45】",
           "acceptedAnswers": [],
           "answerType": "formula"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b046",
+          "label": "46",
+          "prompt": "y=−2(x+3)² の軸",
+          "acceptedAnswers": [],
+          "answerType": "text",
+          "choices": [
+            "x=−3",
+            "x=3",
+            "x=−2",
+            "x=2"
+          ]
+        },
+        {
+          "id": "math-1a-quadratic-functions-s1-main-b047",
+          "label": "47",
+          "prompt": "y=−2(x+3)² の頂点",
+          "acceptedAnswers": [],
+          "answerType": "text",
+          "choices": [
+            "(−3,0)",
+            "(3,0)",
+            "(−3,−2)",
+            "(0,−3)"
+          ]
         }
       ]
     },
@@ -1593,7 +1645,25 @@
         {
           "id": "s2-quadratic-functions-t01-h007",
           "type": "heading",
-          "text": "問題文　平方完成して y=2(x−2)²−5。a>0 なので x=2 で最小値 −5、最大値なし。"
+          "text": "問題文　2次関数 y=2x²−8x+3 の最大値・最小値を求めよ。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-p007a",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　平方完成すると y=2(x−2)²−5。したがって x=2 のとき最小値 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b028"
+            },
+            {
+              "type": "text",
+              "text": " をとり、最大値はない。"
+            }
+          ]
         },
         {
           "id": "s2-quadratic-functions-t01-n008",
@@ -1618,7 +1688,25 @@
         {
           "id": "s2-quadratic-functions-t01-h012",
           "type": "heading",
-          "text": "問題文　y=−3(x−1)²+4。a<0 なので x=1 で最大値 4、最小値なし。"
+          "text": "問題文　2次関数 y=−3x²+6x+1 の最大値・最小値を求めよ。"
+        },
+        {
+          "id": "s2-quadratic-functions-t01-p012a",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　平方完成すると y=−3(x−1)²+4。したがって x=1 のとき最大値 "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s2-main-b029"
+            },
+            {
+              "type": "text",
+              "text": " をとり、最小値はない。"
+            }
+          ]
         },
         {
           "id": "s2-quadratic-functions-t01-n013",
@@ -2570,6 +2658,32 @@
           "prompt": "最大・最小の応用 【27】",
           "acceptedAnswers": [],
           "answerType": "number"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b028",
+          "label": "28",
+          "prompt": "y=2x²−8x+3 の最小値",
+          "acceptedAnswers": [],
+          "answerType": "number",
+          "choices": [
+            "-5",
+            "5",
+            "-3",
+            "3"
+          ]
+        },
+        {
+          "id": "math-1a-quadratic-functions-s2-main-b029",
+          "label": "29",
+          "prompt": "y=−3x²+6x+1 の最大値",
+          "acceptedAnswers": [],
+          "answerType": "number",
+          "choices": [
+            "4",
+            "-4",
+            "1",
+            "3"
+          ]
         }
       ]
     },
@@ -2941,22 +3055,40 @@
         {
           "id": "s3-quadratic-functions-t04-n010",
           "type": "note",
-          "text": "着眼点　移項して未知数の項を1つにまとめる。"
+          "text": "着眼点　境界となる x=1、3 と、放物線がx軸の上・下のどちらにあるかを見る。"
         },
         {
           "id": "s3-quadratic-functions-t04-n011",
           "type": "note",
-          "text": "使う知識　等式と同様に整理し、負の数を掛けたり割ったりするときは不等号の向きを変える。"
+          "text": "使う知識　上に開く放物線では、2つの実数解の間で2次式の値が0以下になる。"
         },
         {
           "id": "s3-quadratic-functions-t04-h012",
           "type": "heading",
-          "text": "問題文　同じグラフで x 軸以下の内側。等号を含むので交点も入れ、1≦x≦3。"
+          "text": "問題文　2次不等式 (x−1)(x−3)≦0 を解け。"
+        },
+        {
+          "id": "s3-quadratic-functions-t04-p012a",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　(x−1)(x−3)=0 の解は1、3。2次式はその間で0以下になるので、解は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-quadratic-functions-s3-main-b024"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
         },
         {
           "id": "s3-quadratic-functions-t04-n013",
           "type": "note",
-          "text": "確認　不等号の向きと解の範囲を確認する。"
+          "text": "確認　≦0なので、境界のx=1、3を解に含める。"
         },
         {
           "id": "s3-quadratic-functions-t04-h014",
@@ -2966,22 +3098,17 @@
         {
           "id": "s3-quadratic-functions-t04-n015",
           "type": "note",
-          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+          "text": "着眼点　x²+x+2 のグラフがx軸と交わるかどうかを判別式で調べる。"
         },
         {
           "id": "s3-quadratic-functions-t04-n016",
           "type": "note",
-          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+          "text": "使う知識　x²の係数が正で、判別式D<0なら、2次式はすべての実数xで正になる。"
         },
         {
           "id": "s3-quadratic-functions-t04-p017",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "x²+x+2>0。"
-            }
-          ]
+          "type": "heading",
+          "text": "問題文　2次不等式 x²+x+2>0 を解け。"
         },
         {
           "id": "s3-quadratic-functions-t04-p018",
@@ -3012,7 +3139,7 @@
         {
           "id": "s3-quadratic-functions-t04-n019",
           "type": "note",
-          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+          "text": "確認　D<0でx軸と交わらず、しかも上に開くことの両方を確認する。"
         },
         {
           "id": "s3-quadratic-functions-topic-05",
@@ -3283,12 +3410,12 @@
         {
           "id": "s3-quadratic-functions-t05-n032",
           "type": "note",
-          "text": "着眼点　絶対値を数直線上の距離として読む。"
+          "text": "着眼点　2次式がすべての実数xで正になる条件を、グラフとx軸の位置関係で考える。"
         },
         {
           "id": "s3-quadratic-functions-t05-n033",
           "type": "note",
-          "text": "使う知識　|x-a| の意味を距離に置き換えるか、必要に応じて場合分けする。"
+          "text": "使う知識　x²の係数が正なので、判別式D<0ならグラフはx軸と交わらず、常に正になる。"
         },
         {
           "id": "s3-quadratic-functions-t05-h034",
@@ -3324,14 +3451,14 @@
           ]
         },
         {
+          "id": "s3-quadratic-functions-t05-n041",
+          "type": "note",
+          "text": "確認　境界の等号を含むかどうかを確認する。"
+        },
+        {
           "id": "s3-quadratic-functions-t05-p037",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "3　研究　絶対値グラフを折り返す"
-            }
-          ]
+          "type": "heading",
+          "text": "研究　絶対値を含む2次関数のグラフ"
         },
         {
           "id": "s3-quadratic-functions-t05-p038",
@@ -3378,11 +3505,6 @@
               "text": " に折り返す。"
             }
           ]
-        },
-        {
-          "id": "s3-quadratic-functions-t05-n041",
-          "type": "note",
-          "text": "確認　境界の等号を含むかどうかを確認する。"
         },
         {
           "id": "s3-quadratic-functions-topic-06",
@@ -3731,6 +3853,19 @@
           "prompt": "章末問題・思考力 【3】",
           "acceptedAnswers": [],
           "answerType": "text"
+        },
+        {
+          "id": "math-1a-quadratic-functions-s3-main-b024",
+          "label": "24",
+          "prompt": "(x−1)(x−3)≦0 の解",
+          "acceptedAnswers": [],
+          "answerType": "text",
+          "choices": [
+            "1≦x≦3",
+            "x≦1またはx≧3",
+            "1<x<3",
+            "x<1またはx>3"
+          ]
         }
       ]
     }
