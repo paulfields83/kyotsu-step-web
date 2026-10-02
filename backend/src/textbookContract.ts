@@ -64,7 +64,9 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     const normalizedChoices = choices.map(normalizeTextbookAnswer)
     const uniqueChoices = new Set(normalizedChoices)
     if (choices.length < 2) {
-      errors.push(`item ${item.id} has fewer than 2 exportable choices`)
+      const message = `item ${item.id} has fewer than 2 exportable choices`
+      if (unit.subject === 'math-1a') errors.push(message)
+      else warnings.push(message)
     }
     if (choices.length > 4) {
       warnings.push(`item ${item.id} exports ${choices.length} choices (expected at most 4)`)
