@@ -1667,7 +1667,7 @@
         {
           "id": "s3-geometry-measurement-t04-h012",
           "type": "heading",
-          "text": "問題文　a,b,A が与えられ sinB が決まるとき。"
+          "text": "問題文　辺a，bと角Aが与えられ，正弦定理からsinBが定まるとき，∠Bの可能な値を求め，三角形が成立するものを判定せよ。"
         },
         {
           "id": "s3-geometry-measurement-t04-p013",
@@ -1960,7 +1960,7 @@
         {
           "id": "s4-geometry-measurement-t01-h007",
           "type": "heading",
-          "text": "問題文　同一直線上の2地点から塔の頂点を見る角度が異なる。"
+          "text": "問題文　同一直線上の2地点から塔の頂点を見た仰角と2地点間の距離が与えられている。塔の高さを求めるための式を立てよ。"
         },
         {
           "id": "s4-geometry-measurement-t01-p008",
@@ -2036,7 +2036,7 @@
         {
           "id": "s4-geometry-measurement-t02-h005",
           "type": "heading",
-          "text": "問題文　対角線を基準に2つの三角形へ分ける。"
+          "text": "問題文　四角形を1本の対角線で2つの三角形に分け，それぞれの面積を用いて四角形の面積を求める方法を示せ。"
         },
         {
           "id": "s4-geometry-measurement-t02-p006",
@@ -2109,7 +2109,7 @@
         {
           "id": "s4-geometry-measurement-t03-h006",
           "type": "heading",
-          "text": "問題文　球の中心Oを含む断面を考えると円になる。"
+          "text": "問題文　球を中心Oを通る平面で切った断面を考え，空間の問題を平面上の円の問題に置き換える方法を説明せよ。"
         },
         {
           "id": "s4-geometry-measurement-t03-p007",
@@ -2152,7 +2152,7 @@
         {
           "id": "s4-geometry-measurement-t03-h012",
           "type": "heading",
-          "text": "問題文　四角形を対角線で2つに分け、一方で余弦定理を使って対角線を出す。"
+          "text": "問題文　四角形を対角線で2つの三角形に分け，一方の三角形で余弦定理を用いて求めた対角線を，もう一方の三角形に利用する手順を示せ。"
         },
         {
           "id": "s4-geometry-measurement-t03-p013",
@@ -2195,7 +2195,7 @@
         {
           "id": "s4-geometry-measurement-t03-h018",
           "type": "heading",
-          "text": "問題文　4辺が分かる円に内接する四角形。"
+          "text": "問題文　4辺の長さが与えられた円に内接する四角形について，対角線で2つの三角形に分けて面積を求める方法を示せ。"
         },
         {
           "id": "s4-geometry-measurement-t03-p019",
@@ -2336,7 +2336,7 @@
         {
           "id": "s4-geometry-measurement-t04-h006",
           "type": "heading",
-          "text": "問題文　複数の三角形がつながる図形。"
+          "text": "問題文　複数の三角形がつながった図形について，既知の辺や角を利用して未知の辺・角を順に求める方法を説明せよ。"
         },
         {
           "id": "s4-geometry-measurement-t04-p007",
@@ -2434,7 +2434,7 @@
         {
           "id": "s4-geometry-measurement-t04-h019",
           "type": "heading",
-          "text": "問題文　b,c,A が与えられたら、まず余弦定理で a を求める。その後、残り角には正弦定理を使う。"
+          "text": "問題文　△ABCにおいて，b，c，Aが与えられている。まずaを求め，続いて残りの角を求める手順を示せ。"
         },
         {
           "id": "s4-geometry-measurement-t04-p020",
@@ -2482,7 +2482,7 @@
         {
           "id": "s4-geometry-measurement-t04-h025",
           "type": "heading",
-          "text": "問題文　三角形の面積Sと外接円半径Rの関係を導く。"
+          "text": "問題文　三角形ABCの面積をS，外接円の半径をRとするとき，SとRの関係式を導け。"
         },
         {
           "id": "s4-geometry-measurement-t04-p026",
@@ -2548,7 +2548,7 @@
         {
           "id": "s4-geometry-measurement-t04-h032",
           "type": "heading",
-          "text": "問題文　直接近づけない地点までの距離を、基線と2つの角から求める。"
+          "text": "問題文　直接近づくことのできない地点までの距離を，測定できる基線と2つの角を用いて求める方法を説明せよ。"
         },
         {
           "id": "s4-geometry-measurement-t04-p033",
