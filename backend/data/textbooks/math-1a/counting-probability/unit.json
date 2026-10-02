@@ -5557,7 +5557,7 @@
         {
           "id": "s4-counting-probability-t06-n037",
           "type": "note",
-          "text": "使う知識　P(A∩B)=P(A)P(B)ならAとBは独立である。"
+          "text": "使う知識　P(A∩B)とP(A)P(B)が一致するかどうかで、2事象の関係を判定する。"
         },
         {
           "id": "s4-counting-probability-t06-h038",
