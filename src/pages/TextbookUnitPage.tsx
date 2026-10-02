@@ -357,7 +357,8 @@ function progressForSection(section: PublicTextbookSection, progress: TextbookUn
 
 export function TextbookUnitPage() {
   const { unitId = '' } = useParams()
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
+  const sourceMode = searchParams.get('source') === 'original' ? 'original' : 'test'
   const targetKey = searchParams.get('target')
   const requestedSectionId = searchParams.get('section')
   const [unit, setUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
@@ -374,7 +375,7 @@ export function TextbookUnitPage() {
       if (active) setUnit(null)
     })
     return () => { active = false }
-  }, [unitId])
+  }, [sourceMode, unitId])
 
   useEffect(() => {
     if (!unit) {
@@ -417,6 +418,14 @@ export function TextbookUnitPage() {
     setSelectedSectionIndex((index) => Math.min(unit.sections.length - 1, index + 1))
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+  const switchSource = (source: 'original' | 'test') => {
+    const next = new URLSearchParams(searchParams)
+    if (source === 'original') next.set('source', 'original')
+    else next.delete('source')
+    setSearchParams(next, { replace: true })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+  const showGeometryComparison = unitId === 'math-1a-geometric-properties'
 
   return (
     <div className="page-stack textbook-page">
@@ -428,6 +437,31 @@ export function TextbookUnitPage() {
         </div>
         <StatusBadge>{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
       </header>
+
+      {showGeometryComparison && (
+        <section className="textbook-test-compare" data-testid="geometry-guidance-compare">
+          <div>
+            <strong>{text('例題ガイド比較', '例题引导对比')}</strong>
+            <small>{text('同じページで旧版と今回の解題軌道テスト版を切り替えられます。', '同一页面可切换原版与本次“真实解题轨道”测试版。')}</small>
+          </div>
+          <div className="textbook-test-compare__buttons">
+            <button
+              type="button"
+              aria-pressed={sourceMode === 'original'}
+              onClick={() => switchSource('original')}
+            >
+              {text('原版', '原版')}
+            </button>
+            <button
+              type="button"
+              aria-pressed={sourceMode === 'test'}
+              onClick={() => switchSource('test')}
+            >
+              {text('TEST 解題軌道v1', 'TEST 解题轨道v1')}
+            </button>
+          </div>
+        </section>
+      )}
 
       <ProgressBar
         label={targetSelected ? text('この学習項目の進み具合', '本学习部分进度') : focusedSection ? text('この学習項目の進み具合', '本学习部分进度') : text('単元の進み具合', '单元进度')}
