@@ -277,21 +277,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
     if (block.type === 'topic') return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
 
     if (hasSolutionTrack && block.type === 'heading' && block.text.startsWith('教科書対応問')) {
-      return (
-        <div className="textbook-example-title" key={block.id}>
-          <span className="screen-kicker">EXAMPLE</span>
-          <h4>{block.text.replace(/^教科書対応問[　\s]*/u, '')}</h4>
-        </div>
-      )
+      return <h4 className="reading-subheading" key={block.id}>{block.text.replace(/^教科書対応問[　\s]*/u, '')}</h4>
     }
 
     if (hasSolutionTrack && block.type === 'heading' && block.text.startsWith('問題文')) {
-      return (
-        <article className="question-paper textbook-example-problem" key={block.id}>
-          <span className="screen-kicker">{text('問題', '题目')}</span>
-          <p>{block.text.replace(/^問題文[　\s]*/u, '')}</p>
-        </article>
-      )
+      return <p className="reading-paragraph" key={block.id}>{block.text.replace(/^問題文[　\s]*/u, '')}</p>
     }
 
     if (hasSolutionTrack && block.type === 'note') {
@@ -301,13 +291,19 @@ function TextbookReadingFlow({ unit, section, progress }: {
       ] as const
       const kind = noteKinds.find((candidate) => block.text.startsWith(candidate.prefix))
       if (kind) {
+        const metaLabel = kind.step === 'STEP 1'
+          ? text('考えること', '思考重点')
+          : text('使うもの', '调用知识')
         return (
           <div className="practice-step-block textbook-example-step" key={block.id}>
             <div className="practice-step-heading">
               <span>{kind.step}</span>
               <strong>{text(kind.labelJa, kind.labelZh)}</strong>
             </div>
-            <p>{block.text.slice(kind.prefix.length)}</p>
+            <div className="textbook-example-step-detail">
+              <span>{metaLabel}</span>
+              <p>{block.text.slice(kind.prefix.length)}</p>
+            </div>
           </div>
         )
       }
@@ -370,6 +366,82 @@ function TextbookReadingFlow({ unit, section, progress }: {
     )
   }
 
+
+  const renderExampleSequence = (blocks: TextbookReadingBlock[]) => {
+    if (!hasSolutionTrack) return blocks.map(renderBlock)
+
+    const rendered: ReactNode[] = []
+    let index = 0
+    let exampleNumber = 0
+
+    while (index < blocks.length) {
+      const block = blocks[index]
+      if (!(block.type === 'heading' && block.text.startsWith('教科書対応問'))) {
+        rendered.push(renderBlock(block))
+        index += 1
+        continue
+      }
+
+      const chunk: TextbookReadingBlock[] = [block]
+      let cursor = index + 1
+      while (
+        cursor < blocks.length
+        && !(blocks[cursor].type === 'heading' && blocks[cursor].text.startsWith('教科書対応問'))
+        && blocks[cursor].type !== 'topic'
+      ) {
+        chunk.push(blocks[cursor])
+        cursor += 1
+      }
+
+      exampleNumber += 1
+      const title = block.text.replace(/^教科書対応問[　\s]*/u, '')
+      const problem = chunk.find(
+        (candidate) => candidate.type === 'heading' && candidate.text.startsWith('問題文'),
+      )
+      const focus = chunk.find(
+        (candidate) => candidate.type === 'note' && candidate.text.startsWith('着眼点　'),
+      )
+      const knowledge = chunk.find(
+        (candidate) => candidate.type === 'note' && candidate.text.startsWith('使う知識　'),
+      )
+      const check = chunk.find(
+        (candidate) => candidate.type === 'note' && candidate.text.startsWith('確認　'),
+      )
+      const consumedIds = new Set(
+        [block, problem, focus, knowledge, check].filter(Boolean).map((candidate) => candidate!.id),
+      )
+      const solutionBlocks = chunk.filter((candidate) => !consumedIds.has(candidate.id))
+
+      rendered.push(
+        <section className="textbook-guided-example" key={block.id}>
+          <header className="textbook-guided-example__header">
+            <span>GUIDED EXAMPLE {String(exampleNumber).padStart(2, '0')}</span>
+            <h4>{title}</h4>
+          </header>
+
+          {problem && problem.type === 'heading' && (
+            <article className="textbook-guided-example__problem">
+              <strong>{text('問題', '题目')}</strong>
+              <p>{problem.text.replace(/^問題文[　\s]*/u, '')}</p>
+            </article>
+          )}
+
+          <div className="textbook-guided-example__guide">
+            <h5>{text('引導ステップ', '引导步骤')}</h5>
+            {focus ? renderBlock(focus) : null}
+            {knowledge ? renderBlock(knowledge) : null}
+            {solutionBlocks.map(renderBlock)}
+            {check ? renderBlock(check) : null}
+          </div>
+        </section>,
+      )
+
+      index = cursor
+    }
+
+    return rendered
+  }
+
   const displayedGroups = hasTopicNavigation
     ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0)))
     : groups
@@ -415,7 +487,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
           <section className={`reading-subsection${group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
-            {group.map(renderBlock)}
+            {renderExampleSequence(group)}
             {completed && groupIndex < groups.length - 1 && (
               <div className="reading-subsection-complete">
                 <Check size={16} aria-hidden="true" />
