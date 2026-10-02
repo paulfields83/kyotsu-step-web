@@ -272,12 +272,12 @@
         {
           "id": "s1-geometry-measurement-t03-n003",
           "type": "note",
-          "text": "着眼点　求める角または三角比を表から対応させる。"
+          "text": "着眼点　仰角30°に対して、水平距離20mが隣辺、高さが対辺になる。"
         },
         {
           "id": "s1-geometry-measurement-t03-n004",
           "type": "note",
-          "text": "使う知識　三角比の表を用いて値と角度を読み取る。"
+          "text": "使う知識　tan30°=高さ/20 を用いる。"
         },
         {
           "id": "s1-geometry-measurement-t03-h005",
@@ -315,7 +315,7 @@
         {
           "id": "s1-geometry-measurement-t03-n008",
           "type": "note",
-          "text": "確認　sin、cos、tanの列を取り違えていないかを確認する。"
+          "text": "確認　仰角に対する対辺と隣辺を取り違えていないかを確認する。"
         },
         {
           "id": "s1-geometry-measurement-t03-h009",
@@ -427,12 +427,12 @@
         {
           "id": "s1-geometry-measurement-t03-n022",
           "type": "note",
-          "text": "着眼点　求める角または三角比を表から対応させる。"
+          "text": "着眼点　塔の高さを対辺、水平距離80mを隣辺として直角三角形を見る。"
         },
         {
           "id": "s1-geometry-measurement-t03-n023",
           "type": "note",
-          "text": "使う知識　三角比の表を用いて値と角度を読み取る。"
+          "text": "使う知識　tan35°=高さ/80 を用い、必要なら三角比の表からtan35°を読む。"
         },
         {
           "id": "s1-geometry-measurement-t03-h024",
@@ -478,7 +478,7 @@
         {
           "id": "s1-geometry-measurement-t03-n027",
           "type": "note",
-          "text": "確認　sin、cos、tanの列を取り違えていないかを確認する。"
+          "text": "確認　目の高さなど、問題で無視する量を加えていないかを確認する。"
         },
         {
           "id": "s1-geometry-measurement-t03-h028",
@@ -488,12 +488,12 @@
         {
           "id": "s1-geometry-measurement-t03-n029",
           "type": "note",
-          "text": "着眼点　求める角または三角比を表から対応させる。"
+          "text": "着眼点　俯角23°は、水平線を使うと地上側の仰角23°と等しくなる。"
         },
         {
           "id": "s1-geometry-measurement-t03-n030",
           "type": "note",
-          "text": "使う知識　三角比の表を用いて値と角度を読み取る。"
+          "text": "使う知識　tan23°=高さ/15 を用いる。"
         },
         {
           "id": "s1-geometry-measurement-t03-h031",
@@ -531,7 +531,7 @@
         {
           "id": "s1-geometry-measurement-t03-n034",
           "type": "note",
-          "text": "確認　sin、cos、tanの列を取り違えていないかを確認する。"
+          "text": "確認　俯角と仰角の対応を確認する。"
         },
         {
           "id": "s1-geometry-measurement-t03-p035",
@@ -867,12 +867,12 @@
         {
           "id": "s2-geometry-measurement-t03-n003",
           "type": "note",
-          "text": "着眼点　単位円上の代表的な点の座標を用いる。"
+          "text": "着眼点　sinθが与えられているので、まずcosθを相互関係から求める。"
         },
         {
           "id": "s2-geometry-measurement-t03-n004",
           "type": "note",
-          "text": "使う知識　0°、90°、180°に対応する座標から三角比を求める。"
+          "text": "使う知識　sin²θ+cos²θ=1を用い、角の範囲からcosθの符号を決める。"
         },
         {
           "id": "s2-geometry-measurement-t03-h005",
@@ -918,7 +918,7 @@
         {
           "id": "s2-geometry-measurement-t03-n008",
           "type": "note",
-          "text": "確認　tanθで分母が0になる場合に注意する。"
+          "text": "確認　90°<θ<180°ではcosθ<0であることを確認する。"
         },
         {
           "id": "s2-geometry-measurement-t03-h009",
@@ -928,12 +928,12 @@
         {
           "id": "s2-geometry-measurement-t03-n010",
           "type": "note",
-          "text": "着眼点　単位円上の代表的な点の座標を用いる。"
+          "text": "着眼点　150°=180°−30°として、30°の三角比に結びつける。"
         },
         {
           "id": "s2-geometry-measurement-t03-n011",
           "type": "note",
-          "text": "使う知識　0°、90°、180°に対応する座標から三角比を求める。"
+          "text": "使う知識　sin(180°−θ)=sinθ、cos(180°−θ)=−cosθ、tan(180°−θ)=−tanθを用いる。"
         },
         {
           "id": "s2-geometry-measurement-t03-h012",
@@ -977,7 +977,7 @@
         {
           "id": "s2-geometry-measurement-t03-n014",
           "type": "note",
-          "text": "確認　tanθで分母が0になる場合に注意する。"
+          "text": "確認　第2象限でsinは正、cosとtanは負になることを確認する。"
         },
         {
           "id": "s2-geometry-measurement-t03-h015",
@@ -987,12 +987,12 @@
         {
           "id": "s2-geometry-measurement-t03-n016",
           "type": "note",
-          "text": "着眼点　単位円上の代表的な点の座標を用いる。"
+          "text": "着眼点　tanA=3/4を、直角三角形の対辺:隣辺=3:4とみる。"
         },
         {
           "id": "s2-geometry-measurement-t03-n017",
           "type": "note",
-          "text": "使う知識　0°、90°、180°に対応する座標から三角比を求める。"
+          "text": "使う知識　3-4-5の直角三角形を作るか、1+tan²A=1/cos²Aを用いる。"
         },
         {
           "id": "s2-geometry-measurement-t03-h018",
@@ -1038,7 +1038,7 @@
         {
           "id": "s2-geometry-measurement-t03-n021",
           "type": "note",
-          "text": "確認　tanθで分母が0になる場合に注意する。"
+          "text": "確認　Aが鋭角なのでsinA、cosAがともに正であることを確認する。"
         },
         {
           "id": "s2-geometry-measurement-t03-h022",
@@ -1048,12 +1048,12 @@
         {
           "id": "s2-geometry-measurement-t03-n023",
           "type": "note",
-          "text": "着眼点　単位円上の代表的な点の座標を用いる。"
+          "text": "着眼点　cosθ=−√3/2となる基準角は30°で、cosが負になる象限を見る。"
         },
         {
           "id": "s2-geometry-measurement-t03-n024",
           "type": "note",
-          "text": "使う知識　0°、90°、180°に対応する座標から三角比を求める。"
+          "text": "使う知識　0°≦θ≦180°ではcosθ<0となるのは第2象限である。"
         },
         {
           "id": "s2-geometry-measurement-t03-h025",
@@ -1081,7 +1081,7 @@
         {
           "id": "s2-geometry-measurement-t03-n027",
           "type": "note",
-          "text": "確認　tanθで分母が0になる場合に注意する。"
+          "text": "確認　指定された角の範囲に入る解だけを選んでいるかを確認する。"
         },
         {
           "id": "s2-geometry-measurement-t03-p028",
@@ -1614,12 +1614,12 @@
         {
           "id": "s3-geometry-measurement-t04-n004",
           "type": "note",
-          "text": "着眼点　辺とその向かいの角の組に着目する。"
+          "text": "着眼点　3辺4、5、6が分かっているので、最大辺に対する角を余弦定理で調べる。"
         },
         {
           "id": "s3-geometry-measurement-t04-n005",
           "type": "note",
-          "text": "使う知識　a/sinA=b/sinB=c/sinC=2R を用いる。"
+          "text": "使う知識　最大角のcosの符号から鋭角・直角・鈍角を判定する。"
         },
         {
           "id": "s3-geometry-measurement-t04-h006",
@@ -1647,7 +1647,7 @@
         {
           "id": "s3-geometry-measurement-t04-n008",
           "type": "note",
-          "text": "確認　辺と向かいの角の対応を確認する。"
+          "text": "確認　最大辺に対する角を調べているかを確認する。"
         },
         {
           "id": "s3-geometry-measurement-t04-h009",
@@ -2142,12 +2142,12 @@
         {
           "id": "s4-geometry-measurement-t03-n010",
           "type": "note",
-          "text": "着眼点　空間内の図形を、必要な点を含む平面で切って考える。"
+          "text": "着眼点　対角線で四角形を2つの三角形に分け、その対角線を共通辺として使う。"
         },
         {
           "id": "s4-geometry-measurement-t03-n011",
           "type": "note",
-          "text": "使う知識　断面に現れる三角形へ置き換え、三角比や余弦定理を用いる。"
+          "text": "使う知識　一方の三角形で余弦定理から対角線を求め、その長さをもう一方の三角形に使う。"
         },
         {
           "id": "s4-geometry-measurement-t03-h012",
@@ -2175,7 +2175,7 @@
         {
           "id": "s4-geometry-measurement-t03-n014",
           "type": "note",
-          "text": "確認　求めた長さ・角が元の立体のどこに対応するかを確認する。"
+          "text": "確認　求めた対角線が2つの三角形で同じ線分であることを確認する。"
         },
         {
           "id": "s4-geometry-measurement-t03-h015",
@@ -2185,12 +2185,12 @@
         {
           "id": "s4-geometry-measurement-t03-n016",
           "type": "note",
-          "text": "着眼点　空間内の図形を、必要な点を含む平面で切って考える。"
+          "text": "着眼点　対角線で2つの三角形に分け、向かい合う角の和が180°であることを使う。"
         },
         {
           "id": "s4-geometry-measurement-t03-n017",
           "type": "note",
-          "text": "使う知識　断面に現れる三角形へ置き換え、三角比や余弦定理を用いる。"
+          "text": "使う知識　2つの余弦定理を組み合わせて角や対角線を処理し、最後に2つの三角形の面積を足す。"
         },
         {
           "id": "s4-geometry-measurement-t03-h018",
@@ -2228,7 +2228,7 @@
         {
           "id": "s4-geometry-measurement-t03-n021",
           "type": "note",
-          "text": "確認　求めた長さ・角が元の立体のどこに対応するかを確認する。"
+          "text": "確認　内接四角形の対角の関係と、2つの三角形の面積の対応を確認する。"
         },
         {
           "id": "s4-geometry-measurement-t03-h022",
