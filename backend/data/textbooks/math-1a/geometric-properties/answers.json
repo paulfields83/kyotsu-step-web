@@ -365,6 +365,11 @@
       "validator": "normalized-text",
       "answer": "円周角・軌跡",
       "acceptedAnswers": []
+    },
+    "math-1a-geometric-properties-s2-main-b017": {
+      "validator": "normalized-text",
+      "answer": "40°",
+      "acceptedAnswers": []
     }
   }
 }
