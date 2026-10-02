@@ -312,7 +312,7 @@
         {
           "id": "s1-data-analysis-t04-h006",
           "type": "heading",
-          "text": "問題文　最小値, Q1, Q2, Q3, 最大値を求める。"
+          "text": "問題文　最小値, Q1, Q2, Q3, 最大値を求めよ。"
         },
         {
           "id": "s1-data-analysis-t04-p007",
@@ -666,7 +666,7 @@
         {
           "id": "s1-data-analysis-t09-h006",
           "type": "heading",
-          "text": "問題文　「睡眠時間とテスト得点に関係があるか」を調べる。"
+          "text": "問題文　「睡眠時間とテスト得点に関係があるか」を調べよ。"
         },
         {
           "id": "s1-data-analysis-t09-p007",
@@ -760,7 +760,7 @@
         {
           "id": "s1-data-analysis-t10-h006",
           "type": "heading",
-          "text": "問題文　10,11,12,13,100 のようなデータを考える。"
+          "text": "問題文　10,11,12,13,100 のようなデータを考えよ。"
         },
         {
           "id": "s1-data-analysis-t10-p007",
@@ -1248,7 +1248,7 @@
         {
           "id": "s1-data-analysis-t13-h006",
           "type": "heading",
-          "text": "問題文　平均が同じ2集団を比較する。"
+          "text": "問題文　平均が同じ2集団を比較せよ。"
         },
         {
           "id": "s1-data-analysis-t13-p007",
@@ -1458,7 +1458,7 @@
         {
           "id": "s1-data-analysis-t13-h031",
           "type": "heading",
-          "text": "問題文　199個の観測値では、Q1,中央値,Q3 が何番目に対応するかを考える。"
+          "text": "問題文　199個の観測値では、Q1,中央値,Q3 が何番目に対応するかを考えよ。"
         },
         {
           "id": "s1-data-analysis-t13-p032",
