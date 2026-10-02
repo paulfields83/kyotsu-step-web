@@ -490,6 +490,31 @@
       "validator": "normalized-text",
       "answer": "下に凸ではない（上に凸）",
       "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b046": {
+      "validator": "normalized-text",
+      "answer": "x=−3",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s1-main-b047": {
+      "validator": "normalized-text",
+      "answer": "(−3,0)",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b028": {
+      "validator": "number",
+      "answer": "-5",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s2-main-b029": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-quadratic-functions-s3-main-b024": {
+      "validator": "normalized-text",
+      "answer": "1≦x≦3",
+      "acceptedAnswers": []
     }
   }
 }
