@@ -636,12 +636,12 @@
         {
           "id": "s1-geometric-properties-t06-n018",
           "type": "note",
-          "text": "着眼点　重心と外心が同じ点なので、その点を通る中線は同時に辺の垂直二等分線となる。"
+          "text": "着眼点　重心と外心が同じ点なので、1本の中線が外心の性質も満たすことに着目する。"
         },
         {
           "id": "s1-geometric-properties-t06-n019",
           "type": "note",
-          "text": "使う知識　中線と垂直二等分線の性質から2辺が等しいことを示し、同じことを他の辺についても用いる。"
+          "text": "使う知識　外心が2頂点から等距離にあることを、中線上の点の位置関係に結びつける。"
         },
         {
           "id": "s1-geometric-properties-t06-h020",
@@ -1659,7 +1659,7 @@
         {
           "id": "s2-geometric-properties-t05-n010",
           "type": "note",
-          "text": "使う知識　円に内接する四角形では、向かい合う内角の和は180°であり、外角はその対角に等しい。"
+          "text": "使う知識　円に内接する四角形の対角の和を使い、続いて外角と対角の関係を利用する。"
         },
         {
           "id": "s2-geometric-properties-t05-h011",
@@ -1806,7 +1806,7 @@
         {
           "id": "s2-geometric-properties-t05-n029",
           "type": "note",
-          "text": "使う知識　2点A、Bから等距離にある点は、線分ABの垂直二等分線上にある。"
+          "text": "使う知識　2点A、Bから等距離にある点が並ぶ直線の性質を用いる。"
         },
         {
           "id": "s2-geometric-properties-t05-h030",
@@ -2059,7 +2059,7 @@
         {
           "id": "s3-geometric-properties-t01-n007",
           "type": "note",
-          "text": "使う知識　A、Bから等距離にある点は、ABの垂直二等分線上にある。"
+          "text": "使う知識　A、Bから等距離にある点を結ぶ基本作図を利用して、Pを通る直線を決める。"
         },
         {
           "id": "s3-geometric-properties-t01-h008",
@@ -2198,7 +2198,7 @@
         {
           "id": "s3-geometric-properties-t01-n026",
           "type": "note",
-          "text": "使う知識　辺ABとBCの垂直二等分線を引き、その交点を外接円の中心とする。"
+          "text": "使う知識　2点から等距離にある点の軌跡を2組作り、その交点を中心にする。"
         },
         {
           "id": "s3-geometric-properties-t01-h027",
@@ -2422,7 +2422,7 @@
         {
           "id": "s4-geometric-properties-t02-n004",
           "type": "note",
-          "text": "使う知識　平面に垂直な直線は、その交点を通る平面上のすべての直線に垂直である。"
+          "text": "使う知識　直線と平面が直交するとき、その交点を通る平面内の直線との関係を用いる。"
         },
         {
           "id": "s4-geometric-properties-t02-h005",
@@ -2549,7 +2549,7 @@
         {
           "id": "s4-geometric-properties-t03-n011",
           "type": "note",
-          "text": "使う知識　交わらず、平行でもなく、同一平面上にもない2直線はねじれの位置にある。"
+          "text": "使う知識　空間内の2直線を、交点の有無・平行かどうか・同一平面上にあるかで分類する。"
         },
         {
           "id": "s4-geometric-properties-t03-h012",
@@ -2592,7 +2592,7 @@
         {
           "id": "s4-geometric-properties-t03-n017",
           "type": "note",
-          "text": "使う知識　同じ点から交線lに垂直な2直線をとり、そのなす角を2平面のなす角とする。"
+          "text": "使う知識　交線lに対して同じ条件を満たす2直線を各平面内にとり、そのなす角を考える。"
         },
         {
           "id": "s4-geometric-properties-t03-h018",
