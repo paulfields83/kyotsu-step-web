@@ -384,12 +384,13 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
       const chunk: TextbookReadingBlock[] = [block]
       let cursor = index + 1
-      while (
-        cursor < blocks.length
-        && !(blocks[cursor].type === 'heading' && blocks[cursor].text.startsWith('教科書対応問'))
-        && blocks[cursor].type !== 'topic'
-      ) {
-        chunk.push(blocks[cursor])
+      while (cursor < blocks.length) {
+        const nextBlock = blocks[cursor]
+        if (
+          nextBlock.type === 'topic'
+          || (nextBlock.type === 'heading' && nextBlock.text.startsWith('教科書対応問'))
+        ) break
+        chunk.push(nextBlock)
         cursor += 1
       }
 
