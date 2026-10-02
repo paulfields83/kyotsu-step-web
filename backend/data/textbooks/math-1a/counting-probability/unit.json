@@ -4411,12 +4411,12 @@
         {
           "id": "s3-counting-probability-t05-n009",
           "type": "note",
-          "text": "着眼点　各値とその値をとる確率を対応させる。"
+          "text": "着眼点　事象AとBに入る目をそれぞれ書き出す。"
         },
         {
           "id": "s3-counting-probability-t05-n010",
           "type": "note",
-          "text": "使う知識　値×確率をすべて足して期待値を求める。"
+          "text": "使う知識　事象は結果の集合として表し、共通部分や和集合を集合の演算で求める。"
         },
         {
           "id": "s3-counting-probability-t05-h011",
@@ -4452,7 +4452,7 @@
         {
           "id": "s3-counting-probability-t05-n013",
           "type": "note",
-          "text": "確認　確率の和が1になっているかを確認する。"
+          "text": "確認　偶数と3の倍数に共通する目を確認する。"
         },
         {
           "id": "s3-counting-probability-t05-h014",
@@ -4462,12 +4462,12 @@
         {
           "id": "s3-counting-probability-t05-n015",
           "type": "note",
-          "text": "着眼点　各値とその値をとる確率を対応させる。"
+          "text": "着眼点　2つの事象が同時に起こる結果をもつかどうかを見る。"
         },
         {
           "id": "s3-counting-probability-t05-n016",
           "type": "note",
-          "text": "使う知識　値×確率をすべて足して期待値を求める。"
+          "text": "使う知識　A∩B=∅ならAとBは排反である。"
         },
         {
           "id": "s3-counting-probability-t05-h017",
@@ -4495,7 +4495,7 @@
         {
           "id": "s3-counting-probability-t05-n019",
           "type": "note",
-          "text": "確認　確率の和が1になっているかを確認する。"
+          "text": "確認　共通するカードが1枚でもあれば排反ではないことを確認する。"
         },
         {
           "id": "s3-counting-probability-t05-h020",
@@ -4505,12 +4505,12 @@
         {
           "id": "s3-counting-probability-t05-n021",
           "type": "note",
-          "text": "着眼点　各値とその値をとる確率を対応させる。"
+          "text": "着眼点　大小2個のさいころを区別し、和が6または12になる組を数える。"
         },
         {
           "id": "s3-counting-probability-t05-n022",
           "type": "note",
-          "text": "使う知識　値×確率をすべて足して期待値を求める。"
+          "text": "使う知識　全36通りの順序つきの結果から、条件を満たす組の数を数えて確率を求める。"
         },
         {
           "id": "s3-counting-probability-t05-h023",
@@ -4538,7 +4538,7 @@
         {
           "id": "s3-counting-probability-t05-n025",
           "type": "note",
-          "text": "確認　確率の和が1になっているかを確認する。"
+          "text": "確認　(a,b)と(b,a)を同じものとして数えていないかを確認する。"
         },
         {
           "id": "s3-counting-probability-t05-h026",
@@ -4548,12 +4548,12 @@
         {
           "id": "s3-counting-probability-t05-n027",
           "type": "note",
-          "text": "着眼点　各値とその値をとる確率を対応させる。"
+          "text": "着眼点　2の倍数と3の倍数を足すとき、6の倍数が重複することに着目する。"
         },
         {
           "id": "s3-counting-probability-t05-n028",
           "type": "note",
-          "text": "使う知識　値×確率をすべて足して期待値を求める。"
+          "text": "使う知識　和集合の個数はn(A∪B)=n(A)+n(B)−n(A∩B)を用いる。"
         },
         {
           "id": "s3-counting-probability-t05-h029",
@@ -4599,7 +4599,7 @@
         {
           "id": "s3-counting-probability-t05-n032",
           "type": "note",
-          "text": "確認　確率の和が1になっているかを確認する。"
+          "text": "確認　6の倍数を重複して数えていないかを確認する。"
         },
         {
           "id": "s3-counting-probability-t05-h033",
@@ -5362,12 +5362,12 @@
         {
           "id": "s4-counting-probability-t06-n011",
           "type": "note",
-          "text": "着眼点　結果が分かった後に、どの原因から生じたかを逆向きに考える。"
+          "text": "着眼点　『少なくとも1回命中』は、反対の『2回とも外れる』を考えると簡単である。"
         },
         {
           "id": "s4-counting-probability-t06-n012",
           "type": "note",
-          "text": "使う知識　原因ごとの『原因×その結果の条件付き確率』を比べる。"
+          "text": "使う知識　独立試行なので外れる確率を掛け、余事象で1から引く。"
         },
         {
           "id": "s4-counting-probability-t06-h013",
@@ -5395,7 +5395,7 @@
         {
           "id": "s4-counting-probability-t06-n015",
           "type": "note",
-          "text": "確認　分母に結果が起こる全確率を用いているかを確認する。"
+          "text": "確認　命中率ではなく外れる確率を使ったかを確認する。"
         },
         {
           "id": "s4-counting-probability-t06-h016",
@@ -5405,12 +5405,12 @@
         {
           "id": "s4-counting-probability-t06-n017",
           "type": "note",
-          "text": "着眼点　結果が分かった後に、どの原因から生じたかを逆向きに考える。"
+          "text": "着眼点　5回のうち成功する3回の選び方に着目する。"
         },
         {
           "id": "s4-counting-probability-t06-n018",
           "type": "note",
-          "text": "使う知識　原因ごとの『原因×その結果の条件付き確率』を比べる。"
+          "text": "使う知識　反復試行の確率5C3 p³(1−p)²を用いる。"
         },
         {
           "id": "s4-counting-probability-t06-h019",
@@ -5456,7 +5456,7 @@
         {
           "id": "s4-counting-probability-t06-n022",
           "type": "note",
-          "text": "確認　分母に結果が起こる全確率を用いているかを確認する。"
+          "text": "確認　組合せの係数と成功・失敗の指数を確認する。"
         },
         {
           "id": "s4-counting-probability-t06-h023",
@@ -5466,12 +5466,12 @@
         {
           "id": "s4-counting-probability-t06-n024",
           "type": "note",
-          "text": "着眼点　結果が分かった後に、どの原因から生じたかを逆向きに考える。"
+          "text": "着眼点　Bを満たす50人だけを新しい全体として、その中でAも満たす人数を見る。"
         },
         {
           "id": "s4-counting-probability-t06-n025",
           "type": "note",
-          "text": "使う知識　原因ごとの『原因×その結果の条件付き確率』を比べる。"
+          "text": "使う知識　P_B(A)=P(A∩B)/P(B) を人数の比として考える。"
         },
         {
           "id": "s4-counting-probability-t06-h026",
@@ -5499,7 +5499,7 @@
         {
           "id": "s4-counting-probability-t06-n028",
           "type": "note",
-          "text": "確認　分母に結果が起こる全確率を用いているかを確認する。"
+          "text": "確認　分母を全100人ではなくBの50人としているかを確認する。"
         },
         {
           "id": "s4-counting-probability-t06-h029",
@@ -5509,12 +5509,12 @@
         {
           "id": "s4-counting-probability-t06-n030",
           "type": "note",
-          "text": "着眼点　結果が分かった後に、どの原因から生じたかを逆向きに考える。"
+          "text": "着眼点　1個目を取り出した後、袋の中の個数が変わることに着目する。"
         },
         {
           "id": "s4-counting-probability-t06-n031",
           "type": "note",
-          "text": "使う知識　原因ごとの『原因×その結果の条件付き確率』を比べる。"
+          "text": "使う知識　1個目が赤である確率と、その条件のもとで2個目も赤である確率を掛ける。"
         },
         {
           "id": "s4-counting-probability-t06-h032",
@@ -5542,7 +5542,7 @@
         {
           "id": "s4-counting-probability-t06-n034",
           "type": "note",
-          "text": "確認　分母に結果が起こる全確率を用いているかを確認する。"
+          "text": "確認　2回目の分母・分子が1ずつ減っているかを確認する。"
         },
         {
           "id": "s4-counting-probability-t06-h035",
@@ -5552,12 +5552,12 @@
         {
           "id": "s4-counting-probability-t06-n036",
           "type": "note",
-          "text": "着眼点　結果が分かった後に、どの原因から生じたかを逆向きに考える。"
+          "text": "着眼点　P(A∩B)とP(A)P(B)が一致するかを比べる。"
         },
         {
           "id": "s4-counting-probability-t06-n037",
           "type": "note",
-          "text": "使う知識　原因ごとの『原因×その結果の条件付き確率』を比べる。"
+          "text": "使う知識　P(A∩B)=P(A)P(B)ならAとBは独立である。"
         },
         {
           "id": "s4-counting-probability-t06-h038",
@@ -5593,7 +5593,7 @@
         {
           "id": "s4-counting-probability-t06-n040",
           "type": "note",
-          "text": "確認　分母に結果が起こる全確率を用いているかを確認する。"
+          "text": "確認　排反と独立を混同していないかを確認する。"
         },
         {
           "id": "s4-counting-probability-t06-h041",
