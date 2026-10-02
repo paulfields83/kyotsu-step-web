@@ -320,6 +320,14 @@ function TextbookReadingFlow({ unit, section, progress }: {
     if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
     if (block.type === 'note') return <aside className="reading-note" key={block.id}>{block.text}</aside>
 
+    if (hasSolutionTrack && block.type === 'paragraph') {
+      const plain = block.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
+      const researchMatch = plain.match(/^\\d+[　\\s]*研究[　\\s]*(.+)$/u)
+      if (researchMatch) {
+        return <h4 className="reading-subheading textbook-research-heading" key={block.id}>{`研究　${researchMatch[1]}`}</h4>
+      }
+    }
+
     if (block.type === 'figure') {
       const figure = section.figures.find((candidate) => candidate.id === block.figureId)
       if (!figure) return null
@@ -408,10 +416,38 @@ function TextbookReadingFlow({ unit, section, progress }: {
       const check = chunk.find(
         (candidate) => candidate.type === 'note' && candidate.text.startsWith('確認　'),
       )
+      const plainBlockText = (candidate: TextbookReadingBlock) => {
+        if (candidate.type === 'topic' || candidate.type === 'heading' || candidate.type === 'note') return candidate.text
+        if (candidate.type !== 'paragraph') return ''
+        return candidate.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
+      }
+      const isExampleBoundary = (candidate: TextbookReadingBlock) => {
+        if (candidate.type !== 'paragraph') return false
+        const raw = plainBlockText(candidate)
+        return /^\\d+[　\\s]*研究(?:[　\\s]|$)/u.test(raw)
+          || /^(?:コンピュータの活用|第\\d+節の自力確認|作図の記述)/u.test(raw)
+      }
+
+      const problemIndex = problem ? chunk.findIndex((candidate) => candidate.id === problem.id) : -1
+      const checkIndex = check ? chunk.findIndex((candidate) => candidate.id === check.id) : -1
+      let solutionEnd = chunk.length
+      for (let candidateIndex = Math.max(problemIndex + 1, 0); candidateIndex < chunk.length; candidateIndex += 1) {
+        if ((checkIndex >= 0 && candidateIndex === checkIndex) || isExampleBoundary(chunk[candidateIndex])) {
+          solutionEnd = candidateIndex
+          break
+        }
+      }
+      const solutionBlocks = problemIndex >= 0
+        ? chunk.slice(problemIndex + 1, solutionEnd).filter(
+            (candidate) => candidate.type === 'paragraph' || candidate.type === 'formula',
+          )
+        : []
       const consumedIds = new Set(
-        [block, problem, focus, knowledge, check].filter(Boolean).map((candidate) => candidate!.id),
+        [block, problem, focus, knowledge, check, ...solutionBlocks]
+          .filter(Boolean)
+          .map((candidate) => candidate!.id),
       )
-      const solutionBlocks = chunk.filter((candidate) => !consumedIds.has(candidate.id))
+      const outsideBlocks = chunk.filter((candidate) => !consumedIds.has(candidate.id))
 
       rendered.push(
         <section className="textbook-guided-example" key={block.id}>
@@ -436,6 +472,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
           </div>
         </section>,
       )
+      outsideBlocks.forEach((candidate) => rendered.push(renderBlock(candidate)))
 
       index = cursor
     }
