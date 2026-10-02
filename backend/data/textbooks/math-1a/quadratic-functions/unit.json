@@ -849,7 +849,7 @@
         {
           "id": "s1-quadratic-functions-t08-n005",
           "type": "note",
-          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+          "text": "使う知識　x軸方向にp，y軸方向にqだけ平行移動するとき，y−q=f(x−p) を用いる。"
         },
         {
           "id": "s1-quadratic-functions-t08-h006",
@@ -879,7 +879,7 @@
         {
           "id": "s1-quadratic-functions-t08-n009",
           "type": "note",
-          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+          "text": "確認　移動後の頂点や代表的な点を代入し，移動の向きが正しいかを確かめる。"
         },
         {
           "id": "s1-quadratic-functions-t08-h010",
