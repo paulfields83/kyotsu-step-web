@@ -7,8 +7,15 @@ export interface TextbookRepository {
 }
 
 function apiBaseUrl() {
-  const env = (import.meta as ImportMeta & { env?: { VITE_API_BASE_URL?: string } }).env
-  const configured = env?.VITE_API_BASE_URL?.trim()
+  const env = (import.meta as ImportMeta & {
+    env?: { VITE_API_BASE_URL?: string; VITE_ORIGINAL_API_BASE_URL?: string }
+  }).env
+  const source = typeof window !== 'undefined'
+    ? new URLSearchParams(window.location.search).get('source')
+    : null
+  const configured = source === 'original'
+    ? env?.VITE_ORIGINAL_API_BASE_URL?.trim()
+    : env?.VITE_API_BASE_URL?.trim()
   return configured ? configured.replace(/\/$/, '') : ''
 }
 
