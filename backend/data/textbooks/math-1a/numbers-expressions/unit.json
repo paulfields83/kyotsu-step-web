@@ -245,12 +245,12 @@
         {
           "id": "s1-numbers-expressions-t02-n004",
           "type": "note",
-          "text": "着眼点　同じ文字・同じ次数の項をまとめられるかを見る。"
+          "text": "着眼点　どの文字について次数を考えるかを先に決める。"
         },
         {
           "id": "s1-numbers-expressions-t02-n005",
           "type": "note",
-          "text": "使う知識　同類項をまとめ、指定された文字について次数の順に整理する。"
+          "text": "使う知識　他の文字は係数の一部とみなし、指定された文字の指数だけに着目して次数を求める。"
         },
         {
           "id": "s1-numbers-expressions-t02-h006",
@@ -296,7 +296,7 @@
         {
           "id": "s1-numbers-expressions-t02-n009",
           "type": "note",
-          "text": "確認　異なる次数の項をまとめていないかを確認する。"
+          "text": "確認　xについて見る場合とyについて見る場合で、着目する指数が変わっているかを確認する。"
         },
         {
           "id": "s1-numbers-expressions-topic-03",
@@ -478,12 +478,12 @@
         {
           "id": "s1-numbers-expressions-t04-n004",
           "type": "note",
-          "text": "着眼点　同じ文字・同じ次数の項をまとめられるかを見る。"
+          "text": "着眼点　同じ次数の項を縦にそろえ、A−3B の「−3」を各項に掛ける。"
         },
         {
           "id": "s1-numbers-expressions-t04-n005",
           "type": "note",
-          "text": "使う知識　同類項をまとめ、指定された文字について次数の順に整理する。"
+          "text": "使う知識　加法・減法では同類項どうしの係数を計算し、減法では引く式の符号に注意する。"
         },
         {
           "id": "s1-numbers-expressions-t04-h006",
@@ -545,7 +545,7 @@
         {
           "id": "s1-numbers-expressions-t04-n009",
           "type": "note",
-          "text": "確認　異なる次数の項をまとめていないかを確認する。"
+          "text": "確認　−3B の各項の符号を正しく処理したかを確認する。"
         },
         {
           "id": "s1-numbers-expressions-topic-05",
@@ -596,12 +596,12 @@
         {
           "id": "s1-numbers-expressions-t05-n004",
           "type": "note",
-          "text": "着眼点　文字の指数と数の部分を分けて見る。"
+          "text": "着眼点　係数の部分と文字の部分を分けて計算する。"
         },
         {
           "id": "s1-numbers-expressions-t05-n005",
           "type": "note",
-          "text": "使う知識　次数は文字の指数の和、係数は文字以外の数の部分として考える。"
+          "text": "使う知識　係数どうしを掛け、同じ文字の積では指数を加える。"
         },
         {
           "id": "s1-numbers-expressions-t05-h006",
@@ -655,7 +655,7 @@
         {
           "id": "s1-numbers-expressions-t05-n009",
           "type": "note",
-          "text": "確認　指数を足し忘れていないか、符号を含めて係数を確認する。"
+          "text": "確認　負号とx、yそれぞれの指数を確認する。"
         },
         {
           "id": "s1-numbers-expressions-topic-06",
@@ -1402,12 +1402,12 @@
         {
           "id": "s1-numbers-expressions-t11-n024",
           "type": "note",
-          "text": "着眼点　3次式が和・差の立方や3次の因数分解公式の形になっているかを見る。"
+          "text": "着眼点　(a+b−c)を3項の和とみて、平方するときの交差項に注意する。"
         },
         {
           "id": "s1-numbers-expressions-t11-n025",
           "type": "note",
-          "text": "使う知識　3次の展開・因数分解公式を用いる。"
+          "text": "使う知識　(p+q+r)²=p²+q²+r²+2pq+2qr+2rp を用いる。"
         },
         {
           "id": "s1-numbers-expressions-t11-h026",
@@ -1453,7 +1453,7 @@
         {
           "id": "s1-numbers-expressions-t11-n029",
           "type": "note",
-          "text": "確認　展開して元の式に戻るかを確認する。"
+          "text": "確認　2倍する交差項の符号を取り違えていないかを確認する。"
         },
         {
           "id": "s1-numbers-expressions-t11-h030",
@@ -1463,12 +1463,12 @@
         {
           "id": "s1-numbers-expressions-t11-n031",
           "type": "note",
-          "text": "着眼点　3次式が和・差の立方や3次の因数分解公式の形になっているかを見る。"
+          "text": "着眼点　4つをそのまま展開せず、積が同じ形になる2組をつくれるかを見る。"
         },
         {
           "id": "s1-numbers-expressions-t11-n032",
           "type": "note",
-          "text": "使う知識　3次の展開・因数分解公式を用いる。"
+          "text": "使う知識　(x+1)(x+4) と (x+2)(x+3) のように組み替え、共通するまとまりを使って展開する。"
         },
         {
           "id": "s1-numbers-expressions-t11-h033",
@@ -1506,7 +1506,7 @@
         {
           "id": "s1-numbers-expressions-t11-n036",
           "type": "note",
-          "text": "確認　展開して元の式に戻るかを確認する。"
+          "text": "確認　組み替えた後の積を元の4因数と対応させて確認する。"
         },
         {
           "id": "s1-numbers-expressions-t11-h037",
@@ -1516,12 +1516,12 @@
         {
           "id": "s1-numbers-expressions-t11-n038",
           "type": "note",
-          "text": "着眼点　3次式が和・差の立方や3次の因数分解公式の形になっているかを見る。"
+          "text": "着眼点　1つの文字について降べきの順に整理し、係数のまとまりを見る。"
         },
         {
           "id": "s1-numbers-expressions-t11-n039",
           "type": "note",
-          "text": "使う知識　3次の展開・因数分解公式を用いる。"
+          "text": "使う知識　多項式を1文字についての式とみなし、共通因数や因数分解公式を順に用いる。"
         },
         {
           "id": "s1-numbers-expressions-t11-h040",
@@ -1567,7 +1567,7 @@
         {
           "id": "s1-numbers-expressions-t11-n051",
           "type": "note",
-          "text": "確認　展開して元の式に戻るかを確認する。"
+          "text": "確認　因数分解した式を展開して元の式に戻るかを確認する。"
         },
         {
           "id": "s1-numbers-expressions-t11-p043",
@@ -2216,12 +2216,12 @@
         {
           "id": "s2-numbers-expressions-t01-n006",
           "type": "note",
-          "text": "着眼点　数が分数で表せるかどうかに着目する。"
+          "text": "着眼点　循環する桁数だけ10の累乗を掛けると、小数部分をそろえられる。"
         },
         {
           "id": "s2-numbers-expressions-t01-n007",
           "type": "note",
-          "text": "使う知識　有理数・無理数の定義にしたがって分類する。"
+          "text": "使う知識　元の数をxとおき、10^n x と x の差をとって循環部分を消す。"
         },
         {
           "id": "s2-numbers-expressions-t01-h008",
@@ -2267,7 +2267,7 @@
         {
           "id": "s2-numbers-expressions-t01-n011",
           "type": "note",
-          "text": "確認　有限小数・循環小数も有理数であることを確認する。"
+          "text": "確認　循環する桁数に対応した10の累乗を掛けたかを確認する。"
         },
         {
           "id": "s2-numbers-expressions-topic-02",
@@ -2326,12 +2326,12 @@
         {
           "id": "s2-numbers-expressions-t02-n004",
           "type": "note",
-          "text": "着眼点　数の大小と数直線上の位置を対応させる。"
+          "text": "着眼点　数直線上の2点の距離は、座標の差の絶対値で表せる。"
         },
         {
           "id": "s2-numbers-expressions-t02-n005",
           "type": "note",
-          "text": "使う知識　不等号と数直線上の左右の関係を用いる。"
+          "text": "使う知識　A(a)、B(b) の距離は |b−a| を用いて求める。"
         },
         {
           "id": "s2-numbers-expressions-t02-h006",
@@ -2359,7 +2359,7 @@
         {
           "id": "s2-numbers-expressions-t02-n008",
           "type": "note",
-          "text": "確認　端点を含むかどうかを確認する。"
+          "text": "確認　差の順序にかかわらず距離が正になることを確認する。"
         },
         {
           "id": "s2-numbers-expressions-topic-03",
@@ -2402,12 +2402,12 @@
         {
           "id": "s2-numbers-expressions-t03-n004",
           "type": "note",
-          "text": "着眼点　平方して元の数になる値と、根号で表す値を区別する。"
+          "text": "着眼点　√10 がどの2つの整数の間にあるかを、平方して比べる。"
         },
         {
           "id": "s2-numbers-expressions-t03-n005",
           "type": "note",
-          "text": "使う知識　平方根の定義と √a の意味を用いる。"
+          "text": "使う知識　3²<10<4² より 3<√10<4 とし、整数部分と残りの小数部分に分ける。"
         },
         {
           "id": "s2-numbers-expressions-t03-h006",
@@ -2453,7 +2453,7 @@
         {
           "id": "s2-numbers-expressions-t03-n009",
           "type": "note",
-          "text": "確認　正負の両方が必要な場面かを確認する。"
+          "text": "確認　整数部分と小数部分の和が元の数になるかを確認する。"
         },
         {
           "id": "s2-numbers-expressions-topic-04",
@@ -2839,12 +2839,12 @@
         {
           "id": "s2-numbers-expressions-t07-n012",
           "type": "note",
-          "text": "着眼点　√(a±2√b) を (√m±√n)² の形と比べる。"
+          "text": "着眼点　既約分数の分母にどの素因数が残っているかを見る。"
         },
         {
           "id": "s2-numbers-expressions-t07-n013",
           "type": "note",
-          "text": "使う知識　平方したときの和と積を対応させて根号を外す。"
+          "text": "使う知識　既約分数が有限小数になるのは、分母の素因数が2と5だけのときである。"
         },
         {
           "id": "s2-numbers-expressions-t07-h014",
@@ -2890,7 +2890,7 @@
         {
           "id": "s2-numbers-expressions-t07-n017",
           "type": "note",
-          "text": "確認　平方して元の根号の中に戻るかを確認する。"
+          "text": "確認　約分して既約分数にしてから分母を調べたかを確認する。"
         },
         {
           "id": "s2-numbers-expressions-t07-h018",
@@ -2900,12 +2900,12 @@
         {
           "id": "s2-numbers-expressions-t07-n019",
           "type": "note",
-          "text": "着眼点　√(a±2√b) を (√m±√n)² の形と比べる。"
+          "text": "着眼点　|x−3|を、数直線上でxと3の距離として読む。"
         },
         {
           "id": "s2-numbers-expressions-t07-n020",
           "type": "note",
-          "text": "使う知識　平方したときの和と積を対応させて根号を外す。"
+          "text": "使う知識　距離が5になる点は、3から左右に5だけ離れた2点として求める。"
         },
         {
           "id": "s2-numbers-expressions-t07-h021",
@@ -2943,7 +2943,7 @@
         {
           "id": "s2-numbers-expressions-t07-n024",
           "type": "note",
-          "text": "確認　平方して元の根号の中に戻るかを確認する。"
+          "text": "確認　3の左右の両方の解を求めたかを確認する。"
         },
         {
           "id": "s2-numbers-expressions-t07-h025",
@@ -2953,12 +2953,12 @@
         {
           "id": "s2-numbers-expressions-t07-n026",
           "type": "note",
-          "text": "着眼点　√(a±2√b) を (√m±√n)² の形と比べる。"
+          "text": "着眼点　平方の公式を使うとき、√2と√3の積も計算する。"
         },
         {
           "id": "s2-numbers-expressions-t07-n027",
           "type": "note",
-          "text": "使う知識　平方したときの和と積を対応させて根号を外す。"
+          "text": "使う知識　(a−b)²=a²−2ab+b² を用い、根号どうしの積を整理する。"
         },
         {
           "id": "s2-numbers-expressions-t07-h028",
@@ -2986,7 +2986,7 @@
         {
           "id": "s2-numbers-expressions-t07-n030",
           "type": "note",
-          "text": "確認　平方して元の根号の中に戻るかを確認する。"
+          "text": "確認　中央の項の係数2と符号を確認する。"
         },
         {
           "id": "s2-numbers-expressions-t07-h031",
@@ -2996,12 +2996,12 @@
         {
           "id": "s2-numbers-expressions-t07-n032",
           "type": "note",
-          "text": "着眼点　√(a±2√b) を (√m±√n)² の形と比べる。"
+          "text": "着眼点　x³+y³を、与えられたx+yとxyで表せる形に変える。"
         },
         {
           "id": "s2-numbers-expressions-t07-n033",
           "type": "note",
-          "text": "使う知識　平方したときの和と積を対応させて根号を外す。"
+          "text": "使う知識　x³+y³=(x+y)³−3xy(x+y) を用いる。"
         },
         {
           "id": "s2-numbers-expressions-t07-h034",
@@ -3039,7 +3039,7 @@
         {
           "id": "s2-numbers-expressions-t07-n041",
           "type": "note",
-          "text": "確認　平方して元の根号の中に戻るかを確認する。"
+          "text": "確認　展開して公式が正しいことを確認してから値を代入する。"
         },
         {
           "id": "s2-numbers-expressions-t07-p037",
@@ -3930,12 +3930,12 @@
         {
           "id": "s3-numbers-expressions-t05-n018",
           "type": "note",
-          "text": "着眼点　絶対値の中の式の符号が変わる境目を求める。"
+          "text": "着眼点　まず括弧を外し、未知数の項と定数項を整理する。"
         },
         {
           "id": "s3-numbers-expressions-t05-n019",
           "type": "note",
-          "text": "使う知識　符号が一定になる区間ごとに絶対値を外して解く。"
+          "text": "使う知識　1次不等式を整理し、負の数で割る場合だけ不等号の向きを変える。"
         },
         {
           "id": "s3-numbers-expressions-t05-h020",
@@ -3973,7 +3973,7 @@
         {
           "id": "s3-numbers-expressions-t05-n023",
           "type": "note",
-          "text": "確認　場合分けした範囲と得られた解が一致しているかを確認する。"
+          "text": "確認　分配法則と不等号の向きを確認する。"
         },
         {
           "id": "s3-numbers-expressions-t05-h024",
@@ -3983,12 +3983,12 @@
         {
           "id": "s3-numbers-expressions-t05-n025",
           "type": "note",
-          "text": "着眼点　絶対値の中の式の符号が変わる境目を求める。"
+          "text": "着眼点　2つの不等式を別々に解き、数直線上で重なる部分を見る。"
         },
         {
           "id": "s3-numbers-expressions-t05-n026",
           "type": "note",
-          "text": "使う知識　符号が一定になる区間ごとに絶対値を外して解く。"
+          "text": "使う知識　連立不等式の解は、それぞれの解集合の共通部分である。"
         },
         {
           "id": "s3-numbers-expressions-t05-h027",
@@ -4016,7 +4016,7 @@
         {
           "id": "s3-numbers-expressions-t05-n029",
           "type": "note",
-          "text": "確認　場合分けした範囲と得られた解が一致しているかを確認する。"
+          "text": "確認　2つの範囲の共通部分だけを答えているかを確認する。"
         },
         {
           "id": "s3-numbers-expressions-t05-h030",
@@ -4087,12 +4087,12 @@
         {
           "id": "s3-numbers-expressions-t05-n038",
           "type": "note",
-          "text": "着眼点　絶対値の中の式の符号が変わる境目を求める。"
+          "text": "着眼点　ax<1 では、aの符号によって割ったときの不等号の向きが変わる。"
         },
         {
           "id": "s3-numbers-expressions-t05-n039",
           "type": "note",
-          "text": "使う知識　符号が一定になる区間ごとに絶対値を外して解く。"
+          "text": "使う知識　a>0、a<0、a=0 に分けて考える。"
         },
         {
           "id": "s3-numbers-expressions-t05-h040",
@@ -4138,7 +4138,7 @@
         {
           "id": "s3-numbers-expressions-t05-n043",
           "type": "note",
-          "text": "確認　場合分けした範囲と得られた解が一致しているかを確認する。"
+          "text": "確認　a=0 の場合を落としていないかを確認する。"
         },
         {
           "id": "s3-numbers-expressions-topic-06",
