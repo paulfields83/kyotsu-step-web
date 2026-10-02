@@ -137,7 +137,7 @@
         {
           "id": "s1-numbers-expressions-t01-h008",
           "type": "heading",
-          "text": "問題文　−3x²y² の次数と係数を答える。"
+          "text": "問題文　−3x²y² の次数と係数を答えよ。"
         },
         {
           "id": "s1-numbers-expressions-t01-p009",
@@ -255,7 +255,7 @@
         {
           "id": "s1-numbers-expressions-t02-h006",
           "type": "heading",
-          "text": "問題文　x⁴−x³y² を x と y のそれぞれに着目して次数を考える。"
+          "text": "問題文　x⁴−x³y² を x と y のそれぞれに着目して次数を考えよ。"
         },
         {
           "id": "s1-numbers-expressions-t02-p007",
@@ -488,7 +488,7 @@
         {
           "id": "s1-numbers-expressions-t04-h006",
           "type": "heading",
-          "text": "問題文　A−3B を計算する。"
+          "text": "問題文　A−3B を計算せよ。"
         },
         {
           "id": "s1-numbers-expressions-t04-p007",
@@ -606,7 +606,7 @@
         {
           "id": "s1-numbers-expressions-t05-h006",
           "type": "heading",
-          "text": "問題文　2x³y²×(−5x⁴y) を計算する。"
+          "text": "問題文　2x³y²×(−5x⁴y) を計算せよ。"
         },
         {
           "id": "s1-numbers-expressions-t05-p007",
@@ -716,7 +716,7 @@
         {
           "id": "s1-numbers-expressions-t06-h006",
           "type": "heading",
-          "text": "問題文　(x+2)(x+5) を展開する。"
+          "text": "問題文　(x+2)(x+5) を展開せよ。"
         },
         {
           "id": "s1-numbers-expressions-t06-p007",
@@ -818,7 +818,7 @@
         {
           "id": "s1-numbers-expressions-t07-h006",
           "type": "heading",
-          "text": "問題文　(5x+4y)² を展開する。"
+          "text": "問題文　(5x+4y)² を展開せよ。"
         },
         {
           "id": "s1-numbers-expressions-t07-p007",
@@ -887,7 +887,7 @@
         {
           "id": "s1-numbers-expressions-t07-h013",
           "type": "heading",
-          "text": "問題文　(x−2y+3)(x+2y−3) を展開する。"
+          "text": "問題文　(x−2y+3)(x+2y−3) を展開せよ。"
         },
         {
           "id": "s1-numbers-expressions-t07-p014",
@@ -981,7 +981,7 @@
         {
           "id": "s1-numbers-expressions-t08-h006",
           "type": "heading",
-          "text": "問題文　16x²+24xy+9y² を因数分解する。"
+          "text": "問題文　16x²+24xy+9y² を因数分解せよ。"
         },
         {
           "id": "s1-numbers-expressions-t08-p007",
@@ -1034,7 +1034,7 @@
         {
           "id": "s1-numbers-expressions-t08-h013",
           "type": "heading",
-          "text": "問題文　x²−11bx+24b² を因数分解する。"
+          "text": "問題文　x²−11bx+24b² を因数分解せよ。"
         },
         {
           "id": "s1-numbers-expressions-t08-p014",
@@ -1136,7 +1136,7 @@
         {
           "id": "s1-numbers-expressions-t09-h006",
           "type": "heading",
-          "text": "問題文　12x²+xy−6y² を因数分解する。"
+          "text": "問題文　12x²+xy−6y² を因数分解せよ。"
         },
         {
           "id": "s1-numbers-expressions-t09-p007",
@@ -1263,7 +1263,7 @@
         {
           "id": "s1-numbers-expressions-t11-h006",
           "type": "heading",
-          "text": "問題文　x³−125 を因数分解する。"
+          "text": "問題文　x³−125 を因数分解せよ。"
         },
         {
           "id": "s1-numbers-expressions-t11-p007",
@@ -1316,7 +1316,7 @@
         {
           "id": "s1-numbers-expressions-t11-h013",
           "type": "heading",
-          "text": "問題文　(x²−x+1)(x²−3x+1) を展開する。"
+          "text": "問題文　(x²−x+1)(x²−3x+1) を展開せよ。"
         },
         {
           "id": "s1-numbers-expressions-t11-p014",
@@ -1412,7 +1412,7 @@
         {
           "id": "s1-numbers-expressions-t11-h026",
           "type": "heading",
-          "text": "問題文　(a+b−c)² を展開する。"
+          "text": "問題文　(a+b−c)² を展開せよ。"
         },
         {
           "id": "s1-numbers-expressions-t11-p027",
@@ -1473,7 +1473,7 @@
         {
           "id": "s1-numbers-expressions-t11-h033",
           "type": "heading",
-          "text": "問題文　(x+1)(x+2)(x+3)(x+4) を展開する。"
+          "text": "問題文　(x+1)(x+2)(x+3)(x+4) を展開せよ。"
         },
         {
           "id": "s1-numbers-expressions-t11-p034",
@@ -1526,7 +1526,7 @@
         {
           "id": "s1-numbers-expressions-t11-h040",
           "type": "heading",
-          "text": "問題文　a²(b+c)+b²(c+a)+c²(a+b)+2abc を因数分解する。"
+          "text": "問題文　a²(b+c)+b²(c+a)+c²(a+b)+2abc を因数分解せよ。"
         },
         {
           "id": "s1-numbers-expressions-t11-p041",
@@ -2336,7 +2336,7 @@
         {
           "id": "s2-numbers-expressions-t02-h006",
           "type": "heading",
-          "text": "問題文　数直線上の A(−1), B(−9) の距離 AB を求める。"
+          "text": "問題文　数直線上の A(−1), B(−9) の距離 AB を求めよ。"
         },
         {
           "id": "s2-numbers-expressions-t02-p007",
@@ -2412,7 +2412,7 @@
         {
           "id": "s2-numbers-expressions-t03-h006",
           "type": "heading",
-          "text": "問題文　√10 の整数部分と小数部分を求める。"
+          "text": "問題文　√10 の整数部分と小数部分を求めよ。"
         },
         {
           "id": "s2-numbers-expressions-t03-p007",
@@ -2514,7 +2514,7 @@
         {
           "id": "s2-numbers-expressions-t04-h006",
           "type": "heading",
-          "text": "問題文　3√8+2√18−√50 を簡単にする。"
+          "text": "問題文　3√8+2√18−√50 を簡単にせよ。"
         },
         {
           "id": "s2-numbers-expressions-t04-p007",
@@ -2608,7 +2608,7 @@
         {
           "id": "s2-numbers-expressions-t05-h006",
           "type": "heading",
-          "text": "問題文　1/(√5+√2) を有理化する。"
+          "text": "問題文　1/(√5+√2) を有理化せよ。"
         },
         {
           "id": "s2-numbers-expressions-t05-p007",
@@ -2718,7 +2718,7 @@
         {
           "id": "s2-numbers-expressions-t06-h006",
           "type": "heading",
-          "text": "問題文　x+y=2√5, xy=1 のとき x²+y² を求める。"
+          "text": "問題文　x+y=2√5, xy=1 のとき x²+y² を求めよ。"
         },
         {
           "id": "s2-numbers-expressions-t06-p007",
@@ -2786,7 +2786,7 @@
         {
           "id": "s2-numbers-expressions-t07-h006",
           "type": "heading",
-          "text": "問題文　√(5+2√6) を簡単にする。"
+          "text": "問題文　√(5+2√6) を簡単にせよ。"
         },
         {
           "id": "s2-numbers-expressions-t07-p007",
@@ -2849,7 +2849,7 @@
         {
           "id": "s2-numbers-expressions-t07-h014",
           "type": "heading",
-          "text": "問題文　既約分数 a/b が有限小数になる条件を確認する。"
+          "text": "問題文　既約分数 a/b が有限小数になる条件を確かめよ。"
         },
         {
           "id": "s2-numbers-expressions-t07-p015",
@@ -2910,7 +2910,7 @@
         {
           "id": "s2-numbers-expressions-t07-h021",
           "type": "heading",
-          "text": "問題文　|x−3|=5 を解く。"
+          "text": "問題文　|x−3|=5 を解け。"
         },
         {
           "id": "s2-numbers-expressions-t07-p022",
@@ -2963,7 +2963,7 @@
         {
           "id": "s2-numbers-expressions-t07-h028",
           "type": "heading",
-          "text": "問題文　(√2−√3)² を計算する。"
+          "text": "問題文　(√2−√3)² を計算せよ。"
         },
         {
           "id": "s2-numbers-expressions-t07-p029",
@@ -3006,7 +3006,7 @@
         {
           "id": "s2-numbers-expressions-t07-h034",
           "type": "heading",
-          "text": "問題文　x+y=4, xy=2 のとき x³+y³ を求める。"
+          "text": "問題文　x+y=4, xy=2 のとき x³+y³ を求めよ。"
         },
         {
           "id": "s2-numbers-expressions-t07-p035",
@@ -3402,7 +3402,7 @@
         {
           "id": "s3-numbers-expressions-t01-h008",
           "type": "heading",
-          "text": "問題文　3x+5<7 を解く。"
+          "text": "問題文　3x+5<7 を解け。"
         },
         {
           "id": "s3-numbers-expressions-t01-p009",
@@ -3455,7 +3455,7 @@
         {
           "id": "s3-numbers-expressions-t01-h015",
           "type": "heading",
-          "text": "問題文　3x+4≦5x−2 を解く。"
+          "text": "問題文　3x+4≦5x−2 を解け。"
         },
         {
           "id": "s3-numbers-expressions-t01-p016",
@@ -3531,7 +3531,7 @@
         {
           "id": "s3-numbers-expressions-t02-h005",
           "type": "heading",
-          "text": "問題文　x>−2 と x≦3 を同時に満たす範囲を求める。"
+          "text": "問題文　x>−2 と x≦3 を同時に満たす範囲を求めよ。"
         },
         {
           "id": "s3-numbers-expressions-t02-p006",
@@ -3818,7 +3818,7 @@
         {
           "id": "s3-numbers-expressions-t05-h006",
           "type": "heading",
-          "text": "問題文　|x+3|=3x+1 を解く。"
+          "text": "問題文　|x+3|=3x+1 を解け。"
         },
         {
           "id": "s3-numbers-expressions-t05-p007",
@@ -3940,7 +3940,7 @@
         {
           "id": "s3-numbers-expressions-t05-h020",
           "type": "heading",
-          "text": "問題文　2(3x+2)>3(x−1)+1 を解く。"
+          "text": "問題文　2(3x+2)>3(x−1)+1 を解け。"
         },
         {
           "id": "s3-numbers-expressions-t05-p021",
@@ -4036,7 +4036,7 @@
         {
           "id": "s3-numbers-expressions-t05-h033",
           "type": "heading",
-          "text": "問題文　|2x−1|>3 を解く。"
+          "text": "問題文　|2x−1|>3 を解け。"
         },
         {
           "id": "s3-numbers-expressions-t05-p034",
@@ -4184,7 +4184,7 @@
         {
           "id": "s3-numbers-expressions-t06-h006",
           "type": "heading",
-          "text": "問題文　−2≦a<3, 1≦b<4 のとき 2a, −b, a+b, a−b の範囲を求める。"
+          "text": "問題文　−2≦a<3, 1≦b<4 のとき 2a, −b, a+b, a−b の範囲を求めよ。"
         },
         {
           "id": "s3-numbers-expressions-t06-p007",
