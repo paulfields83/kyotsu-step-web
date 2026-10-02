@@ -425,7 +425,7 @@
         {
           "id": "s1-quadratic-functions-t04-h006",
           "type": "heading",
-          "text": "問題文　y=x²−4 は y=x² を下へ4平行移動。頂点は (0,−4)。"
+          "text": "問題文　2次関数 y=x²−4 と y=−2x²+8 の頂点を求め，それぞれのグラフの開く向きを答えよ。"
         },
         {
           "id": "s1-quadratic-functions-t04-p007",
@@ -660,7 +660,7 @@
         {
           "id": "s1-quadratic-functions-t06-h006",
           "type": "heading",
-          "text": "問題文　2(x²+4x)+5=2{(x+2)²−4}+5=2(x+2)²−3。"
+          "text": "問題文　2次関数 y=2x²+8x+5 を平方完成し，軸と頂点を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t06-p007",
@@ -752,7 +752,7 @@
         {
           "id": "s1-quadratic-functions-t07-h006",
           "type": "heading",
-          "text": "問題文　頂点 (−2,−7)、点 (2,−1) を通る放物線。"
+          "text": "問題文　頂点が (−2,−7) で，点 (2,−1) を通る2次関数を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t07-p007",
@@ -854,7 +854,7 @@
         {
           "id": "s1-quadratic-functions-t08-h006",
           "type": "heading",
-          "text": "問題文　y=−2x²+x+1 を x 方向 −3、y方向1だけ移動。"
+          "text": "問題文　2次関数 y=−2x²+x+1 のグラフを，x軸方向に−3，y軸方向に1だけ平行移動したグラフの方程式を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t08-p007",
@@ -899,7 +899,7 @@
         {
           "id": "s1-quadratic-functions-t08-h013",
           "type": "heading",
-          "text": "問題文　y=−2x²+4x+2 を x軸対称。"
+          "text": "問題文　2次関数 y=−2x²+4x+2 のグラフをx軸について対称移動したグラフの方程式を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t08-p014",
@@ -1115,7 +1115,7 @@
         {
           "id": "s1-quadratic-functions-t08-h039",
           "type": "heading",
-          "text": "問題文　(0,1),(1,0),(2,3) を通る y=ax²+bx+c。"
+          "text": "問題文　3点 (0,1)，(1,0)，(2,3) を通る2次関数 y=ax²+bx+c を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t08-p040",
@@ -1772,7 +1772,7 @@
         {
           "id": "s2-quadratic-functions-t02-h006",
           "type": "heading",
-          "text": "問題文　y=x²+4x+1。平方完成すると (x+2)²−3、軸 x=−2 は定義域の左。"
+          "text": "問題文　2次関数 y=x²+4x+1 について，−1≦x≦1 における最大値と最小値を求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t02-p007",
@@ -1823,7 +1823,7 @@
         {
           "id": "s2-quadratic-functions-t02-h012",
           "type": "heading",
-          "text": "問題文　y=x²−2x+3, −1≦x<2。"
+          "text": "問題文　2次関数 y=x²−2x+3 について，−1≦x<2 における最大値と最小値を求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t02-p013",
@@ -2011,7 +2011,7 @@
         {
           "id": "s2-quadratic-functions-t04-h006",
           "type": "heading",
-          "text": "問題文　y=(x−a)²−a², 0≦x≦3。"
+          "text": "問題文　2次関数 y=(x−a)²−a² について，0≦x≦3 における最小値をaの値によって場合分けして求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t04-p007",
@@ -2105,7 +2105,7 @@
         {
           "id": "s2-quadratic-functions-t05-h005",
           "type": "heading",
-          "text": "問題文　両側を x cm 折り上げると底の幅は 12−2x、断面積 S=x(12−2x)。"
+          "text": "問題文　幅12cmの板の両側をx cmずつ折り上げて樋を作る。断面積 S=x(12−2x) が最大となるxの値と，そのときの最大値を求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t05-p006",
@@ -2156,7 +2156,7 @@
         {
           "id": "s2-quadratic-functions-t05-h011",
           "type": "heading",
-          "text": "問題文　150円で500個、1円値上げごとに2個販売数が減る。値上げ x 円。"
+          "text": "問題文　1個150円で500個売れる商品を，1円値上げするごとに販売数が2個ずつ減るものとする。売上が最大となる値上げ額を求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t05-p012",
@@ -2201,7 +2201,7 @@
         {
           "id": "s2-quadratic-functions-t05-h018",
           "type": "heading",
-          "text": "問題文　y=(x−1)²−2, −1≦x≦3。"
+          "text": "問題文　2次関数 y=(x−1)²−2 について，−1≦x≦3 における最大値と最小値を求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t05-p019",
@@ -2252,7 +2252,7 @@
         {
           "id": "s2-quadratic-functions-t05-h024",
           "type": "heading",
-          "text": "問題文　y=−(x−4)²+5, 0≦x≦2。"
+          "text": "問題文　2次関数 y=−(x−4)²+5 について，0≦x≦2 における最大値と最小値を求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t05-p025",
@@ -2321,7 +2321,7 @@
         {
           "id": "s2-quadratic-functions-t05-h031",
           "type": "heading",
-          "text": "問題文　y=(x−a)², 0≦x≦2 の最小値を a の位置で分ける。"
+          "text": "問題文　2次関数 y=(x−a)² について，0≦x≦2 における最小値をaの値によって場合分けして求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t05-p032",
@@ -2382,7 +2382,7 @@
         {
           "id": "s2-quadratic-functions-t05-h038",
           "type": "heading",
-          "text": "問題文　y=−x²+4x+k の最大値が7。"
+          "text": "問題文　2次関数 y=−x²+4x+k の最大値が7であるとき，定数kの値を求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t05-p039",
@@ -2425,7 +2425,7 @@
         {
           "id": "s2-quadratic-functions-t05-h044",
           "type": "heading",
-          "text": "問題文　周の長さ20の長方形。1辺を x とすると他辺10−x。"
+          "text": "問題文　周の長さが20の長方形の面積の最大値を求めよ。"
         },
         {
           "id": "s2-quadratic-functions-t05-p045",
@@ -2768,7 +2768,7 @@
         {
           "id": "s3-quadratic-functions-t01-h008",
           "type": "heading",
-          "text": "問題文　a=1,b=2,c=−5。D=4+20=24。"
+          "text": "問題文　2次方程式 x²+2x−5=0 を解け。"
         },
         {
           "id": "s3-quadratic-functions-t01-p009",
@@ -2852,7 +2852,7 @@
         {
           "id": "s3-quadratic-functions-t02-h006",
           "type": "heading",
-          "text": "問題文　9x²−6x+1=0。"
+          "text": "問題文　2次方程式 9x²−6x+1=0 の実数解の個数を求めよ。"
         },
         {
           "id": "s3-quadratic-functions-t02-p007",
@@ -2903,7 +2903,7 @@
         {
           "id": "s3-quadratic-functions-t02-h012",
           "type": "heading",
-          "text": "問題文　3x²−x−m=0 が異なる2実数解をもつ m の範囲。"
+          "text": "問題文　2次方程式 3x²−x−m=0 が異なる2つの実数解をもつようなmの値の範囲を求めよ。"
         },
         {
           "id": "s3-quadratic-functions-t02-p013",
@@ -3022,7 +3022,7 @@
         {
           "id": "s3-quadratic-functions-t04-h006",
           "type": "heading",
-          "text": "問題文　交点 x=1,3。係数が正なので下に凸。"
+          "text": "問題文　2次不等式 (x−1)(x−3)>0 を解け。"
         },
         {
           "id": "s3-quadratic-functions-t04-p007",
@@ -3253,7 +3253,7 @@
         {
           "id": "s3-quadratic-functions-t05-h013",
           "type": "heading",
-          "text": "問題文　x²−2kx+k+2=0 が重解をもつ k。"
+          "text": "問題文　2次方程式 x²−2kx+k+2=0 が重解をもつようなkの値を求めよ。"
         },
         {
           "id": "s3-quadratic-functions-t05-p014",
@@ -3306,7 +3306,7 @@
         {
           "id": "s3-quadratic-functions-t05-h020",
           "type": "heading",
-          "text": "問題文　y=x² と y=2x+m の共有点が1個になる m。"
+          "text": "問題文　放物線 y=x² と直線 y=2x+m がただ1つの共有点をもつようなmの値を求めよ。"
         },
         {
           "id": "s3-quadratic-functions-t05-p021",
@@ -3549,7 +3549,7 @@
         {
           "id": "s3-quadratic-functions-t06-h006",
           "type": "heading",
-          "text": "問題文　複数の点・軸・頂点条件から式を決める。"
+          "text": "問題文　与えられた点・軸・頂点の条件を満たす2次関数を求めよ。"
         },
         {
           "id": "s3-quadratic-functions-t06-p007",
@@ -3587,17 +3587,17 @@
         {
           "id": "s3-quadratic-functions-t06-n010",
           "type": "note",
-          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+          "text": "着眼点　放物線と直線の共有点を，連立して得られる2次方程式の実数解として考える。"
         },
         {
           "id": "s3-quadratic-functions-t06-n011",
           "type": "note",
-          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+          "text": "使う知識　接する条件は共有点が1個であることに対応するので，判別式D=0を用いる。"
         },
         {
           "id": "s3-quadratic-functions-t06-h012",
           "type": "heading",
-          "text": "問題文　放物線と直線が接するように定数を決める。"
+          "text": "問題文　放物線と直線が接するように，定数の値を定めよ。"
         },
         {
           "id": "s3-quadratic-functions-t06-p013",
@@ -3620,7 +3620,7 @@
         {
           "id": "s3-quadratic-functions-t06-n014",
           "type": "note",
-          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+          "text": "確認　求めた定数を元の式に戻し，実際に共有点が1個になるかを確かめる。"
         },
         {
           "id": "s3-quadratic-functions-t06-p015",
@@ -3635,17 +3635,17 @@
         {
           "id": "s3-quadratic-functions-t06-n016",
           "type": "note",
-          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+          "text": "着眼点　高さを表す2次関数の頂点と，h(t)=0となる時刻に着目する。"
         },
         {
           "id": "s3-quadratic-functions-t06-n017",
           "type": "note",
-          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+          "text": "使う知識　頂点から最高点を，方程式h(t)=0の正の解から地面に戻る時刻を求める。"
         },
         {
           "id": "s3-quadratic-functions-t06-h018",
           "type": "heading",
-          "text": "問題文　地上から物体を投げ上げた高さを時間 t の2次関数で表すタイプ。"
+          "text": "問題文　地上から投げ上げた物体の高さを時刻tの2次関数で表し，最高点に達する時刻と地面に戻る時刻を考えよ。"
         },
         {
           "id": "s3-quadratic-functions-t06-p019",
@@ -3668,7 +3668,7 @@
         {
           "id": "s3-quadratic-functions-t06-n020",
           "type": "note",
-          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+          "text": "確認　時刻が問題の範囲内にあり，高さが負にならない区間を確認する。"
         }
       ],
       "items": [
