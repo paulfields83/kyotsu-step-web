@@ -2,8 +2,9 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { createReadStream, existsSync } from 'node:fs'
 import { extname, join, normalize } from 'node:path'
 import { isTextbookAnswerCorrect } from '../../src/domain/textbook'
-import { findLoadedTextbook, loadedTextbookUnits, textbookImportDiagnostics } from './textbookData'
+import { findLoadedTextbook, loadedTextbookUnits, textbookContractReports, textbookImportDiagnostics } from './textbookData'
 import { publicTextbookUnit } from './publicTextbook'
+import { textbookInteractionContract } from './textbookContract'
 import { findPracticeQuestion, loadedPracticeUnits } from './practiceData'
 import { publicPracticeQuestion, publicPracticeSummary } from './publicPractice'
 import { loadedPracticeSourceItems } from './practiceSourceData'
@@ -116,6 +117,14 @@ const server = createServer(async (request, response) => {
           figures: unit.sections.reduce((total, section) => total + section.figures.length, 0),
         })),
       textbookImportWarnings: textbookImportDiagnostics,
+      textbookContract: textbookContractReports.map((report) => ({
+        unitId: report.unitId,
+        sections: report.sections,
+        items: report.items,
+        blanks: report.blanks,
+        figures: report.figures,
+        warnings: report.warnings,
+      })),
       publishedPracticeQuestions: loadedPracticeUnits.reduce(
         (total, unit) => total + unit.questions.filter((question) => question.status === 'published').length,
         0,
@@ -233,6 +242,20 @@ const server = createServer(async (request, response) => {
     } catch (error) {
       return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
     }
+  }
+
+  if (request.method === 'GET' && url.pathname === '/api/textbooks/export') {
+    const subject = url.searchParams.get('subject')
+    const units = loadedTextbookUnits
+      .filter(({ unit }) => unit.status === 'published')
+      .filter(({ unit }) => !subject || unit.subject === subject)
+      .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook, apiOrigin))
+
+    return sendJson(request, response, 200, {
+      schemaVersion: '1.0',
+      interactionContract: textbookInteractionContract,
+      units,
+    })
   }
 
   const unitMatch = url.pathname.match(/^\/api\/textbooks\/([^/]+)$/)
