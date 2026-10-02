@@ -98,7 +98,7 @@
         {
           "id": "s1-geometry-measurement-t01-h008",
           "type": "heading",
-          "text": "問題文　斜辺5、Aの対辺3、隣辺4。"
+          "text": "問題文　斜辺が5，∠Aの対辺が3，隣辺が4である直角三角形について，sin A，cos A，tan Aを求めよ。"
         },
         {
           "id": "s1-geometry-measurement-t01-p009",
@@ -198,7 +198,7 @@
         {
           "id": "s1-geometry-measurement-t02-h006",
           "type": "heading",
-          "text": "問題文　Aは鋭角、sin A=3/5。"
+          "text": "問題文　Aを鋭角とし，sin A=3/5 とする。cos A，tan Aを求めよ。"
         },
         {
           "id": "s1-geometry-measurement-t02-p007",
@@ -282,7 +282,7 @@
         {
           "id": "s1-geometry-measurement-t03-h005",
           "type": "heading",
-          "text": "問題文　地点から建物の頂点を見る仰角が30°、建物までの水平距離が20m。目の高さを無視。"
+          "text": "問題文　建物から水平に20m離れた地点から建物の頂点を見た仰角が30°である。目の高さを無視して，建物の高さを求めよ。"
         },
         {
           "id": "s1-geometry-measurement-t03-p006",
@@ -335,7 +335,7 @@
         {
           "id": "s1-geometry-measurement-t03-h012",
           "type": "heading",
-          "text": "問題文　sin78°, cos9°, tan63° を三角比の表から読む。"
+          "text": "問題文　三角比の表を用いて，sin78°，cos9°，tan63°の値を求めよ。"
         },
         {
           "id": "s1-geometry-measurement-t03-p013",
@@ -394,7 +394,7 @@
         {
           "id": "s1-geometry-measurement-t03-h018",
           "type": "heading",
-          "text": "問題文　tan A≈0.4245 のとき A を表から求める。"
+          "text": "問題文　Aを鋭角とし，tan A≈0.4245 とする。三角比の表を用いてAを求めよ。"
         },
         {
           "id": "s1-geometry-measurement-t03-p019",
@@ -437,7 +437,7 @@
         {
           "id": "s1-geometry-measurement-t03-h024",
           "type": "heading",
-          "text": "問題文　塔の真下から水平に80m離れた点で仰角35°。"
+          "text": "問題文　塔の真下から水平に80m離れた地点から塔の頂点を見た仰角が35°である。塔の高さを求めよ。"
         },
         {
           "id": "s1-geometry-measurement-t03-p025",
@@ -754,7 +754,7 @@
         {
           "id": "s2-geometry-measurement-t01-h008",
           "type": "heading",
-          "text": "問題文　120°=180°−60°。"
+          "text": "問題文　sin120°，cos120°，tan120°の値を求めよ。"
         },
         {
           "id": "s2-geometry-measurement-t01-p009",
@@ -877,7 +877,7 @@
         {
           "id": "s2-geometry-measurement-t03-h005",
           "type": "heading",
-          "text": "問題文　90°<θ<180°, sinθ=3/5。"
+          "text": "問題文　90°<θ<180°，sinθ=3/5 とする。cosθ，tanθを求めよ。"
         },
         {
           "id": "s2-geometry-measurement-t03-p006",
@@ -938,7 +938,7 @@
         {
           "id": "s2-geometry-measurement-t03-h012",
           "type": "heading",
-          "text": "問題文　150°=180°−30°。"
+          "text": "問題文　sin150°，cos150°，tan150°の値を求めよ。"
         },
         {
           "id": "s2-geometry-measurement-t03-p013",
@@ -997,7 +997,7 @@
         {
           "id": "s2-geometry-measurement-t03-h018",
           "type": "heading",
-          "text": "問題文　Aは鋭角、tanA=3/4。"
+          "text": "問題文　Aを鋭角とし，tan A=3/4 とする。sin A，cos Aを求めよ。"
         },
         {
           "id": "s2-geometry-measurement-t03-p019",
@@ -1058,7 +1058,7 @@
         {
           "id": "s2-geometry-measurement-t03-h025",
           "type": "heading",
-          "text": "問題文　0°≦θ≦180°, cosθ=−√3/2。"
+          "text": "問題文　0°≦θ≦180°，cosθ=−√3/2 のとき，θを求めよ。"
         },
         {
           "id": "s2-geometry-measurement-t03-p026",
@@ -1282,7 +1282,7 @@
         {
           "id": "s3-geometry-measurement-t01-h008",
           "type": "heading",
-          "text": "問題文　A=30°, B=45°, a=6 のとき b。"
+          "text": "問題文　△ABCにおいて，A=30°，B=45°，a=6 とする。辺bの長さを求めよ。"
         },
         {
           "id": "s3-geometry-measurement-t01-p009",
@@ -1335,7 +1335,7 @@
         {
           "id": "s3-geometry-measurement-t01-h015",
           "type": "heading",
-          "text": "問題文　a=8, A=30°。"
+          "text": "問題文　△ABCにおいて，a=8，A=30°とする。外接円の半径Rを求めよ。"
         },
         {
           "id": "s3-geometry-measurement-t01-p016",
@@ -1403,7 +1403,7 @@
         {
           "id": "s3-geometry-measurement-t02-h006",
           "type": "heading",
-          "text": "問題文　b=4,c=6,A=60° のとき a。"
+          "text": "問題文　△ABCにおいて，b=4，c=6，A=60°とする。辺aの長さを求めよ。"
         },
         {
           "id": "s3-geometry-measurement-t02-p007",
@@ -1464,7 +1464,7 @@
         {
           "id": "s3-geometry-measurement-t02-h013",
           "type": "heading",
-          "text": "問題文　a=8,b=4,c=6 のとき A。"
+          "text": "問題文　△ABCにおいて，a=8，b=4，c=6 とする。∠Aを求めよ。"
         },
         {
           "id": "s3-geometry-measurement-t02-p014",
@@ -1548,7 +1548,7 @@
         {
           "id": "s3-geometry-measurement-t03-h005",
           "type": "heading",
-          "text": "問題文　b=8,c=5,A=30°。"
+          "text": "問題文　△ABCにおいて，b=8，c=5，A=30°とする。三角形の面積Sを求めよ。"
         },
         {
           "id": "s3-geometry-measurement-t03-p006",
@@ -1624,7 +1624,7 @@
         {
           "id": "s3-geometry-measurement-t04-h006",
           "type": "heading",
-          "text": "問題文　辺の長さが 4,5,6 の三角形。"
+          "text": "問題文　3辺の長さが4，5，6である三角形が，鋭角三角形・直角三角形・鈍角三角形のどれであるかを判定せよ。"
         },
         {
           "id": "s3-geometry-measurement-t04-p007",
@@ -1753,7 +1753,7 @@
         {
           "id": "s3-geometry-measurement-t05-h006",
           "type": "heading",
-          "text": "問題文　3辺 5,5,6 の三角形の面積。"
+          "text": "問題文　3辺の長さが5，5，6である三角形の面積を求めよ。"
         },
         {
           "id": "s3-geometry-measurement-t05-p007",
@@ -2142,7 +2142,7 @@
         {
           "id": "s4-geometry-measurement-t03-n010",
           "type": "note",
-          "text": "着眼点　対角線で四角形を2つの三角形に分け、その対角線を共通辺として使う。"
+          "text": "着眼点　四角形を対角線で2つの三角形に分け，その対角線を共通する未知量として考える。"
         },
         {
           "id": "s4-geometry-measurement-t03-n011",
@@ -2185,7 +2185,7 @@
         {
           "id": "s4-geometry-measurement-t03-n016",
           "type": "note",
-          "text": "着眼点　対角線で2つの三角形に分け、向かい合う角の和が180°であることを使う。"
+          "text": "着眼点　円に内接する四角形では，向かい合う角の和が180°になることに着目する。"
         },
         {
           "id": "s4-geometry-measurement-t03-n017",
@@ -2238,7 +2238,7 @@
         {
           "id": "s4-geometry-measurement-t03-n023",
           "type": "note",
-          "text": "着眼点　空間内の図形を、必要な点を含む平面で切って考える。"
+          "text": "着眼点　頂点から底面に下ろした垂線を含む断面をとり，直角三角形に帰着する。"
         },
         {
           "id": "s4-geometry-measurement-t03-n024",
@@ -2248,7 +2248,7 @@
         {
           "id": "s4-geometry-measurement-t03-h025",
           "type": "heading",
-          "text": "問題文　1辺 a の正四面体。頂点から底面へ下ろした垂線の足は底面正三角形の中心。"
+          "text": "問題文　1辺の長さがaである正四面体の高さと体積を求めよ。"
         },
         {
           "id": "s4-geometry-measurement-t03-p026",
