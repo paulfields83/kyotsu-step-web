@@ -154,22 +154,17 @@
         {
           "id": "s1-human-activities-t02-n004",
           "type": "note",
-          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+          "text": "着眼点　13を2の累乗の和として表せるかを見る。"
         },
         {
           "id": "s1-human-activities-t02-n005",
           "type": "note",
-          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+          "text": "使う知識　2進法では、各桁が2⁰、2¹、2²、…の位を表す。"
         },
         {
           "id": "s1-human-activities-t02-p006",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "13を2進法で表す。"
-            }
-          ]
+          "type": "heading",
+          "text": "問題文　10進数13を2進法で表せ。"
         },
         {
           "id": "s1-human-activities-t02-p007",
@@ -192,7 +187,7 @@
         {
           "id": "s1-human-activities-t02-n008",
           "type": "note",
-          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+          "text": "確認　2進数に直した後、2の累乗の和に戻すと13になるかを確かめる。"
         },
         {
           "id": "s1-human-activities-topic-03",
@@ -642,22 +637,17 @@
         {
           "id": "s1-human-activities-t06-n004",
           "type": "note",
-          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+          "text": "着眼点　3x+5y=1 の1組の整数解を、ユークリッドの互除法を逆にたどって求める。"
         },
         {
           "id": "s1-human-activities-t06-n005",
           "type": "note",
-          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+          "text": "使う知識　1を3と5の整数係数の和で表せば、その係数がx、yの1組の解になる。"
         },
         {
           "id": "s1-human-activities-t06-p006",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "3x+5y=1。"
-            }
-          ]
+          "type": "heading",
+          "text": "問題文　1次不定方程式 3x+5y=1 の整数解を1組求めよ。"
         },
         {
           "id": "s1-human-activities-t06-p007",
@@ -698,7 +688,7 @@
         {
           "id": "s1-human-activities-t06-n009",
           "type": "note",
-          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+          "text": "確認　求めたx、yを3x+5yに代入して1になるかを確かめる。"
         },
         {
           "id": "s1-human-activities-t06-h010",
@@ -1839,7 +1829,7 @@
         {
           "id": "s2-human-activities-t02-h025",
           "type": "heading",
-          "text": "問題文　1〜3個取れるゲームで、残りが4の倍数なら手番側は不利。"
+          "text": "問題文　1回に1〜3個の石を取るゲームで、最後の石を取った人が勝つ。残りが4の倍数のときの必勝戦略を考えよ。"
         },
         {
           "id": "s2-human-activities-t02-p026",
@@ -1860,14 +1850,14 @@
           ]
         },
         {
+          "id": "s2-human-activities-t02-n030",
+          "type": "note",
+          "text": "確認　相手が1、2、3個のどれを取っても、自分の手で再び4の倍数を相手に渡せるかを確認する。"
+        },
+        {
           "id": "s2-human-activities-t02-p027",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "2　研究　ルールを変えた石取り"
-            }
-          ]
+          "type": "heading",
+          "text": "研究　ルールを変えた石取りゲーム"
         },
         {
           "id": "s2-human-activities-t02-p028",
@@ -1896,11 +1886,6 @@
               "text": " 個。相手がk個なら自分は5−k個取るという補完戦略を作る。"
             }
           ]
-        },
-        {
-          "id": "s2-human-activities-t02-n030",
-          "type": "note",
-          "text": "確認　相手のどの手に対しても対応できる戦略になっているかを確認する。"
         },
         {
           "id": "s2-human-activities-t02-p031",
@@ -1960,7 +1945,7 @@
         {
           "id": "s2-human-activities-t03-n007",
           "type": "note",
-          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+          "text": "着眼点　章末問題では、整数・進法・ゲームのどの考え方を使うかを問題の条件から判断する。"
         },
         {
           "id": "s2-human-activities-t03-n008",
