@@ -55,11 +55,125 @@ function redundantHeading(text:string, def:SectionDef){
   return /^第[12]節/.test(text) || compact.includes(title)
 }
 
+function guidedLanguage(title:string){
+  if (/集合と要素/.test(title)) return {
+    focus:'集合を決める条件を満たすかどうかに着目する。',
+    knowledge:'要素が集合に属するかを、条件に戻って ∈・∉ で判断する。',
+    check:'要素と集合の関係に ∈・∉ を使っているかを確認する。',
+  }
+  if (/集合の表し方/.test(title)) return {
+    focus:'要素を並べるのか、条件で表すのかを確認する。',
+    knowledge:'要素を書き並べる方法と、条件を使って表す方法を使い分ける。',
+    check:'文字の範囲や整数・自然数などの条件を落としていないかを確認する。',
+  }
+  if (/包含関係|相等/.test(title)) return {
+    focus:'一方の集合のすべての要素が、もう一方にも含まれるかを見る。',
+    knowledge:'部分集合は片方向、集合の相等は A⊂B と B⊂A の2方向を確認する。',
+    check:'包含の向きを取り違えていないかを確認する。',
+  }
+  if (/共通部分|和集合/.test(title)) return {
+    focus:'「両方」と「少なくとも一方」のどちらを求めるかに着目する。',
+    knowledge:'共通部分は「かつ」、和集合は「または」に対応させて考える。',
+    check:'端点や重複する要素の扱いを確認する。',
+  }
+  if (/空集合|部分集合|3つの集合/.test(title)) return {
+    focus:'要素を何個選ぶか、または複数の集合すべてに入るかを整理する。',
+    knowledge:'部分集合は選ぶ要素数で場合分けし、複数集合では ∩・∪ の意味に戻る。',
+    check:'空集合と集合自身を含めたかを確認する。',
+  }
+  if (/補集合/.test(title)) return {
+    focus:'最初に全体集合Uを固定し、その中で集合Aに入らない部分を見る。',
+    knowledge:'補集合は「Uに属し、Aには属さない」要素の集合として求める。',
+    check:'全体集合の外まで補集合に含めていないかを確認する。',
+  }
+  if (/ド・モルガン/.test(title)) return {
+    focus:'補集合の線がどこまでかかっているかに着目する。',
+    knowledge:'ド・モルガンの法則を、∩と∪を入れ替えながら用いる。',
+    check:'補集合の範囲と ∩・∪ の入れ替えを確認する。',
+  }
+  if (/命題|仮定|結論/.test(title)) return {
+    focus:'「ならば」の前後を分け、仮定と結論を明確にする。',
+    knowledge:'命題を p⇒q の形に整理して真偽を考える。',
+    check:'仮定と結論を逆に読んでいないかを確認する。',
+  }
+  if (/真偽|反例/.test(title)) return {
+    focus:'命題がすべての場合に成り立つかを見る。',
+    knowledge:'真なら根拠を示し、偽なら仮定を満たして結論を満たさない反例を1つ挙げる。',
+    check:'反例が仮定を満たしているかを確認する。',
+  }
+  if (/必要|十分/.test(title)) return {
+    focus:'p⇒q と q⇒p を別々に調べる。',
+    knowledge:'どちらの向きが成り立つかによって必要条件・十分条件・必要十分条件を判断する。',
+    check:'条件の向きを取り違えていないかを確認する。',
+  }
+  if (/否定/.test(title)) return {
+    focus:'元の条件を満たさない範囲を、境界を含めて考える。',
+    knowledge:'「かつ」の否定は「または」、「または」の否定は「かつ」に変える。',
+    check:'不等号の向きと等号の有無を確認する。',
+  }
+  if (/逆|裏|対偶/.test(title)) return {
+    focus:'仮定と結論、さらにそれぞれの否定を区別する。',
+    knowledge:'逆・裏・対偶を p、q とその否定を使って正しく作る。',
+    check:'元の命題と対偶の真偽が一致することを確認する。',
+  }
+  if (/対偶/.test(title)) return {
+    focus:'元の命題を直接示すより、対偶の方が示しやすいかを見る。',
+    knowledge:'p⇒q の代わりに ¬q⇒¬p を証明する。',
+    check:'対偶を逆や裏と混同していないかを確認する。',
+  }
+  if (/背理法|無理数/.test(title)) return {
+    focus:'結論の否定を仮定すると矛盾が導けるかを見る。',
+    knowledge:'結論を否定して仮定し、既知の事実と矛盾することを示す。',
+    check:'どの仮定からどの矛盾が生じたかを明確にする。',
+  }
+  return {
+    focus:`「${title}」で与えられた条件に着目する。`,
+    knowledge:`「${title}」で学んだ定義や性質を用いる。`,
+    check:'得られた結果が元の条件を満たすかを確認する。',
+  }
+}
+
+function normalizeGuidedBlocks(def:SectionDef){
+  const out:SectionDef['blocks']=[]
+  const guide=guidedLanguage(def.title)
+  let exampleOpen=false
+
+  const closeExample=()=>{
+    if(!exampleOpen) return
+    out.push(['n',`確認　${guide.check}`])
+    exampleOpen=false
+  }
+
+  for(const [kind,text] of def.blocks){
+    if(kind==='h' && /^教科書 問\d+/.test(text)){
+      closeExample()
+      const label=text.replace(/^教科書 問\d+[　\s]*/u,'').trim()
+      out.push(['h',`教科書対応問　${label}`])
+      out.push(['n',`着眼点　${guide.focus}`])
+      out.push(['n',`使う知識　${guide.knowledge}`])
+      out.push(['h',`問題文　${label}`])
+      exampleOpen=true
+      continue
+    }
+    if(kind==='h' && exampleOpen){
+      closeExample()
+    }
+    if(kind==='n' && exampleOpen && /^(?:ここで確認|注意|数直線の読み方)/.test(text)){
+      closeExample()
+      out.push([kind,text])
+      continue
+    }
+    out.push([kind,text])
+  }
+  closeExample()
+  return out
+}
+
 function buildTopic(def:SectionDef){
   const used=new Set<string>()
   const readingFlow:TextbookReadingBlock[]=[
     {id:`topic-${def.key}`,type:'topic',text:def.title},
-    ...def.blocks.flatMap(([kind,text],index):TextbookReadingBlock[]=>{
+    ...normalizeGuidedBlocks(def).flatMap(([kind,text],index):TextbookReadingBlock[]=>{
       const id=`sec-${def.key}-${kind}-${String(index+1).padStart(3,'0')}`
       if(kind==='h'){
         if(redundantHeading(text,def)) return []
