@@ -248,7 +248,7 @@
         {
           "id": "s1-human-activities-t03-h006",
           "type": "heading",
-          "text": "問題文　2101_(3) を10進数に直す。"
+          "text": "問題文　3進数 2101₍3₎ を10進数で表せ。"
         },
         {
           "id": "s1-human-activities-t03-p007",
@@ -291,7 +291,7 @@
         {
           "id": "s1-human-activities-t03-h012",
           "type": "heading",
-          "text": "問題文　100を2進数に直す。"
+          "text": "問題文　10進数100を2進数で表せ。"
         },
         {
           "id": "s1-human-activities-t03-p013",
@@ -334,7 +334,7 @@
         {
           "id": "s1-human-activities-t03-h018",
           "type": "heading",
-          "text": "問題文　101101₂+11010₂。"
+          "text": "問題文　2進数 101101₂+11010₂ を計算せよ。"
         },
         {
           "id": "s1-human-activities-t03-p019",
@@ -418,7 +418,7 @@
         {
           "id": "s1-human-activities-t04-h006",
           "type": "heading",
-          "text": "問題文　252=105·2+42、105=42·2+21、42=21·2。"
+          "text": "問題文　ユークリッドの互除法を用いて，252と105の最大公約数を求めよ。"
         },
         {
           "id": "s1-human-activities-t04-p007",
@@ -502,7 +502,7 @@
         {
           "id": "s1-human-activities-t05-h006",
           "type": "heading",
-          "text": "問題文　互除法と積の関係を使う。"
+          "text": "問題文　196と120の最大公約数と最小公倍数を求めよ。"
         },
         {
           "id": "s1-human-activities-t05-p007",
@@ -563,7 +563,7 @@
         {
           "id": "s1-human-activities-t05-h013",
           "type": "heading",
-          "text": "問題文　−17 を5で割った商と余りを 0≦r<5 で表す。"
+          "text": "問題文　−17を5で割ったときの商qと余りrを，0≦r<5となるように求めよ。"
         },
         {
           "id": "s1-human-activities-t05-p014",
@@ -708,7 +708,7 @@
         {
           "id": "s1-human-activities-t06-h013",
           "type": "heading",
-          "text": "問題文　3x+5y=1 のすべての整数解。"
+          "text": "問題文　1次不定方程式 3x+5y=1 のすべての整数解を求めよ。"
         },
         {
           "id": "s1-human-activities-t06-p014",
@@ -878,7 +878,7 @@
         {
           "id": "s1-human-activities-t08-h006",
           "type": "heading",
-          "text": "問題文　2^10 を7で割った余り。"
+          "text": "問題文　2^10を7で割った余りを求めよ。"
         },
         {
           "id": "s1-human-activities-t08-p007",
@@ -921,7 +921,7 @@
         {
           "id": "s1-human-activities-t08-h012",
           "type": "heading",
-          "text": "問題文　a≡2, b≡4 (mod5) のとき a+b, ab の余り。"
+          "text": "問題文　a≡2，b≡4 (mod 5) のとき，a+bとabを5で割った余りをそれぞれ求めよ。"
         },
         {
           "id": "s1-human-activities-t08-p013",
@@ -972,7 +972,7 @@
         {
           "id": "s1-human-activities-t08-h018",
           "type": "heading",
-          "text": "問題文　3^100 を8で割った余り。"
+          "text": "問題文　3^100を8で割った余りを求めよ。"
         },
         {
           "id": "s1-human-activities-t08-p019",
@@ -1048,7 +1048,7 @@
         {
           "id": "s1-human-activities-t09-h006",
           "type": "heading",
-          "text": "問題文　2進法の各桁に対応するカードを使って誕生日の日にちを当てる。"
+          "text": "問題文　2進法の各桁に対応するカードを用いて，選ばれた数を当てるしくみを説明せよ。"
         },
         {
           "id": "s1-human-activities-t09-p007",
@@ -1124,7 +1124,7 @@
         {
           "id": "s1-human-activities-t10-h006",
           "type": "heading",
-          "text": "問題文　2地点間800km、中心角7.2° とする。"
+          "text": "問題文　2地点間の距離が800km，その2地点に対する地球中心角が7.2°であるとする。地球の周長を推定せよ。"
         },
         {
           "id": "s1-human-activities-t10-p007",
@@ -1200,7 +1200,7 @@
         {
           "id": "s1-human-activities-t11-h006",
           "type": "heading",
-          "text": "問題文　mを5で割ると2余り、nを5で割ると1余るとき m−2n の余り。"
+          "text": "問題文　mを5で割ると2余り，nを5で割ると1余るとき，m−2nを5で割った余りを求めよ。"
         },
         {
           "id": "s1-human-activities-t11-p007",
@@ -1253,7 +1253,7 @@
         {
           "id": "s1-human-activities-t11-h013",
           "type": "heading",
-          "text": "問題文　不定方程式の一般解から、正の整数や範囲条件を満たす解だけを選ぶ。"
+          "text": "問題文　1次不定方程式の一般解から，正の整数条件や範囲条件を満たす解の個数を求めよ。"
         },
         {
           "id": "s1-human-activities-t11-p014",
@@ -1614,7 +1614,7 @@
         {
           "id": "s2-human-activities-t01-h007",
           "type": "heading",
-          "text": "問題文　欠けた盤面をドミノで敷き詰められるか。"
+          "text": "問題文　市松模様の盤面から同じ色の2隅を除いたとき，残りをドミノですき間なく敷き詰めることができるか。理由とともに答えよ。"
         },
         {
           "id": "s2-human-activities-t01-p008",
@@ -1690,7 +1690,7 @@
         {
           "id": "s2-human-activities-t02-h006",
           "type": "heading",
-          "text": "問題文　石が10個、1回1〜3個。最後を取った人が勝ち。"
+          "text": "問題文　石が10個あり，1回に1〜3個の石を取る。最後の石を取った人が勝つとき，必勝戦略を考えよ。"
         },
         {
           "id": "s2-human-activities-t02-p007",
@@ -1733,7 +1733,7 @@
         {
           "id": "s2-human-activities-t02-h012",
           "type": "heading",
-          "text": "問題文　同じ正n角形だけで1点のまわりを敷き詰められるか。"
+          "text": "問題文　同じ正n角形だけを用いて，1点のまわりをすき間なく敷き詰めることができる条件を調べよ。"
         },
         {
           "id": "s2-human-activities-t02-p013",
@@ -1786,7 +1786,7 @@
         {
           "id": "s2-human-activities-t02-h019",
           "type": "heading",
-          "text": "問題文　正三角形と正方形などを混ぜる。"
+          "text": "問題文　正三角形や正方形など，異なる種類の正多角形を組み合わせて1点のまわりを敷き詰める方法を考えよ。"
         },
         {
           "id": "s2-human-activities-t02-p020",
@@ -1955,7 +1955,7 @@
         {
           "id": "s2-human-activities-t03-h009",
           "type": "heading",
-          "text": "問題文　古典問題を現代語へ直し、未知数を置いて方程式を作る。"
+          "text": "問題文　古典的な文章題を現代の式に表し，未知数をおいて方程式を作れ。"
         },
         {
           "id": "s2-human-activities-t03-p010",
@@ -2096,7 +2096,7 @@
         {
           "id": "s2-human-activities-t03-h027",
           "type": "heading",
-          "text": "問題文　gcd(a,b)=d を互除法で求めたあと、式を逆にたどる。"
+          "text": "問題文　ユークリッドの互除法を逆にたどり，gcd(a,b)をaとbの整数係数の和で表せ。"
         },
         {
           "id": "s2-human-activities-t03-p028",
@@ -2144,7 +2144,7 @@
         {
           "id": "s2-human-activities-t03-h033",
           "type": "heading",
-          "text": "問題文　質問へのYes/Noを2進数の桁として設計する。"
+          "text": "問題文　Yes/Noで答える質問を用いて数を特定する方法を，2進法と対応させて考えよ。"
         },
         {
           "id": "s2-human-activities-t03-p034",
