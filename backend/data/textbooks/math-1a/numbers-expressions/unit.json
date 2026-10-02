@@ -255,7 +255,7 @@
         {
           "id": "s1-numbers-expressions-t02-h006",
           "type": "heading",
-          "text": "問題文　x⁴−x³y² を x と y のそれぞれに着目して次数を考えよ。"
+          "text": "問題文　多項式 x⁴−x³y² の次数を，xについて，またyについてそれぞれ求めよ。"
         },
         {
           "id": "s1-numbers-expressions-t02-p007",
@@ -365,7 +365,7 @@
         {
           "id": "s1-numbers-expressions-t03-h006",
           "type": "heading",
-          "text": "問題文　3x²−5x+6−5x²+2x−3 を x について降べきの順に整理する。"
+          "text": "問題文　3x²−5x+6−5x²+2x−3 を，xについて降べきの順に整理せよ。"
         },
         {
           "id": "s1-numbers-expressions-t03-p007",
@@ -1369,7 +1369,7 @@
         {
           "id": "s1-numbers-expressions-t11-h020",
           "type": "heading",
-          "text": "問題文　積の展開式の x⁴ の係数を求めるタイプ。"
+          "text": "問題文　与えられた積を展開したときの x⁴ の係数を，式をすべて展開せずに求めよ。"
         },
         {
           "id": "s1-numbers-expressions-t11-p021",
@@ -2226,7 +2226,7 @@
         {
           "id": "s2-numbers-expressions-t01-h008",
           "type": "heading",
-          "text": "問題文　0.696969… を分数で表す。"
+          "text": "問題文　循環小数 0.696969… を分数で表せ。"
         },
         {
           "id": "s2-numbers-expressions-t01-p009",
@@ -2849,7 +2849,7 @@
         {
           "id": "s2-numbers-expressions-t07-h014",
           "type": "heading",
-          "text": "問題文　既約分数 a/b が有限小数になる条件を確かめよ。"
+          "text": "問題文　既約分数 a/b が有限小数で表されるための条件を答えよ。"
         },
         {
           "id": "s2-numbers-expressions-t07-p015",
@@ -3607,7 +3607,7 @@
         {
           "id": "s3-numbers-expressions-t03-h006",
           "type": "heading",
-          "text": "問題文　1個の値段と予算から買える最大個数を求めるタイプ。"
+          "text": "問題文　1個の値段と予算が与えられているとき，予算内で買える個数の最大値を求めよ。"
         },
         {
           "id": "s3-numbers-expressions-t03-p007",
@@ -3691,7 +3691,7 @@
         {
           "id": "s3-numbers-expressions-t04-h006",
           "type": "heading",
-          "text": "問題文　x−1 を1つのまとまり A と見る。|A|=4 だから A=±4。"
+          "text": "問題文　方程式 |x−1|=4 を解け。"
         },
         {
           "id": "s3-numbers-expressions-t04-p007",
@@ -3734,7 +3734,7 @@
         {
           "id": "s3-numbers-expressions-t04-h012",
           "type": "heading",
-          "text": "問題文　−5<x+2<5 と直す。"
+          "text": "問題文　不等式 |x+2|<5 を解け。"
         },
         {
           "id": "s3-numbers-expressions-t04-p013",
@@ -3887,7 +3887,7 @@
         {
           "id": "s3-numbers-expressions-t05-h013",
           "type": "heading",
-          "text": "問題文　a≠1 とし ax<x−2a を x について解くタイプ。"
+          "text": "問題文　a≠1 とする。不等式 ax<x−2a を，aの値によって場合分けしてxについて解け。"
         },
         {
           "id": "s3-numbers-expressions-t05-p014",
@@ -3993,7 +3993,7 @@
         {
           "id": "s3-numbers-expressions-t05-h027",
           "type": "heading",
-          "text": "問題文　2x−1<5 と 3x+2≧−4 を同時に満たす x。"
+          "text": "問題文　連立不等式 2x−1<5，3x+2≧−4 を解け。"
         },
         {
           "id": "s3-numbers-expressions-t05-p028",
@@ -4097,7 +4097,7 @@
         {
           "id": "s3-numbers-expressions-t05-h040",
           "type": "heading",
-          "text": "問題文　ax<1 を x について解く。"
+          "text": "問題文　不等式 ax<1 を，aの値によって場合分けしてxについて解け。"
         },
         {
           "id": "s3-numbers-expressions-t05-p041",
@@ -4263,12 +4263,12 @@
         {
           "id": "s3-numbers-expressions-t06-n013",
           "type": "note",
-          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+          "text": "使う知識　食塩の量は「食塩水の量×濃度」で表し，混ぜる前後で食塩の量が変わらないことを用いる。"
         },
         {
           "id": "s3-numbers-expressions-t06-h014",
           "type": "heading",
-          "text": "問題文　濃度の異なる食塩水を混ぜる問題。"
+          "text": "問題文　濃度の異なる2種類の食塩水を混ぜるとき，食塩の量に着目して条件を式に表せ。"
         },
         {
           "id": "s3-numbers-expressions-t06-p015",
@@ -4306,17 +4306,17 @@
         {
           "id": "s3-numbers-expressions-t06-n018",
           "type": "note",
-          "text": "読む　どの進法・どの整数条件を扱うかを最初に固定する。余りなら「a=bq+r, 0≦r<b」の形に戻す。"
+          "text": "着眼点　人数をx人とおき，『配れる』『配り切れない』という条件を不等式で表す。"
         },
         {
           "id": "s3-numbers-expressions-t06-n019",
           "type": "note",
-          "text": "考える　進法変換は位の重み、最大公約数は互除法、不定方程式は1組の解から一般解、合同式は余りが同じこととして処理する。"
+          "text": "使う知識　個数は整数であることに注意し，2つの不等式の共通範囲から人数を決める。"
         },
         {
           "id": "s3-numbers-expressions-t06-h020",
           "type": "heading",
-          "text": "問題文　1人6個ずつ配ると38個余り、1人15個ずつでは最後の1人分が不足する。人数を x 人とする。"
+          "text": "問題文　みかんを1人に6個ずつ配ると38個余り，15個ずつ配ると最後の1人には配り切れない。人数とみかんの個数を求めよ。"
         },
         {
           "id": "s3-numbers-expressions-t06-p021",
@@ -4373,7 +4373,7 @@
         {
           "id": "s3-numbers-expressions-t06-n023",
           "type": "note",
-          "text": "最後の確認　商・余りの範囲、一般解の文字が整数であること、求めた解を元の式へ代入して確認する。"
+          "text": "確認　求めた人数とみかんの個数が，2つの配り方の条件をともに満たすかを確かめる。"
         },
         {
           "id": "s3-numbers-expressions-t06-p024",
@@ -4388,17 +4388,17 @@
         {
           "id": "s3-numbers-expressions-t06-n025",
           "type": "note",
-          "text": "着眼点　絶対値の中の式の符号が変わる点で場合分けする。"
+          "text": "着眼点　A以外の2人が同時にA以上の票を取れるかどうかに着目する。"
         },
         {
           "id": "s3-numbers-expressions-t06-n026",
           "type": "note",
-          "text": "考える　既習事項のうち、どの条件がこの問題に合うかを判断してから、1段ずつ式・図・場合分けを進める。"
+          "text": "使う知識　残りの票数と，他の2人がA以上になるために必要な票数を不等式で比較する。"
         },
         {
           "id": "s3-numbers-expressions-t06-h027",
           "type": "heading",
-          "text": "問題文　40人から2人の代表を選ぶ。Aが x 票取ったとき、残り40−x票を他の候補が分ける。"
+          "text": "問題文　40票を3人の候補で争い，上位2人が当選する。候補Aが必ず当選するために必要な得票数の最小値を求めよ。"
         },
         {
           "id": "s3-numbers-expressions-t06-p028",
@@ -4431,7 +4431,7 @@
         {
           "id": "s3-numbers-expressions-t06-n030",
           "type": "note",
-          "text": "最後の確認　得た答えを元の条件へ戻し、範囲・符号・単位・場合分け条件をすべて満たすか確認する。"
+          "text": "確認　求めた最小票数でAが必ず上位2人に入ることを確かめる。"
         }
       ],
       "items": [
