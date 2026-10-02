@@ -5,6 +5,7 @@ import { builtInTextbookUnits } from '../../src/data/textbookUnits'
 import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookAnswerBook, type TextbookUnit } from '../../src/domain/textbookSchema'
 import { strictSetsPropositionsAnswers, strictSetsPropositionsUnit } from './setsPropositionsStrict'
 import { applyMathLearningFigures } from './mathLearningFigures'
+import { assertTextbookContract, type TextbookContractReport } from './textbookContract'
 
 export type LoadedTextbookUnit = {
   unit: TextbookUnit
@@ -148,11 +149,17 @@ const jsonTextbooks = loadJsonTextbooks()
 // Production textbook units are static unit.json + answers.json files so the API is
 // deterministic and does not depend on parsing DOCX files at runtime.
 export const textbookImportDiagnostics: string[] = []
-export const loadedTextbookUnits: LoadedTextbookUnit[] = [
+const loadedUnits: LoadedTextbookUnit[] = [
   ...legacyTextbooks,
   ...generatedTextbooks,
   ...jsonTextbooks,
 ]
+
+export const textbookContractReports: TextbookContractReport[] = loadedUnits.map(({ unit, answerBook }) => (
+  assertTextbookContract(unit, answerBook)
+))
+
+export const loadedTextbookUnits: LoadedTextbookUnit[] = loadedUnits
 
 export function findLoadedTextbook(unitId: string) {
   return loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId && unit.status === 'published')
