@@ -23,6 +23,8 @@ const generatedFigureIdsByUnit: Record<string, string[]> = {
   'math-1a-geometry-measurement': ['trig-right-triangle'],
   'math-1a-data-analysis': ['data-transform'],
   'math-1a-geometric-properties': [
+    'parallel-similarity',
+    'internal-external-division',
     'angle-bisector',
     'triangle-centroid',
     'triangle-centers',
@@ -32,11 +34,15 @@ const generatedFigureIdsByUnit: Record<string, string[]> = {
     'ceva-reverse',
     'menelaus-reverse',
     'triangle-side-angle',
+    'cyclic-angle',
     'cyclic-quadrilateral',
     'tangent-chord',
     'power-of-point',
     'two-circles',
+    'basic-construction',
+    'line-plane',
     'three-perpendicular',
+    'polyhedra-euler',
   ],
 }
 const staticMathUnitIds = [

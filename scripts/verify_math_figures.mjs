@@ -16,6 +16,8 @@ export const expectedFigures = [
   ['parabola-line-intersection', 'quadratic/parabola-line-intersection', 'quadratic-functions/assets/parabola-line-intersection.svg'],
   ['quadratic-inequality', 'quadratic/quadratic-inequality', 'quadratic-functions/assets/quadratic-inequality.svg'],
   ['absolute-value-graph', 'quadratic/absolute-value-graph', 'quadratic-functions/assets/absolute-value-graph.svg'],
+  ['parallel-similarity', 'geometry/parallel-similarity', 'geometric-properties/assets/parallel-similarity.svg'],
+  ['internal-external-division', 'geometry/internal-external-division', 'geometric-properties/assets/internal-external-division.svg'],
   ['angle-bisector', 'geometry/angle-bisector', 'geometric-properties/assets/angle-bisector.svg'],
   ['triangle-centroid', 'geometry/triangle-centroid', 'geometric-properties/assets/triangle-centroid.svg'],
   ['triangle-centers', 'geometry/triangle-centers', 'geometric-properties/assets/triangle-centers.svg'],
@@ -25,11 +27,15 @@ export const expectedFigures = [
   ['ceva-reverse', 'geometry/ceva-reverse', 'geometric-properties/assets/ceva-reverse.svg'],
   ['menelaus-reverse', 'geometry/menelaus-reverse', 'geometric-properties/assets/menelaus-reverse.svg'],
   ['triangle-side-angle', 'geometry/triangle-side-angle', 'geometric-properties/assets/triangle-side-angle.svg'],
+  ['cyclic-angle', 'geometry/cyclic-angle', 'geometric-properties/assets/cyclic-angle.svg'],
   ['cyclic-quadrilateral', 'geometry/cyclic-quadrilateral', 'geometric-properties/assets/cyclic-quadrilateral.svg'],
   ['tangent-chord', 'geometry/tangent-chord', 'geometric-properties/assets/tangent-chord.svg'],
   ['power-of-point', 'geometry/power-of-point', 'geometric-properties/assets/power-of-point.svg'],
   ['two-circles', 'geometry/two-circles', 'geometric-properties/assets/two-circles.svg'],
+  ['basic-construction', 'geometry/basic-construction', 'geometric-properties/assets/basic-construction.svg'],
+  ['line-plane', 'geometry/line-plane', 'geometric-properties/assets/line-plane.svg'],
   ['three-perpendicular', 'geometry/three-perpendicular', 'geometric-properties/assets/three-perpendicular.svg'],
+  ['polyhedra-euler', 'geometry/polyhedra-euler', 'geometric-properties/assets/polyhedra-euler.svg'],
   ['data-transform', 'statistics/data-transform', 'data-analysis/assets/data-transform.svg'],
   ['trig-right-triangle', 'trigonometry/trig-right-triangle', 'geometry-measurement/assets/trig-right-triangle.svg'],
   ['demorgan', 'sets/demorgan', 'sets-propositions/assets/demorgan.svg'],
@@ -112,7 +118,7 @@ function validateFiles(entry, checks) {
     'data-transform',
   ])
   if (pgfIds.has(entry.id)) requireCheck(checks, 'pgfplots-formula', tex.includes('\\addplot'), 'function/statistics geometry comes from PGFPlots')
-  if (entry.id === 'three-perpendicular') requireCheck(checks, '3d-engine', tex.includes('tikz-3dplot'), '3D coordinates use tikz-3dplot')
+  if (['line-plane', 'three-perpendicular', 'polyhedra-euler'].includes(entry.id)) requireCheck(checks, '3d-engine', tex.includes('tikz-3dplot'), '3D coordinates use tikz-3dplot')
   const sourceBindings = {
     'quadratic-domain-range': [/domain=-2:3/, /coordinates \{\(-2,3\) \(3,8\)\}/, /coordinates \{\(0,-1\)\}/],
     'quadratic-vertex-form': [/\{2\*\(x-1\.5\)\^2-2\}/, /coordinates \{\(1\.5,-2\)\}/, /axis cs:1\.5,-3\.1/],
@@ -124,6 +130,8 @@ function validateFiles(entry, checks) {
     'parabola-line-intersection': [/\{x\^2-1\}/, /\{x\+1\}/, /coordinates \{\(-1,0\) \(2,3\)\}/],
     'quadratic-inequality': [/\{\(x-1\)\*\(x-3\)\}/, /coordinates \{\(1,0\) \(3,0\)\}/, /f\(x\)>0/, /f\(x\)<0/],
     'absolute-value-graph': [/\{x\^2-1\}/, /\{abs\(x\^2-1\)\}/, /domain=-1:1/, /\{1-x\^2\}/, /coordinates \{\(-1,0\) \(1,0\)\}/],
+    'parallel-similarity': [/\(D\) at \(\$\(A\)!\.45!\(B\)\$\)/, /\(E\) at \(\$\(A\)!\.45!\(C\)\$\)/, /DE\\parallel BC/],
+    'internal-external-division': [/\\pgfmathsetmacro\{\\internalratio\}\{2\/3\}/, /\(P\) at \(\$\(A\)!\\internalratio!\(B\)\$\)/, /\(Q\) at \(\$\(A2\)!2!\(B2\)\$\)/, /AP:PB=2:1/, /AQ:QB=2:1/],
     'angle-bisector': [/\\pgfmathsetmacro\{\\ratio\}\{\\AB\/\(\\AB\+\\AC\)\}/, /\(B\)!\\ratio!\(C\)/],
     'triangle-centroid': [/\(B\)!\.5!\(C\)/, /name intersections=\{of=medianA and medianB,by=G\}/],
     'triangle-centers': [/\(O\) at \(2\.4,1\.2294118\)/, /\(I\) at \(1\.52154,1\.20510\)/, /\(H\) at \(\.8,\.9411765\)/],
@@ -133,11 +141,15 @@ function validateFiles(entry, checks) {
     'ceva-reverse': [/\(B\)!\.4!\(C\)/, /\(C\)!\.6!\(A\)/, /\(A\)!\.5!\(B\)/, /of=AD and BE,by=P/],
     'menelaus-reverse': [/\(D\) at \(-2,0\)/, /\(C\)!\.5!\(A\)/, /\(A\)!\.8!\(B\)/],
     'triangle-side-angle': [/\(A\) at \(1\.2,3\)/, /\(C\) at \(5\.8,0\)/, /\\angle A>\\angle B>\\angle C/],
+    'cyclic-angle': [/\(A\) at \(210:3\)/, /\(B\) at \(330:3\)/, /\(C\) at \(70:3\)/, /\(D\) at \(135:3\)/, /angle=A--C--B/, /angle=A--D--B/],
     'cyclic-quadrilateral': [/\(A\) at \(150:3\)/, /\(B\) at \(230:3\)/, /\(C\) at \(325:3\)/, /\(D\) at \(55:3\)/],
     'tangent-chord': [/\(T\) at \(3,0\)/, /\(A\) at \(220:3\)/, /\(B\) at \(110:3\)/, /angle=S--T--A/, /angle=T--B--A/],
     'power-of-point': [/\(O\) at \(1,0\)/, /\(T\) at \(-\.25,2\.1650635\)/, /\(P\)--\(T\)/],
     'two-circles': [/\(X\) at \(0,1\.959592\)/, /\(Y\) at \(0,-1\.959592\)/, /\(T1\) at \(-1\.5,1\.2\)/, /\(T2\) at \(1\.5,1\.2\)/],
+    'basic-construction': [/\(A\) at \(-2\.4,0\)/, /\(B\) at \(2\.4,0\)/, /\\pgfmathsetmacro\{\\intersectionheight\}\{sqrt\(3\.2\^2-2\.4\^2\)\}/, /\(U\) at \(0,\\intersectionheight\)/, /circle \(3\.2\)/],
+    'line-plane': [/\(X1\) at \(-\.8,-\.3,-1\)/, /\(O1\) at \(0,0,0\)/, /\(Y1\) at \(\.8,\.3,1\)/, /\(X2\) at \(-1\.2,-\.5,1\)/, /\(Y3\) at \(1\.2,\.6,0\)/],
     'three-perpendicular': [/\(H\) at \(0,0,0\)/, /\(P\) at \(0,0,3\)/, /\(Q\) at \(3,1,0\)/, /\(L1\) at \(-1,3,0\)/, /\(L2\) at \(1,-3,0\)/],
+    'polyhedra-euler': [/\(A\) at \(0,0,0\)/, /\(B\) at \(3,0,0\)/, /\(G\) at \(3,3,3\)/, /F=6/, /E=12/, /V=8/, /V-E\+F=8-12\+6=2/],
     'data-transform': [/coordinates \{\(-2,0\) \(-\.5,0\) \(1\.5,0\) \(2\.5,0\)\}/, /coordinates \{\(1,1\) \(2\.5,1\) \(4\.5,1\) \(5\.5,1\)\}/, /coordinates \{\(4,1\) \(1,1\) \(-3,1\) \(-5,1\)\}/],
     'trig-right-triangle': [/\(A\) at \(0,0\)/, /\(B\) at \(4\.8,0\)/, /\(C\) at \(4\.8,3\.6\)/, /\\sin A=\\frac\{BC\}\{AC\}/],
     demorgan: [/\\overline\{A\\cap B\}/, /\\overline A\\cup\\overline B/, /even odd rule/],
@@ -213,6 +225,20 @@ function verifyModel(id, checks) {
     requireCheck(checks, 'outside-unchanged', [-2, 2].every((x) => approx(g(x), f(x))), '|f|=f outside [-1,1]')
     requireCheck(checks, 'inside-reflected', [-0.5, 0, 0.5].every((x) => approx(g(x), -f(x))), '|f|=-f inside (-1,1)')
     requireCheck(checks, 'nonnegative', [-2, -1, 0, 1, 2].every((x) => g(x) >= 0), '|f(x)| is nonnegative')
+  } else if (id === 'parallel-similarity') {
+    const A = point(1.2, 4), B = point(0, 0), C = point(6, 0)
+    const D = add(A, scale(sub(B, A), 0.45)), E = add(A, scale(sub(C, A), 0.45))
+    requireCheck(checks, 'D-on-AB', collinear(A, B, D), 'D belongs to AB')
+    requireCheck(checks, 'E-on-AC', collinear(A, C, E), 'E belongs to AC')
+    requireCheck(checks, 'same-division-ratio', approx(distance(A, D) / distance(A, B), distance(A, E) / distance(A, C)), 'AD/AB=AE/AC')
+    requireCheck(checks, 'parallel-lines', approx(cross2(sub(E, D), sub(C, B)), 0), 'DE is parallel to BC')
+  } else if (id === 'internal-external-division') {
+    const A = point(0, 0), B = point(3, 0)
+    const P = add(A, scale(sub(B, A), 2 / 3)), Q = add(A, scale(sub(B, A), 2))
+    requireCheck(checks, 'P-on-segment', collinear(A, B, P) && P.x > A.x && P.x < B.x, 'P lies inside AB')
+    requireCheck(checks, 'internal-ratio', approx(distance(A, P) / distance(P, B), 2), 'AP:PB=2:1')
+    requireCheck(checks, 'Q-on-extension', collinear(A, B, Q) && Q.x > B.x, 'Q lies beyond B')
+    requireCheck(checks, 'external-ratio', approx(distance(A, Q) / distance(Q, B), 2), 'AQ:QB=2:1')
   } else if (id === 'angle-bisector') {
     const A = point(1.2, 4), B = point(0, 0), C = point(6, 0)
     const ratio = distance(A, B) / (distance(A, B) + distance(A, C))
@@ -279,6 +305,10 @@ function verifyModel(id, checks) {
     const Aang = angleAt(B, A, C), Bang = angleAt(A, B, C), Cang = angleAt(A, C, B)
     requireCheck(checks, 'side-order', a > b && b > c, `a=${a}, b=${b}, c=${c}`)
     requireCheck(checks, 'angle-order', Aang > Bang && Bang > Cang, `A=${Aang}, B=${Bang}, C=${Cang}`)
+  } else if (id === 'cyclic-angle') {
+    const A = polar(210, 3), B = polar(330, 3), C = polar(70, 3), D = polar(135, 3)
+    for (const [name, p] of Object.entries({ A, B, C, D })) requireCheck(checks, `circle-${name}`, approx(norm(p), 3), `${name} lies on r=3`)
+    requireCheck(checks, 'same-chord-angle', approx(angleAt(A, C, B), angleAt(A, D, B)), 'ACB=ADB')
   } else if (id === 'cyclic-quadrilateral') {
     const A = polar(150, 3), B = polar(230, 3), C = polar(325, 3), D = polar(55, 3)
     for (const [name, p] of Object.entries({ A, B, C, D })) requireCheck(checks, `circle-${name}`, approx(norm(p), 3), `${name} lies on r=3`)
@@ -302,6 +332,21 @@ function verifyModel(id, checks) {
     requireCheck(checks, 'common-chord', perpendicular(sub(Y, X), sub(O2, O1)), 'XY perpendicular O1O2')
     const tangent = point(1, 0), radius = point(0, 1.2)
     requireCheck(checks, 'common-tangent', perpendicular(tangent, radius), 'both radii perpendicular common tangent')
+  } else if (id === 'basic-construction') {
+    const A = point(-2.4, 0), B = point(2.4, 0), M = midpoint(A, B), radius = 3.2
+    const height = Math.sqrt(radius ** 2 - (distance(A, B) / 2) ** 2)
+    const U = point(0, height), V = point(0, -height)
+    requireCheck(checks, 'equal-radii', [distance(U, A), distance(U, B), distance(V, A), distance(V, B)].every((value) => approx(value, radius)), 'UA=UB=VA=VB=r')
+    requireCheck(checks, 'midpoint', approx(distance(A, M), distance(M, B)), 'AM=MB')
+    requireCheck(checks, 'intersection-line', collinear(U, M, V), 'U,M,V are collinear')
+    requireCheck(checks, 'perpendicular-bisector', perpendicular(sub(V, U), sub(B, A)), 'UV perpendicular AB')
+  } else if (id === 'line-plane') {
+    const X1 = point(-0.8, -0.3, -1), O1 = point(0, 0, 0), Y1 = point(0.8, 0.3, 1)
+    const X2 = point(-1.2, -0.5, 1), Y2 = point(1.2, 0.5, 1)
+    const X3 = point(-1.2, -0.6, 0), Y3 = point(1.2, 0.6, 0)
+    requireCheck(checks, 'intersection-point', collinear(X1, O1, Y1) && O1.z === 0 && X1.z * Y1.z < 0, 'first line crosses z=0 only at P')
+    requireCheck(checks, 'parallel-plane', X2.z === 1 && Y2.z === 1 && sub(Y2, X2).z === 0, 'second line is parallel to z=0 at z=1')
+    requireCheck(checks, 'contained-line', X3.z === 0 && Y3.z === 0, 'third line is contained in z=0')
   } else if (id === 'three-perpendicular') {
     const H = point(0, 0, 0), P = point(0, 0, 3), Q = point(3, 1, 0), l = point(-1, 3, 0)
     requireCheck(checks, 'plane-incidence', H.z === 0 && Q.z === 0, 'H,Q belong to z=0')
@@ -309,6 +354,18 @@ function verifyModel(id, checks) {
     requireCheck(checks, 'l-perp-HQ', perpendicular(l, sub(Q, H)), 'l dot HQ=0')
     requireCheck(checks, 'l-perp-PQ', perpendicular(l, sub(Q, P)), 'l dot PQ=0')
     requireCheck(checks, 'projection', sub(Q, H).z === 0, 'HQ is the projection of PQ onto z=0')
+  } else if (id === 'polyhedra-euler') {
+    const vertices = [
+      point(0, 0, 0), point(3, 0, 0), point(3, 3, 0), point(0, 3, 0),
+      point(0, 0, 3), point(3, 0, 3), point(3, 3, 3), point(0, 3, 3),
+    ]
+    const edgeCount = vertices.flatMap((a, index) => vertices.slice(index + 1).map((b) => [a, b]))
+      .filter(([a, b]) => [a.x !== b.x, a.y !== b.y, a.z !== b.z].filter(Boolean).length === 1 && approx(distance(a, b), 3)).length
+    const faceCount = 6
+    requireCheck(checks, 'cube-vertices', vertices.length === 8, 'V=8')
+    requireCheck(checks, 'cube-edges', edgeCount === 12, `E=${edgeCount}`)
+    requireCheck(checks, 'cube-faces', faceCount === 6, 'F=6')
+    requireCheck(checks, 'euler-formula', vertices.length - edgeCount + faceCount === 2, 'V-E+F=2')
   } else if (id === 'data-transform') {
     const X = [-2, -0.5, 1.5, 2.5], shifted = X.map((x) => x + 3), scaled = X.map((x) => -2 * x)
     requireCheck(checks, 'shift-mean', approx(mean(shifted), mean(X) + 3), 'mean(X+3)=mean(X)+3')

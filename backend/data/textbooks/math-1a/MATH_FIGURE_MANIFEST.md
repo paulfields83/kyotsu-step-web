@@ -62,11 +62,11 @@ V3 対象は `assets/<figure_id>.svg` を参照し、インライン SVG 座標�
 
 ## V3 LaTeX 自动作图（2026-10-01、2026-10-02 追補）
 
-V2 で座標を直接記述していた重点 21 図に加え、2026-10-02 に2次関数の残り6図（象限、$y=ax^2$、判別式、放物線と直線、2次不等式、絶対値グラフ）を同じ方式で再制作した。各図の一式は
+V2 で座標を直接記述していた重点 21 図に加え、2026-10-02 に2次関数の残り6図（象限、$y=ax^2$、判別式、放物線と直線、2次不等式、絶対値グラフ）と、図形の性質の残り6図（平行線と相似、内分・外分、円周角、基本作図、直線と平面、多面体）を同じ方式で再制作した。これにより図形の性質の20図はすべて LaTeX/TikZ source と backend SVG asset を持つ。各図の一式は
 `backend/data/textbooks/math-1a/figure-sources/<category>/<figure_id>/` に置く。
 
 - `figure_spec.json`: 教学目的、教材・Word 対応、数学对象、约束、禁止事项、QA 规则。
-- `figure.tex`: 独立した `standalone` 文書。関数・データ図は PGFPlots、平面図形は TikZ、三垂線は `tikz-3dplot`。
+- `figure.tex`: 独立した `standalone` 文書。関数・データ図は PGFPlots、平面図形は TikZ、直線と平面・三垂線・多面体は `tikz-3dplot`。
 - `figure.pdf`: 数学・視覚確認用の1ページ review PDF。
 - `figure.svg`: 同じ TeX source から生成した font-embedded SVG。
 - `qa_results.json`: source hash、数値検証、コンパイル、視覚確認、asset 公開結果。

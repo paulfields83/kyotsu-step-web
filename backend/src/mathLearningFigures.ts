@@ -143,9 +143,7 @@ const F = {
   probTree: fig('probability-tree','2段階の試行を確率付きの樹形図で示す図','条件付き確率・反復試行は枝ごとの確率を追う',
     `<circle cx="95" cy="210" r="7" fill="#1f2937"/><g stroke="#64748b" stroke-width="3"><line x1="102" y1="210" x2="300" y2="125"/><line x1="102" y1="210" x2="300" y2="295"/><line x1="300" y1="125" x2="560" y2="80"/><line x1="300" y1="125" x2="560" y2="170"/><line x1="300" y1="295" x2="560" y2="250"/><line x1="300" y1="295" x2="560" y2="340"/></g><g font-size="19" fill="#475569"><text x="185" y="145">p</text><text x="185" y="290">1−p</text><text x="420" y="95">q</text><text x="420" y="175">1−q</text></g>`),
 
-  internalExternal: fig('internal-external-division','線分の内分点と外分点を示す図','内分・外分は点の位置と比の向きを図で確認する',
-    `<line x1="100" y1="180" x2="660" y2="180" stroke="#334155" stroke-width="3"/><circle cx="180" cy="180" r="7" fill="#1f2937"/><circle cx="430" cy="180" r="7" fill="#2563eb"/><circle cx="590" cy="180" r="7" fill="#1f2937"/><text x="180" y="220" text-anchor="middle" font-size="21">A</text><text x="430" y="220" text-anchor="middle" font-size="21" fill="#2563eb">P</text><text x="590" y="220" text-anchor="middle" font-size="21">B</text><text x="385" y="120" text-anchor="middle" font-size="21" fill="#475569">内分点は A と B の間</text>
-    <line x1="100" y1="330" x2="700" y2="330" stroke="#334155" stroke-width="3"/><circle cx="180" cy="330" r="7" fill="#1f2937"/><circle cx="430" cy="330" r="7" fill="#1f2937"/><circle cx="620" cy="330" r="7" fill="#ea580c"/><text x="620" y="370" text-anchor="middle" font-size="21" fill="#ea580c">Q</text>`),
+  internalExternal: assetFig('internal-external-division','線分 AB を 2:1 に内分する点 P と外分する点 Q を正確な位置で比較する図','内分点は線分上、外分点は延長上にあり、どちらも指定された比を満たす'),
 
   angleBisector: assetFig('angle-bisector','不等辺三角形 ABC の角 A の二等分線 AD と辺の比を示す図','AD は実際の角の二等分線で、BD:DC=AB:AC を満たす'),
 
@@ -157,8 +155,7 @@ const F = {
 
   menelaus: assetFig('menelaus','三角形の3辺または延長と一直線が交わる D,E,F を示すメネラウスの定理の図','D,E,F は同じ直線上にあり、各点は対応する辺または延長との交点'),
 
-  cyclic: fig('cyclic-angle','同じ弧に対する円周角が等しいことを示す図','同じ弧を見込む円周角は等しい',
-    `<circle cx="380" cy="210" r="150" fill="none" stroke="#1f2937" stroke-width="4"/><circle cx="260" cy="300" r="6" fill="#1f2937"/><circle cx="500" cy="300" r="6" fill="#1f2937"/><circle cx="300" cy="90" r="6" fill="#2563eb"/><circle cx="460" cy="90" r="6" fill="#ea580c"/><line x1="300" y1="90" x2="260" y2="300" stroke="#2563eb" stroke-width="3"/><line x1="300" y1="90" x2="500" y2="300" stroke="#2563eb" stroke-width="3"/><line x1="460" y1="90" x2="260" y2="300" stroke="#ea580c" stroke-width="3"/><line x1="460" y1="90" x2="500" y2="300" stroke="#ea580c" stroke-width="3"/>`),
+  cyclic: assetFig('cyclic-angle','同一円周上の点 C,D から同じ弧 AB を見込む2つの円周角を示す図','同じ弧 AB を見込む円周角 ∠ACB と ∠ADB は等しい'),
 
   cyclicQuad: assetFig('cyclic-quadrilateral','同じ円周上の4点 A,B,C,D を結んだ内接四角形','4頂点は同一円周上にあり、向かい合う角の和が180°になる'),
 
@@ -168,11 +165,9 @@ const F = {
 
   twoCircles: assetFig('two-circles','2つの円の共通弦と中心線、共通接線と半径の垂直関係を示す2図','共通弦は中心を結ぶ線に垂直、接点への半径は共通接線に垂直'),
 
-  construction: fig('basic-construction','コンパスと直線による垂直二等分線の作図模式図','作図では同じ半径の円弧の交点を利用する',
-    `<line x1="160" y1="260" x2="600" y2="260" stroke="#1f2937" stroke-width="4"/><circle cx="160" cy="260" r="7" fill="#1f2937"/><circle cx="600" cy="260" r="7" fill="#1f2937"/><path d="M160 260 m0 -190 a190 190 0 0 1 0 380" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="7 7"/><path d="M600 260 m0 -190 a190 190 0 0 0 0 380" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="7 7"/><line x1="380" y1="65" x2="380" y2="390" stroke="#16a34a" stroke-width="4"/>`),
+  construction: assetFig('basic-construction','A,B を中心とする等しい半径の円弧の交点 U,V から垂直二等分線を作る図','等半径の円弧の交点を結ぶと AB の垂直二等分線になる'),
 
-  linePlane: fig('line-plane','直線と平面の交わり方を示す空間模式図','平行・交差・平面上の3種類を区別する',
-    `<polygon points="130,300 540,300 650,180 240,180" fill="#f8fafc" stroke="#64748b" stroke-width="3"/><line x1="90" y1="120" x2="610" y2="120" stroke="#2563eb" stroke-width="4"/><line x1="350" y1="70" x2="400" y2="340" stroke="#ea580c" stroke-width="4"/><line x1="210" y1="250" x2="550" y2="250" stroke="#16a34a" stroke-width="4"/><text x="610" y="105" font-size="19" fill="#2563eb">平行</text><text x="405" y="80" font-size="19" fill="#ea580c">交わる</text><text x="530" y="240" font-size="19" fill="#16a34a">平面上</text>`),
+  linePlane: assetFig('line-plane','3D座標モデルで直線と平面が交わる・平行・平面上にある3場合を比較する図','直線と平面の位置関係を3種類に分ける'),
 
   fiveCenters: assetFig('five-centers-summary','三角形の五心を交わる線の種類で整理した比較図','重心・外心・内心・垂心・傍心を構成線で区別する'),
 
@@ -182,8 +177,7 @@ const F = {
 
   threePerpendicular: assetFig('three-perpendicular','平面 α、点 P、垂足 H、斜線 PQ、射影 HQ、平面内直線 l を3D座標から投影した三垂線の定理の図','PH⊥α、l⊥HQ を満たし、その結果 l⊥PQ になる'),
 
-  polyhedra: fig('polyhedra-euler','多面体の頂点・辺・面を示す立方体','オイラーの公式では頂点・辺・面を数える',
-    `<rect x="190" y="140" width="280" height="210" fill="none" stroke="#1f2937" stroke-width="4"/><rect x="300" y="70" width="280" height="210" fill="none" stroke="#2563eb" stroke-width="4"/><line x1="190" y1="140" x2="300" y2="70" stroke="#1f2937" stroke-width="4"/><line x1="470" y1="140" x2="580" y2="70" stroke="#1f2937" stroke-width="4"/><line x1="470" y1="350" x2="580" y2="280" stroke="#1f2937" stroke-width="4"/><line x1="190" y1="350" x2="300" y2="280" stroke="#1f2937" stroke-width="4"/><text x="380" y="395" text-anchor="middle" font-size="21" fill="#475569">V − E + F = 2</text>`),
+  polyhedra: assetFig('polyhedra-euler','3D座標から投影した立方体で頂点・辺・面と個数を示す図','立方体では V=8, E=12, F=6 なので V−E+F=2'),
 
   placeValue: fig('place-value','位取り記数法の各桁と重みを示す図','各桁は基数の累乗を重みとして持つ',
     `<g font-size="22" text-anchor="middle"><rect x="120" y="130" width="520" height="120" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>${[0,1,2,3].map(i=>`<line x1="${250+i*130}" y1="130" x2="${250+i*130}" y2="250" stroke="#cbd5e1" stroke-width="2"/>`).join('')}<text x="185" y="185">a₃</text><text x="315" y="185">a₂</text><text x="445" y="185">a₁</text><text x="575" y="185">a₀</text><text x="185" y="225">b³</text><text x="315" y="225">b²</text><text x="445" y="225">b¹</text><text x="575" y="225">b⁰</text></g>`),
@@ -200,8 +194,7 @@ const F = {
   gridPath: fig('grid-shortest-path','格子上の最短経路を東・北の並びとして表す図','最短経路は必要な東移動と北移動の並べ方に置き換える',
     `<g stroke="#cbd5e1" stroke-width="2">${Array.from({length:6},(_,i)=>`<line x1="${140+i*90}" y1="80" x2="${140+i*90}" y2="350"/>`).join('')}${Array.from({length:4},(_,i)=>`<line x1="140" y1="${80+i*90}" x2="590" y2="${80+i*90}"/>`).join('')}</g><circle cx="140" cy="350" r="8" fill="#2563eb"/><circle cx="590" cy="80" r="8" fill="#ea580c"/><path d="M140 350 H320 V260 H410 V170 H590 V80" fill="none" stroke="#16a34a" stroke-width="5"/><text x="120" y="380" font-size="20" fill="#2563eb">A</text><text x="605" y="75" font-size="20" fill="#ea580c">B</text><text x="380" y="405" text-anchor="middle" font-size="20" fill="#475569">東・北の順番だけが変わる</text>`),
 
-  parallelSimilarity: fig('parallel-similarity','三角形内の平行線で相似が生じる図','平行線から等しい角を作り相似へつなげる',
-    `<polygon points="120,340 650,340 380,70" fill="none" stroke="#1f2937" stroke-width="4"/><line x1="230" y1="230" x2="540" y2="230" stroke="#2563eb" stroke-width="4"/><text x="195" y="230" font-size="20">D</text><text x="555" y="230" font-size="20">E</text><text x="380" y="55" text-anchor="middle" font-size="20">A</text><text x="95" y="365" font-size="20">B</text><text x="660" y="365" font-size="20">C</text><text x="385" y="205" text-anchor="middle" font-size="20" fill="#2563eb">DE ∥ BC</text>`),
+  parallelSimilarity: assetFig('parallel-similarity','三角形 ABC の2辺上に D,E を同率で取り DE∥BC とした相似図','平行線から等しい角を作り △ADE∽△ABC と辺の比へつなげる'),
 
   triangleInequality: assetFig('triangle-side-angle','BC が最長辺で、その向かいの角 A が最大になる不等辺三角形','実際の辺長の大小と向かいの角の大小を対応させる'),
 

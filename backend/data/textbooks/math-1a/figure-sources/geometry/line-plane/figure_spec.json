@@ -1,0 +1,21 @@
+{
+  "figure_id": "line-plane",
+  "unit": "math-1a-geometric-properties",
+  "topic": "4.1 直線と平面の位置関係",
+  "insert_after": "s4-geometric-properties-topic-01 paragraph 1",
+  "teaching_goal": "直線と平面の3つの位置関係—1点で交わる、平行、平面上に含まれる—を3D座標モデルで区別する。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 4.1",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 1 直線と平面の位置関係",
+    "textbook_guide": "教科書 p.106–114 の第4節範囲。Word 母本の直線と平面の3分類を一次参照。"
+  },
+  "figure_type": "3d_geometry",
+  "precision": "exact",
+  "objects": ["plane alpha represented by z=0", "intersecting line through P", "parallel line at z=1", "contained line at z=0"],
+  "constraints": ["first line intersects z=0 only at P", "second line has constant nonzero z and is parallel to the plane", "third line lies entirely in z=0"],
+  "labels": ["交わる", "平行", "平面上", "l∩α={P}", "l∥α", "l⊂α"],
+  "forbidden": ["2D-only imitation without 3D coordinates", "parallel line touching the plane", "contained line drawn outside the plane boundary"],
+  "engine": "tikz-3dplot coordinate model and projection",
+  "qa_rules": ["intersection_line_crosses_z0_at_P", "parallel_line_z==1", "contained_line_z==0"],
+  "status": "math_checked"
+}
