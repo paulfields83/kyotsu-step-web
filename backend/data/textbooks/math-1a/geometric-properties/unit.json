@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "unitId": "math-1a-geometric-properties",
-  "revision": 2,
+  "revision": 5,
   "status": "published",
   "subject": "math-1a",
   "title": "数学A 図形の性質",
@@ -32,7 +32,7 @@
         {
           "id": "s1-geometric-properties-t01-n001",
           "type": "note",
-          "text": "この節の固定レール　「図の条件を整理 → 使う定理の条件を確認 → 比・角・長さを1段ずつつなぐ → 図へ戻って確認」の順で進む。"
+          "text": "この節では、図に与えられた条件を整理し、使える定理を確かめながら、比や角を順に求めていく。"
         },
         {
           "id": "s1-geometric-properties-t01-p002",
@@ -40,7 +40,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "比・角・中心を、図の条件から1つずつ読み取る。定理名を先に当てず「どの比/角が等しいから使えるか」を確認する。"
+              "text": "図形の問題では、まず平行・垂直・等しい長さや角など、与えられた条件を図に書き込んで整理する。"
             }
           ]
         },
@@ -50,7 +50,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "平行線がある図では、錯角・同位角から等しい角を作り、三角形の相似へつなげる。比の定理を使う前に、どの2つの三角形が "
+              "text": "平行線があるときは、同位角や錯角が等しいことを利用して三角形の相似を考える。どの2つの三角形が "
             },
             {
               "type": "choice",
@@ -58,7 +58,7 @@
             },
             {
               "type": "text",
-              "text": " になるかを探す。"
+              "text": " になるかを確認する。"
             }
           ]
         },
@@ -68,7 +68,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "三角形の外角は、それと隣り合わない2つの内角の和。角度追跡では180°だけでなく "
+              "text": "三角形の外角は、それと隣り合わない2つの内角の和に等しい。角を求めるときには "
             },
             {
               "type": "choice",
@@ -76,7 +76,7 @@
             },
             {
               "type": "text",
-              "text": " も使う。"
+              "text": " も利用できる。"
             }
           ]
         },
@@ -88,17 +88,17 @@
         {
           "id": "s1-geometric-properties-t01-n006",
           "type": "note",
-          "text": "着眼点　DE∥BC という条件から、△ADE と △ABC の角の対応に注目する。"
+          "text": "着眼点　DE∥BC であることから、△ADE と △ABC の対応する角が等しくなることに着目する。"
         },
         {
           "id": "s1-geometric-properties-t01-n007",
           "type": "note",
-          "text": "使う知識　同位角・錯角が等しいことから相似を確認し、対応する辺どうしの比を同じ向きで並べる。"
+          "text": "使う知識　同位角・錯角が等しいことを用いて相似を示し、対応する辺の比を利用する。"
         },
         {
           "id": "s1-geometric-properties-t01-h008",
           "type": "heading",
-          "text": "問題文　△ABCで辺BCに平行な線分DEがAB,ACと交わる。"
+          "text": "問題文　△ABCにおいて、Dを辺AB上、Eを辺AC上の点とし、DE∥BCとする。AD:AB、AE:AC、DE:BCの関係を求めよ。"
         },
         {
           "id": "s1-geometric-properties-t01-p009",
@@ -106,7 +106,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　DE∥BC なら △ADE∽△ABC。したがって AD:AB=AE:AC="
+              "text": "1　DE∥BC より △ADE∽△ABC。したがって、AD:AB=AE:AC="
             },
             {
               "type": "choice",
@@ -124,14 +124,14 @@
           "parts": [
             {
               "type": "text",
-              "text": "2　比を使う前に「平行だから同位角・錯角が等しい→AAで相似」という根拠を言葉にする。"
+              "text": "2　相似を用いるときは、どの角が等しいかを先に確認し、頂点の対応をそろえる。"
             }
           ]
         },
         {
           "id": "s1-geometric-properties-t01-n011",
           "type": "note",
-          "text": "確認　どの辺とどの辺が対応しているかを図に戻って確認する。"
+          "text": "確認　△ADE と △ABC の頂点の対応が正しいかを確かめる。"
         },
         {
           "id": "s1-geometric-properties-topic-02",
@@ -144,7 +144,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "Pが線分AB上で AP:PB=m:n なら P は ABを "
+              "text": "点Pが線分AB上にあり、AP:PB=m:n のとき、Pは線分ABを "
             },
             {
               "type": "choice",
@@ -152,7 +152,7 @@
             },
             {
               "type": "text",
-              "text": "。延長上で比を満たす点は外分点。"
+              "text": " するという。"
             }
           ]
         },
@@ -162,7 +162,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "中点は1:1の "
+              "text": "線分ABの中点は、ABを1:1に分ける "
             },
             {
               "type": "choice",
@@ -170,7 +170,7 @@
             },
             {
               "type": "text",
-              "text": "。外分は m,n の大小で点がどちら側の延長上にくるかが変わる。"
+              "text": " である。外分点は線分ABの延長上にあり、比の大小によって位置が変わる。"
             }
           ]
         },
@@ -182,17 +182,17 @@
         {
           "id": "s1-geometric-properties-t02-n004",
           "type": "note",
-          "text": "着眼点　「1:2に内分する」を、点Pが線分ABをどの比で分けるかという情報として読む。"
+          "text": "着眼点　AP:PB=1:2 となるように、Pを線分AB上にとる。"
         },
         {
           "id": "s1-geometric-properties-t02-n005",
           "type": "note",
-          "text": "使う知識　全体を比の合計で分け、AP と PB がそれぞれ何個分に当たるかを考える。"
+          "text": "使う知識　内分では、比の和を全体とみて、各部分が何個分に当たるかを考える。"
         },
         {
           "id": "s1-geometric-properties-t02-h006",
           "type": "heading",
-          "text": "問題文　ABを1:2に内分するP。"
+          "text": "問題文　線分ABを1:2に内分する点Pを図示せよ。"
         },
         {
           "id": "s1-geometric-properties-t02-p007",
@@ -200,7 +200,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　全体を3等分したうち APが "
+              "text": "1　ABを3等分したとき、APは "
             },
             {
               "type": "choice",
@@ -208,7 +208,7 @@
             },
             {
               "type": "text",
-              "text": "、PBが "
+              "text": " 個分、PBは "
             },
             {
               "type": "choice",
@@ -216,14 +216,14 @@
             },
             {
               "type": "text",
-              "text": " の割合になる位置に取る。"
+              "text": " 個分に当たる。"
             }
           ]
         },
         {
           "id": "s1-geometric-properties-t02-n008",
           "type": "note",
-          "text": "確認　AP:PB が問題文の比になり、2つを合わせるとAB全体になるか確認する。"
+          "text": "確認　Pが線分AB上にあり、AP:PB=1:2となっているかを確認する。"
         },
         {
           "id": "s1-geometric-properties-topic-03",
@@ -236,7 +236,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "△ABCで∠Aの二等分線とBCの交点D。BD:DC=AB:"
+              "text": "△ABCにおいて、∠Aの二等分線と辺BCの交点をDとすると、BD:DC=AB:"
             },
             {
               "type": "choice",
@@ -244,7 +244,7 @@
             },
             {
               "type": "text",
-              "text": "。角が半分だからではなく、面積比や正弦を使って証明できる。"
+              "text": " が成り立つ。"
             }
           ]
         },
@@ -256,17 +256,17 @@
         {
           "id": "s1-geometric-properties-t03-n003",
           "type": "note",
-          "text": "着眼点　AD が ∠A の二等分線であることが、この問題で使う定理を決める条件。"
+          "text": "着眼点　ADが∠Aの二等分線なので、内角の二等分線と比の定理を用いる。"
         },
         {
           "id": "s1-geometric-properties-t03-n004",
           "type": "note",
-          "text": "使う知識　角の二等分線定理で BD:DC と AB:AC を結び、最後に BC 全体の長さを使う。"
+          "text": "使う知識　BD:DC=AB:AC から辺BCの分かれ方を求め、BD+DC=BCを用いる。"
         },
         {
           "id": "s1-geometric-properties-t03-h005",
           "type": "heading",
-          "text": "問題文　AB=6, AC=9, BC=10、ADが∠Aを二等分。"
+          "text": "問題文　△ABCにおいて、AB=6、AC=9、BC=10とする。∠Aの二等分線と辺BCの交点をDとするとき、BD、DCを求めよ。"
         },
         {
           "id": "s1-geometric-properties-t03-p006",
@@ -274,7 +274,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　BD:DC=6:9=2:3。合計10を5等分して1単位2。BD="
+              "text": "1　内角の二等分線と比の定理より、BD:DC=6:9=2:3。したがって、BD="
             },
             {
               "type": "choice",
@@ -297,7 +297,7 @@
         {
           "id": "s1-geometric-properties-t03-n007",
           "type": "note",
-          "text": "確認　BD と DC の比の向きが AB と AC の対応と一致しているか確認する。"
+          "text": "確認　BD:DC=2:3、BD+DC=10となるかを確かめる。"
         },
         {
           "id": "s1-geometric-properties-topic-04",
@@ -310,7 +310,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "3本の中線は1点で交わり、その点を重心Gという。Gは各中線を頂点側から "
+              "text": "三角形の3本の中線は1点で交わり、その交点を重心Gという。重心Gは、各中線を頂点側から "
             },
             {
               "type": "choice",
@@ -318,7 +318,7 @@
             },
             {
               "type": "text",
-              "text": " に分ける。"
+              "text": " に内分する。"
             }
           ]
         },
@@ -330,17 +330,17 @@
         {
           "id": "s1-geometric-properties-t04-n003",
           "type": "note",
-          "text": "着眼点　G が重心で、AD が中線であることから、中線上の決まった比を使える。"
+          "text": "着眼点　Gが重心であるから、AG:GD=2:1を用いる。"
         },
         {
           "id": "s1-geometric-properties-t04-n004",
           "type": "note",
-          "text": "使う知識　重心が中線を頂点側から 2:1 に分けることを使い、与えられた部分の長さから1単位分を求める。"
+          "text": "使う知識　AGが比の「2」に当たることからGDを求め、最後にAD=AG+GDとする。"
         },
         {
           "id": "s1-geometric-properties-t04-h005",
           "type": "heading",
-          "text": "問題文　ADが中線、Gが重心、AG=8。"
+          "text": "問題文　ADを△ABCの中線とし、Gを重心とする。AG=8のとき、GD、ADを求めよ。"
         },
         {
           "id": "s1-geometric-properties-t04-p006",
@@ -348,7 +348,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　AG:GD=2:1 なので GD="
+              "text": "1　AG:GD=2:1 より、GD="
             },
             {
               "type": "choice",
@@ -356,7 +356,7 @@
             },
             {
               "type": "text",
-              "text": "、AD="
+              "text": "。したがって、AD=AG+GD="
             },
             {
               "type": "choice",
@@ -371,7 +371,7 @@
         {
           "id": "s1-geometric-properties-t04-n007",
           "type": "note",
-          "text": "確認　AG:GD の比と、AG+GD=AD の両方が成り立つか確認する。"
+          "text": "確認　AG:GD=2:1になっているかを確かめる。"
         },
         {
           "id": "s1-geometric-properties-topic-05",
@@ -384,7 +384,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "辺の垂直二等分線の交点が "
+              "text": "三角形の3辺の垂直二等分線は1点で交わる。その交点を "
             },
             {
               "type": "choice",
@@ -392,7 +392,7 @@
             },
             {
               "type": "text",
-              "text": " で、3頂点から等距離。角の二等分線の交点が "
+              "text": " といい、3頂点から等距離にある。3つの内角の二等分線の交点を "
             },
             {
               "type": "choice",
@@ -400,7 +400,7 @@
             },
             {
               "type": "text",
-              "text": " で、3辺から等距離。"
+              "text": " といい、3辺から等距離にある。"
             }
           ]
         },
@@ -410,7 +410,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "3本の高さの交点が "
+              "text": "3頂点から対辺またはその延長に下ろした3本の垂線は1点で交わる。その交点を "
             },
             {
               "type": "choice",
@@ -418,7 +418,7 @@
             },
             {
               "type": "text",
-              "text": "。三角形の種類によって外心・垂心が外側に出ることがある。"
+              "text": " という。"
             }
           ]
         },
@@ -430,17 +430,17 @@
         {
           "id": "s1-geometric-properties-t05-n004",
           "type": "note",
-          "text": "着眼点　P が3つの頂点から等距離であることが、どの中心かを判別する決め手。"
+          "text": "着眼点　PA=PB=PC であることから、Pが各辺の垂直二等分線上にあることに着目する。"
         },
         {
           "id": "s1-geometric-properties-t05-n005",
           "type": "note",
-          "text": "使う知識　2点から等距離の点は、その2点を結ぶ線分の垂直二等分線上にある。この性質を2組に使う。"
+          "text": "使う知識　2点から等距離にある点は、その2点を結ぶ線分の垂直二等分線上にある。"
         },
         {
           "id": "s1-geometric-properties-t05-h006",
           "type": "heading",
-          "text": "問題文　点Pが3頂点A,B,Cから等距離。"
+          "text": "問題文　△ABCにおいて、点PがPA=PB=PCを満たしている。点Pは△ABCのどの中心か。"
         },
         {
           "id": "s1-geometric-properties-t05-p007",
@@ -448,7 +448,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　PA=PB=PC なのでPは辺の垂直二等分線上にあり、3本の交点＝ "
+              "text": "1　PA=PB=PC より、Pは3辺の垂直二等分線の交点である。したがって、Pは△ABCの "
             },
             {
               "type": "choice",
@@ -456,14 +456,14 @@
             },
             {
               "type": "text",
-              "text": "。"
+              "text": " である。"
             }
           ]
         },
         {
           "id": "s1-geometric-properties-t05-n008",
           "type": "note",
-          "text": "確認　「頂点から等距離」と「辺から等距離」を混同していないか確認する。"
+          "text": "確認　頂点から等距離なら外心、辺から等距離なら内心であることを区別する。"
         },
         {
           "id": "s1-geometric-properties-topic-06",
@@ -476,7 +476,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "三角形で特に重要な5つの中心は、重心・外心・内心・垂心・"
+              "text": "三角形の重心・外心・内心・垂心・"
             },
             {
               "type": "choice",
@@ -484,7 +484,7 @@
             },
             {
               "type": "text",
-              "text": "。どの線の交点かを区別する。"
+              "text": " をまとめて三角形の五心という。"
             }
           ]
         },
@@ -494,7 +494,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "傍心は1つの内角の二等分線と、他の2つの "
+              "text": "傍心は、1つの内角の二等分線と、他の2つの "
             },
             {
               "type": "choice",
@@ -502,7 +502,7 @@
             },
             {
               "type": "text",
-              "text": " の交点で、1つの辺と他2辺の延長から等距離。"
+              "text": " の交点である。△ABCには3つの傍心がある。"
             }
           ]
         },
@@ -514,17 +514,17 @@
         {
           "id": "s1-geometric-properties-t06-n004",
           "type": "note",
-          "text": "着眼点　I が内心なので、BI と CI はそれぞれ元の角を二等分する。"
+          "text": "着眼点　Iは内心なので、BIとCIはそれぞれ∠B、∠Cを二等分する。"
         },
         {
           "id": "s1-geometric-properties-t06-n005",
           "type": "note",
-          "text": "使う知識　まず ∠B と ∠C を半分にし、その後 △BIC の内角和を使って残りの角を求める。"
+          "text": "使う知識　∠IBC、∠ICBを求めてから、△BICの内角の和を用いる。"
         },
         {
           "id": "s1-geometric-properties-t06-h006",
           "type": "heading",
-          "text": "問題文　△ABCで ∠B=70°, ∠C=60°、内心I。∠BICを求める。"
+          "text": "問題文　△ABCにおいて、∠B=70°、∠C=60°とし、内心をIとする。∠BICを求めよ。"
         },
         {
           "id": "s1-geometric-properties-t06-p007",
@@ -532,7 +532,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　BI,CI は角の二等分線なので ∠IBC=35°, ∠ICB=30°。"
+              "text": "1　Iは内心であるから、∠IBC=35°、∠ICB=30°。"
             }
           ]
         },
@@ -542,7 +542,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "2　△BIC の内角和から ∠BIC=180°−35°−30°="
+              "text": "2　△BICの内角の和より、∠BIC=180°−35°−30°="
             },
             {
               "type": "choice",
@@ -557,7 +557,7 @@
         {
           "id": "s1-geometric-properties-t06-n009",
           "type": "note",
-          "text": "確認　元の三角形の角と、二等分後の角を取り違えていないか確認する。"
+          "text": "確認　∠B、∠Cと、その二等分後の角を取り違えていないかを確かめる。"
         },
         {
           "id": "s1-geometric-properties-t06-h010",
@@ -567,17 +567,17 @@
         {
           "id": "s1-geometric-properties-t06-n011",
           "type": "note",
-          "text": "着眼点　BI が ∠B の二等分線で、E が AC 上にある。この条件から AC の分かれ方を求められる。"
+          "text": "着眼点　BIは∠Bの二等分線であるから、辺ACは辺AB、BCの比に分けられる。"
         },
         {
           "id": "s1-geometric-properties-t06-n012",
           "type": "note",
-          "text": "使う知識　角の二等分線定理で AE:EC と AB:BC を結び、比が出たら AE+EC=AC を使って長さに戻す。"
+          "text": "使う知識　内角の二等分線と比の定理より AE:EC=AB:BC。さらに AE+EC=AC を用いる。"
         },
         {
           "id": "s1-geometric-properties-t06-h013",
           "type": "heading",
-          "text": "問題文　AB=7,BC=9,CA=8、BIとACの交点E。"
+          "text": "問題文　△ABCにおいて、AB=7、BC=9、CA=8とする。内心をIとし、直線BIと辺ACの交点をEとするとき、AE、ECを求めよ。"
         },
         {
           "id": "s1-geometric-properties-t06-p014",
@@ -585,7 +585,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　BIは∠Bの二等分線なので AE:EC=AB:BC="
+              "text": "1　BEは∠Bの二等分線であるから、AE:EC=AB:BC="
             },
             {
               "type": "choice",
@@ -603,7 +603,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "2　AC=8 を16等分する比なので AE="
+              "text": "2　AE+EC=8 より、AE="
             },
             {
               "type": "choice",
@@ -626,7 +626,7 @@
         {
           "id": "s1-geometric-properties-t06-n016",
           "type": "note",
-          "text": "確認　求めた2つの長さの比が辺の比と一致し、和が AC 全体になるか確認する。"
+          "text": "確認　AE:EC=7:9、AE+EC=8となるかを確かめる。"
         },
         {
           "id": "s1-geometric-properties-t06-h017",
@@ -636,17 +636,17 @@
         {
           "id": "s1-geometric-properties-t06-n018",
           "type": "note",
-          "text": "着眼点　同じ点が重心と外心の両方になっているので、2種類の中心の性質を同時に使う。"
+          "text": "着眼点　重心と外心が同じ点なので、その点を通る中線は同時に辺の垂直二等分線となる。"
         },
         {
           "id": "s1-geometric-properties-t06-n019",
           "type": "note",
-          "text": "使う知識　重心は中線上、外心は各辺の垂直二等分線上にある。1本の線が両方の役割を持つとき何が言えるかを考える。"
+          "text": "使う知識　中線と垂直二等分線の性質から2辺が等しいことを示し、同じことを他の辺についても用いる。"
         },
         {
           "id": "s1-geometric-properties-t06-h020",
           "type": "heading",
-          "text": "問題文　重心Gと外心Oが同一点である△ABC。"
+          "text": "問題文　重心と外心が一致する△ABCは正三角形であることを示せ。"
         },
         {
           "id": "s1-geometric-properties-t06-p021",
@@ -654,7 +654,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　重心は中線上、外心は辺の垂直二等分線上。同じ点を通るので各中線が同時に "
+              "text": "1　Aから引いた中線AMは、外心も通るので辺BCの "
             },
             {
               "type": "choice",
@@ -662,7 +662,7 @@
             },
             {
               "type": "text",
-              "text": " になる。"
+              "text": " でもある。したがって、AB=AC。"
             }
           ]
         },
@@ -672,7 +672,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "2　したがって AB=AC、同様に全ての辺が等しく、△ABC は "
+              "text": "2　同様に BA=BC が成り立つので、AB=BC=CA。よって、△ABCは "
             },
             {
               "type": "choice",
@@ -680,14 +680,14 @@
             },
             {
               "type": "text",
-              "text": "。"
+              "text": " である。"
             }
           ]
         },
         {
           "id": "s1-geometric-properties-t06-n023",
           "type": "note",
-          "text": "確認　1方向だけで終わらず、他の頂点から見ても同じ関係が成り立つか確認する。"
+          "text": "確認　3辺がすべて等しいことまで示せているかを確認する。"
         },
         {
           "id": "s1-geometric-properties-topic-07",
@@ -700,7 +700,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "△ABCで D∈BC,E∈CA,F∈AB。AD,BE,CFが1点で交わるとき (BD/DC)(CE/EA)(AF/FB)="
+              "text": "△ABCで D∈BC、E∈CA、F∈AB とする。AD、BE、CFが1点で交わるとき、(BD/DC)(CE/EA)(AF/FB)="
             },
             {
               "type": "choice",
@@ -708,7 +708,7 @@
             },
             {
               "type": "text",
-              "text": "。"
+              "text": " が成り立つ。これをチェバの定理という。"
             }
           ]
         },
@@ -718,7 +718,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "未知比が1つなら、他の2つを代入して積が1になるように解く。"
+              "text": "3つの比のうち1つが未知なら、既知の2つの比を代入して求める。"
             }
           ]
         },
@@ -733,7 +733,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "D,E,Fが三角形の3辺または延長上にあり一直線上なら、向きを無視した比の形で積が "
+              "text": "△ABCの3辺またはその延長上に点D、E、Fがあり、D、E、Fが一直線上にあるとき、(BD/DC)(CE/EA)(AF/FB)="
             },
             {
               "type": "choice",
@@ -741,7 +741,7 @@
             },
             {
               "type": "text",
-              "text": " になる関係を使う。"
+              "text": " が成り立つ。"
             }
           ]
         },
@@ -751,7 +751,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "チェバは「3本が1点で交わる」、メネラウスは「3点が "
+              "text": "チェバの定理では3本の直線が1点で交わること、メネラウスの定理では3点が "
             },
             {
               "type": "choice",
@@ -759,7 +759,7 @@
             },
             {
               "type": "text",
-              "text": "」が判断軸。"
+              "text": " にあることに着目する。"
             }
           ]
         },
@@ -771,17 +771,17 @@
         {
           "id": "s1-geometric-properties-t08-n004",
           "type": "note",
-          "text": "着眼点　AD,BE,CF が1点で交わるという条件から、3つの辺上の比を結ぶ定理を使う。"
+          "text": "着眼点　AD、BE、CFが1点で交わることから、チェバの定理を用いる。"
         },
         {
           "id": "s1-geometric-properties-t08-n005",
           "type": "note",
-          "text": "使う知識　三角形を一周する順に3つの比を並べ、その積が1になる式を作って未知の比を求める。"
+          "text": "使う知識　三角形の3辺上の比を、チェバの定理の式に対応させて代入する。"
         },
         {
           "id": "s1-geometric-properties-t08-h006",
           "type": "heading",
-          "text": "問題文　BD:DC=2:3, CE:EA=4:5、AD,BE,CFが1点で交わる。AF:FBを求める。"
+          "text": "問題文　△ABCにおいて、BD:DC=2:3、CE:EA=4:5とする。AD、BE、CFが1点で交わるとき、AF:FBを求めよ。"
         },
         {
           "id": "s1-geometric-properties-t08-p007",
@@ -789,7 +789,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　(2/3)(4/5)(AF/FB)=1。AF/FB=15/8。よって "
+              "text": "1　チェバの定理より、(2/3)(4/5)(AF/FB)=1。したがって、"
             },
             {
               "type": "choice",
@@ -804,7 +804,7 @@
         {
           "id": "s1-geometric-properties-t08-n008",
           "type": "note",
-          "text": "確認　3つの比の向きを途中で逆にしていないか確認する。"
+          "text": "確認　3つの比を同じ順序で並べているかを確かめる。"
         },
         {
           "id": "s1-geometric-properties-t08-h009",
@@ -814,17 +814,17 @@
         {
           "id": "s1-geometric-properties-t08-n010",
           "type": "note",
-          "text": "着眼点　D,E,F が一直線上にあることが、この問題で使う定理を選ぶ条件。"
+          "text": "着眼点　D、E、Fが一直線上にあることから、メネラウスの定理を用いる。"
         },
         {
           "id": "s1-geometric-properties-t08-n011",
           "type": "note",
-          "text": "使う知識　三角形を一周する順に比を並べ、教科書で使っている比の向きをそろえて積の式を作る。"
+          "text": "使う知識　三角形の3辺またはその延長上にある3点について、教科書の順序にしたがって比を並べる。"
         },
         {
           "id": "s1-geometric-properties-t08-h012",
           "type": "heading",
-          "text": "問題文　D,E,Fが一直線上にある図で2つの比が既知。"
+          "text": "問題文　△ABCの3辺またはその延長上に点D、E、Fがあり、D、E、Fは一直線上にある。既知の2つの比から、残りの比を求める手順を確認する。"
         },
         {
           "id": "s1-geometric-properties-t08-p013",
@@ -832,7 +832,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　三角形を一周する順に比を並べ、積を1にする。外分点があっても教科書の比の向きを "
+              "text": "1　メネラウスの定理の式に合わせて3つの比を並べる。外分点を含む場合も、比の向きを "
             },
             {
               "type": "choice",
@@ -847,7 +847,7 @@
         {
           "id": "s1-geometric-properties-t08-n014",
           "type": "note",
-          "text": "確認　チェバの「3本が1点で交わる」と、今回の「3点が一直線」を混同していないか確認する。"
+          "text": "確認　チェバの定理の「3直線が1点で交わる」と、メネラウスの定理の「3点が一直線上にある」を区別する。"
         },
         {
           "id": "s1-geometric-properties-topic-09",
@@ -860,7 +860,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "3点D,E,Fが各辺上にあり、比の積が1なら、対応する3本AD,BE,CFは "
+              "text": "△ABCの3辺上に点D、E、Fがあり、(BD/DC)(CE/EA)(AF/FB)=1 が成り立つなら、AD、BE、CFは "
             },
             {
               "type": "choice",
@@ -868,7 +868,7 @@
             },
             {
               "type": "text",
-              "text": "。これがチェバの逆。"
+              "text": "。これがチェバの定理の逆である。"
             }
           ]
         },
@@ -878,7 +878,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "比の積が1ならD,E,Fが "
+              "text": "同じ比の関係が成り立ち、点D、E、Fが辺またはその延長上にあるとき、D、E、Fは "
             },
             {
               "type": "choice",
@@ -886,7 +886,7 @@
             },
             {
               "type": "text",
-              "text": " になる、という形がメネラウスの逆。数値条件から図形関係を証明するのに使う。"
+              "text": " にある。これがメネラウスの定理の逆である。"
             }
           ]
         },
@@ -901,7 +901,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "三角形では大きい辺の向かいの角ほど "
+              "text": "三角形では、大きい辺に対する角ほど "
             },
             {
               "type": "choice",
@@ -909,7 +909,7 @@
             },
             {
               "type": "text",
-              "text": "。a>b ⇔ A>B。"
+              "text": "。"
             }
           ]
         },
@@ -919,7 +919,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "また、2辺の和は残り1辺より大きい。a,b,c が三角形を作るには最大辺cについて c<"
+              "text": "3つの正の数 a、b、c が三角形の3辺になるためには、a+b>c、b+c>a、c+a>b が成り立つ。特に c が最大のときは c<"
             },
             {
               "type": "choice",
@@ -927,7 +927,7 @@
             },
             {
               "type": "text",
-              "text": " が必要。"
+              "text": " であればよい。"
             }
           ]
         },
@@ -939,17 +939,17 @@
         {
           "id": "s1-geometric-properties-t10-n004",
           "type": "note",
-          "text": "着眼点　3つの長さが三角形の辺になるための条件を、そのまま未知数 x の条件に直す。"
+          "text": "着眼点　3、5、x が三角形の3辺となるための条件を立てる。"
         },
         {
           "id": "s1-geometric-properties-t10-n005",
           "type": "note",
-          "text": "使う知識　1辺は他の2辺の差より大きく、和より小さいという三角形の成立条件を使う。"
+          "text": "使う知識　三角形の成立条件より、x は2辺の差より大きく、2辺の和より小さい。"
         },
         {
           "id": "s1-geometric-properties-t10-h006",
           "type": "heading",
-          "text": "問題文　辺が3,5,x の三角形。"
+          "text": "問題文　3辺の長さが3、5、xである三角形が存在するとき、xの値の範囲を求めよ。"
         },
         {
           "id": "s1-geometric-properties-t10-p007",
@@ -957,7 +957,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "1　差より大きく和より小さいので |5−3|<x<5+3。よって "
+              "text": "1　三角形の成立条件より、|5−3|<x<5+3。したがって、"
             },
             {
               "type": "choice",
@@ -972,12 +972,12 @@
         {
           "id": "s1-geometric-properties-t10-n012",
           "type": "note",
-          "text": "確認　一直線に潰れる場合を除くため、不等号に等号を付けていないか確認する。"
+          "text": "確認　x=2、8では三角形が一直線上につぶれるので、等号を含めない。"
         },
         {
           "id": "s1-geometric-properties-t10-p008",
           "type": "heading",
-          "text": "研究　辺の大小と対角の大小の証明"
+          "text": "研究　三角形の辺と角の大小"
         },
         {
           "id": "s1-geometric-properties-t10-p009",
@@ -985,7 +985,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "問題　AB>AC なら ∠C>∠B を示す。"
+              "text": "問題　△ABCで AB>AC のとき、∠C>∠B を示せ。"
             }
           ]
         },
@@ -995,7 +995,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "証明　長い辺AB上に AD=AC となるDをとり、二等辺三角形ACDを作る。外角・内角の大小をつないで "
+              "text": "証明　辺AB上に AD=AC となる点Dをとる。△ACDは二等辺三角形であるから ∠ACD=∠ADC。さらに外角の性質を用いると、"
             },
             {
               "type": "choice",
@@ -1003,7 +1003,7 @@
             },
             {
               "type": "text",
-              "text": " を導く。"
+              "text": " が得られる。"
             }
           ]
         },
@@ -1013,7 +1013,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "着眼点　補助点を置いて既知の二等辺三角形を作り、角の大小関係へつなげる。"
+              "text": "着眼点　辺の長さの比較を角の大小に結びつけるため、二等辺三角形ができるように補助点Dをとる。"
             }
           ]
         },
@@ -1023,7 +1023,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "コンピュータの活用　点を動かす動的幾何ソフトで重心・外心・内心などを観察すると予想を立てやすい。ただし観察結果は証明ではない。最後は定理の仮定から論理的に示す。"
+              "text": "コンピュータの活用　動的幾何ソフトで点を動かしながら、外心O・重心G・垂心Hの位置関係を観察すると、3点が一直線上に並ぶことや比の関係を予想できる。観察で得た予想は、最後に定理を用いて確かめる。"
             }
           ]
         },
@@ -1033,7 +1033,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "第1節の自力確認　図に比を書き込む。中心問題では「どこから等距離か」、チェバ/メネラウスでは「交点か一直線か」を先に確認する。"
+              "text": "第1節の自力確認　図に与えられた比や角を書き込み、五心では「何から等距離か」、チェバとメネラウスでは「1点で交わるか、一直線上にあるか」を確認する。"
             }
           ]
         }
