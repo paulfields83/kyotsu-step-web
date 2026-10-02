@@ -1565,14 +1565,14 @@
           ]
         },
         {
+          "id": "s1-numbers-expressions-t11-n051",
+          "type": "note",
+          "text": "確認　展開して元の式に戻るかを確認する。"
+        },
+        {
           "id": "s1-numbers-expressions-t11-p043",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "3　研究　3次式の展開公式を自分で確かめる"
-            }
-          ]
+          "type": "heading",
+          "text": "研究　3次式の展開公式を確かめる"
         },
         {
           "id": "s1-numbers-expressions-t11-p044",
@@ -1622,13 +1622,8 @@
         },
         {
           "id": "s1-numbers-expressions-t11-p047",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "7　第1節 節末　因数分解の方法選択"
-            }
-          ]
+          "type": "heading",
+          "text": "第1節 節末　因数分解の方法を選ぶ"
         },
         {
           "id": "s1-numbers-expressions-t11-p048",
@@ -1675,11 +1670,6 @@
               "text": "。"
             }
           ]
-        },
-        {
-          "id": "s1-numbers-expressions-t11-n051",
-          "type": "note",
-          "text": "確認　展開して元の式に戻るかを確認する。"
         }
       ],
       "items": [
@@ -3047,14 +3037,14 @@
           ]
         },
         {
+          "id": "s2-numbers-expressions-t07-n041",
+          "type": "note",
+          "text": "確認　平方して元の根号の中に戻るかを確認する。"
+        },
+        {
           "id": "s2-numbers-expressions-t07-p037",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "3　第2節 節末　整数部分・小数部分"
-            }
-          ]
+          "type": "heading",
+          "text": "第2節 節末　整数部分と小数部分"
         },
         {
           "id": "s2-numbers-expressions-t07-p038",
@@ -3101,11 +3091,6 @@
               "text": "6　「小数部分」は必ず 0≦b<1 になっているか最後に確認する。"
             }
           ]
-        },
-        {
-          "id": "s2-numbers-expressions-t07-n041",
-          "type": "note",
-          "text": "確認　平方して元の根号の中に戻るかを確認する。"
         }
       ],
       "items": [
@@ -3823,7 +3808,7 @@
         {
           "id": "s3-numbers-expressions-t05-n004",
           "type": "note",
-          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+          "text": "着眼点　絶対値の中の式が0になる点を求め、その前後で符号がどう変わるかを見る。"
         },
         {
           "id": "s3-numbers-expressions-t05-n005",
@@ -4173,7 +4158,8 @@
               "type": "text",
               "text": "3節の知識を混ぜて使う。ここでもいきなり自力試験にせず、方法を選ぶ判断軸を残す。"
             }
-          ]
+          ],
+          "text": "1次不等式・連立不等式・絶対値を含む不等式を、条件に応じて使い分ける。"
         },
         {
           "id": "s3-numbers-expressions-t06-p003",
@@ -4272,7 +4258,7 @@
         {
           "id": "s3-numbers-expressions-t06-n012",
           "type": "note",
-          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+          "text": "着眼点　問題文の数量関係を不等式に表し、求める範囲を確認する。"
         },
         {
           "id": "s3-numbers-expressions-t06-n013",
@@ -4402,7 +4388,7 @@
         {
           "id": "s3-numbers-expressions-t06-n025",
           "type": "note",
-          "text": "読む　問題文の条件と求めるものを別々に言葉で確認し、数値をすぐ式へ入れない。"
+          "text": "着眼点　絶対値の中の式の符号が変わる点で場合分けする。"
         },
         {
           "id": "s3-numbers-expressions-t06-n026",
