@@ -1,0 +1,21 @@
+{
+  "figure_id": "demorgan",
+  "unit": "math-1a-sets-propositions",
+  "topic": "1.7 ド・モルガンの法則",
+  "insert_after": "sets-s17 topic figure placement",
+  "teaching_goal": "(A∩B)^c と A^c∪B^c が、同じ全集 U で同一の領域になることを左右比較で示す。",
+  "source": {
+    "app": "backend/src/setsPropositionsDefs3.ts / s17",
+    "word": "塾_数学I_第3章_集合と命題_教科書学習モード_完全版_厳格誘導版.docx / 見出し 7 ド・モルガンの法則",
+    "textbook_guide": "教科書 p.105 / Guide p.136-137"
+  },
+  "figure_type": "set",
+  "precision": "structural",
+  "objects": ["universal set U", "overlapping sets A and B", "left region (A∩B)^c", "right region A^c∪B^c"],
+  "constraints": ["the two shaded regions are identical pointwise", "only the overlap A∩B is unshaded", "A and B geometry is identical in both panels"],
+  "labels": ["U", "A", "B", "complement expressions", "equals"],
+  "forbidden": ["manual inconsistent shading", "different A/B placement between panels", "extra answer leakage"],
+  "engine": "TikZ clipping and set-region construction",
+  "qa_rules": ["Boolean truth table equality for all membership combinations", "identical panel geometry", "overlap exclusion checked"],
+  "status": "math_checked"
+}

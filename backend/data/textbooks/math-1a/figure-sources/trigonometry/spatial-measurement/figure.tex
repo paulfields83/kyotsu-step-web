@@ -1,0 +1,15 @@
+% !TeX program = pdflatex
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{tikz}\usepackage{tikz-3dplot}
+\definecolor{FigureBlue}{HTML}{2563EB}\definecolor{FigureOrange}{HTML}{EA580C}
+\tdplotsetmaincoords{68}{145}
+\begin{document}
+\begin{tikzpicture}[tdplot_main_coords,line cap=round,line join=round]
+  \coordinate (A) at (0,0,0); \coordinate (B) at (4,0,0); \coordinate (C) at (4,3,0); \coordinate (D) at (0,3,0);
+  \coordinate (E) at (0,0,2); \coordinate (F) at (4,0,2); \coordinate (G) at (4,3,2); \coordinate (H) at (0,3,2);
+  \draw[dashed] (A)--(D)--(C) (D)--(H); \draw (A)--(B)--(C)--(G)--(F)--(B) (A)--(E)--(F) (E)--(H)--(G);
+  \draw[FigureBlue,line width=1.5pt] (A)--(C); \draw[FigureOrange,line width=1.7pt] (A)--(G); \draw[FigureBlue,line width=1.5pt] (C)--(G);
+  \node[left] at (A) {$A$}; \node[right] at (C) {$C$}; \node[above right] at (G) {$G$};
+  \node[below=10mm,align=center] at (current bounding box.south) {$AC^2=AB^2+BC^2$\\$AG^2=AC^2+CG^2$};
+\end{tikzpicture}
+\end{document}

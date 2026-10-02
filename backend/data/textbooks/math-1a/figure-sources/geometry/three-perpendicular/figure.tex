@@ -1,0 +1,29 @@
+% !TeX program = pdflatex
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{positioning}
+\definecolor{FigureBlue}{HTML}{2563EB}
+\definecolor{FigureGreen}{HTML}{16A34A}
+\definecolor{FigurePurple}{HTML}{7C3AED}
+\definecolor{FigureOrange}{HTML}{EA580C}
+\definecolor{FigureSlate}{HTML}{64748B}
+\tdplotsetmaincoords{70}{115}
+\begin{document}
+\begin{tikzpicture}[tdplot_main_coords,line cap=round,line join=round]
+  \coordinate (H) at (0,0,0);\coordinate (P) at (0,0,3);\coordinate (Q) at (3,1,0);
+  \coordinate (L1) at (-1,3,0);\coordinate (L2) at (1,-3,0);
+  \fill[gray!10] (-2,-2,0)--(4,-2,0)--(4,4,0)--(-2,4,0)--cycle;
+  \draw[FigureSlate,line width=1pt] (-2,-2,0)--(4,-2,0)--(4,4,0)--(-2,4,0)--cycle;
+  \draw[FigureOrange,line width=1.5pt] (P)--(H);
+  \draw[FigureBlue,line width=1.5pt] (P)--(Q);
+  \draw[FigureGreen,line width=1.5pt] (H)--(Q);
+  \draw[FigurePurple,line width=1.6pt] (L1)--(L2) node[pos=.82,below,text=FigurePurple] {$l$};
+  \draw[FigureSlate] (H)--(-.25,.75,0)--(.5,1,0)--(.75,.25,0)--cycle;
+  \foreach \P in {P,H,Q}{\fill (\P) circle (2pt);}
+  \node[above] at (P) {$P$};\node[below left] at (H) {$H$};\node[right] at (Q) {$Q$};
+  \node[left,text=FigureSlate] at (-2,3.5,0) {$\alpha\;(z=0)$};
+  \node[anchor=north west,below=4mm] at (current bounding box.south west)
+    {$PH\perp\alpha,\quad l\perp HQ\quad\Longrightarrow\quad l\perp PQ$};
+\end{tikzpicture}
+\end{document}

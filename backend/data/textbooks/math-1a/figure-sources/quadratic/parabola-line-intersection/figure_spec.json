@@ -1,0 +1,21 @@
+{
+  "figure_id": "parabola-line-intersection",
+  "unit": "math-1a-quadratic-functions",
+  "topic": "3.3 放物線と直線の共有点",
+  "insert_after": "s3-quadratic-functions-topic-03 paragraph 1",
+  "teaching_goal": "放物線と直線の共有点が、2つの式を連立して得られる2次方程式の解と一致することを示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/quadratic-functions/unit.json / topic 3.3",
+    "word": "backend/data/textbooks/math-1a/source/塾_数学I_第2章_2次関数_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 3 放物線と直線の共有点",
+    "textbook_guide": "教科書 p.75-95 の第3節範囲。母本は小項目ごとのページを細分していない。"
+  },
+  "figure_type": "function",
+  "precision": "exact",
+  "objects": ["parabola y=x^2-1", "line y=x+1", "intersection P=(-1,0)", "intersection Q=(2,3)"],
+  "constraints": ["P and Q satisfy both equations", "x coordinates solve x^2-1=x+1", "there are exactly two intersections"],
+  "labels": ["y=x^2-1", "y=x+1", "P=(-1,0)", "Q=(2,3)", "(x+1)(x-2)=0"],
+  "forbidden": ["visually guessed intersection", "point not satisfying both functions", "Bezier approximation", "handwritten SVG coordinates"],
+  "engine": "PGFPlots",
+  "qa_rules": ["both points satisfy both equations", "intersection polynomial has roots -1 and 2", "all marked points lie on both plots", "compiled PDF has one cropped page"],
+  "status": "math_checked"
+}

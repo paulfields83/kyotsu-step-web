@@ -1,0 +1,13 @@
+% !TeX program = pdflatex
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{tikz}\usetikzlibrary{positioning,arrows.meta}
+\definecolor{FigureBlue}{HTML}{2563EB}\definecolor{FigureOrange}{HTML}{EA580C}\definecolor{FigureGreen}{HTML}{16A34A}
+\begin{document}
+\begin{tikzpicture}[>=Stealth,node distance=17mm]
+  \node[draw=FigureBlue,rounded corners,minimum width=24mm,minimum height=10mm] (h) {$H_0$};
+  \node[draw,rounded corners,right=of h,minimum width=27mm,minimum height=10mm] (p) {$p$-value};
+  \node[draw=FigureOrange,rounded corners,above right=12mm and 18mm of p,minimum width=32mm,minimum height=10mm] (r) {reject $H_0$};
+  \node[draw=FigureGreen,rounded corners,below right=12mm and 18mm of p,minimum width=32mm,minimum height=10mm] (k) {keep $H_0$};
+  \draw[->] (h)--(p); \draw[->] (p)--(r) node[midway,above] {$p<0.05$}; \draw[->] (p)--(k) node[midway,below] {$p\ge0.05$};
+\end{tikzpicture}
+\end{document}

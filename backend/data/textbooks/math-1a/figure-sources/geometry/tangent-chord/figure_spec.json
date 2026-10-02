@@ -1,0 +1,21 @@
+{
+  "figure_id": "tangent-chord",
+  "unit": "math-1a-geometric-properties",
+  "topic": "2.3 接線と弦の作る角",
+  "insert_after": "s2-geometric-properties-topic-03 paragraph 1",
+  "teaching_goal": "接点 T の接線と弦 TA の角を、同じ弦 TA を見込む円周角 TBA と同じ図で比較する。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 2.3",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 3 接線と弦の作る角",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["circle O radius 3", "tangent at T", "chord TA", "point B on the circle", "two equal angle marks"],
+  "constraints": ["T,A,B lie on the circle", "OT is perpendicular to the tangent", "angle(tangent,TA)=angle(TBA)"],
+  "labels": ["O", "T", "A", "B", "alpha", "equal angles"],
+  "forbidden": ["showing only the tangent angle", "missing the corresponding inscribed angle", "non-tangent line"],
+  "engine": "TikZ circle and angle construction",
+  "qa_rules": ["point-on-circle checks", "OT perpendicular tangent", "tangent-chord angle equality"],
+  "status": "math_checked"
+}

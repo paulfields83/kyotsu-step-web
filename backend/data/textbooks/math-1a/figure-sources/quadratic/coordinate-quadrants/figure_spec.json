@@ -1,0 +1,21 @@
+{
+  "figure_id": "coordinate-quadrants",
+  "unit": "math-1a-quadratic-functions",
+  "topic": "1.2 座標と象限",
+  "insert_after": "s1-quadratic-functions-topic-02 paragraph 1",
+  "teaching_goal": "x 座標と y 座標の符号から第1〜第4象限を判断し、座標軸上の点はどの象限にも属さないことを確認する。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/quadratic-functions/unit.json / topic 1.2",
+    "word": "backend/data/textbooks/math-1a/source/塾_数学I_第2章_2次関数_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 2 座標と象限",
+    "textbook_guide": "教科書 p.50-51 / Guide PDF 61-62"
+  },
+  "figure_type": "coordinate",
+  "precision": "exact",
+  "objects": ["x and y axes", "four quadrants", "P1=(2,1.5)", "P2=(-2,1.5)", "P3=(-2,-1.5)", "P4=(2,-1.5)"],
+  "constraints": ["P1 has signs (+,+)", "P2 has signs (-,+)", "P3 has signs (-,-)", "P4 has signs (+,-)", "axes are excluded from all quadrants"],
+  "labels": ["I (+,+)", "II (-,+)", "III (-,-)", "IV (+,-)"],
+  "forbidden": ["quadrant label in the wrong sign region", "point placed on an axis", "handwritten SVG coordinates"],
+  "engine": "PGFPlots",
+  "qa_rules": ["point signs match quadrant labels", "axes intersect at the origin", "compiled PDF has one cropped page", "SVG is converted from the accepted PDF"],
+  "status": "math_checked"
+}

@@ -35,6 +35,8 @@ jobs:
       - name: Typecheck
         run: pnpm run typecheck
       - name: Build
+        env:
+          VITE_API_BASE_URL: https://kyotsu-step-web.onrender.com
         run: pnpm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5

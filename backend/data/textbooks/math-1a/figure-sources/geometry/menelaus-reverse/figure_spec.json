@@ -1,0 +1,21 @@
+{
+  "figure_id": "menelaus-reverse",
+  "unit": "math-1a-geometric-properties",
+  "topic": "1.9 メネラウスの定理の逆",
+  "insert_after": "s1-geometric-properties-topic-09 paragraph 2",
+  "teaching_goal": "辺または延長上の点 D,E,F を比から構成し、比の積が1なら3点が一直線になることを示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 1.9 paragraph 2",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 7 チェバ・メネラウスの定理の逆",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["D on extension of BC", "E midpoint of CA", "F on AB", "line DEF"],
+  "constraints": ["BD/DC=1/4", "CE/EA=1", "AF/FB=4", "ratio product equals 1", "D,E,F collinear"],
+  "labels": ["D", "E", "F", "1/4*1*4=1"],
+  "forbidden": ["drawing the line first and placing arbitrary points", "incorrect side extension"],
+  "engine": "TikZ ratio-point construction",
+  "qa_rules": ["side ratios checked", "ratio product==1", "collinear(D,E,F)"],
+  "status": "math_checked"
+}

@@ -1,0 +1,21 @@
+{
+  "figure_id": "three-perpendicular",
+  "unit": "math-1a-geometric-properties",
+  "topic": "4.2 垂直と三垂線の定理",
+  "insert_after": "s4-geometric-properties-topic-02 paragraph 1",
+  "teaching_goal": "平面 alpha、平面外の点 P、垂足 H、斜線 PQ、その射影 HQ、平面内直線 l を3D座標で構成し、PH⊥alpha かつ l⊥HQ なら l⊥PQ となることを示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 4.2",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 2 垂直と三垂線の定理",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。"
+  },
+  "figure_type": "3d_geometry",
+  "precision": "exact",
+  "objects": ["plane z=0", "H=(0,0,0)", "P=(0,0,3)", "Q=(3,1,0)", "line l through H with direction (-1,3,0)"],
+  "constraints": ["PH perpendicular plane alpha", "HQ is the orthogonal projection of PQ", "dot(l,HQ)=0", "dot(l,PQ)=0"],
+  "labels": ["alpha", "P", "H", "Q", "l", "PH⊥alpha", "l⊥HQ", "l⊥PQ"],
+  "forbidden": ["generic line-plane position diagram", "2D parallelogram presented without 3D coordinates", "false right-angle relation"],
+  "engine": "tikz-3dplot from analytic 3D coordinates",
+  "qa_rules": ["z(H)=z(Q)=0", "PH parallel plane normal", "two dot products equal zero", "projection(PQ)==HQ"],
+  "status": "math_checked"
+}

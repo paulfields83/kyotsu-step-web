@@ -1,0 +1,32 @@
+% !TeX program = pdflatex
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{positioning}
+\definecolor{FigureBlue}{HTML}{2563EB}
+\definecolor{FigureOrange}{HTML}{EA580C}
+\definecolor{FigureGreen}{HTML}{16A34A}
+\tdplotsetmaincoords{70}{125}
+\begin{document}
+\begin{tikzpicture}[tdplot_main_coords,line cap=round,line join=round]
+  \coordinate (A) at (0,0,0); \coordinate (B) at (3,0,0);
+  \coordinate (C) at (3,3,0); \coordinate (D) at (0,3,0);
+  \coordinate (E) at (0,0,3); \coordinate (F) at (3,0,3);
+  \coordinate (G) at (3,3,3); \coordinate (H) at (0,3,3);
+
+  \fill[FigureGreen!14] (A)--(B)--(F)--(E)--cycle;
+  \draw[line width=1.1pt,dashed] (D)--(A) (D)--(C) (D)--(H);
+  \draw[line width=1.2pt] (A)--(B)--(C) (B)--(F)--(G)--(C) (E)--(F) (G)--(H)--(E)--(A) (E)--(H) (H)--(D);
+  \draw[FigureBlue,line width=2.2pt] (B)--(F);
+  \fill[FigureOrange] (G) circle (2.6pt);
+
+  \node[left] at (A) {$A$}; \node[below] at (B) {$B$};
+  \node[right] at (C) {$C$}; \node[left] at (D) {$D$};
+  \node[left] at (E) {$E$}; \node[below right] at (F) {$F$};
+  \node[right,FigureOrange] at (G) {$G$}; \node[above left] at (H) {$H$};
+  \node[FigureGreen!60!black,fill=white,inner sep=1pt] at (1.5,0,1.5) {$F=6$};
+  \node[FigureBlue,right=2mm,fill=white,inner sep=1pt] at ($(B)!.5!(F)$) {$E=12$};
+  \node[FigureOrange,above=3mm,fill=white,inner sep=1pt] at (G) {$V=8$};
+  \node[below=10mm,align=center] at (current bounding box.south) {$V-E+F=8-12+6=2$};
+\end{tikzpicture}
+\end{document}

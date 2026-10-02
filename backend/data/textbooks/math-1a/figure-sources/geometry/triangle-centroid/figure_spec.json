@@ -1,0 +1,21 @@
+{
+  "figure_id": "triangle-centroid",
+  "unit": "math-1a-geometric-properties",
+  "topic": "1.4 三角形の重心",
+  "insert_after": "s1-geometric-properties-topic-04 paragraph 1",
+  "teaching_goal": "3辺の中点へ引いた3本の中線が同一点 G で交わり、各中線を頂点側から2:1に分けることを示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 1.4",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 3 三角形の重心",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["triangle ABC", "midpoints M_a,M_b,M_c", "three medians", "centroid G"],
+  "constraints": ["each M is the midpoint of its side", "all three medians contain G", "AG:GM_a=2:1"],
+  "labels": ["A", "B", "C", "M_a", "M_b", "M_c", "G", "2:1"],
+  "forbidden": ["median endpoint not at a midpoint", "three visually separate intersections"],
+  "engine": "TikZ calc and line intersections",
+  "qa_rules": ["midpoint checks", "concurrent(A-M_a,B-M_b,C-M_c)", "AG/GM_a==2"],
+  "status": "math_checked"
+}

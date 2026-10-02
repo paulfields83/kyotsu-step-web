@@ -1,0 +1,11 @@
+% !TeX program = pdflatex
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{pgfplots}\pgfplotsset{compat=1.16}
+\definecolor{FigureBlue}{HTML}{2563EB}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[width=9cm,height=5.2cm,xmin=0,xmax=50,ymin=0,ymax=9,xtick={0,10,20,30,40,50},ytick={0,2,4,6,8},xlabel={$x$},ylabel={frequency},ybar interval,bar width=10]
+  \addplot[FigureBlue,fill=FigureBlue!22] coordinates {(0,2)(10,5)(20,8)(30,4)(40,1)(50,0)};
+\end{axis}
+\end{tikzpicture}
+\end{document}

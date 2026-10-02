@@ -1,0 +1,310 @@
+{
+  "unitId": "math-1a-geometry-measurement",
+  "answers": {
+    "math-1a-geometry-measurement-s1-main-b001": {
+      "validator": "normalized-text",
+      "answer": "隣辺",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b002": {
+      "validator": "normalized-text",
+      "answer": "角の大きさ",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b003": {
+      "validator": "normalized-text",
+      "answer": "3/5",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b004": {
+      "validator": "normalized-text",
+      "answer": "4/5",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b005": {
+      "validator": "normalized-text",
+      "answer": "3/4",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b006": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b007": {
+      "validator": "normalized-text",
+      "answer": "cos A",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b008": {
+      "validator": "normalized-text",
+      "answer": "4/5",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b009": {
+      "validator": "normalized-text",
+      "answer": "3/4",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b010": {
+      "validator": "normalized-text",
+      "answer": "20°",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b011": {
+      "validator": "normalized-text",
+      "answer": "20√3/3",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b012": {
+      "validator": "number",
+      "answer": "0.9781",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b013": {
+      "validator": "number",
+      "answer": "0.9877",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b014": {
+      "validator": "number",
+      "answer": "1.9626",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b015": {
+      "validator": "normalized-text",
+      "answer": "23°",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b016": {
+      "validator": "normalized-text",
+      "answer": "56m",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b017": {
+      "validator": "normalized-text",
+      "answer": "足す",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s1-main-b018": {
+      "validator": "normalized-text",
+      "answer": "同じ角",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b001": {
+      "validator": "normalized-text",
+      "answer": "正",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b002": {
+      "validator": "normalized-text",
+      "answer": "負",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b003": {
+      "validator": "normalized-text",
+      "answer": "√3/2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b004": {
+      "validator": "normalized-text",
+      "answer": "−1/2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b005": {
+      "validator": "normalized-text",
+      "answer": "−√3",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b006": {
+      "validator": "normalized-text",
+      "answer": "反対",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b007": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b008": {
+      "validator": "number",
+      "answer": "−1",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b009": {
+      "validator": "normalized-text",
+      "answer": "−4/5",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b010": {
+      "validator": "normalized-text",
+      "answer": "−3/4",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b011": {
+      "validator": "normalized-text",
+      "answer": "1/2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b012": {
+      "validator": "normalized-text",
+      "answer": "−√3/2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b013": {
+      "validator": "normalized-text",
+      "answer": "−1/√3",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b014": {
+      "validator": "normalized-text",
+      "answer": "3/5",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b015": {
+      "validator": "normalized-text",
+      "answer": "4/5",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s2-main-b016": {
+      "validator": "normalized-text",
+      "answer": "150°",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b001": {
+      "validator": "normalized-text",
+      "answer": "2R",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b002": {
+      "validator": "normalized-text",
+      "answer": "6√2",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b003": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b004": {
+      "validator": "number",
+      "answer": "28",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b005": {
+      "validator": "normalized-text",
+      "answer": "2√7",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b006": {
+      "validator": "normalized-text",
+      "answer": "−1/4",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b007": {
+      "validator": "normalized-text",
+      "answer": "鈍角",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b008": {
+      "validator": "normalized-text",
+      "answer": "sinA",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b009": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b010": {
+      "validator": "normalized-text",
+      "answer": "鋭角",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b011": {
+      "validator": "normalized-text",
+      "answer": "鋭角三角形",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b012": {
+      "validator": "normalized-text",
+      "answer": "2通り",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b013": {
+      "validator": "normalized-text",
+      "answer": "半周長",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b014": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s3-main-b015": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-main-b001": {
+      "validator": "normalized-text",
+      "answer": "2本",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-main-b002": {
+      "validator": "normalized-text",
+      "answer": "共有",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-main-b003": {
+      "validator": "normalized-text",
+      "answer": "足す",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-main-b004": {
+      "validator": "normalized-text",
+      "answer": "平面図形",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-main-b005": {
+      "validator": "normalized-text",
+      "answer": "既知辺",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-main-b006": {
+      "validator": "normalized-text",
+      "answer": "足す",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-main-b007": {
+      "validator": "normalized-text",
+      "answer": "2a²/3",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-end-b001": {
+      "validator": "normalized-text",
+      "answer": "受け渡す",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-end-b002": {
+      "validator": "normalized-text",
+      "answer": "受け渡す",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-end-b003": {
+      "validator": "normalized-text",
+      "answer": "abc/(4R)",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-end-b004": {
+      "validator": "normalized-text",
+      "answer": "abc/(4S)",
+      "acceptedAnswers": []
+    },
+    "math-1a-geometry-measurement-s4-end-b005": {
+      "validator": "normalized-text",
+      "answer": "正弦定理",
+      "acceptedAnswers": []
+    }
+  }
+}

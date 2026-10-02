@@ -1,0 +1,46 @@
+{
+  "figure_id": "quadratic-domain-range",
+  "unit": "math-1a-quadratic-functions",
+  "topic": "1.3 定義域と値域",
+  "insert_after": "s1-quadratic-functions-topic-03 paragraph 1",
+  "teaching_goal": "定義域で切り取った放物線について、頂点と両端点を同じ関数から計算し、値域の最小値と最大値を読む。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/quadratic-functions/unit.json / s1-quadratic-functions-topic-03",
+    "word": "backend/data/textbooks/math-1a/source/塾_数学I_第2章_2次関数_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 3 定義域と値域",
+    "textbook_guide": "教科書 p.52-53 / Guide PDF 63-65"
+  },
+  "figure_type": "function",
+  "precision": "exact",
+  "objects": [
+    "f(x)=x^2-1",
+    "domain [-2,3]",
+    "vertex V=(0,-1)",
+    "endpoints L=(-2,3), R=(3,8)",
+    "range [-1,8]"
+  ],
+  "constraints": [
+    "V, L and R satisfy y=f(x)",
+    "V is inside the domain",
+    "f'(0)=0 and f''(0)>0",
+    "min f=-1 at x=0",
+    "max f=8 at x=3",
+    "both domain endpoints are closed"
+  ],
+  "labels": ["x=-2", "x=3", "V=(0,-1)", "-1<=y<=8"],
+  "forbidden": [
+    "Bezier approximation of the parabola",
+    "endpoint or extremum labels placed by visual guess",
+    "open endpoints",
+    "answer values inconsistent with f(x)"
+  ],
+  "engine": "PGFPlots",
+  "qa_rules": [
+    "vertex == (0,-1)",
+    "endpoint_values == [3,8]",
+    "domain == [-2,3]",
+    "range == [-1,8]",
+    "compiled PDF has one cropped page",
+    "SVG is converted from the accepted PDF"
+  ],
+  "status": "math_checked"
+}

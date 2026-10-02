@@ -1,0 +1,285 @@
+{
+  "unitId": "math-1a-data-analysis",
+  "answers": {
+    "math-1a-data-analysis-s1-main-b001": {
+      "validator": "normalized-text",
+      "answer": "階級",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b002": {
+      "validator": "normalized-text",
+      "answer": "階級値",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b003": {
+      "validator": "normalized-text",
+      "answer": "相対度数",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b004": {
+      "validator": "number",
+      "answer": "0.20",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b005": {
+      "validator": "normalized-text",
+      "answer": "足す",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b006": {
+      "validator": "normalized-text",
+      "answer": "中央値",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b007": {
+      "validator": "normalized-text",
+      "answer": "最頻値",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b008": {
+      "validator": "normalized-text",
+      "answer": "平均",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b009": {
+      "validator": "normalized-text",
+      "answer": "仮平均",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b010": {
+      "validator": "normalized-text",
+      "answer": "範囲",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b011": {
+      "validator": "normalized-text",
+      "answer": "四分位範囲",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b012": {
+      "validator": "normalized-text",
+      "answer": "中央値Q2",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b013": {
+      "validator": "normalized-text",
+      "answer": "偏差",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b014": {
+      "validator": "normalized-text",
+      "answer": "分散",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b015": {
+      "validator": "normalized-text",
+      "answer": "標準偏差",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b016": {
+      "validator": "normalized-text",
+      "answer": "( (x1−x̄)²+…+(xn−x̄)² )/n",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b017": {
+      "validator": "normalized-text",
+      "answer": "大きい",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b018": {
+      "validator": "normalized-text",
+      "answer": "散らばり",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b019": {
+      "validator": "normalized-text",
+      "answer": "散布図",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b020": {
+      "validator": "normalized-text",
+      "answer": "因果関係",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b021": {
+      "validator": "normalized-text",
+      "answer": "正",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b022": {
+      "validator": "normalized-text",
+      "answer": "強い",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b023": {
+      "validator": "normalized-text",
+      "answer": "正の相関",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b024": {
+      "validator": "normalized-text",
+      "answer": "負の相関",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b025": {
+      "validator": "normalized-text",
+      "answer": "因果関係を断定しない",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b026": {
+      "validator": "normalized-text",
+      "answer": "外れ値",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b027": {
+      "validator": "normalized-text",
+      "answer": "原因まで確認",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b028": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b029": {
+      "validator": "normalized-text",
+      "answer": "頑健",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b030": {
+      "validator": "normalized-text",
+      "answer": "分割表（クロス集計表）",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b031": {
+      "validator": "normalized-text",
+      "answer": "割合",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b032": {
+      "validator": "normalized-text",
+      "answer": "70%",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b033": {
+      "validator": "normalized-text",
+      "answer": "50%",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b034": {
+      "validator": "normalized-text",
+      "answer": "断定できない",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b035": {
+      "validator": "normalized-text",
+      "answer": "帰無仮説",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b036": {
+      "validator": "normalized-text",
+      "answer": "5%程度",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b037": {
+      "validator": "normalized-text",
+      "answer": "支持する",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b038": {
+      "validator": "number",
+      "answer": "−0.2",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b039": {
+      "validator": "number",
+      "answer": "169.8",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b040": {
+      "validator": "normalized-text",
+      "answer": "変わらない",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b041": {
+      "validator": "normalized-text",
+      "answer": "4倍",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b042": {
+      "validator": "normalized-text",
+      "answer": "2倍",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-main-b043": {
+      "validator": "normalized-text",
+      "answer": "散布図",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b001": {
+      "validator": "normalized-text",
+      "answer": "集中",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b002": {
+      "validator": "number",
+      "answer": "13",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b003": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b004": {
+      "validator": "normalized-text",
+      "answer": "集中",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b005": {
+      "validator": "normalized-text",
+      "answer": "変わらない",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b006": {
+      "validator": "normalized-text",
+      "answer": "50番目",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b007": {
+      "validator": "normalized-text",
+      "answer": "150番目",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b008": {
+      "validator": "number",
+      "answer": "7.4",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b009": {
+      "validator": "normalized-text",
+      "answer": "影響する",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b010": {
+      "validator": "normalized-text",
+      "answer": "判断できない",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b011": {
+      "validator": "number",
+      "answer": "50",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b012": {
+      "validator": "normalized-text",
+      "answer": "平均からの相対的位置",
+      "acceptedAnswers": []
+    },
+    "math-1a-data-analysis-s1-end-b013": {
+      "validator": "normalized-text",
+      "answer": "数値上の差",
+      "acceptedAnswers": []
+    }
+  }
+}

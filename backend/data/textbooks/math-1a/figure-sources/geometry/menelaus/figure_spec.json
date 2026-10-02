@@ -1,0 +1,21 @@
+{
+  "figure_id": "menelaus",
+  "unit": "math-1a-geometric-properties",
+  "topic": "1.8 メネラウスの定理",
+  "insert_after": "s1-geometric-properties-topic-08 paragraph 1",
+  "teaching_goal": "1本の横断線と三角形の2辺および1辺の延長との交点として D,E,F を構成し、3点が厳密に共線であることを示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 1.8",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 6 メネラウスの定理",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["triangle ABC", "one transversal line", "D on extension of BC", "E on CA", "F on AB"],
+  "constraints": ["D,E,F are intersections with the same line", "D,E,F collinear", "Menelaus ratio product equals 1 in unsigned form"],
+  "labels": ["A", "B", "C", "D", "E", "F"],
+  "forbidden": ["three dots merely placed near a line", "D not on BC or its extension"],
+  "engine": "TikZ line-intersection construction",
+  "qa_rules": ["collinear(D,E,F)", "side/extension incidence checks", "ratio product==1"],
+  "status": "math_checked"
+}

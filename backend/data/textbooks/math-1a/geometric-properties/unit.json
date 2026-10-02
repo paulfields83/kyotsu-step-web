@@ -1,0 +1,3036 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-geometric-properties",
+  "revision": 5,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "数学A 図形の性質",
+  "source": {
+    "type": "reference",
+    "label": "塾 数学A 第2章「図形の性質」教科書学習モード完全版",
+    "rightsNote": "ユーザー提供の学習モードWord母本をもとに、静的なバックエンド教材データへ構造化。"
+  },
+  "objectives": [
+    "「三角形の性質」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「円の性質」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「作図」の考え方を、本文と空欄を通して一段ずつ確認する。",
+    "「空間図形」の考え方を、本文と空欄を通して一段ずつ確認する。"
+  ],
+  "sections": [
+    {
+      "id": "s1-geometric-properties",
+      "number": "1",
+      "title": "三角形の性質",
+      "description": "三角形の性質を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-geometric-properties-topic-01",
+          "type": "topic",
+          "text": "1.1 直線と角・比の準備"
+        },
+        {
+          "id": "s1-geometric-properties-t01-n001",
+          "type": "note",
+          "text": "この節では、図に与えられた条件を整理し、使える定理を確かめながら、比や角を順に求めていく。"
+        },
+        {
+          "id": "s1-geometric-properties-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "図形の問題では、まず平行・垂直・等しい長さや角など、与えられた条件を図に書き込んで整理する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平行線があるときは、同位角や錯角が等しいことを利用して三角形の相似を考える。どの2つの三角形が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b001"
+            },
+            {
+              "type": "text",
+              "text": " になるかを確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三角形の外角は、それと隣り合わない2つの内角の和に等しい。角を求めるときには "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " も利用できる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　平行線と線分比"
+        },
+        {
+          "id": "s1-geometric-properties-t01-n006",
+          "type": "note",
+          "text": "着眼点　DE∥BC であることから、△ADE と △ABC の対応する角が等しくなることに着目する。"
+        },
+        {
+          "id": "s1-geometric-properties-t01-n007",
+          "type": "note",
+          "text": "使う知識　同位角・錯角が等しいことを用いて相似を示し、対応する辺の比を利用する。"
+        },
+        {
+          "id": "s1-geometric-properties-t01-h008",
+          "type": "heading",
+          "text": "問題文　△ABCにおいて、Dを辺AB上、Eを辺AC上の点とし、DE∥BCとする。AD:AB、AE:AC、DE:BCの関係を求めよ。"
+        },
+        {
+          "id": "s1-geometric-properties-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　DE∥BC より △ADE∽△ABC。したがって、AD:AB=AE:AC="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t01-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　相似を用いるときは、どの角が等しいかを先に確認し、頂点の対応をそろえる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t01-n011",
+          "type": "note",
+          "text": "確認　△ADE と △ABC の頂点の対応が正しいかを確かめる。"
+        },
+        {
+          "id": "s1-geometric-properties-topic-02",
+          "type": "topic",
+          "text": "1.2 内分・外分"
+        },
+        {
+          "id": "s1-geometric-properties-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点Pが線分AB上にあり、AP:PB=m:n のとき、Pは線分ABを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " するという。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "線分ABの中点は、ABを1:1に分ける "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b005"
+            },
+            {
+              "type": "text",
+              "text": " である。外分点は線分ABの延長上にあり、比の大小によって位置が変わる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t02-h003",
+          "type": "heading",
+          "text": "教科書対応問　1:2内分"
+        },
+        {
+          "id": "s1-geometric-properties-t02-n004",
+          "type": "note",
+          "text": "着眼点　AP:PB=1:2 となるように、Pを線分AB上にとる。"
+        },
+        {
+          "id": "s1-geometric-properties-t02-n005",
+          "type": "note",
+          "text": "使う知識　内分では、比の和を全体とみて、各部分が何個分に当たるかを考える。"
+        },
+        {
+          "id": "s1-geometric-properties-t02-h006",
+          "type": "heading",
+          "text": "問題文　線分ABを1:2に内分する点Pを図示せよ。"
+        },
+        {
+          "id": "s1-geometric-properties-t02-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　ABを3等分したとき、APは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b006"
+            },
+            {
+              "type": "text",
+              "text": " 個分、PBは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b007"
+            },
+            {
+              "type": "text",
+              "text": " 個分に当たる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t02-n008",
+          "type": "note",
+          "text": "確認　Pが線分AB上にあり、AP:PB=1:2となっているかを確認する。"
+        },
+        {
+          "id": "s1-geometric-properties-topic-03",
+          "type": "topic",
+          "text": "1.3 角の二等分線定理"
+        },
+        {
+          "id": "s1-geometric-properties-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCにおいて、∠Aの二等分線と辺BCの交点をDとすると、BD:DC=AB:"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b008"
+            },
+            {
+              "type": "text",
+              "text": " が成り立つ。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t03-h002",
+          "type": "heading",
+          "text": "教科書対応問　二等分線で辺を分ける"
+        },
+        {
+          "id": "s1-geometric-properties-t03-n003",
+          "type": "note",
+          "text": "着眼点　ADが∠Aの二等分線なので、内角の二等分線と比の定理を用いる。"
+        },
+        {
+          "id": "s1-geometric-properties-t03-n004",
+          "type": "note",
+          "text": "使う知識　BD:DC=AB:AC から辺BCの分かれ方を求め、BD+DC=BCを用いる。"
+        },
+        {
+          "id": "s1-geometric-properties-t03-h005",
+          "type": "heading",
+          "text": "問題文　△ABCにおいて、AB=6、AC=9、BC=10とする。∠Aの二等分線と辺BCの交点をDとするとき、BD、DCを求めよ。"
+        },
+        {
+          "id": "s1-geometric-properties-t03-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　内角の二等分線と比の定理より、BD:DC=6:9=2:3。したがって、BD="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "、DC="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b010"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t03-n007",
+          "type": "note",
+          "text": "確認　BD:DC=2:3、BD+DC=10となるかを確かめる。"
+        },
+        {
+          "id": "s1-geometric-properties-topic-04",
+          "type": "topic",
+          "text": "1.4 三角形の重心"
+        },
+        {
+          "id": "s1-geometric-properties-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三角形の3本の中線は1点で交わり、その交点を重心Gという。重心Gは、各中線を頂点側から "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b011"
+            },
+            {
+              "type": "text",
+              "text": " に内分する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t04-h002",
+          "type": "heading",
+          "text": "教科書対応問　重心の比"
+        },
+        {
+          "id": "s1-geometric-properties-t04-n003",
+          "type": "note",
+          "text": "着眼点　Gが重心であるから、AG:GD=2:1を用いる。"
+        },
+        {
+          "id": "s1-geometric-properties-t04-n004",
+          "type": "note",
+          "text": "使う知識　AGが比の「2」に当たることからGDを求め、最後にAD=AG+GDとする。"
+        },
+        {
+          "id": "s1-geometric-properties-t04-h005",
+          "type": "heading",
+          "text": "問題文　ADを△ABCの中線とし、Gを重心とする。AG=8のとき、GD、ADを求めよ。"
+        },
+        {
+          "id": "s1-geometric-properties-t04-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　AG:GD=2:1 より、GD="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "。したがって、AD=AG+GD="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t04-n007",
+          "type": "note",
+          "text": "確認　AG:GD=2:1になっているかを確かめる。"
+        },
+        {
+          "id": "s1-geometric-properties-topic-05",
+          "type": "topic",
+          "text": "1.5 外心・内心・垂心"
+        },
+        {
+          "id": "s1-geometric-properties-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三角形の3辺の垂直二等分線は1点で交わる。その交点を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b014"
+            },
+            {
+              "type": "text",
+              "text": " といい、3頂点から等距離にある。3つの内角の二等分線の交点を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b015"
+            },
+            {
+              "type": "text",
+              "text": " といい、3辺から等距離にある。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t05-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3頂点から対辺またはその延長に下ろした3本の垂線は1点で交わる。その交点を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b016"
+            },
+            {
+              "type": "text",
+              "text": " という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t05-h003",
+          "type": "heading",
+          "text": "教科書対応問　中心を判別"
+        },
+        {
+          "id": "s1-geometric-properties-t05-n004",
+          "type": "note",
+          "text": "着眼点　PA=PB=PC であることから、Pが各辺の垂直二等分線上にあることに着目する。"
+        },
+        {
+          "id": "s1-geometric-properties-t05-n005",
+          "type": "note",
+          "text": "使う知識　2点から等距離にある点は、その2点を結ぶ線分の垂直二等分線上にある。"
+        },
+        {
+          "id": "s1-geometric-properties-t05-h006",
+          "type": "heading",
+          "text": "問題文　△ABCにおいて、点PがPA=PB=PCを満たしている。点Pは△ABCのどの中心か。"
+        },
+        {
+          "id": "s1-geometric-properties-t05-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　PA=PB=PC より、Pは3辺の垂直二等分線の交点である。したがって、Pは△ABCの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b017"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t05-n008",
+          "type": "note",
+          "text": "確認　頂点から等距離なら外心、辺から等距離なら内心であることを区別する。"
+        },
+        {
+          "id": "s1-geometric-properties-topic-06",
+          "type": "topic",
+          "text": "1.6 三角形の五心"
+        },
+        {
+          "id": "s1-geometric-properties-t06-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三角形の重心・外心・内心・垂心・"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b018"
+            },
+            {
+              "type": "text",
+              "text": " をまとめて三角形の五心という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t06-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "傍心は、1つの内角の二等分線と、他の2つの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b019"
+            },
+            {
+              "type": "text",
+              "text": " の交点である。△ABCには3つの傍心がある。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t06-h003",
+          "type": "heading",
+          "text": "教科書対応問　内心の角度"
+        },
+        {
+          "id": "s1-geometric-properties-t06-n004",
+          "type": "note",
+          "text": "着眼点　Iは内心なので、BIとCIはそれぞれ∠B、∠Cを二等分する。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-n005",
+          "type": "note",
+          "text": "使う知識　∠IBC、∠ICBを求めてから、△BICの内角の和を用いる。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-h006",
+          "type": "heading",
+          "text": "問題文　△ABCにおいて、∠B=70°、∠C=60°とし、内心をIとする。∠BICを求めよ。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　Iは内心であるから、∠IBC=35°、∠ICB=30°。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t06-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　△BICの内角の和より、∠BIC=180°−35°−30°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b020"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t06-n009",
+          "type": "note",
+          "text": "確認　∠B、∠Cと、その二等分後の角を取り違えていないかを確かめる。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-h010",
+          "type": "heading",
+          "text": "教科書対応問　内心と辺の比"
+        },
+        {
+          "id": "s1-geometric-properties-t06-n011",
+          "type": "note",
+          "text": "着眼点　BIは∠Bの二等分線であるから、辺ACは辺AB、BCの比に分けられる。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-n012",
+          "type": "note",
+          "text": "使う知識　内角の二等分線と比の定理より AE:EC=AB:BC。さらに AE+EC=AC を用いる。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-h013",
+          "type": "heading",
+          "text": "問題文　△ABCにおいて、AB=7、BC=9、CA=8とする。内心をIとし、直線BIと辺ACの交点をEとするとき、AE、ECを求めよ。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　BEは∠Bの二等分線であるから、AE:EC=AB:BC="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t06-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　AE+EC=8 より、AE="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b022"
+            },
+            {
+              "type": "text",
+              "text": "、EC="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b023"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t06-n016",
+          "type": "note",
+          "text": "確認　AE:EC=7:9、AE+EC=8となるかを確かめる。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-h017",
+          "type": "heading",
+          "text": "教科書対応問　重心と外心が一致する三角形"
+        },
+        {
+          "id": "s1-geometric-properties-t06-n018",
+          "type": "note",
+          "text": "着眼点　重心と外心が同じ点なので、1本の中線が外心の性質も満たすことに着目する。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-n019",
+          "type": "note",
+          "text": "使う知識　外心が2頂点から等距離にあることを、中線上の点の位置関係に結びつける。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-h020",
+          "type": "heading",
+          "text": "問題文　重心と外心が一致する△ABCは正三角形であることを示せ。"
+        },
+        {
+          "id": "s1-geometric-properties-t06-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　Aから引いた中線AMは、外心も通るので辺BCの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b024"
+            },
+            {
+              "type": "text",
+              "text": " でもある。したがって、AB=AC。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t06-p022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　同様に BA=BC が成り立つので、AB=BC=CA。よって、△ABCは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b025"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t06-n023",
+          "type": "note",
+          "text": "確認　3辺がすべて等しいことまで示せているかを確認する。"
+        },
+        {
+          "id": "s1-geometric-properties-topic-07",
+          "type": "topic",
+          "text": "1.7 チェバの定理"
+        },
+        {
+          "id": "s1-geometric-properties-t07-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCで D∈BC、E∈CA、F∈AB とする。AD、BE、CFが1点で交わるとき、(BD/DC)(CE/EA)(AF/FB)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b026"
+            },
+            {
+              "type": "text",
+              "text": " が成り立つ。これをチェバの定理という。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t07-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3つの比のうち1つが未知なら、既知の2つの比を代入して求める。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-topic-08",
+          "type": "topic",
+          "text": "1.8 メネラウスの定理"
+        },
+        {
+          "id": "s1-geometric-properties-t08-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCの3辺またはその延長上に点D、E、Fがあり、D、E、Fが一直線上にあるとき、(BD/DC)(CE/EA)(AF/FB)="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b027"
+            },
+            {
+              "type": "text",
+              "text": " が成り立つ。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t08-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "チェバの定理では3本の直線が1点で交わること、メネラウスの定理では3点が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b028"
+            },
+            {
+              "type": "text",
+              "text": " にあることに着目する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t08-h003",
+          "type": "heading",
+          "text": "教科書対応問　チェバの定理で未知比"
+        },
+        {
+          "id": "s1-geometric-properties-t08-n004",
+          "type": "note",
+          "text": "着眼点　AD、BE、CFが1点で交わることから、チェバの定理を用いる。"
+        },
+        {
+          "id": "s1-geometric-properties-t08-n005",
+          "type": "note",
+          "text": "使う知識　三角形の3辺上の比を、チェバの定理の式に対応させて代入する。"
+        },
+        {
+          "id": "s1-geometric-properties-t08-h006",
+          "type": "heading",
+          "text": "問題文　△ABCにおいて、BD:DC=2:3、CE:EA=4:5とする。AD、BE、CFが1点で交わるとき、AF:FBを求めよ。"
+        },
+        {
+          "id": "s1-geometric-properties-t08-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　チェバの定理より、(2/3)(4/5)(AF/FB)=1。したがって、"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b029"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t08-n008",
+          "type": "note",
+          "text": "確認　3つの比を同じ順序で並べているかを確かめる。"
+        },
+        {
+          "id": "s1-geometric-properties-t08-h009",
+          "type": "heading",
+          "text": "教科書対応問　メネラウスの定理で未知比"
+        },
+        {
+          "id": "s1-geometric-properties-t08-n010",
+          "type": "note",
+          "text": "着眼点　D、E、Fが一直線上にあることから、メネラウスの定理を用いる。"
+        },
+        {
+          "id": "s1-geometric-properties-t08-n011",
+          "type": "note",
+          "text": "使う知識　三角形の3辺またはその延長上にある3点について、教科書の順序にしたがって比を並べる。"
+        },
+        {
+          "id": "s1-geometric-properties-t08-h012",
+          "type": "heading",
+          "text": "問題文　△ABCの3辺またはその延長上に点D、E、Fがあり、D、E、Fは一直線上にある。既知の2つの比から、残りの比を求める手順を確かめよ。"
+        },
+        {
+          "id": "s1-geometric-properties-t08-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　メネラウスの定理の式に合わせて3つの比を並べる。外分点を含む場合も、比の向きを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b030"
+            },
+            {
+              "type": "text",
+              "text": " して代入する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t08-n014",
+          "type": "note",
+          "text": "確認　チェバの定理の「3直線が1点で交わる」と、メネラウスの定理の「3点が一直線上にある」を区別する。"
+        },
+        {
+          "id": "s1-geometric-properties-topic-09",
+          "type": "topic",
+          "text": "1.9 チェバ・メネラウスの定理の逆"
+        },
+        {
+          "id": "s1-geometric-properties-t09-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCの3辺上に点D、E、Fがあり、(BD/DC)(CE/EA)(AF/FB)=1 が成り立つなら、AD、BE、CFは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b031"
+            },
+            {
+              "type": "text",
+              "text": "。これがチェバの定理の逆である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t09-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ比の関係が成り立ち、点D、E、Fが辺またはその延長上にあるとき、D、E、Fは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b032"
+            },
+            {
+              "type": "text",
+              "text": " にある。これがメネラウスの定理の逆である。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-topic-10",
+          "type": "topic",
+          "text": "1.10 三角形の辺と角の関係"
+        },
+        {
+          "id": "s1-geometric-properties-t10-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三角形では、大きい辺に対する角ほど "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b033"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t10-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3つの正の数 a、b、c が三角形の3辺になるためには、a+b>c、b+c>a、c+a>b が成り立つ。特に c が最大のときは c<"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b034"
+            },
+            {
+              "type": "text",
+              "text": " であればよい。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t10-h003",
+          "type": "heading",
+          "text": "教科書対応問　三角形が作れる範囲"
+        },
+        {
+          "id": "s1-geometric-properties-t10-n004",
+          "type": "note",
+          "text": "着眼点　3、5、x が三角形の3辺となるための条件を立てる。"
+        },
+        {
+          "id": "s1-geometric-properties-t10-n005",
+          "type": "note",
+          "text": "使う知識　三角形の成立条件より、x は2辺の差より大きく、2辺の和より小さい。"
+        },
+        {
+          "id": "s1-geometric-properties-t10-h006",
+          "type": "heading",
+          "text": "問題文　3辺の長さが3、5、xである三角形が存在するとき、xの値の範囲を求めよ。"
+        },
+        {
+          "id": "s1-geometric-properties-t10-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　三角形の成立条件より、|5−3|<x<5+3。したがって、"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b035"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t10-n012",
+          "type": "note",
+          "text": "確認　x=2、8では三角形が一直線上につぶれるので、等号を含めない。"
+        },
+        {
+          "id": "s1-geometric-properties-t10-p008",
+          "type": "heading",
+          "text": "研究　三角形の辺と角の大小"
+        },
+        {
+          "id": "s1-geometric-properties-t10-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "問題　△ABCで AB>AC のとき、∠C>∠B を示せ。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t10-p010",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "証明　辺AB上に AD=AC となる点Dをとる。△ACDは二等辺三角形であるから ∠ACD=∠ADC。さらに外角の性質を用いると、"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s1-main-b036"
+            },
+            {
+              "type": "text",
+              "text": " が得られる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t10-p011",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "着眼点　辺の長さの比較を角の大小に結びつけるため、二等辺三角形ができるように補助点Dをとる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t10-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "コンピュータの活用　動的幾何ソフトで点を動かしながら、外心O・重心G・垂心Hの位置関係を観察すると、3点が一直線上に並ぶことや比の関係を予想できる。観察で得た予想は、最後に定理を用いて確かめる。"
+            }
+          ]
+        },
+        {
+          "id": "s1-geometric-properties-t10-p014",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第1節の自力確認　図に与えられた比や角を書き込み、五心では「何から等距離か」、チェバとメネラウスでは「1点で交わるか、一直線上にあるか」を確認する。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-geometric-properties-s1-main-b001",
+          "label": "1",
+          "prompt": "直線と角・比の準備 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b002",
+          "label": "2",
+          "prompt": "直線と角・比の準備 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b003",
+          "label": "3",
+          "prompt": "直線と角・比の準備 【3】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b004",
+          "label": "4",
+          "prompt": "内分・外分 【4】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b005",
+          "label": "5",
+          "prompt": "内分・外分 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b006",
+          "label": "6",
+          "prompt": "内分・外分 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b007",
+          "label": "7",
+          "prompt": "内分・外分 【7】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b008",
+          "label": "8",
+          "prompt": "角の二等分線定理 【8】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b009",
+          "label": "9",
+          "prompt": "角の二等分線定理 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b010",
+          "label": "10",
+          "prompt": "角の二等分線定理 【10】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b011",
+          "label": "11",
+          "prompt": "三角形の重心 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b012",
+          "label": "12",
+          "prompt": "三角形の重心 【12】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b013",
+          "label": "13",
+          "prompt": "三角形の重心 【13】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b014",
+          "label": "14",
+          "prompt": "外心・内心・垂心 【14】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b015",
+          "label": "15",
+          "prompt": "外心・内心・垂心 【15】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b016",
+          "label": "16",
+          "prompt": "外心・内心・垂心 【16】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b017",
+          "label": "17",
+          "prompt": "外心・内心・垂心 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b018",
+          "label": "18",
+          "prompt": "三角形の五心 【18】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b019",
+          "label": "19",
+          "prompt": "三角形の五心 【19】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b020",
+          "label": "20",
+          "prompt": "三角形の五心 【20】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b021",
+          "label": "21",
+          "prompt": "三角形の五心 【21】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b022",
+          "label": "22",
+          "prompt": "三角形の五心 【22】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b023",
+          "label": "23",
+          "prompt": "三角形の五心 【23】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b024",
+          "label": "24",
+          "prompt": "三角形の五心 【24】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b025",
+          "label": "25",
+          "prompt": "三角形の五心 【25】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b026",
+          "label": "26",
+          "prompt": "チェバの定理 【26】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b027",
+          "label": "27",
+          "prompt": "メネラウスの定理 【27】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b028",
+          "label": "28",
+          "prompt": "メネラウスの定理 【28】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b029",
+          "label": "29",
+          "prompt": "メネラウスの定理 【29】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b030",
+          "label": "30",
+          "prompt": "メネラウスの定理 【30】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b031",
+          "label": "31",
+          "prompt": "チェバ・メネラウスの定理の逆 【31】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b032",
+          "label": "32",
+          "prompt": "チェバ・メネラウスの定理の逆 【32】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b033",
+          "label": "33",
+          "prompt": "三角形の辺と角の関係 【33】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b034",
+          "label": "34",
+          "prompt": "三角形の辺と角の関係 【34】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b035",
+          "label": "35",
+          "prompt": "三角形の辺と角の関係 【35】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s1-main-b036",
+          "label": "36",
+          "prompt": "三角形の辺と角の関係 【36】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        }
+      ]
+    },
+    {
+      "id": "s2-geometric-properties",
+      "number": "2",
+      "title": "円の性質",
+      "description": "円の性質を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s2-geometric-properties-topic-01",
+          "type": "topic",
+          "text": "2.1 円周角の定理"
+        },
+        {
+          "id": "s2-geometric-properties-t01-n001",
+          "type": "note",
+          "text": "この節では、どの弧に対する角か、接点や交点がどこにあるかを確認し、円周角・接線・方べきの定理を使い分ける。"
+        },
+        {
+          "id": "s2-geometric-properties-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円の問題では、角がどの弧を見ているか、接点はどこか、線分がどの点から出ているかを図に書き込んで整理する。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1つの弧に対する円周角の大きさは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "。また、その弧に対する中心角の大きさは円周角の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t01-h004",
+          "type": "heading",
+          "text": "教科書対応問　同じ弧を見る角"
+        },
+        {
+          "id": "s2-geometric-properties-t01-n005",
+          "type": "note",
+          "text": "着眼点　∠ACBと∠ADBが、ともに弧ABに対する円周角であることに着目する。"
+        },
+        {
+          "id": "s2-geometric-properties-t01-n006",
+          "type": "note",
+          "text": "使う知識　同じ弧に対する円周角の大きさは等しい。"
+        },
+        {
+          "id": "s2-geometric-properties-t01-h007",
+          "type": "heading",
+          "text": "問題文　円周上にA、B、C、Dがあり、∠ACB=35°とする。∠ADBを求めよ。"
+        },
+        {
+          "id": "s2-geometric-properties-t01-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　∠ACBと∠ADBは同じ弧ABに対する円周角であるから、∠ADB="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t01-n009",
+          "type": "note",
+          "text": "確認　2つの角が同じ弧ABを見ているかを確かめる。"
+        },
+        {
+          "id": "s2-geometric-properties-topic-02",
+          "type": "topic",
+          "text": "2.2 円に内接する四角形"
+        },
+        {
+          "id": "s2-geometric-properties-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円に内接する四角形では、1組の向かい合う内角の和は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " である。また、1つの内角に対する外角は、その向かい合う内角に等しい。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t02-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "逆に、1組の向かい合う内角の和が180°なら、その四角形の4頂点は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b005"
+            },
+            {
+              "type": "text",
+              "text": " にある。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-topic-03",
+          "type": "topic",
+          "text": "2.3 接線と弦の作る角"
+        },
+        {
+          "id": "s2-geometric-properties-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円において、弦とその端点における接線のなす角は、その角の内部にある弧に対する円周角と "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t03-h002",
+          "type": "heading",
+          "text": "教科書対応問　接線角"
+        },
+        {
+          "id": "s2-geometric-properties-t03-n003",
+          "type": "note",
+          "text": "着眼点　与えられた40°が、接線と弦のなす角であることに着目する。"
+        },
+        {
+          "id": "s2-geometric-properties-t03-n004",
+          "type": "note",
+          "text": "使う知識　接線と弦のなす角の定理より、この角は同じ弦を見込む円周角に等しい。"
+        },
+        {
+          "id": "s2-geometric-properties-t03-h005",
+          "type": "heading",
+          "text": "問題文　円の接点Aで、接線と弦ABのなす角が40°である。弦ABに対する円周角を求めよ。"
+        },
+        {
+          "id": "s2-geometric-properties-t03-p005a",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　接線と弦のなす角の定理より、求める円周角は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t03-n006",
+          "type": "note",
+          "text": "確認　接線と弦のなす角と、同じ弦を見込む円周角を対応させているかを確かめる。"
+        },
+        {
+          "id": "s2-geometric-properties-topic-04",
+          "type": "topic",
+          "text": "2.4 方べきの定理"
+        },
+        {
+          "id": "s2-geometric-properties-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点Pから円に2本の割線 P-A-B、P-C-D を引くと、PA·PB="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b007"
+            },
+            {
+              "type": "text",
+              "text": " が成り立つ。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点Pから引いた接線PTと割線 P-A-B については、PT²="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b008"
+            },
+            {
+              "type": "text",
+              "text": " が成り立つ。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t04-h003",
+          "type": "heading",
+          "text": "教科書対応問　長さを求める"
+        },
+        {
+          "id": "s2-geometric-properties-t04-n004",
+          "type": "note",
+          "text": "着眼点　同じ点Pから出る2本の割線に着目する。"
+        },
+        {
+          "id": "s2-geometric-properties-t04-n005",
+          "type": "note",
+          "text": "使う知識　方べきの定理 PA·PB=PC·PD を用いる。"
+        },
+        {
+          "id": "s2-geometric-properties-t04-h006",
+          "type": "heading",
+          "text": "問題文　点Pから円に2本の割線を引き、PA=2、PB=8、PC=4とする。PDを求めよ。"
+        },
+        {
+          "id": "s2-geometric-properties-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　方べきの定理より、2·8=4·PD。したがって、PD="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t04-n008",
+          "type": "note",
+          "text": "確認　同じ割線上の2つの線分を1組として積をつくっているかを確かめる。"
+        },
+        {
+          "id": "s2-geometric-properties-topic-05",
+          "type": "topic",
+          "text": "2.5 2つの円"
+        },
+        {
+          "id": "s2-geometric-properties-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2つの円が2点A、Bで交わるとき、両円の中心はどちらもA、Bから等距離にある。したがって、2円の中心を結ぶ直線は共通弦ABに "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b010"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t05-h002",
+          "type": "heading",
+          "text": "教科書対応問　円周角の逆"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n003",
+          "type": "note",
+          "text": "着眼点　C、Dが直線ABの同じ側にあり、∠ACBと∠ADBが同じ線分ABを見込んでいることに着目する。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n004",
+          "type": "note",
+          "text": "使う知識　円周角の定理の逆を用いる。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-h005",
+          "type": "heading",
+          "text": "問題文　点C、Dが直線ABの同じ側にあり、∠ACB=∠ADBとする。4点A、B、C、Dが同一円周上にあることを示せ。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　∠ACBと∠ADBは同じ線分ABを見込む角であり、C、Dは直線ABの同じ側にある。円周角の定理の逆より、4点A、B、C、Dは "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b011"
+            },
+            {
+              "type": "text",
+              "text": " にある。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t05-n007",
+          "type": "note",
+          "text": "確認　円周角の定理の逆を使うための位置関係を満たしているかを確かめる。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-h008",
+          "type": "heading",
+          "text": "教科書対応問　内接四角形の角"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n009",
+          "type": "note",
+          "text": "着眼点　四角形ABCDが円に内接しているので、向かい合う内角の和に着目する。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n010",
+          "type": "note",
+          "text": "使う知識　円に内接する四角形の対角の和を使い、続いて外角と対角の関係を利用する。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-h011",
+          "type": "heading",
+          "text": "問題文　四角形ABCDが円に内接し、∠A=72°である。∠Cを求め、さらに辺ABを延長してできる外角と∠Cの関係を答えよ。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　向かい合う内角の和は180°であるから、∠C=180°−72°="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t05-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　円に内接する四角形の外角は、その対角∠Cと "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t05-n014",
+          "type": "note",
+          "text": "確認　向かい合う内角の組を取り違えていないかを確かめる。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-h015",
+          "type": "heading",
+          "text": "教科書対応問　同一点から引いた接線"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n016",
+          "type": "note",
+          "text": "着眼点　PA、PBは同じ外部の点Pから円に引いた2本の接線である。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n017",
+          "type": "note",
+          "text": "使う知識　接点では半径と接線が垂直になることを用いて、△OAPと△OBPの合同を示す。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-h018",
+          "type": "heading",
+          "text": "問題文　円Oの外部の点Pから、円Oに接線PA、PBを引く。PAとPBの長さの関係を求めよ。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　OA⊥PA、OB⊥PB、OA=OB、OPは共通であるから、直角三角形OAPとOBPは合同。したがって、PA="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t05-n020",
+          "type": "note",
+          "text": "確認　合同な2つの三角形で、PAとPBが対応する辺になっているかを確かめる。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-h021",
+          "type": "heading",
+          "text": "教科書対応問　方べき・円内の交点"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n022",
+          "type": "note",
+          "text": "着眼点　円の内部で2本の弦AB、CDがPで交わっているので、方べきの定理を用いる。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n023",
+          "type": "note",
+          "text": "使う知識　PA·PB=PC·PD に与えられた長さを代入する。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-h024",
+          "type": "heading",
+          "text": "問題文　円の内部で2弦AB、CDが点Pで交わり、PA=3、PB=8、PC=4とする。PDを求めよ。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-p025",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　方べきの定理より、3·8=4·PD。したがって、PD="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t05-n026",
+          "type": "note",
+          "text": "確認　同じ弦上の2つの線分をそれぞれ1組にしているかを確かめる。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-h027",
+          "type": "heading",
+          "text": "教科書対応問　2円の共通弦"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n028",
+          "type": "note",
+          "text": "着眼点　2つの円の中心O1、O2は、どちらも共通点A、Bから等距離にある。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-n029",
+          "type": "note",
+          "text": "使う知識　2点A、Bから等距離にある点が並ぶ直線の性質を用いる。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-h030",
+          "type": "heading",
+          "text": "問題文　2つの円O1、O2がA、Bで交わるとき、O1O2とABの位置関係を答えよ。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-p031",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　O1A=O1B、O2A=O2B であるから、O1、O2はともにABの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s2-main-b016"
+            },
+            {
+              "type": "text",
+              "text": " 上にある。したがって、O1O2⊥AB。"
+            }
+          ]
+        },
+        {
+          "id": "s2-geometric-properties-t05-n032",
+          "type": "note",
+          "text": "確認　O1、O2がともにABの垂直二等分線上にあることを確認する。"
+        },
+        {
+          "id": "s2-geometric-properties-t05-p033",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第2節の自力確認　角度の問題では「どの弧を見ているか」、接線では「接点と半径」、長さの積では「方べきの定理」に着目する。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-geometric-properties-s2-main-b001",
+          "label": "1",
+          "prompt": "円周角の定理 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b002",
+          "label": "2",
+          "prompt": "円周角の定理 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b003",
+          "label": "3",
+          "prompt": "円周角の定理 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b004",
+          "label": "4",
+          "prompt": "円に内接する四角形 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b005",
+          "label": "5",
+          "prompt": "円に内接する四角形 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b006",
+          "label": "6",
+          "prompt": "接線と弦の作る角 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b007",
+          "label": "7",
+          "prompt": "方べきの定理 【7】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b008",
+          "label": "8",
+          "prompt": "方べきの定理 【8】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b009",
+          "label": "9",
+          "prompt": "方べきの定理 【9】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b010",
+          "label": "10",
+          "prompt": "2つの円 【10】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b011",
+          "label": "11",
+          "prompt": "2つの円 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b012",
+          "label": "12",
+          "prompt": "2つの円 【12】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b013",
+          "label": "13",
+          "prompt": "2つの円 【13】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b014",
+          "label": "14",
+          "prompt": "2つの円 【14】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b015",
+          "label": "15",
+          "prompt": "2つの円 【15】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b016",
+          "label": "16",
+          "prompt": "2つの円 【16】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s2-main-b017",
+          "label": "17",
+          "prompt": "接線角の例題 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text",
+          "choices": [
+            "30°",
+            "40°",
+            "50°",
+            "80°"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3-geometric-properties",
+      "number": "3",
+      "title": "作図",
+      "description": "作図を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s3-geometric-properties-topic-01",
+          "type": "topic",
+          "text": "3.1 基本作図"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n001",
+          "type": "note",
+          "text": "この節では、求める点や直線が満たす条件を整理し、それを基本作図に置き換えて作図する。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "作図では、コンパスで円をかき、定規で2点を通る直線を引く。基本作図を組み合わせて、目的の点や直線をつくる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometric-properties-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2点A、Bから等しい距離にある点は、線分ABの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s3-main-b001"
+            },
+            {
+              "type": "text",
+              "text": " 上にある。2直線から等しい距離にある点は、その2直線のなす角の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s3-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " 上にある。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometric-properties-t01-p004",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2つの条件を満たす点を作図するときは、それぞれの条件を満たす点の集合を作図し、その "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s3-main-b003"
+            },
+            {
+              "type": "text",
+              "text": " を求める。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometric-properties-t01-h005",
+          "type": "heading",
+          "text": "教科書対応問　垂線を引く"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n006",
+          "type": "note",
+          "text": "着眼点　直線l上に、Pから等距離にある2点A、Bをつくる。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n007",
+          "type": "note",
+          "text": "使う知識　A、Bから等距離にある点を結ぶ基本作図を利用して、Pを通る直線を決める。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-h008",
+          "type": "heading",
+          "text": "問題文　点Pから直線lに垂線を引け。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　Pを中心とする円と直線lとの交点をA、Bとする。A、Bの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s3-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " を引けば、Pを通りlに垂直な直線が得られる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometric-properties-t01-n010",
+          "type": "note",
+          "text": "確認　PがA、Bから等距離にあるため、Pが垂直二等分線上にあることを説明できるかを確かめる。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-h011",
+          "type": "heading",
+          "text": "教科書対応問　√aの作図"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n012",
+          "type": "note",
+          "text": "着眼点　長さ√(ab)を作るには、x²=abを満たす長さxを作ればよい。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n013",
+          "type": "note",
+          "text": "使う知識　方べきの定理が使えるように、長さa、bを直径上に並べて作図する。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-h014",
+          "type": "heading",
+          "text": "問題文　長さa、bの2つの線分が与えられたとき、長さ√(ab)の線分を作図せよ。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　方べきの定理より h²=ab となるように作図できるので、h="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s3-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometric-properties-t01-n016",
+          "type": "note",
+          "text": "確認　得られた長さhが h²=ab を満たしているかを確かめる。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-h017",
+          "type": "heading",
+          "text": "教科書対応問　角の二等分線を作図"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n018",
+          "type": "note",
+          "text": "着眼点　2つの角が等しいことを、合同な三角形をつくって示す。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n019",
+          "type": "note",
+          "text": "使う知識　角の2辺上にOから等距離の点P、Qをとり、さらにP、Qから等距離の点Rをつくる。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-h020",
+          "type": "heading",
+          "text": "問題文　∠AOBの二等分線を作図せよ。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　Oを中心とする円と2辺との交点をP、Qとし、P、Qを同じ半径とする2円の交点をRとする。ORが角の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s3-main-b006"
+            },
+            {
+              "type": "text",
+              "text": " となる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometric-properties-t01-p022",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　PR=QR、OP=OQ、ORは共通であるから、△OPR≡△OQR。したがって、∠POR=∠ROQ。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometric-properties-t01-n023",
+          "type": "note",
+          "text": "確認　合同な三角形から∠POR=∠ROQが得られることを確かめる。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-h024",
+          "type": "heading",
+          "text": "教科書対応問　与えられた3点を通る円"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n025",
+          "type": "note",
+          "text": "着眼点　外接円の中心は、3点A、B、Cから等しい距離にある。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n026",
+          "type": "note",
+          "text": "使う知識　2点から等距離にある点の軌跡を2組作り、その交点を中心にする。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-h027",
+          "type": "heading",
+          "text": "問題文　一直線上にない3点A、B、Cを通る円を作図せよ。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　中心はA、Bから等距離であり、B、Cからも等距離であるから、ABとBCの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s3-main-b007"
+            },
+            {
+              "type": "text",
+              "text": " の交点となる。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometric-properties-t01-n029",
+          "type": "note",
+          "text": "確認　得られた点がA、B、Cから等距離にあることを確かめる。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-h030",
+          "type": "heading",
+          "text": "教科書対応問　条件を満たす点の作図"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n031",
+          "type": "note",
+          "text": "着眼点　2つの条件を別々に考え、それぞれを満たす点の集合を作図する。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-n032",
+          "type": "note",
+          "text": "使う知識　A、Bから等距離にある点はABの垂直二等分線上にあり、直線lから一定の距離にある点はlに平行な2直線上にある。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-h033",
+          "type": "heading",
+          "text": "問題文　2点A、Bから等距離にあり、直線lから一定の距離にある点を作図せよ。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-p034",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　条件1を満たす点はABの垂直二等分線上、条件2を満たす点はlに平行な2直線上にある。求める点はそれらの "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s3-main-b008"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "s3-geometric-properties-t01-n035",
+          "type": "note",
+          "text": "確認　作図した点が2つの条件をともに満たしているかを確かめる。"
+        },
+        {
+          "id": "s3-geometric-properties-t01-p036",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "作図の記述　作図では手順だけでなく、その点や直線が条件を満たす理由も説明する。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-geometric-properties-s3-main-b001",
+          "label": "1",
+          "prompt": "基本作図 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s3-main-b002",
+          "label": "2",
+          "prompt": "基本作図 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s3-main-b003",
+          "label": "3",
+          "prompt": "基本作図 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s3-main-b004",
+          "label": "4",
+          "prompt": "基本作図 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s3-main-b005",
+          "label": "5",
+          "prompt": "基本作図 【5】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-geometric-properties-s3-main-b006",
+          "label": "6",
+          "prompt": "基本作図 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s3-main-b007",
+          "label": "7",
+          "prompt": "基本作図 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s3-main-b008",
+          "label": "8",
+          "prompt": "基本作図 【8】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "s4-geometric-properties",
+      "number": "4",
+      "title": "空間図形",
+      "description": "空間図形を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s4-geometric-properties-topic-01",
+          "type": "topic",
+          "text": "4.1 直線と平面の位置関係"
+        },
+        {
+          "id": "s4-geometric-properties-t01-n001",
+          "type": "note",
+          "text": "この節では、空間内の直線や平面の位置関係を整理し、必要に応じて1つの平面上の問題に置き換えて考える。"
+        },
+        {
+          "id": "s4-geometric-properties-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "空間図形では、まず問題に関係する直線や平面の位置関係を確認する。必要に応じて、関係する点や直線を含む平面をとって考える。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "空間内の異なる2直線の位置関係は、交わる、平行、"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-main-b001"
+            },
+            {
+              "type": "text",
+              "text": " の3つである。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-topic-02",
+          "type": "topic",
+          "text": "4.2 垂直と三垂線の定理"
+        },
+        {
+          "id": "s4-geometric-properties-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直線lが平面α上の交わる2直線に垂直なら、l⊥αである。また、空間の垂直関係を調べるときには "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " を利用できる。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t02-h002",
+          "type": "heading",
+          "text": "教科書対応問　空間の垂直"
+        },
+        {
+          "id": "s4-geometric-properties-t02-n003",
+          "type": "note",
+          "text": "着眼点　PH⊥平面αであり、直線lがHを通る平面α上の直線であることに着目する。"
+        },
+        {
+          "id": "s4-geometric-properties-t02-n004",
+          "type": "note",
+          "text": "使う知識　直線と平面が直交するとき、その交点を通る平面内の直線との関係を用いる。"
+        },
+        {
+          "id": "s4-geometric-properties-t02-h005",
+          "type": "heading",
+          "text": "問題文　点Pから平面αに垂線PHを下ろし、Hを通る平面α上の直線lをとる。PHとlの位置関係を答えよ。"
+        },
+        {
+          "id": "s4-geometric-properties-t02-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　PH⊥α であるから、PHはHを通る平面α上のすべての直線に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-main-b003"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t02-n007",
+          "type": "note",
+          "text": "確認　直線lが、PHと平面αとの交点Hを通っていることを確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-topic-03",
+          "type": "topic",
+          "text": "4.3 多面体とオイラーの公式"
+        },
+        {
+          "id": "s4-geometric-properties-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "凸多面体では、頂点の数V、辺の数E、面の数Fについて V−E+F="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-main-b004"
+            },
+            {
+              "type": "text",
+              "text": " が成り立つ。これをオイラーの多面体定理という。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t03-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正多面体は、各面が合同な正多角形で、各頂点に集まる面の数が等しい多面体である。正多面体は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-main-b005"
+            },
+            {
+              "type": "text",
+              "text": " ある。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t03-h003",
+          "type": "heading",
+          "text": "教科書対応問　表を完成"
+        },
+        {
+          "id": "s4-geometric-properties-t03-n004",
+          "type": "note",
+          "text": "着眼点　立方体の頂点数V、辺数E、面数Fをオイラーの多面体定理に代入する。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-n005",
+          "type": "note",
+          "text": "使う知識　V−E+F=2 を用いる。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-h006",
+          "type": "heading",
+          "text": "問題文　立方体では V=8、E=12、F=6 である。V−E+Fの値を求めよ。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　8−12+6="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-main-b006"
+            },
+            {
+              "type": "text",
+              "text": " となり、オイラーの多面体定理が確かめられる。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t03-n008",
+          "type": "note",
+          "text": "確認　V、E、Fを正しく対応させて代入しているかを確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-h009",
+          "type": "heading",
+          "text": "教科書対応問　ねじれの位置"
+        },
+        {
+          "id": "s4-geometric-properties-t03-n010",
+          "type": "note",
+          "text": "着眼点　ABとCGが交わるか、平行か、同一平面上にあるかを順に調べる。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-n011",
+          "type": "note",
+          "text": "使う知識　空間内の2直線を、交点の有無・平行かどうか・同一平面上にあるかで分類する。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-h012",
+          "type": "heading",
+          "text": "問題文　立方体ABCD-EFGHにおいて、直線ABとCGの位置関係を答えよ。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　ABとCGは交わらず、平行でもなく、同一平面上にもない。したがって、2直線は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-main-b007"
+            },
+            {
+              "type": "text",
+              "text": " にある。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t03-n014",
+          "type": "note",
+          "text": "確認　2直線を同時に含む平面が存在するかどうかまで確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-h015",
+          "type": "heading",
+          "text": "教科書対応問　平面どうしの角"
+        },
+        {
+          "id": "s4-geometric-properties-t03-n016",
+          "type": "note",
+          "text": "着眼点　2平面の交線lを基準にし、各平面内でlに垂直な2直線をとる。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-n017",
+          "type": "note",
+          "text": "使う知識　交線lに対して同じ条件を満たす2直線を各平面内にとり、そのなす角を考える。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-h018",
+          "type": "heading",
+          "text": "問題文　2平面α、βの交線をlとし、同じ点からa⊂α、b⊂βをlに垂直に引く。2平面α、βのなす角を答えよ。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　2平面のなす角は、直線aとbのなす角である。a、bはいずれも交線lに "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-main-b008"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t03-n020",
+          "type": "note",
+          "text": "確認　a、bが同じ点から出ており、どちらも交線lに垂直であることを確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-h021",
+          "type": "heading",
+          "text": "教科書対応問　正多面体を分類"
+        },
+        {
+          "id": "s4-geometric-properties-t03-n022",
+          "type": "note",
+          "text": "着眼点　1つの頂点に集まる正多角形の内角の和が360°より小さくなることに着目する。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-n023",
+          "type": "note",
+          "text": "使う知識　1つの頂点に集まる面の数は3以上であり、その頂点まわりの角の和は360°より小さい。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-h024",
+          "type": "heading",
+          "text": "問題文　正多面体が何種類あるかを、1つの頂点に集まる面の角の和に着目して考えよ。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-p025",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　1つの頂点に集まる面の角の和が360°未満となる場合を調べると、正多面体は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-main-b009"
+            },
+            {
+              "type": "text",
+              "text": " だけである。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t03-n026",
+          "type": "note",
+          "text": "確認　各頂点に集まる面の数が3以上であることも含めて調べているかを確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-t03-p027",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "第4節の自力確認　空間図形では、直線や平面の位置関係を言葉で確認し、必要な点や直線を含む平面をとって考える。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-topic-04",
+          "type": "topic",
+          "text": "4.4 章末問題・思考力"
+        },
+        {
+          "id": "s4-geometric-properties-t04-n001",
+          "type": "note",
+          "text": "章末では、問題の条件を図に書き込み、使う定理とその条件を確かめてから解き進める。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三角形・円・作図・空間図形で学んだ定理を組み合わせる。結論から逆に考え、何が示せれば次の定理を使えるかを整理する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　証明問題"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n004",
+          "type": "note",
+          "text": "読む　円がある図では、どの弧に対する角か、接点や交点がどこにあるかを確認する。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-n005",
+          "type": "note",
+          "text": "考える　円周角の定理、接線と弦のなす角、方べきの定理などから、与えられた条件に合うものを選ぶ。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-h006",
+          "type": "heading",
+          "text": "問題文　合同・相似・円周角・方べきの定理を組み合わせて、図形の性質を証明せよ。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p007",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　結論から逆に、必要な角の等しさや線分の積の関係を考え、それを示す定理を順に用いる。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n008",
+          "type": "note",
+          "text": "最後の確認　角が見込む弧や、方べきで用いる線分の組を取り違えていないかを確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p009",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　図形の条件を変えて考える"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n010",
+          "type": "note",
+          "text": "読む　変えた条件と、求める結論を分けて整理する。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-n011",
+          "type": "note",
+          "text": "考える　もとの証明で使った定理について、必要な条件が保たれているかを1つずつ確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-h012",
+          "type": "heading",
+          "text": "問題文　点の位置や比を変えたとき、もとの結論が成り立つ条件を調べよ。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p013",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　図だけで判断せず、使った定理の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-end-b001"
+            },
+            {
+              "type": "text",
+              "text": " が保たれているかを確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n014",
+          "type": "note",
+          "text": "最後の確認　示した条件が、使った定理の仮定をすべて満たしているかを確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p015",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　五心と比"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n016",
+          "type": "note",
+          "text": "読む　図に現れる中心が、どの直線の交点として定義されているかを確認する。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-n017",
+          "type": "note",
+          "text": "考える　重心・外心・内心・垂心の定義から、使える中線・垂直二等分線・角の二等分線・高さを決める。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-h018",
+          "type": "heading",
+          "text": "問題文　三角形の五心の定義を用いて，問題の条件に合う補助線を引き，必要な比の関係を求めよ。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p019",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　まず「その中心は何の交点か」を確認し、名前ではなく "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-end-b002"
+            },
+            {
+              "type": "text",
+              "text": " に戻って考える。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n020",
+          "type": "note",
+          "text": "最後の確認　比の向きと、対応する辺や線分を取り違えていないかを確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p021",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "章末対応　円と接線の証明"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n022",
+          "type": "note",
+          "text": "読む　同じ弧を見る角、接点、円の内外にある点を確認する。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-n023",
+          "type": "note",
+          "text": "考える　角の等しさなら円周角、接線があれば接線と弦のなす角、長さの積なら方べきの定理を候補にする。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-h024",
+          "type": "heading",
+          "text": "問題文　与えられた条件から、4点が同一円周上にあることを示せ。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p025",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　円周角の定理の逆、向かい合う内角の和、方べきの定理の逆など、与えられた条件から最も直接使える方法を考える。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-p026",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　与えられた条件から最も直接示せる方法を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-end-b003"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n027",
+          "type": "note",
+          "text": "最後の確認　角の対応、見込む弧、線分の積の組を取り違えていないかを確かめる。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p028",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "思考力　角が最大になる位置を考える"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n029",
+          "type": "note",
+          "text": "読む　固定された2点をどの位置から見るかに着目し、同じ大きさの角で見える点の集合を考える。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-n030",
+          "type": "note",
+          "text": "考える　同じ線分を同じ大きさの角で見込む点は同一円周上にあることを利用し、円周角の大小として考える。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-h031",
+          "type": "heading",
+          "text": "問題文　2点A、Bを見込む角∠APBが最大になる点Pの位置を考えよ。"
+        },
+        {
+          "id": "s4-geometric-properties-t04-p032",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　線分ABを同じ大きさの角で見込む点は同一円周上にある。この性質を用いて、角度の比較を "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-geometric-properties-s4-end-b004"
+            },
+            {
+              "type": "text",
+              "text": " の考えに置き換える。"
+            }
+          ]
+        },
+        {
+          "id": "s4-geometric-properties-t04-n033",
+          "type": "note",
+          "text": "最後の確認　候補となる点が問題の範囲内にあり、同じ線分ABを見込んでいるかを確かめる。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-geometric-properties-s4-main-b001",
+          "label": "1",
+          "prompt": "直線と平面の位置関係 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-main-b002",
+          "label": "2",
+          "prompt": "垂直と三垂線の定理 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-main-b003",
+          "label": "3",
+          "prompt": "垂直と三垂線の定理 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-main-b004",
+          "label": "4",
+          "prompt": "多面体とオイラーの公式 【4】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-main-b005",
+          "label": "5",
+          "prompt": "多面体とオイラーの公式 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-main-b006",
+          "label": "6",
+          "prompt": "多面体とオイラーの公式 【6】",
+          "acceptedAnswers": [],
+          "answerType": "number"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-main-b007",
+          "label": "7",
+          "prompt": "多面体とオイラーの公式 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-main-b008",
+          "label": "8",
+          "prompt": "多面体とオイラーの公式 【8】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-main-b009",
+          "label": "9",
+          "prompt": "多面体とオイラーの公式 【9】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-end-b001",
+          "label": "1",
+          "prompt": "章末問題・思考力 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-end-b002",
+          "label": "2",
+          "prompt": "章末問題・思考力 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-end-b003",
+          "label": "3",
+          "prompt": "章末問題・思考力 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-geometric-properties-s4-end-b004",
+          "label": "4",
+          "prompt": "章末問題・思考力 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    }
+  ]
+}

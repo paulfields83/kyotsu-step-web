@@ -1,0 +1,23 @@
+% !TeX program = pdflatex
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{calc,intersections,positioning}
+\definecolor{FigureBlue}{HTML}{2563EB}
+\definecolor{FigureOrange}{HTML}{EA580C}
+\begin{document}
+\begin{tikzpicture}[line cap=round,line join=round]
+  \coordinate (A) at (1.2,4);\coordinate (B) at (0,0);\coordinate (C) at (6,0);\coordinate (P) at (2.3,1.6);
+  \path[name path=BC] (B)--(C);\path[name path=CA] (C)--(A);\path[name path=AB] (A)--(B);
+  \path[name path=AP] (A)--($(A)!3!(P)$);\path[name path=BP] (B)--($(B)!3!(P)$);\path[name path=CP] (C)--($(C)!3!(P)$);
+  \path[name intersections={of=AP and BC,by=D}];
+  \path[name intersections={of=BP and CA,by=E}];
+  \path[name intersections={of=CP and AB,by=F}];
+  \draw[line width=1.2pt] (A)--(B)--(C)--cycle;
+  \draw[FigureBlue,line width=1.25pt] (A)--(D) (B)--(E) (C)--(F);
+  \foreach \P in {D,E,F}{\fill[FigureBlue] (\P) circle (2pt);}
+  \fill[FigureOrange] (P) circle (2.8pt);
+  \node[above] at (A) {$A$};\node[below left] at (B) {$B$};\node[below right] at (C) {$C$};
+  \node[below] at (D) {$D$};\node[above right] at (E) {$E$};\node[above left] at (F) {$F$};\node[above right,text=FigureOrange] at (P) {$P$};
+  \node[below=11mm] at ($(B)!.5!(C)$) {$\displaystyle\frac{BD}{DC}\frac{CE}{EA}\frac{AF}{FB}=1$};
+\end{tikzpicture}
+\end{document}

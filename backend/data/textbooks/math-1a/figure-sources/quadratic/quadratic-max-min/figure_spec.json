@@ -1,0 +1,21 @@
+{
+  "figure_id": "quadratic-max-min",
+  "unit": "math-1a-quadratic-functions",
+  "topic": "2.2-2.4 最大・最小",
+  "insert_after": ["s2-quadratic-functions-topic-02 paragraph 1", "s2-quadratic-functions-topic-03 paragraph 1", "s2-quadratic-functions-topic-04 paragraph 1"],
+  "teaching_goal": "固定区間、動く右端、動く軸の3場合を分け、最大・最小の候補が頂点と端点から計算されることを示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/quadratic-functions/unit.json / topics 2.2-2.4",
+    "word": "塾_数学I_第2章_2次関数_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 2 定義域がある場合, 3 パラメータを含む定義域, 4 軸そのものが動く",
+    "textbook_guide": "教科書 p.69-74 / Guide PDF 82-91"
+  },
+  "figure_type": "function",
+  "precision": "exact",
+  "objects": ["fixed-domain example", "moving endpoint a", "moving axis a on [0,2]"],
+  "constraints": ["all curves are generated from formulas", "closed endpoints are on each curve", "the vertex is used only when it lies in the domain", "case boundaries are derived from the axis position"],
+  "labels": ["vertex inside", "right endpoint a", "axis left/inside/right"],
+  "forbidden": ["visual extremum guessing", "endpoint off the curve", "one diagram reused without the parameter cases"],
+  "engine": "PGFPlots",
+  "qa_rules": ["fixed-domain extrema checked", "moving-endpoint cases split at a=0.5", "moving-axis cases split at a=0 and a=2"],
+  "status": "math_checked"
+}

@@ -1,0 +1,21 @@
+{
+  "figure_id": "basic-construction",
+  "unit": "math-1a-geometric-properties",
+  "topic": "3.1 基本作図",
+  "insert_after": "s3-geometric-properties-topic-01 paragraph 1",
+  "teaching_goal": "A,B を同じ半径とする2円弧の交点 U,V を結ぶと、線分 AB の垂直二等分線になる作図原理を示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 3.1",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 1 基本作図",
+    "textbook_guide": "教科書 p.101–104。Word 母本の点 P からの垂線と垂直二等分線の作図説明を一次参照。"
+  },
+  "figure_type": "construction_geometry",
+  "precision": "exact",
+  "objects": ["segment AB", "equal-radius circles centered at A and B", "intersection points U and V", "midpoint M", "perpendicular bisector UV"],
+  "constraints": ["UA=UB=VA=VB", "M is midpoint of AB", "U,M,V are collinear", "UV is perpendicular to AB"],
+  "labels": ["A", "B", "U", "V", "M", "UV⊥AB", "AM=MB"],
+  "forbidden": ["unequal compass radii", "arc intersections guessed by eye", "perpendicular line missing the midpoint"],
+  "engine": "TikZ circle-intersection construction",
+  "qa_rules": ["U,V=circle(A,r)∩circle(B,r)", "UA==UB==VA==VB", "M=midpoint(A,B)", "UV_perpendicular_AB"],
+  "status": "math_checked"
+}

@@ -1,0 +1,1080 @@
+{
+  "unitId": "math-1a-counting-probability",
+  "answers": {
+    "math-1a-counting-probability-s1-t1-b001": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b002": {
+      "validator": "normalized-text",
+      "answer": "有限",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b003": {
+      "validator": "normalized-text",
+      "answer": "無限",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b004": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b005": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b006": {
+      "validator": "normalized-text",
+      "answer": "両方",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b007": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b008": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b009": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b010": {
+      "validator": "normalized-text",
+      "answer": "n(A∩B)",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b011": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b012": {
+      "validator": "normalized-text",
+      "answer": "n(A)+n(B)",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b013": {
+      "validator": "normalized-text",
+      "answer": "属さない",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b014": {
+      "validator": "normalized-text",
+      "answer": "n(U)−n(A)",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b015": {
+      "validator": "normalized-text",
+      "answer": "属さない",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b016": {
+      "validator": "number",
+      "answer": "25",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b017": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b018": {
+      "validator": "number",
+      "answer": "35",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b019": {
+      "validator": "number",
+      "answer": "35",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b020": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b021": {
+      "validator": "number",
+      "answer": "50",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b022": {
+      "validator": "number",
+      "answer": "35",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b023": {
+      "validator": "number",
+      "answer": "21",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b024": {
+      "validator": "normalized-text",
+      "answer": "入っていない",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b025": {
+      "validator": "number",
+      "answer": "43",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b026": {
+      "validator": "number",
+      "answer": "13",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b027": {
+      "validator": "number",
+      "answer": "22",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b028": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b029": {
+      "validator": "number",
+      "answer": "30",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b030": {
+      "validator": "normalized-text",
+      "answer": "共通",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b031": {
+      "validator": "normalized-text",
+      "answer": "和",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b032": {
+      "validator": "normalized-text",
+      "answer": "補",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b033": {
+      "validator": "number",
+      "answer": "15",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b034": {
+      "validator": "number",
+      "answer": "13",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b035": {
+      "validator": "number",
+      "answer": "66",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b036": {
+      "validator": "number",
+      "answer": "40",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b037": {
+      "validator": "number",
+      "answer": "93",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b038": {
+      "validator": "number",
+      "answer": "107",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b039": {
+      "validator": "normalized-text",
+      "answer": "引く",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b040": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b041": {
+      "validator": "normalized-text",
+      "answer": "足し戻す",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b042": {
+      "validator": "normalized-text",
+      "answer": "n(A∩B∩C)",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t1-b043": {
+      "validator": "number",
+      "answer": "72",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b001": {
+      "validator": "normalized-text",
+      "answer": "結果",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b002": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b003": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b004": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b005": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b006": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b007": {
+      "validator": "number",
+      "answer": "20",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b008": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b009": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b010": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b011": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t2-b012": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b001": {
+      "validator": "normalized-text",
+      "answer": "重なり",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b002": {
+      "validator": "normalized-text",
+      "answer": "和の法則",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b003": {
+      "validator": "normalized-text",
+      "answer": "重なり",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b004": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b005": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b006": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b007": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b008": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b009": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b010": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b011": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b012": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t3-b013": {
+      "validator": "number",
+      "answer": "9",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b001": {
+      "validator": "normalized-text",
+      "answer": "それぞれ",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b002": {
+      "validator": "normalized-text",
+      "answer": "積の法則",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b003": {
+      "validator": "normalized-text",
+      "answer": "すべて（順に）",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b004": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b005": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b006": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b007": {
+      "validator": "number",
+      "answer": "216",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b008": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b009": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b010": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b011": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b012": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b013": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b014": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b015": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t4-b016": {
+      "validator": "number",
+      "answer": "24",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b017": {
+      "validator": "number",
+      "answer": "35",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b018": {
+      "validator": "number",
+      "answer": "90",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b019": {
+      "validator": "number",
+      "answer": "83",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b020": {
+      "validator": "number",
+      "answer": "25",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b021": {
+      "validator": "normalized-text",
+      "answer": "含める",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b022": {
+      "validator": "normalized-text",
+      "answer": "離す（重なりを小さくする）",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b024": {
+      "validator": "number",
+      "answer": "41",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b025": {
+      "validator": "number",
+      "answer": "60",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b026": {
+      "validator": "number",
+      "answer": "20",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b027": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b028": {
+      "validator": "number",
+      "answer": "23",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b029": {
+      "validator": "number",
+      "answer": "15",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b030": {
+      "validator": "number",
+      "answer": "27",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-b031": {
+      "validator": "number",
+      "answer": "189",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b001": {
+      "validator": "normalized-text",
+      "answer": "n−1",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b002": {
+      "validator": "normalized-text",
+      "answer": "n−2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b003": {
+      "validator": "normalized-text",
+      "answer": "順列",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b004": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b005": {
+      "validator": "number",
+      "answer": "336",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b006": {
+      "validator": "number",
+      "answer": "360",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b007": {
+      "validator": "number",
+      "answer": "49",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b008": {
+      "validator": "number",
+      "answer": "2450",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b009": {
+      "validator": "number",
+      "answer": "720",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b010": {
+      "validator": "number",
+      "answer": "144",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b011": {
+      "validator": "number",
+      "answer": "144",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b012": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b013": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b014": {
+      "validator": "number",
+      "answer": "144",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t1-b015": {
+      "validator": "number",
+      "answer": "108",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b001": {
+      "validator": "normalized-text",
+      "answer": "(n−1)!",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b002": {
+      "validator": "normalized-text",
+      "answer": "重複順列",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b003": {
+      "validator": "number",
+      "answer": "120",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b004": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b005": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b006": {
+      "validator": "number",
+      "answer": "36",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b007": {
+      "validator": "number",
+      "answer": "625",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b008": {
+      "validator": "number",
+      "answer": "500",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b009": {
+      "validator": "number",
+      "answer": "128",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b010": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t2-b011": {
+      "validator": "number",
+      "answer": "126",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b001": {
+      "validator": "normalized-text",
+      "answer": "nC(n−r)",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b002": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b003": {
+      "validator": "number",
+      "answer": "70",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b004": {
+      "validator": "number",
+      "answer": "7",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b005": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b006": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b007": {
+      "validator": "number",
+      "answer": "28",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b008": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b009": {
+      "validator": "number",
+      "answer": "120",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b010": {
+      "validator": "number",
+      "answer": "70",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b011": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b012": {
+      "validator": "number",
+      "answer": "20",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b013": {
+      "validator": "number",
+      "answer": "200",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b014": {
+      "validator": "number",
+      "answer": "461",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b015": {
+      "validator": "number",
+      "answer": "2520",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b016": {
+      "validator": "number",
+      "answer": "24",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b017": {
+      "validator": "number",
+      "answer": "105",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b018": {
+      "validator": "number",
+      "answer": "105",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t3-b019": {
+      "validator": "number",
+      "answer": "105",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t4-b001": {
+      "validator": "normalized-text",
+      "answer": "割る",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t4-b002": {
+      "validator": "number",
+      "answer": "280",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t4-b003": {
+      "validator": "number",
+      "answer": "126",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t4-b004": {
+      "validator": "number",
+      "answer": "60",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t4-b005": {
+      "validator": "number",
+      "answer": "66",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t4-b006": {
+      "validator": "number",
+      "answer": "165",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t4-b007": {
+      "validator": "number",
+      "answer": "36",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b008": {
+      "validator": "number",
+      "answer": "1152",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b009": {
+      "validator": "number",
+      "answer": "144",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b010": {
+      "validator": "number",
+      "answer": "32",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b011": {
+      "validator": "number",
+      "answer": "80",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b012": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b013": {
+      "validator": "number",
+      "answer": "60",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b014": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b015": {
+      "validator": "number",
+      "answer": "1260",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b016": {
+      "validator": "number",
+      "answer": "280",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b017": {
+      "validator": "number",
+      "answer": "378",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s2-t5-b018": {
+      "validator": "number",
+      "answer": "105",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b001": {
+      "validator": "normalized-text",
+      "answer": "全事象",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b002": {
+      "validator": "normalized-text",
+      "answer": "事象",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b003": {
+      "validator": "normalized-text",
+      "answer": "a/n",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b004": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b005": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b006": {
+      "validator": "normalized-text",
+      "answer": "1/2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b007": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b008": {
+      "validator": "normalized-text",
+      "answer": "3/8",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b009": {
+      "validator": "normalized-text",
+      "answer": "P(A∩B)",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b010": {
+      "validator": "normalized-text",
+      "answer": "1−P(A)",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b011": {
+      "validator": "normalized-text",
+      "answer": "1/8",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b012": {
+      "validator": "normalized-text",
+      "answer": "7/8",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b013": {
+      "validator": "normalized-text",
+      "answer": "全部足す",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b014": {
+      "validator": "normalized-text",
+      "answer": "25円",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b015": {
+      "validator": "normalized-text",
+      "answer": "{6}",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b016": {
+      "validator": "normalized-text",
+      "answer": "{2,3,4,6}",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b017": {
+      "validator": "normalized-text",
+      "answer": "1つもない",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b018": {
+      "validator": "normalized-text",
+      "answer": "1/6",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b019": {
+      "validator": "number",
+      "answer": "33",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b020": {
+      "validator": "normalized-text",
+      "answer": "33/50",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b021": {
+      "validator": "normalized-text",
+      "answer": "15/16",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b022": {
+      "validator": "normalized-text",
+      "answer": "6/7",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s3-main-b023": {
+      "validator": "normalized-text",
+      "answer": "P(B)",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b001": {
+      "validator": "normalized-text",
+      "answer": "P(B)を掛ける",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b002": {
+      "validator": "normalized-text",
+      "answer": "1/12",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b003": {
+      "validator": "normalized-text",
+      "answer": "n−r",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b004": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b005": {
+      "validator": "normalized-text",
+      "answer": "10/32=5/16",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b006": {
+      "validator": "normalized-text",
+      "answer": "P(B)",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b007": {
+      "validator": "normalized-text",
+      "answer": "狭める",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b008": {
+      "validator": "normalized-text",
+      "answer": "赤いカード",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b009": {
+      "validator": "normalized-text",
+      "answer": "掛ける",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b010": {
+      "validator": "normalized-text",
+      "answer": "変わる",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b011": {
+      "validator": "normalized-text",
+      "answer": "変えない",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b012": {
+      "validator": "number",
+      "answer": "0.012",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b013": {
+      "validator": "number",
+      "answer": "0.024",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b014": {
+      "validator": "normalized-text",
+      "answer": "1/2",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b015": {
+      "validator": "number",
+      "answer": "0.91",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b016": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b017": {
+      "validator": "normalized-text",
+      "answer": "40/243",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b018": {
+      "validator": "normalized-text",
+      "answer": "2/5",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b019": {
+      "validator": "normalized-text",
+      "answer": "3/10",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b020": {
+      "validator": "normalized-text",
+      "answer": "1/6",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b021": {
+      "validator": "normalized-text",
+      "answer": "独立",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-main-b022": {
+      "validator": "normalized-text",
+      "answer": "事前確率",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-end-b001": {
+      "validator": "normalized-text",
+      "answer": "場合の数の比",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-end-b002": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-end-b003": {
+      "validator": "normalized-text",
+      "answer": "掛ける",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-end-b004": {
+      "validator": "normalized-text",
+      "answer": "確率も含めた平均的価値",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s4-end-b005": {
+      "validator": "normalized-text",
+      "answer": "確率比",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-union-max": {
+      "validator": "number",
+      "answer": "40",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-union-min": {
+      "validator": "number",
+      "answer": "31",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-both-max": {
+      "validator": "number",
+      "answer": "16",
+      "acceptedAnswers": []
+    },
+    "math-1a-counting-probability-s1-t5-both-min": {
+      "validator": "number",
+      "answer": "7",
+      "acceptedAnswers": []
+    }
+  }
+}

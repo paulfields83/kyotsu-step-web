@@ -1,0 +1,21 @@
+{
+  "figure_id": "quadratic-discriminant",
+  "unit": "math-1a-quadratic-functions",
+  "topic": "3.2 実数解の個数と判別式",
+  "insert_after": "s3-quadratic-functions-topic-02 paragraph 1",
+  "teaching_goal": "判別式 D の符号と、放物線と x 軸の共有点数（2個・1個・0個）を同じ尺度の3図で対応させる。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/quadratic-functions/unit.json / topic 3.2",
+    "word": "backend/data/textbooks/math-1a/source/塾_数学I_第2章_2次関数_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 2 実数解の個数と判別式",
+    "textbook_guide": "教科書 p.75-95 の第3節範囲。母本は小項目ごとのページを細分していない。"
+  },
+  "figure_type": "function",
+  "precision": "exact",
+  "objects": ["y=x^2-1 with roots -1 and 1", "y=x^2 with double root 0", "y=x^2+1 with no real roots"],
+  "constraints": ["D=4>0 corresponds to two intersections", "D=0 corresponds to one tangent intersection", "D=-4<0 corresponds to no intersection"],
+  "labels": ["D>0", "D=0", "D<0", "two roots", "one double root", "no real root"],
+  "forbidden": ["curve visually crossing without an algebraic root", "missing double-root point", "different axis scales that distort comparison", "handwritten SVG coordinates"],
+  "engine": "PGFPlots",
+  "qa_rules": ["root counts are [2,1,0]", "discriminants are [4,0,-4]", "marked points satisfy y=0", "compiled PDF has one cropped page"],
+  "status": "math_checked"
+}

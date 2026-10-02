@@ -1,0 +1,21 @@
+{
+  "figure_id": "power-of-point",
+  "unit": "math-1a-geometric-properties",
+  "topic": "2.4 方べきの定理",
+  "insert_after": "s2-geometric-properties-topic-04 paragraph 1",
+  "teaching_goal": "円外の点 P から2本の割線 P-A-B, P-C-D と接線 PT を構成し、PA*PB=PC*PD=PT^2 の対応を読めるようにする。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 2.4",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 4 方べきの定理",
+    "textbook_guide": "同期済み Word 母本の該当見出しを一次参照。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["circle O=(1,0), r=2.5", "P=(-4,0)", "A=(-1.5,0), B=(3.5,0)", "C=(-1,1.5), D=(1,2.5)", "tangent point T=(-0.25,2.165...)"],
+  "constraints": ["A,B,C,D,T lie on the circle", "P,A,B collinear", "P,C,D collinear", "OT perpendicular PT", "PA*PB=PC*PD=PT^2=18.75"],
+  "labels": ["P", "A", "B", "C", "D", "T", "PA*PB=PC*PD=PT^2"],
+  "forbidden": ["unlabeled intersection points", "tangent point guessed by eye", "wrong point order on either secant"],
+  "engine": "TikZ analytic-coordinate construction",
+  "qa_rules": ["circle incidence", "collinearity", "tangency", "power products all equal"],
+  "status": "math_checked"
+}

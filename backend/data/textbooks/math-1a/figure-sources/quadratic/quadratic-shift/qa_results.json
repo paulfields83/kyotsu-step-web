@@ -1,0 +1,154 @@
+{
+  "figure_id": "quadratic-shift",
+  "source_sha256": "382bce8eb2e8aef5cacc36f17a3e7049a34b8d78288eaa2c0837820fb0dcba09",
+  "engine": "PGFPlots",
+  "math_qa": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "spec-id",
+        "passed": true,
+        "detail": "quadratic-shift == quadratic-shift"
+      },
+      {
+        "name": "spec-unit",
+        "passed": true,
+        "detail": "figure_spec.json contains unit"
+      },
+      {
+        "name": "spec-topic",
+        "passed": true,
+        "detail": "figure_spec.json contains topic"
+      },
+      {
+        "name": "spec-teaching_goal",
+        "passed": true,
+        "detail": "figure_spec.json contains teaching_goal"
+      },
+      {
+        "name": "spec-source",
+        "passed": true,
+        "detail": "figure_spec.json contains source"
+      },
+      {
+        "name": "spec-objects",
+        "passed": true,
+        "detail": "figure_spec.json contains objects"
+      },
+      {
+        "name": "spec-constraints",
+        "passed": true,
+        "detail": "figure_spec.json contains constraints"
+      },
+      {
+        "name": "spec-labels",
+        "passed": true,
+        "detail": "figure_spec.json contains labels"
+      },
+      {
+        "name": "spec-forbidden",
+        "passed": true,
+        "detail": "figure_spec.json contains forbidden"
+      },
+      {
+        "name": "spec-engine",
+        "passed": true,
+        "detail": "figure_spec.json contains engine"
+      },
+      {
+        "name": "spec-qa_rules",
+        "passed": true,
+        "detail": "figure_spec.json contains qa_rules"
+      },
+      {
+        "name": "spec-status",
+        "passed": true,
+        "detail": "figure_spec.json contains status"
+      },
+      {
+        "name": "standalone-source",
+        "passed": true,
+        "detail": "independently compilable standalone document"
+      },
+      {
+        "name": "no-svg-source",
+        "passed": true,
+        "detail": "source is TeX/TikZ rather than handwritten SVG"
+      },
+      {
+        "name": "pgfplots-formula",
+        "passed": true,
+        "detail": "function/statistics geometry comes from PGFPlots"
+      },
+      {
+        "name": "source-model-binding",
+        "passed": true,
+        "detail": "verified model values and constructions are present in figure.tex"
+      },
+      {
+        "name": "translate--2",
+        "passed": true,
+        "detail": "g(-2)=f(-2-2)+1"
+      },
+      {
+        "name": "reflect--2",
+        "passed": true,
+        "detail": "h(-2)=-g(-2)"
+      },
+      {
+        "name": "translate--0.5",
+        "passed": true,
+        "detail": "g(-0.5)=f(-0.5-2)+1"
+      },
+      {
+        "name": "reflect--0.5",
+        "passed": true,
+        "detail": "h(-0.5)=-g(-0.5)"
+      },
+      {
+        "name": "translate-0",
+        "passed": true,
+        "detail": "g(0)=f(0-2)+1"
+      },
+      {
+        "name": "reflect-0",
+        "passed": true,
+        "detail": "h(0)=-g(0)"
+      },
+      {
+        "name": "translate-1.5",
+        "passed": true,
+        "detail": "g(1.5)=f(1.5-2)+1"
+      },
+      {
+        "name": "reflect-1.5",
+        "passed": true,
+        "detail": "h(1.5)=-g(1.5)"
+      },
+      {
+        "name": "translate-3",
+        "passed": true,
+        "detail": "g(3)=f(3-2)+1"
+      },
+      {
+        "name": "reflect-3",
+        "passed": true,
+        "detail": "h(3)=-g(3)"
+      }
+    ]
+  },
+  "compile_qa": {
+    "status": "pass",
+    "standalone_tex": "figure.tex",
+    "review_pdf": "figure.pdf",
+    "generated_svg": "figure.svg"
+  },
+  "visual_qa": {
+    "status": "pass",
+    "review_surface": "PDF and 2x PNG preview"
+  },
+  "publish_qa": {
+    "status": "pass",
+    "asset": "quadratic-functions/assets/quadratic-shift.svg"
+  }
+}

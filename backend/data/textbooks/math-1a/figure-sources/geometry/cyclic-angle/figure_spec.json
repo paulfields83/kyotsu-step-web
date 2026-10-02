@@ -1,0 +1,21 @@
+{
+  "figure_id": "cyclic-angle",
+  "unit": "math-1a-geometric-properties",
+  "topic": "2.1 円周角の定理",
+  "insert_after": "s2-geometric-properties-topic-01 paragraph 1",
+  "teaching_goal": "同じ円周上の C,D から同じ弧 AB を見込む円周角 ∠ACB と ∠ADB が等しいことを示す。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/geometric-properties/unit.json / topic 2.1",
+    "word": "塾_数学A_第2章_図形の性質_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 1 円周角の定理",
+    "textbook_guide": "教科書 p.89–100 の第2節範囲。Word 母本の『同じ弧に対する円周角』を一次参照。"
+  },
+  "figure_type": "plane_geometry",
+  "precision": "exact",
+  "objects": ["circle with center O", "chord endpoints A and B", "circumference points C and D", "two inscribed angles", "highlighted arc AB"],
+  "constraints": ["A,B,C,D lie on one circle", "C and D lie on the same arc side of chord AB", "angle ACB equals angle ADB"],
+  "labels": ["A", "B", "C", "D", "∠ACB=∠ADB", "arc AB"],
+  "forbidden": ["any point off the circle", "angles subtending different chords", "angle marks at the wrong vertices"],
+  "engine": "TikZ polar-coordinate circle construction",
+  "qa_rules": ["A,B,C,D_concyclic", "angle(ACB)==angle(ADB)", "both_angles_subtend_chord_AB"],
+  "status": "math_checked"
+}

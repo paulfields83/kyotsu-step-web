@@ -1,0 +1,250 @@
+{
+  "unitId": "math-1a-human-activities",
+  "answers": {
+    "math-1a-human-activities-s1-main-b001": {
+      "validator": "normalized-text",
+      "answer": "位取り記数法",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b002": {
+      "validator": "normalized-text",
+      "answer": "位置",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b003": {
+      "validator": "normalized-text",
+      "answer": "11₁₀",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b004": {
+      "validator": "normalized-text",
+      "answer": "1101₂",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b005": {
+      "validator": "number",
+      "answer": "50",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b006": {
+      "validator": "normalized-text",
+      "answer": "下から上へ",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b007": {
+      "validator": "number",
+      "answer": "64",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b008": {
+      "validator": "normalized-text",
+      "answer": "1100100₂",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b009": {
+      "validator": "normalized-text",
+      "answer": "1000111₂",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b010": {
+      "validator": "normalized-text",
+      "answer": "r",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b011": {
+      "validator": "normalized-text",
+      "answer": "最大公約数",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b012": {
+      "validator": "number",
+      "answer": "21",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b013": {
+      "validator": "normalized-text",
+      "answer": "余り",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b014": {
+      "validator": "normalized-text",
+      "answer": "ab",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b015": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b016": {
+      "validator": "number",
+      "answer": "5880",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b017": {
+      "validator": "number",
+      "answer": "−4",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b018": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b019": {
+      "validator": "normalized-text",
+      "answer": "割り切る",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b020": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b021": {
+      "validator": "number",
+      "answer": "−1",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b022": {
+      "validator": "normalized-text",
+      "answer": "2+5k",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b023": {
+      "validator": "normalized-text",
+      "answer": "−1−3k",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b024": {
+      "validator": "normalized-text",
+      "answer": "因数分解",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b025": {
+      "validator": "normalized-text",
+      "answer": "両方",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b026": {
+      "validator": "normalized-text",
+      "answer": "割り切る",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b027": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b028": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b029": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b030": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b031": {
+      "validator": "normalized-text",
+      "answer": "数値化",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b032": {
+      "validator": "normalized-text",
+      "answer": "重みを足す",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b033": {
+      "validator": "normalized-text",
+      "answer": "角度差",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b034": {
+      "validator": "number",
+      "answer": "50",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b035": {
+      "validator": "normalized-text",
+      "answer": "40000km",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b036": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s1-main-b037": {
+      "validator": "normalized-text",
+      "answer": "整数",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-main-b001": {
+      "validator": "normalized-text",
+      "answer": "不変量",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-main-b002": {
+      "validator": "normalized-text",
+      "answer": "不可能",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-main-b003": {
+      "validator": "normalized-text",
+      "answer": "有利",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-main-b004": {
+      "validator": "normalized-text",
+      "answer": "2個",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-main-b005": {
+      "validator": "normalized-text",
+      "answer": "360°",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-main-b006": {
+      "validator": "normalized-text",
+      "answer": "360°",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-main-b007": {
+      "validator": "normalized-text",
+      "answer": "4個",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-main-b008": {
+      "validator": "normalized-text",
+      "answer": "5の倍数",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-end-b001": {
+      "validator": "normalized-text",
+      "answer": "整数解",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-end-b002": {
+      "validator": "normalized-text",
+      "answer": "余り",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-end-b003": {
+      "validator": "normalized-text",
+      "answer": "1つの整数解",
+      "acceptedAnswers": []
+    },
+    "math-1a-human-activities-s2-end-b004": {
+      "validator": "number",
+      "answer": "32",
+      "acceptedAnswers": []
+    }
+  }
+}

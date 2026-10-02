@@ -1,0 +1,21 @@
+{
+  "figure_id": "quadratic-inequality",
+  "unit": "math-1a-quadratic-functions",
+  "topic": "3.4 2次不等式",
+  "insert_after": "s3-quadratic-functions-topic-04 paragraph 1",
+  "teaching_goal": "f(x)=(x-1)(x-3) の根で数直線を分け、放物線が x 軸より上か下かと f(x) の符号を対応させる。",
+  "source": {
+    "app": "backend/data/textbooks/math-1a/quadratic-functions/unit.json / topic 3.4",
+    "word": "backend/data/textbooks/math-1a/source/塾_数学I_第2章_2次関数_教科書学習モード_完全版_厳格誘導_母本準拠_v8.docx / 見出し 4 2次不等式",
+    "textbook_guide": "教科書 p.75-95 の第3節範囲。母本は小項目ごとのページを細分していない。"
+  },
+  "figure_type": "function",
+  "precision": "exact",
+  "objects": ["f(x)=(x-1)(x-3)", "roots x=1 and x=3", "positive intervals x<1 and x>3", "negative interval 1<x<3"],
+  "constraints": ["f(1)=f(3)=0", "f(x)>0 outside the roots", "f(x)<0 between the roots", "open endpoints for strict inequalities"],
+  "labels": ["f(x)>0", "f(x)<0", "x=1", "x=3"],
+  "forbidden": ["inside/outside intervals reversed", "closed endpoints for strict inequalities", "roots not on x-axis", "handwritten SVG coordinates"],
+  "engine": "PGFPlots",
+  "qa_rules": ["roots equal [1,3]", "test values have signs [+,-,+]", "strict intervals use open endpoints", "compiled PDF has one cropped page"],
+  "status": "math_checked"
+}

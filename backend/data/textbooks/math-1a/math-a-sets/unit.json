@@ -1,0 +1,1045 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-1a-math-a-sets",
+  "revision": 2,
+  "status": "draft",
+  "subject": "math-1a",
+  "title": "数学A 集合（重複・非公開）",
+  "source": {
+    "type": "reference",
+    "label": "塾 数学A 序章「集合」教科書学習モード完全版",
+    "rightsNote": "ユーザー提供の学習モードWord母本をもとに、静的なバックエンド教材データへ構造化。"
+  },
+  "objectives": [
+    "「集合」の考え方を、本文と空欄を通して一段ずつ確認する。"
+  ],
+  "sections": [
+    {
+      "id": "s1-math-a-sets",
+      "number": "1",
+      "title": "集合",
+      "description": "集合を、説明・判断・計算を飛ばさずに一つずつ確認する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "s1-math-a-sets-topic-01",
+          "type": "topic",
+          "text": "1.1 集合と要素"
+        },
+        {
+          "id": "s1-math-a-sets-t01-n001",
+          "type": "note",
+          "text": "この節では、集合を決める条件と記号の意味を対応させながら考える。"
+        },
+        {
+          "id": "s1-math-a-sets-t01-p002",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "数学A 第1章の「場合の数」につながる集合の基本を確認する。記号の暗記ではなく、「どの要素を数えているか」を言葉で確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t01-p003",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "入るものが明確に決まる集まりを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b001"
+            },
+            {
+              "type": "text",
+              "text": "、その1つ1つを "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b002"
+            },
+            {
+              "type": "text",
+              "text": " という。x が A に入れば x∈A、入らなければ x"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b003"
+            },
+            {
+              "type": "text",
+              "text": "A。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t01-h004",
+          "type": "heading",
+          "text": "教科書対応問　素数の集合"
+        },
+        {
+          "id": "s1-math-a-sets-t01-n005",
+          "type": "note",
+          "text": "着眼点　集合を決める条件を満たすかどうかに着目する。"
+        },
+        {
+          "id": "s1-math-a-sets-t01-n006",
+          "type": "note",
+          "text": "使う知識　要素が集合に属するかを、条件に戻って判断する。"
+        },
+        {
+          "id": "s1-math-a-sets-t01-h007",
+          "type": "heading",
+          "text": "問題文　Aを素数全体の集合とする。3，15，1がそれぞれAに属するかどうかを答えよ。"
+        },
+        {
+          "id": "s1-math-a-sets-t01-p008",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　3 は素数なので 3"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b004"
+            },
+            {
+              "type": "text",
+              "text": "A。15 と1は素数でないので 15,1"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b005"
+            },
+            {
+              "type": "text",
+              "text": "A。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t01-n009",
+          "type": "note",
+          "text": "確認　要素と集合の関係を取り違えていないかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-topic-02",
+          "type": "topic",
+          "text": "1.2 集合の表し方"
+        },
+        {
+          "id": "s1-math-a-sets-t02-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "要素を書き並べる方法と、{x｜x が満たす "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b006"
+            },
+            {
+              "type": "text",
+              "text": "} で表す方法がある。要素が有限個なら有限集合、無限なら "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b007"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t02-h002",
+          "type": "heading",
+          "text": "教科書対応問　24の正の約数"
+        },
+        {
+          "id": "s1-math-a-sets-t02-n003",
+          "type": "note",
+          "text": "着眼点　要素を書き並べるのか、条件で表すのかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t02-n004",
+          "type": "note",
+          "text": "使う知識　要素を列挙する方法と条件で表す方法を使い分ける。"
+        },
+        {
+          "id": "s1-math-a-sets-t02-h005",
+          "type": "heading",
+          "text": "問題文　24の正の約数をすべて求め，集合として表せ。"
+        },
+        {
+          "id": "s1-math-a-sets-t02-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "集合は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b008"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t02-n007",
+          "type": "note",
+          "text": "確認　文字の範囲や整数・自然数などの条件を落としていないかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-topic-03",
+          "type": "topic",
+          "text": "1.3 包含関係と相等"
+        },
+        {
+          "id": "s1-math-a-sets-t03-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A の全要素が B に入れば A"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b009"
+            },
+            {
+              "type": "text",
+              "text": "B。A⊂B かつ B⊂A なら A"
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b010"
+            },
+            {
+              "type": "text",
+              "text": "B。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-topic-04",
+          "type": "topic",
+          "text": "1.4 共通部分・和集合"
+        },
+        {
+          "id": "s1-math-a-sets-t04-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "A∩B は A と B の "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b011"
+            },
+            {
+              "type": "text",
+              "text": " に入る要素、A∪B は少なくとも一方に入る要素。言葉では「かつ」と「または」を区別する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-topic-05",
+          "type": "topic",
+          "text": "1.5 全体集合・補集合"
+        },
+        {
+          "id": "s1-math-a-sets-t05-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "対象全体を U とすると、U の中で A に入らない集合が "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b012"
+            },
+            {
+              "type": "text",
+              "text": "。A∪Ā=U、A∩Ā="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b013"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-topic-06",
+          "type": "topic",
+          "text": "1.6 ド・モルガンの法則"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p001",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(A∪B)の補集合=Ā∩B̄、(A∩B)の補集合=Ā∪B̄。「または」の否定は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b014"
+            },
+            {
+              "type": "text",
+              "text": "、「かつ」の否定は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b015"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-h002",
+          "type": "heading",
+          "text": "節末対応　集合演算"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n003",
+          "type": "note",
+          "text": "読む　集合を表す条件を言葉にし、「両方」「少なくとも一方」「入らない」のどれかを先に判断する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n004",
+          "type": "note",
+          "text": "考える　両方→共通部分、少なくとも一方→和集合、全体から外す→補集合。区間では端点を含むかも1つずつ確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h005",
+          "type": "heading",
+          "text": "問題文　U={1,…,10}，A={2,3,6,7}，B={1,2,3,4,8} とする。A∩B，A∪Bを求めよ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p006",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　A∩B="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b016"
+            },
+            {
+              "type": "text",
+              "text": "、A∪B="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b017"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n007",
+          "type": "note",
+          "text": "最後の確認　同じ要素を二重に書いていないか、全体集合の外へ出ていないか、端点の = を落としていないかを見る。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h008",
+          "type": "heading",
+          "text": "教科書対応問　要素を書き並べた集合を条件で表す"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n009",
+          "type": "note",
+          "text": "着眼点　並んでいる要素に共通する規則を見つける。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n010",
+          "type": "note",
+          "text": "使う知識　要素を表す文字xと、そのxが満たす条件を使って集合を表す。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h011",
+          "type": "heading",
+          "text": "問題文　集合 {3,6,9,12,15,18} を，要素が満たす条件を用いて表せ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p012",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　全部3の倍数なので 3n の形。最大18=3·6 だから n は1から6。よって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b018"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n013",
+          "type": "note",
+          "text": "確認　条件から元の要素だけが得られるかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h014",
+          "type": "heading",
+          "text": "教科書対応問　集合の相等"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n015",
+          "type": "note",
+          "text": "着眼点　AとBが同じ要素からできているかを確かめる。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n016",
+          "type": "note",
+          "text": "使う知識　A⊂BとB⊂Aの両方を確認すればA=Bといえる。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h017",
+          "type": "heading",
+          "text": "問題文　A={1,2,3,4,6,12}，B={x｜xは12の正の約数} とする。AとBが等しいかどうかを判定せよ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p018",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　Bを書き並べると "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b019"
+            },
+            {
+              "type": "text",
+              "text": "。A⊂B と B⊂A の両方が成り立つので A="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b020"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n019",
+          "type": "note",
+          "text": "確認　片方向の包含だけで相等と判断していないかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h020",
+          "type": "heading",
+          "text": "教科書対応問　共通部分と和集合"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n021",
+          "type": "note",
+          "text": "着眼点　AとBの両方に入る要素と、少なくとも一方に入る要素を分ける。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n022",
+          "type": "note",
+          "text": "使う知識　共通部分A∩Bと和集合A∪Bの定義を用いる。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h023",
+          "type": "heading",
+          "text": "問題文　A={2,3,5,7}，B={1,3,5,7,9} とする。A∩B，A∪Bを求めよ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p024",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　両方に入る A∩B="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b021"
+            },
+            {
+              "type": "text",
+              "text": "。少なくとも一方に入る A∪B="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b022"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n025",
+          "type": "note",
+          "text": "確認　重複する要素を2回書いていないかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h026",
+          "type": "heading",
+          "text": "教科書対応問　部分集合を全部挙げる"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n027",
+          "type": "note",
+          "text": "着眼点　A={1,2,3} の部分集合を、選ぶ要素の個数ごとに分けて考える。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n028",
+          "type": "note",
+          "text": "使う知識　0個、1個、2個、3個選ぶ場合を順に挙げ、空集合とA自身も含める。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p029",
+          "type": "heading",
+          "text": "問題文　A={1,2,3} の部分集合をすべて挙げ、その個数を求めよ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p030",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　0個選ぶ ∅、1個選ぶ3通り、2個選ぶ3通り、3個選ぶA自身。全部で "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b023"
+            },
+            {
+              "type": "text",
+              "text": " 個。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-p031",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　空集合 ∅ と A 自身も部分集合に "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b024"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n032",
+          "type": "note",
+          "text": "確認　空集合∅とA自身を忘れず、同じ部分集合を重複して数えていないかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h033",
+          "type": "heading",
+          "text": "教科書対応問　3つの集合"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n034",
+          "type": "note",
+          "text": "着眼点　3つの集合について、∩と∪を内側から順に処理する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n035",
+          "type": "note",
+          "text": "使う知識　共通部分は『すべてに入る要素』、和集合は『少なくとも1つに入る要素』として考える。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h036",
+          "type": "heading",
+          "text": "問題文　A={1,3,6,9,12}，B={2,3,5,7}，C={1,2,3,4,9,12} とする。A∩B∩C，A∪B∪Cを求めよ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p037",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　3集合すべてに入る A∩B∩C="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b025"
+            },
+            {
+              "type": "text",
+              "text": "。少なくとも1つに入る A∪B∪C="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b026"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n038",
+          "type": "note",
+          "text": "確認　どの演算を先に行うかを式で確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h039",
+          "type": "heading",
+          "text": "教科書対応問　補集合"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n040",
+          "type": "note",
+          "text": "着眼点　全体集合Uの中で、Aに入らない要素を取り出す。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n041",
+          "type": "note",
+          "text": "使う知識　Aの補集合はUからAの要素を除いて求める。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h042",
+          "type": "heading",
+          "text": "問題文　U={1,2,…,12} を全体集合とし，A={2,4,6,8,10,12} とする。Aの補集合を求めよ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p043",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　UからAを除くので Ā="
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b027"
+            },
+            {
+              "type": "text",
+              "text": "。補集合では必ず全体集合Uを先に確認する。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n044",
+          "type": "note",
+          "text": "確認　全体集合の外の要素を含めていないかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h045",
+          "type": "heading",
+          "text": "教科書対応問　数直線上の補集合"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n046",
+          "type": "note",
+          "text": "着眼点　全体の区間0≦x≦10から、Aの区間3≦x≦6を除く。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n047",
+          "type": "note",
+          "text": "使う知識　補集合は全体集合の範囲内でAに属さない部分として表す。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h048",
+          "type": "heading",
+          "text": "問題文　U={x｜0≦x≦10} を全体集合とし，A={x｜3≦x≦6} とする。Aの補集合を求めよ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p049",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　Ā は U の中でA以外。したがって "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b028"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-p050",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2　3,6 はAに入るので補集合側では "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b029"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n051",
+          "type": "note",
+          "text": "確認　3と6を補集合に含めるかどうかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h052",
+          "type": "heading",
+          "text": "教科書対応問　ド・モルガンを図で確認"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n053",
+          "type": "note",
+          "text": "着眼点　補集合の線がどこまでかかっているかに着目する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n054",
+          "type": "note",
+          "text": "使う知識　ド・モルガンの法則で、補集合を外すときに∩と∪を入れ替える。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h055",
+          "type": "heading",
+          "text": "問題文　overline(A∪B) と Ā∩B̄ を図で表し，2つの集合が等しいことを確かめよ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p056",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　A∪Bの外側は「Aにも入らず、Bにも入らない」場所なので条件は "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b030"
+            },
+            {
+              "type": "text",
+              "text": "。よって両者は同じ領域。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n057",
+          "type": "note",
+          "text": "確認　補集合の範囲と∩・∪の入れ替えを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h058",
+          "type": "heading",
+          "text": "節末対応　包含関係を図から選ぶ"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n059",
+          "type": "note",
+          "text": "着眼点　集合の条件を記号だけで追わず、各演算が「かつ」「または」「〜でない」のどれに当たるかを確認する。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-n060",
+          "type": "note",
+          "text": "使う知識　A⊂B̄ を「Aのすべての要素はBに属さない」と読み替え，対応するベン図を選ぶ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-h061",
+          "type": "heading",
+          "text": "問題文　A⊂B̄ を表すベン図を選べ。"
+        },
+        {
+          "id": "s1-math-a-sets-t06-p062",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "1　式を図へ直接当てはめず、「Aの全要素がBに "
+            },
+            {
+              "type": "choice",
+              "itemId": "math-1a-math-a-sets-s1-main-b031"
+            },
+            {
+              "type": "text",
+              "text": "」と言葉へ直してから選ぶ。"
+            }
+          ]
+        },
+        {
+          "id": "s1-math-a-sets-t06-n063",
+          "type": "note",
+          "text": "確認　選んだ図で，AとBに共通する部分がないことを確かめる。"
+        }
+      ],
+      "items": [
+        {
+          "id": "math-1a-math-a-sets-s1-main-b001",
+          "label": "1",
+          "prompt": "集合と要素 【1】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b002",
+          "label": "2",
+          "prompt": "集合と要素 【2】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b003",
+          "label": "3",
+          "prompt": "集合と要素 【3】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b004",
+          "label": "4",
+          "prompt": "集合と要素 【4】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b005",
+          "label": "5",
+          "prompt": "集合と要素 【5】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b006",
+          "label": "6",
+          "prompt": "集合の表し方 【6】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b007",
+          "label": "7",
+          "prompt": "集合の表し方 【7】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b008",
+          "label": "8",
+          "prompt": "集合の表し方 【8】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b009",
+          "label": "9",
+          "prompt": "包含関係と相等 【9】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b010",
+          "label": "10",
+          "prompt": "包含関係と相等 【10】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b011",
+          "label": "11",
+          "prompt": "共通部分・和集合 【11】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b012",
+          "label": "12",
+          "prompt": "全体集合・補集合 【12】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b013",
+          "label": "13",
+          "prompt": "全体集合・補集合 【13】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b014",
+          "label": "14",
+          "prompt": "ド・モルガンの法則 【14】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b015",
+          "label": "15",
+          "prompt": "ド・モルガンの法則 【15】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b016",
+          "label": "16",
+          "prompt": "ド・モルガンの法則 【16】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b017",
+          "label": "17",
+          "prompt": "ド・モルガンの法則 【17】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b018",
+          "label": "18",
+          "prompt": "ド・モルガンの法則 【18】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b019",
+          "label": "19",
+          "prompt": "ド・モルガンの法則 【19】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b020",
+          "label": "20",
+          "prompt": "ド・モルガンの法則 【20】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b021",
+          "label": "21",
+          "prompt": "ド・モルガンの法則 【21】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b022",
+          "label": "22",
+          "prompt": "ド・モルガンの法則 【22】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b023",
+          "label": "23",
+          "prompt": "ド・モルガンの法則 【23】",
+          "acceptedAnswers": [],
+          "answerType": "number",
+          "choices": [
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b024",
+          "label": "24",
+          "prompt": "ド・モルガンの法則 【24】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b025",
+          "label": "25",
+          "prompt": "ド・モルガンの法則 【25】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b026",
+          "label": "26",
+          "prompt": "ド・モルガンの法則 【26】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b027",
+          "label": "27",
+          "prompt": "ド・モルガンの法則 【27】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b028",
+          "label": "28",
+          "prompt": "ド・モルガンの法則 【28】",
+          "acceptedAnswers": [],
+          "answerType": "formula"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b029",
+          "label": "29",
+          "prompt": "ド・モルガンの法則 【29】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b030",
+          "label": "30",
+          "prompt": "ド・モルガンの法則 【30】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        },
+        {
+          "id": "math-1a-math-a-sets-s1-main-b031",
+          "label": "31",
+          "prompt": "ド・モルガンの法則 【31】",
+          "acceptedAnswers": [],
+          "answerType": "text"
+        }
+      ]
+    }
+  ]
+}

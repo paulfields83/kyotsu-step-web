@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "subject": "math-1a",
+  "course": "math-i",
+  "majorUnit": "sets-and-logic",
+  "subcategory": "converse-inverse-contrapositive",
+  "source": {
+    "label": "4STEP 数学I+A 第2章「集合と命題」全問版テンプレート",
+    "coverage": "問90～120、演習問題A 8～10、演習問題B 11～12",
+    "excluded": ["例題13", "例題14"],
+    "itemCount": 36,
+    "rightsNote": "アップロードされた制作テンプレートの問題本文・ミニガイド・解答・要点を、アプリ制作のソース層として保持。"
+  },
+  "items": [
+    {
+      "sourceQuestionId": "math-i-4step-set-113",
+      "sourceNumber": "113",
+      "contentHash": "9ce158b7b692e590",
+      "title": "逆・裏・対偶",
+      "sourcePage": 30,
+      "sourceLevel": "STEP A",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "converse-inverse-contrapositive",
+      "problemType": "truth-values-of-transformations",
+      "problemText": "nを自然数、xを実数とする。各命題の真偽を調べ、逆・裏・対偶を述べてそれぞれの真偽も調べよ。\n(1) nが9の倍数 ⇒ nは3の倍数\n(2) x≠2 ⇒ x²−3x+2≠0\n(3) x²−x=0 ⇒ x=0またはx=1",
+      "miniGuide": "p⇒qに対し、逆q⇒p、裏p̄⇒q̄、対偶q̄⇒p̄。元の命題と対偶は同じ真偽。",
+      "answer": "(1) 元：真。逆：3の倍数⇒9の倍数（偽、n=3）。裏：9の倍数でない⇒3の倍数でない（偽、n=3）。対偶：3の倍数でない⇒9の倍数でない（真）。\n(2) 元：偽（x=1）。逆：式≠0⇒x≠2（真）。裏：x=2⇒式=0（真）。対偶：式=0⇒x=2（偽、x=1）。\n(3) 元・逆・裏・対偶はすべて真。",
+      "keyPoint": "(2)はx²−3x+2=(x−1)(x−2)。",
+      "authoringStatus": "source-ready"
+    },
+    {
+      "sourceQuestionId": "math-i-4step-set-ex-b11",
+      "sourceNumber": "演習B-11",
+      "contentHash": "2dfc81106718626b",
+      "title": "集合・命題の文章題",
+      "sourcePage": 32,
+      "sourceLevel": "演習問題B",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "converse-inverse-contrapositive",
+      "problemType": "truth-values-of-transformations",
+      "problemText": "鮭・梅干・明太子・昆布の好みについて次が分かった。\n(ア) 鮭と梅干の両方を好きな生徒はいない。\n(イ) 梅干と明太子の両方を好きな生徒がいる。\n(ウ) 鮭が好きでない生徒は、昆布も好きでない。\n(エ) 昆布と明太子の両方を好きな生徒がいる。\n必ず正しいものをすべて選べ。\n① 3種類が好きな生徒は梅干が好き。\n② 昆布と梅干の両方が好きな生徒はいない。\n③ 明太子と昆布が好きな生徒は鮭も好き。\n④ 2種類以上が好きな生徒は鮭が好き。",
+      "miniGuide": "(ウ)の対偶『昆布が好き⇒鮭が好き』を作る。(ア)と組み合わせて判断する。",
+      "answer": "②、③",
+      "keyPoint": "④は(イ)の生徒が反例になる。",
+      "authoringStatus": "source-ready"
+    }
+  ]
+}

@@ -1,0 +1,815 @@
+{
+  "unitId": "math-1a-counting-permutation",
+  "answers": {
+    "math-a-s1-sets-001": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-023": {
+      "validator": "number",
+      "answer": "21",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-002": {
+      "validator": "normalized-text",
+      "answer": "有限",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-024": {
+      "validator": "normalized-text",
+      "answer": "入っていない",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-003": {
+      "validator": "normalized-text",
+      "answer": "無限",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-025": {
+      "validator": "number",
+      "answer": "43",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-004": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-026": {
+      "validator": "number",
+      "answer": "13",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-005": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-027": {
+      "validator": "number",
+      "answer": "22",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-006": {
+      "validator": "normalized-text",
+      "answer": "両方",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-028": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-007": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-029": {
+      "validator": "number",
+      "answer": "30",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-008": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-030": {
+      "validator": "normalized-text",
+      "answer": "共通",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-009": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-031": {
+      "validator": "normalized-text",
+      "answer": "和",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-010": {
+      "validator": "math-equivalent",
+      "answer": "n(A∩B)",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-032": {
+      "validator": "normalized-text",
+      "answer": "補",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-011": {
+      "validator": "number",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-033": {
+      "validator": "number",
+      "answer": "15",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-012": {
+      "validator": "math-equivalent",
+      "answer": "n(A)+n(B)",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-034": {
+      "validator": "number",
+      "answer": "13",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-013": {
+      "validator": "normalized-text",
+      "answer": "属さない",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-035": {
+      "validator": "number",
+      "answer": "66",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-014": {
+      "validator": "math-equivalent",
+      "answer": "n(U)−n(A)",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-036": {
+      "validator": "number",
+      "answer": "40",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-015": {
+      "validator": "normalized-text",
+      "answer": "属さない",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-037": {
+      "validator": "number",
+      "answer": "93",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-016": {
+      "validator": "number",
+      "answer": "25",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-038": {
+      "validator": "number",
+      "answer": "107",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-017": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-039": {
+      "validator": "normalized-text",
+      "answer": "引く",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-018": {
+      "validator": "number",
+      "answer": "35",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-040": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-019": {
+      "validator": "number",
+      "answer": "35",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-041": {
+      "validator": "normalized-text",
+      "answer": "足し戻す",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-020": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-042": {
+      "validator": "math-equivalent",
+      "answer": "n(A∩B∩C)",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-021": {
+      "validator": "number",
+      "answer": "50",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-043": {
+      "validator": "number",
+      "answer": "72",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sets-022": {
+      "validator": "number",
+      "answer": "35",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-001": {
+      "validator": "normalized-text",
+      "answer": "結果",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-007": {
+      "validator": "number",
+      "answer": "20",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-002": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-008": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-003": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-009": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-004": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-010": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-005": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-011": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-006": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-counting-012": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-001": {
+      "validator": "normalized-text",
+      "answer": "重なり",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-008": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-002": {
+      "validator": "normalized-text",
+      "answer": "和の法則",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-009": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-003": {
+      "validator": "normalized-text",
+      "answer": "重なり",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-010": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-004": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-011": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-005": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-012": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-006": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-013": {
+      "validator": "number",
+      "answer": "9",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-sum-rule-007": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-001": {
+      "validator": "normalized-text",
+      "answer": "それぞれ",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-009": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-002": {
+      "validator": "normalized-text",
+      "answer": "積の法則",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-010": {
+      "validator": "number",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-003": {
+      "validator": "normalized-text",
+      "answer": "すべて（順に）",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-011": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-004": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-012": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-005": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-013": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-006": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-014": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-007": {
+      "validator": "number",
+      "answer": "216",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-015": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-008": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-product-rule-016": {
+      "validator": "number",
+      "answer": "24",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-017": {
+      "validator": "number",
+      "answer": "35",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-025": {
+      "validator": "number",
+      "answer": "60",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-018": {
+      "validator": "number",
+      "answer": "90",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-026": {
+      "validator": "number",
+      "answer": "20",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-019": {
+      "validator": "number",
+      "answer": "83",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-027": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-020": {
+      "validator": "number",
+      "answer": "25",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-028": {
+      "validator": "number",
+      "answer": "23",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-021": {
+      "validator": "normalized-text",
+      "answer": "含める",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-029": {
+      "validator": "number",
+      "answer": "15",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-022": {
+      "validator": "normalized-text",
+      "answer": "離す（重なりを小さくする）",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-030": {
+      "validator": "number",
+      "answer": "27",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-023": {
+      "validator": "number",
+      "answer": "7",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-031": {
+      "validator": "number",
+      "answer": "189",
+      "acceptedAnswers": []
+    },
+    "math-a-s1-review-024": {
+      "validator": "number",
+      "answer": "41",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-001": {
+      "validator": "exact",
+      "answer": "n−1",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-009": {
+      "validator": "number",
+      "answer": "720",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-002": {
+      "validator": "exact",
+      "answer": "n−2",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-010": {
+      "validator": "number",
+      "answer": "144",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-003": {
+      "validator": "normalized-text",
+      "answer": "順列",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-011": {
+      "validator": "number",
+      "answer": "144",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-004": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-012": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-005": {
+      "validator": "number",
+      "answer": "336",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-013": {
+      "validator": "number",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-006": {
+      "validator": "number",
+      "answer": "360",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-014": {
+      "validator": "number",
+      "answer": "144",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-007": {
+      "validator": "number",
+      "answer": "49",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-015": {
+      "validator": "number",
+      "answer": "108",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-permutation-008": {
+      "validator": "number",
+      "answer": "2450",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-001": {
+      "validator": "math-equivalent",
+      "answer": "(n−1)!",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-007": {
+      "validator": "number",
+      "answer": "625",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-002": {
+      "validator": "normalized-text",
+      "answer": "重複順列",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-008": {
+      "validator": "number",
+      "answer": "500",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-003": {
+      "validator": "number",
+      "answer": "120",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-009": {
+      "validator": "number",
+      "answer": "128",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-004": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-010": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-005": {
+      "validator": "number",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-011": {
+      "validator": "number",
+      "answer": "126",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-circular-repetition-006": {
+      "validator": "number",
+      "answer": "36",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-001": {
+      "validator": "math-equivalent",
+      "answer": "nC(n−r)",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-011": {
+      "validator": "number",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-002": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-012": {
+      "validator": "number",
+      "answer": "20",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-003": {
+      "validator": "number",
+      "answer": "70",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-013": {
+      "validator": "number",
+      "answer": "200",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-004": {
+      "validator": "number",
+      "answer": "7",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-014": {
+      "validator": "number",
+      "answer": "461",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-005": {
+      "validator": "number",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-015": {
+      "validator": "number",
+      "answer": "2520",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-006": {
+      "validator": "number",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-016": {
+      "validator": "number",
+      "answer": "24",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-007": {
+      "validator": "number",
+      "answer": "28",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-017": {
+      "validator": "number",
+      "answer": "105",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-008": {
+      "validator": "number",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-018": {
+      "validator": "number",
+      "answer": "105",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-009": {
+      "validator": "number",
+      "answer": "120",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-019": {
+      "validator": "number",
+      "answer": "105",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-combination-010": {
+      "validator": "number",
+      "answer": "70",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-001": {
+      "validator": "normalized-text",
+      "answer": "割る",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-010": {
+      "validator": "number",
+      "answer": "32",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-002": {
+      "validator": "number",
+      "answer": "280",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-011": {
+      "validator": "number",
+      "answer": "80",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-003": {
+      "validator": "number",
+      "answer": "126",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-012": {
+      "validator": "number",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-004": {
+      "validator": "number",
+      "answer": "60",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-013": {
+      "validator": "number",
+      "answer": "60",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-005": {
+      "validator": "number",
+      "answer": "66",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-014": {
+      "validator": "number",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-006": {
+      "validator": "number",
+      "answer": "165",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-015": {
+      "validator": "number",
+      "answer": "1260",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-007": {
+      "validator": "number",
+      "answer": "36",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-016": {
+      "validator": "number",
+      "answer": "280",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-008": {
+      "validator": "number",
+      "answer": "1152",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-017": {
+      "validator": "number",
+      "answer": "378",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-009": {
+      "validator": "number",
+      "answer": "144",
+      "acceptedAnswers": []
+    },
+    "math-a-s2-duplicate-permutation-018": {
+      "validator": "number",
+      "answer": "105",
+      "acceptedAnswers": []
+    }
+  }
+}
