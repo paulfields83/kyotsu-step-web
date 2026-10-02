@@ -307,7 +307,7 @@
         {
           "id": "s1-quadratic-functions-t03-h006",
           "type": "heading",
-          "text": "問題文　縦 x cm、横 y cm、周の長さ40cm、横が縦より長い。"
+          "text": "問題文　周の長さが40cmの長方形で，縦をx cm，横をy cmとする。横が縦より長いとき，xの定義域とyの値域を求めよ。"
         },
         {
           "id": "s1-quadratic-functions-t03-p007",
@@ -1003,7 +1003,7 @@
         {
           "id": "s1-quadratic-functions-t08-h026",
           "type": "heading",
-          "text": "問題文　y=x², y=2x², y=(1/2)x² を同じ座標上で比べる。"
+          "text": "問題文　3つの2次関数 y=x²，y=2x²，y=(1/2)x² のグラフを同じ座標平面上にかき，開き方を比較せよ。"
         },
         {
           "id": "s1-quadratic-functions-t08-p027",
