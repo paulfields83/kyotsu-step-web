@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "unitId": "math-1a-geometry-measurement",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "subject": "math-1a",
   "title": "数学I 図形と計量",
@@ -32,7 +32,7 @@
         {
           "id": "s1-geometry-measurement-t01-n001",
           "type": "note",
-          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+          "text": "この節では、鋭角の三角比で学ぶ定義や公式を、問題の条件に合わせて使い分ける。"
         },
         {
           "id": "s1-geometry-measurement-t01-p002",
@@ -88,12 +88,12 @@
         {
           "id": "s1-geometry-measurement-t01-n006",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　直角三角形で、基準とする角に対する辺の位置を確認する。"
         },
         {
           "id": "s1-geometry-measurement-t01-n007",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　sin、cos、tan の定義に対応する辺の比を用いる。"
         },
         {
           "id": "s1-geometry-measurement-t01-h008",
@@ -137,7 +137,7 @@
         {
           "id": "s1-geometry-measurement-t01-n010",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　斜辺・対辺・隣辺を取り違えていないかを確認する。"
         },
         {
           "id": "s1-geometry-measurement-topic-02",
@@ -188,12 +188,12 @@
         {
           "id": "s1-geometry-measurement-t02-n004",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　与えられた三角比から、必要な三角比へつなげる。"
         },
         {
           "id": "s1-geometry-measurement-t02-n005",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　sin²θ+cos²θ=1、tanθ=sinθ/cosθ を用いる。"
         },
         {
           "id": "s1-geometry-measurement-t02-h006",
@@ -239,7 +239,7 @@
         {
           "id": "s1-geometry-measurement-t02-n009",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　角の範囲から符号が正しいかを確認する。"
         },
         {
           "id": "s1-geometry-measurement-topic-03",
@@ -272,12 +272,12 @@
         {
           "id": "s1-geometry-measurement-t03-n003",
           "type": "note",
-          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+          "text": "着眼点　求める角または三角比を表から対応させる。"
         },
         {
           "id": "s1-geometry-measurement-t03-n004",
           "type": "note",
-          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+          "text": "使う知識　三角比の表を用いて値と角度を読み取る。"
         },
         {
           "id": "s1-geometry-measurement-t03-h005",
@@ -315,7 +315,7 @@
         {
           "id": "s1-geometry-measurement-t03-n008",
           "type": "note",
-          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+          "text": "確認　sin、cos、tanの列を取り違えていないかを確認する。"
         },
         {
           "id": "s1-geometry-measurement-t03-h009",
@@ -325,12 +325,12 @@
         {
           "id": "s1-geometry-measurement-t03-n010",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　求める角または三角比を表から対応させる。"
         },
         {
           "id": "s1-geometry-measurement-t03-n011",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　三角比の表を用いて値と角度を読み取る。"
         },
         {
           "id": "s1-geometry-measurement-t03-h012",
@@ -374,7 +374,7 @@
         {
           "id": "s1-geometry-measurement-t03-n014",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　sin、cos、tanの列を取り違えていないかを確認する。"
         },
         {
           "id": "s1-geometry-measurement-t03-h015",
@@ -384,12 +384,12 @@
         {
           "id": "s1-geometry-measurement-t03-n016",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　求める角または三角比を表から対応させる。"
         },
         {
           "id": "s1-geometry-measurement-t03-n017",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　三角比の表を用いて値と角度を読み取る。"
         },
         {
           "id": "s1-geometry-measurement-t03-h018",
@@ -417,7 +417,7 @@
         {
           "id": "s1-geometry-measurement-t03-n020",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　sin、cos、tanの列を取り違えていないかを確認する。"
         },
         {
           "id": "s1-geometry-measurement-t03-h021",
@@ -427,12 +427,12 @@
         {
           "id": "s1-geometry-measurement-t03-n022",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　求める角または三角比を表から対応させる。"
         },
         {
           "id": "s1-geometry-measurement-t03-n023",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　三角比の表を用いて値と角度を読み取る。"
         },
         {
           "id": "s1-geometry-measurement-t03-h024",
@@ -478,7 +478,7 @@
         {
           "id": "s1-geometry-measurement-t03-n027",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　sin、cos、tanの列を取り違えていないかを確認する。"
         },
         {
           "id": "s1-geometry-measurement-t03-h028",
@@ -488,12 +488,12 @@
         {
           "id": "s1-geometry-measurement-t03-n029",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　求める角または三角比を表から対応させる。"
         },
         {
           "id": "s1-geometry-measurement-t03-n030",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　三角比の表を用いて値と角度を読み取る。"
         },
         {
           "id": "s1-geometry-measurement-t03-h031",
@@ -531,7 +531,7 @@
         {
           "id": "s1-geometry-measurement-t03-n034",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　sin、cos、tanの列を取り違えていないかを確認する。"
         },
         {
           "id": "s1-geometry-measurement-t03-p035",
@@ -688,7 +688,7 @@
         {
           "id": "s2-geometry-measurement-t01-n001",
           "type": "note",
-          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+          "text": "この節では、三角比の拡張で学ぶ定義や公式を、問題の条件に合わせて使い分ける。"
         },
         {
           "id": "s2-geometry-measurement-t01-p002",
@@ -744,12 +744,12 @@
         {
           "id": "s2-geometry-measurement-t01-n006",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　単位円上の点の座標と角θを対応させる。"
         },
         {
           "id": "s2-geometry-measurement-t01-n007",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　cosθをx座標、sinθをy座標として考える。"
         },
         {
           "id": "s2-geometry-measurement-t01-h008",
@@ -793,7 +793,7 @@
         {
           "id": "s2-geometry-measurement-t01-n010",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　象限による符号を確認する。"
         },
         {
           "id": "s2-geometry-measurement-topic-02",
@@ -867,12 +867,12 @@
         {
           "id": "s2-geometry-measurement-t03-n003",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　単位円上の代表的な点の座標を用いる。"
         },
         {
           "id": "s2-geometry-measurement-t03-n004",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　0°、90°、180°に対応する座標から三角比を求める。"
         },
         {
           "id": "s2-geometry-measurement-t03-h005",
@@ -918,7 +918,7 @@
         {
           "id": "s2-geometry-measurement-t03-n008",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　tanθで分母が0になる場合に注意する。"
         },
         {
           "id": "s2-geometry-measurement-t03-h009",
@@ -928,12 +928,12 @@
         {
           "id": "s2-geometry-measurement-t03-n010",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　単位円上の代表的な点の座標を用いる。"
         },
         {
           "id": "s2-geometry-measurement-t03-n011",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　0°、90°、180°に対応する座標から三角比を求める。"
         },
         {
           "id": "s2-geometry-measurement-t03-h012",
@@ -977,7 +977,7 @@
         {
           "id": "s2-geometry-measurement-t03-n014",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　tanθで分母が0になる場合に注意する。"
         },
         {
           "id": "s2-geometry-measurement-t03-h015",
@@ -987,12 +987,12 @@
         {
           "id": "s2-geometry-measurement-t03-n016",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　単位円上の代表的な点の座標を用いる。"
         },
         {
           "id": "s2-geometry-measurement-t03-n017",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　0°、90°、180°に対応する座標から三角比を求める。"
         },
         {
           "id": "s2-geometry-measurement-t03-h018",
@@ -1038,7 +1038,7 @@
         {
           "id": "s2-geometry-measurement-t03-n021",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　tanθで分母が0になる場合に注意する。"
         },
         {
           "id": "s2-geometry-measurement-t03-h022",
@@ -1048,12 +1048,12 @@
         {
           "id": "s2-geometry-measurement-t03-n023",
           "type": "note",
-          "text": "読む　何を未知数とし、どの条件を不等号に翻訳するかを先に言葉で決める。負の数で割る可能性、絶対値の中身の符号にも注意する。"
+          "text": "着眼点　単位円上の代表的な点の座標を用いる。"
         },
         {
           "id": "s2-geometry-measurement-t03-n024",
           "type": "note",
-          "text": "考える　1次不等式は移項→係数で割る、連立は各不等式→共通部分、絶対値は距離または場合分け、という順で進める。"
+          "text": "使う知識　0°、90°、180°に対応する座標から三角比を求める。"
         },
         {
           "id": "s2-geometry-measurement-t03-h025",
@@ -1081,7 +1081,7 @@
         {
           "id": "s2-geometry-measurement-t03-n027",
           "type": "note",
-          "text": "最後の確認　不等号の向きを変える場面を落としていないか、場合分けの条件に最終解が本当に入るかを確認する。"
+          "text": "確認　tanθで分母が0になる場合に注意する。"
         },
         {
           "id": "s2-geometry-measurement-t03-p028",
@@ -1224,7 +1224,7 @@
         {
           "id": "s3-geometry-measurement-t01-n001",
           "type": "note",
-          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+          "text": "この節では、正弦定理と余弦定理で学ぶ定義や公式を、問題の条件に合わせて使い分ける。"
         },
         {
           "id": "s3-geometry-measurement-t01-p002",
@@ -1272,12 +1272,12 @@
         {
           "id": "s3-geometry-measurement-t01-n006",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　辺とその向かいの角の組に着目する。"
         },
         {
           "id": "s3-geometry-measurement-t01-n007",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　a/sinA=b/sinB=c/sinC=2R を用いる。"
         },
         {
           "id": "s3-geometry-measurement-t01-h008",
@@ -1315,7 +1315,7 @@
         {
           "id": "s3-geometry-measurement-t01-n011",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　辺と向かいの角の対応を確認する。"
         },
         {
           "id": "s3-geometry-measurement-t01-h012",
@@ -1325,12 +1325,12 @@
         {
           "id": "s3-geometry-measurement-t01-n013",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　辺とその向かいの角の組に着目する。"
         },
         {
           "id": "s3-geometry-measurement-t01-n014",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　a/sinA=b/sinB=c/sinC=2R を用いる。"
         },
         {
           "id": "s3-geometry-measurement-t01-h015",
@@ -1358,7 +1358,7 @@
         {
           "id": "s3-geometry-measurement-t01-n017",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　辺と向かいの角の対応を確認する。"
         },
         {
           "id": "s3-geometry-measurement-topic-02",
@@ -1393,12 +1393,12 @@
         {
           "id": "s3-geometry-measurement-t02-n004",
           "type": "note",
-          "text": "読む　根号・小数・分数のどの形が計算しやすいかを先に判断する。根号は中の平方数、分母の根号、同類の根号を順番に見る。"
+          "text": "着眼点　2辺とその間の角、または3辺が与えられているかを見る。"
         },
         {
           "id": "s3-geometry-measurement-t02-n005",
           "type": "note",
-          "text": "考える　式を一度に変形せず、「根号を簡単にする→同類項をまとめる→必要なら有理化」の順に進める。値の範囲を使う問題では数直線上の位置も確認する。"
+          "text": "使う知識　a²=b²+c²−2bc cosA を用いる。"
         },
         {
           "id": "s3-geometry-measurement-t02-h006",
@@ -1444,7 +1444,7 @@
         {
           "id": "s3-geometry-measurement-t02-n009",
           "type": "note",
-          "text": "最後の確認　根号の中がこれ以上簡単にならないか、分母に根号が残っていないか、近似値や符号と矛盾しないかを確認する。"
+          "text": "確認　求める辺の向かいの角を正しく対応させる。"
         },
         {
           "id": "s3-geometry-measurement-t02-h010",
@@ -1454,12 +1454,12 @@
         {
           "id": "s3-geometry-measurement-t02-n011",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　2辺とその間の角、または3辺が与えられているかを見る。"
         },
         {
           "id": "s3-geometry-measurement-t02-n012",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　a²=b²+c²−2bc cosA を用いる。"
         },
         {
           "id": "s3-geometry-measurement-t02-h013",
@@ -1505,7 +1505,7 @@
         {
           "id": "s3-geometry-measurement-t02-n016",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　求める辺の向かいの角を正しく対応させる。"
         },
         {
           "id": "s3-geometry-measurement-topic-03",
@@ -1538,12 +1538,12 @@
         {
           "id": "s3-geometry-measurement-t03-n003",
           "type": "note",
-          "text": "読む　複雑な図形をそのまま扱わず、計算できる三角形へ分解する。高さ・斜辺・角のどれを橋渡しにするかを決める。"
+          "text": "着眼点　2辺とその間の角が分かっているかを見る。"
         },
         {
           "id": "s3-geometry-measurement-t03-n004",
           "type": "note",
-          "text": "考える　面積は 1/2 ab sin C、3辺だけならヘロン、測量は既知の距離を底辺にして三角比を使う。空間ではまず平面内の三角形を切り出す。"
+          "text": "使う知識　S=1/2 ab sinC を用いる。"
         },
         {
           "id": "s3-geometry-measurement-t03-h005",
@@ -1571,7 +1571,7 @@
         {
           "id": "s3-geometry-measurement-t03-n007",
           "type": "note",
-          "text": "最後の確認　長さの単位、角度、面積・体積の次元を最後に確認する。"
+          "text": "確認　角Cが辺a、bの間の角であることを確認する。"
         },
         {
           "id": "s3-geometry-measurement-topic-04",
@@ -1614,12 +1614,12 @@
         {
           "id": "s3-geometry-measurement-t04-n004",
           "type": "note",
-          "text": "読む　最大・最小では、まず平方完成して頂点を出し、その頂点が定義域の中にあるかを確認する。"
+          "text": "着眼点　辺とその向かいの角の組に着目する。"
         },
         {
           "id": "s3-geometry-measurement-t04-n005",
           "type": "note",
-          "text": "考える　頂点が入れば頂点、入らなければ端点を比べる。文字定数が動くときは、軸・頂点と区間端点の位置関係が変わる境目で場合分けする。"
+          "text": "使う知識　a/sinA=b/sinB=c/sinC=2R を用いる。"
         },
         {
           "id": "s3-geometry-measurement-t04-h006",
@@ -1647,7 +1647,7 @@
         {
           "id": "s3-geometry-measurement-t04-n008",
           "type": "note",
-          "text": "最後の確認　最大値・最小値だけでなく「そのときの x」をセットで確認し、定義域外の点を採用していないかを見る。"
+          "text": "確認　辺と向かいの角の対応を確認する。"
         },
         {
           "id": "s3-geometry-measurement-t04-h009",
@@ -1657,12 +1657,12 @@
         {
           "id": "s3-geometry-measurement-t04-n010",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　辺とその向かいの角の組に着目する。"
         },
         {
           "id": "s3-geometry-measurement-t04-n011",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　a/sinA=b/sinB=c/sinC=2R を用いる。"
         },
         {
           "id": "s3-geometry-measurement-t04-h012",
@@ -1700,7 +1700,7 @@
         {
           "id": "s3-geometry-measurement-t04-n015",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　辺と向かいの角の対応を確認する。"
         },
         {
           "id": "s3-geometry-measurement-topic-05",
@@ -1920,7 +1920,7 @@
         {
           "id": "s4-geometry-measurement-t01-n001",
           "type": "note",
-          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+          "text": "この節では、図形の計量で学ぶ定義や公式を、問題の条件に合わせて使い分ける。"
         },
         {
           "id": "s4-geometry-measurement-t01-p002",
@@ -1950,12 +1950,12 @@
         {
           "id": "s4-geometry-measurement-t01-n005",
           "type": "note",
-          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+          "text": "着眼点　測れない長さを含む三角形を図に表す。"
         },
         {
           "id": "s4-geometry-measurement-t01-n006",
           "type": "note",
-          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+          "text": "使う知識　既知の長さと角度から、適切な三角比や正弦・余弦定理を用いる。"
         },
         {
           "id": "s4-geometry-measurement-t01-h007",
@@ -1993,7 +1993,7 @@
         {
           "id": "s4-geometry-measurement-t01-n010",
           "type": "note",
-          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+          "text": "確認　高さや水平距離など、求める長さを図上で確認する。"
         },
         {
           "id": "s4-geometry-measurement-topic-02",
@@ -2026,12 +2026,12 @@
         {
           "id": "s4-geometry-measurement-t02-n003",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　四角形を対角線で三角形に分ける。"
         },
         {
           "id": "s4-geometry-measurement-t02-n004",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　各三角形で辺・角を求め、面積や長さを合成する。"
         },
         {
           "id": "s4-geometry-measurement-t02-h005",
@@ -2059,7 +2059,7 @@
         {
           "id": "s4-geometry-measurement-t02-n007",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　同じ対角線を共通辺として正しく用いたかを確認する。"
         },
         {
           "id": "s4-geometry-measurement-topic-03",
@@ -2142,12 +2142,12 @@
         {
           "id": "s4-geometry-measurement-t03-n010",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　空間内の図形を、必要な点を含む平面で切って考える。"
         },
         {
           "id": "s4-geometry-measurement-t03-n011",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　断面に現れる三角形へ置き換え、三角比や余弦定理を用いる。"
         },
         {
           "id": "s4-geometry-measurement-t03-h012",
@@ -2175,7 +2175,7 @@
         {
           "id": "s4-geometry-measurement-t03-n014",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　求めた長さ・角が元の立体のどこに対応するかを確認する。"
         },
         {
           "id": "s4-geometry-measurement-t03-h015",
@@ -2185,12 +2185,12 @@
         {
           "id": "s4-geometry-measurement-t03-n016",
           "type": "note",
-          "text": "読む　図の中で「分かっている辺・角」「求める辺・角」を先に印を付ける。直角三角形か一般三角形かも確認する。"
+          "text": "着眼点　空間内の図形を、必要な点を含む平面で切って考える。"
         },
         {
           "id": "s4-geometry-measurement-t03-n017",
           "type": "note",
-          "text": "考える　直角三角形なら sin/cos/tan、一般三角形で対辺と対角の組があるなら正弦定理、2辺とその間の角または3辺なら余弦定理を候補にする。"
+          "text": "使う知識　断面に現れる三角形へ置き換え、三角比や余弦定理を用いる。"
         },
         {
           "id": "s4-geometry-measurement-t03-h018",
@@ -2228,7 +2228,7 @@
         {
           "id": "s4-geometry-measurement-t03-n021",
           "type": "note",
-          "text": "最後の確認　角の範囲、辺の長さの正負、sin の値から角が2通りあり得ないかを確認する。"
+          "text": "確認　求めた長さ・角が元の立体のどこに対応するかを確認する。"
         },
         {
           "id": "s4-geometry-measurement-t03-h022",
@@ -2238,12 +2238,12 @@
         {
           "id": "s4-geometry-measurement-t03-n023",
           "type": "note",
-          "text": "読む　式だけを見ず、「開き方・軸・頂点・定義域」のどれを求める問題かを先に決める。"
+          "text": "着眼点　空間内の図形を、必要な点を含む平面で切って考える。"
         },
         {
           "id": "s4-geometry-measurement-t03-n024",
           "type": "note",
-          "text": "考える　一般形なら平方完成して頂点形式へ直す。移動・対称移動では点の動きと式の置き換えを対応させる。"
+          "text": "使う知識　断面に現れる三角形へ置き換え、三角比や余弦定理を用いる。"
         },
         {
           "id": "s4-geometry-measurement-t03-h025",
@@ -2281,7 +2281,7 @@
         {
           "id": "s4-geometry-measurement-t03-n028",
           "type": "note",
-          "text": "最後の確認　頂点・軸を式に戻して確認し、必要なら端点・切片を代入してグラフの位置が合っているか確かめる。"
+          "text": "確認　求めた長さ・角が元の立体のどこに対応するかを確認する。"
         },
         {
           "id": "s4-geometry-measurement-t03-p029",
@@ -2301,7 +2301,7 @@
         {
           "id": "s4-geometry-measurement-t04-n001",
           "type": "note",
-          "text": "この節の固定レール　「条件を読む → 使う知識を選ぶ → 途中を飛ばさず進む → 元の条件で確認」の順を固定する。"
+          "text": "この節では、図形の計量で学ぶ定義や公式を、問題の条件に合わせて使い分ける。"
         },
         {
           "id": "s4-geometry-measurement-t04-p002",
