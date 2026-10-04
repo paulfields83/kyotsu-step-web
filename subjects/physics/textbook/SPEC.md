@@ -1,7 +1,7 @@
-# Physics Textbook / Learning Mode — Canonical Candidate Spec
+# Physics Textbook / Learning Mode — Canonical Spec
 
-Status: CANONICAL-CANDIDATE  
-Version: 1.0-draft  
+Status: CANONICAL  
+Version: 1.0.0  
 Updated: 2026-10-05  
 Scope: 物理の教科書・学習モード
 
