@@ -27,9 +27,10 @@
 
 ### Physics
 - 教科書・学習モード: `subjects/physics/textbook/SPEC.md`
+- Chapter 1表示構造: `subjects/physics/textbook/CHAPTER_01_ARCHITECTURE.md`
 - 共通テスト guided practice: `subjects/physics/practice/SPEC.md`
 
-各SPECは現在 `CANONICAL-CANDIDATE`。Repository OS v1の移行監査後に正式canonicalへ昇格する。
+各SPECは現在 `CANONICAL-CANDIDATE`。レビュー・承認後に正式canonicalへ昇格する。
 
 ## 技術仕様
 
@@ -91,8 +92,8 @@ pnpm run check
 governance/   絶対ルール・権威
 navigation/   現在地・火柴図
 memory/       brief / active / progress / lessons / decisions
-subjects/     教育モード正本
-technical/    現行技術正本
+subjects/     教育モード正本候補
+technical/    現行技術正本候補
 quality/      完了条件・validator
 work/         現在のfeature/task
 history/      過去資料（仕様権限なし）
@@ -101,21 +102,29 @@ archive/      deprecated / deliverable
 
 ## 過去資料
 
-初期アプリ時代のREADME・WORKFLOW・docs/checkpoints等は、Repository OS移行中に `history/` へ保存している。
+初期アプリ時代のREADME・WORKFLOW・旧docs/checkpoints等は `history/` へ保存済み。受け渡し用ZIPはprovenance確認後 `archive/deliverables/` へ移した。
 
 **過去資料を現行仕様の根拠にしない。**  
 現行仕様との矛盾時は `governance/DOCUMENT_AUTHORITY.md` に従う。
 
-## 現在の大掃除
+## Repository OS v1 の現在地
 
-現在は `chore/juku-repository-os-v1` 上でRepository OS v1を構築中。
+`chore/juku-repository-os-v1` 上で、監査・移行・狭域cleanup・CI検証まで完了し、現在は**レビュー/ratification段階**。
 
-主な残件:
-- legacy docs migration完了
-- root binary/Word provenance整理
-- ordinary Practice frontend救出
-- Math Practice cross-question dependency実装
-- physics旧section ID移行
-- validator hardening
+完了:
+- legacy control docsのhistory移行
+- root archive provenance整理
+- 29個の旧重複pathの狭域cleanup
+- governance validator + GitHub Actions
 - fresh-agent recovery test
-- 最後にのみdestructive cleanup
+
+残る別workstream:
+- Physics Chapter 1の3-chunk learner-facing UI実装
+- Math Practiceのcross-question dependency実装
+- `front-ui--test` からPractice frontendを選択的に救出
+- candidate specの最終承認/ratification
+
+重要:
+- Physics内部1A〜1G IDはURL/progress/tests/provenance用に保持する。
+- learner-facing major titleだけを3 chunkへ整理する。
+- `front-ui--test` は救出完了まで削除しない。
