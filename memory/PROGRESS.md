@@ -1,0 +1,56 @@
+# PROGRESS
+
+Updated: 2026-10-05
+
+## Repository OS Nodes
+
+- R00 INVENTORY — PASS
+- R01 AUTHORITY MAP — PASS
+- R02 REPOSITORY OS — PASS / RATIFIED
+- R03 MODE CANON — PASS-CANONICAL
+- R04 BRANCH SALVAGE — DISPOSITIONED-PENDING-PORT
+- R05 DOC MIGRATION — PASS for audited legacy set
+- R06 VALIDATORS — PASS-WITH-WARNINGS / CI active
+- R07 CLEANUP APPLY — PASS-NARROW
+- R08 FINAL AUDIT — PASS / MERGE WAIT
+
+## Review Package
+
+PR:
+- #3 `chore: establish Juku Repository OS v1 and clean legacy control docs`
+- head: `chore/juku-repository-os-v1`
+- base: `main`
+- state: OPEN
+- ratification: complete
+- mergeable: true
+
+PR checks before final status-only update:
+- Repository Governance Check — SUCCESS
+- existing PR checks — SUCCESS
+
+## Verified
+
+- fresh-agent recovery: PASS
+- governance CI: PASS
+- post-cleanup governance CI: PASS
+- structural errors after cleanup: 0
+- remaining warning family: Physics learner-facing Chapter 1 architecture
+
+## Still Open
+
+- Physics Chapter 1 3-chunk runtime implementation
+- Math Practice cross-question dependency implementation
+- Practice frontend selective port
+- final `front-ui--test` disposition after port
+
+## Review Freeze
+
+No new runtime feature work should be added to PR #3.  
+Only review/CI corrections belong on this branch now.
+
+## Explicitly Not Needed
+
+- no bulk runtime-data move
+- no Physics internal ID rename
+- no whole-branch merge of `front-ui--test`
+- no restoration of old `docs/` authority layer
