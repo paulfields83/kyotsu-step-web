@@ -16,74 +16,138 @@ Updated: 2026-10-05
       │                    │                       │
       │                    │                       ├──▶ [R04 BRANCH SALVAGE] ── DISPOSITIONED
       │                    │                       │
-      │                    │                       ├──▶ [R05 DOC MIGRATION]
+      │                    │                       ├──▶ [R05 DOC MIGRATION] ── PASS
       │                    │                       │
-      │                    │                       ├──▶ [R06 VALIDATORS] ── ACTIVE
+      │                    │                       ├──▶ [R06 VALIDATORS] ── PASS-WARN
       │                    │                       │
-      │                    │                       └──▶ [R07 CLEANUP APPLY]
+      │                    │                       └──▶ [R07 CLEANUP APPLY] ── PASS-NARROW
       │                    │                               │
       └────────────────────┴───────────────────────────────┘
                                                               ▼
                                                         [R08 FINAL AUDIT]
+                                                           PASS-PARTIAL
 ```
 
 ## Node Registry
 
 ### R00 — INVENTORY
-Status: PASS-INITIAL  
-Evidence: `audit/REPOSITORY_AUDIT_2026-10-05.md`  
-Remaining: binary provenance and any chat-only deliverables.
+Status: PASS  
+Evidence: `audit/REPOSITORY_AUDIT_2026-10-05.md`
+
+Repository/branch/control-document inventory completed for the cleanup scope.
 
 ### R01 — AUTHORITY MAP
 Status: PASS-INITIAL  
-Evidence: `audit/DOCUMENT_AUTHORITY_CLASSIFICATION.md`  
-Remaining: final promotion after migration.
+Evidence: `audit/DOCUMENT_AUTHORITY_CLASSIFICATION.md`
+
+Current/historical/archive layers are now explicit. Final promotion of CANONICAL-CANDIDATE mode/technical documents still requires acceptance.
 
 ### R02 — REPOSITORY OS v1
-Status: ACTIVE  
-Output: Constitution, Agent router, authority model, change protocol, current position, memory split, navigation.  
-Verification pending: fresh-agent recovery test after R05-R06.
+Status: PASS-CANDIDATE
+
+Implemented:
+- root Agent router
+- Constitution / authority / change protocol
+- navigation
+- memory split
+- subject/mode specs
+- technical canon
+- quality gates
+- history/archive layers
+- migration records
+
+Fresh-agent recovery test: PASS.
 
 ### R03 — MODE CANON
-Status: PASS-CANDIDATE  
-Canonical candidates created:
+Status: PASS-CANDIDATE
+
+Created:
 - `subjects/mathematics/textbook/SPEC.md`
 - `subjects/mathematics/practice/SPEC.md`
 - `subjects/physics/textbook/SPEC.md`
 - `subjects/physics/practice/SPEC.md`
 
-Promotion from CANONICAL-CANDIDATE to CANONICAL occurs after migration/conflict audit and explicit acceptance.
+Additional Physics Chapter 1 architecture:
+- `subjects/physics/textbook/CHAPTER_01_ARCHITECTURE.md`
+
+Promotion to CANONICAL requires explicit acceptance/ratification.
 
 ### R04 — BRANCH SALVAGE
-Status: DISPOSITIONED-PENDING-PORT  
+Status: DISPOSITIONED-PENDING-PORT
+
 Evidence:
 - `audit/BRANCH_SALVAGE_FRONT_UI_TEST.md`
 - `audit/BRANCH_32_PATH_DISPOSITION.md`
 
-Finding: final tree delta = 10 branch-only + 22 modified paths. Practice frontend is selective salvage; backend wholesale merge is rejected. Branch deletion remains blocked until salvage/rejection decisions are actually applied.
+All final-tree differences of `front-ui--test` are classified.
+
+Key rule:
+- do not merge the branch wholesale
+- keep main backend as technical base
+- selectively port/reimplement Practice frontend
+- quarantine redesign experiments
+
+Branch deletion: BLOCKED until salvage/rejection is actually complete.
 
 ### R05 — DOC MIGRATION
-Status: PLANNED  
-Output: old root/docs files reclassified/moved/rewritten without losing provenance.
+Status: PASS — AUDITED LEGACY SET
+
+Completed:
+- current technical/quality canon extracted
+- 27 legacy control/history files preserved under `history/`
+- root README rewritten as current router
+- source/archive provenance added
+- old duplicate control paths removed only after preservation
+
+Evidence:
+- `migration/EXISTING_DOCS_PLAN.md`
+- `audit/R07_CLEANUP_RESULT_2026-10-05.md`
 
 ### R06 — VALIDATORS
-Status: ACTIVE  
-Initial validators:
-- required governance/navigation/spec files
-- mode spec status/sections
-- Match Graph node presence
-- active-current-position contract
-- root binary warnings
-- retired identifier warnings
-- later: broken canonical links / stale references / generated provenance
+Status: PASS-WITH-WARNINGS
+
+Implemented:
+- `tools/repo-governance-check.mjs`
+- `.github/workflows/repository-governance.yml`
+
+GitHub Actions: PASS.
+
+Current warnings: 2
+1. Physics Chapter 1 three-chunk learner architecture not implemented in runtime tree.
+2. Physics learner labels still expose internal 1A–1G codes.
+
+These are one known runtime/UI migration family, not Repository OS structural failures.
 
 ### R07 — CLEANUP APPLY
-Status: NOT READY  
-Gate: R05 and R06 must pass; R04 high-value salvage must be protected.
+Status: PASS-NARROW
+
+Exactly 29 audited duplicate paths removed:
+- old root WORKFLOW
+- two root delivery ZIP duplicates
+- migrated legacy docs
+- migrated initial-app checkpoints
+
+Runtime code/data, source Word files, Physics internal IDs, and `front-ui--test` were not deleted.
+
+Evidence:
+- `migration/R07_REMOVAL_MANIFEST.md`
+- `audit/R07_CLEANUP_RESULT_2026-10-05.md`
 
 ### R08 — FINAL AUDIT
-Status: NOT READY  
-Goal: fresh-agent recovery test + repository consistency test + build/test/E2E after migration.
+Status: PASS-PARTIAL
+
+Passed:
+- fresh-agent recovery
+- repository governance CI
+- post-cleanup governance CI
+- migration preservation check for audited root/docs scope
+
+Still open before project-wide closure:
+- Physics Chapter 1 learner-facing 3-chunk implementation
+- Math Practice cross-question dependency implementation
+- Practice frontend selective salvage
+- final ratification of candidate specs
+- final decision on divergent branch after salvage
 
 ## Subject/Mode Map
 
@@ -100,4 +164,4 @@ Goal: fresh-agent recovery test + repository consistency test + build/test/E2E a
        SPEC/QA      SPEC/QA            SPEC/QA      SPEC/QA
 ```
 
-モード間でルールを移植するときは、共通原則へ昇格できるかを先に検証する。
+Cross-mode reuse requires explicit review; success in one mode is not automatic authority in another.
