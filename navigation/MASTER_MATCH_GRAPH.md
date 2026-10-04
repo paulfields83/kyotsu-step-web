@@ -1,6 +1,6 @@
 # MASTER MATCH GRAPH
 
-Status: DRAFT v1  
+Status: CANONICAL v1  
 Updated: 2026-10-05
 
 ## Repository OS / Cleanup
@@ -8,7 +8,7 @@ Updated: 2026-10-05
 ```text
 [R00 INVENTORY] ──▶ [R01 AUTHORITY MAP] ──▶ [R02 REPOSITORY OS v1]
       │                    │                       │
-      │                    │                       ├──▶ [R03 MODE CANON] ── PASS-CANDIDATE
+      │                    │                       ├──▶ [R03 MODE CANON] ── PASS-CANONICAL
       │                    │                       │       ├─ MATH-TEXT
       │                    │                       │       ├─ MATH-PRACTICE
       │                    │                       │       ├─ PHYS-TEXT
@@ -37,13 +37,13 @@ Evidence: `audit/REPOSITORY_AUDIT_2026-10-05.md`
 Repository/branch/control-document inventory completed for the cleanup scope.
 
 ### R01 — AUTHORITY MAP
-Status: PASS-INITIAL  
+Status: PASS  
 Evidence: `audit/DOCUMENT_AUTHORITY_CLASSIFICATION.md`
 
-Current/historical/archive layers are now explicit. Final promotion of CANONICAL-CANDIDATE mode/technical documents still requires acceptance.
+Current/historical/archive layers are explicit and the v1 authority set has been ratified.
 
 ### R02 — REPOSITORY OS v1
-Status: PASS-CANDIDATE
+Status: PASS / RATIFIED
 
 Implemented:
 - root Agent router
@@ -59,7 +59,7 @@ Implemented:
 Fresh-agent recovery test: PASS.
 
 ### R03 — MODE CANON
-Status: PASS-CANDIDATE
+Status: PASS-CANONICAL
 
 Created:
 - `subjects/mathematics/textbook/SPEC.md`
@@ -69,8 +69,6 @@ Created:
 
 Additional Physics Chapter 1 architecture:
 - `subjects/physics/textbook/CHAPTER_01_ARCHITECTURE.md`
-
-Promotion to CANONICAL requires explicit acceptance/ratification.
 
 ### R04 — BRANCH SALVAGE
 Status: DISPOSITIONED-PENDING-PORT
@@ -134,7 +132,7 @@ Evidence:
 - `audit/R07_CLEANUP_RESULT_2026-10-05.md`
 
 ### R08 — FINAL AUDIT
-Status: PASS-PARTIAL
+Status: PASS — REPOSITORY OS SCOPE
 
 Passed:
 - fresh-agent recovery
@@ -146,7 +144,6 @@ Still open before project-wide closure:
 - Physics Chapter 1 learner-facing 3-chunk implementation
 - Math Practice cross-question dependency implementation
 - Practice frontend selective salvage
-- final ratification of candidate specs
 - final decision on divergent branch after salvage
 
 ## Subject/Mode Map
