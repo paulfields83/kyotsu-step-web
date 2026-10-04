@@ -1,6 +1,6 @@
 # Current Application Architecture
 
-Status: CANONICAL-CANDIDATE  
+Status: CANONICAL  
 Updated: 2026-10-05  
 Evidence base: current `main` source code, package manifests, API server, deployment workflow
 
