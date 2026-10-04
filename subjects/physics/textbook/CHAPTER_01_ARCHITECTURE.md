@@ -1,6 +1,6 @@
 # Physics Textbook — Chapter 1 Information Architecture
 
-Status: CANONICAL-CANDIDATE  
+Status: CANONICAL  
 Updated: 2026-10-05  
 Provenance: latest Chapter 1 handoff dated 2026-10-02
 
