@@ -4,7 +4,7 @@ Updated: 2026-10-05
 
 ## Current Focus
 
-Repository OS v1 is **formally ratified** and awaiting final CI/merge.
+Repository OS v1 is **formally ratified and merged into `main`**.
 
 The audited root/docs cleanup is complete. Runtime feature gaps are intentionally separated from this cleanup branch.
 
@@ -51,8 +51,8 @@ Remaining warnings:
 
 ## Open Workstreams
 
-### W1 — Repository OS merge
-Ratification complete → final CI → PR #3 ready → merge to `main`.
+### W1 — Repository OS v1
+COMPLETE — ratified, CI-passed, and merged through PR #3.
 
 ### W2 — Physics Chapter 1 learner UI
 Implement 3 chunk cards, learner titles, bridge progression while preserving stable internal IDs.
