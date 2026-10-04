@@ -1,6 +1,6 @@
 # Content and Data Policy
 
-Status: CANONICAL-CANDIDATE  
+Status: CANONICAL  
 Updated: 2026-10-05
 
 This document extracts the still-valid data rules from the old `docs/CONTENT_GUIDE.md` and reconciles them with current runtime schemas.
