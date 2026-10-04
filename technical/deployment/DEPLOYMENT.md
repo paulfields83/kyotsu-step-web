@@ -1,6 +1,6 @@
 # Current Deployment Model
 
-Status: CANONICAL-CANDIDATE  
+Status: CANONICAL  
 Updated: 2026-10-05  
 Evidence: current GitHub Pages workflow, environment examples, current frontend repository layer, current backend server
 
