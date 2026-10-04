@@ -4,7 +4,7 @@ Updated: 2026-10-05
 
 ## Current Focus
 
-Repository OS v1 cleanup has moved from construction to **review/ratification**.
+Repository OS v1 is **formally ratified** and awaiting final CI/merge.
 
 The audited root/docs cleanup is complete. Runtime feature gaps are intentionally separated from this cleanup branch.
 
@@ -14,7 +14,7 @@ The audited root/docs cleanup is complete. Runtime feature gaps are intentionall
 - document authority classification
 - Constitution / authority / change protocol
 - Match Graph / Current Position
-- four mode canonical-candidate specs
+- four canonical mode specs
 - Physics Chapter 1 learner-facing architecture spec
 - all 32 `front-ui--test` final-tree differences dispositioned
 - current technical architecture/content/schema/UI/deployment canon extracted from live code
@@ -47,12 +47,12 @@ Remaining warnings:
 - Practice frontend must be selectively salvaged from `front-ui--test`.
 - main backend/deployment remains the technical base.
 - Repository OS cleanup is reviewed separately from runtime feature work.
-- candidate specs are not ratified merely because they exist.
+- ratification record: `audit/REPOSITORY_OS_RATIFICATION_2026-10-05.md`.
 
 ## Open Workstreams
 
-### W1 — Repository OS review / ratification
-Current branch → Draft PR → review → acceptance.
+### W1 — Repository OS merge
+Ratification complete → final CI → PR #3 ready → merge to `main`.
 
 ### W2 — Physics Chapter 1 learner UI
 Implement 3 chunk cards, learner titles, bridge progression while preserving stable internal IDs.
