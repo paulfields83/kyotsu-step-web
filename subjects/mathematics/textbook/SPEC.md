@@ -1,7 +1,7 @@
-# Mathematics Textbook / Learning Mode — Canonical Candidate Spec
+# Mathematics Textbook / Learning Mode — Canonical Spec
 
-Status: CANONICAL-CANDIDATE  
-Version: 1.0-draft  
+Status: CANONICAL  
+Version: 1.0.0  
 Updated: 2026-10-05  
 Scope: 数学の教科書・学習モード
 
