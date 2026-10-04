@@ -90,12 +90,17 @@ for (const p of walk(root)) {
   }
 }
 
-const physicsRoot = full('backend/data/textbooks/physics')
-for (const p of walk(physicsRoot)) {
-  const rp = rel(relative(root, p))
-  if (rp.toLowerCase().includes('1d-acceleration')) {
-    warn(`retired/stale physics identifier candidate: ${rp}`)
-  }
+const physicsChapterArchitecture = 'src/data/textbook/ch01/chapter1Architecture.ts'
+if (!existsSync(full(physicsChapterArchitecture))) {
+  warn('Physics Chapter 1 three-chunk learner architecture is not yet implemented on this tree')
+}
+
+const textbookCatalog = read('src/domain/textbookCatalog.ts')
+if (
+  textbookCatalog.includes('function physicsUnitLabel')
+  && textbookCatalog.includes('${code} ')
+) {
+  warn('Physics learner lesson labels still expose internal 1A-1G codes; internal IDs may remain, learner-facing major labels should not')
 }
 
 const textExtensions = new Set(['.md', '.ts', '.tsx', '.js', '.mjs', '.json', '.yml', '.yaml', '.css'])
