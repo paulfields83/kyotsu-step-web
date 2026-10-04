@@ -1,6 +1,6 @@
 # Current Schema Map
 
-Status: CANONICAL-CANDIDATE  
+Status: CANONICAL  
 Updated: 2026-10-05
 
 This file maps educational modes to the data contracts that currently implement them. It is not itself a substitute for the subject/mode pedagogical specs.
