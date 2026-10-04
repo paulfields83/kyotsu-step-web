@@ -18,9 +18,10 @@ Scope: 物理の教科書・学習モード
   - 数式導出の穴は増やすが、単純計算を穴だらけにしない
   - 式の途中にも選択肢を持つ意味ある穴を置く
   - スマートフォンだけでも途中式を追えるようにする
-  - 旧章ID/旧1D等を現行構成へ持ち込まない
+  - learner-facing major titleでは内部コード `1A〜1G` を露出しない
+  - ただし内部stable ID / URL / progress / tests / provenance用の1A〜1G identityは維持する
 
-旧Wordの `1A〜1G` は内容証拠であり、章構造のauthorityではない。
+旧Wordの `1A〜1G` は内容証拠として参照できるが、learner-facing title architectureのauthorityではない。Chapter 1の表示構造は `CHAPTER_01_ARCHITECTURE.md` を参照する。
 
 ## 1. Purpose
 
@@ -159,7 +160,14 @@ Scope: 物理の教科書・学習モード
 - 内部Node IDは細かく持てる
 - 表示タイトルと管理IDを分離する
 
-旧 `1A/1B/1C/1D...` を表示/管理のauthorityにしない。現在の章マップ確定後にstable IDsへ移行する。
+`1A/1B/1C/1D...` は**内部stable identityとして維持**するが、learner-facing major titleのauthorityにはしない。
+
+Chapter 1では学習者に次の3タイトルを見せる。
+- 運動を表す — internal 1A/1B/1C
+- 速度の変化 — internal 1D/1E/1F
+- 力と運動 — internal 1G
+
+詳細・bridge sentence・UI契約は `CHAPTER_01_ARCHITECTURE.md` を正とする。内部IDを見た目の簡潔化だけのためにrenameしてはならない。
 
 ## 9. Answer leakage
 
@@ -193,7 +201,8 @@ PT1 source range / learner prior knowledge
 Content:
 - source scope complete
 - concept order valid for beginner
-- no retired section structure silently revived
+- no internal unit code silently revived as a learner-facing major title
+- stable internal IDs remain migration-compatible
 
 Physics:
 - vector directions/signs correct
