@@ -2,33 +2,38 @@
 
 Updated: 2026-10-05
 
-## Done
+## Repository OS Nodes
 
-- R00 inventory: PASS-INITIAL
-- R01 authority map: PASS-INITIAL
-- R02 Repository OS foundation: ACTIVE / structure established
-- R03 four mode specs: PASS-CANDIDATE
-- R04 branch final-tree classification: DISPOSITIONED-PENDING-PORT
-- R05 target tree and legacy-doc migration plan: PLANNED-IN-DETAIL
-- R06 structural validator v1: IMPLEMENTED-DRAFT
-- decision log / lessons / changelog structure: CREATED
+- R00 INVENTORY — PASS
+- R01 AUTHORITY MAP — PASS-INITIAL
+- R02 REPOSITORY OS — PASS-CANDIDATE
+- R03 MODE CANON — PASS-CANDIDATE
+- R04 BRANCH SALVAGE — DISPOSITIONED-PENDING-PORT
+- R05 DOC MIGRATION — PASS for audited legacy set
+- R06 VALIDATORS — PASS-WITH-WARNINGS / CI active
+- R07 CLEANUP APPLY — PASS-NARROW
+- R08 FINAL AUDIT — PASS-PARTIAL
 
-## In Progress
+## Verified
 
-- R05 technical canon extraction / documentation migration
-- R06 validation hardening
+- fresh-agent recovery: PASS
+- governance CI: PASS
+- post-cleanup governance CI: PASS
+- errors after cleanup: 0
+- remaining warning families: Physics learner-facing title architecture only
 
-## Blocked / Needs Resolution
+## Still Open
 
-- provenance of root ZIP archives
-- final source/canonical status of Word families
+- Repository OS review/ratification
+- Physics Chapter 1 3-chunk runtime implementation
+- Math Practice cross-question dependency implementation
 - Practice frontend selective port
-- physics retired identifier migration
-- final ratification of Constitution/mode specs
+- final `front-ui--test` disposition after port
+- final promotion of CANONICAL-CANDIDATE documents
 
-## Not Ready
+## Explicitly Not Needed
 
-- R07 destructive cleanup
-- branch deletion
-- mass runtime-data moves
-- R08 final fresh-agent audit
+- no bulk runtime-data move
+- no Physics internal ID rename
+- no whole-branch merge of `front-ui--test`
+- no restoration of old `docs/` authority layer
