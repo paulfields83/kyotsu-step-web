@@ -5,23 +5,23 @@ Updated: 2026-10-05
 ## Repository OS Nodes
 
 - R00 INVENTORY — PASS
-- R01 AUTHORITY MAP — PASS-INITIAL
-- R02 REPOSITORY OS — PASS-CANDIDATE
-- R03 MODE CANON — PASS-CANDIDATE
+- R01 AUTHORITY MAP — PASS
+- R02 REPOSITORY OS — PASS / RATIFIED
+- R03 MODE CANON — PASS-CANONICAL
 - R04 BRANCH SALVAGE — DISPOSITIONED-PENDING-PORT
 - R05 DOC MIGRATION — PASS for audited legacy set
 - R06 VALIDATORS — PASS-WITH-WARNINGS / CI active
 - R07 CLEANUP APPLY — PASS-NARROW
-- R08 FINAL AUDIT — PASS-PARTIAL / REVIEW WAIT
+- R08 FINAL AUDIT — PASS / MERGE WAIT
 
 ## Review Package
 
-Draft PR:
+PR:
 - #3 `chore: establish Juku Repository OS v1 and clean legacy control docs`
 - head: `chore/juku-repository-os-v1`
 - base: `main`
 - state: OPEN
-- draft: true
+- ratification: complete
 - mergeable: true
 
 PR checks before final status-only update:
@@ -38,12 +38,10 @@ PR checks before final status-only update:
 
 ## Still Open
 
-- Repository OS review/ratification
 - Physics Chapter 1 3-chunk runtime implementation
 - Math Practice cross-question dependency implementation
 - Practice frontend selective port
 - final `front-ui--test` disposition after port
-- final promotion of CANONICAL-CANDIDATE documents
 
 ## Review Freeze
 
