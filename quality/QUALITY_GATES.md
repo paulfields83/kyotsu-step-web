@@ -1,6 +1,6 @@
 # Quality Gates
 
-Status: CANONICAL-CANDIDATE  
+Status: CANONICAL  
 Updated: 2026-10-05
 
 This document extracts still-valid checks from the historical TEST_PLAN and extends them to the current backend/content architecture.
