@@ -30,36 +30,35 @@ Updated: 2026-10-05
 ## Node Registry
 
 ### R00 — INVENTORY
-Status: IN_PROGRESS  
+Status: PASS-INITIAL  
 Input: repository tree, branches, recent commits  
-Output: complete file/branch inventory and risk list  
-Verification: no known branch or top-level asset omitted  
-Next: R01
+Output: file/branch inventory and risk list  
+Evidence: `audit/REPOSITORY_AUDIT_2026-10-05.md`  
+Remaining: binary contents and external/chat-only latest deliverables still need provenance check.
 
 ### R01 — AUTHORITY MAP
-Status: IN_PROGRESS  
+Status: PASS-INITIAL  
 Depends On: R00  
-Output: every control document classified as CANONICAL / ACTIVE / HISTORICAL / DEPRECATED / ARCHIVED / GENERATED  
-Verification: conflicts have one selected authority or explicit BLOCKED status  
-Next: R02
+Output: initial classification of current control documents  
+Evidence: `audit/DOCUMENT_AUTHORITY_CLASSIFICATION.md`  
+Remaining: promote mode-specific candidates only after R03 reconciliation.
 
 ### R02 — REPOSITORY OS v1
 Status: ACTIVE  
-Depends On: R00, R01(partial)  
+Depends On: R00, R01  
 Output: Constitution, Agent router, change protocol, current position, memory split, navigation  
-Verification: a fresh Agent can determine what to read, what not to touch, and next executable node  
-Next: R03-R06
+Verification pending: fresh-agent recovery test after R03-R06.
 
 ### R03 — MODE CANON
-Status: PLANNED  
+Status: NEXT  
 Output: canonical specs for four existing mode families  
 Rule: each mode owns its pedagogy/content rules; shared rules are factored upward only when genuinely common.
 
 ### R04 — BRANCH SALVAGE
-Status: BLOCKED-PENDING-AUDIT  
-Focus: especially `front-ui--test` unique 127 commits  
-Output: keep/merge/cherry-pick/archive decision per unique workstream  
-Hard rule: no branch deletion before salvage report.
+Status: AUDITED-PENDING-DISPOSITION  
+Focus: `front-ui--test`  
+Evidence: `audit/BRANCH_SALVAGE_FRONT_UI_TEST.md`  
+Finding: final tree delta = 10 branch-only + 22 modified paths. Practice frontend should be ported selectively; backend branch state must not replace main.
 
 ### R05 — DOC MIGRATION
 Status: PLANNED  
@@ -78,7 +77,7 @@ Examples:
 
 ### R07 — CLEANUP APPLY
 Status: NOT READY  
-Allowed only after R00-R06 gates.
+Allowed only after R03-R06 gates.
 
 ### R08 — FINAL AUDIT
 Status: NOT READY  
