@@ -1,7 +1,7 @@
-# Physics Common-Test Guided Practice — Canonical Candidate Spec
+# Physics Common-Test Guided Practice — Canonical Spec
 
-Status: CANONICAL-CANDIDATE  
-Version: 1.0-draft  
+Status: CANONICAL  
+Version: 1.0.0  
 Updated: 2026-10-05  
 Scope: 共通テスト物理のguided practice
 
