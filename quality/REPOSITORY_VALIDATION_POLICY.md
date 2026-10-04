@@ -34,7 +34,7 @@ Initial ERROR rules:
 
 Initial WARNING rules:
 - root binary ZIP without provenance classification
-- retired/stale physics identifier candidate such as `1d-acceleration`
+- learner-facing physics title architecture still exposing internal 1A–1G codes
 - migration-era relative links requiring review
 - Constitution amendment wording anomaly
 
@@ -60,7 +60,7 @@ R06-02:
 - question dependency reference integrity
 
 R06-03 after migration:
-- retired section IDs = ERROR in active/runtime content
+- learner-facing internal unit-code exposure = ERROR after Chapter 1 title migration
 - root binary archive = ERROR
 - stale root README authority text = ERROR
 - canonical spec freshness metadata
