@@ -1,7 +1,7 @@
-# Mathematics Ordinary Practice Mode — Canonical Candidate Spec
+# Mathematics Ordinary Practice Mode — Canonical Spec
 
-Status: CANONICAL-CANDIDATE  
-Version: 1.0-draft  
+Status: CANONICAL  
+Version: 1.0.0  
 Updated: 2026-10-05  
 Scope: 数学の普通練習 / guided practice
 
