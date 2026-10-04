@@ -1,34 +1,46 @@
 # Existing Root / docs Migration Plan
 
-Status: PLAN — NO FILES MOVED YET  
+Status: MIGRATION-STAGED — DESTRUCTIVE REMOVAL NOT YET APPLIED  
 Updated: 2026-10-05
+
+## Completed migration staging
+
+- current technical canon extracted from live code
+- current quality gates extracted
+- old root/docs/checkpoints copied to `history/`
+- root README rewritten as current human router
+- root ZIPs copied to `archive/deliverables/`
+- Math Word source manifest added
+- Physics Chapter 1 figure provenance recorded
+- old originals remain in place until R07
 
 ## Root
 
 | Current | Target/action | Status |
 |---|---|---|
-| `README.md` | Rewrite as short human router to governance/navigation/subject/technical docs | REWRITE |
-| `WORKFLOW.md` | Move original to `history/initial-app/WORKFLOW_2026-08.md`; current global workflow is `governance/CHANGE_PROTOCOL.md` | HISTORICIZE |
-| `figure.zip` | provenance check, then likely `archive/deliverables/` | BLOCKED |
-| `数学IA_教科書学習モード.zip` | provenance/reproducibility check, then `archive/deliverables/` or remove if fully reproducible and explicitly approved | BLOCKED |
+| `README.md` | short current human router | DONE |
+| historical README | `history/initial-app/README_2026-08.md` | PRESERVED |
+| `WORKFLOW.md` | current global flow replaced by `governance/CHANGE_PROTOCOL.md`; old file copied to history | READY-FOR-R07-REMOVE-OLD-PATH |
+| `figure.zip` | archived copy at `archive/deliverables/figure.zip`; root duplicate no longer authoritative | READY-FOR-R07-REMOVE-ROOT |
+| `数学IA_教科書学習モード.zip` | archived copy under `archive/deliverables/`; root duplicate no longer authoritative | READY-FOR-R07-REMOVE-ROOT |
 
 ## docs/
 
-| Current | Target/action | Status |
-|---|---|---|
-| `docs/ARCHITECTURE.md` | extract still-current architecture → `technical/architecture/APP_ARCHITECTURE.md`; original snapshot → history | EXTRACT+HISTORY |
-| `docs/CONTENT_GUIDE.md` | extract stable ID/revision/provenance/content rules → `technical/content/CONTENT_DATA_POLICY.md`; old bilingual/static assumptions → history | EXTRACT+HISTORY |
-| `docs/DEPLOYMENT.md` | historical static-only deployment snapshot → history; write new current backend-aware deployment doc separately | HISTORICIZE+REWRITE |
-| `docs/DESIGN_SYSTEM.md` | compare with current approved UI; surviving visual semantics → `technical/ui/DESIGN_SYSTEM.md` | REVIEW+PROMOTE |
-| `docs/PRODUCT_REQUIREMENTS.md` | `history/initial-app/PRODUCT_REQUIREMENTS_2026-08.md` | HISTORY |
-| `docs/QUESTION_SCHEMA.md` | old Common-Test schema → `technical/schemas/COMMON_TEST_QUESTION_SCHEMA.md` after refresh; original → history | EXTRACT+HISTORY |
-| `docs/REQUIREMENTS_MATRIX.md` | `history/initial-app/REQUIREMENTS_MATRIX_2026-08.md` | HISTORY |
-| `docs/TEST_PLAN.md` | extract active test gates → quality; old app-specific plan → history | EXTRACT+HISTORY |
-| `docs/WORKLOG.md` | `history/initial-app/WORKLOG_2026-08.md` | HISTORY |
-| `docs/backend-separation.md` | `history/migrations/backend-separation.md`; current backend boundary rewritten under technical | HISTORY |
-| `docs/source-audit.md` | `history/source-audits/LOGIKA_AUDIT.md` | HISTORY |
-| `docs/checkpoints/.gitkeep` | remove when history/checkpoints populated | REMOVE-LATER |
-| `docs/checkpoints/phase-00-review.md` ... `phase-13-review.md` | `history/checkpoints/initial-app/` preserving filenames | HISTORY |
+| Current | Promoted current authority | Historical copy | Status |
+|---|---|---|---|
+| `docs/ARCHITECTURE.md` | `technical/architecture/APP_ARCHITECTURE.md` | `history/initial-app/ARCHITECTURE_2026-08.md` | READY-FOR-R07 |
+| `docs/CONTENT_GUIDE.md` | `technical/content/CONTENT_DATA_POLICY.md` | `history/initial-app/CONTENT_GUIDE_2026-08.md` | READY-FOR-R07 |
+| `docs/DEPLOYMENT.md` | `technical/deployment/DEPLOYMENT.md` | `history/initial-app/DEPLOYMENT_2026-08.md` | READY-FOR-R07 |
+| `docs/DESIGN_SYSTEM.md` | `technical/ui/DESIGN_SYSTEM.md` | `history/initial-app/DESIGN_SYSTEM_2026-08.md` | READY-FOR-R07 |
+| `docs/PRODUCT_REQUIREMENTS.md` | current project purpose in `memory/PROJECT_BRIEF.md` + mode specs | `history/initial-app/PRODUCT_REQUIREMENTS_2026-08.md` | READY-FOR-R07 |
+| `docs/QUESTION_SCHEMA.md` | `technical/schemas/COMMON_TEST_QUESTION_SCHEMA.md` + executable schema | `history/initial-app/QUESTION_SCHEMA_2026-08.md` | READY-FOR-R07 |
+| `docs/REQUIREMENTS_MATRIX.md` | current gates/specs | `history/initial-app/REQUIREMENTS_MATRIX_2026-08.md` | READY-FOR-R07 |
+| `docs/TEST_PLAN.md` | `quality/QUALITY_GATES.md` | `history/initial-app/TEST_PLAN_2026-08.md` | READY-FOR-R07 |
+| `docs/WORKLOG.md` | `memory/CHANGELOG.md` / progress / decisions | `history/initial-app/WORKLOG_2026-08.md` | READY-FOR-R07 |
+| `docs/backend-separation.md` | current app architecture/deployment docs | `history/migrations/backend-separation.md` | READY-FOR-R07 |
+| `docs/source-audit.md` | no current authority | `history/source-audits/LOGIKA_AUDIT.md` | READY-FOR-R07 |
+| `docs/checkpoints/phase-00..13-review.md` | no current authority | `history/checkpoints/initial-app/` | READY-FOR-R07 |
+| `docs/checkpoints/.gitkeep` | none | none needed | READY-FOR-R07 |
 
 ## Runtime/content directories
 
@@ -36,39 +48,47 @@ Updated: 2026-10-05
 
 No bulk move in Repository OS v1.
 
-### `backend/data/textbooks/**/source/*.docx`
+Runtime path churn is not a cleanup goal.
 
-Keep in place initially, but require a source manifest with:
-- source artifact name
-- role: canonical source / evidence / backup / generated
-- revision
-- produced-by
-- related published unit
-- replacement/supersession relation
+### Math Word source family
 
-A Word file named `完成版` or `v8` is not automatically canonical.
+Current:
+- kept under `backend/data/textbooks/math-1a/source/`
+- classified by `SOURCE_MANIFEST.md`
+- authoring source / historical production evidence
+- not production runtime input
+- not automatic canonical authority
 
-### figures / generated assets
+### Physics figure family
 
-Each figure family should eventually declare:
-- source specification
-- editable source
-- generated output
-- QA evidence
-- runtime destination
+Current:
+- promoted asset blobs live in active textbook/public paths
+- provenance recorded in `backend/data/textbooks/physics/FIGURE_PROVENANCE.md`
+- root ZIP is archive-only
 
-## Migration execution order
+## Remaining pre-R07 work
 
-M1 create target dirs/docs  
-→ M2 write new technical canonical docs  
-→ M3 add provenance manifests  
-→ M4 update README/router links  
-→ M5 move historical docs with git history preserved  
-→ M6 update references  
-→ M7 run validator  
-→ M8 only then remove old duplicate paths
+1. reference audit: find active links/imports that still point to old `docs/` paths
+2. validator update after old-path removal
+3. protect/plan Practice frontend salvage
+4. record Chapter 1 learner-facing architecture gap
+5. fresh-agent recovery test
+6. execute full checkout/CI validation
+
+## R07 deletion order
+
+When R07 opens:
+
+D1 verify history/archive copies exist  
+→ D2 verify no active references to old paths  
+→ D3 remove old root ZIP duplicates  
+→ D4 remove old `docs/` historical originals / old WORKFLOW path  
+→ D5 run governance validator  
+→ D6 run build/tests/E2E where affected  
+→ D7 compare final tree against migration manifest
 
 ## Hard rule
 
-Do not move a historical document first and promise to rewrite its useful content later.  
-**Extract/promote current knowledge first; historicize second.**
+**Promote current knowledge first; preserve history second; delete duplicates last.**
+
+This order has now been followed. The last destructive step remains intentionally blocked.
