@@ -1,6 +1,6 @@
 # Common-Test Question Contract
 
-Status: CANONICAL-CANDIDATE  
+Status: CANONICAL  
 Updated: 2026-10-05  
 Runtime source of truth: `src/domain/questionSchema.ts`
 
