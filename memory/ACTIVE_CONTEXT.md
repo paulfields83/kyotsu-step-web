@@ -4,44 +4,65 @@ Updated: 2026-10-05
 
 ## Current Focus
 
-Repository OS v1 の設計段階から、migration/validationを実行可能にする段階へ移った。
+Repository OS v1 cleanup has moved from construction to **review/ratification**.
 
-## Completed in this cleanup branch
+The audited root/docs cleanup is complete. Runtime feature gaps are intentionally separated from this cleanup branch.
 
-- main/branch inventory
-- document authority initial classification
+## Completed
+
+- repository/branch inventory
+- document authority classification
 - Constitution / authority / change protocol
-- Master Match Graph / Current Position
+- Match Graph / Current Position
 - four mode canonical-candidate specs
-- full 32-path `front-ui--test` disposition
-- target repository tree
-- legacy root/docs migration plan
-- structural validator + validation policy
-- ADR / lessons / changelog memory separation
+- Physics Chapter 1 learner-facing architecture spec
+- all 32 `front-ui--test` final-tree differences dispositioned
+- current technical architecture/content/schema/UI/deployment canon extracted from live code
+- quality gates / known-problems registry
+- history/archive structure
+- legacy root/docs preservation
+- ZIP and Word/figure provenance
+- root README router rewrite
+- structural governance validator
+- GitHub Actions governance workflow
+- fresh-agent recovery test
+- narrow R07 cleanup of 29 duplicate legacy paths
+- post-cleanup CI success
+
+## Current CI State
+
+GitHub Actions after cleanup:
+- errors: 0
+- warnings: 2
+
+Remaining warnings:
+1. Physics Chapter 1 three-chunk learner architecture not yet implemented in runtime.
+2. Physics learner labels still expose internal 1A–1G codes.
 
 ## Active Decisions
 
-- destructive cleanup is still frozen.
-- runtime paths stay stable in v1; governance/docs/history are cleaned first.
-- Math Practice must model cross-question dependencies.
-- Physics Textbook old `1A〜1G/1D` identifiers are not chapter authority.
-- Practice frontend is salvaged selectively from `front-ui--test`.
-- main backend/deployment is the technical base.
-- warnings become errors after legacy debt is removed.
+- internal Physics 1A–1G identities stay stable.
+- learner-facing Chapter 1 uses 3 major chunks.
+- Math Practice requires cross-question dependency metadata.
+- Practice frontend must be selectively salvaged from `front-ui--test`.
+- main backend/deployment remains the technical base.
+- Repository OS cleanup is reviewed separately from runtime feature work.
+- candidate specs are not ratified merely because they exist.
 
-## Open Risks
+## Open Workstreams
 
-- root ZIP provenance still unknown.
-- some Word/source artifacts may be newer than main implementation and need manifest classification.
-- four mode specs are CANONICAL-CANDIDATE, not yet ratified CANONICAL.
-- current technical architecture/deployment docs still need rewrite from live code.
-- validator has syntax-check proof but has not yet been executed against a full repository checkout in this tool environment.
-- Practice frontend salvage has not yet been applied.
+### W1 — Repository OS review / ratification
+Current branch → Draft PR → review → acceptance.
 
-## Next
+### W2 — Physics Chapter 1 learner UI
+Implement 3 chunk cards, learner titles, bridge progression while preserving stable internal IDs.
 
-1. extract current technical canon from live code.
-2. rewrite short human README router.
-3. create history/archive structure without deleting originals.
-4. provenance classify root binaries/source Word families.
-5. prepare fresh-agent recovery test.
+### W3 — Math Practice dependency schema
+Implement Q1→Q2 result dependencies and graph validation.
+
+### W4 — Practice frontend salvage
+Port/reimplement Practice frontend behavior onto current main technical contracts.
+
+## Protected State
+
+`front-ui--test` must remain until W4 is complete or its remaining behavior is explicitly rejected.
