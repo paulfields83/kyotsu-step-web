@@ -43,47 +43,55 @@ Decision:
 Evidence:
 - `audit/BRANCH_32_PATH_DISPOSITION.md`
 
-## KP-04 — Physics retired/stale section identifiers
+## KP-04 — Physics Chapter 1 learner-facing architecture not yet on main
 
 Severity: P1 content/navigation  
 Status: OPEN
 
-Paths/content still contain identifiers such as `1d-acceleration` while newer project structure retired/reorganized some visible IDs.
+Latest Chapter 1 design uses 3 learner-facing chunks:
+- 運動を表す — internal 1A/1B/1C
+- 速度の変化 — internal 1D/1E/1F
+- 力と運動 — internal 1G
+
+Internal IDs/paths are intentionally stable and should remain for URL/progress/tests/provenance.
+
+Current main still derives learner lesson labels from 1A–1G codes in `src/domain/textbookCatalog.ts`, and the expected dedicated Chapter 1 architecture file is not present.
 
 Rule:
-- do not bulk rename until canonical chapter map/migration mapping is explicit
-- new active specs must not treat old IDs as authority
+- preserve internal IDs
+- remove internal-code exposure from major learner UI
+- implement the three-chunk map and bridge flow
+- do not rename data paths merely to simplify display titles
 
-## KP-05 — Root ZIP provenance unknown
+## KP-05 — Root ZIP duplicates still present
 
 Severity: P2 provenance  
-Status: OPEN
+Status: READY-FOR-R07-DELETE-FROM-ROOT
 
-Examples:
-- `figure.zip`
-- `数学IA_教科書学習モード.zip`
+Provenance is now classified and archive copies are staged under `archive/deliverables/`.
 
-Need to classify:
-- unique source?
-- generated deliverable?
-- backup?
-- reproducible?
-- superseded?
+- `figure.zip`: uploaded source/delivery bundle. Its 17 extracted PNG blobs were promoted by Git rename into active physics/public asset paths.
+- `数学IA_教科書学習モード.zip`: delivery/archive snapshot. The Word source corpus already exists under `backend/data/textbooks/math-1a/source/`.
 
-No deletion before classification.
+The root copies remain only because destructive cleanup is still frozen.
 
-## KP-06 — Word-source authority inconsistent
+Evidence:
+- `archive/deliverables/README.md`
+- `backend/data/textbooks/physics/FIGURE_PROVENANCE.md`
+- `backend/data/textbooks/math-1a/source/SOURCE_MANIFEST.md`
 
-Severity: P1 authoring  
-Status: OPEN
+## KP-06 — Word-source derivation metadata incomplete
 
-Many Word files contain names such as 完成版/v8, but no uniform manifest states whether each is:
-- canonical authoring source
-- evidence
-- backup
-- superseded artifact
+Severity: P2 authoring  
+Status: MITIGATED
 
-Current runtime explicitly treats Math Word files as authoring sources, not production runtime inputs.
+A source manifest now establishes the Math IA Word family as authoring sources / historical production evidence, not runtime production inputs and not automatic canonical authority.
+
+Remaining improvement:
+- add per-file derived unit IDs
+- supersedes/superseded-by
+- QA state
+- exact static-data derivation relation
 
 ## KP-07 — Backend deployment is not reproducible infrastructure-as-code
 
