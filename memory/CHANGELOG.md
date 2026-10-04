@@ -1,6 +1,6 @@
 # Repository OS Changelog
 
-## 2026-10-05 — v1 draft review package
+## 2026-10-05 — Repository OS v1.0.0 ratified
 
 ### Governance / navigation
 - created isolated `chore/juku-repository-os-v1` branch
@@ -10,7 +10,7 @@
 - split project memory into brief / active / progress / lessons / decisions / changelog
 
 ### Educational canon
-- created separate canonical-candidate specs for:
+- ratified separate canonical specs for:
   - Mathematics Textbook
   - Mathematics Ordinary Practice
   - Physics Textbook
@@ -53,4 +53,7 @@
 - R06 validators: PASS-WITH-WARNINGS
 - R07 cleanup: PASS-NARROW
 - R08 final audit: PASS-PARTIAL
-- ready for Draft PR review; no automatic merge
+- project owner approved ratification and merge sequence
+- Constitution ratified as v1.0.0
+- educational, technical, and quality canon promoted from candidate to canonical
+- PR #3 authorized for merge after final CI
