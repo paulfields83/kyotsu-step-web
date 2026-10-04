@@ -57,3 +57,6 @@
 - Constitution ratified as v1.0.0
 - educational, technical, and quality canon promoted from candidate to canonical
 - PR #3 authorized for merge after final CI
+- PR #3 final Governance and normal PR checks passed
+- PR #3 merged to `main` using squash merge
+- merge commit: `caf6983a6ef4bc52634bc244b2f6ce61fbd9d8fe`
