@@ -109,7 +109,7 @@ archive/      deprecated / deliverable
 
 ## Repository OS v1 の現在地
 
-Repository OS v1 は 2026-10-05 に正式批准済み。PR #3 が `main` への導入vehicleであり、最終CI後にmergeする。
+Repository OS v1 は 2026-10-05 に正式批准され、PR #3 を squash merge して `main` へ導入済み。現在はこの構造がプロジェクトの正式な運用基盤である。
 
 完了:
 - legacy control docsのhistory移行
