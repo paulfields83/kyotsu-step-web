@@ -1,8 +1,9 @@
 # 塾 Repository Constitution
 
-Version: 1.0.0-draft  
-Ratified: 未批准  
-Drafted: 2026-10-05
+Version: 1.0.0  
+Ratified: 2026-10-05  
+Drafted: 2026-10-05  
+Ratification record: `audit/REPOSITORY_OS_RATIFICATION_2026-10-05.md`
 
 この文書は塾プロジェクト全体の最上位運用原則を定める。通常の教材制作、UI修正、コード実装の都合で暗黙に変更してはならない。
 
