@@ -7,7 +7,7 @@ This list contains known repository/system inconsistencies that are deliberately
 ## KP-01 — Root/docs historical authority drift
 
 Severity: P1 governance  
-Status: MITIGATED, NOT CLOSED
+Status: CLOSED
 
 Old root/docs files describe an earlier mostly-static application and may conflict with the current backend/content architecture.
 
@@ -16,8 +16,8 @@ Mitigation:
 - root README rewritten as current router
 - current technical docs created
 
-Close when:
-- legacy root/docs paths are migrated/removed after reference audit
+Resolution:
+- legacy root/docs paths were migrated/removed after reference audit and preserved under `history/`
 
 ## KP-02 — Math Practice cross-question dependency missing in runtime schema
 
@@ -63,17 +63,17 @@ Rule:
 - implement the three-chunk map and bridge flow
 - do not rename data paths merely to simplify display titles
 
-## KP-05 — Root ZIP duplicates still present
+## KP-05 — Root ZIP duplicate migration
 
 Severity: P2 provenance  
-Status: READY-FOR-R07-DELETE-FROM-ROOT
+Status: CLOSED
 
 Provenance is now classified and archive copies are staged under `archive/deliverables/`.
 
 - `figure.zip`: uploaded source/delivery bundle. Its 17 extracted PNG blobs were promoted by Git rename into active physics/public asset paths.
 - `数学IA_教科書学習モード.zip`: delivery/archive snapshot. The Word source corpus already exists under `backend/data/textbooks/math-1a/source/`.
 
-The root copies remain only because destructive cleanup is still frozen.
+The root copies were removed in R07 after archive preservation and CI validation.
 
 Evidence:
 - `archive/deliverables/README.md`
@@ -100,27 +100,23 @@ Status: OPEN
 
 Frontend GitHub Pages deploy is codified. Backend target is referenced by URL/environment examples, but no backend provisioning blueprint exists in repo.
 
-## KP-08 — Repository governance validator not yet CI-enforced
+## KP-08 — Repository governance validator protection level
 
 Severity: P2 governance  
-Status: OPEN
+Status: MITIGATED
 
-`tools/repo-governance-check.mjs` exists, but is not yet a protected merge gate.
+`tools/repo-governance-check.mjs` runs in GitHub Actions on push/PR and has passed. Requiring that check through branch protection/rulesets remains an optional administrative hardening step.
 
-Close when:
-- CI workflow runs it
-- baseline warnings are owned
-- post-cleanup debt rules are escalated to errors
+Remaining improvement:
+- optionally require the governance workflow through branch protection/rulesets
+- keep owned runtime-gap warnings visible until implementation closes them
 
-## KP-09 — Mode specs are candidate, not ratified
+## KP-09 — Mode-spec ratification
 
 Severity: P1 governance  
-Status: OPEN
+Status: CLOSED
 
-Four mode specs exist as `CANONICAL-CANDIDATE`.
+The four mode specs, Physics Chapter 1 architecture, technical canon, and quality gates were formally ratified on 2026-10-05.
 
-Close only after:
-- migration conflict audit
-- user acceptance/ratification
-- status update
-- dependent docs synchronized
+Evidence:
+- `audit/REPOSITORY_OS_RATIFICATION_2026-10-05.md`
