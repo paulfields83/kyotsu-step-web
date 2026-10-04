@@ -1,6 +1,6 @@
 # Current UI / Educational Design System
 
-Status: CANONICAL-CANDIDATE  
+Status: CANONICAL  
 Updated: 2026-10-05
 
 This document combines the still-valid visual foundation of the historical design system with newer educational-mode requirements.
