@@ -30,7 +30,7 @@
 - Chapter 1表示構造: `subjects/physics/textbook/CHAPTER_01_ARCHITECTURE.md`
 - 共通テスト guided practice: `subjects/physics/practice/SPEC.md`
 
-各SPECは現在 `CANONICAL-CANDIDATE`。レビュー・承認後に正式canonicalへ昇格する。
+各SPECは Repository OS v1 の正式 `CANONICAL`。変更は `governance/CHANGE_PROTOCOL.md` に従う。
 
 ## 技術仕様
 
@@ -92,8 +92,8 @@ pnpm run check
 governance/   絶対ルール・権威
 navigation/   現在地・火柴図
 memory/       brief / active / progress / lessons / decisions
-subjects/     教育モード正本候補
-technical/    現行技術正本候補
+subjects/     教育モード正本
+technical/    現行技術正本
 quality/      完了条件・validator
 work/         現在のfeature/task
 history/      過去資料（仕様権限なし）
@@ -109,7 +109,7 @@ archive/      deprecated / deliverable
 
 ## Repository OS v1 の現在地
 
-`chore/juku-repository-os-v1` 上で、監査・移行・狭域cleanup・CI検証まで完了し、現在は**レビュー/ratification段階**。
+Repository OS v1 は 2026-10-05 に正式批准済み。PR #3 が `main` への導入vehicleであり、最終CI後にmergeする。
 
 完了:
 - legacy control docsのhistory移行
@@ -122,7 +122,6 @@ archive/      deprecated / deliverable
 - Physics Chapter 1の3-chunk learner-facing UI実装
 - Math Practiceのcross-question dependency実装
 - `front-ui--test` からPractice frontendを選択的に救出
-- candidate specの最終承認/ratification
 
 重要:
 - Physics内部1A〜1G IDはURL/progress/tests/provenance用に保持する。
