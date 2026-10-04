@@ -6,47 +6,51 @@ Working branch: `chore/juku-repository-os-v1`
 
 ## Current Node
 
-R02 Repository OS v1 foundation complete enough to proceed.  
-Next primary node: R03 MODE CANON.  
-R04 branch salvage has completed initial structural audit but not feature disposition.
+R06 VALIDATORS is the next active construction node.  
+R03 has four CANONICAL-CANDIDATE mode specs.  
+R04 has all 32 final-tree differences dispositioned, but salvage has not yet been applied.
 
 ## Confirmed Facts
 
-- main head: `7ebbac15` (2026-10-02).
-- main contains 718 files / 195 directories.
-- `backend/data/textbooks/` contains 545 files and about 32.9 MB.
-- existing root README/WORKFLOW/docs primarily describe the earlier app phase and do not fully describe later textbook/practice production work.
-- initial document authority classification is recorded in `audit/DOCUMENT_AUTHORITY_CLASSIFICATION.md`.
-- `front-ui--test` is 127 commits ahead / 181 behind main, but final tree delta is manageable: 10 branch-only files + 22 modified paths.
-- high-value branch-only area: backend-driven Practice frontend.
-- main backend is newer than front-ui--test backend for Practice API; whole-branch merge is rejected.
-- root contains binary archives including `figure.zip` and `数学IA_教科書学習モード.zip`.
-- physics textbook paths still include `1d-acceleration`; stale-name candidate, not deletion target yet.
+- main head at audit start: `7ebbac15` (2026-10-02).
+- main inventory: 718 files / 195 directories.
+- old root README/WORKFLOW/docs do not fully represent the later textbook/practice project.
+- four mode specs now exist:
+  - Math Textbook
+  - Math Practice
+  - Physics Textbook
+  - Physics Common-Test Guided Practice
+- Math Practice spec explicitly requires both within-question and cross-question dependencies.
+- Physics Textbook spec rejects old `1A〜1G/1D` identifiers as chapter authority.
+- `front-ui--test`: 10 unique + 22 modified final-tree paths.
+- salvage target: Practice frontend vertical slice.
+- main backend wins over branch backend; whole-branch merge rejected.
+- redesign files are quarantine/product-review candidates.
+- root binary archives remain protected until provenance/reproducibility audit.
 
 ## Current Rule
 
 NO DESTRUCTIVE CLEANUP YET.
 
 Allowed:
-- audit/classify
-- build canonical mode specs
-- port/salvage analysis
-- write Repository OS docs on isolated branch
-- design validators
-- identify archive/quarantine destinations
+- validators
+- documentation migration design
+- non-destructive provenance classification
+- Practice salvage implementation on an isolated feature branch after contract tests
+- archive/quarantine design
 
-Not allowed yet:
-- delete branch
+Not allowed:
+- delete `front-ui--test`
 - delete/move unknown binary/source
-- mass rewrite production data
-- rename retired-looking sections without canonical mode map
-- merge front-ui--test wholesale
+- mass rename physics sections
+- merge branch wholesale
+- mark Constitution or mode candidates canonical without acceptance/audit
 
 ## Next Executable Work
 
-1. R03: build four canonical mode specs, starting with Math Textbook and Math Practice because their current artifacts are strongest.
-2. Reconcile latest approved chat lessons with repository candidates.
-3. Then define Physics Textbook/Practice specs and retired section mapping.
-4. Convert R04's 32-path branch delta into KEEP-MAIN / PORT-FRONT / REIMPLEMENT / ARCHIVE decisions.
-5. R06 validators.
-6. R07 cleanup only after the above.
+1. R06: add structural repository validator and validation policy.
+2. R05: design new target tree and migration table for existing root/docs/assets.
+3. audit binary/source provenance.
+4. prepare Practice frontend salvage plan/branch.
+5. run fresh-agent recovery test.
+6. only then open R07 destructive cleanup.
