@@ -12,15 +12,29 @@ Updated: 2026-10-05
 - R05 DOC MIGRATION — PASS for audited legacy set
 - R06 VALIDATORS — PASS-WITH-WARNINGS / CI active
 - R07 CLEANUP APPLY — PASS-NARROW
-- R08 FINAL AUDIT — PASS-PARTIAL
+- R08 FINAL AUDIT — PASS-PARTIAL / REVIEW WAIT
+
+## Review Package
+
+Draft PR:
+- #3 `chore: establish Juku Repository OS v1 and clean legacy control docs`
+- head: `chore/juku-repository-os-v1`
+- base: `main`
+- state: OPEN
+- draft: true
+- mergeable: true
+
+PR checks before final status-only update:
+- Repository Governance Check — SUCCESS
+- existing PR checks — SUCCESS
 
 ## Verified
 
 - fresh-agent recovery: PASS
 - governance CI: PASS
 - post-cleanup governance CI: PASS
-- errors after cleanup: 0
-- remaining warning families: Physics learner-facing title architecture only
+- structural errors after cleanup: 0
+- remaining warning family: Physics learner-facing Chapter 1 architecture
 
 ## Still Open
 
@@ -30,6 +44,11 @@ Updated: 2026-10-05
 - Practice frontend selective port
 - final `front-ui--test` disposition after port
 - final promotion of CANONICAL-CANDIDATE documents
+
+## Review Freeze
+
+No new runtime feature work should be added to PR #3.  
+Only review/CI corrections belong on this branch now.
 
 ## Explicitly Not Needed
 
