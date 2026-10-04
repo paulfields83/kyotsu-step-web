@@ -8,17 +8,17 @@ Updated: 2026-10-05
 ```text
 [R00 INVENTORY] ──▶ [R01 AUTHORITY MAP] ──▶ [R02 REPOSITORY OS v1]
       │                    │                       │
-      │                    │                       ├──▶ [R03 MODE CANON]
+      │                    │                       ├──▶ [R03 MODE CANON] ── PASS-CANDIDATE
       │                    │                       │       ├─ MATH-TEXT
       │                    │                       │       ├─ MATH-PRACTICE
       │                    │                       │       ├─ PHYS-TEXT
       │                    │                       │       └─ PHYS-PRACTICE
       │                    │                       │
-      │                    │                       ├──▶ [R04 BRANCH SALVAGE]
+      │                    │                       ├──▶ [R04 BRANCH SALVAGE] ── DISPOSITIONED
       │                    │                       │
       │                    │                       ├──▶ [R05 DOC MIGRATION]
       │                    │                       │
-      │                    │                       ├──▶ [R06 VALIDATORS]
+      │                    │                       ├──▶ [R06 VALIDATORS] ── ACTIVE
       │                    │                       │
       │                    │                       └──▶ [R07 CLEANUP APPLY]
       │                    │                               │
@@ -31,57 +31,59 @@ Updated: 2026-10-05
 
 ### R00 — INVENTORY
 Status: PASS-INITIAL  
-Input: repository tree, branches, recent commits  
-Output: file/branch inventory and risk list  
 Evidence: `audit/REPOSITORY_AUDIT_2026-10-05.md`  
-Remaining: binary contents and external/chat-only latest deliverables still need provenance check.
+Remaining: binary provenance and any chat-only deliverables.
 
 ### R01 — AUTHORITY MAP
 Status: PASS-INITIAL  
-Depends On: R00  
-Output: initial classification of current control documents  
 Evidence: `audit/DOCUMENT_AUTHORITY_CLASSIFICATION.md`  
-Remaining: promote mode-specific candidates only after R03 reconciliation.
+Remaining: final promotion after migration.
 
 ### R02 — REPOSITORY OS v1
 Status: ACTIVE  
-Depends On: R00, R01  
-Output: Constitution, Agent router, change protocol, current position, memory split, navigation  
-Verification pending: fresh-agent recovery test after R03-R06.
+Output: Constitution, Agent router, authority model, change protocol, current position, memory split, navigation.  
+Verification pending: fresh-agent recovery test after R05-R06.
 
 ### R03 — MODE CANON
-Status: NEXT  
-Output: canonical specs for four existing mode families  
-Rule: each mode owns its pedagogy/content rules; shared rules are factored upward only when genuinely common.
+Status: PASS-CANDIDATE  
+Canonical candidates created:
+- `subjects/mathematics/textbook/SPEC.md`
+- `subjects/mathematics/practice/SPEC.md`
+- `subjects/physics/textbook/SPEC.md`
+- `subjects/physics/practice/SPEC.md`
+
+Promotion from CANONICAL-CANDIDATE to CANONICAL occurs after migration/conflict audit and explicit acceptance.
 
 ### R04 — BRANCH SALVAGE
-Status: AUDITED-PENDING-DISPOSITION  
-Focus: `front-ui--test`  
-Evidence: `audit/BRANCH_SALVAGE_FRONT_UI_TEST.md`  
-Finding: final tree delta = 10 branch-only + 22 modified paths. Practice frontend should be ported selectively; backend branch state must not replace main.
+Status: DISPOSITIONED-PENDING-PORT  
+Evidence:
+- `audit/BRANCH_SALVAGE_FRONT_UI_TEST.md`
+- `audit/BRANCH_32_PATH_DISPOSITION.md`
+
+Finding: final tree delta = 10 branch-only + 22 modified paths. Practice frontend is selective salvage; backend wholesale merge is rejected. Branch deletion remains blocked until salvage/rejection decisions are actually applied.
 
 ### R05 — DOC MIGRATION
 Status: PLANNED  
-Output: old root/docs files reclassified and moved/rewritten without losing provenance.
+Output: old root/docs files reclassified/moved/rewritten without losing provenance.
 
 ### R06 — VALIDATORS
-Status: PLANNED  
-Examples:
-- broken canonical links
-- missing node files
-- active node without next step
-- DEPRECATED reference from active spec
-- mode-cross-contamination
-- stale naming such as retired section IDs
-- generated artifact missing source provenance
+Status: ACTIVE  
+Initial validators:
+- required governance/navigation/spec files
+- mode spec status/sections
+- Match Graph node presence
+- active-current-position contract
+- root binary warnings
+- retired identifier warnings
+- later: broken canonical links / stale references / generated provenance
 
 ### R07 — CLEANUP APPLY
 Status: NOT READY  
-Allowed only after R03-R06 gates.
+Gate: R05 and R06 must pass; R04 high-value salvage must be protected.
 
 ### R08 — FINAL AUDIT
 Status: NOT READY  
-Goal: fresh-chat recovery test + repository consistency test.
+Goal: fresh-agent recovery test + repository consistency test + build/test/E2E after migration.
 
 ## Subject/Mode Map
 
