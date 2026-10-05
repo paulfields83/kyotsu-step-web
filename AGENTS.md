@@ -1,5 +1,16 @@
 # 塾 Repository Agent Entry Point
 
+## 0. Command word — 「憲法から」
+
+ユーザーが **「憲法から」** と言った場合、`governance/COMMAND_WORDS.md` の作業開始マクロを実行する。
+
+これは単なる「Constitutionを読む」という意味ではない。
+
+`Recovery → Reconstruction → Strategy → Execution → Verification → Memory Close`
+
+までを一つの命令として扱う。
+
+
 このファイルは百科事典ではなく、AI/Agent が迷子にならないための入口である。
 
 ## 1. 作業開始時の必須ルート
