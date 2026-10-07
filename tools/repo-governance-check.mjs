@@ -134,30 +134,30 @@ if (existsSync(workItemsRoot)) {
 
     for (const record of requiredWorkRecords) {
       const path = rel(relative(root, join(itemDir, record)))
-      if (!existsSync(join(itemDir, record))) fail(\`${name}: missing Work record ${record}\`)
+      if (!existsSync(join(itemDir, record))) fail(`${name}: missing Work record ${record}`)
     }
 
     const workPath = rel(relative(root, join(itemDir, 'WORK.md')))
     const workText = read(workPath)
     const statusMatch = workText.match(/^Status:\s+([A-Z-]+)\s*$/m)
     if (!statusMatch) {
-      fail(\`${name}: WORK.md missing Status\`)
+      fail(`${name}: WORK.md missing Status`)
       continue
     }
 
     const status = statusMatch[1]
-    if (!allowedWorkStatuses.has(status)) fail(\`${name}: invalid Work status ${status}\`)
+    if (!allowedWorkStatuses.has(status)) fail(`${name}: invalid Work status ${status}`)
 
     const proposalPath = rel(relative(root, join(itemDir, 'PROPOSAL.md')))
     const proposalText = read(proposalPath)
     if (['APPROVED', 'IMPLEMENTING', 'VERIFYING', 'DONE'].includes(status) && !/^Status:\s+APPROVED\s*$/m.test(proposalText)) {
-      fail(\`${name}: executable Work status requires an APPROVED proposal\`)
+      fail(`${name}: executable Work status requires an APPROVED proposal`)
     }
 
     const verificationPath = rel(relative(root, join(itemDir, 'VERIFICATION.md')))
     const verificationText = read(verificationPath)
     if (status === 'DONE' && !/^Status:\s+PASS\s*$/m.test(verificationText)) {
-      fail(\`${name}: DONE requires VERIFICATION Status: PASS\`)
+      fail(`${name}: DONE requires VERIFICATION Status: PASS`)
     }
   }
 }
