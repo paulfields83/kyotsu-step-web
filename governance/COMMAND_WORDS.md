@@ -1,46 +1,51 @@
 # Command Word — 「憲法から」
 
 Status: CANONICAL
-Version: 1.0.0
-Updated: 2026-10-05
+Version: 1.1.0
+Updated: 2026-10-07
 
 ## Definition
 
-「憲法から」は、塾プロジェクトで作業を開始するときの**一語マクロ**である。
+「憲法から」は、塾プロジェクトで作業を開始・再開するときの一語マクロである。
 
-ユーザーが「憲法から」と言った場合、Agent は過去会話を覚えているつもりで作業を始めてはならない。GitHub の authoritative project memory から現在状態を復元し、その上で今回の作業を進める。
+意味は、**GitHubの正式記憶から現在状態を復元し、対象Workと承認状態を確認し、許可された段階まで進むこと**。
+
+「憲法から」自体は、未承認案の実装許可を意味しない。
 
 ## Expanded meaning
 
 ```text
-「憲法から」
-   ↓
 ① AGENTS
-   ↓
+↓
 ② Constitution
-   ↓
+↓
 ③ CURRENT_POSITION
-   ↓
+↓
 ④ MASTER_MATCH_GRAPH
-   ↓
+↓
 ⑤ ACTIVE_CONTEXT + PROGRESS
-   ↓
-⑥ 今回対象の Mode SPEC
-   ↓
-⑦ そのNodeに関係する Decision / Lesson
-   ↓
-⑧ ここまで読んで今回の作戦を作る
-   ↓
-⑨ 作業を実行する
-   ↓
-⑩ Verification / QA
-   ↓
-⑪ CURRENT_POSITION / PROGRESS / 必要な Decision・Lesson・Match Graph を更新する
+↓
+⑥ 今回対象の Mode SPEC / technical canon
+↓
+⑦ 関連 Decision / Lesson
+↓
+⑧ 関連 Work record
+   WORK / PROPOSAL / ACTION_LOG / FINDINGS / VERIFICATION
+↓
+⑨ 現在状態を再構成
+↓
+⑩ 承認状態を判定
+   ├─ 未承認 → ASSESS → PROPOSE → USER APPROVAL で停止
+   └─ 承認済み → approved scope 内で実行
+↓
+⑪ Verification / QA
+↓
+⑫ Work record + project memory を更新
 ```
 
 ## Phase A — Recovery
 
-必ず以下の順に読む。
+必ず必要範囲で以下を読む。
 
 1. `AGENTS.md`
 2. `governance/CONSTITUTION.md`
@@ -48,130 +53,136 @@ Updated: 2026-10-05
 4. `navigation/MASTER_MATCH_GRAPH.md`
 5. `memory/ACTIVE_CONTEXT.md`
 6. `memory/PROGRESS.md`
-7. 今回の subject / mode の canonical spec
-8. 対象Nodeに直接関係する `memory/DECISIONS/` と `memory/LESSONS/`
+7. 今回の subject / mode / technical canon
+8. 関連する `memory/DECISIONS/` / `memory/LESSONS/`
+9. 対象Workがあれば、その5記録
 
-必要に応じて technical canon、quality、active work spec を追加で読む。
+全資料を無差別に読むのではなく Progressive Disclosure を使う。
 
 ## Phase B — Reconstruction
 
-作業前に最低限これを復元する。
+最低限、以下を復元する。
 
-- 前回どこまで完了したか
-- 今の current node
-- 今回の直接目的
-- 既に完成済みの成果物
-- 未解決の問題
-- 依存関係
-- 今回触ってよい範囲
-- 今回触ってはいけない範囲
-- 過去に同じ種類の失敗があったか
-- どの文書が canonical authority か
+- 今回のWork ID / objective
+- current node / current step
+- 完了済み成果物
+- 未解決点 / dependencies
+- approved proposal の有無
+- 何がCONFIRMEDか
+- 過去のERROR / Lesson
+- 今回触ってよい範囲 / Do Not Touch
+- 次に実行可能な行為
 
-この復元ができない状態では大量実装へ進まない。
+復元できない状態で大量実装へ進まない。
 
-## Phase C — Strategy
+## Phase C — Approval Check
 
-復元後、今回の作戦を短く整理する。
+`governance/WORK_SYSTEM.md` に従って、実装前に承認状態を判定する。
 
-最低限:
+```text
+approved proposal exists?
+      │
+  ┌───┴───┐
+  │       │
+ NO      YES
+  │       │
+  ▼       ▼
+ASSESS    approved scope 内で
+PROPOSE   PLAN / IMPLEMENT
+  │
+  ▼
+USER APPROVAL
+  │
+  ▼
+APPROVED
+```
 
-- Objective
-- Current Node
-- Inputs
-- Changes
-- Do Not Touch
-- Steps
-- Verification
-- Expected Next
+### Important
 
-ユーザーがすでに十分具体的に作業を指示している場合、不要な再確認質問はせず、この作戦に従って進める。
+- ユーザーが作業内容を説明しただけでは、必ずしもProposal承認ではない。
+- 明示的に通した案がrepositoryに記録されていれば、同じ承認を毎Chat取り直さない。
+- approved scope を実質的に変える必要が出たら `REVISE-PROPOSAL` に戻る。
 
 ## Phase D — Execution
 
-GitHub変更を伴う場合:
-- `main` を直接編集しない
-- 一作業一feature branch
-- canonical spec / task spec を基準に実装
-- 別subject / 別mode の規則を勝手に混ぜない
-- 待ち時間中に独立して進められる監査・文書・テストを進める
-- destructive action は provenance / replacement / references を確認してから行う
+承認済みの範囲だけ実行する。
 
-教材制作では、対象Mode SPECの authoring workflow に従う。
+GitHub変更:
+- `main` を直接編集しない
+- 一Work一feature branchを基本とする
+- Actionごとに対象場所・結果・証拠を `ACTION_LOG.md` に残す
+- 正誤・問題発見は `FINDINGS.md` に分類して残す
+- destructive action は provenance / replacement / references を先に確認する
 
 ## Phase E — Verification
 
-「作った」だけでDONEにしない。
+「作った」と「DONE」を分ける。
 
 対象に応じて:
 - content/math/physics correctness
-- dependency/reference integrity
+- pedagogy / dependency integrity
 - answer leakage
-- figure correctness
-- typecheck/lint/test/build
-- E2E/browser/mobile QA
+- figure/rendering
+- typecheck / lint / tests / build
+- E2E / browser / mobile
 - repository governance check
 
-必要なgateを通す。
+結果は `VERIFICATION.md` に残す。
 
 ## Phase F — Memory Close
 
-終了前に、今回の仕事で状態が変わった場合は必ず authoritative memory を更新する。
+Workの詳細はWork内へ残し、耐久性があるものだけ上位へ昇格する。
 
-最低限:
-- `navigation/CURRENT_POSITION.md`
-- `memory/PROGRESS.md`
+- durable design choice → `memory/DECISIONS/`
+- reusable success/failure rule → `memory/LESSONS/`
+- project current state → `CURRENT_POSITION.md` / `PROGRESS.md`
+- dependency/state change → `MASTER_MATCH_GRAPH.md`
+- significant chronology → `CHANGELOG.md`
 
-必要に応じて:
-- `navigation/MASTER_MATCH_GRAPH.md`
-- `memory/ACTIVE_CONTEXT.md`
-- `memory/DECISIONS/`
-- `memory/LESSONS/`
-- `memory/CHANGELOG.md`
-- active work spec
-
-重要な設計判断は会話だけに残さない。
+WorkがDONEになるには Verification と Memory Close の両方が必要。
 
 ## Usage
 
-### 続きの作業
+### 未承認の修正
 
 ```text
-憲法から。数学練習の続きをやって。
+憲法から。数学学習モードの例題と証明の見分けが弱い。修正したい。
 ```
 
-意味:
-現在状態を完全に復元し、Math Practice canonical spec と関連Node/Decision/Lessonを読み、前回の続きから作業する。
+Agent:
+1. 現状と過去記録を復元
+2. 何を修正すべきか調査
+3. Proposal作成
+4. ユーザーへ提示
+5. 承認前には実装しない
 
-### 新規機能
+### 承認済み作業の続き
 
 ```text
-憲法から。物理1章の3-chunk UIを実装して。
+憲法から。前に通したPhysics 3-chunk案の続きをやって。
 ```
 
-意味:
-Repository OS → Physics Textbook canon → Chapter 1 architecture → current implementation gap を復元してから、feature branchで実装・検証・記憶更新まで行う。
+Repositoryに承認記録があり、現在作業がその範囲内なら、同じ承認を聞き直さず続行する。
 
 ### 状態確認だけ
 
 ```text
-憲法から。今どこまで進んでいるか教えて。
+憲法から。今どこまで？
 ```
 
-意味:
-Recoveryまでは行うが、変更は行わない。現在地と次のworkを報告する。
+Recovery / Reconstructionまで行い、変更しない。
 
 ## Anti-patterns
 
-「憲法から」を受けたAgentは以下をしてはならない。
-
 - 過去会話の曖昧な記憶だけで続ける
-- CURRENT_POSITIONを読まずに昔のtaskを再開する
-- 完成済み成果物をゼロから再制作する
-- old Word / ZIP / historical docsを正本扱いする
-- Mode SPECを読まずに別モードの成功例を流用する
-- 作業後にCurrent Position/Progressを更新せず終了する
+- approved proposal の存在を確認せず実装する
+- 未承認案を「作戦」と呼んでそのまま実行する
+- user correction を会話だけに残す
+- user confirmation を会話だけに残す
+- Actionの対象場所を記録しない
+- failed verificationを消して最終PASSだけ残す
+- Work終了後に次Chat用記憶を更新しない
 
 ## One-line semantic
 
-**「憲法から」 = GitHubの正式記憶から現在状態を復元し、正本に従って作業し、検証し、次のChatが続けられる状態まで記憶を更新して終える。**
+**「憲法から」 = 正式記憶から現在状態と対象Workを復元し、承認状態を判定し、許可された段階まで作業し、正誤・操作・検証を記録して次Chatへ引き継げる状態にする。**
