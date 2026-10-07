@@ -69,3 +69,14 @@ Target / location: `tools/repo-governance-check.mjs`
 Reason: prevent a broken validator from reaching CI unnoticed.
 Result: SUCCESS.
 Evidence: follow-up fix commit on feature branch.
+
+## A-008
+
+Date: 2026-10-07
+Related proposal: P-001
+Action: Exposed the Work Operating System from the root README and placed approved Work proposals explicitly at L2 authority.
+Target / location: `README.md`, `governance/DOCUMENT_AUTHORITY.md`
+Reason: make the new layer discoverable and remove ambiguity about whether an unapproved proposal can authorize implementation.
+Result: SUCCESS.
+Evidence: feature-branch commits.
+
