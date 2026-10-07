@@ -60,3 +60,15 @@
 - PR #3 final Governance and normal PR checks passed
 - PR #3 merged to `main` using squash merge
 - merge commit: `caf6983a6ef4bc52634bc244b2f6ce61fbd9d8fe`
+
+
+## 2026-10-07 — Work Operating System v1 design
+
+- user approved the integrated Work/approval/recording design
+- created W-GOV-001 as the first formal Work
+- added canonical Work state machine and approval gate
+- added WORK / PROPOSAL / ACTION_LOG / FINDINGS / VERIFICATION records
+- added CONFIRMED and typed ERROR findings
+- added Work-to-Decision/Lesson/current-state promotion rules
+- revised `憲法から` so unapproved proposals stop at the approval gate
+- extended repository governance validation for Work records
