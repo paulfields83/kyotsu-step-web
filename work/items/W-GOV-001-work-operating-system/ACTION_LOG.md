@@ -49,3 +49,23 @@ Target / location: `work/items/W-GOV-001-work-operating-system/`
 Reason: dogfood the new model and prove a fresh agent can reconstruct this task.
 Result: SUCCESS
 Evidence: five Work record files created.
+
+## A-006
+
+Date: 2026-10-07
+Related proposal: P-001
+Action: Extended repository governance validator to require Work System files, validate the five-record Work structure, validate Work statuses, require an approved proposal for executable states, and require PASS verification for DONE.
+Target / location: `tools/repo-governance-check.mjs`
+Reason: make the Work protocol machine-checkable instead of documentation-only.
+Result: SUCCESS after one syntax correction.
+Evidence: validator changes committed on feature branch.
+
+## A-007
+
+Date: 2026-10-07
+Related proposal: P-001
+Action: Inspected the generated validator code before CI, found an escaped-template-literal syntax defect, and corrected it.
+Target / location: `tools/repo-governance-check.mjs`
+Reason: prevent a broken validator from reaching CI unnoticed.
+Result: SUCCESS.
+Evidence: follow-up fix commit on feature branch.
