@@ -7,7 +7,9 @@ Repository OS merge: **PR #3 — MERGED**
 
 ## Current Node
 
-**Repository OS v1 — ACTIVE**
+**W-GOV-001 — Work Operating System v1 / VERIFYING**
+
+Repository OS v1 remains ACTIVE on `main`. A user-approved governance extension is being developed on `docs/work-operating-system-v1`.
 
 Repository OS v1 was formally ratified on 2026-10-05 and merged into `main` through PR #3 using squash merge.
 
@@ -63,9 +65,18 @@ Future work must:
 - do not rename Physics internal 1A–1G IDs merely for learner-facing display cleanup.
 - do not treat `完成版` / `v8` filenames as authority.
 
+## Current Governance Work
+
+- Work ID: `W-GOV-001`
+- branch: `docs/work-operating-system-v1`
+- proposal: `P-001` APPROVED
+- phase: VERIFYING
+- scope: Work IDs, approval gate, Action Log, Findings taxonomy, Verification, memory promotion
+- runtime impact: none
+
 ## Next Executable Work
 
-Open separate feature branches for:
+After W-GOV-001 review/merge, open separate feature branches for:
 
 1. **Physics Chapter 1 learner UI**
    - implement the 3-chunk learner-facing structure
