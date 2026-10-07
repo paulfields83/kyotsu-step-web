@@ -23,3 +23,7 @@ A confirmed fact or accepted design should not disappear because only errors wer
 ## L5 — Record where work happened
 
 For meaningful actions, record target path/location and evidence. “Fixed” without a location or verification is not sufficient handoff information.
+
+## L6 — Do not extend an approved state machine during implementation
+
+If implementation reveals that an extra workflow state might be useful, record the finding first. Do not silently add the new state unless the approved proposal already covers it or a revised proposal is approved.
