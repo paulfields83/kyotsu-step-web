@@ -52,8 +52,9 @@ Remaining warnings:
 ## Current Governance Extension
 
 ### W-GOV-001 — Work Operating System v1
-Status: VERIFYING  
+Status: VERIFYING — CI PASS / USER REVIEW WAIT  
 Branch: `docs/work-operating-system-v1`  
+PR: #6  
 Proposal: P-001 APPROVED
 
 Adds:
