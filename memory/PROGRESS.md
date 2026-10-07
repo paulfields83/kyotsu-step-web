@@ -35,6 +35,14 @@ PR checks before final status-only update:
 - structural errors after cleanup: 0
 - remaining warning family: Physics learner-facing Chapter 1 architecture
 
+## Governance Extension
+
+- W-GOV-001 Work Operating System — VERIFYING
+- proposal P-001 — APPROVED
+- branch: `docs/work-operating-system-v1`
+- runtime changes: none
+- next: PR + governance/normal CI
+
 ## Still Open
 
 - Physics Chapter 1 3-chunk runtime implementation
