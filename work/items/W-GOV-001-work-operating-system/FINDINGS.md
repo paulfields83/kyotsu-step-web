@@ -54,3 +54,15 @@ Impact: governance validation itself would have failed to execute.
 Corrective rule / next action: inspect generated executable code after programmatic text construction; the defect was corrected before CI.
 Promote to Decision: NO
 Promote to Lesson: NO
+
+## F-006
+
+Date: 2026-10-07
+Type: CONFIRMED
+Statement: The approved P-001 state machine does not contain a separate READY-FOR-REVIEW or MERGED state; adding one during implementation would change the approved design.
+Evidence: P-001 and `governance/WORK_SYSTEM.md`.
+Impact: W-GOV-001 remains VERIFYING with PASS verification while awaiting user review/merge rather than inventing a new state.
+Corrective rule / next action: do not expand the state machine without a later approved proposal if such a state is desired.
+Promote to Decision: NO
+Promote to Lesson: YES
+
