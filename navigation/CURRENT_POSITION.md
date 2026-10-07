@@ -70,9 +70,12 @@ Future work must:
 - Work ID: `W-GOV-001`
 - branch: `docs/work-operating-system-v1`
 - proposal: `P-001` APPROVED
-- phase: VERIFYING
+- phase: VERIFYING — CI PASS / USER REVIEW WAIT
 - scope: Work IDs, approval gate, Action Log, Findings taxonomy, Verification, memory promotion
 - runtime impact: none
+- PR: #6
+- Repository Governance Check: SUCCESS
+- normal PR checks: SUCCESS
 
 ## Next Executable Work
 
