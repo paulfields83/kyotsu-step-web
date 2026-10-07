@@ -37,11 +37,14 @@ PR checks before final status-only update:
 
 ## Governance Extension
 
-- W-GOV-001 Work Operating System — VERIFYING
+- W-GOV-001 Work Operating System — VERIFYING / CI PASS / USER REVIEW WAIT
 - proposal P-001 — APPROVED
 - branch: `docs/work-operating-system-v1`
 - runtime changes: none
-- next: PR + governance/normal CI
+- PR: #6
+- Repository Governance Check: SUCCESS
+- normal PR checks: SUCCESS
+- next: user review / merge decision
 
 ## Still Open
 
