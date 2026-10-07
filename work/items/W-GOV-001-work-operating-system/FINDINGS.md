@@ -43,3 +43,14 @@ Impact: Findings taxonomy must include both CONFIRMED and typed ERROR records.
 Corrective rule / next action: maintain Findings taxonomy and promote durable items selectively.
 Promote to Decision: YES
 Promote to Lesson: YES
+
+## F-005
+
+Date: 2026-10-07
+Type: ERROR-IMPLEMENTATION
+Statement: The first validator edit accidentally preserved backslashes before JavaScript template-literal backticks, which would have caused a Node syntax error.
+Evidence: direct inspection of the generated validator source before CI.
+Impact: governance validation itself would have failed to execute.
+Corrective rule / next action: inspect generated executable code after programmatic text construction; the defect was corrected before CI.
+Promote to Decision: NO
+Promote to Lesson: NO
