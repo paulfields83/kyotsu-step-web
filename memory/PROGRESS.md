@@ -48,11 +48,13 @@ PR checks before final status-only update:
 
 ## Instruction Dictionary Extension
 
-- W-GOV-002 — VERIFYING
+- W-GOV-002 — DONE / MERGED
 - proposal P-001 — APPROVED
-- adds EXACT / SIMILAR / UNKNOWN matching
-- adds CMD-WORK-001 「修正」
-- next: CI / merge, then resume Mathematics learning-mode correction
+- PR #9 — MERGED
+- merge commit: `c58ead8ec1a90046f5818278675f04f6111db0ba`
+- EXACT / SIMILAR / UNKNOWN matching — ACTIVE
+- CMD-WORK-001 「修正」 — ACTIVE
+- next: resume Mathematics learning-mode correction
 
 ## Still Open
 
