@@ -23,6 +23,7 @@ const requiredFiles = [
   'governance/CONSTITUTION.md',
   'governance/DOCUMENT_AUTHORITY.md',
   'governance/CHANGE_PROTOCOL.md',
+  'governance/INSTRUCTION_DICTIONARY.md',
   'governance/COMMAND_WORDS.md',
   'governance/WORK_SYSTEM.md',
   'navigation/MASTER_MATCH_GRAPH.md',
@@ -45,6 +46,12 @@ const requiredFiles = [
 ]
 
 for (const path of requiredFiles) requireFile(path)
+
+const instructionDictionary = read('governance/INSTRUCTION_DICTIONARY.md')
+if (!instructionDictionary.includes('CMD-ROOT-001')) fail('instruction dictionary missing CMD-ROOT-001')
+if (!instructionDictionary.includes('Canonical Phrase: **憲法から**')) fail('CMD-ROOT-001 missing canonical phrase 憲法から')
+if (!instructionDictionary.includes('live `main`')) fail('CMD-ROOT-001 missing live main verification')
+if (!instructionDictionary.includes('Priority: HIGHEST')) fail('CMD-ROOT-001 is not marked highest priority')
 
 const graph = read('navigation/MASTER_MATCH_GRAPH.md')
 for (let n = 0; n <= 8; n += 1) {
