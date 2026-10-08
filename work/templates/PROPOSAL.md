@@ -25,3 +25,13 @@ Status: WAITING
 Approved by user: NO
 Approval date:
 Approval evidence:
+
+### Review History
+
+- Review status: NOT-REVIEWED
+- User feedback:
+- Supersedes:
+- Superseded by:
+
+> If user feedback changes the proposal, do not mark this proposal APPROVED by inference.
+> Create a new proposal revision/ID, present it, and wait for explicit approval.
