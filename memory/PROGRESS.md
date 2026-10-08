@@ -46,6 +46,14 @@ PR checks before final status-only update:
 - normal PR checks: SUCCESS
 - CMD-ROOT-001 from PR #7 preserved as the highest-priority GitHub root command
 
+## Instruction Dictionary Extension
+
+- W-GOV-002 — VERIFYING
+- proposal P-001 — APPROVED
+- adds EXACT / SIMILAR / UNKNOWN matching
+- adds CMD-WORK-001 「修正」
+- next: CI / merge, then resume Mathematics learning-mode correction
+
 ## Still Open
 
 - Physics Chapter 1 3-chunk runtime implementation

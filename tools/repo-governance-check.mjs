@@ -52,6 +52,11 @@ if (!instructionDictionary.includes('CMD-ROOT-001')) fail('instruction dictionar
 if (!instructionDictionary.includes('Canonical Phrase: **憲法から**')) fail('CMD-ROOT-001 missing canonical phrase 憲法から')
 if (!instructionDictionary.includes('live `main`')) fail('CMD-ROOT-001 missing live main verification')
 if (!instructionDictionary.includes('Priority: HIGHEST')) fail('CMD-ROOT-001 is not marked highest priority')
+if (!instructionDictionary.includes('## Instruction Matching Rule')) fail('instruction dictionary missing matching rule')
+if (!instructionDictionary.includes('## CMD-WORK-001 — 修正')) fail('instruction dictionary missing CMD-WORK-001 修正')
+if (!instructionDictionary.includes('### 2. SIMILAR')) fail('instruction dictionary missing SIMILAR confirmation rule')
+if (!instructionDictionary.includes('今回この指示として扱いますか？')) fail('SIMILAR rule missing explicit user confirmation prompt')
+
 
 const graph = read('navigation/MASTER_MATCH_GRAPH.md')
 for (let n = 0; n <= 8; n += 1) {
