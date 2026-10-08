@@ -1,7 +1,7 @@
 # 指示辞書 / Instruction Dictionary
 
 Status: CANONICAL
-Version: 1.1.0
+Version: 1.2.0
 Updated: 2026-10-08
 
 ## Purpose
@@ -170,7 +170,17 @@ approved correction proposal exists?
    │   ↓
    │  ユーザーへ提示
    │   ↓
-   │  STOP
+   │  REVIEW
+   │   ├─ 修正コメントあり
+   │   │   ↓
+   │   │  REVISE-PROPOSAL
+   │   │   ↓
+   │   │  修正版を再提示
+   │   │   ↓
+   │   │  STOP
+   │   └─ exact Proposalを明示承認
+   │       ↓
+   │      APPROVED
    │
    └─ YES
        ↓
@@ -187,9 +197,22 @@ approved correction proposal exists?
 
 ### Approval behavior
 
+**REVIEW-FEEDBACK ≠ APPROVAL**
+
 - 承認済み修正案が存在しない場合、実装してはならない。
-- 既に同じ修正案がユーザー承認済みなら、承認を取り直さず続行できる。
-- 修正中にmaterialな変更が必要になった場合は `REVISE-PROPOSAL` へ戻る。
+- ユーザーの修正コメント、追加条件、反対意見、改善案は、たとえ「いい」「結構」「OK」などの肯定表現を含んでいても、Proposalの内容を変更するなら承認として扱わない。
+- Proposalへのレビューで内容が追加・削除・変更・条件付きになった場合:
+  1. 実装しない。
+  2. Workを `REVISE-PROPOSAL` に戻す。
+  3. 新しいProposal revision / IDを作る。
+  4. 旧Proposalを上書きせず履歴として残す。
+  5. **修正版Proposalをユーザーへ全文提示する。**
+  6. **そこでSTOPする。**
+  7. 修正版そのものへの明示承認を受けて初めて `APPROVED` / `IMPLEMENTING` へ進む。
+- 「そう」「OK」などの短い肯定は、**直前に exact Proposal の承認を尋ねる明確な質問へ直接答えており、かつ新しい変更条件を含まない場合だけ**承認証拠になり得る。
+- 承認なのかレビューなのか曖昧なら、実装せず確認する。
+- 既に同じ未変更Proposalが明示承認済みなら、承認を取り直さず続行できる。
+- 修正中にmaterialな変更が必要になった場合も `REVISE-PROPOSAL` へ戻り、修正版提示 → 再承認を行う。
 
 ### Assessment requirement
 
