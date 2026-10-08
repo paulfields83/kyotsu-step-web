@@ -1,13 +1,16 @@
 # 塾 Repository Agent Entry Point
 
-## 0. Command word — 「憲法から」
+## 0. Root Command — 「憲法から」
 
-ユーザーが **「憲法から」** と言った場合、`governance/COMMAND_WORDS.md` の作業開始マクロを実行する。
+ユーザーが **「憲法から」** と言った場合、まず `governance/INSTRUCTION_DICTIONARY.md` の `CMD-ROOT-001` を実行し、live repository / `main` / HEAD を確認する。
+
+Stage 0 が通った後、`governance/COMMAND_WORDS.md` の作業開始マクロへ進む。
 
 これは単なる「Constitutionを読む」命令でも、「自動で実装まで進める」命令でもない。
 
 ```text
-Recovery
+Live Repository Verification
+→ Recovery
 → Reconstruction
 → Work Identification
 → Approval Check
@@ -22,6 +25,7 @@ Recovery
 
 ## 1. 作業開始時の必須ルート
 
+0. `governance/INSTRUCTION_DICTIONARY.md` の `CMD-ROOT-001` で repository / branch / live HEAD を確定する。
 1. `governance/CONSTITUTION.md` を確認する。
 2. `navigation/CURRENT_POSITION.md` で現在地を確認する。
 3. `navigation/MASTER_MATCH_GRAPH.md` で対象ノードと依存関係を確認する。
@@ -56,6 +60,7 @@ Archive、deprecated、古い handoff、古い Word/ZIP は、明示的に canon
 
 ## 4. 禁止事項
 
+- live repository / main / HEAD を確認せず、現行GitHub状態を断定しない。
 - 仕様を確認せずコード・教材・Word・JSONを作り始めない。
 - 数学/物理、教科書/練習のルールを混用しない。
 - Constitution を通常作業のついでに変更しない。
