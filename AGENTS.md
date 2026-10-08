@@ -2,7 +2,7 @@
 
 ## 0. Command word — 「憲法から」
 
-ユーザーが **「憲法から」** と言った場合、`governance/COMMAND_WORDS.md` の作業開始マクロを実行する。
+ユーザーが **「憲法から」** と言った場合、まず `governance/INSTRUCTION_DICTIONARY.md` の `CMD-ROOT-001` を実行し、live repository / main / HEAD を確認する。その後 `governance/COMMAND_WORDS.md` の作業開始マクロへ進む。
 
 これは単なる「Constitutionを読む」という意味ではない。
 
