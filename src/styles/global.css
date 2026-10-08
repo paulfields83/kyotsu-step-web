@@ -331,6 +331,10 @@ a { color: inherit; }
 .reading-paragraph { margin: 0; font-size: 1rem; line-height: 2.05; }
 .reading-paragraph > span { display: inline; }
 .reading-paragraph .katex { font-size: 1.03em; }
+.reading-absolute-value { display: inline-block; margin-inline: .08em; padding-inline: .04em; white-space: nowrap; }
+.reading-absolute-value .katex { font-size: 1.06em; }
+.reading-absolute-value .mopen,
+.reading-absolute-value .mclose { font-weight: 700; }
 .reading-formula-line { overflow-x: auto; padding: .7rem .85rem; border: 1px solid var(--color-line); background: #fff; font-size: 1.08rem; line-height: 2; text-align: center; white-space: nowrap; }
 .reading-formula-line > span { display: inline; }
 .reading-figure { display: grid; gap: .5rem; margin: .25rem 0; padding: .75rem; border: 1px solid var(--color-border); background: white; }
