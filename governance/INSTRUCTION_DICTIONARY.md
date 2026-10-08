@@ -1,7 +1,7 @@
 # 指示辞書 / Instruction Dictionary
 
 Status: CANONICAL
-Version: 1.0.0
+Version: 1.1.0
 Updated: 2026-10-08
 
 ## Purpose
@@ -9,9 +9,48 @@ Updated: 2026-10-08
 この辞書は、ユーザーがGitHub上の塾プロジェクトに対して与える**上位命令**を登録する。
 
 Agentは、登録された命令の意味を勝手に拡張してはならない。
+辞書に存在しないGitHub命令を、推測だけで実行してはならない。
 
-現時点では、ユーザーが正式に登録を指示したRoot Commandだけを収録する。
-他の命令語は、ユーザー承認前に追加しない。
+---
+
+## Instruction Matching Rule
+
+ユーザーのGitHub指示は、実行前にこの辞書と照合する。
+
+### 1. EXACT
+
+Canonical Phrase と明確に一致する場合、そのCommandとして処理する。
+
+### 2. SIMILAR
+
+登録済みCommandに意味が近いが、Canonical Phraseと一致しない場合:
+
+1. 実行しない。
+2. 最も近いCommandを特定する。
+3. Command ID / Canonical Phrase / 実行内容をユーザーへ提示する。
+4. **「今回この指示として扱いますか？」** と確認する。
+5. ユーザーが肯定した場合のみ、そのCommandとして処理する。
+
+類似していること自体は:
+- 同一Commandであること
+- Aliasであること
+- 実行許可
+
+を意味しない。
+
+### 3. UNKNOWN
+
+適切な登録Commandが存在しない場合:
+
+- GitHub変更作業を開始しない。
+- その指示がGitHub作業に重要なら、通常Workを停止する。
+- まず指示辞書の不足をユーザーへ報告し、辞書修正案を優先する。
+- ユーザー承認前に新Commandを勝手に登録しない。
+
+### Alias rule
+
+自然言語表現をAgentが勝手にAlias登録してはならない。
+Alias化にはユーザーの明示承認が必要。
 
 ---
 
@@ -95,14 +134,88 @@ Stage 0でrepository identityまたはlive mainを確定できない場合:
 
 「存在する / 存在しない」「現在mainでは〜」というRepository状態の主張は、可能な限りlive GitHub確認を根拠にする。
 
-### Expansion source
+---
 
-詳細な作業開始フローは:
+## CMD-WORK-001 — 修正
 
-- `AGENTS.md`
-- `governance/COMMAND_WORDS.md`
+Status: ACTIVE  
+Class: WORK  
+Priority: NORMAL  
+Canonical Phrase: **修正**
 
-を参照する。
+### Purpose
+
+既存成果物について、**何を修正すべきかを確認し、承認済み修正案がある場合だけその範囲を実装する**。
+
+「修正」は、問題点が未確定の状態からいきなり書き換える命令ではない。
+
+### Expanded behavior
+
+```text
+対象を特定
+↓
+対象Mode / subject / technical canon を確認
+↓
+現在の実物・既存Work・Decision・Lessonを確認
+↓
+何を修正すべきか確認
+↓
+approved correction proposal exists?
+   │
+   ├─ NO
+   │   ↓
+   │  問題点を整理
+   │   ↓
+   │  修正案を作成
+   │   ↓
+   │  ユーザーへ提示
+   │   ↓
+   │  STOP
+   │
+   └─ YES
+       ↓
+      承認済みscope内だけ修正
+       ↓
+      Action Log
+       ↓
+      Findings
+       ↓
+      Verification
+       ↓
+      Memory Close
+```
+
+### Approval behavior
+
+- 承認済み修正案が存在しない場合、実装してはならない。
+- 既に同じ修正案がユーザー承認済みなら、承認を取り直さず続行できる。
+- 修正中にmaterialな変更が必要になった場合は `REVISE-PROPOSAL` へ戻る。
+
+### Assessment requirement
+
+修正前に最低限確認する:
+
+- 現在の症状 / 問題
+- 何を修正すべきか
+- 影響範囲
+- 既存の承認済み修正案の有無
+- Do Not Touch
+- 必要なverification
+
+### Record requirement
+
+修正Workでは必要に応じて:
+
+- `WORK.md`
+- `PROPOSAL.md`
+- `ACTION_LOG.md`
+- `FINDINGS.md`
+- `VERIFICATION.md`
+
+を使う。
+
+ユーザーから「それは違う」と訂正された内容は、適切なERROR findingとして残す。
+正しいと確認された重要事項はCONFIRMEDとして残す。
 
 ---
 
