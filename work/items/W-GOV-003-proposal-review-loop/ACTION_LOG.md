@@ -71,3 +71,21 @@ Evidence:
 - unit tests: SUCCESS
 - production build: SUCCESS.
 
+## A-009
+
+Date: 2026-10-08
+Related proposal: P-001
+Action: Squash-merged PR #12 into `main`.
+Target / location: PR #12 → `main`
+Result: SUCCESS.
+Evidence: merge commit `bf7ff5e85de9da0b577a44b372882f5193430770`.
+
+## A-010
+
+Date: 2026-10-08
+Related proposal: P-001
+Action: Ran 7 workflow simulations against live main, including the real W-MATH-001 / PR #11 regression.
+Target / location: `SIMULATION.md`
+Result: SUCCESS — 7/7 PASS.
+Evidence: PR #11 was correctly returned to REVISE-PROPOSAL and remains draft/unmerged.
+

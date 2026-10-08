@@ -79,11 +79,12 @@ Instruction Matching Rule and CMD-WORK-001 「修正」 are active. Resume the a
 ## Current Governance Extension
 
 ### W-GOV-003 — Proposal Review Loop
-Status: IMPLEMENTING  
-Branch: `docs/proposal-review-loop`  
+Status: DONE / MERGED  
+PR: #12  
+Merge commit: `bf7ff5e85de9da0b577a44b372882f5193430770`  
 Proposal: P-001 APPROVED
 
-Purpose: ensure user correction/advice returns to REVISE-PROPOSAL, requires revised proposal presentation, and cannot silently become implementation approval.
+REVIEW-FEEDBACK ≠ APPROVAL is active. Revised proposals must be shown and explicitly approved before implementation. Workflow simulation: 7/7 PASS. W-MATH-001 / PR #11 was correctly returned to REVISE-PROPOSAL.
 
 ## Open Workstreams
 

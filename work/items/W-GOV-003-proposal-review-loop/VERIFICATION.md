@@ -1,6 +1,6 @@
 # Verification — W-GOV-003
 
-Status: IN-PROGRESS
+Status: PASS
 
 ## V-001
 
@@ -32,5 +32,8 @@ Evidence:
 Target: workflow simulation
 Check: representative review/approval conversations stop or execute at the correct gate.
 Expected: PASS
-Result: NOT-RUN
-Reason: user requested simulation after the rule is merged to main.
+Result: PASS
+Evidence:
+- `SIMULATION.md` contains 7 scenarios.
+- all 7 reached the intended gate.
+- the real W-MATH-001 / PR #11 regression was detected and corrected to REVISE-PROPOSAL.
