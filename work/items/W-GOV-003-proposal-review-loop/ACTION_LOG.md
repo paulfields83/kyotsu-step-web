@@ -56,3 +56,18 @@ Related proposal: P-001
 Action: Promoted the durable review/approval rule into Decision and Lesson memory and synchronized project-current state.
 Target / location: `memory/DECISIONS/`, `memory/LESSONS/`, `navigation/CURRENT_POSITION.md`, `memory/ACTIVE_CONTEXT.md`, `memory/PROGRESS.md`, `memory/CHANGELOG.md`
 Result: SUCCESS.
+
+## A-008
+
+Date: 2026-10-08
+Related proposal: P-001
+Action: Opened PR #12 and ran governance/application CI.
+Target / location: PR #12
+Result: SUCCESS.
+Evidence:
+- Repository Governance Check: SUCCESS
+- backend typecheck: SUCCESS
+- frontend typecheck: SUCCESS
+- unit tests: SUCCESS
+- production build: SUCCESS.
+
