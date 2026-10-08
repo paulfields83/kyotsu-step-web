@@ -18,6 +18,18 @@ export type TextbookChapter = {
   lessons: TextbookLessonTarget[]
 }
 
+const mathUnitMeta: Record<string, { order: number }> = {
+  'math-1a-numbers-expressions': { order: 10 },
+  'math-1a-quadratic-functions': { order: 20 },
+  'math-1a-sets-propositions': { order: 30 },
+  'math-1a-geometry-measurement': { order: 40 },
+  'math-1a-data-analysis': { order: 50 },
+  'math-1a-counting-permutation': { order: 60 },
+  'math-1a-counting-probability': { order: 60 },
+  'math-1a-geometric-properties': { order: 70 },
+  'math-1a-human-activities': { order: 80 },
+}
+
 const physicsChapterMeta: Record<string, { label: string; order: number }> = {
   '1': { label: '運動の表し方', order: 10 },
   '2': { label: '剛体にはたらく力', order: 20 },
@@ -59,7 +71,7 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
       chapters.push({
         key: 'math-sets-propositions',
         label: '集合と命題',
-        order: 30,
+        order: mathUnitMeta[unit.unitId]?.order ?? 30,
         lessons: unit.sections.map((section) => ({
           key: `math-sets-propositions-${section.id}`,
           label: section.title,
@@ -75,7 +87,7 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
       chapters.push({
         key: 'math-counting-probability',
         label: '場合の数と確率',
-        order: 60,
+        order: mathUnitMeta[unit.unitId]?.order ?? 60,
         lessons: [
           {
             key: 'math-counting-probability-counting',
@@ -101,7 +113,7 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
     chapters.push({
       key: `math-${unit.unitId}`,
       label: conciseMathTitle(unit.title),
-      order: 900,
+      order: mathUnitMeta[unit.unitId]?.order ?? 900,
       lessons: unit.sections.length > 1
         ? unit.sections.map((section) => ({
           key: `math-${unit.unitId}-${section.id}`,
@@ -171,6 +183,10 @@ export function textbookLessonHref(lesson: TextbookLessonTarget) {
   return `/learning/textbook/${lesson.unitId}?target=${encodeURIComponent(lesson.key)}`
 }
 
+export type TextbookProgressLike = Record<string, {
+  answers: Record<string, { resolved: boolean } | undefined>
+} | undefined>
+
 export function textbookLessonItemIds(unit: PublicTextbookUnit | undefined, lesson: TextbookLessonTarget | undefined) {
   if (!unit || !lesson) return []
   if (lesson.kind === 'unit') return unit.sections.flatMap((section) => section.items.map((item) => item.id))
@@ -181,4 +197,43 @@ export function textbookLessonItemIds(unit: PublicTextbookUnit | undefined, less
   return unit.sections
     .filter((section) => sectionIds.has(section.id))
     .flatMap((section) => section.items.map((item) => item.id))
+}
+
+
+export function textbookChapterProgress(
+  units: PublicTextbookUnit[],
+  chapter: TextbookChapter,
+  progressByUnit: TextbookProgressLike,
+) {
+  const seen = new Set<string>()
+  let total = 0
+  let completed = 0
+
+  for (const lesson of chapter.lessons) {
+    const unit = units.find((candidate) => candidate.unitId === lesson.unitId)
+    if (!unit) continue
+    const unitProgress = progressByUnit[unit.unitId]
+
+    for (const itemId of textbookLessonItemIds(unit, lesson)) {
+      const key = `${unit.unitId}:${itemId}`
+      if (seen.has(key)) continue
+      seen.add(key)
+      total += 1
+      if (unitProgress?.answers[itemId]?.resolved) completed += 1
+    }
+  }
+
+  return { completed, total, complete: total > 0 && completed === total }
+}
+
+export function isTextbookChapterUnlocked(
+  units: PublicTextbookUnit[],
+  chapters: TextbookChapter[],
+  chapterIndex: number,
+  progressByUnit: TextbookProgressLike,
+) {
+  if (chapterIndex <= 0) return true
+  return chapters
+    .slice(0, chapterIndex)
+    .every((chapter) => textbookChapterProgress(units, chapter, progressByUnit).complete)
 }
