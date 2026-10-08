@@ -1,6 +1,6 @@
 # W-GOV-002 — Instruction Matching + 修正 Command
 
-Status: VERIFYING
+Status: DONE
 Updated: 2026-10-08
 
 ## Objective
@@ -39,11 +39,11 @@ Extend the GitHub instruction dictionary with a strict EXACT / SIMILAR / UNKNOWN
 
 ## Current Step
 
-Verification and merge.
+Completed and merged to `main` through PR #9.
 
 ## Next Step
 
-Run CI, merge if green, then return to the already-confirmed Mathematics learning-mode correction command.
+Resume the already-confirmed Mathematics learning-mode correction under CMD-WORK-001.
 
 ## Completion Condition
 

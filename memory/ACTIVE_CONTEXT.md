@@ -69,11 +69,12 @@ Adds:
 ## Current Governance Extension
 
 ### W-GOV-002 — Instruction Matching + 修正 Command
-Status: VERIFYING  
-Branch: `docs/instruction-dictionary-work-fix`  
+Status: DONE / MERGED  
+PR: #9  
+Merge commit: `c58ead8ec1a90046f5818278675f04f6111db0ba`  
 Proposal: P-001 APPROVED
 
-After merge, resume the already-confirmed Mathematics learning-mode correction under CMD-WORK-001.
+Instruction Matching Rule and CMD-WORK-001 「修正」 are active. Resume the already-confirmed Mathematics learning-mode correction under CMD-WORK-001.
 
 ## Open Workstreams
 
