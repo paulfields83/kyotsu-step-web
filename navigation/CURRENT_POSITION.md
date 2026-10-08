@@ -86,6 +86,16 @@ Future work must:
 - CMD-WORK-001 `修正`: ACTIVE
 - follow-up: Mathematics learning-mode correction is already confirmed to map to CMD-WORK-001
 
+## Current Governance Work
+
+- Work ID: `W-GOV-003`
+- branch: `docs/proposal-review-loop`
+- proposal: `P-001` APPROVED
+- phase: IMPLEMENTING
+- scope: proposal review feedback vs approval semantics
+- runtime impact: none
+- required simulation after merge: review/approval gate behavior
+
 ## Next Executable Work
 
 Open separate feature branches for:
