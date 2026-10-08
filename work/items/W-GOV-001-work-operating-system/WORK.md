@@ -1,7 +1,7 @@
 # W-GOV-001 — Work Operating System
 
-Status: VERIFYING
-Updated: 2026-10-07
+Status: DONE
+Updated: 2026-10-08
 
 ## Objective
 
@@ -42,11 +42,11 @@ Define and implement the project-wide Work layer that records proposal approval,
 
 ## Current Step
 
-Verification and PR review.
+Completed and merged to `main` through PR #6.
 
 ## Next Step
 
-Open PR, run governance and normal PR checks, record results, then prepare for user review.
+None for W-GOV-001. Future governance changes must open a new Work or approved revision.
 
 ## Dependencies
 

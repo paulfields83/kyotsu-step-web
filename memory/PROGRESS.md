@@ -1,6 +1,6 @@
 # PROGRESS
 
-Updated: 2026-10-05
+Updated: 2026-10-08
 
 ## Repository OS Nodes
 
@@ -37,14 +37,14 @@ PR checks before final status-only update:
 
 ## Governance Extension
 
-- W-GOV-001 Work Operating System — VERIFYING / CI PASS / USER REVIEW WAIT
+- W-GOV-001 Work Operating System — DONE / MERGED
 - proposal P-001 — APPROVED
-- branch: `docs/work-operating-system-v1`
+- PR #6 — MERGED
+- merge commit: `a3d003efe4c1a1788033a2a063163b0ef79b0235`
 - runtime changes: none
-- PR: #6
 - Repository Governance Check: SUCCESS
 - normal PR checks: SUCCESS
-- next: user review / merge decision
+- CMD-ROOT-001 from PR #7 preserved as the highest-priority GitHub root command
 
 ## Still Open
 

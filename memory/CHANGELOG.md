@@ -72,3 +72,15 @@
 - added Work-to-Decision/Lesson/current-state promotion rules
 - revised `憲法から` so unapproved proposals stop at the approval gate
 - extended repository governance validation for Work records
+
+## 2026-10-08 — Work Operating System v1 merged
+
+- reconciled PR #6 with PR #7 root instruction dictionary
+- preserved `CMD-ROOT-001 — 憲法から` as the highest-priority GitHub command
+- integrated Work identification / approval gate / action logs / findings / verification below Root Command recovery
+- final Repository Governance Check: SUCCESS
+- final normal PR checks: SUCCESS
+- PR #6 squash merged to `main`
+- merge commit: `a3d003efe4c1a1788033a2a063163b0ef79b0235`
+- W-GOV-001 closed as DONE
+

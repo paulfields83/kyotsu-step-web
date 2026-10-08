@@ -99,3 +99,14 @@ Target / location: `AGENTS.md`, `governance/INSTRUCTION_DICTIONARY.md`, `tools/r
 Reason: preserve CMD-ROOT-001 as the highest-priority entry while layering Work OS approval/state handling underneath it.
 Result: SUCCESS.
 Evidence: current main was merged as a second parent into the PR #6 branch using a conflict-resolved tree; PR became mergeable and is no longer behind main.
+
+## A-011
+
+Date: 2026-10-08
+Related proposal: P-001
+Action: Squash-merged PR #6 into `main` after reconciling PR #7 and re-running final governance/application CI.
+Target / location: PR #6 → `main`
+Reason: activate Work Operating System v1 as part of the repository's authoritative governance layer.
+Result: SUCCESS.
+Evidence: merge commit `a3d003efe4c1a1788033a2a063163b0ef79b0235`; final Repository Governance Check and PR checks both SUCCESS.
+
