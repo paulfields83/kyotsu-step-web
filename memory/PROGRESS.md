@@ -56,6 +56,13 @@ PR checks before final status-only update:
 - CMD-WORK-001 「修正」 — ACTIVE
 - next: resume Mathematics learning-mode correction
 
+## Proposal Review Loop Extension
+
+- W-GOV-003 — IMPLEMENTING
+- proposal P-001 — APPROVED
+- invariant: REVIEW-FEEDBACK ≠ APPROVAL
+- next: CI / merge / workflow simulation
+
 ## Still Open
 
 - Physics Chapter 1 3-chunk runtime implementation

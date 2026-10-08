@@ -76,6 +76,15 @@ Proposal: P-001 APPROVED
 
 Instruction Matching Rule and CMD-WORK-001 「修正」 are active. Resume the already-confirmed Mathematics learning-mode correction under CMD-WORK-001.
 
+## Current Governance Extension
+
+### W-GOV-003 — Proposal Review Loop
+Status: IMPLEMENTING  
+Branch: `docs/proposal-review-loop`  
+Proposal: P-001 APPROVED
+
+Purpose: ensure user correction/advice returns to REVISE-PROPOSAL, requires revised proposal presentation, and cannot silently become implementation approval.
+
 ## Open Workstreams
 
 ### W1 — Repository OS v1

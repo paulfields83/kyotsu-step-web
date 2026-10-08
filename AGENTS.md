@@ -61,6 +61,8 @@ Archive、deprecated、古い handoff、古い Word/ZIP は、明示的に canon
 - 未承認Proposalを実装してはならない。
 - 既に同一scopeのProposalが明示承認済みなら、毎Chat承認を取り直さない。
 - materialなscope/design変更が必要なら `REVISE-PROPOSAL` に戻る。
+- **REVIEW-FEEDBACK ≠ APPROVAL**：ユーザーの修正コメント・追加条件・反対意見を承認として扱わない。
+- Proposalがレビューで変わったら、新revisionを作成 → 修正版を提示 → STOP → exact revisionの明示承認、の順を必ず守る。
 - 「修正したい」「作りたい」という依頼だけで、修正案・制作案まで自動承認されたと解釈しない。
 - ユーザーの訂正・承認は必要に応じて Work record へ残す。
 

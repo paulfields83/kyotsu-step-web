@@ -56,6 +56,17 @@ if (!instructionDictionary.includes('## Instruction Matching Rule')) fail('instr
 if (!instructionDictionary.includes('## CMD-WORK-001 — 修正')) fail('instruction dictionary missing CMD-WORK-001 修正')
 if (!instructionDictionary.includes('### 2. SIMILAR')) fail('instruction dictionary missing SIMILAR confirmation rule')
 if (!instructionDictionary.includes('今回この指示として扱いますか？')) fail('SIMILAR rule missing explicit user confirmation prompt')
+if (!instructionDictionary.includes('REVIEW-FEEDBACK ≠ APPROVAL')) fail('instruction dictionary missing review-feedback approval separation')
+if (!instructionDictionary.includes('修正版Proposalをユーザーへ全文提示する')) fail('CMD-WORK-001 missing revised-proposal presentation gate')
+
+const workSystem = read('governance/WORK_SYSTEM.md')
+if (!workSystem.includes('REVIEW-FEEDBACK ≠ APPROVAL')) fail('WORK_SYSTEM missing review-feedback approval separation')
+if (!workSystem.includes('### Proposal review loop')) fail('WORK_SYSTEM missing proposal review loop')
+if (!workSystem.includes('The revised proposal must be shown before implementation.')) fail('WORK_SYSTEM missing revised-proposal-before-implementation rule')
+
+const proposalTemplate = read('work/templates/PROPOSAL.md')
+if (!proposalTemplate.includes('### Review History')) fail('PROPOSAL template missing review history')
+
 
 
 const graph = read('navigation/MASTER_MATCH_GRAPH.md')

@@ -63,7 +63,9 @@ RECOVER
 → identify exact correction
 → CHECK APPROVED CORRECTION
 → PROPOSE if absent
-→ USER APPROVAL
+→ USER REVIEW
+   ├─ feedback / added conditions → REVISE-PROPOSAL → present revised proposal → STOP
+   └─ explicit approval of exact proposal → APPROVED
 → FIX
 → VALIDATE ORIGINAL SYMPTOM + REGRESSION
 → RECORD FINDINGS
@@ -73,7 +75,9 @@ RECOVER
 重要:
 - 「修正」という言葉だけを実装許可と扱わない。
 - まず何を修正するべきか確認する。
-- 既に承認済みの修正案なら同じ承認を取り直さない。
+- ユーザーの修正コメント・追加条件・「いいけど…」は承認ではない。内容が変わるなら必ず `REVISE-PROPOSAL`。
+- 修正版を全文提示してSTOPし、その修正版そのものへの明示承認後に実装する。
+- 既に承認済みで内容が変わっていない修正案なら同じ承認を取り直さない。
 - 原因分析前の一括書き換えは禁止。
 
 ## C. Cleanup
