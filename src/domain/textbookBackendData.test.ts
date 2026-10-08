@@ -237,6 +237,24 @@ describe('backend textbook data', () => {
     expect(duplicate.unit.status).toBe('draft')
   })
 
+  it('keeps semantic reading roles backward-compatible and tags the 図形の性質 pilot', () => {
+    const geometric = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-geometric-properties')!
+    const roles = geometric.unit.sections
+      .flatMap((section) => section.readingFlow)
+      .map((block) => block.role)
+      .filter(Boolean)
+
+    expect(roles).toContain('definition')
+    expect(roles).toContain('property')
+    expect(roles).toContain('proof')
+    expect(roles).toContain('example')
+    expect(roles).toContain('focus')
+    expect(roles).toContain('check')
+
+    const untaggedPhysics = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'physics-a-displacement-velocity')!
+    expect(untaggedPhysics.unit.sections.flatMap((section) => section.readingFlow).some((block) => block.role === undefined)).toBe(true)
+  })
+
   it('keeps every new static math unit in one-to-one sync with private answers', () => {
     for (const unitId of staticMathUnitIds) {
       const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId)!
