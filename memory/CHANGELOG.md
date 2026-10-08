@@ -92,3 +92,13 @@
 - required REVISE-PROPOSAL → revised proposal presentation → explicit approval before implementation
 - recorded the W-MATH-001 premature-approval incident as ERROR-PROCESS
 
+### Proposal review loop verification
+
+- PR #12 merged to `main`
+- merge commit: `bf7ff5e85de9da0b577a44b372882f5193430770`
+- ran 7 proposal review/approval simulations against live main
+- all 7 PASS
+- real W-MATH-001 / PR #11 regression detected prior invalid approval evidence
+- W-MATH-001 returned to REVISE-PROPOSAL; P-002 is awaiting explicit approval
+- PR #11 remains draft/unmerged
+
