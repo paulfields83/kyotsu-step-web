@@ -35,7 +35,7 @@ The current implementation also allows learners to select later chapters before 
 1. `TextbookReadingBlockSchema` has no semantic role for concept / definition / property / proof / example.
 2. `TextbookUnitPage.tsx` renders those roles generically.
 3. Published Mathematics content is strongly worksheet-shaped rather than prose-backbone shaped.
-4. Figure integration is absent from current published Mathematics learning-flow data despite curated assets existing.
+4. Raw static Mathematics `unit.json` files do not carry the injected figure blocks themselves; the backend currently enriches loaded units through `mathLearningFigures.ts`. The pilot must preserve this pipeline and assess placement rather than rebuild figures from zero.
 5. `LearningSetupPage.tsx` currently allows arbitrary chapter selection; later chapters are not gated by previous-chapter completion.
 6. Absolute-value notation must be visually unambiguous. The supplied screenshot shows `|x+1|` with the vertical bars too easy to miss.
 
@@ -95,7 +95,7 @@ Use `backend/data/textbooks/math-1a/geometric-properties/unit.json` as the seman
 3. tag concept/definition/property/proof/example roles;
 4. reduce repetitive worksheet headings;
 5. preserve mathematical content, item IDs, answers, stable section IDs where possible;
-6. integrate existing figures only where pedagogically justified;
+6. preserve the existing backend figure-enrichment pipeline and adjust/integrate figures only where pedagogically justified;
 7. verify no answer leakage.
 
 #### Phase E — Pilot review
