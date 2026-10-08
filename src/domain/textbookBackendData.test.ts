@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { publicTextbookUnit } from '../../backend/src/publicTextbook'
 import { loadedTextbookUnits } from '../../backend/src/textbookData'
-import { buildTextbookChapters } from './textbookCatalog'
+import { buildTextbookChapters, isTextbookChapterUnlocked, textbookChapterProgress, textbookLessonItemIds } from './textbookCatalog'
 
 const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
 const setsRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'sets-propositions')
@@ -195,6 +195,40 @@ describe('backend textbook data', () => {
     expect(physicsChapters[0].lessons[0].label).toBe('1A 変位と速度')
     expect(physicsChapters[0].lessons[1].label).toMatch(/^1B /)
     expect(physicsChapters[0].lessons[2].label).toMatch(/^1C /)
+  })
+
+  it('orders Mathematics I・A chapters canonically and unlocks them sequentially', () => {
+    const publicUnits = loadedTextbookUnits
+      .filter(({ unit }) => unit.status === 'published')
+      .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook))
+
+    const chapters = buildTextbookChapters(publicUnits, 'math-1a')
+    expect(chapters.map((chapter) => chapter.label)).toEqual([
+      '数と式',
+      '2次関数',
+      '集合と命題',
+      '図形と計量',
+      'データの分析',
+      '場合の数と確率',
+      '図形の性質',
+      '数学と人間の活動',
+    ])
+
+    const progress: Record<string, { answers: Record<string, { resolved: boolean }> }> = {}
+    expect(isTextbookChapterUnlocked(publicUnits, chapters, 0, progress)).toBe(true)
+    expect(isTextbookChapterUnlocked(publicUnits, chapters, 1, progress)).toBe(false)
+
+    for (const lesson of chapters[0].lessons) {
+      const unit = publicUnits.find((candidate) => candidate.unitId === lesson.unitId)!
+      progress[unit.unitId] ??= { answers: {} }
+      for (const itemId of textbookLessonItemIds(unit, lesson)) {
+        progress[unit.unitId].answers[itemId] = { resolved: true }
+      }
+    }
+
+    expect(textbookChapterProgress(publicUnits, chapters[0], progress).complete).toBe(true)
+    expect(isTextbookChapterUnlocked(publicUnits, chapters, 1, progress)).toBe(true)
+    expect(isTextbookChapterUnlocked(publicUnits, chapters, 2, progress)).toBe(false)
   })
 
   it('keeps the standalone Math A 集合 source data hidden because it overlaps 集合と命題', () => {
