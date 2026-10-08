@@ -126,3 +126,13 @@ Evidence:
 - frontend typecheck: SUCCESS
 - unit tests: SUCCESS
 - production build: SUCCESS.
+
+## A-013
+
+Date: 2026-10-08
+Action: Applied the new proposal-review rule to the live W-MATH-001 record as a regression simulation.
+Target / location: draft PR #11 / W-MATH-001 work records
+Reason: verify that review feedback cannot remain recorded as implementation approval.
+Result: BLOCKED-CORRECTLY.
+Evidence: W-MATH-001 moved from VERIFYING to REVISE-PROPOSAL; P-002 moved from APPROVED to PROPOSED/WAITING; existing implementation preserved but frozen and unmerged.
+
