@@ -1,6 +1,6 @@
 # W-MATH-001 — Mathematics Textbook / Learning Mode Correction
 
-Status: VERIFYING
+Status: REVISE-PROPOSAL
 Updated: 2026-10-08
 
 ## Objective
@@ -41,15 +41,15 @@ Potential implementation scope after approval:
 
 ## Approved Proposal
 
-`P-002` — APPROVED by user on 2026-10-08.
+None under the corrected proposal-review rule. `P-002` is awaiting explicit user approval.
 
 ## Current Step
 
-Code/data implementation for P-002 pilot is complete with CI PASS. Visual/mobile QA and user pilot review remain.
+Frozen at proposal review. Existing branch implementation is preserved as an unmerged prototype, but it was created before explicit approval of P-002 and must not be treated as authorized implementation.
 
 ## Next Step
 
-Review the rendered pilot with the user. Do not expand to later Mathematics chapters or merge PR #11 before that review.
+Present the full revised P-002 to the user and STOP. Only after explicit approval of that exact proposal may implementation resume or PR #11 become merge-eligible.
 
 ## Completion Condition
 
