@@ -84,3 +84,11 @@
 - merge commit: `a3d003efe4c1a1788033a2a063163b0ef79b0235`
 - W-GOV-001 closed as DONE
 
+## 2026-10-08 — Proposal review loop correction
+
+- user clarified that proposal feedback must not be treated as approval
+- opened W-GOV-003
+- added REVIEW-FEEDBACK ≠ APPROVAL invariant
+- required REVISE-PROPOSAL → revised proposal presentation → explicit approval before implementation
+- recorded the W-MATH-001 premature-approval incident as ERROR-PROCESS
+
