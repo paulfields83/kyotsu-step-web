@@ -255,6 +255,17 @@ describe('backend textbook data', () => {
     expect(untaggedPhysics.unit.sections.flatMap((section) => section.readingFlow).some((block) => block.role === undefined)).toBe(true)
   })
 
+  it('keeps the 図形の性質 pilot as textbook prose instead of double worksheet headings', () => {
+    const geometric = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-geometric-properties')!
+    const blocks = geometric.unit.sections.flatMap((section) => section.readingFlow)
+    const headings = blocks.filter((block) => block.type === 'heading').map((block) => block.text)
+
+    expect(headings.some((text) => text.startsWith('教科書対応問'))).toBe(false)
+    expect(headings.some((text) => text.startsWith('問題文'))).toBe(false)
+    expect(headings.filter((text) => text.startsWith('例題')).length).toBeGreaterThan(0)
+    expect(blocks.some((block) => block.type === 'paragraph' && block.role === 'example')).toBe(true)
+  })
+
   it('keeps every new static math unit in one-to-one sync with private answers', () => {
     for (const unitId of staticMathUnitIds) {
       const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId)!
