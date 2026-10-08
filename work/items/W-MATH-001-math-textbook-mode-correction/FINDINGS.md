@@ -54,3 +54,36 @@ Impact: CMD-WORK-001 requires a new proposal and stop before implementation.
 Corrective rule / next action: await user approval of P-001.
 Promote to Decision: NO
 Promote to Lesson: NO
+
+## F-006
+
+Date: 2026-10-08
+Type: CONFIRMED
+Statement: In Mathematics Textbook / Learning Mode, the learner must not enter the next chapter until the current chapter is complete.
+Evidence: explicit user correction requirement on 2026-10-08.
+Impact: LearningSetup chapter selection needs progression gating.
+Corrective rule / next action: implement sequential chapter locking inside Mathematics Textbook mode only.
+Promote to Decision: YES
+Promote to Lesson: YES
+
+## F-007
+
+Date: 2026-10-08
+Type: ERROR-QA
+Statement: In the supplied screenshot, the absolute-value delimiters around x+1 are too easy to miss.
+Evidence: user-provided screenshot on 2026-10-08.
+Impact: the mathematical expression can be misread as plain x+1.
+Corrective rule / next action: trace the rendering path and use unambiguous math delimiters; verify desktop/mobile.
+Promote to Decision: NO
+Promote to Lesson: YES
+
+## F-008
+
+Date: 2026-10-08
+Type: CONFIRMED
+Statement: The exact source problem x>3 ⇒ |x+1|>2 is currently present under Mathematics Practice source data.
+Evidence: `backend/data/practice/math-1a/sets-and-logic/source/propositions.json`.
+Impact: this Work must not rewrite that Practice source merely because a screenshot was supplied during Textbook-mode correction.
+Corrective rule / next action: fix shared rendering only if shared; otherwise open a separate Practice correction.
+Promote to Decision: NO
+Promote to Lesson: YES
