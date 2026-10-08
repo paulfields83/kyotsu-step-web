@@ -1,6 +1,6 @@
 # ACTIVE CONTEXT
 
-Updated: 2026-10-05
+Updated: 2026-10-08
 
 ## Current Focus
 
@@ -52,9 +52,9 @@ Remaining warnings:
 ## Current Governance Extension
 
 ### W-GOV-001 — Work Operating System v1
-Status: VERIFYING — CI PASS / USER REVIEW WAIT  
-Branch: `docs/work-operating-system-v1`  
+Status: DONE / MERGED  
 PR: #6  
+Merge commit: `a3d003efe4c1a1788033a2a063163b0ef79b0235`  
 Proposal: P-001 APPROVED
 
 Adds:
@@ -64,7 +64,7 @@ Adds:
 - confirmed/error findings taxonomy
 - verification records
 - selective memory promotion
-- revised `憲法から` semantics
+- revised downstream `憲法から` semantics after CMD-ROOT-001 live-repository verification
 
 ## Open Workstreams
 
