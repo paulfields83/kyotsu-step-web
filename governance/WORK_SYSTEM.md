@@ -1,7 +1,7 @@
 # Work Operating System
 
 Status: CANONICAL
-Version: 1.0.0
+Version: 1.1.0
 Updated: 2026-10-07
 
 ## 1. Purpose
@@ -19,6 +19,7 @@ Before execution, an agent must determine whether the exact work proposal is alr
 - If no approved proposal exists: investigate, write the proposal, present it to the user, and stop at the approval gate.
 - If an approved proposal exists and the requested work is still inside that approved scope: continue without asking the same question again.
 - If implementation discovers a material scope/design change: move the Work to `REVISE-PROPOSAL`, record why, propose the change, and wait for approval before executing the changed portion.
+- **REVIEW-FEEDBACK ≠ APPROVAL.** If the user changes, adds, removes, rejects, or conditions any part of a proposal, do not infer a revised approval. Create and present the revised proposal, then wait for explicit approval of that revision.
 
 ## 3. Definition of Work
 
@@ -69,10 +70,13 @@ Exceptional states:
 ### Transition rules
 
 1. Only explicit user approval may move a proposal from `PROPOSED` to `APPROVED`.
-2. `APPROVED` authorizes only the recorded proposal and scope.
-3. Mechanical implementation choices that do not change the approved intent/scope do not require repeated approval.
-4. A material change to objective, user-visible behavior, pedagogy, data contract, destructive action, or approved scope invalidates automatic continuation.
-5. `DONE` requires both verification and memory close.
+2. User feedback that modifies the proposal is review feedback, not approval, even when it contains positive wording such as “good”, “OK”, or 「結構」.
+3. After material review feedback, move to `REVISE-PROPOSAL`, create a new proposal revision/ID, present the full revision, and stop.
+4. Only explicit approval of that exact revised proposal may return the Work to `APPROVED`.
+5. `APPROVED` authorizes only the recorded proposal and scope.
+6. Mechanical implementation choices that do not change the approved intent/scope do not require repeated approval.
+7. A material change to objective, user-visible behavior, pedagogy, data contract, destructive action, or approved scope invalidates automatic continuation.
+8. `DONE` requires both verification and memory close.
 
 ## 5. Work record structure
 
@@ -212,6 +216,41 @@ Does an approved proposal exist for exactly this work?
        APPROVED
 ```
 
+### Proposal review loop
+
+A proposal review is iterative.
+
+```text
+PROPOSED P-001
+    ↓
+USER REVIEW
+    ├─ explicit approval of exact P-001
+    │      ↓
+    │   APPROVED
+    │
+    └─ correction / addition / condition / rejection
+           ↓
+      REVISE-PROPOSAL
+           ↓
+      create P-002
+           ↓
+      present full P-002
+           ↓
+          STOP
+           ↓
+      USER REVIEW
+           ├─ explicit approval → APPROVED
+           └─ more feedback → REVISE-PROPOSAL again
+```
+
+Rules:
+
+- A review comment is never silently converted into a revised approved proposal.
+- Do not rewrite P-001 so that earlier approval appears to cover P-002.
+- A short reply such as “yes”, “そう”, or “OK” may count only when it directly answers a specific approval question about the exact current proposal and introduces no new change.
+- If approval intent is ambiguous, ask and do not implement.
+- The revised proposal must be shown before implementation.
+
 ### No repeated approval
 
 Do not mechanically ask the user to approve the same unchanged proposal again in every chat.
@@ -295,7 +334,8 @@ RECOVER
 → determine what actually needs correction
 → check for an existing approved correction proposal
 → if absent: propose correction and wait
-→ if approved: fix only that approved scope
+→ if user gives correction/advice: REVISE-PROPOSAL → show revised proposal → STOP
+→ only after explicit approval of the revised proposal: fix only that approved scope
 → validate original symptom + regression
 → record error/confirmed findings
 → memory close
