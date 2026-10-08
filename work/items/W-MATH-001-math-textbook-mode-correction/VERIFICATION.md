@@ -85,3 +85,14 @@ Date: 2026-10-08
 Target: Mathematics A 「図形の性質」 pilot
 Expected: user approval before expanding to remaining Mathematics chapters
 Result: PENDING
+
+## V-010 — Proposal approval governance regression
+
+Date: 2026-10-08
+Target: W-MATH-001 approval state
+Check: determine whether P-002 had explicit approval under the corrected live governance.
+Expected: review feedback must not count as approval.
+Result: FAIL-PREVIOUS-STATE / PASS-CORRECTION
+Evidence: prior approval evidence contained material correction comments. Work was returned to REVISE-PROPOSAL and PR #11 remains draft/unmerged.
+Follow-up: present full P-002 to user and wait for explicit approval.
+
