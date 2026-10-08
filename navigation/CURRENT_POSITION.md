@@ -76,6 +76,16 @@ Future work must:
 - runtime impact: none
 - CMD-ROOT-001 `憲法から` remains the highest-priority GitHub root command from PR #7
 
+## Current Governance Work
+
+- Work ID: `W-GOV-002`
+- branch: `docs/instruction-dictionary-work-fix`
+- proposal: `P-001` APPROVED
+- phase: VERIFYING
+- scope: Instruction Matching Rule + CMD-WORK-001 「修正」
+- runtime impact: none
+- paused follow-up: Mathematics learning-mode correction, already confirmed to map to CMD-WORK-001
+
 ## Next Executable Work
 
 Open separate feature branches for:
