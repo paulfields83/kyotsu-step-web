@@ -58,10 +58,13 @@ PR checks before final status-only update:
 
 ## Proposal Review Loop Extension
 
-- W-GOV-003 — IMPLEMENTING
+- W-GOV-003 — DONE / MERGED
 - proposal P-001 — APPROVED
-- invariant: REVIEW-FEEDBACK ≠ APPROVAL
-- next: CI / merge / workflow simulation
+- PR #12 — MERGED
+- merge commit: `bf7ff5e85de9da0b577a44b372882f5193430770`
+- invariant: REVIEW-FEEDBACK ≠ APPROVAL — ACTIVE
+- workflow simulation: 7/7 PASS
+- regression result: W-MATH-001 / PR #11 → REVISE-PROPOSAL
 
 ## Still Open
 
