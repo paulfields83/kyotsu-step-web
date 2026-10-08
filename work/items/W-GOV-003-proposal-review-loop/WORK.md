@@ -1,6 +1,6 @@
 # W-GOV-003 — Proposal Review Loop
 
-Status: IMPLEMENTING
+Status: VERIFYING
 Updated: 2026-10-08
 
 ## Objective
@@ -40,11 +40,11 @@ Make proposal review behavior explicit: user correction/advice is review feedbac
 
 ## Current Step
 
-Implement the approved governance correction.
+Canonical rule implementation and CI are complete. Awaiting merge, then workflow simulation.
 
 ## Next Step
 
-Verify, merge, close memory, then run conversation-flow simulations.
+Re-run CI on this recorded state, merge PR #12, then run workflow simulations against live main.
 
 ## Completion Condition
 
