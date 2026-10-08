@@ -132,6 +132,36 @@ function renderActiveChoice(
   )
 }
 
+
+function inlineMathSource(text: string) {
+  return text
+    .replaceAll('−', '-')
+    .replaceAll('≦', '\\le ')
+    .replaceAll('≧', '\\ge ')
+}
+
+function renderTextWithVisibleAbsoluteValues(text: string): ReactNode {
+  const matches = [...text.matchAll(/\|([^|\n]+)\|/g)]
+  if (!matches.length) return text
+
+  const nodes: ReactNode[] = []
+  let cursor = 0
+
+  matches.forEach((match, index) => {
+    const start = match.index ?? 0
+    if (start > cursor) nodes.push(text.slice(cursor, start))
+    nodes.push(
+      <span className="reading-absolute-value" key={`abs-${start}-${index}`}>
+        <InlineMath math={`\\lvert ${inlineMathSource(match[1])} \\rvert`} />
+      </span>,
+    )
+    cursor = start + match[0].length
+  })
+
+  if (cursor < text.length) nodes.push(text.slice(cursor))
+  return nodes
+}
+
 function renderPart(
   part: TextbookReadingPart,
   section: PublicTextbookSection,
@@ -139,7 +169,7 @@ function renderPart(
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
 ): ReactNode {
-  if (part.type === 'text') return part.text
+  if (part.type === 'text') return renderTextWithVisibleAbsoluteValues(part.text)
   if (part.type === 'math') return <InlineMath math={part.latex} />
 
   const item = section.items.find((candidate) => candidate.id === part.itemId)
