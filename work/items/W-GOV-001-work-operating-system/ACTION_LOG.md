@@ -90,3 +90,12 @@ Reason: verify the new Work system and ensure no application regression.
 Result: SUCCESS.
 Evidence: Repository Governance Check SUCCESS; backend/frontend typecheck, unit tests, and production build SUCCESS.
 
+## A-010
+
+Date: 2026-10-08
+Related proposal: P-001
+Action: Reconciled PR #6 with the newer main after PR #7 introduced the root instruction dictionary.
+Target / location: `AGENTS.md`, `governance/INSTRUCTION_DICTIONARY.md`, `tools/repo-governance-check.mjs`, branch `docs/work-operating-system-v1`
+Reason: preserve CMD-ROOT-001 as the highest-priority entry while layering Work OS approval/state handling underneath it.
+Result: SUCCESS.
+Evidence: current main was merged as a second parent into the PR #6 branch using a conflict-resolved tree; PR became mergeable and is no longer behind main.
