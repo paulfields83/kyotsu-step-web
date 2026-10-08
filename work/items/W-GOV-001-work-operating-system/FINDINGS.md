@@ -66,3 +66,13 @@ Corrective rule / next action: do not expand the state machine without a later a
 Promote to Decision: NO
 Promote to Lesson: YES
 
+## F-007
+
+Date: 2026-10-08
+Type: CONFIRMED
+Statement: Root-command recovery and Work approval are complementary layers, not competing definitions.
+Evidence: PR #7 defines `CMD-ROOT-001 憲法から` as live-repository recovery; PR #6 defines the downstream Work identification/approval/verification layer.
+Impact: the integrated order is Root Command → Repository OS recovery → Work identification → approval gate → permitted execution.
+Corrective rule / next action: preserve this order in AGENTS and governance validation.
+Promote to Decision: YES
+Promote to Lesson: NO
