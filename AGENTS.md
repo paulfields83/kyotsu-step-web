@@ -19,6 +19,12 @@ Live Repository Verification
 → Memory Close
 ```
 
+Root recovery後のユーザー指示は `governance/INSTRUCTION_DICTIONARY.md` の **Instruction Matching Rule** で照合する。
+
+- EXACT → 登録Commandとして処理
+- SIMILAR → 候補Commandの内容を提示し、ユーザー確認まで実行しない
+- UNKNOWN → GitHub変更を停止し、重要なら辞書修正を優先
+
 具体的なWork管理は `governance/WORK_SYSTEM.md` に従う。
 
 このファイルは百科事典ではなく、AI/Agent が迷子にならないための入口である。
