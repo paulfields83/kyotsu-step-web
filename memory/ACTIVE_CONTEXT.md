@@ -66,6 +66,15 @@ Adds:
 - selective memory promotion
 - revised downstream `憲法から` semantics after CMD-ROOT-001 live-repository verification
 
+## Current Governance Extension
+
+### W-GOV-002 — Instruction Matching + 修正 Command
+Status: VERIFYING  
+Branch: `docs/instruction-dictionary-work-fix`  
+Proposal: P-001 APPROVED
+
+After merge, resume the already-confirmed Mathematics learning-mode correction under CMD-WORK-001.
+
 ## Open Workstreams
 
 ### W1 — Repository OS v1
