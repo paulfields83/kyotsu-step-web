@@ -2,8 +2,16 @@
 
 ## P-001 — Semantic structure + pilot correction
 
-Status: PROPOSED
+Status: SUPERSEDED
 Created: 2026-10-08
+
+Superseded by P-002 after user approval with additional requirements.
+
+## P-002 — Semantic structure + sequential chapter gate + pilot correction
+
+Status: APPROVED
+Created: 2026-10-08
+Approved: 2026-10-08
 
 ### Problem / Need
 
@@ -20,33 +28,22 @@ motivating question
 
 and requires Definition / Proof / Example to be visually distinct, while concept/definition prose is primarily black.
 
-The current published Mathematics textbook implementation cannot represent these roles explicitly and therefore cannot reliably render or validate the canonical structure.
+The current implementation also allows learners to select later chapters before finishing the current chapter, and the user identified an absolute-value readability defect where `|x+1|` is visually easy to misread as plain `x+1`.
 
 ### Confirmed implementation gaps
 
-1. `TextbookReadingBlockSchema` only has:
-   - topic
-   - heading
-   - paragraph
-   - formula
-   - figure
-   - note
+1. `TextbookReadingBlockSchema` has no semantic role for concept / definition / property / proof / example.
+2. `TextbookUnitPage.tsx` renders those roles generically.
+3. Published Mathematics content is strongly worksheet-shaped rather than prose-backbone shaped.
+4. Figure integration is absent from current published Mathematics learning-flow data despite curated assets existing.
+5. `LearningSetupPage.tsx` currently allows arbitrary chapter selection; later chapters are not gated by previous-chapter completion.
+6. Absolute-value notation must be visually unambiguous. The supplied screenshot shows `|x+1|` with the vertical bars too easy to miss.
 
-   It has no semantic role for concept / definition / property / proof / example.
-
-2. `TextbookUnitPage.tsx` renders headings and notes generically. A proof and an example can therefore be visually identical apart from literal text.
-
-3. Published Mathematics units contain 427 heading blocks; 407 are worksheet-like 「教科書対応問 / 問題文」 style headings. This makes the learner flow closer to a sequence of prompts than the canonical textbook-prose backbone.
-
-4. All seven current published Mathematics units declare zero figures and contain zero figure blocks, even though many curated figure assets and figure-source QA files exist in the repository. This does not mean every topic needs a figure; it confirms that figure integration is currently absent from the published learning-flow data.
-
-5. The current CSS can style `note` as muted/colored, but because semantic concept/definition roles do not exist, the canonical rule “concept/definition prose is basically black; color is functional” cannot be enforced structurally.
-
-### Proposed correction
+### Approved correction
 
 #### Phase A — Backward-compatible semantic foundation
 
-Add optional semantic role metadata to reading blocks instead of replacing the shared schema.
+Add optional semantic role metadata to textbook reading blocks.
 
 Proposed roles:
 - motivation
@@ -59,79 +56,89 @@ Proposed roles:
 - check
 - support
 
-Existing Physics and Mathematics data remains valid when role is omitted.
+Existing data remains valid when role is omitted.
 
-Renderer behavior:
-- concept / definition: black prose, strong local term emphasis
-- property: clearly separated but still textbook prose
-- proof: dedicated proof visual hierarchy
-- example: dedicated example visual hierarchy distinct from proof
-- motivation/focus/check/support: functional presentation without turning every block into a card
+Renderer:
+- concept / definition: black prose, local bold emphasis only
+- property: distinct but still part of continuous textbook prose
+- proof: dedicated proof hierarchy
+- example: dedicated example hierarchy, clearly different from proof
+- avoid excessive cards/headings
 
-Add tests that semantic roles render distinctly and existing untagged data still validates.
+#### Phase B — Sequential chapter gate
 
-#### Phase B — Pilot: Mathematics A 「図形の性質」
+For Mathematics Textbook / Learning Mode:
+- later chapters are locked until the preceding chapter is complete;
+- specifically, Chapter 2 must not be enterable while Chapter 1 is incomplete;
+- completion is based on all learning items belonging to the preceding chapter being resolved;
+- locked chapters remain visible but non-enterable, with a short explanation;
+- existing progress must be respected.
 
-Use `backend/data/textbooks/math-1a/geometric-properties/unit.json` as the pilot because it contains definitions, properties, proofs, examples, and existing figure assets.
+Do not apply this rule to Mathematics Practice.
 
-For the pilot:
-1. identify each topic's natural motivating question;
+#### Phase C — Absolute-value readability
+
+Where absolute-value expressions are rendered in learning content:
+- use math rendering that makes both delimiters unmistakable;
+- prefer explicit `\lvert ... \rvert` / equivalent robust math markup over ambiguous plain-text pipes;
+- verify desktop and mobile line wrapping;
+- do not alter the mathematical statement.
+
+If the supplied screenshot is traced to Practice-only source data, do not rewrite Practice content inside this Work. Fix only shared rendering if the defect is shared; otherwise record a separate Practice issue.
+
+#### Phase D — Pilot: Mathematics A 「図形の性質」
+
+Use `backend/data/textbooks/math-1a/geometric-properties/unit.json` as the semantic-structure pilot.
+
+1. identify natural motivating question;
 2. mark focus / thought sequence;
 3. tag concept/definition/property/proof/example roles;
-4. reduce repetitive worksheet headings where prose can carry the flow;
-5. preserve mathematical content, item IDs, answers, and stable section IDs where possible;
-6. integrate existing figures only where they materially improve understanding;
+4. reduce repetitive worksheet headings;
+5. preserve mathematical content, item IDs, answers, stable section IDs where possible;
+6. integrate existing figures only where pedagogically justified;
 7. verify no answer leakage.
 
-#### Phase C — Pilot review
+#### Phase E — Pilot review
 
 After browser/mobile QA, stop and show the pilot to the user.
 
-Do not bulk-migrate the remaining published Mathematics units until the user approves the pilot direction.
+Do not bulk-migrate remaining published Mathematics units until user approval of the pilot direction.
 
 ### Out of Scope
 
-- Mathematics Practice
-- bulk rewriting of all seven published units in this proposal
+- Mathematics Practice content rewrite
+- Physics mode changes
+- bulk migration of all Mathematics units before pilot review
+- source DOCX changes
 - new mathematical theorems/content
-- changing source DOCX authority
-- changes to Physics textbook semantics without separate review
 
 ### Risks
 
-- semantic-role schema is shared by Physics; therefore the change must remain backward-compatible
-- content migration could accidentally change answer order or leak answers
-- excessive card styling could recreate the “too many headings/boxes” problem
-- figure integration must follow node placement, not asset availability alone
+- shared schema changes must stay backward-compatible
+- chapter-gating logic must not destroy existing progress
+- absolute-value fix must not accidentally modify unrelated punctuation
+- excessive role styling could create too many visual boxes
+- figure placement must follow pedagogy, not asset availability
 
 ### Verification Plan
 
-Schema / compatibility:
 - existing textbook units validate unchanged
 - role-tagged blocks validate
-- public/private answer boundary unchanged
-
-UI:
-- proof and example visually distinct
+- proof/example/definition render distinctly
 - concept/definition prose remains black
-- mobile flow readable
-- no excessive heading/card fragmentation
-
-Pilot pedagogy:
-- motivating question exists where appropriate
-- concept → property → proof if needed → example order is meaningful
-- nontrivial reasoning is not skipped
-- no unknown-term guessing
+- Chapter 2 cannot be entered before Chapter 1 completion
+- after Chapter 1 completion, Chapter 2 unlocks
+- existing completed users are not re-locked incorrectly
+- `|x+1|` is visually unmistakable on desktop/mobile
 - no answer leakage
-
-Figures:
-- only purpose-driven figures
-- correct placement before/after the relevant thought node
-- asset legibility and numerical/geometry QA preserved
+- pilot browser/mobile QA
+- typecheck / tests / build / governance check
 
 ### Approval
 
-Status: WAITING
-Approved by user: NO
-Approval date:
-Approval evidence:
+Status: APPROVED
+Approved by user: YES
+Approval date: 2026-10-08
+Approval evidence: user said 「私のルールで守って結構！」 and added the two binding correction comments:
+1. 「1章が終わるまで次章に入らないこと」
+2. 「絶対値のx+1が見えにくい」
