@@ -5,13 +5,13 @@
 Status: SUPERSEDED
 Created: 2026-10-08
 
-Superseded by P-002 after user approval with additional requirements.
+Superseded by P-002 after user review feedback with additional requirements. No approval was granted at that point.
 
 ## P-002 — Semantic structure + sequential chapter gate + pilot correction
 
-Status: APPROVED
+Status: PROPOSED
 Created: 2026-10-08
-Approved: 2026-10-08
+Approved:
 
 ### Problem / Need
 
@@ -39,7 +39,7 @@ The current implementation also allows learners to select later chapters before 
 5. `LearningSetupPage.tsx` currently allows arbitrary chapter selection; later chapters are not gated by previous-chapter completion.
 6. Absolute-value notation must be visually unambiguous. The supplied screenshot shows `|x+1|` with the vertical bars too easy to miss.
 
-### Approved correction
+### Revised correction proposal
 
 #### Phase A — Backward-compatible semantic foundation
 
@@ -136,9 +136,16 @@ Do not bulk-migrate remaining published Mathematics units until user approval of
 
 ### Approval
 
-Status: APPROVED
-Approved by user: YES
-Approval date: 2026-10-08
-Approval evidence: user said 「私のルールで守って結構！」 and added the two binding correction comments:
-1. 「1章が終わるまで次章に入らないこと」
-2. 「絶対値のx+1が見えにくい」
+Status: WAITING
+Approved by user: NO
+Approval date:
+Approval evidence:
+
+### Review History
+
+- Review status: FEEDBACK-RECEIVED
+- User feedback:
+  1. 「1章が終わるまで次章に入らないこと」
+  2. 「絶対値のx+1が見えにくい」
+- Interpretation under live governance: review feedback, not approval.
+- Required next action: present this full P-002 and wait for explicit approval before further implementation or merge.
