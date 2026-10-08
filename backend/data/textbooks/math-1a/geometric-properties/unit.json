@@ -87,7 +87,7 @@
         {
           "id": "s1-geometric-properties-t01-h005",
           "type": "heading",
-          "text": "教科書対応問　平行線と線分比",
+          "text": "例題　平行線と線分比",
           "role": "example"
         },
         {
@@ -104,9 +104,14 @@
         },
         {
           "id": "s1-geometric-properties-t01-h008",
-          "type": "heading",
-          "text": "問題文　△ABCにおいて、Dを辺AB上、Eを辺AC上の点とし、DE∥BCとする。AD:AB、AE:AC、DE:BCの関係を求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCにおいて、Dを辺AB上、Eを辺AC上の点とし、DE∥BCとする。AD:AB、AE:AC、DE:BCの関係を求めよ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t01-p009",
@@ -190,7 +195,7 @@
         {
           "id": "s1-geometric-properties-t02-h003",
           "type": "heading",
-          "text": "教科書対応問　1:2内分",
+          "text": "例題　1:2内分",
           "role": "example"
         },
         {
@@ -207,9 +212,14 @@
         },
         {
           "id": "s1-geometric-properties-t02-h006",
-          "type": "heading",
-          "text": "問題文　線分ABを1:2に内分する点Pを図示せよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "線分ABを1:2に内分する点Pを図示せよ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t02-p007",
@@ -271,7 +281,7 @@
         {
           "id": "s1-geometric-properties-t03-h002",
           "type": "heading",
-          "text": "教科書対応問　二等分線で辺を分ける",
+          "text": "例題　二等分線で辺を分ける",
           "role": "example"
         },
         {
@@ -288,9 +298,14 @@
         },
         {
           "id": "s1-geometric-properties-t03-h005",
-          "type": "heading",
-          "text": "問題文　△ABCにおいて、AB=6、AC=9、BC=10とする。∠Aの二等分線と辺BCの交点をDとするとき、BD、DCを求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCにおいて、AB=6、AC=9、BC=10とする。∠Aの二等分線と辺BCの交点をDとするとき、BD、DCを求めよ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t03-p006",
@@ -352,7 +367,7 @@
         {
           "id": "s1-geometric-properties-t04-h002",
           "type": "heading",
-          "text": "教科書対応問　重心の比",
+          "text": "例題　重心の比",
           "role": "example"
         },
         {
@@ -369,9 +384,14 @@
         },
         {
           "id": "s1-geometric-properties-t04-h005",
-          "type": "heading",
-          "text": "問題文　ADを△ABCの中線とし、Gを重心とする。AG=8のとき、GD、ADを求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ADを△ABCの中線とし、Gを重心とする。AG=8のとき、GD、ADを求めよ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t04-p006",
@@ -460,7 +480,7 @@
         {
           "id": "s1-geometric-properties-t05-h003",
           "type": "heading",
-          "text": "教科書対応問　中心を判別",
+          "text": "例題　中心を判別",
           "role": "example"
         },
         {
@@ -477,9 +497,14 @@
         },
         {
           "id": "s1-geometric-properties-t05-h006",
-          "type": "heading",
-          "text": "問題文　△ABCにおいて、点PがPA=PB=PCを満たしている。点Pは△ABCのどの中心か。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCにおいて、点PがPA=PB=PCを満たしている。点Pは△ABCのどの中心か。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t05-p007",
@@ -552,7 +577,7 @@
         {
           "id": "s1-geometric-properties-t06-h003",
           "type": "heading",
-          "text": "教科書対応問　内心の角度",
+          "text": "例題　内心の角度",
           "role": "example"
         },
         {
@@ -569,9 +594,14 @@
         },
         {
           "id": "s1-geometric-properties-t06-h006",
-          "type": "heading",
-          "text": "問題文　△ABCにおいて、∠B=70°、∠C=60°とし、内心をIとする。∠BICを求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCにおいて、∠B=70°、∠C=60°とし、内心をIとする。∠BICを求めよ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t06-p007",
@@ -612,7 +642,7 @@
         {
           "id": "s1-geometric-properties-t06-h010",
           "type": "heading",
-          "text": "教科書対応問　内心と辺の比",
+          "text": "例題　内心と辺の比",
           "role": "example"
         },
         {
@@ -629,9 +659,14 @@
         },
         {
           "id": "s1-geometric-properties-t06-h013",
-          "type": "heading",
-          "text": "問題文　△ABCにおいて、AB=7、BC=9、CA=8とする。内心をIとし、直線BIと辺ACの交点をEとするとき、AE、ECを求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCにおいて、AB=7、BC=9、CA=8とする。内心をIとし、直線BIと辺ACの交点をEとするとき、AE、ECを求めよ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t06-p014",
@@ -688,7 +723,7 @@
         {
           "id": "s1-geometric-properties-t06-h017",
           "type": "heading",
-          "text": "教科書対応問　重心と外心が一致する三角形",
+          "text": "例題　重心と外心が一致する三角形",
           "role": "example"
         },
         {
@@ -705,9 +740,14 @@
         },
         {
           "id": "s1-geometric-properties-t06-h020",
-          "type": "heading",
-          "text": "問題文　重心と外心が一致する△ABCは正三角形であることを示せ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "重心と外心が一致する△ABCは正三角形であることを示せ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t06-p021",
@@ -834,7 +874,7 @@
         {
           "id": "s1-geometric-properties-t08-h003",
           "type": "heading",
-          "text": "教科書対応問　チェバの定理で未知比",
+          "text": "例題　チェバの定理で未知比",
           "role": "example"
         },
         {
@@ -851,9 +891,14 @@
         },
         {
           "id": "s1-geometric-properties-t08-h006",
-          "type": "heading",
-          "text": "問題文　△ABCにおいて、BD:DC=2:3、CE:EA=4:5とする。AD、BE、CFが1点で交わるとき、AF:FBを求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCにおいて、BD:DC=2:3、CE:EA=4:5とする。AD、BE、CFが1点で交わるとき、AF:FBを求めよ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t08-p007",
@@ -883,7 +928,7 @@
         {
           "id": "s1-geometric-properties-t08-h009",
           "type": "heading",
-          "text": "教科書対応問　メネラウスの定理で未知比",
+          "text": "例題　メネラウスの定理で未知比",
           "role": "example"
         },
         {
@@ -900,9 +945,14 @@
         },
         {
           "id": "s1-geometric-properties-t08-h012",
-          "type": "heading",
-          "text": "問題文　△ABCの3辺またはその延長上に点D、E、Fがあり、D、E、Fは一直線上にある。既知の2つの比から、残りの比を求める手順を確かめよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "△ABCの3辺またはその延長上に点D、E、Fがあり、D、E、Fは一直線上にある。既知の2つの比から、残りの比を求める手順を確かめよ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t08-p013",
@@ -1018,7 +1068,7 @@
         {
           "id": "s1-geometric-properties-t10-h003",
           "type": "heading",
-          "text": "教科書対応問　三角形が作れる範囲",
+          "text": "例題　三角形が作れる範囲",
           "role": "example"
         },
         {
@@ -1035,9 +1085,14 @@
         },
         {
           "id": "s1-geometric-properties-t10-h006",
-          "type": "heading",
-          "text": "問題文　3辺の長さが3、5、xである三角形が存在するとき、xの値の範囲を求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3辺の長さが3、5、xである三角形が存在するとき、xの値の範囲を求めよ。"
+            }
+          ]
         },
         {
           "id": "s1-geometric-properties-t10-p007",
@@ -1448,7 +1503,7 @@
         {
           "id": "s2-geometric-properties-t01-h004",
           "type": "heading",
-          "text": "教科書対応問　同じ弧を見る角",
+          "text": "例題　同じ弧を見る角",
           "role": "example"
         },
         {
@@ -1465,9 +1520,14 @@
         },
         {
           "id": "s2-geometric-properties-t01-h007",
-          "type": "heading",
-          "text": "問題文　円周上にA、B、C、Dがあり、∠ACB=35°とする。∠ADBを求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円周上にA、B、C、Dがあり、∠ACB=35°とする。∠ADBを求めよ。"
+            }
+          ]
         },
         {
           "id": "s2-geometric-properties-t01-p008",
@@ -1564,7 +1624,7 @@
         {
           "id": "s2-geometric-properties-t03-h002",
           "type": "heading",
-          "text": "教科書対応問　接線角",
+          "text": "例題　接線角",
           "role": "example"
         },
         {
@@ -1581,9 +1641,14 @@
         },
         {
           "id": "s2-geometric-properties-t03-h005",
-          "type": "heading",
-          "text": "問題文　円の接点Aで、接線と弦ABのなす角が40°である。弦ABに対する円周角を求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円の接点Aで、接線と弦ABのなす角が40°である。弦ABに対する円周角を求めよ。"
+            }
+          ]
         },
         {
           "id": "s2-geometric-properties-t03-p005a",
@@ -1656,7 +1721,7 @@
         {
           "id": "s2-geometric-properties-t04-h003",
           "type": "heading",
-          "text": "教科書対応問　長さを求める",
+          "text": "例題　長さを求める",
           "role": "example"
         },
         {
@@ -1673,9 +1738,14 @@
         },
         {
           "id": "s2-geometric-properties-t04-h006",
-          "type": "heading",
-          "text": "問題文　点Pから円に2本の割線を引き、PA=2、PB=8、PC=4とする。PDを求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点Pから円に2本の割線を引き、PA=2、PB=8、PC=4とする。PDを求めよ。"
+            }
+          ]
         },
         {
           "id": "s2-geometric-properties-t04-p007",
@@ -1729,7 +1799,7 @@
         {
           "id": "s2-geometric-properties-t05-h002",
           "type": "heading",
-          "text": "教科書対応問　円周角の逆",
+          "text": "例題　円周角の逆",
           "role": "example"
         },
         {
@@ -1746,9 +1816,14 @@
         },
         {
           "id": "s2-geometric-properties-t05-h005",
-          "type": "heading",
-          "text": "問題文　点C、Dが直線ABの同じ側にあり、∠ACB=∠ADBとする。4点A、B、C、Dが同一円周上にあることを示せ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点C、Dが直線ABの同じ側にあり、∠ACB=∠ADBとする。4点A、B、C、Dが同一円周上にあることを示せ。"
+            }
+          ]
         },
         {
           "id": "s2-geometric-properties-t05-p006",
@@ -1778,7 +1853,7 @@
         {
           "id": "s2-geometric-properties-t05-h008",
           "type": "heading",
-          "text": "教科書対応問　内接四角形の角",
+          "text": "例題　内接四角形の角",
           "role": "example"
         },
         {
@@ -1795,9 +1870,14 @@
         },
         {
           "id": "s2-geometric-properties-t05-h011",
-          "type": "heading",
-          "text": "問題文　四角形ABCDが円に内接し、∠A=72°である。∠Cを求め、さらに辺ABを延長してできる外角と∠Cの関係を答えよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "四角形ABCDが円に内接し、∠A=72°である。∠Cを求め、さらに辺ABを延長してできる外角と∠Cの関係を答えよ。"
+            }
+          ]
         },
         {
           "id": "s2-geometric-properties-t05-p012",
@@ -1846,7 +1926,7 @@
         {
           "id": "s2-geometric-properties-t05-h015",
           "type": "heading",
-          "text": "教科書対応問　同一点から引いた接線",
+          "text": "例題　同一点から引いた接線",
           "role": "example"
         },
         {
@@ -1863,9 +1943,14 @@
         },
         {
           "id": "s2-geometric-properties-t05-h018",
-          "type": "heading",
-          "text": "問題文　円Oの外部の点Pから、円Oに接線PA、PBを引く。PAとPBの長さの関係を求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円Oの外部の点Pから、円Oに接線PA、PBを引く。PAとPBの長さの関係を求めよ。"
+            }
+          ]
         },
         {
           "id": "s2-geometric-properties-t05-p019",
@@ -1895,7 +1980,7 @@
         {
           "id": "s2-geometric-properties-t05-h021",
           "type": "heading",
-          "text": "教科書対応問　方べき・円内の交点",
+          "text": "例題　方べき・円内の交点",
           "role": "example"
         },
         {
@@ -1912,9 +1997,14 @@
         },
         {
           "id": "s2-geometric-properties-t05-h024",
-          "type": "heading",
-          "text": "問題文　円の内部で2弦AB、CDが点Pで交わり、PA=3、PB=8、PC=4とする。PDを求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "円の内部で2弦AB、CDが点Pで交わり、PA=3、PB=8、PC=4とする。PDを求めよ。"
+            }
+          ]
         },
         {
           "id": "s2-geometric-properties-t05-p025",
@@ -1944,7 +2034,7 @@
         {
           "id": "s2-geometric-properties-t05-h027",
           "type": "heading",
-          "text": "教科書対応問　2円の共通弦",
+          "text": "例題　2円の共通弦",
           "role": "example"
         },
         {
@@ -1961,9 +2051,14 @@
         },
         {
           "id": "s2-geometric-properties-t05-h030",
-          "type": "heading",
-          "text": "問題文　2つの円O1、O2がA、Bで交わるとき、O1O2とABの位置関係を答えよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2つの円O1、O2がA、Bで交わるとき、O1O2とABの位置関係を答えよ。"
+            }
+          ]
         },
         {
           "id": "s2-geometric-properties-t05-p031",
@@ -2208,7 +2303,7 @@
         {
           "id": "s3-geometric-properties-t01-h005",
           "type": "heading",
-          "text": "教科書対応問　垂線を引く",
+          "text": "例題　垂線を引く",
           "role": "example"
         },
         {
@@ -2225,9 +2320,14 @@
         },
         {
           "id": "s3-geometric-properties-t01-h008",
-          "type": "heading",
-          "text": "問題文　点Pから直線lに垂線を引け。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点Pから直線lに垂線を引け。"
+            }
+          ]
         },
         {
           "id": "s3-geometric-properties-t01-p009",
@@ -2257,7 +2357,7 @@
         {
           "id": "s3-geometric-properties-t01-h011",
           "type": "heading",
-          "text": "教科書対応問　√aの作図",
+          "text": "例題　√aの作図",
           "role": "example"
         },
         {
@@ -2274,9 +2374,14 @@
         },
         {
           "id": "s3-geometric-properties-t01-h014",
-          "type": "heading",
-          "text": "問題文　長さa、bの2つの線分が与えられたとき、長さ√(ab)の線分を作図せよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "長さa、bの2つの線分が与えられたとき、長さ√(ab)の線分を作図せよ。"
+            }
+          ]
         },
         {
           "id": "s3-geometric-properties-t01-p015",
@@ -2306,7 +2411,7 @@
         {
           "id": "s3-geometric-properties-t01-h017",
           "type": "heading",
-          "text": "教科書対応問　角の二等分線を作図",
+          "text": "例題　角の二等分線を作図",
           "role": "example"
         },
         {
@@ -2323,9 +2428,14 @@
         },
         {
           "id": "s3-geometric-properties-t01-h020",
-          "type": "heading",
-          "text": "問題文　∠AOBの二等分線を作図せよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "∠AOBの二等分線を作図せよ。"
+            }
+          ]
         },
         {
           "id": "s3-geometric-properties-t01-p021",
@@ -2366,7 +2476,7 @@
         {
           "id": "s3-geometric-properties-t01-h024",
           "type": "heading",
-          "text": "教科書対応問　与えられた3点を通る円",
+          "text": "例題　与えられた3点を通る円",
           "role": "example"
         },
         {
@@ -2383,9 +2493,14 @@
         },
         {
           "id": "s3-geometric-properties-t01-h027",
-          "type": "heading",
-          "text": "問題文　一直線上にない3点A、B、Cを通る円を作図せよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一直線上にない3点A、B、Cを通る円を作図せよ。"
+            }
+          ]
         },
         {
           "id": "s3-geometric-properties-t01-p028",
@@ -2415,7 +2530,7 @@
         {
           "id": "s3-geometric-properties-t01-h030",
           "type": "heading",
-          "text": "教科書対応問　条件を満たす点の作図",
+          "text": "例題　条件を満たす点の作図",
           "role": "example"
         },
         {
@@ -2432,9 +2547,14 @@
         },
         {
           "id": "s3-geometric-properties-t01-h033",
-          "type": "heading",
-          "text": "問題文　2点A、Bから等距離にあり、直線lから一定の距離にある点を作図せよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2点A、Bから等距離にあり、直線lから一定の距離にある点を作図せよ。"
+            }
+          ]
         },
         {
           "id": "s3-geometric-properties-t01-p034",
@@ -2607,7 +2727,7 @@
         {
           "id": "s4-geometric-properties-t02-h002",
           "type": "heading",
-          "text": "教科書対応問　空間の垂直",
+          "text": "例題　空間の垂直",
           "role": "example"
         },
         {
@@ -2624,9 +2744,14 @@
         },
         {
           "id": "s4-geometric-properties-t02-h005",
-          "type": "heading",
-          "text": "問題文　点Pから平面αに垂線PHを下ろし、Hを通る平面α上の直線lをとる。PHとlの位置関係を答えよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点Pから平面αに垂線PHを下ろし、Hを通る平面α上の直線lをとる。PHとlの位置関係を答えよ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t02-p006",
@@ -2699,7 +2824,7 @@
         {
           "id": "s4-geometric-properties-t03-h003",
           "type": "heading",
-          "text": "教科書対応問　表を完成",
+          "text": "例題　表を完成",
           "role": "example"
         },
         {
@@ -2716,9 +2841,14 @@
         },
         {
           "id": "s4-geometric-properties-t03-h006",
-          "type": "heading",
-          "text": "問題文　立方体では V=8、E=12、F=6 である。V−E+Fの値を求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "立方体では V=8、E=12、F=6 である。V−E+Fの値を求めよ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t03-p007",
@@ -2748,7 +2878,7 @@
         {
           "id": "s4-geometric-properties-t03-h009",
           "type": "heading",
-          "text": "教科書対応問　ねじれの位置",
+          "text": "例題　ねじれの位置",
           "role": "example"
         },
         {
@@ -2765,9 +2895,14 @@
         },
         {
           "id": "s4-geometric-properties-t03-h012",
-          "type": "heading",
-          "text": "問題文　立方体ABCD-EFGHにおいて、直線ABとCGの位置関係を答えよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "立方体ABCD-EFGHにおいて、直線ABとCGの位置関係を答えよ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t03-p013",
@@ -2797,7 +2932,7 @@
         {
           "id": "s4-geometric-properties-t03-h015",
           "type": "heading",
-          "text": "教科書対応問　平面どうしの角",
+          "text": "例題　平面どうしの角",
           "role": "example"
         },
         {
@@ -2814,9 +2949,14 @@
         },
         {
           "id": "s4-geometric-properties-t03-h018",
-          "type": "heading",
-          "text": "問題文　2平面α、βの交線をlとし、同じ点からa⊂α、b⊂βをlに垂直に引く。2平面α、βのなす角を答えよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2平面α、βの交線をlとし、同じ点からa⊂α、b⊂βをlに垂直に引く。2平面α、βのなす角を答えよ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t03-p019",
@@ -2846,7 +2986,7 @@
         {
           "id": "s4-geometric-properties-t03-h021",
           "type": "heading",
-          "text": "教科書対応問　正多面体を分類",
+          "text": "例題　正多面体を分類",
           "role": "example"
         },
         {
@@ -2863,9 +3003,14 @@
         },
         {
           "id": "s4-geometric-properties-t03-h024",
-          "type": "heading",
-          "text": "問題文　正多面体が何種類あるかを、1つの頂点に集まる面の角の和に着目して考えよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正多面体が何種類あるかを、1つの頂点に集まる面の角の和に着目して考えよ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t03-p025",
@@ -2950,9 +3095,14 @@
         },
         {
           "id": "s4-geometric-properties-t04-h006",
-          "type": "heading",
-          "text": "問題文　合同・相似・円周角・方べきの定理を組み合わせて、図形の性質を証明せよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "合同・相似・円周角・方べきの定理を組み合わせて、図形の性質を証明せよ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t04-p007",
@@ -2996,9 +3146,14 @@
         },
         {
           "id": "s4-geometric-properties-t04-h012",
-          "type": "heading",
-          "text": "問題文　点の位置や比を変えたとき、もとの結論が成り立つ条件を調べよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点の位置や比を変えたとき、もとの結論が成り立つ条件を調べよ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t04-p013",
@@ -3050,9 +3205,14 @@
         },
         {
           "id": "s4-geometric-properties-t04-h018",
-          "type": "heading",
-          "text": "問題文　三角形の五心の定義を用いて，問題の条件に合う補助線を引き，必要な比の関係を求めよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三角形の五心の定義を用いて，問題の条件に合う補助線を引き，必要な比の関係を求めよ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t04-p019",
@@ -3104,9 +3264,14 @@
         },
         {
           "id": "s4-geometric-properties-t04-h024",
-          "type": "heading",
-          "text": "問題文　与えられた条件から、4点が同一円周上にあることを示せ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "与えられた条件から、4点が同一円周上にあることを示せ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t04-p025",
@@ -3169,9 +3334,14 @@
         },
         {
           "id": "s4-geometric-properties-t04-h031",
-          "type": "heading",
-          "text": "問題文　2点A、Bを見込む角∠APBが最大になる点Pの位置を考えよ。",
-          "role": "example"
+          "type": "paragraph",
+          "role": "example",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2点A、Bを見込む角∠APBが最大になる点Pの位置を考えよ。"
+            }
+          ]
         },
         {
           "id": "s4-geometric-properties-t04-p032",
