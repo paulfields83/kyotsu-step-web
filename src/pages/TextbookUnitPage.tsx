@@ -5,7 +5,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
-import { findTextbookLessonTarget, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
+import { buildTextbookChapters, findTextbookLessonTarget, isTextbookChapterUnlocked, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
 import type { TextbookReadingBlock, TextbookReadingPart } from '../domain/textbookSchema'
 import type { PublicTextbookItem, PublicTextbookSection, PublicTextbookUnit, TextbookAnswerResult } from '../domain/textbookPublic'
 import { useAppStore } from '../stores/useAppStore'
@@ -361,8 +361,10 @@ export function TextbookUnitPage() {
   const targetKey = searchParams.get('target')
   const requestedSectionId = searchParams.get('section')
   const [unit, setUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
+  const [catalogUnits, setCatalogUnits] = useState<PublicTextbookUnit[] | null | undefined>(undefined)
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0)
-  const progress = useAppStore((state) => state.textbookProgress[unitId])
+  const textbookProgress = useAppStore((state) => state.textbookProgress)
+  const progress = textbookProgress[unitId]
   const resetTextbookUnit = useAppStore((state) => state.resetTextbookUnit)
   const { text } = useI18n()
 
@@ -372,6 +374,11 @@ export function TextbookUnitPage() {
       if (active) setUnit(value ?? null)
     }).catch(() => {
       if (active) setUnit(null)
+    })
+    textbookRepository.listPublished().then((units) => {
+      if (active) setCatalogUnits(units)
+    }).catch(() => {
+      if (active) setCatalogUnits(null)
     })
     return () => { active = false }
   }, [unitId])
@@ -391,6 +398,22 @@ export function TextbookUnitPage() {
 
   if (unit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
   if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
+  if (unit.subject === 'math-1a' && catalogUnits === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('章の進行状況を確認しています', '正在确认章节进度')}</h2></div>
+  if (unit.subject === 'math-1a' && catalogUnits === null) return <ErrorState title={text('章の進行状況を確認できません', '无法确认章节进度')} body={text('後の章へ誤って進まないよう、この画面では学習を開始しません。', '为避免误入后续章节，此页面暂不开始学习。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
+
+  const mathChapters = unit.subject === 'math-1a' ? buildTextbookChapters(catalogUnits ?? [], 'math-1a') : []
+  const mathChapterIndex = mathChapters.findIndex((chapter) => chapter.lessons.some((lesson) => lesson.unitId === unit.unitId))
+  const mathChapterUnlocked = unit.subject !== 'math-1a'
+    || mathChapterIndex < 0
+    || isTextbookChapterUnlocked(catalogUnits ?? [], mathChapters, mathChapterIndex, textbookProgress)
+
+  if (!mathChapterUnlocked) {
+    return <ErrorState
+      title={text('この章はまだ開いていません', '本章尚未解锁')}
+      body={text('前の章をすべて完了すると、この章へ進めます。', '完成前一章后，才可进入本章。')}
+      action={<Link className="raised-link" to="/learning/setup">{text('前の章へ戻る', '返回前一章')}</Link>}
+    />
+  }
 
   const targetMatch = targetKey ? findTextbookLessonTarget([unit], targetKey) : undefined
   const lessonTarget = targetMatch?.lesson
