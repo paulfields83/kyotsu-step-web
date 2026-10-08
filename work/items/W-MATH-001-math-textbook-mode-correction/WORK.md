@@ -1,6 +1,6 @@
 # W-MATH-001 — Mathematics Textbook / Learning Mode Correction
 
-Status: PROPOSED
+Status: IMPLEMENTING
 Updated: 2026-10-08
 
 ## Objective
@@ -41,15 +41,15 @@ Potential implementation scope after approval:
 
 ## Approved Proposal
 
-None.
+`P-002` — APPROVED by user on 2026-10-08.
 
 ## Current Step
 
-Assessment complete; proposal P-001 awaiting user approval.
+Implement P-002, starting with chapter gating and absolute-value readability trace before the semantic pilot.
 
 ## Next Step
 
-User reviews P-001. No implementation before approval.
+Implement and verify the approved correction in staged order; stop after the pilot for user review.
 
 ## Completion Condition
 
