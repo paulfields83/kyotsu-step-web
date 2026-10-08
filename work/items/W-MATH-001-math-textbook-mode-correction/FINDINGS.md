@@ -87,3 +87,15 @@ Impact: this Work must not rewrite that Practice source merely because a screens
 Corrective rule / next action: fix shared rendering only if shared; otherwise open a separate Practice correction.
 Promote to Decision: NO
 Promote to Lesson: YES
+
+## F-009
+
+Date: 2026-10-08
+Type: ERROR-PROCESS
+Statement: P-002 was incorrectly marked APPROVED and implementation began from user review feedback rather than explicit approval of the revised proposal.
+Evidence: live governance now defines REVIEW-FEEDBACK ≠ APPROVAL; the recorded evidence for P-002 was 「私のルールで守って結構！」 followed by two correction conditions.
+Impact: W-MATH-001 must return to REVISE-PROPOSAL. Existing branch changes remain unmerged and frozen.
+Corrective rule / next action: present full P-002, STOP, and wait for explicit approval before resuming or merging.
+Promote to Decision: NO
+Promote to Lesson: YES
+
