@@ -26,3 +26,14 @@ Action: Routed AGENTS through instruction matching and extended governance valid
 Target / location: `AGENTS.md`, `tools/repo-governance-check.mjs`
 Reason: make the rule operational and machine-checked.
 Result: SUCCESS
+
+## A-004
+
+Date: 2026-10-08
+Related proposal: P-001
+Action: Opened PR #9 and ran governance/application CI.
+Target / location: PR #9
+Reason: verify the instruction matching system before merge.
+Result: SUCCESS.
+Evidence: Repository Governance Check and normal PR checks succeeded.
+
