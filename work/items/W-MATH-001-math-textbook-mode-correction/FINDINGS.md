@@ -36,11 +36,11 @@ Promote to Lesson: NO
 ## F-004
 
 Date: 2026-10-08
-Type: CONFIRMED
-Statement: All seven currently published Mathematics units have zero declared figures and zero figure blocks in their learning flow, while curated Math figure assets and QA sources exist in the repository.
-Evidence: repository-wide published-unit scan plus `backend/data/textbooks/math-1a/figure-sources/` and unit asset directories.
-Impact: figure integration is absent from current published learning-flow data.
-Corrective rule / next action: integrate figures only after deciding their pedagogical role and placement.
+Type: ERROR-PROVENANCE
+Statement: The first audit incorrectly inferred runtime figure absence from the raw static `unit.json` files.
+Evidence: `backend/src/mathLearningFigures.ts` enriches Mathematics units at load time, and `src/domain/textbookBackendData.test.ts` verifies generated figure blocks/assets in loaded units.
+Impact: the earlier claim “published runtime has no figures” was too broad.
+Corrective rule / next action: distinguish raw source data from the final loaded textbook unit before making runtime claims. Preserve the existing runtime figure-enrichment pipeline and evaluate figure placement pedagogically during the pilot.
 Promote to Decision: NO
 Promote to Lesson: YES
 
