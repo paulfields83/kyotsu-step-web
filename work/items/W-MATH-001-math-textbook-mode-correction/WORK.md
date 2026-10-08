@@ -1,6 +1,6 @@
 # W-MATH-001 — Mathematics Textbook / Learning Mode Correction
 
-Status: IMPLEMENTING
+Status: VERIFYING
 Updated: 2026-10-08
 
 ## Objective
@@ -45,11 +45,11 @@ Potential implementation scope after approval:
 
 ## Current Step
 
-Implement P-002, starting with chapter gating and absolute-value readability trace before the semantic pilot.
+Code/data implementation for P-002 pilot is complete with CI PASS. Visual/mobile QA and user pilot review remain.
 
 ## Next Step
 
-Implement and verify the approved correction in staged order; stop after the pilot for user review.
+Review the rendered pilot with the user. Do not expand to later Mathematics chapters or merge PR #11 before that review.
 
 ## Completion Condition
 
