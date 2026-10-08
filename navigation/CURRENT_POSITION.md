@@ -1,15 +1,15 @@
 # CURRENT POSITION
 
-Updated: 2026-10-05  
+Updated: 2026-10-08  
 Repository: `paulfields83/kyotsu-step-web`  
 Authoritative branch: `main`  
 Repository OS merge: **PR #3 — MERGED**
 
 ## Current Node
 
-**W-GOV-001 — Work Operating System v1 / VERIFYING**
+**Repository OS v1 + Work Operating System v1 — ACTIVE**
 
-Repository OS v1 remains ACTIVE on `main`. A user-approved governance extension is being developed on `docs/work-operating-system-v1`.
+W-GOV-001 is complete and merged into `main` through PR #6. The root instruction dictionary is also active on `main` through PR #7.
 
 Repository OS v1 was formally ratified on 2026-10-05 and merged into `main` through PR #3 using squash merge.
 
@@ -65,21 +65,20 @@ Future work must:
 - do not rename Physics internal 1A–1G IDs merely for learner-facing display cleanup.
 - do not treat `完成版` / `v8` filenames as authority.
 
-## Current Governance Work
+## Completed Governance Work
 
-- Work ID: `W-GOV-001`
-- branch: `docs/work-operating-system-v1`
+- W-GOV-001 Work Operating System v1 — DONE
 - proposal: `P-001` APPROVED
-- phase: VERIFYING — CI PASS / USER REVIEW WAIT
-- scope: Work IDs, approval gate, Action Log, Findings taxonomy, Verification, memory promotion
-- runtime impact: none
-- PR: #6
+- PR #6 — MERGED
+- merge commit: `a3d003efe4c1a1788033a2a063163b0ef79b0235`
 - Repository Governance Check: SUCCESS
 - normal PR checks: SUCCESS
+- runtime impact: none
+- CMD-ROOT-001 `憲法から` remains the highest-priority GitHub root command from PR #7
 
 ## Next Executable Work
 
-After W-GOV-001 review/merge, open separate feature branches for:
+Open separate feature branches for:
 
 1. **Physics Chapter 1 learner UI**
    - implement the 3-chunk learner-facing structure
