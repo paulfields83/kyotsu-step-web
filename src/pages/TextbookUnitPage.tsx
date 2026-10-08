@@ -179,6 +179,10 @@ function renderPart(
   return renderActiveChoice(item, record?.firstValue, Boolean(record && !record.resolved), onOpen, text)
 }
 
+function readingRoleClass(block: TextbookReadingBlock) {
+  return block.role ? ` reading-role--${block.role}` : ''
+}
+
 function TextbookReadingFlow({ unit, section, progress }: {
   unit: PublicTextbookUnit
   section: PublicTextbookSection
@@ -263,15 +267,15 @@ function TextbookReadingFlow({ unit, section, progress }: {
   }
 
   const renderBlock = (block: TextbookReadingBlock) => {
-    if (block.type === 'topic') return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
-    if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
-    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{block.text}</aside>
+    if (block.type === 'topic') return <h3 className={`reading-topic-title${readingRoleClass(block)}`} key={block.id}>{block.text}</h3>
+    if (block.type === 'heading') return <h4 className={`reading-subheading${readingRoleClass(block)}`} key={block.id}>{block.text}</h4>
+    if (block.type === 'note') return <aside className={`reading-note${readingRoleClass(block)}`} key={block.id}>{block.text}</aside>
 
     if (block.type === 'figure') {
       const figure = section.figures.find((candidate) => candidate.id === block.figureId)
       if (!figure) return null
       return (
-        <figure className="reading-figure" key={block.id}>
+        <figure className={`reading-figure${readingRoleClass(block)}`} key={block.id}>
           <img src={resolveAssetSrc(figure.src)} alt={figure.alt} />
           {figure.caption && <figcaption>{figure.caption}</figcaption>}
         </figure>
@@ -285,10 +289,10 @@ function TextbookReadingFlow({ unit, section, progress }: {
     ))
 
     return (
-      <div className="reading-block-with-choice" key={block.id}>
+      <div className={`reading-block-with-choice${readingRoleClass(block)}`} key={block.id}>
         {block.type === 'formula'
-          ? <div className="reading-formula-line">{content}</div>
-          : <p className="reading-paragraph">{content}</p>}
+          ? <div className={`reading-formula-line${readingRoleClass(block)}`}>{content}</div>
+          : <p className={`reading-paragraph${readingRoleClass(block)}`}>{content}</p>}
         {renderInlineChoicePanel(block)}
       </div>
     )
