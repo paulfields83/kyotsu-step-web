@@ -1,6 +1,6 @@
 # W-GOV-003 — Proposal Review Loop
 
-Status: VERIFYING
+Status: DONE
 Updated: 2026-10-08
 
 ## Objective
@@ -40,11 +40,11 @@ Make proposal review behavior explicit: user correction/advice is review feedbac
 
 ## Current Step
 
-Canonical rule implementation and CI are complete. Awaiting merge, then workflow simulation.
+Completed. Rule merged to main and 7/7 workflow simulations passed.
 
 ## Next Step
 
-Re-run CI on this recorded state, merge PR #12, then run workflow simulations against live main.
+None for W-GOV-003. W-MATH-001 is now correctly waiting at REVISE-PROPOSAL.
 
 ## Completion Condition
 
