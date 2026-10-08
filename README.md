@@ -14,6 +14,8 @@
 - `governance/CONSTITUTION.md`
 - `governance/DOCUMENT_AUTHORITY.md`
 - `governance/CHANGE_PROTOCOL.md`
+- `governance/WORK_SYSTEM.md`
+- `governance/COMMAND_WORDS.md`
 
 ### AI / Agent が作業するとき
 - `AGENTS.md`
@@ -95,10 +97,23 @@ memory/       brief / active / progress / lessons / decisions
 subjects/     教育モード正本
 technical/    現行技術正本
 quality/      完了条件・validator
-work/         現在のfeature/task
+work/         Work ID / proposal / action / findings / verification
 history/      過去資料（仕様権限なし）
 archive/      deprecated / deliverable
 ```
+
+## Work Operating System
+
+具体的な作業は `work/items/<WORK-ID>-<short-name>/` で追跡する。
+
+各Workは:
+- `WORK.md`
+- `PROPOSAL.md`
+- `ACTION_LOG.md`
+- `FINDINGS.md`
+- `VERIFICATION.md`
+
+を持つ。未承認Proposalは実装しない。詳細は `governance/WORK_SYSTEM.md`。
 
 ## 過去資料
 

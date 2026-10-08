@@ -12,8 +12,10 @@
 ### L1 — Constitution
 プロジェクト全体の非交渉原則。
 
-### L2 — Active Specification
-現在の task/feature の intent と acceptance criteria。実装の直接根拠。
+### L2 — Approved Active Work / Specification
+現在のWorkの approved proposal、active task/feature spec、acceptance criteria。実装の直接根拠。
+
+未承認のProposalはL2実装権限を持たない。
 
 ### L3 — Canonical Mode / Subject Specification
 例: Mathematics/Textbook、Mathematics/Practice、Physics/Textbook、Physics/Practice 固有ルール。
@@ -39,7 +41,16 @@ worklog、checkpoint、過去の decision、旧 handoff。経緯確認用。
 4. 正本が未確定なら BLOCKED とする。
 5. 解決後、古い資料へ DEPRECATED/HISTORICAL 状態を付与する。
 
-## 既存文書の暫定扱い
+## Work records
 
-2026-10-05 の監査完了までは、既存の root README / WORKFLOW / docs 内文書を自動的に L2-L4 とみなさない。  
-内容ごとに現状実装との整合性を確認し、canonical / historical / deprecated を再分類する。
+`work/items/` の各Workは詳細な作業証拠である。
+
+- APPROVED proposal: そのWorkのL2実装根拠
+- ACTION_LOG / FINDINGS / VERIFICATION: 実行・発見・検証の証拠
+- Work内の記録は、それだけでL1/L3/L4のcanonical authorityを上書きしない
+
+上位canonicalとの矛盾を発見した場合はWorkをBLOCKEDまたはREVISE-PROPOSALへ戻す。
+
+## Historical documents
+
+旧root/docs資料は2026-10-05監査で分類・移行済み。 `history/` / `archive/` の資料は、新たに正式昇格されない限り現行仕様権限を持たない。

@@ -24,11 +24,19 @@ const requiredFiles = [
   'governance/DOCUMENT_AUTHORITY.md',
   'governance/CHANGE_PROTOCOL.md',
   'governance/INSTRUCTION_DICTIONARY.md',
+  'governance/COMMAND_WORDS.md',
+  'governance/WORK_SYSTEM.md',
   'navigation/MASTER_MATCH_GRAPH.md',
   'navigation/CURRENT_POSITION.md',
   'memory/PROJECT_BRIEF.md',
   'memory/ACTIVE_CONTEXT.md',
   'memory/PROGRESS.md',
+  'work/README.md',
+  'work/templates/WORK.md',
+  'work/templates/PROPOSAL.md',
+  'work/templates/ACTION_LOG.md',
+  'work/templates/FINDINGS.md',
+  'work/templates/VERIFICATION.md',
   'subjects/mathematics/AGENTS.md',
   'subjects/mathematics/textbook/SPEC.md',
   'subjects/mathematics/practice/SPEC.md',
@@ -94,6 +102,70 @@ for (const p of walk(root)) {
   const rp = rel(relative(root, p))
   if (!rp.includes('/') && rp.toLowerCase().endsWith('.zip')) {
     warn(`root binary archive needs provenance classification: ${rp}`)
+  }
+}
+
+
+const commandWords = read('governance/COMMAND_WORDS.md')
+if (!commandWords.includes('Approval Check')) fail('COMMAND_WORDS missing approval-state gate')
+if (!commandWords.includes('governance/WORK_SYSTEM.md')) fail('COMMAND_WORDS does not route to WORK_SYSTEM')
+
+const agents = read('AGENTS.md')
+if (!agents.includes('governance/WORK_SYSTEM.md')) fail('AGENTS does not route concrete work to WORK_SYSTEM')
+
+const allowedWorkStatuses = new Set([
+  'UNDEFINED',
+  'PROPOSED',
+  'APPROVED',
+  'IMPLEMENTING',
+  'VERIFYING',
+  'DONE',
+  'BLOCKED',
+  'REVISE-PROPOSAL',
+  'FAILED-VERIFICATION',
+])
+
+const requiredWorkRecords = [
+  'WORK.md',
+  'PROPOSAL.md',
+  'ACTION_LOG.md',
+  'FINDINGS.md',
+  'VERIFICATION.md',
+]
+
+const workItemsRoot = full('work/items')
+if (existsSync(workItemsRoot)) {
+  for (const name of readdirSync(workItemsRoot)) {
+    const itemDir = join(workItemsRoot, name)
+    if (!statSync(itemDir).isDirectory()) continue
+
+    for (const record of requiredWorkRecords) {
+      const path = rel(relative(root, join(itemDir, record)))
+      if (!existsSync(join(itemDir, record))) fail(`${name}: missing Work record ${record}`)
+    }
+
+    const workPath = rel(relative(root, join(itemDir, 'WORK.md')))
+    const workText = read(workPath)
+    const statusMatch = workText.match(/^Status:\s+([A-Z-]+)\s*$/m)
+    if (!statusMatch) {
+      fail(`${name}: WORK.md missing Status`)
+      continue
+    }
+
+    const status = statusMatch[1]
+    if (!allowedWorkStatuses.has(status)) fail(`${name}: invalid Work status ${status}`)
+
+    const proposalPath = rel(relative(root, join(itemDir, 'PROPOSAL.md')))
+    const proposalText = read(proposalPath)
+    if (['APPROVED', 'IMPLEMENTING', 'VERIFYING', 'DONE'].includes(status) && !/^Status:\s+APPROVED\s*$/m.test(proposalText)) {
+      fail(`${name}: executable Work status requires an APPROVED proposal`)
+    }
+
+    const verificationPath = rel(relative(root, join(itemDir, 'VERIFICATION.md')))
+    const verificationText = read(verificationPath)
+    if (status === 'DONE' && !/^Status:\s+PASS\s*$/m.test(verificationText)) {
+      fail(`${name}: DONE requires VERIFICATION Status: PASS`)
+    }
   }
 }
 

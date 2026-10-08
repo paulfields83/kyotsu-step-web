@@ -49,6 +49,23 @@ Remaining warnings:
 - Repository OS cleanup is reviewed separately from runtime feature work.
 - ratification record: `audit/REPOSITORY_OS_RATIFICATION_2026-10-05.md`.
 
+## Current Governance Extension
+
+### W-GOV-001 — Work Operating System v1
+Status: VERIFYING — CI PASS / USER REVIEW WAIT  
+Branch: `docs/work-operating-system-v1`  
+PR: #6  
+Proposal: P-001 APPROVED
+
+Adds:
+- first-class Work IDs and status machine
+- explicit proposal approval gate
+- per-Work action/location log
+- confirmed/error findings taxonomy
+- verification records
+- selective memory promotion
+- revised `憲法から` semantics
+
 ## Open Workstreams
 
 ### W1 — Repository OS v1

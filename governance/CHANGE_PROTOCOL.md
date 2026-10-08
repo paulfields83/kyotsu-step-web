@@ -1,68 +1,119 @@
 # Change Protocol
 
-## A. 通常の機能・教材変更
+All concrete work follows `governance/WORK_SYSTEM.md`.
 
-INTAKE
-→ CONTEXT
-→ SPECIFY
-→ PLAN
-→ TASKS
+The common gate is:
+
+```text
+RECOVER
+→ IDENTIFY WORK
+→ ASSESS
+→ CHECK APPROVAL
+→ PROPOSE / USER APPROVAL when needed
+→ PLAN / TASKS
 → IMPLEMENT
 → CONVERGE
 → VERIFY
-→ CLOSE
+→ MEMORY CLOSE
+```
 
-### INTAKE
-依頼内容、対象 subject/mode、変更禁止範囲を特定する。
+No workflow below bypasses the approval gate.
 
-### CONTEXT
-CURRENT_POSITION、Match Graph、対象 canonical spec、必要な lessons / decisions のみ読む。
+## A. 通常の機能・教材変更
 
-### SPECIFY
-What / Why / Acceptance Criteria / Out of Scope を固定する。
+### RECOVER / CONTEXT
+CURRENT_POSITION、Match Graph、対象 canonical spec、必要な lessons / decisions、関連Work recordsを読む。
+
+### IDENTIFY WORK
+既存Workなら再利用する。新しい明確な目的なら新しいWork IDを作る。
+
+### ASSESS / SPECIFY
+What / Why / Acceptance Criteria / Out of Scope と現状差分を明確にする。
+
+### CHECK APPROVAL
+exact scope の approved proposal があるか確認する。
+
+- ある → PLANへ
+- ない → Proposalを作成しユーザーへ提示、承認まで実装しない
+- 既存Proposalからmaterialに変わる → `REVISE-PROPOSAL`
 
 ### PLAN
-How / files / migration / risk / tests を決める。Spec の意味を変えてはならない。
+How / files / migration / risk / tests を決める。承認済みSpecの意味を変えてはならない。
 
 ### TASKS
 依存順の小さな Task ID に分解する。
 
 ### IMPLEMENT
-Task の範囲内だけ実装する。
+承認済みscope内だけ実装し、Actionと対象場所を記録する。
 
 ### CONVERGE
-Spec / Plan / Tasks と現物の差を再評価し、残件を追跡可能な task に戻す。
+Spec / Proposal / Tasks と現物の差を再評価する。新しいmaterial decisionが必要なら実装継続ではなくProposalへ戻す。
 
 ### VERIFY
-対象 gate を通す。教材なら内容・導出・図・穴・漏洩、コードなら type/lint/test/build/E2E 等。
+対象 gate を通し、PASS/FAIL双方をVerificationへ残す。
 
-### CLOSE
-現在地、progress、decision、必要な lesson を更新する。
+### MEMORY CLOSE
+Work recordを閉じ、durableなDecision/Lesson/Current Stateだけ上位memoryへ昇格する。
 
-## B. バグ修正
+## B. 修正 / バグ修正
 
-ASSESS → FIX → VALIDATE を分離する。
+```text
+RECOVER
+→ ASSESS WHAT IS WRONG
+→ identify exact correction
+→ CHECK APPROVED CORRECTION
+→ PROPOSE if absent
+→ USER APPROVAL
+→ FIX
+→ VALIDATE ORIGINAL SYMPTOM + REGRESSION
+→ RECORD FINDINGS
+→ MEMORY CLOSE
+```
 
-- ASSESS: 症状、再現条件、原因仮説、影響範囲。
-- FIX: 評価した原因だけを修正。
-- VALIDATE: 元症状が消え、回帰がないことを確認。
-
-原因分析前の一括書き換えは禁止。
+重要:
+- 「修正」という言葉だけを実装許可と扱わない。
+- まず何を修正するべきか確認する。
+- 既に承認済みの修正案なら同じ承認を取り直さない。
+- 原因分析前の一括書き換えは禁止。
 
 ## C. Cleanup
 
-INVENTORY
+```text
+RECOVER
+→ INVENTORY
 → CLASSIFY
 → TRACE REFERENCES
 → CHOOSE CANONICAL
+→ PROPOSE CLEANUP
+→ USER APPROVAL
 → QUARANTINE
 → VALIDATE
-→ DELETE/ARCHIVE
+→ DELETE / ARCHIVE
+→ MEMORY CLOSE
+```
 
-Cleanup では「削除」より canonical 判定が先。
+Cleanupでは「削除」より provenance / canonical 判定 / 承認が先。
 
 ## D. Constitution Amendment
 
-PROPOSAL → IMPACT → USER APPROVAL → VERSION BUMP → SYNC CHECK
+```text
+PROPOSAL
+→ IMPACT
+→ USER APPROVAL
+→ VERSION BUMP
+→ SYNC CHECK
+```
 
-通常タスクから暗黙に amendment へ入らない。
+通常タスクから暗黙にamendmentへ入らない。
+
+## E. Recording rule
+
+各Workで最低限残す:
+- `WORK.md` — state / scope / next
+- `PROPOSAL.md` — proposal / approval
+- `ACTION_LOG.md` — what / where / result
+- `FINDINGS.md` — confirmed facts / errors / risks
+- `VERIFICATION.md` — PASS/FAIL evidence
+
+ユーザーから「それは違う」と訂正された内容は、単なる会話として捨てず、適切なERROR findingとして記録する。
+ユーザーが正しい案を正式に通した場合も、必要に応じてCONFIRMED / Decisionとして残す。
