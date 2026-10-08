@@ -37,3 +37,12 @@ Reason: verify the instruction matching system before merge.
 Result: SUCCESS.
 Evidence: Repository Governance Check and normal PR checks succeeded.
 
+## A-005
+
+Date: 2026-10-08
+Related proposal: P-001
+Action: Squash-merged PR #9 into `main`.
+Target / location: PR #9 → `main`
+Reason: activate instruction matching and CMD-WORK-001 before resuming Mathematics correction.
+Result: SUCCESS.
+Evidence: merge commit `c58ead8ec1a90046f5818278675f04f6111db0ba`.
