@@ -306,3 +306,321 @@ Approval evidence:
 - Supersedes:
 - Superseded by:
 - Required next action: STOP after historical investigation and wait for user instruction.
+
+
+
+## P-002 — Restore the proven Section 2–3 guidance pattern on the current 4STEP bank
+
+Status: PROPOSED
+Created: 2026-10-10
+
+### Why P-001 is replaced
+
+P-001 tried to redesign the current Title 2–3 guidance too broadly before checking historical GitHub work.
+
+The historical audit found that the repository already had a deliberate, working guidance pattern for the same two conceptual sections:
+
+- `math-i-set-practice-q01` — 「集合の演算を順序よく整理する」
+- `math-i-set-practice-q02` — 「領域の情報から集合を復元する」
+
+Those samples already used the Practice v5 structure:
+- `dependsOn`
+- `basis`
+- `purpose`
+- `operation`
+- staged blanks
+- sequential reveal
+- substitute-correct-answer
+- lock-future-steps
+
+Therefore the correction should begin by restoring that proven reasoning architecture, not by inventing a new general system.
+
+### Core policy
+
+**Old Section 2–3 guidance is the design mother pattern. Current 4STEP problems remain the content authority.**
+
+Do not restore the old reconstructed sample questions themselves.
+Do not replace current 4STEP wording, numbers, or answers.
+
+Instead:
+1. recover the old q01/q02 reasoning pattern;
+2. map its guidance logic onto the current exact Section 2–3 source questions;
+3. preserve each current problem's actual solution path;
+4. only add new structure when the old pattern is genuinely insufficient.
+
+### Scope
+
+Current catalog:
+- Section / Title 2: `set-operations` — 「集合の演算」
+- Section / Title 3: `set-regions` — 「集合の領域」
+
+Current source questions in scope:
+- Q95
+- Q96
+- Q97
+- Q99
+- Q100
+- 演習A-8
+- Q98
+
+No Title 4+ changes in this Work.
+
+### Step 1 — Build a historical-to-current mapping table
+
+Before editing any question, create one comparison table for all seven questions with:
+
+- current question ID / source number
+- current mathematical task
+- closest old q01/q02 guidance pattern
+- old reusable reasoning move
+- current missing bridge
+- whether a new node is actually necessary
+- whether a figure is necessary
+- leakage risk
+
+This table must be reviewed before bulk editing.
+
+### Step 2 — Restore the old v5 guidance style
+
+For each current question, every meaningful step must visibly answer three things:
+
+**何をする？**
+- from `operation`
+
+**なぜ今それをする？**
+- from `purpose`
+
+**何を使う？**
+- from `basis`
+
+The old q01/q02 structure is the minimum standard.
+
+Do not add generic motivational prose.
+Do not turn Practice into Textbook Mode.
+Do not explain a concept before it is needed.
+
+### Step 3 — Section 2 mapping
+
+#### Q95 — 共通部分と和集合
+
+Use old q01 as the direct mother pattern.
+
+Restore:
+1. make A and B comparable;
+2. `A∩B`: select elements satisfying both;
+3. `A∪B`: combine without duplication;
+4. if interval notation is present, make endpoint inclusion a separate final check.
+
+Do not jump from the original representation directly to the final set when an intermediate representation is required.
+
+#### Q96 — 3集合の演算
+
+Extend old q01 one level.
+
+Restore:
+1. establish A, B, C;
+2. compute the first two-set intermediate result;
+3. use that result in the three-set operation;
+4. for union, explicitly prevent loss of elements that appear only in C;
+5. make reuse of the intermediate result visible.
+
+The learner should see which previous result is being reused.
+
+#### Q97 — 補集合を含む演算
+
+Reuse old q01's complement logic.
+
+Restore:
+1. identify the universe U;
+2. compute the required complement as an intermediate result;
+3. calculate the inside of parentheses first;
+4. apply complement only to the correct scope;
+5. reuse earlier complement/intersection results where possible.
+
+Do not introduce De Morgan's law as a shortcut before the learner has followed the actual expression structure.
+
+#### Q99 — 3集合と補集合
+
+Combine old q01's operation ordering with explicit scope control.
+
+Restore:
+1. identify the expression tree;
+2. solve the innermost operation;
+3. preserve that intermediate set;
+4. apply the next operation;
+5. make complement scope explicit;
+6. do not use vague instructions such as 「左から計算する」 when parentheses define the order.
+
+#### Q100 — 共通部分から定数を決定
+
+Use the old q01 principle “first make the sets/comparison state explicit,” but adapt it to inverse reasoning.
+
+Restore:
+1. translate `A∩B={1,4}` into membership constraints;
+2. generate candidate values of `a`;
+3. test each candidate against both required common elements;
+4. reject a candidate if it creates an extra common element;
+5. only after `a` is fixed, construct the requested final set.
+
+The missing bridge to repair is:
+**condition → candidate → verification → rejection/acceptance**.
+
+#### 演習A-8 — 集合と定数
+
+Use the same candidate-check pattern as Q100.
+
+Restore:
+1. derive the two candidates from the absolute-value condition;
+2. test each candidate against the required intersection;
+3. explicitly reject the candidate that creates an unwanted common element;
+4. accept the valid candidate;
+5. construct the union only after the candidate is fixed.
+
+The branch-and-reject structure must be visible.
+
+### Step 4 — Section 3 mapping
+
+#### Q98 — 領域から集合を復元
+
+Use old q02 as the direct mother pattern.
+
+The old pattern already established:
+1. identify the four Venn regions;
+2. find the missing region from U;
+3. reconstruct A;
+4. reconstruct B;
+5. reconstruct union/complement information;
+6. verify consistency.
+
+For the current Q98, preserve the exact current givens but restore this same reasoning order.
+
+A region figure may be used only if:
+- the known regions are shown first;
+- the unknown region remains blank/unknown;
+- the missing answer is not leaked;
+- the figure updates only after the learner resolves that node.
+
+### Step 5 — UI use of existing fields first
+
+Before changing the backend schema, use the fields already present in the current Practice data contract:
+
+- `dependsOn`
+- `basis`
+- `purpose`
+- `operation`
+
+The UI should present them as a compact Practice guide:
+
+```text
+STEP n
+
+何をする？
+...
+
+なぜ？
+...
+
+使うもの
+...
+
+[問題の途中式 / blank]
+```
+
+Exact labels may be refined during implementation, but the three functions must remain distinct.
+
+### Step 6 — Do not add new schema unless evidence requires it
+
+P-001 proposed adding `feeds` and `releaseAfterCorrect`.
+
+P-002 changes that policy:
+
+- do **not** add them at the start;
+- first reproduce the old q01/q02 quality using the existing schema;
+- if one of the seven current questions cannot represent its real reasoning dependency with current fields, stop that part and propose the minimum schema extension separately.
+
+This prevents unnecessary infrastructure work.
+
+### Step 7 — Preserve the current full bank
+
+The old six-question sample is design evidence only.
+
+Do not:
+- restore old sample questions as current content;
+- replace the 36-question bank;
+- revert the compressed bundle architecture;
+- rewrite source archives;
+- merge `front-ui--test` wholesale.
+
+The current source bank remains authoritative.
+
+### Step 8 — Pilot review order
+
+Implementation, if approved, proceeds in this order:
+
+1. historical-to-current mapping table
+2. Q95 and Q98 only
+   - one direct Section 2 mother-pattern case
+   - one direct Section 3 mother-pattern case
+3. browser/mobile review
+4. show the user
+5. STOP
+
+Only if the user approves those two pilot questions:
+6. apply the same validated style to Q96/Q97/Q99/Q100/A-8
+7. review all Section 2–3
+8. STOP again before any Title 4+ work
+
+### Do Not Touch
+
+- Mathematics Textbook Mode
+- Physics modes
+- Titles 4+
+- original 4STEP problem wording / values / correct answers
+- source archive provenance
+- unrelated frontend design
+- branch deletion
+- wholesale merge of `front-ui--test`
+
+### Verification
+
+For Q95/Q98 pilot:
+- every step corresponds to a real mathematical move;
+- `basis`, `purpose`, and `operation` are all meaningful;
+- no step contains two hidden nontrivial moves;
+- no future answer is leaked;
+- correct prior results are visibly reused;
+- original problem and answer are unchanged;
+- mobile layout is readable.
+
+For Section 2–3 full rollout:
+- compare each current question against the historical mapping table;
+- confirm the old q01/q02 quality standard is preserved;
+- confirm no unnecessary Textbook-style explanation was introduced;
+- confirm no Title 4+ file changed.
+
+Repository:
+- backend/frontend typecheck
+- unit tests
+- build
+- governance checks
+
+### Risks
+
+- blindly copying old q01/q02 would mismatch current 4STEP questions;
+- over-explaining would collapse Practice into Textbook Mode;
+- adding new schema too early would solve an infrastructure problem before proving it is needed;
+- figures can leak answers if region state is prefilled.
+
+### Approval
+
+Status: WAITING
+Approved by user: NO
+Approval date:
+Approval evidence:
+
+### Review History
+
+- Review status: NOT-REVIEWED
+- User feedback:
+- Supersedes: P-001
+- Superseded by:
