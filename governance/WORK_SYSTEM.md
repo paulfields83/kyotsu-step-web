@@ -1,7 +1,7 @@
 # Work Operating System
 
 Status: CANONICAL
-Version: 1.1.0
+Version: 1.2.0
 Updated: 2026-10-07
 
 ## 1. Purpose
@@ -297,6 +297,24 @@ MEMORY CLOSE
   ↓
 DONE
 ```
+
+## 12A. User review handoff
+
+When a Work reaches a user-reviewable stopping point, the handoff is incomplete until it includes at least one usable review link.
+
+Link priority:
+1. live/rendered app or preview URL;
+2. Pull Request;
+3. branch or exact GitHub location.
+
+If the best link type is unavailable, state that limitation and provide the best available fallback.
+
+This rule applies to:
+- DONE correction work;
+- VERIFYING work paused for user review;
+- pilot/review gates before wider rollout.
+
+A correction handoff must not end as prose-only when a usable review link exists.
 
 ## 13. Memory promotion
 
