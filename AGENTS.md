@@ -86,3 +86,4 @@ Archive、deprecated、古い handoff、古い Word/ZIP は、明示的に canon
 - 再利用できる知見だけを lessons に昇格する。
 - 重要な正式判断だけを decision log に昇格する。
 - 完了ノードと次の実行可能ノードを必要に応じて Match Graph 上で更新する。
+- 修正Workがユーザー確認可能な状態で止まるときは、最終報告に必ず確認リンクを付ける。優先順位は preview/app → PR → branch/対象GitHub位置。
