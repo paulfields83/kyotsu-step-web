@@ -1,6 +1,6 @@
 # W-GOV-004 — Correction Review Link
 
-Status: VERIFYING
+Status: DONE
 Updated: 2026-10-10
 
 ## Objective
@@ -36,11 +36,11 @@ Direct user instruction on 2026-10-10.
 
 ## Current Step
 
-Rule implementation is complete. Run CI and merge.
+Completed. Review-link handoff rule is implemented and verified.
 
 ## Next Step
 
-Open PR, run CI, merge, then use the new rule in this handoff.
+Merge PR #15 into main and apply the rule to future correction handoffs.
 
 ## Completion Condition
 
