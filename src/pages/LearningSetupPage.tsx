@@ -100,7 +100,7 @@ export function LearningSetupPage() {
 
   const changeMode = (next: LearningMode) => {
     setMode(next)
-    if (next === 'practice' && !subjectQuestions.length) changeSubject(defaultSubject)
+    if (next === 'practice' && subject !== 'math-1a' && !subjectQuestions.length) changeSubject(defaultSubject)
   }
 
   const changeChapter = (nextChapterKey: string) => {
