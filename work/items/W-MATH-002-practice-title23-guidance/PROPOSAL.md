@@ -2,7 +2,7 @@
 
 ## P-001 — Rebuild Title 2–3 guidance from the reasoning graph
 
-Status: PROPOSED
+Status: REVIEWED / NOT-APPROVED
 Created: 2026-10-10
 
 ### Problem / Need
@@ -301,7 +301,8 @@ Approval evidence:
 
 ### Review History
 
-- Review status: NOT-REVIEWED
-- User feedback:
+- Review status: REJECTED-FOR-NOW
+- User feedback: Before proposing a new correction, recover the earlier Section 2 / Section 3 work already preserved in GitHub history.
 - Supersedes:
 - Superseded by:
+- Required next action: STOP after historical investigation and wait for user instruction.
