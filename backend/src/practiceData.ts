@@ -27,6 +27,35 @@ function catalogFiles(root: string): string[] {
   })
 }
 
+function applyQuestionOverrides(dataDir: string, questions: PracticeQuestion[]) {
+  const overrideDir = join(dataDir, 'question-overrides')
+  if (!existsSync(overrideDir)) return questions
+
+  const overrideFiles = readdirSync(overrideDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.json'))
+    .map((entry) => join(overrideDir, entry.name))
+    .sort()
+
+  if (!overrideFiles.length) return questions
+
+  const overrides = overrideFiles.flatMap((path) =>
+    PracticeQuestionSetSchema.parse(JSON.parse(readFileSync(path, 'utf8'))).questions,
+  )
+  const next = [...questions]
+  const seen = new Set<string>()
+
+  for (const override of overrides) {
+    if (seen.has(override.questionId)) throw new Error(`duplicate practice override: ${override.questionId}`)
+    seen.add(override.questionId)
+
+    const index = next.findIndex((question) => question.questionId === override.questionId)
+    if (index < 0) throw new Error(`practice override target not found in full bank: ${override.questionId}`)
+    next[index] = override
+  }
+
+  return next
+}
+
 function validateHierarchy(catalog: PracticeCatalog, questions: PracticeQuestion[]) {
   const subcategories = new Map(catalog.subcategories.map((item) => [item.id, item]))
   const questionIds = new Set<string>()
@@ -99,6 +128,7 @@ function loadPracticeUnits(): LoadedPracticeUnit[] {
       )
     }
 
+    questions = applyQuestionOverrides(dataDir, questions)
     validateHierarchy(catalog, questions)
     return { catalog, questions, dataDir }
   })

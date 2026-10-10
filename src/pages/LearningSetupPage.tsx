@@ -3,9 +3,11 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NumberedSection, RaisedButton } from '../components/ui/Primitives'
 import type { LearningVariant, Question } from '../domain/questionSchema'
+import type { PracticeQuestionSummary } from '../domain/practice'
 import { buildTextbookChapters, textbookLessonHref, textbookLessonItemIds } from '../domain/textbookCatalog'
 import type { PublicTextbookUnit } from '../domain/textbookPublic'
 import { textbookRepository } from '../repositories/textbookRepository'
+import { practiceRepository } from '../repositories/practiceRepository'
 import { getQuestionCatalog, useAppStore } from '../stores/useAppStore'
 import { useI18n } from '../i18n/runtime'
 import { subjectLabel } from '../i18n/labels'
@@ -14,6 +16,7 @@ type LearningMode = 'textbook' | 'practice'
 const SHOW_GUIDANCE_LEVEL = false
 const FIXED_PRACTICE_VARIANT: LearningVariant = 'detailed'
 const SUBJECTS: Question['subject'][] = ['math-1a', 'physics']
+const PILOT_PRACTICE_IDS = new Set(['math-i-4step-set-095', 'math-i-4step-set-098'])
 
 export function LearningSetupPage() {
   const navigate = useNavigate()
@@ -25,6 +28,9 @@ export function LearningSetupPage() {
   const catalog = useMemo(() => getQuestionCatalog(customQuestions, language), [customQuestions, language])
   const [textbookUnits, setTextbookUnits] = useState<PublicTextbookUnit[]>([])
   const [textbookLoadError, setTextbookLoadError] = useState(false)
+  const [practiceQuestions, setPracticeQuestions] = useState<PracticeQuestionSummary[]>([])
+  const [practiceLoadError, setPracticeLoadError] = useState(false)
+  const [practiceQuestionId, setPracticeQuestionId] = useState('')
   const [mode, setMode] = useState<LearningMode>('textbook')
   const [subject, setSubject] = useState<Question['subject']>('physics')
   const [variant, setVariant] = useState<LearningVariant>('detailed')
@@ -49,6 +55,21 @@ export function LearningSetupPage() {
       setTextbookLoadError(true)
       setTextbookUnits([])
     })
+
+    practiceRepository.listQuestions({
+      subject: 'math-1a',
+      course: 'math-i',
+      majorUnit: 'sets-and-logic',
+    }).then((questions) => {
+      const pilot = questions.filter((question) => PILOT_PRACTICE_IDS.has(question.questionId))
+      setPracticeLoadError(false)
+      setPracticeQuestions(pilot)
+      setPracticeQuestionId((current) => current || pilot[0]?.questionId || '')
+    }).catch(() => {
+      setPracticeLoadError(true)
+      setPracticeQuestions([])
+      setPracticeQuestionId('')
+    })
   }, [])
 
   useEffect(() => {
@@ -72,13 +93,14 @@ export function LearningSetupPage() {
   const changeSubject = (next: Question['subject']) => {
     setSubject(next)
     setQuestionId(catalog.find((q) => q.subject === next)?.questionId ?? '')
+    if (next === 'math-1a' && !practiceQuestionId) setPracticeQuestionId(practiceQuestions[0]?.questionId ?? '')
     setChapterKey('')
     setLessonKey('')
   }
 
   const changeMode = (next: LearningMode) => {
     setMode(next)
-    if (next === 'practice' && !subjectQuestions.length) changeSubject(defaultSubject)
+    if (next === 'practice' && subject !== 'math-1a' && !subjectQuestions.length) changeSubject(defaultSubject)
   }
 
   const changeChapter = (nextChapterKey: string) => {
@@ -90,6 +112,8 @@ export function LearningSetupPage() {
   const begin = () => {
     if (mode === 'textbook') {
       if (selectedLesson) navigate(textbookLessonHref(selectedLesson))
+    } else if (subject === 'math-1a') {
+      if (practiceQuestionId) navigate(`/learning/practice/${practiceQuestionId}`)
     } else if (questionId) {
       navigate(`/learning/session/${startLearning(questionId, FIXED_PRACTICE_VARIANT)}`)
     }
@@ -144,15 +168,27 @@ export function LearningSetupPage() {
       </NumberedSection>
     </> : <>
       <NumberedSection number="03" title={text('問題', '题目')}>
-        <label className="field-label" htmlFor="learning-question">{text('学習する問題', '选择学习题目')}</label>
-        <select id="learning-question" className="select-control" value={questionId} onChange={(event) => setQuestionId(event.target.value)}>
-          {subjectQuestions.map((question) => <option key={question.questionId} value={question.questionId}>{question.title}</option>)}
-        </select>
+        {subject === 'math-1a' ? (
+          practiceLoadError ? <div className="issue-box">{text('数学練習APIに接続できません。', '无法连接数学练习API。')}</div>
+            : practiceQuestions.length === 0 ? <div className="issue-box">{text('Section 2・3 pilot問題を読み込めません。', '无法读取Section 2・3试运行题目。')}</div>
+            : <>
+              <label className="field-label" htmlFor="practice-question">{text('確認するpilot問題', '选择试运行题目')}</label>
+              <select id="practice-question" className="select-control" value={practiceQuestionId} onChange={(event) => setPracticeQuestionId(event.target.value)}>
+                {practiceQuestions.map((question) => <option key={question.questionId} value={question.questionId}>{question.title}</option>)}
+              </select>
+              <p className="field-help">{text('現在はSection 2のQ95とSection 3のQ98だけをpilot確認します。', '目前只试运行Section 2的Q95与Section 3的Q98。')}</p>
+            </>
+        ) : <>
+          <label className="field-label" htmlFor="learning-question">{text('学習する問題', '选择学习题目')}</label>
+          <select id="learning-question" className="select-control" value={questionId} onChange={(event) => setQuestionId(event.target.value)}>
+            {subjectQuestions.map((question) => <option key={question.questionId} value={question.questionId}>{question.title}</option>)}
+          </select>
+        </>}
       </NumberedSection>
       {SHOW_GUIDANCE_LEVEL && <NumberedSection number="04" title={text('誘導レベル', '引导强度')}><div className="choice-grid" role="radiogroup" aria-label={text('誘導レベル', '引导强度')}>{variants.map((item) => <button type="button" role="radio" aria-checked={variant === item.value} key={item.value} onClick={() => setVariant(item.value)}><strong>{item.label}</strong><small>{item.description}</small></button>)}</div></NumberedSection>}
     </>}
 
-    <RaisedButton type="button" className="primary-button" data-testid="start-learning" disabled={mode === 'textbook' ? !selectedLesson : !questionId} onClick={begin}>
+    <RaisedButton type="button" className="primary-button" data-testid="start-learning" disabled={mode === 'textbook' ? !selectedLesson : subject === 'math-1a' ? !practiceQuestionId : !questionId} onClick={begin}>
       {mode === 'textbook' ? text(selectedStarted ? '続きから学ぶ' : '教科書モードを始める', selectedStarted ? '继续学习' : '开始教科书模式') : text('この設定で問題を解く', '按此设置开始做题')}
     </RaisedButton>
   </div>

@@ -458,3 +458,37 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   .learning-setup-page .learning-mode-grid { grid-template-columns: 1fr; }
   .settings-actions { grid-template-columns: 1fr; }
 }
+
+
+/* Mathematics ordinary practice pilot */
+.learning-flow--practice { display: grid; gap: .75rem; }
+.practice-step-block { display: grid; gap: .65rem; padding: .8rem 0 1rem; border-top: 1px solid var(--color-line); }
+.practice-step-block:first-child { border-top: 0; }
+.practice-step-heading { display: flex; align-items: baseline; gap: .65rem; }
+.practice-step-heading span { color: var(--color-primary); font-size: .72rem; font-weight: 800; letter-spacing: .08em; }
+.practice-step-heading strong { color: var(--color-text); font-size: 1rem; }
+.practice-guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--color-line); background: var(--color-paper); }
+.practice-guide > div { display: grid; align-content: start; gap: .3rem; min-width: 0; padding: .65rem .7rem; border-right: 1px solid var(--color-line); }
+.practice-guide > div:nth-child(3) { border-right: 0; }
+.practice-guide > div > span { color: var(--color-muted); font-size: .68rem; font-weight: 800; letter-spacing: .04em; }
+.practice-guide strong,
+.practice-guide p,
+.practice-guide ul { margin: 0; color: var(--color-text); font-size: .82rem; line-height: 1.55; }
+.practice-guide ul { padding-left: 1.1rem; }
+.practice-guide .practice-prior-results { grid-column: 1 / -1; border-top: 1px solid var(--color-line); border-right: 0; background: var(--color-section); }
+.practice-prior-results p { font-weight: 700; }
+.practice-blank-block { display: grid; gap: .55rem; min-width: 0; }
+.practice-blank-line { display: flex; min-height: 48px; align-items: center; flex-wrap: wrap; gap: .25rem; padding: .45rem .15rem; border-bottom: 1px solid var(--color-line); font-size: 1.02rem; line-height: 1.8; }
+.practice-blank-block--active .practice-blank-line { border-bottom-color: var(--color-primary); }
+.practice-blank-line > span:not(.reading-inline-answer) { white-space: pre-wrap; }
+.practice-blank-line .reading-inline-blank,
+.practice-blank-line .reading-inline-answer { margin: 0 .08rem; }
+.practice-substituted-value { color: var(--color-success); }
+.practice-option-content { min-width: 0; }
+.practice-option-content p { margin: 0; overflow-wrap: anywhere; }
+.learning-flow--practice .reading-inline-choice-panel { width: min(100%, 760px); margin: .05rem 0 .55rem; padding: .8rem; }
+.learning-flow--practice .reading-choice-options { grid-template-columns: 1fr; }
+.learning-flow--practice .reading-choice-option { grid-template-columns: 30px minmax(0, 1fr); }
+.practice-inline-error p { margin: 0; color: var(--color-error); font-size: .78rem; }
+.practice-complete { display: grid; gap: .35rem; padding: .85rem; border: 1px solid var(--color-success); background: #f6fff8; }
+.practice-complete p { margin: 0; color: var(--color-muted); }

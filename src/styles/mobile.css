@@ -301,3 +301,14 @@
     font-size: .76rem;
   }
 }
+
+
+/* Mathematics ordinary practice pilot */
+@media (max-width: 680px) {
+  .practice-guide { grid-template-columns: 1fr; }
+  .practice-guide > div { border-right: 0; border-bottom: 1px solid var(--color-line); }
+  .practice-guide > div:nth-child(3) { border-bottom: 0; }
+  .practice-guide .practice-prior-results { border-top: 1px solid var(--color-line); border-bottom: 0; }
+  .practice-blank-line { font-size: .96rem; }
+  .practice-step-heading { align-items: flex-start; flex-direction: column; gap: .2rem; }
+}
