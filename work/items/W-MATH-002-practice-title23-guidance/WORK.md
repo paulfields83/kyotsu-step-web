@@ -1,6 +1,6 @@
 # W-MATH-002 — Mathematics Practice Title 2–3 Guidance Correction
 
-Status: REVISE-PROPOSAL
+Status: IMPLEMENTING
 Updated: 2026-10-10
 
 ## Objective
@@ -43,15 +43,15 @@ Proposed implementation scope:
 
 ## Approved Proposal
 
-None.
+`P-002` — APPROVED by user on 2026-10-10.
 
 ## Current Step
 
-P-001 was not approved. Historical Git recovery found an earlier Section 2 / Section 3 guided vertical slice and associated Practice UI refinements. No product implementation has started.
+Implement P-002 in pilot order: historical-to-current mapping table, then Q95 and Q98 only.
 
 ## Next Step
 
-STOP and wait for user instruction. Do not draft P-002 or implement changes until the user directs how the recovered historical work should be used.
+Build the mapping table, implement Q95/Q98 pilot, run browser/mobile and repository verification, show the user, then STOP.
 
 ## Completion Condition
 
