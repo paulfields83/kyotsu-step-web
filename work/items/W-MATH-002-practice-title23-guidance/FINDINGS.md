@@ -145,3 +145,35 @@ Impact: treat it as strong historical design evidence, not automatic current aut
 Promote to Decision: NO
 Promote to Lesson: NO
 
+## F-009
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: Git history contains an earlier six-question guided Practice sample with dedicated Section 2/3 examples:
+- `math-i-set-practice-q01` — 「集合の演算を順序よく整理する」
+- `math-i-set-practice-q02` — 「領域の情報から集合を復元する」
+Evidence: commit `65603cc442b2f7cc851138d91e3cc5e2c6b9554c` (“Add guided sets and logic practice data to backend”).
+Impact: any new Title 2/3 correction proposal must first compare against this earlier completed guidance structure.
+Promote to Decision: NO
+Promote to Lesson: YES
+
+## F-010
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: The earlier q01/q02 samples were removed when the repository replaced the representative six-question sample bank with the full guided bank.
+Evidence: commit `63cb0027916bf71551b6158a4b9ac205f9462f76` (“data(practice): replace six samples with full guided bank”) deletes the old `questions.json`.
+Impact: rich sample guidance could have been lost or diluted during full-bank migration.
+Promote to Decision: NO
+Promote to Lesson: YES
+
+## F-011
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: The earlier q01/q02 samples were deliberate backend Practice design, not undocumented scratch content.
+Evidence: commit `be1db94e4b33237ed0f17790b37ac584db85e64a` documents `solutionSteps` with `dependsOn / basis / purpose / operation` and sequential guided interaction as the Practice hierarchy.
+Impact: the old Section 2/3 samples are valid design evidence, although their problem statements are reconstructed samples rather than the current exact 4STEP source questions.
+Promote to Decision: NO
+Promote to Lesson: YES
+
