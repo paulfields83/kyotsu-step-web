@@ -1,0 +1,918 @@
+{
+  "schemaVersion": "1.0",
+  "questions": [
+    {
+      "schemaVersion": "1.0",
+      "questionId": "math-i-4step-set-095",
+      "revision": 2,
+      "status": "published",
+      "subject": "math-1a",
+      "course": "math-i",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "set-operations",
+      "problemType": "intersection-and-union",
+      "title": "95｜共通部分と和集合",
+      "difficulty": "basic",
+      "source": {
+        "type": "reference",
+        "label": "4STEP 数学I+A 第2章「集合と命題」問95",
+        "rightsNote": "現行source bankの問題文・数値・正答を保持し、旧guided sampleの思考構造だけを移植。"
+      },
+      "stem": [
+        {
+          "id": "q95-stem-01",
+          "type": "text",
+          "text": "次の各場合について、A∩B と A∪B を求めよ。"
+        },
+        {
+          "id": "q95-stem-02",
+          "type": "text",
+          "text": "(1) A={1,3,5,7}, B={0,1,2,3}"
+        },
+        {
+          "id": "q95-stem-03",
+          "type": "text",
+          "text": "(2) A={2,3,5,8}, B={1,4,6}"
+        },
+        {
+          "id": "q95-stem-04",
+          "type": "text",
+          "text": "(3) A={x｜−3≦x≦2}, B={x｜−1<x<4}（xは実数）"
+        },
+        {
+          "id": "q95-stem-05",
+          "type": "text",
+          "text": "(4) A={n｜nは18の正の約数}, B={n｜nは27の正の約数}"
+        },
+        {
+          "id": "q95-stem-06",
+          "type": "text",
+          "text": "(5) A={2n+1｜0≦n≦6}, B={3n+1｜0≦n≦4}（nは整数）"
+        }
+      ],
+      "solutionSteps": [
+        {
+          "id": "q95-f1",
+          "dependsOn": [],
+          "basis": [
+            "A={1,3,5,7}",
+            "B={0,1,2,3}",
+            "共通部分は両方に入る要素、和集合は少なくとも一方に入る要素"
+          ],
+          "purpose": "まず要素がすでに並んでいる場合で、∩と∪の選び方を確認する。",
+          "operation": "(1) 共通部分と和集合を分けて求める",
+          "content": [
+            {
+              "id": "q95-f1-c1",
+              "type": "text",
+              "text": "(1) はそのまま要素を比較できる。両方にある要素と、どちらかにある要素を分けて考える。"
+            }
+          ],
+          "blankIds": [
+            "q95-b1",
+            "q95-b2"
+          ]
+        },
+        {
+          "id": "q95-f2",
+          "dependsOn": [
+            "q95-f1"
+          ],
+          "basis": [
+            "A={2,3,5,8}",
+            "B={1,4,6}",
+            "共通要素が1つもなければ共通部分は空集合"
+          ],
+          "purpose": "重なりがない場合でも、∩と∪を同じ定義で処理できることを確認する。",
+          "operation": "(2) 重なりの有無を確認してから統合する",
+          "content": [
+            {
+              "id": "q95-f2-c1",
+              "type": "text",
+              "text": "(2) は最初に共通要素があるかを確認し、その後で両集合の要素を重複なくまとめる。"
+            }
+          ],
+          "blankIds": [
+            "q95-b3",
+            "q95-b4"
+          ]
+        },
+        {
+          "id": "q95-f3",
+          "dependsOn": [
+            "q95-f2"
+          ],
+          "basis": [
+            "A: −3≦x≦2",
+            "B: −1<x<4",
+            "共通部分は重なる範囲、和集合は少なくとも一方が成り立つ範囲"
+          ],
+          "purpose": "区間では数だけでなく、左右の端点を含むかどうかまで別々に確認する。",
+          "operation": "(3) 重なる区間と端点条件を読む",
+          "content": [
+            {
+              "id": "q95-f3-c1",
+              "type": "text",
+              "text": "(3) は左端と右端を別々に見る。共通部分では厳しい方の条件、和集合では外側までつながる条件を採用する。"
+            }
+          ],
+          "blankIds": [
+            "q95-b5",
+            "q95-b6"
+          ]
+        },
+        {
+          "id": "q95-f4",
+          "dependsOn": [
+            "q95-f3"
+          ],
+          "basis": [
+            "18の正の約数",
+            "27の正の約数",
+            "要素表示に直せば旧q01と同じ比較ができる"
+          ],
+          "purpose": "条件で書かれた集合を、直接比較できる要素表示へ直してから演算する。",
+          "operation": "(4) まずAとBを要素表示に直す",
+          "content": [
+            {
+              "id": "q95-f4-c1",
+              "type": "text",
+              "text": "(4) はいきなり∩や∪を取らず、まず18と27の正の約数をそれぞれ全部並べる。"
+            }
+          ],
+          "blankIds": [
+            "q95-b7",
+            "q95-b8",
+            "q95-b9",
+            "q95-b10"
+          ]
+        },
+        {
+          "id": "q95-f5",
+          "dependsOn": [
+            "q95-f4"
+          ],
+          "basis": [
+            "A={2n+1｜0≦n≦6}",
+            "B={3n+1｜0≦n≦4}",
+            "nは整数"
+          ],
+          "purpose": "生成式で書かれた集合も、nを順に代入して要素表示に直してから比較する。",
+          "operation": "(5) nを代入してAとBを具体化する",
+          "content": [
+            {
+              "id": "q95-f5-c1",
+              "type": "text",
+              "text": "(5) はnの範囲を確認して、AとBの要素を順に作る。その結果を使って∩と∪を求める。"
+            }
+          ],
+          "blankIds": [
+            "q95-b11",
+            "q95-b12",
+            "q95-b13",
+            "q95-b14"
+          ]
+        }
+      ],
+      "blanks": [
+        {
+          "id": "q95-b1",
+          "stepId": "q95-f1",
+          "prompt": "(1) A∩B=【①】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b1-a",
+              "label": "{1,3}"
+            },
+            {
+              "id": "q95-b1-b",
+              "label": "{0,2}",
+              "wrongReason": "Bだけにある要素を選んでいる。共通部分はAとBの両方に必要。"
+            },
+            {
+              "id": "q95-b1-c",
+              "label": "{1,2,3}",
+              "wrongReason": "2はAに含まれない。"
+            },
+            {
+              "id": "q95-b1-d",
+              "label": "∅",
+              "wrongReason": "1と3はAとBの両方に含まれる。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b1-a"
+          ],
+          "explanation": "AとBの両方に含まれるのは1と3。"
+        },
+        {
+          "id": "q95-b2",
+          "stepId": "q95-f1",
+          "prompt": "(1) A∪B=【②】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b2-a",
+              "label": "{1,3}",
+              "wrongReason": "これは共通部分。和集合はどちらか一方に入れば含める。"
+            },
+            {
+              "id": "q95-b2-b",
+              "label": "{0,1,2,3,5,7}"
+            },
+            {
+              "id": "q95-b2-c",
+              "label": "{0,1,2,3,4,5,6,7}",
+              "wrongReason": "4と6はどちらの集合にも含まれない。"
+            },
+            {
+              "id": "q95-b2-d",
+              "label": "{0,1,2,3}",
+              "wrongReason": "Aだけにある5と7を落としている。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b2-b"
+          ],
+          "explanation": "AまたはBに入る要素を重複なく並べる。"
+        },
+        {
+          "id": "q95-b3",
+          "stepId": "q95-f2",
+          "prompt": "(2) A∩B=【③】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b3-a",
+              "label": "{2,3}",
+              "wrongReason": "2と3はAには入るがBには入らない。"
+            },
+            {
+              "id": "q95-b3-b",
+              "label": "{1,4,6}",
+              "wrongReason": "これはBそのもの。"
+            },
+            {
+              "id": "q95-b3-c",
+              "label": "∅"
+            },
+            {
+              "id": "q95-b3-d",
+              "label": "{5}",
+              "wrongReason": "5はBに含まれない。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b3-c"
+          ],
+          "explanation": "AとBに共通する要素はないので空集合。"
+        },
+        {
+          "id": "q95-b4",
+          "stepId": "q95-f2",
+          "prompt": "(2) A∪B=【④】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b4-a",
+              "label": "{1,2,3,4,5,6,8}"
+            },
+            {
+              "id": "q95-b4-b",
+              "label": "{2,3,5,8}",
+              "wrongReason": "Bの要素1,4,6を加えていない。"
+            },
+            {
+              "id": "q95-b4-c",
+              "label": "{1,4,6}",
+              "wrongReason": "Aの要素2,3,5,8を加えていない。"
+            },
+            {
+              "id": "q95-b4-d",
+              "label": "{1,2,3,4,5,6,7,8}",
+              "wrongReason": "7はAにもBにも含まれない。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b4-a"
+          ],
+          "explanation": "AとBの全要素を重複なく合わせる。"
+        },
+        {
+          "id": "q95-b5",
+          "stepId": "q95-f3",
+          "prompt": "(3) A∩B=【⑤】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b5-a",
+              "label": "{x｜−1<x≦2}"
+            },
+            {
+              "id": "q95-b5-b",
+              "label": "{x｜−1≦x≦2}",
+              "wrongReason": "Bはx=−1を含まない。"
+            },
+            {
+              "id": "q95-b5-c",
+              "label": "{x｜−3≦x<4}",
+              "wrongReason": "これは和集合の範囲。"
+            },
+            {
+              "id": "q95-b5-d",
+              "label": "{x｜−3<x≦2}",
+              "wrongReason": "左端はBの条件−1<xで決まる。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b5-a"
+          ],
+          "explanation": "両方を満たすには−1<xかつx≦2。x=2は両方に含まれる。"
+        },
+        {
+          "id": "q95-b6",
+          "stepId": "q95-f3",
+          "prompt": "(3) A∪B=【⑥】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b6-a",
+              "label": "{x｜−3≦x<4}"
+            },
+            {
+              "id": "q95-b6-b",
+              "label": "{x｜−3<x<4}",
+              "wrongReason": "Aはx=−3を含む。"
+            },
+            {
+              "id": "q95-b6-c",
+              "label": "{x｜−1<x≦2}",
+              "wrongReason": "これは共通部分。"
+            },
+            {
+              "id": "q95-b6-d",
+              "label": "{x｜−3≦x≦4}",
+              "wrongReason": "Bはx=4を含まない。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b6-a"
+          ],
+          "explanation": "少なくとも一方を満たす範囲は−3から4までで、−3は含み4は含まない。"
+        },
+        {
+          "id": "q95-b7",
+          "stepId": "q95-f4",
+          "prompt": "(4) Aを要素表示すると【⑦】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b7-a",
+              "label": "{1,2,3,6,9,18}"
+            },
+            {
+              "id": "q95-b7-b",
+              "label": "{1,3,6,9,18}",
+              "wrongReason": "2も18の正の約数。"
+            },
+            {
+              "id": "q95-b7-c",
+              "label": "{1,2,3,6,9}",
+              "wrongReason": "18自身も正の約数。"
+            },
+            {
+              "id": "q95-b7-d",
+              "label": "{1,2,3,9,18}",
+              "wrongReason": "6も18の正の約数。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b7-a"
+          ],
+          "explanation": "18の正の約数は1,2,3,6,9,18。"
+        },
+        {
+          "id": "q95-b8",
+          "stepId": "q95-f4",
+          "prompt": "(4) Bを要素表示すると【⑧】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b8-a",
+              "label": "{1,3,9,27}"
+            },
+            {
+              "id": "q95-b8-b",
+              "label": "{1,3,9}",
+              "wrongReason": "27自身も正の約数。"
+            },
+            {
+              "id": "q95-b8-c",
+              "label": "{1,3,6,9,27}",
+              "wrongReason": "6は27の約数ではない。"
+            },
+            {
+              "id": "q95-b8-d",
+              "label": "{1,9,27}",
+              "wrongReason": "3も27の正の約数。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b8-a"
+          ],
+          "explanation": "27の正の約数は1,3,9,27。"
+        },
+        {
+          "id": "q95-b9",
+          "stepId": "q95-f4",
+          "prompt": "(4) A∩B=【⑨】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b9-a",
+              "label": "{1,3,9}"
+            },
+            {
+              "id": "q95-b9-b",
+              "label": "{1,2,3,6,9,18,27}",
+              "wrongReason": "これは和集合。"
+            },
+            {
+              "id": "q95-b9-c",
+              "label": "{3,9}",
+              "wrongReason": "1も両方に含まれる。"
+            },
+            {
+              "id": "q95-b9-d",
+              "label": "{1,3,6,9}",
+              "wrongReason": "6はBに含まれない。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b9-a"
+          ],
+          "explanation": "両方の要素表示に現れるのは1,3,9。"
+        },
+        {
+          "id": "q95-b10",
+          "stepId": "q95-f4",
+          "prompt": "(4) A∪B=【⑩】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b10-a",
+              "label": "{1,2,3,6,9,18,27}"
+            },
+            {
+              "id": "q95-b10-b",
+              "label": "{1,3,9}",
+              "wrongReason": "これは共通部分。"
+            },
+            {
+              "id": "q95-b10-c",
+              "label": "{1,2,3,6,9,18}",
+              "wrongReason": "Bだけにある27を落としている。"
+            },
+            {
+              "id": "q95-b10-d",
+              "label": "{1,2,3,6,9,27}",
+              "wrongReason": "Aだけにある18を落としている。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b10-a"
+          ],
+          "explanation": "AまたはBに入る約数を重複なく並べる。"
+        },
+        {
+          "id": "q95-b11",
+          "stepId": "q95-f5",
+          "prompt": "(5) Aを要素表示すると【⑪】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b11-a",
+              "label": "{1,3,5,7,9,11,13}"
+            },
+            {
+              "id": "q95-b11-b",
+              "label": "{1,3,5,7,9,11}",
+              "wrongReason": "n=6のとき13も得られる。"
+            },
+            {
+              "id": "q95-b11-c",
+              "label": "{3,5,7,9,11,13}",
+              "wrongReason": "n=0のとき1を得る。"
+            },
+            {
+              "id": "q95-b11-d",
+              "label": "{0,2,4,6,8,10,12}",
+              "wrongReason": "2n+1では奇数が得られる。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b11-a"
+          ],
+          "explanation": "n=0,1,…,6を2n+1に代入する。"
+        },
+        {
+          "id": "q95-b12",
+          "stepId": "q95-f5",
+          "prompt": "(5) Bを要素表示すると【⑫】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b12-a",
+              "label": "{1,4,7,10,13}"
+            },
+            {
+              "id": "q95-b12-b",
+              "label": "{1,4,7,10}",
+              "wrongReason": "n=4のとき13も得られる。"
+            },
+            {
+              "id": "q95-b12-c",
+              "label": "{3,6,9,12,15}",
+              "wrongReason": "式は3n+1。"
+            },
+            {
+              "id": "q95-b12-d",
+              "label": "{1,3,7,10,13}",
+              "wrongReason": "n=1のとき4。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b12-a"
+          ],
+          "explanation": "n=0,1,…,4を3n+1に代入する。"
+        },
+        {
+          "id": "q95-b13",
+          "stepId": "q95-f5",
+          "prompt": "(5) A∩B=【⑬】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b13-a",
+              "label": "{1,7,13}"
+            },
+            {
+              "id": "q95-b13-b",
+              "label": "{1,3,7,13}",
+              "wrongReason": "3はBに含まれない。"
+            },
+            {
+              "id": "q95-b13-c",
+              "label": "{1,4,7,10,13}",
+              "wrongReason": "これはBそのもの。"
+            },
+            {
+              "id": "q95-b13-d",
+              "label": "{7,13}",
+              "wrongReason": "1も両方に含まれる。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b13-a"
+          ],
+          "explanation": "2つの要素表示に共通するのは1,7,13。"
+        },
+        {
+          "id": "q95-b14",
+          "stepId": "q95-f5",
+          "prompt": "(5) A∪B=【⑭】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q95-b14-a",
+              "label": "{1,3,4,5,7,9,10,11,13}"
+            },
+            {
+              "id": "q95-b14-b",
+              "label": "{1,3,5,7,9,11,13}",
+              "wrongReason": "Bだけにある4と10を落としている。"
+            },
+            {
+              "id": "q95-b14-c",
+              "label": "{1,4,7,10,13}",
+              "wrongReason": "Aだけにある3,5,9,11を落としている。"
+            },
+            {
+              "id": "q95-b14-d",
+              "label": "{1,3,4,5,7,9,10,11,12,13}",
+              "wrongReason": "12はどちらにも含まれない。"
+            }
+          ],
+          "correctOptionIds": [
+            "q95-b14-a"
+          ],
+          "explanation": "AとBの全要素を重複なく合わせる。"
+        }
+      ],
+      "interaction": {
+        "reveal": "sequential",
+        "options": "inline-expand",
+        "substituteCorrectAnswer": true,
+        "lockFutureSteps": true
+      }
+    },
+    {
+      "schemaVersion": "1.0",
+      "questionId": "math-i-4step-set-098",
+      "revision": 2,
+      "status": "published",
+      "subject": "math-1a",
+      "course": "math-i",
+      "majorUnit": "sets-and-logic",
+      "subcategory": "set-regions",
+      "problemType": "region-reconstruction",
+      "title": "98｜領域から集合を復元",
+      "difficulty": "standard",
+      "source": {
+        "type": "reference",
+        "label": "4STEP 数学I+A 第2章「集合と命題」問98",
+        "rightsNote": "現行source bankの問題文・数値・正答を保持し、旧guided sample q02の領域復元構造を移植。"
+      },
+      "stem": [
+        {
+          "id": "q98-stem-01",
+          "type": "text",
+          "text": "U={1,2,3,4,5,6,7,8,9} を全体集合とする。"
+        },
+        {
+          "id": "q98-stem-02",
+          "type": "text",
+          "text": "A∩B={2}、A∩B̄={4,6,8}、Ā∩B̄={1,9} のとき、次を求めよ。"
+        },
+        {
+          "id": "q98-stem-03",
+          "type": "text",
+          "text": "(1) A∪B　(2) B̄　(3) Ā∩B"
+        }
+      ],
+      "solutionSteps": [
+        {
+          "id": "q98-f1",
+          "dependsOn": [],
+          "basis": [
+            "A∩B={2}",
+            "A∩B̄={4,6,8}",
+            "Ā∩B̄={1,9}"
+          ],
+          "purpose": "Uを「両方・Aだけ・Bだけ・どちらでもない」の4領域として整理し、何が未確定かを明らかにする。",
+          "operation": "既知の3領域を4領域の位置に整理する",
+          "content": [
+            {
+              "id": "q98-f1-c1",
+              "type": "text",
+              "text": "既知なのは「両方={2}」「Aだけ={4,6,8}」「どちらでもない={1,9}」。まだ分からないのは「Bだけ」の領域。"
+            }
+          ],
+          "blankIds": []
+        },
+        {
+          "id": "q98-f2",
+          "dependsOn": [
+            "q98-f1"
+          ],
+          "basis": [
+            "全体集合U",
+            "STEP1の既知3領域"
+          ],
+          "purpose": "4領域のうち未提示の「Bだけ」を、Uから既知要素を除いて確定する。",
+          "operation": "Uから既知3領域を差し引く",
+          "content": [
+            {
+              "id": "q98-f2-c1",
+              "type": "text",
+              "text": "Uの要素から、{2}、{4,6,8}、{1,9} にすでに入っている要素を除く。"
+            }
+          ],
+          "blankIds": [
+            "q98-b1"
+          ]
+        },
+        {
+          "id": "q98-f3",
+          "dependsOn": [
+            "q98-f2"
+          ],
+          "basis": [
+            "A∪Bは4領域のうち「どちらでもない」以外",
+            "STEP2で確定したBだけ領域"
+          ],
+          "purpose": "4領域の状態を使って、AまたはBに入る要素をまとめる。",
+          "operation": "(1) A∪Bを領域から組み立てる",
+          "content": [
+            {
+              "id": "q98-f3-c1",
+              "type": "text",
+              "text": "A∪Bには「両方」「Aだけ」「Bだけ」の3領域が入る。"
+            }
+          ],
+          "blankIds": [
+            "q98-b2"
+          ]
+        },
+        {
+          "id": "q98-f4",
+          "dependsOn": [
+            "q98-f3"
+          ],
+          "basis": [
+            "B̄はBに入らない領域",
+            "Aだけ={4,6,8}",
+            "どちらでもない={1,9}"
+          ],
+          "purpose": "Bに属さない2領域を合わせて補集合を作る。",
+          "operation": "(2) B̄をAだけ＋どちらでもないから作る",
+          "content": [
+            {
+              "id": "q98-f4-c1",
+              "type": "text",
+              "text": "Bに入らないのは「Aだけ」と「どちらでもない」の2領域。"
+            }
+          ],
+          "blankIds": [
+            "q98-b3"
+          ]
+        },
+        {
+          "id": "q98-f5",
+          "dependsOn": [
+            "q98-f4"
+          ],
+          "basis": [
+            "STEP2で確定したBだけ領域",
+            "Ā∩Bは「AではなくBに入る」領域"
+          ],
+          "purpose": "最初に求めた未知領域を、元の問い(3)へそのまま再利用する。",
+          "operation": "(3) Ā∩BをBだけ領域として読む",
+          "content": [
+            {
+              "id": "q98-f5-c1",
+              "type": "text",
+              "text": "Ā∩Bは、4領域でいう「Bだけ」。STEP2の結果をそのまま使える。"
+            }
+          ],
+          "blankIds": [
+            "q98-b4"
+          ]
+        },
+        {
+          "id": "q98-f6",
+          "dependsOn": [
+            "q98-f5"
+          ],
+          "basis": [
+            "Uの9要素",
+            "4領域は互いに重ならずUを尽くす"
+          ],
+          "purpose": "最後に、4領域を合わせるとU全体になることを確認する。",
+          "operation": "4領域の整合性を確認する",
+          "content": [
+            {
+              "id": "q98-f6-c1",
+              "type": "text",
+              "text": "両方・Aだけ・Bだけ・どちらでもないを合わせると、1〜9が重複なくすべて現れる。"
+            }
+          ],
+          "blankIds": []
+        }
+      ],
+      "blanks": [
+        {
+          "id": "q98-b1",
+          "stepId": "q98-f2",
+          "prompt": "Bだけの領域 Ā∩B=【①】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q98-b1-a",
+              "label": "{3,5,7}"
+            },
+            {
+              "id": "q98-b1-b",
+              "label": "{1,9}",
+              "wrongReason": "これはAにもBにも入らない領域。"
+            },
+            {
+              "id": "q98-b1-c",
+              "label": "{4,6,8}",
+              "wrongReason": "これはAだけの領域。"
+            },
+            {
+              "id": "q98-b1-d",
+              "label": "{2}",
+              "wrongReason": "これはAとBの両方に入る領域。"
+            }
+          ],
+          "correctOptionIds": [
+            "q98-b1-a"
+          ],
+          "explanation": "Uから既知の{2},{4,6,8},{1,9}を除くと3,5,7が残る。"
+        },
+        {
+          "id": "q98-b2",
+          "stepId": "q98-f3",
+          "prompt": "(1) A∪B=【②】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q98-b2-a",
+              "label": "{2,3,4,5,6,7,8}"
+            },
+            {
+              "id": "q98-b2-b",
+              "label": "{1,2,3,4,5,6,7,8,9}",
+              "wrongReason": "1と9はどちらの集合にも入らない。"
+            },
+            {
+              "id": "q98-b2-c",
+              "label": "{2,4,6,8}",
+              "wrongReason": "Bだけの3,5,7を落としている。"
+            },
+            {
+              "id": "q98-b2-d",
+              "label": "{3,4,5,6,7,8}",
+              "wrongReason": "両方に入る2を落としている。"
+            }
+          ],
+          "correctOptionIds": [
+            "q98-b2-a"
+          ],
+          "explanation": "「両方」「Aだけ」「Bだけ」を合わせる。"
+        },
+        {
+          "id": "q98-b3",
+          "stepId": "q98-f4",
+          "prompt": "(2) B̄=【③】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q98-b3-a",
+              "label": "{1,4,6,8,9}"
+            },
+            {
+              "id": "q98-b3-b",
+              "label": "{1,3,5,7,9}",
+              "wrongReason": "3,5,7はBだけなのでBに含まれる。"
+            },
+            {
+              "id": "q98-b3-c",
+              "label": "{4,6,8}",
+              "wrongReason": "どちらでもない1,9もBには入らない。"
+            },
+            {
+              "id": "q98-b3-d",
+              "label": "{1,2,4,6,8,9}",
+              "wrongReason": "2はBに含まれる。"
+            }
+          ],
+          "correctOptionIds": [
+            "q98-b3-a"
+          ],
+          "explanation": "Bに入らない「Aだけ」と「どちらでもない」を合わせる。"
+        },
+        {
+          "id": "q98-b4",
+          "stepId": "q98-f5",
+          "prompt": "(3) Ā∩B=【④】",
+          "answerType": "single-choice",
+          "options": [
+            {
+              "id": "q98-b4-a",
+              "label": "{3,5,7}"
+            },
+            {
+              "id": "q98-b4-b",
+              "label": "{2}",
+              "wrongReason": "これは両方に入る領域。"
+            },
+            {
+              "id": "q98-b4-c",
+              "label": "{4,6,8}",
+              "wrongReason": "これはAだけの領域。"
+            },
+            {
+              "id": "q98-b4-d",
+              "label": "{1,9}",
+              "wrongReason": "これはどちらでもない領域。"
+            }
+          ],
+          "correctOptionIds": [
+            "q98-b4-a"
+          ],
+          "explanation": "Ā∩Bは「AではなくBに入る」Bだけの領域なので、STEP2の{3,5,7}を再利用する。"
+        }
+      ],
+      "interaction": {
+        "reveal": "sequential",
+        "options": "inline-expand",
+        "substituteCorrectAnswer": true,
+        "lockFutureSteps": true
+      }
+    }
+  ]
+}
