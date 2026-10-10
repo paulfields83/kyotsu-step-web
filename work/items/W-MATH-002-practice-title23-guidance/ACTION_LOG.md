@@ -104,3 +104,25 @@ Target / location:
 Result: SUCCESS.
 Finding: the old six-question `questions.json` was removed when the full guided bank became the active bundle. The old content remains recoverable in Git history.
 
+## A-007
+
+Date: 2026-10-10
+Action: Stopped P-001 after user rejection and searched GitHub main, old branches, and commit history for prior Section 2/3 corrections.
+Result: SUCCESS.
+
+## A-008
+
+Date: 2026-10-10
+Action: Recovered the old representative guided Practice q01/q02 structures from commit history.
+Evidence:
+- `65603cc442b2f7cc851138d91e3cc5e2c6b9554c` — added six guided samples including set-operations and set-regions
+- `63cb0027916bf71551b6158a4b9ac205f9462f76` — removed six samples during full-bank replacement
+- `08ddb51de4386d041b95748637f669b98435bf75` — later repaired the first segment of the compressed guided bundle
+Result: SUCCESS.
+
+## A-009
+
+Date: 2026-10-10
+Action: Paused before drafting P-002, per user instruction.
+Result: STOPPED-AS-REQUESTED.
+
