@@ -1,6 +1,6 @@
 # W-MATH-002 — Mathematics Practice Title 2–3 Guidance Correction
 
-Status: PROPOSED
+Status: REVISE-PROPOSAL
 Updated: 2026-10-10
 
 ## Objective
@@ -47,11 +47,11 @@ None.
 
 ## Current Step
 
-Assessment complete; P-001 is awaiting user review.
+P-001 was not approved. Historical Git recovery found an earlier Section 2 / Section 3 guided vertical slice and associated Practice UI refinements. No product implementation has started.
 
 ## Next Step
 
-Present P-001 and STOP. If the user gives corrections, move to REVISE-PROPOSAL and present the next revision before implementation.
+STOP and wait for user instruction. Do not draft P-002 or implement changes until the user directs how the recovered historical work should be used.
 
 ## Completion Condition
 
