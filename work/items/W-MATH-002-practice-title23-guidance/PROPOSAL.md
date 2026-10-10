@@ -311,7 +311,7 @@ Approval evidence:
 
 ## P-002 — Restore the proven Section 2–3 guidance pattern on the current 4STEP bank
 
-Status: PROPOSED
+Status: APPROVED
 Created: 2026-10-10
 
 ### Why P-001 is replaced
@@ -613,14 +613,14 @@ Repository:
 
 ### Approval
 
-Status: WAITING
-Approved by user: NO
-Approval date:
-Approval evidence:
+Status: APPROVED
+Approved by user: YES
+Approval date: 2026-10-10
+Approval evidence: after the full P-002 was presented, the user replied 「うんこれでいいと思う。じゃよろしく。」 without adding any scope/design change.
 
 ### Review History
 
-- Review status: NOT-REVIEWED
-- User feedback:
+- Review status: APPROVED
+- User feedback: approved as presented
 - Supersedes: P-001
 - Superseded by:
