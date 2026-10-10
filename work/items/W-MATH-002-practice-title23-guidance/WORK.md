@@ -1,6 +1,6 @@
 # W-MATH-002 — Mathematics Practice Title 2–3 Guidance Correction
 
-Status: IMPLEMENTING
+Status: VERIFYING
 Updated: 2026-10-10
 
 ## Objective
@@ -47,11 +47,11 @@ Proposed implementation scope:
 
 ## Current Step
 
-Implement P-002 in pilot order: historical-to-current mapping table, then Q95 and Q98 only.
+Q95/Q98 pilot implementation is complete with CI PASS. The Work is stopped at the user-visible pilot review gate.
 
 ## Next Step
 
-Build the mapping table, implement Q95/Q98 pilot, run browser/mobile and repository verification, show the user, then STOP.
+User reviews the Q95/Q98 pilot. Do not implement Q96/Q97/Q99/Q100/A-8 and do not merge PR #14 until that review.
 
 ## Completion Condition
 
