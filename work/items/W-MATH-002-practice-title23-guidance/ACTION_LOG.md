@@ -126,3 +126,77 @@ Date: 2026-10-10
 Action: Paused before drafting P-002, per user instruction.
 Result: STOPPED-AS-REQUESTED.
 
+## A-010
+
+Date: 2026-10-10
+Related proposal: P-002
+Action: Created the seven-question historical-to-current mapping table before product edits.
+Target / location: `work/items/W-MATH-002-practice-title23-guidance/HISTORICAL_CURRENT_MAPPING.md`
+Result: SUCCESS.
+Finding: Q95/Q98 can reproduce the old q01/q02 guidance quality with the existing Practice schema.
+
+## A-011
+
+Date: 2026-10-10
+Related proposal: P-002
+Action: Added same-schema Practice question overrides without replacing the compressed 36-question bundle.
+Target / location:
+- `backend/src/practiceData.ts`
+- `backend/data/practice/math-1a/sets-and-logic/question-overrides/title-2-3-pilot.json`
+Result: SUCCESS.
+Safeguard: an override whose questionId does not already exist in the full bank throws at load time.
+
+## A-012
+
+Date: 2026-10-10
+Related proposal: P-002
+Action: Restored the old guided pattern on current exact Q95 and Q98.
+Target / location: Q95 / Q98 pilot override data
+Result: SUCCESS.
+Details:
+- Q95: 5 staged reasoning steps, 14 blanks
+- Q98: 6 reasoning steps, 4 blanks
+- current source problem statements/numbers/answers preserved
+- no new Practice schema fields added
+
+## A-013
+
+Date: 2026-10-10
+Related proposal: P-002
+Action: Reimplemented the minimum backend-Practice frontend on current main.
+Target / location:
+- `src/domain/practice.ts`
+- `src/domain/practiceFlow.ts`
+- `src/repositories/practiceRepository.ts`
+- `src/pages/PracticeSessionPage.tsx`
+- `src/pages/LearningSetupPage.tsx`
+- `src/app/App.tsx`
+- Practice-only CSS
+Result: SUCCESS.
+Behavior:
+- shows 何をする / なぜ / 使うもの
+- shows resolved dependency results
+- releases steps by `dependsOn`
+- reveals only the next unresolved blank within a step
+
+## A-014
+
+Date: 2026-10-10
+Related proposal: P-002
+Action: Opened draft PR #14 and ran repository CI.
+Target / location: PR #14
+Result: SUCCESS.
+Evidence:
+- Repository Governance Check: SUCCESS
+- backend typecheck: SUCCESS
+- frontend typecheck: SUCCESS
+- unit tests: SUCCESS
+- production build: SUCCESS
+
+## A-015
+
+Date: 2026-10-10
+Related proposal: P-002
+Action: Stopped after Q95/Q98 pilot as required by the approved review gate.
+Result: STOPPED-AS-PLANNED.
+
