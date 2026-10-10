@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NumberedSection, RaisedButton } from '../components/ui/Primitives'
 import type { LearningVariant, Question } from '../domain/questionSchema'
-import { buildTextbookChapters, textbookLessonHref, textbookLessonItemIds } from '../domain/textbookCatalog'
+import { buildTextbookChapters, isTextbookChapterUnlocked, textbookLessonHref, textbookLessonItemIds } from '../domain/textbookCatalog'
 import type { PublicTextbookUnit } from '../domain/textbookPublic'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { getQuestionCatalog, useAppStore } from '../stores/useAppStore'
@@ -32,6 +32,12 @@ export function LearningSetupPage() {
   const [lessonKey, setLessonKey] = useState('')
   const subjectQuestions = catalog.filter((q) => q.subject === subject && q.status === 'published')
   const textbookChapters = useMemo(() => buildTextbookChapters(textbookUnits, subject), [textbookUnits, subject])
+  const chapterUnlocks = useMemo(
+    () => textbookChapters.map((_, index) => (
+      subject !== 'math-1a' || isTextbookChapterUnlocked(textbookUnits, textbookChapters, index, textbookProgress)
+    )),
+    [subject, textbookChapters, textbookProgress, textbookUnits],
+  )
   const selectedChapter = textbookChapters.find((chapter) => chapter.key === chapterKey) ?? textbookChapters[0]
   const selectedLesson = selectedChapter?.lessons.find((lesson) => lesson.key === lessonKey) ?? selectedChapter?.lessons[0]
   const selectedUnit = selectedLesson ? textbookUnits.find((unit) => unit.unitId === selectedLesson.unitId) : undefined
@@ -82,7 +88,9 @@ export function LearningSetupPage() {
   }
 
   const changeChapter = (nextChapterKey: string) => {
-    const chapter = textbookChapters.find((candidate) => candidate.key === nextChapterKey)
+    const chapterIndex = textbookChapters.findIndex((candidate) => candidate.key === nextChapterKey)
+    if (chapterIndex < 0 || !chapterUnlocks[chapterIndex]) return
+    const chapter = textbookChapters[chapterIndex]
     setChapterKey(nextChapterKey)
     setLessonKey(chapter?.lessons[0]?.key ?? '')
   }
@@ -127,8 +135,13 @@ export function LearningSetupPage() {
           : <>
             <label className="field-label" htmlFor="textbook-chapter">{text('学習する単元', '选择单元')}</label>
             <select id="textbook-chapter" className="select-control" value={selectedChapter?.key ?? ''} onChange={(event) => changeChapter(event.target.value)}>
-              {textbookChapters.map((chapter) => <option key={chapter.key} value={chapter.key}>{chapter.label}</option>)}
+              {textbookChapters.map((chapter, index) => (
+                <option key={chapter.key} value={chapter.key} disabled={!chapterUnlocks[index]}>
+                  {chapterUnlocks[index] ? chapter.label : `🔒 ${chapter.label}`}
+                </option>
+              ))}
             </select>
+            {subject === 'math-1a' && <p className="field-help">{text('前の章を完了すると、次の章が開きます。', '完成前一章后，下一章才会解锁。')}</p>}
           </>}
       </NumberedSection>
 

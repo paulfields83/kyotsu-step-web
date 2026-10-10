@@ -3,6 +3,17 @@ import { z } from 'zod'
 const IdSchema = z.string().min(2).regex(/^[a-z0-9][a-z0-9-]*$/, 'ID は小文字英数字とハイフンで指定してください')
 
 export const TextbookAnswerTypeSchema = z.enum(['text', 'formula', 'number'])
+export const TextbookReadingRoleSchema = z.enum([
+  'motivation',
+  'focus',
+  'concept',
+  'definition',
+  'property',
+  'proof',
+  'example',
+  'check',
+  'support',
+])
 export const TextbookAnswerValidatorSchema = z.enum(['normalized-text', 'number', 'exact', 'math-equivalent'])
 
 export const TextbookItemSchema = z.object({
@@ -41,12 +52,12 @@ export const TextbookReadingPartSchema = z.discriminatedUnion('type', [
 ])
 
 export const TextbookReadingBlockSchema = z.discriminatedUnion('type', [
-  z.object({ id: IdSchema, type: z.literal('topic'), text: z.string().min(1) }),
-  z.object({ id: IdSchema, type: z.literal('heading'), text: z.string().min(1) }),
-  z.object({ id: IdSchema, type: z.literal('paragraph'), parts: z.array(TextbookReadingPartSchema).min(1) }),
-  z.object({ id: IdSchema, type: z.literal('formula'), parts: z.array(TextbookReadingPartSchema).min(1) }),
-  z.object({ id: IdSchema, type: z.literal('figure'), figureId: IdSchema }),
-  z.object({ id: IdSchema, type: z.literal('note'), text: z.string().min(1) }),
+  z.object({ id: IdSchema, type: z.literal('topic'), text: z.string().min(1), role: TextbookReadingRoleSchema.optional() }),
+  z.object({ id: IdSchema, type: z.literal('heading'), text: z.string().min(1), role: TextbookReadingRoleSchema.optional() }),
+  z.object({ id: IdSchema, type: z.literal('paragraph'), parts: z.array(TextbookReadingPartSchema).min(1), role: TextbookReadingRoleSchema.optional() }),
+  z.object({ id: IdSchema, type: z.literal('formula'), parts: z.array(TextbookReadingPartSchema).min(1), role: TextbookReadingRoleSchema.optional() }),
+  z.object({ id: IdSchema, type: z.literal('figure'), figureId: IdSchema, role: TextbookReadingRoleSchema.optional() }),
+  z.object({ id: IdSchema, type: z.literal('note'), text: z.string().min(1), role: TextbookReadingRoleSchema.optional() }),
 ])
 
 export const TextbookSectionSchema = z.object({
@@ -125,6 +136,7 @@ export type TextbookAnswerEntry = z.infer<typeof TextbookAnswerEntrySchema>
 export type TextbookAnswerBook = z.infer<typeof TextbookAnswerBookSchema>
 export type TextbookReadingPart = z.infer<typeof TextbookReadingPartSchema>
 export type TextbookReadingBlock = z.infer<typeof TextbookReadingBlockSchema>
+export type TextbookReadingRole = z.infer<typeof TextbookReadingRoleSchema>
 
 export function validateTextbookUnits(input: unknown): TextbookUnit[] {
   return z.array(TextbookUnitSchema).parse(input)

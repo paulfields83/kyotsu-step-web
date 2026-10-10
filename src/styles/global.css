@@ -328,9 +328,27 @@ a { color: inherit; }
 .reading-subheading { margin: 1rem 0 .1rem; padding: .55rem .7rem; border-left: 5px solid var(--color-primary); background: var(--color-section); font-size: 1.05rem; }
 .reading-subheading:first-child { margin-top: 0; }
 .reading-note { padding: .7rem .8rem; border: 1px solid var(--color-primary); background: var(--color-section); color: var(--color-muted); font-size: .82rem; line-height: 1.65; }
+
+/* Mathematics textbook semantic roles: keep concept prose black; distinguish proof/example by structure. */
+.reading-role--concept,
+.reading-role--definition,
+.reading-role--property { color: var(--color-text); }
+.reading-subheading.reading-role--definition,
+.reading-subheading.reading-role--property { background: transparent; border-left-color: var(--color-text); }
+.reading-subheading.reading-role--proof { background: transparent; border-left: 5px double var(--color-text); color: var(--color-text); }
+.reading-subheading.reading-role--example { background: transparent; border: 1px solid var(--color-border); border-left: 5px solid var(--color-text); color: var(--color-text); }
+.reading-paragraph.reading-role--proof,
+.reading-formula-line.reading-role--proof { margin-left: .45rem; padding-left: .75rem; border-left: 2px solid var(--color-text); }
+.reading-note.reading-role--focus,
+.reading-note.reading-role--support,
+.reading-note.reading-role--check { color: var(--color-text); }
 .reading-paragraph { margin: 0; font-size: 1rem; line-height: 2.05; }
 .reading-paragraph > span { display: inline; }
 .reading-paragraph .katex { font-size: 1.03em; }
+.reading-absolute-value { display: inline-block; margin-inline: .08em; padding-inline: .04em; white-space: nowrap; }
+.reading-absolute-value .katex { font-size: 1.06em; }
+.reading-absolute-value .mopen,
+.reading-absolute-value .mclose { font-weight: 700; }
 .reading-formula-line { overflow-x: auto; padding: .7rem .85rem; border: 1px solid var(--color-line); background: #fff; font-size: 1.08rem; line-height: 2; text-align: center; white-space: nowrap; }
 .reading-formula-line > span { display: inline; }
 .reading-figure { display: grid; gap: .5rem; margin: .25rem 0; padding: .75rem; border: 1px solid var(--color-border); background: white; }

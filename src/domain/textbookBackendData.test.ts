@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { publicTextbookUnit } from '../../backend/src/publicTextbook'
 import { loadedTextbookUnits } from '../../backend/src/textbookData'
-import { buildTextbookChapters } from './textbookCatalog'
+import { buildTextbookChapters, isTextbookChapterUnlocked, textbookChapterProgress, textbookLessonItemIds } from './textbookCatalog'
 
 const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
 const setsRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'sets-propositions')
@@ -197,10 +197,73 @@ describe('backend textbook data', () => {
     expect(physicsChapters[0].lessons[2].label).toMatch(/^1C /)
   })
 
+  it('orders Mathematics I・A chapters canonically and unlocks them sequentially', () => {
+    const publicUnits = loadedTextbookUnits
+      .filter(({ unit }) => unit.status === 'published')
+      .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook))
+
+    const chapters = buildTextbookChapters(publicUnits, 'math-1a')
+    expect(chapters.map((chapter) => chapter.label)).toEqual([
+      '数と式',
+      '2次関数',
+      '集合と命題',
+      '図形と計量',
+      'データの分析',
+      '場合の数と確率',
+      '図形の性質',
+      '数学と人間の活動',
+    ])
+
+    const progress: Record<string, { answers: Record<string, { resolved: boolean }> }> = {}
+    expect(isTextbookChapterUnlocked(publicUnits, chapters, 0, progress)).toBe(true)
+    expect(isTextbookChapterUnlocked(publicUnits, chapters, 1, progress)).toBe(false)
+
+    for (const lesson of chapters[0].lessons) {
+      const unit = publicUnits.find((candidate) => candidate.unitId === lesson.unitId)!
+      progress[unit.unitId] ??= { answers: {} }
+      for (const itemId of textbookLessonItemIds(unit, lesson)) {
+        progress[unit.unitId].answers[itemId] = { resolved: true }
+      }
+    }
+
+    expect(textbookChapterProgress(publicUnits, chapters[0], progress).complete).toBe(true)
+    expect(isTextbookChapterUnlocked(publicUnits, chapters, 1, progress)).toBe(true)
+    expect(isTextbookChapterUnlocked(publicUnits, chapters, 2, progress)).toBe(false)
+  })
+
   it('keeps the standalone Math A 集合 source data hidden because it overlaps 集合と命題', () => {
     const duplicate = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-math-a-sets')!
     expect(duplicate).toBeTruthy()
     expect(duplicate.unit.status).toBe('draft')
+  })
+
+  it('keeps semantic reading roles backward-compatible and tags the 図形の性質 pilot', () => {
+    const geometric = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-geometric-properties')!
+    const roles = geometric.unit.sections
+      .flatMap((section) => section.readingFlow)
+      .map((block) => block.role)
+      .filter(Boolean)
+
+    expect(roles).toContain('definition')
+    expect(roles).toContain('property')
+    expect(roles).toContain('proof')
+    expect(roles).toContain('example')
+    expect(roles).toContain('focus')
+    expect(roles).toContain('check')
+
+    const untaggedPhysics = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'physics-a-displacement-velocity')!
+    expect(untaggedPhysics.unit.sections.flatMap((section) => section.readingFlow).some((block) => block.role === undefined)).toBe(true)
+  })
+
+  it('keeps the 図形の性質 pilot as textbook prose instead of double worksheet headings', () => {
+    const geometric = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-geometric-properties')!
+    const blocks = geometric.unit.sections.flatMap((section) => section.readingFlow)
+    const headings = blocks.filter((block) => block.type === 'heading').map((block) => block.text)
+
+    expect(headings.some((text) => text.startsWith('教科書対応問'))).toBe(false)
+    expect(headings.some((text) => text.startsWith('問題文'))).toBe(false)
+    expect(headings.filter((text) => text.startsWith('例題')).length).toBeGreaterThan(0)
+    expect(blocks.some((block) => block.type === 'paragraph' && block.role === 'example')).toBe(true)
   })
 
   it('keeps every new static math unit in one-to-one sync with private answers', () => {
