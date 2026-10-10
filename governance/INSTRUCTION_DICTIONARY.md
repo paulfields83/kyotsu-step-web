@@ -1,7 +1,7 @@
 # 指示辞書 / Instruction Dictionary
 
 Status: CANONICAL
-Version: 1.2.0
+Version: 1.3.0
 Updated: 2026-10-08
 
 ## Purpose
@@ -224,6 +224,21 @@ approved correction proposal exists?
 - 既存の承認済み修正案の有無
 - Do Not Touch
 - 必要なverification
+
+### Review-link handoff
+
+Every time a correction Work reaches a user-reviewable stopping point, the final handoff must include at least one usable review link.
+
+Priority:
+1. rendered app / preview / directly reviewable screen;
+2. Pull Request;
+3. branch or exact GitHub location if no better review surface exists.
+
+Rules:
+- Prefer the link that lets the user inspect the actual corrected result.
+- If no preview/app link exists, say so and provide the best available fallback.
+- This applies both when the Work is DONE and when it intentionally stops at a user review gate.
+- Do not finish a correction handoff with prose only when a review link is available.
 
 ### Record requirement
 
