@@ -58,11 +58,17 @@ if (!instructionDictionary.includes('### 2. SIMILAR')) fail('instruction diction
 if (!instructionDictionary.includes('今回この指示として扱いますか？')) fail('SIMILAR rule missing explicit user confirmation prompt')
 if (!instructionDictionary.includes('REVIEW-FEEDBACK ≠ APPROVAL')) fail('instruction dictionary missing review-feedback approval separation')
 if (!instructionDictionary.includes('修正版Proposalをユーザーへ全文提示する')) fail('CMD-WORK-001 missing revised-proposal presentation gate')
+if (!instructionDictionary.includes('### Review-link handoff')) fail('CMD-WORK-001 missing review-link handoff')
+if (!instructionDictionary.includes('rendered app / preview / directly reviewable screen')) fail('CMD-WORK-001 missing review-link priority')
+
 
 const workSystem = read('governance/WORK_SYSTEM.md')
 if (!workSystem.includes('REVIEW-FEEDBACK ≠ APPROVAL')) fail('WORK_SYSTEM missing review-feedback approval separation')
 if (!workSystem.includes('### Proposal review loop')) fail('WORK_SYSTEM missing proposal review loop')
 if (!workSystem.includes('The revised proposal must be shown before implementation.')) fail('WORK_SYSTEM missing revised-proposal-before-implementation rule')
+if (!workSystem.includes('## 12A. User review handoff')) fail('WORK_SYSTEM missing user review handoff rule')
+if (!workSystem.includes('A correction handoff must not end as prose-only')) fail('WORK_SYSTEM missing correction review-link requirement')
+
 
 const proposalTemplate = read('work/templates/PROPOSAL.md')
 if (!proposalTemplate.includes('### Review History')) fail('PROPOSAL template missing review history')
