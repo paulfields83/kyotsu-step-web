@@ -1,6 +1,6 @@
 # W-GOV-004 — Correction Review Link
 
-Status: IMPLEMENTING
+Status: VERIFYING
 Updated: 2026-10-10
 
 ## Objective
@@ -36,11 +36,11 @@ Direct user instruction on 2026-10-10.
 
 ## Current Step
 
-Implement the review-link rule.
+Rule implementation is complete. Run CI and merge.
 
 ## Next Step
 
-Run CI, merge, and report the current pilot review link.
+Open PR, run CI, merge, then use the new rule in this handoff.
 
 ## Completion Condition
 
