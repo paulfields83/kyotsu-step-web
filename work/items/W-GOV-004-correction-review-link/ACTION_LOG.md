@@ -4,3 +4,14 @@
 Date: 2026-10-10
 Action: Opened isolated governance Work and branch.
 Result: SUCCESS.
+
+## A-002
+Date: 2026-10-10
+Action: Added review-link handoff rule to CMD-WORK-001, Work OS, and AGENTS.
+Result: SUCCESS.
+
+## A-003
+Date: 2026-10-10
+Action: Added governance validator checks and durable Decision/Lesson memory.
+Result: SUCCESS.
+
