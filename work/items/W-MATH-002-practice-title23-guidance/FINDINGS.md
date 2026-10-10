@@ -82,3 +82,66 @@ Evidence: it predates the current Work approval system and has no exact user app
 Impact: W-MATH-002 must stop at proposal approval.
 Promote to Decision: NO
 Promote to Lesson: NO
+
+## F-009
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: Git history contains an earlier guided Practice vertical slice specifically covering Section 2 「集合の演算」 and Section 3 「集合の領域」.
+Evidence:
+- commit `65603cc442b2f7cc851138d91e3cc5e2c6b9554c` introduced the guided questions file.
+- snapshot before deletion is readable at `96d18e01b52604da15c2fd7321f78685258e4a4b`.
+Impact: a new correction proposal must not be designed from zero before evaluating this prior work.
+Promote to Decision: NO
+Promote to Lesson: YES
+
+## F-010
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: Historical Section 2 question `math-i-set-practice-q01` already used a seven-step reasoning graph with explicit `dependsOn`, `basis`, `purpose`, `operation`, content, and blanks.
+Evidence: recovered historical `questions.json`.
+Impact: prior guidance design is materially richer than source-level one-line miniGuide and must be considered before redesign.
+Promote to Decision: NO
+Promote to Lesson: NO
+
+## F-011
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: Historical Section 3 question `math-i-set-practice-q02` already represented the problem as four-region reconstruction: first derive the missing region, then rebuild A/B and downstream sets.
+Evidence: recovered historical `questions.json`.
+Impact: the earlier design already contains the central reasoning architecture for Section 3.
+Promote to Decision: NO
+Promote to Lesson: NO
+
+## F-012
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: The historical Practice UI was subsequently refined to substitute solved earlier blanks into later prompts and to show explicit STEP operation headings.
+Evidence: commits `aa5609...`, `8537c3...`, and `e9c52f...`.
+Impact: recovered historical work is not data-only; relevant UI behavior also exists in branch history.
+Promote to Decision: NO
+Promote to Lesson: NO
+
+## F-013
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: The old six-question guided file was removed when the full guided bank replaced the sample vertical slice.
+Evidence: commit `63cb0027916bf71551b6158a4b9ac205f9462f76` removes `questions.json` with message `data(practice): replace six samples with full guided bank`; compressed bundle and loader commits precede it.
+Impact: prior Section 2 / 3 work was not disproven; it was displaced by the full-bank migration and survives only in Git history.
+Promote to Decision: NO
+Promote to Lesson: YES
+
+## F-014
+
+Date: 2026-10-10
+Type: OPEN-QUESTION
+Statement: No separate canonical document explicitly labels the recovered q01/q02 state as “final approved Section 2 / 3 correction”.
+Evidence: current main/history code search and branch scan found the implementation history but no such approval document.
+Impact: treat it as strong historical design evidence, not automatic current authority, until the user decides how to reuse it.
+Promote to Decision: NO
+Promote to Lesson: NO
+
