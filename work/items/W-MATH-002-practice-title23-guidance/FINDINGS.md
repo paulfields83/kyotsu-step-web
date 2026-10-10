@@ -177,3 +177,33 @@ Impact: the old Section 2/3 samples are valid design evidence, although their pr
 Promote to Decision: NO
 Promote to Lesson: YES
 
+## F-012
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: The historical q01/q02 mother pattern is sufficient for the Q95/Q98 pilot without adding `feeds` or `releaseAfterCorrect`.
+Evidence: Q95/Q98 pilot passes backend/frontend typechecks, unit tests, and build using existing `dependsOn / basis / purpose / operation / blankIds`.
+Impact: no schema extension is justified at this stage.
+Promote to Decision: NO
+Promote to Lesson: YES
+
+## F-013
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: The compressed full bank can be preserved while selectively correcting pilot questions using same-schema overrides.
+Evidence: loader requires override targets to already exist; full published question count remains 36 under tests.
+Impact: no bundle rollback or full-bank rewrite is necessary.
+Promote to Decision: NO
+Promote to Lesson: YES
+
+## F-014
+
+Date: 2026-10-10
+Type: CONFIRMED
+Statement: Current main lacked a backend-Practice learner page even though the Practice API already existed.
+Evidence: pre-pilot main routed ordinary learning through the local question system; the protected `front-ui--test` contained the earlier backend Practice session reference implementation.
+Impact: the pilot reimplements only the minimum Practice vertical slice on current main.
+Promote to Decision: NO
+Promote to Lesson: YES
+
