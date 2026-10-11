@@ -89,8 +89,9 @@ export function loadRevisedNumbersExpressions() {
       if (pi === 0 || paragraph.startsWith('*数学Ⅰ「数と式」｜')) return
       const id = 'revised-' + name.toLowerCase() + '-' + String(pi).padStart(3,'0')
       const stripped = normaliseMarkdown(paragraph)
-      if (/^!\[.*?\]\(.*?\)/s.test(paragraph)) {
-        blocks.push({id,type:'note',text:'【図版あり】元のWordに含まれる図版。図の位置は確保していますが、画像アセットの検証が必要です。'})
+      if (/<img\\b/i.test(paragraph) || /^!\\[.*?\\]\\(.*?\\)/s.test(paragraph)) {
+        const alt = paragraph.match(/\\balt="([^"]+)"/)?.[1] || '図版'
+        blocks.push({id,type:'note',text:`【図版・取込待ち】${alt}（元のWordの画像アセットは現在のプレビューに未収録）`})
       } else if (/^\*\*(例題|導出|証明|性質|確認|まとめ|先生|花子|太郎)/.test(paragraph)) {
         if (/^\*\*(例題|導出|証明|性質|確認|まとめ)\*\*$/.test(paragraph)) {
           blocks.push({id,type:'heading',text:stripped})
