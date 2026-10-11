@@ -122,7 +122,7 @@ export function loadRevisedNumbersExpressions() {
       if (pi === 0 || paragraph.startsWith('*数学Ⅰ「数と式」｜')) return
       const id = 'revised-' + name.toLowerCase() + '-' + String(pi).padStart(3,'0')
       const stripped = normaliseMarkdown(paragraph)
-      if (/<img\\b/i.test(paragraph) || /^!\\[.*?\\]\\(.*?\\)/s.test(paragraph)) {
+      if (/<img\b/i.test(paragraph) || /^!\[.*?\]\(.*?\)/s.test(paragraph)) {
         const code = (figureOrder[name] ?? [])[pictureIndex++]
         if (!code) throw new Error(`unexpected image in revised lesson ${name}, paragraph ${pi}`)
         figures.push({id:code.toLowerCase(),src:`assets/${code}.webp`,alt:figureCaptions[code],caption:`${code}  ${figureCaptions[code]}`})
