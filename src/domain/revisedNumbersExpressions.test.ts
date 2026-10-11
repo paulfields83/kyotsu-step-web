@@ -13,6 +13,27 @@ describe('revised 数と式 corpus', () => {
     expect(unit.sections.every(section => section.readingFlow.length > 10)).toBe(true)
     expect(unit.status).toBe('published')
   })
+  it('publishes the 14 supplied diagrams at their original lesson positions', () => {
+    const expected = new Map([
+      ['revised-n03', ['n03-f01']],
+      ['revised-n04', ['n04-f01']],
+      ['revised-n05', ['n05-f01', 'n05-f02']],
+      ['revised-n08', ['n08-f01']],
+      ['revised-n09', ['n09-f01']],
+      ['revised-n11', ['n11-f01', 'n11-f02']],
+      ['revised-n12', ['n12-f01', 'n12-f02', 'n12-f03']],
+      ['revised-n13', ['n13-f02', 'n13-f01']],
+      ['revised-n14', ['n14-f01']],
+    ])
+    const figureCount = unit.sections.reduce((n, section) => n + section.figures.length, 0)
+    expect(figureCount).toBe(14)
+    for (const section of unit.sections) {
+      const figureIds = section.readingFlow.filter((block) => block.type === 'figure').map(block => block.figureId)
+      expect(figureIds).toEqual(expected.get(section.id) ?? [])
+      expect(section.figures.map(f => f.id)).toEqual(figureIds)
+      for (const figure of section.figures) expect(figure.src).toMatch(/^assets\/N\d{2}-F\d{2}\.webp$/)
+    }
+  })
   it('preserves math expressions as structured KaTeX-capable parts', () => {
     const math = unit.sections.flatMap(s => s.readingFlow)
       .filter(b => b.type === 'paragraph' || b.type === 'formula')
