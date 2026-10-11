@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { inflateSync } from 'node:zlib'
+import { brotliDecompressSync } from 'node:zlib'
 import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookReadingPart, type TextbookReadingBlock, type TextbookItem } from '../../src/domain/textbookSchema'
 
 const dataFile = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'textbooks', 'math-1a', 'revised-numbers-expressions', 'source.deflate.b64')
@@ -47,8 +47,6 @@ const n01Slots: Record<number, (Slot | null)[]> = {
   ],
   33: [{answer:'2',choices:['2','3','1']},null],
 }
-const inlineMath = /\$([^$]+)\$/g
-const placeholder = /【[^】]*】/g
 const tokenPattern = /(\$[^$]+\$|【[^】]*】)/g
 const normaliseMarkdown = (s:string) => s.replace(/\*\*/g,'').replace(/^\*(.*)\*$/s,'$1').trim()
 const textPart = (s:string):TextbookReadingPart => ({type:'text',text:s})
@@ -80,7 +78,7 @@ function bodyParts(source:string, lesson:string, paragraphIndex:number, items:Te
   return parts.length ? parts.filter(p=>p.type!=='text'||p.text.length>0) : [textPart(' ')]
 }
 export function loadRevisedNumbersExpressions() {
-  const original = JSON.parse(inflateSync(Buffer.from(readFileSync(dataFile, 'utf8').trim(), 'base64')).toString('utf8')) as Record<string,string>
+  const original = JSON.parse(brotliDecompressSync(Buffer.from(readFileSync(dataFile, 'utf8').trim(), 'base64')).toString('utf8')) as Record<string,string>
   const answers:Record<string,{validator:'normalized-text';answer:string;acceptedAnswers:string[]}> = {}
   const sections = order.map((name,idx) => {
     const items:TextbookItem[] = []
