@@ -56,7 +56,7 @@ export const TextbookSectionSchema = z.object({
   description: z.string().optional(),
   figures: z.array(TextbookFigureSchema).default([]),
   readingFlow: z.array(TextbookReadingBlockSchema).default([]),
-  items: z.array(TextbookItemSchema).min(1),
+  items: z.array(TextbookItemSchema).default([]),
 })
 
 const TextbookUnitBaseSchema = z.object({
