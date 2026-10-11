@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { brotliDecompressSync } from 'node:zlib'
 import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookReadingPart, type TextbookReadingBlock, type TextbookItem } from '../../src/domain/textbookSchema'
 
-const dataFile = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'textbooks', 'math-1a', 'revised-numbers-expressions', 'source.deflate.b64')
+const dataDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'textbooks', 'math-1a', 'revised-numbers-expressions')
 const order = ['N01','N02','N03','N04','N05','N06','N07','N08','N09','N10','N11','N12','N13','N14','NE01','NE02'] as const
 const titles: Record<string,string> = {
   N01:'式をほどいて、係数と次数を読む',
@@ -78,7 +78,8 @@ function bodyParts(source:string, lesson:string, paragraphIndex:number, items:Te
   return parts.length ? parts.filter(p=>p.type!=='text'||p.text.length>0) : [textPart(' ')]
 }
 export function loadRevisedNumbersExpressions() {
-  const original = JSON.parse(brotliDecompressSync(Buffer.from(readFileSync(dataFile, 'utf8').trim(), 'base64')).toString('utf8')) as Record<string,string>
+  const corpus = Array.from({length: 7}, (_, i) => readFileSync(join(dataDir, 'chunks', String(i + 1).padStart(2, '0') + '.txt'), 'utf8').trim()).join('')
+  const original = JSON.parse(brotliDecompressSync(Buffer.from(corpus, 'base64')).toString('utf8')) as Record<string,string>
   const answers:Record<string,{validator:'normalized-text';answer:string;acceptedAnswers:string[]}> = {}
   const sections = order.map((name,idx) => {
     const items:TextbookItem[] = []
