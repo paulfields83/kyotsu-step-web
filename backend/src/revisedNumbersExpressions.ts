@@ -24,6 +24,37 @@ const titles: Record<string,string> = {
   NE01:'3次の展開と因数分解（発展）',
   NE02:'二重根号を、平方の形から外す（発展）',
 }
+
+// Image order follows the 16 uploaded Word manuscripts, not alphabetical figure IDs.
+// N13 intentionally has F02 before F01 in the original reading flow.
+const figureOrder: Record<string, string[]> = {
+  N03: ['N03-F01'],
+  N04: ['N04-F01'],
+  N05: ['N05-F01', 'N05-F02'],
+  N08: ['N08-F01'],
+  N09: ['N09-F01'],
+  N11: ['N11-F01', 'N11-F02'],
+  N12: ['N12-F01', 'N12-F02', 'N12-F03'],
+  N13: ['N13-F02', 'N13-F01'],
+  N14: ['N14-F01'],
+}
+const figureCaptions: Record<string, string> = {
+  'N03-F01': '掛け合わせる項の対応。内側の積はまだ記入していない。',
+  'N04-F01': '同じ二項の和を二つ掛ける。',
+  'N05-F01': '二つの括弧の係数を並べた対応図。',
+  'N05-F02': 'ここまでに選んだ組を、係数の対応図で確かめる。',
+  'N08-F01': '点の位置と原点。矢印や距離の答えは加えていない。',
+  'N09-F01': '負の小数の位置。区間の端を選ぶ前の数直線。',
+  'N11-F01': '2 と 5、および符号を反対にした二つの数の位置。',
+  'N11-F02': 'ここまでに解いた二つの不等式。○は端点を含まず、●は含む。',
+  'N12-F01': 'それぞれの条件の範囲。二つを合わせた答えはまだ示していない。',
+  'N12-F02': '二つの上限を比べる。',
+  'N12-F03': '線は不等式の範囲、印を付けた整数は個数として残す値である。',
+  'N13-F02': '答えた後に、左右の二点と原点からの距離を確かめる。',
+  'N13-F01': '1 より右にある場合と、左にある場合。',
+  'N14-F01': '直前に求めた二つの範囲の比較。',
+}
+
 type Slot = { answer:string; choices:string[] }
 // These ten reviewed N01 slots are answerable; other source blanks remain literal
 // so that the server never fabricates an answer key.
@@ -84,14 +115,18 @@ export function loadRevisedNumbersExpressions() {
   const sections = order.map((name,idx) => {
     const items:TextbookItem[] = []
     const blocks:TextbookReadingBlock[] = []
+    const figures: Array<{id:string;src:string;alt:string;caption:string}> = []
+    let pictureIndex = 0
     const paragraphs = original[name].split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean)
     paragraphs.forEach((paragraph,pi) => {
       if (pi === 0 || paragraph.startsWith('*数学Ⅰ「数と式」｜')) return
       const id = 'revised-' + name.toLowerCase() + '-' + String(pi).padStart(3,'0')
       const stripped = normaliseMarkdown(paragraph)
       if (/<img\\b/i.test(paragraph) || /^!\\[.*?\\]\\(.*?\\)/s.test(paragraph)) {
-        const alt = paragraph.match(/\\balt="([^"]+)"/)?.[1] || '図版'
-        blocks.push({id,type:'note',text:`【図版・取込待ち】${alt}（元のWordの画像アセットは現在のプレビューに未収録）`})
+        const code = (figureOrder[name] ?? [])[pictureIndex++]
+        if (!code) throw new Error(`unexpected image in revised lesson ${name}, paragraph ${pi}`)
+        figures.push({id:code.toLowerCase(),src:`assets/${code}.webp`,alt:figureCaptions[code],caption:`${code}  ${figureCaptions[code]}`})
+        blocks.push({id,type:'figure',figureId:code.toLowerCase()})
       } else if (/^\*\*(例題|導出|証明|性質|確認|まとめ|先生|花子|太郎)/.test(paragraph)) {
         if (/^\*\*(例題|導出|証明|性質|確認|まとめ)\*\*$/.test(paragraph)) {
           blocks.push({id,type:'heading',text:stripped})
@@ -108,9 +143,12 @@ export function loadRevisedNumbersExpressions() {
         blocks.push({id,type:'paragraph',parts:bodyParts(paragraph,name,pi,items,answers)})
       }
     })
+    if (pictureIndex !== (figureOrder[name]?.length ?? 0)) {
+      throw new Error(`figure count mismatch: ${name}, expected ${figureOrder[name]?.length ?? 0}, actual ${pictureIndex}`)
+    }
     return {id:'revised-'+name.toLowerCase(),number:String(idx+1),title:name+' '+titles[name],
       description:name.startsWith('NE')?'参考・発展':'改訂版 教科書学習',
-      readingFlow:blocks,items,figures:[]}
+      readingFlow:blocks,items,figures}
   })
   const unit = TextbookUnitSchema.parse({
     schemaVersion:'1.0',unitId:'math-1a-numbers-expressions-revised',revision:1,
@@ -122,5 +160,5 @@ export function loadRevisedNumbersExpressions() {
     sections,
   })
   const answerBook = TextbookAnswerBookSchema.parse({unitId:unit.unitId,answers})
-  return {unit,answerBook}
+  return {unit,answerBook,dataDir}
 }
