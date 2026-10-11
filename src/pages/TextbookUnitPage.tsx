@@ -638,9 +638,9 @@ export function TextbookUnitPage() {
   const focusedSection = Boolean(groupedSection || targetedSection || legacySection)
   const targetSelected = Boolean(lessonTarget)
   const targetSummary = lessonTarget?.kind === 'unit' ? summary : sectionSummary
-  const targetComplete = targetSummary.completed === targetSummary.total
-  const sectionComplete = sectionSummary.completed === sectionSummary.total
-  const unitComplete = summary.completed === summary.total
+  const targetComplete = targetSummary.total > 0 && targetSummary.completed === targetSummary.total
+  const sectionComplete = sectionSummary.total > 0 && sectionSummary.completed === sectionSummary.total
+  const unitComplete = summary.total > 0 && summary.completed === summary.total
   const physicsPrefix = lessonTarget?.kind === 'unit' && unit.subject === 'physics' ? physicsTopicPrefix(unit) : undefined
   const goNext = () => {
     setSelectedSectionIndex((index) => Math.min(unit.sections.length - 1, index + 1))
@@ -674,7 +674,7 @@ export function TextbookUnitPage() {
         <nav className="textbook-section-nav" aria-label={text('知識項目', '知识点')}>
           {unit.sections.map((section, index) => {
             const sectionProgress = textbookSectionProgress(unit, progress, section.id)
-            const complete = sectionProgress.completed === sectionProgress.total
+            const complete = sectionProgress.total > 0 && sectionProgress.completed === sectionProgress.total
             return (
               <button
                 type="button"
