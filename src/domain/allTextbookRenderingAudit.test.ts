@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import katex from 'katex'
 import { loadedTextbookUnits } from '../../backend/src/textbookData'
+import { publicTextbookUnit } from '../../backend/src/publicTextbook'
 
 describe('all published math and physics textbook rendering', () => {
   it('counts unresolved KaTeX errors, damaged characters and noninteractive source markers', () => {
@@ -9,9 +10,10 @@ describe('all published math and physics textbook rendering', () => {
     let equations = 0
     let figures = 0
     let blanks = 0
-    for (const {unit} of loadedTextbookUnits) {
+    for (const {unit, answerBook} of loadedTextbookUnits) {
       if (unit.status !== 'published') continue
-      for (const section of unit.sections) {
+      const publicUnit = publicTextbookUnit(unit, answerBook)
+      for (const section of publicUnit.sections) {
         figures += section.figures.length
         blanks += section.items.length
         for (const block of section.readingFlow) {
