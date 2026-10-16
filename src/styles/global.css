@@ -702,3 +702,57 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   color: var(--color-muted);
   line-height: 1.65;
 }
+
+
+/* Reviewed mathematics answer-ledger fields; all options remain source-backed. */
+.reading-free-answer {
+  display: grid;
+  gap: .55rem;
+  padding: .2rem 0;
+  min-width: 0;
+}
+.reading-free-answer label {
+  font-weight: 700;
+  font-size: .88rem;
+}
+.reading-free-answer input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: .7rem .8rem;
+  border: 2px solid var(--color-border);
+  border-radius: .2rem;
+  color: var(--color-text);
+  background: #fff;
+  font: inherit;
+}
+.reading-free-answer input:focus-visible {
+  border-color: var(--color-primary);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+.reading-free-answer button {
+  justify-self: start;
+  min-height: 2.7rem;
+  padding: .55rem 1.1rem;
+  border: 2px solid var(--color-primary);
+  border-radius: .2rem;
+  background: var(--color-primary);
+  color: #fff;
+  font: 700 .94rem/1.35 inherit;
+  cursor: pointer;
+}
+.reading-free-answer button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+.reading-formula-line {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+.reading-paragraph,
+.reading-inline-choice-panel {
+  overflow-wrap: anywhere;
+}
