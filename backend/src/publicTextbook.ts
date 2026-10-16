@@ -102,7 +102,7 @@ export function publicTextbookUnit(unit: TextbookUnit, answerBook: TextbookAnswe
           ...publicItem,
           // Reviewed workbook answers are free response; do not manufacture
           // distractors from unrelated equations or disclose the correct answer.
-          choices: unit.unitId === 'math-1a-numbers-expressions-revised' && item.id.includes('-answer-')
+          choices: unit.unitId === 'math-1a-numbers-expressions-revised' && (item.id.includes('-answer-') || item.id.includes('-hole-'))
             ? []
             : getTextbookChoices(unit, item, answerBook.answers),
         }
