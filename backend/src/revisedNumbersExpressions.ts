@@ -101,6 +101,24 @@ const n01Slots: Record<number, (Slot | null)[]> = {
 const tokenPattern = /(\$\$[\s\S]*?\$\$|\$[^$]+\$|【[^】]*】)/g
 const normaliseMarkdown = (s:string) => s.replace(/\*\*/g,'').replace(/^\*(.*)\*$/s,'$1').trim()
 const textPart = (s:string):TextbookReadingPart => ({type:'text',text:s})
+// Replace the visible manuscript blank in place when its reviewed answer is known.
+function attachInlineHoles(parts: TextbookReadingPart[], ids: string[]): TextbookReadingPart[] {
+  let nextId = 0
+  return parts.flatMap((part): TextbookReadingPart[] => {
+    if (part.type !== 'text') return [part]
+    const out: TextbookReadingPart[] = []
+    let cursor = 0
+    for (const match of part.text.matchAll(/【[^】]*】/g)) {
+      const start = match.index ?? 0
+      if (start > cursor) out.push(textPart(part.text.slice(cursor, start)))
+      const id = ids[nextId++]
+      out.push(id ? {type:'choice',itemId:id} : textPart(match[0]))
+      cursor = start + match[0].length
+    }
+    if (cursor < part.text.length) out.push(textPart(part.text.slice(cursor)))
+    return out.length ? out : [part]
+  })
+}
 const mathPart = (s:string):TextbookReadingPart => ({type:'math',latex:s.replace(/▫/g,'\\square').replace(/\\mspace\{6mu\}/g,'\\;')})
 function bodyParts(source:string, lesson:string, paragraphIndex:number, items:TextbookItem[], answers:Record<string,{validator:'normalized-text'; answer:string; acceptedAnswers:string[]}>):TextbookReadingPart[] {
   const s = normaliseMarkdown(source)
@@ -189,7 +207,12 @@ export function loadRevisedNumbersExpressions() {
         if (lastBlock.type !== 'paragraph' && lastBlock.type !== 'formula') {
           throw new Error(`cannot attach answer to ${name} paragraph ${pi}`)
         }
-        lastBlock.parts.push(textPart('　解答：'), { type: 'choice', itemId })
+        // Preserve first manuscript blank as the clickable answer location.
+        if (lastBlock.parts.some(part => part.type === 'text' && /【[^】]*】/.test(part.text))) {
+          lastBlock.parts = attachInlineHoles(lastBlock.parts, [itemId])
+        } else {
+          lastBlock.parts.push(textPart('　解答：'), { type: 'choice', itemId })
+        }
       }
       if (pilotSlots.length) {
         const holes = paragraph.match(/【[^】]*】|\\underline\{[^}]*\}|\\square|▫/g) ?? []
@@ -197,19 +220,30 @@ export function loadRevisedNumbersExpressions() {
         if (holes.length && lastBlock.type !== 'paragraph' && lastBlock.type !== 'formula') {
           throw new Error('pilot hole is outside a paragraph: ' + name)
         }
-        for (const _hole of holes) {
+        const inlineIds: string[] = []
+        const mathHoleIds: string[] = []
+        for (const marker of holes) {
           const rawAnswer = pilotSlots[pilotHoleIndex]
           if (!rawAnswer) throw new Error('pilot answer ledger underflow: ' + name)
           pilotHoleIndex += 1
           const itemId = 'math-revised-' + name.toLowerCase() + '-hole-' + String(pilotHoleIndex).padStart(2, '0')
+          const sourceOptions = marker.startsWith('【') ? marker.slice(1, -1).split('／').map(x => x.trim()) : []
+          const publishedOptions = sourceOptions.length >= 2 && sourceOptions.length <= 4
+            && sourceOptions.includes(rawAnswer) ? sourceOptions : undefined
           items.push({
             id: itemId, label: '空欄 ' + pilotHoleIndex,
             prompt: name + ' の空欄 ' + pilotHoleIndex + ' に入る式・語句を記入してください。',
             answerType: 'text', acceptedAnswers: [],
+            ...(publishedOptions ? { choices: publishedOptions } : {}),
           })
           answers[itemId] = { validator: 'normalized-text', answer: rawAnswer, acceptedAnswers: [] }
-          if (lastBlock.type === 'paragraph' || lastBlock.type === 'formula') {
-            lastBlock.parts.push(textPart('　空欄' + pilotHoleIndex + '：'), { type: 'choice', itemId })
+          if (marker.startsWith('【')) inlineIds.push(itemId)
+          else mathHoleIds.push(itemId)
+        }
+        if (lastBlock.type === 'paragraph' || lastBlock.type === 'formula') {
+          if (inlineIds.length) lastBlock.parts = attachInlineHoles(lastBlock.parts, inlineIds)
+          for (const id of mathHoleIds) {
+            lastBlock.parts.push(textPart('　式の空欄：'), {type:'choice',itemId:id})
           }
         }
       }
