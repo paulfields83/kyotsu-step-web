@@ -98,13 +98,14 @@ export function publicTextbookUnit(unit: TextbookUnit, answerBook: TextbookAnswe
       )),
       items: section.items.map((item) => {
         const { answer: _answer, acceptedAnswers: _acceptedAnswers, choices: _choices, ...publicItem } = item
+        const requiresFreeResponse = unit.unitId === 'math-1a-numbers-expressions-revised'
+          && (item.id.includes('-answer-') || item.id.includes('-hole-'))
+        const candidates = requiresFreeResponse ? [] : getTextbookChoices(unit, item, answerBook.answers)
+        // A single candidate would directly reveal the correct answer. Let the
+        // learner type it instead of exposing a one-option multiple-choice item.
         return {
           ...publicItem,
-          // Reviewed workbook answers are free response; do not manufacture
-          // distractors from unrelated equations or disclose the correct answer.
-          choices: unit.unitId === 'math-1a-numbers-expressions-revised' && (item.id.includes('-answer-') || item.id.includes('-hole-'))
-            ? []
-            : getTextbookChoices(unit, item, answerBook.answers),
+          choices: candidates.length >= 2 ? candidates : [],
         }
       }),
     })),
