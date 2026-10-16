@@ -143,7 +143,6 @@ export function loadRevisedNumbersExpressions() {
     const sourceAnswers = revisedAnswerLedger[name] ?? []
     const paragraphs = original[name].split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean)
     paragraphs.forEach((paragraph,pi) => {
-      if (name === 'N04') console.log('N04-DIAG', pi, JSON.stringify(paragraph.slice(0, 210)))
       if (pi === 0 || paragraph.startsWith('*数学Ⅰ「数と式」｜')) return
       const id = 'revised-' + name.toLowerCase() + '-' + String(pi).padStart(3,'0')
       const stripped = normaliseMarkdown(paragraph)
@@ -193,7 +192,7 @@ export function loadRevisedNumbersExpressions() {
         lastBlock.parts.push(textPart('　解答：'), { type: 'choice', itemId })
       }
       if (pilotSlots.length) {
-        const holes = paragraph.match(/【[^】]*】|\\square|▫/g) ?? []
+        const holes = paragraph.match(/【[^】]*】|\\underline\{[^}]*\}|\\square|▫/g) ?? []
         const lastBlock = blocks[blocks.length - 1]
         if (holes.length && lastBlock.type !== 'paragraph' && lastBlock.type !== 'formula') {
           throw new Error('pilot hole is outside a paragraph: ' + name)
