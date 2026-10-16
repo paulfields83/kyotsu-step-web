@@ -34,5 +34,7 @@ describe('all published math and physics textbook rendering', () => {
     const mathGroups = Object.fromEntries([...new Set(brokenMath.map(x=>x.unitId))].map(id=>[id,brokenMath.filter(x=>x.unitId===id).length]))
     console.log('ALL_TEXTBOOK_RENDER_AUDIT ' + JSON.stringify({publishedUnits:loadedTextbookUnits.filter(x=>x.unit.status==='published').length,equations,figures,blanks,latexErrors:brokenMath.length,mathGroups,mathSamples:brokenMath.slice(0,30),damagedCharacters:damagedText.length,textSamples:damagedText.slice(0,20)}))
     expect(equations).toBeGreaterThan(100)
+    expect(brokenMath).toEqual([])
+    expect(damagedText).toEqual([])
   })
 })
