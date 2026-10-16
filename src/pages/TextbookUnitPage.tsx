@@ -348,7 +348,13 @@ function TextbookReadingFlow({ unit, section, progress }: {
       )
     }
 
-    const content = block.parts.map((part, index) => (
+    // In mathematics, do not display the remainder of a formula or paragraph
+    // after its first unanswered interactive blank.
+    const firstUnansweredPart = unit.subject === 'math-1a'
+      ? block.parts.findIndex((part) => part.type === 'choice' && !progress?.answers[part.itemId]?.resolved)
+      : -1
+    const visibleParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
+    const content = visibleParts.map((part, index) => (
       <span key={`${block.id}-part-${index}`}>
         {renderPart(part, section, progress, setActiveItemId, text)}
       </span>
@@ -533,12 +539,19 @@ function TextbookReadingFlow({ unit, section, progress }: {
       )}
 
       {displayedGroups.map((group) => {
+        // Unlock the next mathematics reasoning block only after the preceding
+        // answer has been submitted. Independent chapters remain navigable.
+        const unansweredBlock = unit.subject === 'math-1a'
+          ? group.findIndex((block) => (block.type === 'paragraph' || block.type === 'formula')
+            && block.parts.some((part) => part.type === 'choice' && !progress?.answers[part.itemId]?.resolved))
+          : -1
+        const visibleGroup = unansweredBlock < 0 ? group : group.slice(0, unansweredBlock + 1)
         const groupIndex = groups.indexOf(group)
         const groupItemIds = readingGroupItemIds(group)
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
           <section className={`reading-subsection${group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
-            {renderExampleSequence(group)}
+            {renderExampleSequence(visibleGroup)}
             {completed && groupIndex < groups.length - 1 && (
               <div className="reading-subsection-complete">
                 <Check size={16} aria-hidden="true" />
@@ -654,7 +667,7 @@ export function TextbookUnitPage() {
           <h1>{targetMatch ? `${targetMatch.chapter.label}：${targetMatch.lesson.label}` : focusedSection ? `${conciseTextbookTitle(unit)}：${currentSection.title}` : unit.title}</h1>
           {!targetSelected && !focusedSection && unit.subtitle && <p>{unit.subtitle}</p>}
         </div>
-        <StatusBadge>{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
+        <StatusBadge>{text('改訂版', '改订版')} · {text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
       </header>
 
       <ProgressBar
