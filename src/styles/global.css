@@ -739,7 +739,10 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   border-radius: .2rem;
   background: var(--color-primary);
   color: #fff;
-  font: 700 .94rem/1.35 inherit;
+  font: inherit;
+  font-weight: 700;
+  font-size: .94rem;
+  line-height: 1.35;
   cursor: pointer;
 }
 .reading-free-answer button:disabled {
