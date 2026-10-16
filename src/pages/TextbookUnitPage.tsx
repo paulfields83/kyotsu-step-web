@@ -159,6 +159,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
   const [submitError, setSubmitError] = useState('')
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(0)
+  const [typedAnswer, setTypedAnswer] = useState('')
   const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
   const hasTopicNavigation = groups.some((group) => group[0]?.type === 'topic')
 
@@ -171,6 +172,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem?.choices ?? []
+  useEffect(() => { setTypedAnswer('') }, [activeItemId])
   const activeWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
   const selectChoice = async (choice: string) => {
     if (!activeItem || activeRecord?.resolved || submittingItemId) return
@@ -222,6 +224,28 @@ function TextbookReadingFlow({ unit, section, progress }: {
             )
           })}
         </div>
+        {activeChoices.length === 0 && (
+          <form className="reading-free-answer" onSubmit={(event) => {
+            event.preventDefault()
+            if (typedAnswer.trim()) void selectChoice(typedAnswer.trim())
+          }}>
+            <label htmlFor={`reading-free-answer-${activeItem.id}`}>{text('答えを入力', '输入答案')}</label>
+            <input
+              id={`reading-free-answer-${activeItem.id}`}
+              data-testid={`textbook-free-answer-${activeItem.id}`}
+              type="text"
+              autoComplete="off"
+              spellCheck={false}
+              value={typedAnswer}
+              disabled={Boolean(activeRecord?.resolved) || Boolean(submittingItemId)}
+              onChange={(event) => setTypedAnswer(event.target.value)}
+              placeholder={text('式や語句を入力', '输入公式或词语')}
+            />
+            <button type="submit" disabled={!typedAnswer.trim() || Boolean(activeRecord?.resolved) || Boolean(submittingItemId)}>
+              {text('解答する', '提交答案')}
+            </button>
+          </form>
+        )}
         {activeWrongResult && (
           <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
             {text(`不正解です。正解は「${activeRecord?.value ?? ''}」です。`, `回答错误。正确答案是「${activeRecord?.value ?? ''}」。`)}
