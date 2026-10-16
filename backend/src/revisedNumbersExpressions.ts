@@ -98,7 +98,7 @@ const n01Slots: Record<number, (Slot | null)[]> = {
   ],
   33: [{answer:'2',choices:['2','3','1']},null],
 }
-const tokenPattern = /(\$\$[\s\S]+?\$\$|\$[^$]+\$|\\\[[\s\S]+?\\\]|\\\([\s\S]+?\\\)|【[^】]*】)/g
+const tokenPattern = /(\$[^$]+\$|【[^】]*】)/g
 const normaliseMarkdown = (s:string) => s.replace(/\*\*/g,'').replace(/^\*(.*)\*$/s,'$1').trim()
 const textPart = (s:string):TextbookReadingPart => ({type:'text',text:s})
 const mathPart = (s:string):TextbookReadingPart => ({type:'math',latex:s.replace(/▫/g,'\\square')})
@@ -111,7 +111,9 @@ function bodyParts(source:string, lesson:string, paragraphIndex:number, items:Te
     const index = match.index ?? 0
     if (index > cursor) parts.push(textPart(s.slice(cursor,index)))
     const token = match[0]
-    if (token.startsWith('
+    if (token.startsWith('$')) {
+      parts.push(mathPart(token.slice(1,-1)))
+    } else {
       const slot = lesson === 'N01' ? n01Slots[paragraphIndex]?.[slotIndex] : undefined
       if (slot) {
         const itemId = 'math-revised-' + lesson.toLowerCase() + '-p' + paragraphIndex + '-b' + (slotIndex+1)
@@ -189,13 +191,11 @@ export function loadRevisedNumbersExpressions() {
         }
         lastBlock.parts.push(textPart('　解答：'), { type: 'choice', itemId })
       }
-      // Pilot documents specify one verified answer per visible hole. Keep every
-      // pilot hole independently interactive without guessing distractor options.
       if (pilotSlots.length) {
         const holes = paragraph.match(/【[^】]*】|\\square|▫/g) ?? []
         const lastBlock = blocks[blocks.length - 1]
         if (holes.length && lastBlock.type !== 'paragraph' && lastBlock.type !== 'formula') {
-          throw new Error('pilot hole is not in a text/formula block: ' + name)
+          throw new Error('pilot hole is outside a paragraph: ' + name)
         }
         for (const _hole of holes) {
           const rawAnswer = pilotSlots[pilotHoleIndex]
@@ -204,12 +204,10 @@ export function loadRevisedNumbersExpressions() {
           const itemId = 'math-revised-' + name.toLowerCase() + '-hole-' + String(pilotHoleIndex).padStart(2, '0')
           items.push({
             id: itemId, label: '空欄 ' + pilotHoleIndex,
-            prompt: name + '　学習本文の空欄 ' + pilotHoleIndex + ' に入る式・語句を記入してください。',
+            prompt: name + ' の空欄 ' + pilotHoleIndex + ' に入る式・語句を記入してください。',
             answerType: 'text', acceptedAnswers: [],
           })
-          answers[itemId] = {
-            validator: 'normalized-text', answer: rawAnswer, acceptedAnswers: [],
-          }
+          answers[itemId] = { validator: 'normalized-text', answer: rawAnswer, acceptedAnswers: [] }
           if (lastBlock.type === 'paragraph' || lastBlock.type === 'formula') {
             lastBlock.parts.push(textPart('　空欄' + pilotHoleIndex + '：'), { type: 'choice', itemId })
           }
@@ -217,112 +215,8 @@ export function loadRevisedNumbersExpressions() {
       }
     })
     if (pilotSlots.length && pilotHoleIndex !== pilotSlots.length) {
-      throw new Error('pilot hole mismatch: ' + name + ', expected ' + pilotSlots.length + ', actual ' + pilotHoleIndex)
+      throw new Error('pilot hole mismatch: ' + name + ' expected ' + pilotSlots.length + ' got ' + pilotHoleIndex)
     }
-    if (name !== 'N01' && sourceAnswers.length && answerIndex !== sourceAnswers.length) {
-      throw new Error(`answer ledger mismatch: ${name} has ${sourceAnswers.length} answers but ${answerIndex} prompts`)
-    }
-    if (pictureIndex !== (figureOrder[name]?.length ?? 0)) {
-      throw new Error(`figure count mismatch: ${name}, expected ${figureOrder[name]?.length ?? 0}, actual ${pictureIndex}`)
-    }
-    return {id:'revised-'+name.toLowerCase(),number:String(idx+1),title:name+' '+titles[name],
-      description:name.startsWith('NE')?'参考・発展':'改訂版 教科書学習',
-      readingFlow:blocks,items,figures}
-  })
-  const unit = TextbookUnitSchema.parse({
-    schemaVersion:'1.0',unitId:'math-1a-numbers-expressions-revised',revision:2,
-    status:'published',subject:'math-1a',title:'数学I 数と式（改訂版）',
-    subtitle:'N01–N14 / NE01–NE02',
-    source:{type:'original',label:'ユーザー提供の改訂版Word原稿 N01–N14 / NE01–NE02',
-      rightsNote:'ユーザー提供の改訂原稿と解答台帳を対応付け。複数空欄の個別分解およびN04〜N06の解答変換は追加QA対象。'},
-    objectives:['数と式の16講を改訂原稿の順序で学ぶ。','数学式をKaTeXで表示し、確認済みの空欄はバックエンドで採点する。'],
-    sections,
-  })
-  const answerBook = TextbookAnswerBookSchema.parse({unitId:unit.unitId,answers})
-  return {unit,answerBook,dataDir}
-}
-)) {
-      const delimiter = token.startsWith('$') ? 2 : 1
-      parts.push(mathPart(token.slice(delimiter, -delimiter)))
-    } else if (token.startsWith('\\[') || token.startsWith('\\(')) {
-      parts.push(mathPart(token.slice(2, -2)))
-    } else {
-      const slot = lesson === 'N01' ? n01Slots[paragraphIndex]?.[slotIndex] : undefined
-      if (slot) {
-        const itemId = 'math-revised-' + lesson.toLowerCase() + '-p' + paragraphIndex + '-b' + (slotIndex+1)
-        items.push({id:itemId,label:'空欄 '+(slotIndex+1),prompt:'本文の空欄に入るものを選びなさい。',answerType:'text',choices:slot.choices,acceptedAnswers:[]})
-        answers[itemId] = {validator:'normalized-text',answer:slot.answer,acceptedAnswers:[]}
-        parts.push({type:'choice',itemId})
-      } else parts.push(textPart(token))
-      slotIndex += 1
-    }
-    cursor = index + token.length
-  }
-  if (cursor < s.length) parts.push(textPart(s.slice(cursor)))
-  return parts.length ? parts.filter(p=>p.type!=='text'||p.text.length>0) : [textPart(' ')]
-}
-export function loadRevisedNumbersExpressions() {
-  const corpus = Array.from({length: 7}, (_, i) => readFileSync(join(dataDir, 'chunks', String(i + 1).padStart(2, '0') + '.txt'), 'utf8').trim()).join('')
-  const original = JSON.parse(brotliDecompressSync(Buffer.from(corpus, 'base64')).toString('utf8')) as Record<string,string>
-  const answers:Record<string,{validator:'normalized-text';answer:string;acceptedAnswers:string[]}> = {}
-  const sections = order.map((name,idx) => {
-    const items:TextbookItem[] = []
-    const blocks:TextbookReadingBlock[] = []
-    const figures: Array<{id:string;src:string;alt:string;caption:string}> = []
-    let pictureIndex = 0
-    let answerIndex = 0
-    const sourceAnswers = revisedAnswerLedger[name] ?? []
-    const paragraphs = original[name].split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean)
-    paragraphs.forEach((paragraph,pi) => {
-      if (pi === 0 || paragraph.startsWith('*数学Ⅰ「数と式」｜')) return
-      const id = 'revised-' + name.toLowerCase() + '-' + String(pi).padStart(3,'0')
-      const stripped = normaliseMarkdown(paragraph)
-      if (/<img\b/i.test(paragraph) || /^!\[.*?\]\(.*?\)/s.test(paragraph)) {
-        const code = (figureOrder[name] ?? [])[pictureIndex++]
-        if (!code) throw new Error(`unexpected image in revised lesson ${name}, paragraph ${pi}`)
-        figures.push({id:code.toLowerCase(),src:`assets/${code}.webp`,alt:figureCaptions[code],caption:`${code}  ${figureCaptions[code]}`})
-        blocks.push({id,type:'figure',figureId:code.toLowerCase()})
-      } else if (/^\*\*(例題|導出|証明|性質|確認|まとめ|先生|花子|太郎)/.test(paragraph)) {
-        if (/^\*\*(例題|導出|証明|性質|確認|まとめ)\*\*$/.test(paragraph)) {
-          blocks.push({id,type:'heading',text:stripped})
-        } else {
-          blocks.push({id,type:'paragraph',parts:bodyParts(paragraph,name,pi,items,answers)})
-        }
-      } else if (/^#{1,6}\s/.test(paragraph)) {
-        blocks.push({id,type:'heading',text:stripped.replace(/^#+\s*/,'')})
-      } else if (/^(第[123]節|同じ種類の項を集める|式全体を引く)$/.test(stripped)) {
-        blocks.push({id,type:'heading',text:stripped})
-      } else if (/^\$[^$]+\$$/.test(stripped)) {
-        blocks.push({id,type:'formula',parts:bodyParts(paragraph,name,pi,items,answers)})
-      } else {
-        blocks.push({id,type:'paragraph',parts:bodyParts(paragraph,name,pi,items,answers)})
-      }
-      // One reviewed ledger entry corresponds to one original question paragraph.
-      // A paragraph may contain multiple inline holes: do not misinterpret it as
-      // multiple answer keys or fabricate unverified multiple-choice distractors.
-      if (name !== 'N01' && sourceAnswers.length &&
-          (paragraph.includes('【') || paragraph.includes('square') || paragraph.includes('▫'))) {
-        const rawAnswer = sourceAnswers[answerIndex]
-        if (!rawAnswer) throw new Error(`answer ledger underflow: ${name} question ${answerIndex + 1}`)
-        answerIndex += 1
-        const itemId = `math-revised-${name.toLowerCase()}-answer-${String(answerIndex).padStart(2, '0')}`
-        items.push({
-          id: itemId, label: `問 ${answerIndex}`,
-          prompt: `${name} 問${answerIndex}：この設問の空欄に対応する解答を入力してください（複数の空欄はまとめて記入）。`,
-          answerType: 'text', acceptedAnswers: [],
-        })
-        answers[itemId] = {
-          validator: 'normalized-text',
-          answer: rawAnswer.replace(/[$*\x60]/g, '').trim(),
-          acceptedAnswers: [],
-        }
-        const lastBlock = blocks[blocks.length - 1]
-        if (lastBlock.type !== 'paragraph' && lastBlock.type !== 'formula') {
-          throw new Error(`cannot attach answer to ${name} paragraph ${pi}`)
-        }
-        lastBlock.parts.push(textPart('　解答：'), { type: 'choice', itemId })
-      }
-    })
     if (name !== 'N01' && sourceAnswers.length && answerIndex !== sourceAnswers.length) {
       throw new Error(`answer ledger mismatch: ${name} has ${sourceAnswers.length} answers but ${answerIndex} prompts`)
     }
