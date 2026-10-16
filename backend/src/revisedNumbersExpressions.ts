@@ -101,7 +101,7 @@ const n01Slots: Record<number, (Slot | null)[]> = {
 const tokenPattern = /(\$\$[\s\S]*?\$\$|\$[^$]+\$|【[^】]*】)/g
 const normaliseMarkdown = (s:string) => s.replace(/\*\*/g,'').replace(/^\*(.*)\*$/s,'$1').trim()
 const textPart = (s:string):TextbookReadingPart => ({type:'text',text:s})
-const mathPart = (s:string):TextbookReadingPart => ({type:'math',latex:s.replace(/▫/g,'\\square')})
+const mathPart = (s:string):TextbookReadingPart => ({type:'math',latex:s.replace(/▫/g,'\\square').replace(/\\mspace\{6mu\}/g,'\\;')})
 function bodyParts(source:string, lesson:string, paragraphIndex:number, items:TextbookItem[], answers:Record<string,{validator:'normalized-text'; answer:string; acceptedAnswers:string[]}>):TextbookReadingPart[] {
   const s = normaliseMarkdown(source)
   const parts:TextbookReadingPart[] = []
