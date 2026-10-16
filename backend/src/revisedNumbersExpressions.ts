@@ -161,7 +161,7 @@ export function loadRevisedNumbersExpressions() {
         blocks.push({id,type:'heading',text:stripped.replace(/^#+\s*/,'')})
       } else if (/^(第[123]節|同じ種類の項を集める|式全体を引く)$/.test(stripped)) {
         blocks.push({id,type:'heading',text:stripped})
-      } else if (/^\$[^$]+\$$/.test(stripped)) {
+      } else if (/^\$\$[\s\S]+\$\$$/.test(stripped) || /^\$[^$]+\$$/.test(stripped)) {
         blocks.push({id,type:'formula',parts:bodyParts(paragraph,name,pi,items,answers)})
       } else {
         blocks.push({id,type:'paragraph',parts:bodyParts(paragraph,name,pi,items,answers)})
