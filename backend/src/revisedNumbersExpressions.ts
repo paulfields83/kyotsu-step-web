@@ -98,7 +98,7 @@ const n01Slots: Record<number, (Slot | null)[]> = {
   ],
   33: [{answer:'2',choices:['2','3','1']},null],
 }
-const tokenPattern = /(\$[^$]+\$|【[^】]*】)/g
+const tokenPattern = /(\$\$[\s\S]*?\$\$|\$[^$]+\$|【[^】]*】)/g
 const normaliseMarkdown = (s:string) => s.replace(/\*\*/g,'').replace(/^\*(.*)\*$/s,'$1').trim()
 const textPart = (s:string):TextbookReadingPart => ({type:'text',text:s})
 const mathPart = (s:string):TextbookReadingPart => ({type:'math',latex:s.replace(/▫/g,'\\square')})
@@ -112,7 +112,7 @@ function bodyParts(source:string, lesson:string, paragraphIndex:number, items:Te
     if (index > cursor) parts.push(textPart(s.slice(cursor,index)))
     const token = match[0]
     if (token.startsWith('$')) {
-      parts.push(mathPart(token.slice(1,-1)))
+      parts.push(mathPart(token.startsWith('$$') ? token.slice(2, -2) : token.slice(1, -1)))
     } else {
       const slot = lesson === 'N01' ? n01Slots[paragraphIndex]?.[slotIndex] : undefined
       if (slot) {
