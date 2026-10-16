@@ -23,14 +23,23 @@ describe('revised textbook rendering diagnostics', () => {
         }
       }
     }
+    const unanswerable = unit.sections.flatMap((sec) => sec.readingFlow.flatMap((block) => {
+      if (block.type !== 'paragraph' && block.type !== 'formula') return []
+      const hasChoice = block.parts.some((part) => part.type === 'choice')
+      if (hasChoice) return []
+      return block.parts
+        .filter((part) => part.type === 'text' && /【[^】]*】/.test(part.text))
+        .map(() => ({ section: sec.id, block: block.id }))
+    }))
     const sectionCounts = Object.fromEntries(unit.sections.map((sec) => [
       sec.id, {
         items: sec.items.length,
         remainingTextBlanks: residual.filter((entry) => entry.section === sec.id).length,
       },
     ]))
-    console.log('REVISED_MATH_RENDER_AUDIT ' + JSON.stringify({ mathCount, latexErrors: issues.length, errors: issues.slice(0, 25), unboundMarkers: residual.length, sectionCounts, residual: residual.slice(0, 25) }))
+    console.log('REVISED_MATH_RENDER_AUDIT ' + JSON.stringify({ mathCount, latexErrors: issues.length, errors: issues.slice(0, 25), unboundMarkers: residual.length, unanswerable, sectionCounts, residual: residual.slice(0, 25) }))
     expect(issues).toEqual([])
+    expect(unanswerable.length).toBeLessThanOrEqual(2)
     expect(mathCount).toBeGreaterThan(100)
   })
 })
