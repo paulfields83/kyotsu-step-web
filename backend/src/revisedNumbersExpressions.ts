@@ -143,6 +143,7 @@ export function loadRevisedNumbersExpressions() {
     const sourceAnswers = revisedAnswerLedger[name] ?? []
     const paragraphs = original[name].split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean)
     paragraphs.forEach((paragraph,pi) => {
+      if (name === 'N04') console.log('N04-DIAG', pi, JSON.stringify(paragraph.slice(0, 210)))
       if (pi === 0 || paragraph.startsWith('*数学Ⅰ「数と式」｜')) return
       const id = 'revised-' + name.toLowerCase() + '-' + String(pi).padStart(3,'0')
       const stripped = normaliseMarkdown(paragraph)
