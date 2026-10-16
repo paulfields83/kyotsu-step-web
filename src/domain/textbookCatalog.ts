@@ -54,14 +54,16 @@ function physicsChapterNumber(unit: PublicTextbookUnit) {
 function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
   const chapters: TextbookChapter[] = []
 
+  const hasStrictSetsPropositions = units.some((unit) => unit.unitId === 'math-1a-sets-propositions')
   const hasRevisedNumbersExpressions = units.some((unit) => unit.unitId === 'math-1a-numbers-expressions-revised')
   for (const unit of units) {
     // Hide the old numbers-and-expressions text only when the backend offers the revised source.
     if (hasRevisedNumbersExpressions && unit.unitId === 'math-1a-numbers-expressions') continue
+    if (hasStrictSetsPropositions && unit.unitId === 'math-1a-sets-propositions-trial') continue
     if (unit.unitId === 'math-1a-sets-propositions') {
       chapters.push({
         key: 'math-sets-propositions',
-        label: '集合と命題',
+        label: '集合と命題（改訂版）',
         order: 30,
         lessons: unit.sections.map((section) => ({
           key: `math-sets-propositions-${section.id}`,
