@@ -61,7 +61,7 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     }
 
     const isLedgerFreeResponse = unit.unitId === 'math-1a-numbers-expressions-revised'
-      && item.id.includes('-answer-')
+      && (item.id.includes('-answer-') || item.id.includes('-hole-'))
     const choices = isLedgerFreeResponse ? [] : getTextbookChoices(unit, item, answerBook.answers)
     const normalizedChoices = choices.map(normalizeTextbookAnswer)
     const uniqueChoices = new Set(normalizedChoices)
