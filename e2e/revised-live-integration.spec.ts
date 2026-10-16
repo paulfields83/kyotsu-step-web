@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-const mathUrl = '/learning/textbook/math-1a-numbers-expressions-revised'
+const mathUrl = '/#/learning/textbook/math-1a-numbers-expressions-revised'
 test.setTimeout(90_000)
 
 test.beforeEach(async ({ page }) => {
@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
       console.log('BROWSER_TEXTBOOK_API_ERROR', response.status(), response.url())
     }
   })
-  await page.goto('/health')
+  await page.goto('/#/health')
   await page.evaluate(() => localStorage.clear())
 })
 
@@ -35,7 +35,7 @@ test('N04 revised: manuscript blank opens an answer field, accepts an answer, un
 })
 
 test('sets-and-propositions: the first guided blank can be opened and answered', async ({ page }) => {
-  await page.goto('/learning/textbook/math-1a-sets-propositions?section=sec-sets')
+  await page.goto('/#/learning/textbook/math-1a-sets-propositions?section=sec-sets')
   await page.waitForTimeout(4000)
   console.log('SETS_BROWSER_PAGE', page.url(), (await page.locator('body').innerText()).slice(0, 400))
   const first = page.locator('[data-testid^="textbook-item-"]').first()
@@ -56,7 +56,7 @@ test('sets-and-propositions: the first guided blank can be opened and answered',
 })
 
 test('physics textbook: a choice remains answerable after the revised math import', async ({ page }) => {
-  await page.goto('/learning/textbook/physics-a-displacement-velocity')
+  await page.goto('/#/learning/textbook/physics-a-displacement-velocity')
   await page.waitForTimeout(4000)
   console.log('PHYS_BROWSER_PAGE', page.url(), (await page.locator('body').innerText()).slice(0, 400))
   const first = page.getByTestId('textbook-item-a-1')
