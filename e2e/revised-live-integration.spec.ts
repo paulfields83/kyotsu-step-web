@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 const mathUrl = '/learning/textbook/math-1a-numbers-expressions-revised'
-test.setTimeout(150_000)
+test.setTimeout(90_000)
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/health')
@@ -12,6 +12,9 @@ test('N04 revised: manuscript blank opens an answer field, accepts an answer, un
   await page.goto(mathUrl + '?section=revised-n04', { waitUntil: 'domcontentloaded' })
   const first = page.getByTestId('textbook-item-math-revised-n04-hole-01')
   await expect(first).toBeVisible({ timeout: 95_000 })
+  const image = page.locator('.reading-figure img[src*="N04-F01"]').first()
+  await expect(image).toBeVisible({ timeout: 15_000 })
+  await expect.poll(() => image.evaluate((img) => (img as HTMLImageElement).naturalWidth), { timeout: 15_000 }).toBeGreaterThan(0)
   await first.click()
   const input = page.getByTestId('textbook-free-answer-math-revised-n04-hole-01')
   await expect(input).toBeVisible()
