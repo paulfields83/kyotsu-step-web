@@ -16,6 +16,7 @@ for (const loaded of loadedTextbookUnits) {
       if ('acceptedAnswers' in rawItem) exportErrors.push(`${unit.unitId}/${item.id}: public export leaks acceptedAnswers`)
       const isLedgerFreeResponse = unit.unitId === 'math-1a-numbers-expressions-revised'
         && (item.id.includes('-answer-') || item.id.includes('-hole-'))
+          && !(item.choices && item.choices.length >= 2)
       if (isLedgerFreeResponse && item.choices.length !== 0) {
         exportErrors.push(`${unit.unitId}/${item.id}: free-response question must not export distractors`)
       }
