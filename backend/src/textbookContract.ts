@@ -60,10 +60,12 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
       }
     }
 
-    const choices = getTextbookChoices(unit, item, answerBook.answers)
+    const isLedgerFreeResponse = unit.unitId === 'math-1a-numbers-expressions-revised'
+      && item.id.includes('-answer-')
+    const choices = isLedgerFreeResponse ? [] : getTextbookChoices(unit, item, answerBook.answers)
     const normalizedChoices = choices.map(normalizeTextbookAnswer)
     const uniqueChoices = new Set(normalizedChoices)
-    if (choices.length < 2) {
+    if (!isLedgerFreeResponse && choices.length < 2) {
       const message = `item ${item.id} has fewer than 2 exportable choices`
       if (unit.subject === 'math-1a') errors.push(message)
       else warnings.push(message)
@@ -74,7 +76,7 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     if (uniqueChoices.size !== choices.length) {
       errors.push(`item ${item.id} has duplicate choices after normalization`)
     }
-    if (!uniqueChoices.has(normalizeTextbookAnswer(answer.answer))) {
+    if (!isLedgerFreeResponse && !uniqueChoices.has(normalizeTextbookAnswer(answer.answer))) {
       errors.push(`item ${item.id} choices do not contain the primary answer`)
     }
   }
