@@ -23,7 +23,14 @@ describe('revised textbook rendering diagnostics', () => {
         }
       }
     }
-    console.log('REVISED_MATH_RENDER_AUDIT ' + JSON.stringify({ mathCount, latexErrors: issues.length, errors: issues.slice(0, 25), unboundMarkers: residual.length, residual: residual.slice(0, 25) }))
+    const sectionCounts = Object.fromEntries(unit.sections.map((sec) => [
+      sec.id, {
+        items: sec.items.length,
+        remainingTextBlanks: residual.filter((entry) => entry.section === sec.id).length,
+      },
+    ]))
+    console.log('REVISED_MATH_RENDER_AUDIT ' + JSON.stringify({ mathCount, latexErrors: issues.length, errors: issues.slice(0, 25), unboundMarkers: residual.length, sectionCounts, residual: residual.slice(0, 25) }))
+    expect(issues).toEqual([])
     expect(mathCount).toBeGreaterThan(100)
   })
 })
