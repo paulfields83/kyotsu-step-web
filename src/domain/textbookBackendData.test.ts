@@ -77,9 +77,9 @@ describe('backend textbook data', () => {
       .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook))
 
     const mathChapters = buildTextbookChapters(publicUnits, 'math-1a')
-    expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題')
+    expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題（改訂版）')
     expect(mathChapters.map((chapter) => chapter.label)).toContain('場合の数と確率')
-    expect(mathChapters.find((chapter) => chapter.label === '集合と命題')?.lessons.map((lesson) => lesson.label)).toEqual(['集合', '命題', '証明'])
+    expect(mathChapters.find((chapter) => chapter.label === '集合と命題（改訂版）')?.lessons.map((lesson) => lesson.label)).toEqual(['集合', '命題', '証明'])
     expect(mathChapters.find((chapter) => chapter.label === '場合の数と確率')?.lessons.map((lesson) => lesson.label)).toEqual(['場合の数', '順列と組合せ'])
 
     const physicsChapters = buildTextbookChapters(publicUnits, 'physics')
