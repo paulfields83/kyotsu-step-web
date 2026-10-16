@@ -100,7 +100,11 @@ export function publicTextbookUnit(unit: TextbookUnit, answerBook: TextbookAnswe
         const { answer: _answer, acceptedAnswers: _acceptedAnswers, choices: _choices, ...publicItem } = item
         return {
           ...publicItem,
-          choices: getTextbookChoices(unit, item, answerBook.answers),
+          // Reviewed workbook answers are free response; do not manufacture
+          // distractors from unrelated equations or disclose the correct answer.
+          choices: unit.unitId === 'math-1a-numbers-expressions-revised' && item.id.includes('-answer-')
+            ? []
+            : getTextbookChoices(unit, item, answerBook.answers),
         }
       }),
     })),
