@@ -100,6 +100,7 @@ export function publicTextbookUnit(unit: TextbookUnit, answerBook: TextbookAnswe
         const { answer: _answer, acceptedAnswers: _acceptedAnswers, choices: _choices, ...publicItem } = item
         const requiresFreeResponse = unit.unitId === 'math-1a-numbers-expressions-revised'
           && (item.id.includes('-answer-') || item.id.includes('-hole-'))
+          && !(item.choices && item.choices.length >= 2)
         const candidates = requiresFreeResponse ? [] : getTextbookChoices(unit, item, answerBook.answers)
         // A single candidate would directly reveal the correct answer. Let the
         // learner type it instead of exposing a one-option multiple-choice item.
