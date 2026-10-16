@@ -124,10 +124,10 @@ function renderActiveChoice(
       data-testid={`textbook-item-${item.id}`}
       className={`reading-inline-blank${isWrong ? ' reading-inline-blank--wrong' : ''}`}
       onClick={() => onOpen(item.id)}
-      aria-label={`${item.label} ${text('を選ぶ', '选择答案')}`}
+      aria-label={`${item.label} ${item.choices.length ? text('を選ぶ', '选择答案') : text('を入力', '输入答案')}`}
     >
       <span>{item.label}</span>
-      <strong>{value || text('選択', '选择')}</strong>
+      <strong>{value || (item.choices.length ? text('選択', '选择') : text('入力', '输入'))}</strong>
     </button>
   )
 }
@@ -204,7 +204,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
           <strong>{activeItem.label}</strong>
           <span>{activeItem.prompt}</span>
         </div>
-        <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
+        {activeChoices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
           {activeChoices.map((choice, index) => {
             const selectedWrong = Boolean(activeWrongResult && (activeRecord?.firstValue ?? activeRecord?.value) === choice)
             const revealedCorrect = Boolean(activeWrongResult && activeRecord?.value === choice)
@@ -223,7 +223,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
               </button>
             )
           })}
-        </div>
+        </div>}
         {activeChoices.length === 0 && (
           <form className="reading-free-answer" onSubmit={(event) => {
             event.preventDefault()
@@ -378,9 +378,35 @@ function TextbookReadingFlow({ unit, section, progress }: {
       ? block.parts.findIndex((part) => part.type === 'choice' && !progress?.answers[part.itemId]?.resolved)
       : -1
     const visibleParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
+    const linkedAnswerId = block.parts.find((part) => part.type === 'choice')?.itemId
+    const renderVisiblePart = (part: TextbookReadingPart, index: number): ReactNode => {
+      if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
+        return renderPart(part, section, progress, setActiveItemId, text)
+      }
+      // The source has several holes per question but only one reviewed
+      // combined answer. Link the additional blanks to the same response.
+      const segments = part.text.split(/(【[^】]*】)/g)
+      return segments.map((segment, segmentIndex) => {
+        if (!/^【[^】]*】$/.test(segment)) return segment
+        if (!linkedAnswerId) {
+          return <span key={segmentIndex} className="reading-inline-blank reading-ungraded-blank"
+            title={text('この空欄には確認済みの解答がありません', '这个空栏暂未核对答案')}>
+            {text('未採点', '未录入答案')}
+          </span>
+        }
+        if (progress?.answers[linkedAnswerId]?.resolved) {
+          return <span key={segmentIndex} className="reading-inline-answer">{text('回答済み', '已回答')}</span>
+        }
+        return <button key={segmentIndex} type="button" className="reading-inline-blank reading-linked-blank"
+          aria-label={text('この問題の解答欄を開く', '打开本题的答题区')}
+          onClick={() => setActiveItemId(linkedAnswerId)}>
+          {text('解答欄', '答题区')}
+        </button>
+      })
+    }
     const content = visibleParts.map((part, index) => (
       <span key={`${block.id}-part-${index}`}>
-        {renderPart(part, section, progress, setActiveItemId, text)}
+        {renderVisiblePart(part, index)}
       </span>
     ))
 
