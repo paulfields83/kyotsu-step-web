@@ -22,8 +22,12 @@ describe('revised 数と式 corpus', () => {
   })
   it('only publishes verified answer keys and no duplicates', () => {
     const items = unit.sections.flatMap(s => s.items)
-    expect(items).toHaveLength(10)
+    expect(items).toHaveLength(175)
     expect(new Set(items.map(x => x.id)).size).toBe(items.length)
+    expect(unit.sections.find(section => section.id === 'revised-n01')?.items).toHaveLength(10)
+    expect(unit.sections.find(section => section.id === 'revised-n02')?.items).toHaveLength(12)
+    expect(unit.sections.find(section => section.id === 'revised-n03')?.items).toHaveLength(13)
+
     const report = assertTextbookContract(unit, answerBook)
     expect(report.errors).toEqual([])
     const publicUnit = JSON.stringify(publicTextbookUnit(unit, answerBook))
