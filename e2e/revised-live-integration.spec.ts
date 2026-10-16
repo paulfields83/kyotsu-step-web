@@ -4,12 +4,21 @@ const mathUrl = '/learning/textbook/math-1a-numbers-expressions-revised'
 test.setTimeout(90_000)
 
 test.beforeEach(async ({ page }) => {
+  page.on('pageerror', (error) => console.log('BROWSER_PAGE_ERROR', String(error)))
+  page.on('requestfailed', (request) => console.log('BROWSER_REQUEST_FAILED', request.url(), request.failure()?.errorText))
+  page.on('response', (response) => {
+    if (response.url().includes('/api/textbooks') && !response.ok()) {
+      console.log('BROWSER_TEXTBOOK_API_ERROR', response.status(), response.url())
+    }
+  })
   await page.goto('/health')
   await page.evaluate(() => localStorage.clear())
 })
 
 test('N04 revised: manuscript blank opens an answer field, accepts an answer, unlocks and survives reload', async ({ page }) => {
   await page.goto(mathUrl + '?section=revised-n04', { waitUntil: 'domcontentloaded' })
+  await page.waitForTimeout(4000)
+  console.log('N04_BROWSER_PAGE', page.url(), (await page.locator('body').innerText()).slice(0, 400))
   const first = page.getByTestId('textbook-item-math-revised-n04-hole-01')
   await expect(first).toBeVisible({ timeout: 95_000 })
   const image = page.locator('.reading-figure img[src*="N04-F01"]').first()
@@ -27,6 +36,8 @@ test('N04 revised: manuscript blank opens an answer field, accepts an answer, un
 
 test('sets-and-propositions: the first guided blank can be opened and answered', async ({ page }) => {
   await page.goto('/learning/textbook/math-1a-sets-propositions?section=sec-sets')
+  await page.waitForTimeout(4000)
+  console.log('SETS_BROWSER_PAGE', page.url(), (await page.locator('body').innerText()).slice(0, 400))
   const first = page.locator('[data-testid^="textbook-item-"]').first()
   await expect(first).toBeVisible({ timeout: 95_000 })
   await first.click()
@@ -46,6 +57,8 @@ test('sets-and-propositions: the first guided blank can be opened and answered',
 
 test('physics textbook: a choice remains answerable after the revised math import', async ({ page }) => {
   await page.goto('/learning/textbook/physics-a-displacement-velocity')
+  await page.waitForTimeout(4000)
+  console.log('PHYS_BROWSER_PAGE', page.url(), (await page.locator('body').innerText()).slice(0, 400))
   const first = page.getByTestId('textbook-item-a-1')
   await expect(first).toBeVisible({ timeout: 95_000 })
   await first.click()
