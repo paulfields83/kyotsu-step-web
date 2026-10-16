@@ -379,7 +379,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
       : -1
     const visibleParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
     const linkedAnswerId = block.parts.find((part) => part.type === 'choice')?.itemId
-    const renderVisiblePart = (part: TextbookReadingPart, index: number): ReactNode => {
+    const renderVisiblePart = (part: TextbookReadingPart): ReactNode => {
       if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
         return renderPart(part, section, progress, setActiveItemId, text)
       }
@@ -406,7 +406,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
     }
     const content = visibleParts.map((part, index) => (
       <span key={`${block.id}-part-${index}`}>
-        {renderVisiblePart(part, index)}
+        {renderVisiblePart(part)}
       </span>
     ))
 
