@@ -27,4 +27,4 @@ jobs:
       - name: Exercise revised math, sets and physics in Chromium
         env:
           VITE_API_BASE_URL: https://kyotsu-step-db-merged-preview.onrender.com
-        run: pnpm exec playwright test e2e/revised-live-integration.spec.ts --workers=1
+        run: pnpm exec playwright test e2e/revised-live-integration.spec.ts --workers=1 --retries=0
