@@ -74,6 +74,30 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
       continue
     }
 
+    if (unit.unitId === 'math-1a-numbers-expressions-revised') {
+      // Group the sixteen existing revised lessons under the three textbook headings.
+      // The original N01–N14/NE01–NE02 identifiers and their reading order stay intact.
+      const revisedGroups = [
+        { key: 'polynomials', label: '第1節　多項式', codes: ['n01','n02','n03','n04','n05','n06'] },
+        { key: 'real-numbers', label: '第2節　実数', codes: ['n07','n08','n09','n10'] },
+        { key: 'inequalities', label: '第3節　1次不等式・参考発展', codes: ['n11','n12','n13','n14','ne01','ne02'] },
+      ]
+      chapters.push({
+        key: 'math-revised-numbers-expressions',
+        label: '数と式（改訂版）',
+        order: 10,
+        lessons: revisedGroups.map((group, index) => ({
+          key: 'math-revised-numbers-expressions-' + group.key,
+          label: group.label,
+          unitId: unit.unitId,
+          kind: 'section-group' as const,
+          sectionIds: group.codes.map((code) => 'revised-' + code),
+          topicPrefix: String(index + 1),
+        })),
+      })
+      continue
+    }
+
     if (unit.unitId === 'math-1a-counting-permutation') {
       chapters.push({
         key: 'math-counting-probability',
