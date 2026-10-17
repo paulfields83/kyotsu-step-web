@@ -23,9 +23,13 @@ test('N01 revised: the formerly passive equation square is now a real clickable 
   const options = page.locator('.reading-inline-choice-panel .reading-choice-option')
   await expect(options).toHaveCount(4)
   await page.locator('.reading-choice-option[data-choice-value="-1"]').click()
-  await expect(page.locator('.reading-math-answered').first()).toContainText('-1', { timeout: 10_000 })
+  // The source square must disappear; showing "✓ -1" next to "□" is a regression.
+  const filledFormula = page.getByTestId('textbook-math-filled-math-revised-n01-question-01')
+  await expect(filledFormula).toContainText('-1', { timeout: 10_000 })
+  await expect(filledFormula).not.toContainText('□')
   await page.reload()
-  await expect(page.locator('.reading-math-answered').first()).toContainText('-1', { timeout: 40_000 })
+  await expect(filledFormula).toContainText('-1', { timeout: 40_000 })
+  await expect(filledFormula).not.toContainText('□')
 })
 
 test('N04 revised: manuscript blank opens an answer field, accepts an answer, unlocks and survives reload', async ({ page }) => {
