@@ -263,6 +263,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
                 type="button"
                 key={choice}
                 data-testid={`textbook-choice-${activeItem.id}-${index}`}
+                data-choice-value={choice}
+                aria-label={`${index + 1}. ${choice}`}
                 className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
                 disabled={Boolean(activeRecord?.resolved) || submittingItemId === activeItem.id}
                 onClick={() => void selectChoice(choice)}
