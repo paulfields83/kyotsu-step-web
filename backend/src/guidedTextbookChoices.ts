@@ -1,4 +1,4 @@
-import { getTextbookChoices, normalizeTextbookAnswer } from '../../src/domain/textbook'
+import { getTextbookChoices, isTextbookAnswerCorrect, normalizeTextbookAnswer } from '../../src/domain/textbook'
 import type { TextbookAnswerBook, TextbookItem, TextbookUnit } from '../../src/domain/textbookSchema'
 
 // The source workbook is authoritative about its correct answer. Distractors
@@ -87,9 +87,9 @@ export function getGuidedTextbookChoices(unit: TextbookUnit, item: TextbookItem,
   const answer = book.answers[item.id]?.answer ?? item.answer
   if (!answer) throw new Error('missing answer for ' + item.id)
 
-  if (item.choices?.length && item.choices.length >= 2) {
-    return getTextbookChoices(unit,item,book.answers)
-  }
+  const sourceChoices = item.choices?.length && item.choices.length >= 2
+    ? getTextbookChoices(unit,item,book.answers)
+    : []
 
   const seen = new Set<string>()
   const options: string[] = []
@@ -101,9 +101,15 @@ export function getGuidedTextbookChoices(unit: TextbookUnit, item: TextbookItem,
     options.push(trimmed)
   }
   push(answer)
+  // Some legacy source options contain two synonymous correct answers.
+  // Show exactly ONE accepted answer; retain all verified wrong alternatives.
+  const entry = book.answers[item.id]
+  for (const candidate of sourceChoices) {
+    if (!entry || !isTextbookAnswerCorrect(entry,candidate)) push(candidate)
+  }
 
   const revised = unit.unitId === 'math-1a-numbers-expressions-revised'
-  if (revised) {
+  if (revised && options.length < 4) {
     guidedChoiceCandidates(answer).forEach(push)
     if (options.length < 4) {
       const section = unit.sections.find(x=>x.items.some(y=>y.id===item.id))
@@ -114,8 +120,10 @@ export function getGuidedTextbookChoices(unit: TextbookUnit, item: TextbookItem,
         ?? []
       pool.forEach(push)
     }
-  } else {
-    getTextbookChoices(unit,item,book.answers).forEach(push)
+  } else if (options.length < 4) {
+    getTextbookChoices(unit,item,book.answers)
+      .filter(candidate => !entry || !isTextbookAnswerCorrect(entry,candidate))
+      .forEach(push)
   }
   // Every answer should be selectable even when there is no author-provided
   // distractor. These final two meta choices are used only as a last resort.
