@@ -17,8 +17,10 @@ function collectChoiceReferences(unit: TextbookUnit) {
     for (const block of section.readingFlow) {
       if (block.type !== 'paragraph' && block.type !== 'formula') continue
       for (const part of block.parts) {
-        if (part.type !== 'choice') continue
-        counts.set(part.itemId, (counts.get(part.itemId) ?? 0) + 1)
+        const ids = part.type === 'choice'
+          ? [part.itemId]
+          : part.type === 'math' ? (part.holeIds ?? []) : []
+        for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1)
       }
     }
   }
@@ -45,8 +47,9 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     }
 
     const referenceCount = references.get(item.id) ?? 0
-    if (referenceCount !== 1) {
-      errors.push(`item ${item.id} must map to exactly one blank; found ${referenceCount}`)
+    const groupedRevisedBlank = unit.unitId === 'math-1a-numbers-expressions-revised'
+    if (referenceCount < 1 || (!groupedRevisedBlank && referenceCount !== 1)) {
+      errors.push(`item ${item.id} must map to ${groupedRevisedBlank ? 'at least one' : 'exactly one'} blank; found ${referenceCount}`)
     }
 
     if (!isTextbookAnswerCorrect(answer, answer.answer)) {
@@ -61,7 +64,7 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     }
 
     const isLedgerFreeResponse = unit.unitId === 'math-1a-numbers-expressions-revised'
-      && (item.id.includes('-answer-') || item.id.includes('-hole-'))
+      && (item.id.includes('-answer-') || item.id.includes('-hole-') || item.id.includes('-question-'))
           && !(item.choices && item.choices.length >= 2)
     const choices = isLedgerFreeResponse ? [] : getTextbookChoices(unit, item, answerBook.answers)
     const normalizedChoices = choices.map(normalizeTextbookAnswer)
