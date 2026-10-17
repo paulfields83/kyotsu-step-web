@@ -101,23 +101,49 @@ const n01Slots: Record<number, (Slot | null)[]> = {
 const tokenPattern = /(\$\$[\s\S]*?\$\$|\$[^$]+\$|【[^】]*】)/g
 const normaliseMarkdown = (s:string) => s.replace(/\*\*/g,'').replace(/^\*(.*)\*$/s,'$1').trim()
 const textPart = (s:string):TextbookReadingPart => ({type:'text',text:s})
-// Replace the visible manuscript blank in place when its reviewed answer is known.
-function attachInlineHoles(parts: TextbookReadingPart[], ids: string[]): TextbookReadingPart[] {
-  let nextId = 0
-  return parts.flatMap((part): TextbookReadingPart[] => {
-    if (part.type !== 'text') return [part]
-    const out: TextbookReadingPart[] = []
-    let cursor = 0
-    for (const match of part.text.matchAll(/【[^】]*】/g)) {
-      const start = match.index ?? 0
-      if (start > cursor) out.push(textPart(part.text.slice(cursor, start)))
-      const id = ids[nextId++]
-      out.push(id ? {type:'choice',itemId:id} : textPart(match[0]))
-      cursor = start + match[0].length
+// Convert source markers into real answer controls IN PLACE. A single reviewed
+// question can have several blanks; these share one answer unless the original
+// workbook provides independently reviewed subanswers.
+const textHolePattern = /【[^】]*】|\\underline\{[^}]*\}|\\square\b|▫/g
+const mathHolePattern = /\\square\b|\\underline\{[^}]*\}/g
+function bindManuscriptHoles(parts:TextbookReadingPart[], ids:string[], perHole:boolean):TextbookReadingPart[] {
+  let consumed = 0
+  const nextId = () => {
+    const id = ids[perHole ? consumed : 0]
+    if (!id) throw new Error('reviewed answer list is shorter than manuscript blanks')
+    consumed++
+    return id
+  }
+  const rendered = parts.flatMap((part):TextbookReadingPart[] => {
+    if (part.type === 'choice') return [part]
+    if (part.type === 'math') {
+      const holes = [...part.latex.matchAll(mathHolePattern)]
+      return holes.length ? [{ ...part, holeIds: holes.map(nextId) }] : [part]
     }
-    if (cursor < part.text.length) out.push(textPart(part.text.slice(cursor)))
-    return out.length ? out : [part]
+    const pieces:TextbookReadingPart[] = []
+    let offset = 0
+    for (const match of part.text.matchAll(textHolePattern)) {
+      const from = match.index ?? 0
+      if (from > offset) pieces.push(textPart(part.text.slice(offset,from)))
+      pieces.push({type:'choice',itemId:nextId()})
+      offset = from + match[0].length
+    }
+    if (!pieces.length) return [part]
+    if (offset < part.text.length) pieces.push(textPart(part.text.slice(offset)))
+    return pieces
   })
+  if (!consumed || (perHole && consumed !== ids.length)) {
+    throw new Error('blank-to-answer mismatch: expected ' + ids.length + ' keys, bound ' + consumed)
+  }
+  return rendered
+}
+const n01AdditionalAnswers:Record<number,string> = {
+  1:'-1',
+  3:'5y',
+  6:'(3-5)x^2,(-5+2)x,(6-3)',
+  7:'-2x^2-3x+3',
+  9:'-2x^2+4x-1',
+  10:'x^3項が打ち消し合う',
 }
 const mathPart = (s:string):TextbookReadingPart => ({type:'math',latex:s.replace(/▫/g,'\\square').replace(/\\mspace\{6mu\}/g,'\\;')})
 function bodyParts(source:string, lesson:string, paragraphIndex:number, items:TextbookItem[], answers:Record<string,{validator:'normalized-text'; answer:string; acceptedAnswers:string[]}>):TextbookReadingPart[] {
@@ -157,6 +183,7 @@ export function loadRevisedNumbersExpressions() {
     let pictureIndex = 0
     let answerIndex = 0
     let pilotHoleIndex = 0
+    let n01QuestionIndex = 0
     const pilotSlots = pilotHoleAnswers[name] ?? []
     const sourceAnswers = revisedAnswerLedger[name] ?? []
     const paragraphs = original[name].split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean)
@@ -164,6 +191,7 @@ export function loadRevisedNumbersExpressions() {
       if (pi === 0 || paragraph.startsWith('*数学Ⅰ「数と式」｜')) return
       const id = 'revised-' + name.toLowerCase() + '-' + String(pi).padStart(3,'0')
       const stripped = normaliseMarkdown(paragraph)
+      if (name === 'N01' && /【[^】]*】|\\square|▫/.test(paragraph)) n01QuestionIndex++
       if (/<img\b/i.test(paragraph) || /^!\[.*?\]\(.*?\)/s.test(paragraph)) {
         const code = (figureOrder[name] ?? [])[pictureIndex++]
         if (!code) throw new Error(`unexpected image in revised lesson ${name}, paragraph ${pi}`)
@@ -183,6 +211,27 @@ export function loadRevisedNumbersExpressions() {
         blocks.push({id,type:'formula',parts:bodyParts(paragraph,name,pi,items,answers)})
       } else {
         blocks.push({id,type:'paragraph',parts:bodyParts(paragraph,name,pi,items,answers)})
+      }
+      if (name === 'N01') {
+        // The source contains ten original questions; the earlier importer only
+        // made the 10 multiple-choice subblanks clickable, skipping six questions.
+        // Their answers below come directly from 制作記録/ANSWER_KEY.md.
+        const lastBlock = blocks[blocks.length - 1]
+        if (lastBlock.type === 'paragraph' || lastBlock.type === 'formula') {
+          const remainingText = lastBlock.parts.some(part =>
+            part.type === 'text' && /【[^】]*】|\\square|▫/.test(part.text))
+          const remainingMath = lastBlock.parts.some(part =>
+            part.type === 'math' && /\\square/.test(part.latex) && !(part.holeIds?.length))
+          if (remainingText || remainingMath) {
+            const answer = n01AdditionalAnswers[n01QuestionIndex]
+            if (!answer) throw new Error('N01 unexpected unbound answer at source question ' + n01QuestionIndex)
+            const itemId = 'math-revised-n01-question-' + String(n01QuestionIndex).padStart(2,'0')
+            items.push({id:itemId,label:'問 ' + n01QuestionIndex,
+              prompt:'式または文章中の空欄へ答えなさい。',answerType:'text',acceptedAnswers:[]})
+            answers[itemId] = {validator:'normalized-text',answer,acceptedAnswers:[]}
+            lastBlock.parts = bindManuscriptHoles(lastBlock.parts,[itemId],false)
+          }
+        }
       }
       // One reviewed ledger entry corresponds to one original question paragraph.
       // A paragraph may contain multiple inline holes: do not misinterpret it as
@@ -207,12 +256,7 @@ export function loadRevisedNumbersExpressions() {
         if (lastBlock.type !== 'paragraph' && lastBlock.type !== 'formula') {
           throw new Error(`cannot attach answer to ${name} paragraph ${pi}`)
         }
-        // Preserve first manuscript blank as the clickable answer location.
-        if (lastBlock.parts.some(part => part.type === 'text' && /【[^】]*】/.test(part.text))) {
-          lastBlock.parts = attachInlineHoles(lastBlock.parts, [itemId])
-        } else {
-          lastBlock.parts.push(textPart('　解答：'), { type: 'choice', itemId })
-        }
+        lastBlock.parts = bindManuscriptHoles(lastBlock.parts,[itemId],false)
       }
       if (pilotSlots.length) {
         const holes = paragraph.match(/【[^】]*】|\\underline\{[^}]*\}|\\square|▫/g) ?? []
@@ -220,8 +264,7 @@ export function loadRevisedNumbersExpressions() {
         if (holes.length && lastBlock.type !== 'paragraph' && lastBlock.type !== 'formula') {
           throw new Error('pilot hole is outside a paragraph: ' + name)
         }
-        const inlineIds: string[] = []
-        const mathHoleIds: string[] = []
+        const pilotIds: string[] = []
         for (const marker of holes) {
           const rawAnswer = pilotSlots[pilotHoleIndex]
           if (!rawAnswer) throw new Error('pilot answer ledger underflow: ' + name)
@@ -237,17 +280,16 @@ export function loadRevisedNumbersExpressions() {
             ...(publishedOptions ? { choices: publishedOptions } : {}),
           })
           answers[itemId] = { validator: 'normalized-text', answer: rawAnswer, acceptedAnswers: [] }
-          if (marker.startsWith('【')) inlineIds.push(itemId)
-          else mathHoleIds.push(itemId)
+          pilotIds.push(itemId)
         }
-        if (lastBlock.type === 'paragraph' || lastBlock.type === 'formula') {
-          if (inlineIds.length) lastBlock.parts = attachInlineHoles(lastBlock.parts, inlineIds)
-          for (const id of mathHoleIds) {
-            lastBlock.parts.push(textPart('　式の空欄：'), {type:'choice',itemId:id})
-          }
+        if (pilotIds.length && (lastBlock.type === 'paragraph' || lastBlock.type === 'formula')) {
+          lastBlock.parts = bindManuscriptHoles(lastBlock.parts,pilotIds,true)
         }
       }
     })
+    if (name === 'N01' && n01QuestionIndex !== 10) {
+      throw new Error('N01 must preserve all ten source questions; found ' + n01QuestionIndex)
+    }
     if (pilotSlots.length && pilotHoleIndex !== pilotSlots.length) {
       throw new Error('pilot hole mismatch: ' + name + ' expected ' + pilotSlots.length + ' got ' + pilotHoleIndex)
     }
@@ -262,7 +304,7 @@ export function loadRevisedNumbersExpressions() {
       readingFlow:blocks,items,figures}
   })
   const unit = TextbookUnitSchema.parse({
-    schemaVersion:'1.0',unitId:'math-1a-numbers-expressions-revised',revision:2,
+    schemaVersion:'1.0',unitId:'math-1a-numbers-expressions-revised',revision:3,
     status:'published',subject:'math-1a',title:'数学I 数と式（改訂版）',
     subtitle:'N01–N14 / NE01–NE02',
     source:{type:'original',label:'ユーザー提供の改訂版Word原稿 N01–N14 / NE01–NE02',
