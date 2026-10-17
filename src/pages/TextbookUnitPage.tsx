@@ -1,4 +1,5 @@
 import { InlineMath } from 'react-katex'
+import katex from 'katex'
 import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
@@ -88,6 +89,27 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
 
     return { textbookProgress: { ...state.textbookProgress, [unit.unitId]: nextProgress } }
   })
+}
+
+// Display mathematics as mathematics, while keeping Japanese reasoning choices
+// in ordinary readable textbook language.
+function GuidedChoiceValue({ value }: { value: string }) {
+  const looksLikeMath = !/[ぁ-んァ-ン一-龯]/u.test(value)
+    && /[\d^²³⁴⁵⁶⁷⁸⁹+\-−×÷=√<>]/.test(value)
+    && value.length < 160
+  if (!looksLikeMath) return <>{value}</>
+  const superscripts: Record<string,string> = { '⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9' }
+  const latex = value
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g, digits => '^{' + [...digits].map(d => superscripts[d]).join('') + '}')
+    .replace(/√(\d+)/g, '\\sqrt{$1}')
+    .replace(/×/g, '\\cdot ')
+    .replace(/[−–—]/g, '-')
+  try {
+    katex.renderToString(latex, { throwOnError: true, strict: 'ignore' })
+    return <InlineMath math={latex} />
+  } catch {
+    return <>{value}</>
+  }
 }
 
 function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord) {
@@ -189,7 +211,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
   const [submitError, setSubmitError] = useState('')
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(0)
-  const [typedAnswer, setTypedAnswer] = useState('')
   const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
   const hasTopicNavigation = groups.some((group) => group[0]?.type === 'topic')
 
@@ -202,7 +223,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem?.choices ?? []
-  useEffect(() => { setTypedAnswer('') }, [activeItemId])
   const activeWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
   const selectChoice = async (choice: string) => {
     if (!activeItem || activeRecord?.resolved || submittingItemId) return
@@ -248,33 +268,16 @@ function TextbookReadingFlow({ unit, section, progress }: {
                 onClick={() => void selectChoice(choice)}
               >
                 <span>{index + 1}</span>
-                <strong>{choice}</strong>
+                <strong><GuidedChoiceValue value={choice} /></strong>
                 {activeItem.unit && <small>{activeItem.unit}</small>}
               </button>
             )
           })}
         </div>}
-        {activeChoices.length === 0 && (
-          <form className="reading-free-answer" onSubmit={(event) => {
-            event.preventDefault()
-            if (typedAnswer.trim()) void selectChoice(typedAnswer.trim())
-          }}>
-            <label htmlFor={`reading-free-answer-${activeItem.id}`}>{text('答えを入力', '输入答案')}</label>
-            <input
-              id={`reading-free-answer-${activeItem.id}`}
-              data-testid={`textbook-free-answer-${activeItem.id}`}
-              type="text"
-              autoComplete="off"
-              spellCheck={false}
-              value={typedAnswer}
-              disabled={Boolean(activeRecord?.resolved) || Boolean(submittingItemId)}
-              onChange={(event) => setTypedAnswer(event.target.value)}
-              placeholder={text('式や語句を入力', '输入公式或词语')}
-            />
-            <button type="submit" disabled={!typedAnswer.trim() || Boolean(activeRecord?.resolved) || Boolean(submittingItemId)}>
-              {text('解答する', '提交答案')}
-            </button>
-          </form>
+        {activeChoices.length < 2 && (
+          <p className="reading-inline-choice-error" role="alert">
+            {text('選択肢の読み込みに失敗しました。画面を更新してください。', '选项加载失败，请刷新页面。')}
+          </p>
         )}
         {activeWrongResult && (
           <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
