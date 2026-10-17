@@ -1,4 +1,4 @@
-import { getTextbookChoices } from '../../src/domain/textbook'
+import { getGuidedTextbookChoices } from './guidedTextbookChoices'
 import type { TextbookAnswerBook, TextbookReadingPart, TextbookUnit } from '../../src/domain/textbookSchema'
 
 function publicAssetSrc(unitId: string, src: string, apiOrigin?: string) {
@@ -98,15 +98,11 @@ export function publicTextbookUnit(unit: TextbookUnit, answerBook: TextbookAnswe
       )),
       items: section.items.map((item) => {
         const { answer: _answer, acceptedAnswers: _acceptedAnswers, choices: _choices, ...publicItem } = item
-        const requiresFreeResponse = unit.unitId === 'math-1a-numbers-expressions-revised'
-          && (item.id.includes('-answer-') || item.id.includes('-hole-') || item.id.includes('-question-'))
-          && !(item.choices && item.choices.length >= 2)
-        const candidates = requiresFreeResponse ? [] : getTextbookChoices(unit, item, answerBook.answers)
-        // A single candidate would directly reveal the correct answer. Let the
-        // learner type it instead of exposing a one-option multiple-choice item.
+        const choices = getGuidedTextbookChoices(unit, item, answerBook)
         return {
           ...publicItem,
-          choices: candidates.length >= 2 ? candidates : [],
+          // Answer keys stay server-side; expose only the shuffled options.
+          choices,
         }
       }),
     })),
