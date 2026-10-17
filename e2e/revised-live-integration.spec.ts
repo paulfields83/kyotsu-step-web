@@ -15,6 +15,20 @@ test.beforeEach(async ({ page }) => {
   await page.evaluate(() => localStorage.clear())
 })
 
+test('N01 revised: the formerly passive equation square is now a real clickable blank', async ({ page }) => {
+  await page.goto(mathUrl + '?section=revised-n01', { waitUntil: 'domcontentloaded' })
+  const firstFormula = page.getByTestId('textbook-math-item-math-revised-n01-question-01')
+  await expect(firstFormula).toBeVisible({ timeout: 60_000 })
+  await firstFormula.click()
+  const input = page.getByTestId('textbook-free-answer-math-revised-n01-question-01')
+  await expect(input).toBeVisible()
+  await input.fill('-1')
+  await page.locator('.reading-free-answer button[type="submit"]').click()
+  await expect(page.locator('.reading-math-answered').first()).toContainText('-1', { timeout: 10_000 })
+  await page.reload()
+  await expect(page.locator('.reading-math-answered').first()).toContainText('-1', { timeout: 40_000 })
+})
+
 test('N04 revised: manuscript blank opens an answer field, accepts an answer, unlocks and survives reload', async ({ page }) => {
   await page.goto(mathUrl + '?section=revised-n04', { waitUntil: 'domcontentloaded' })
   await page.waitForTimeout(4000)
