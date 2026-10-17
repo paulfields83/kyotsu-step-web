@@ -35,11 +35,11 @@ export function normalizeTextbookAnswer(value: string) {
   const powerDigits: Record<string,string> = { '⁰':'0', '¹':'1', '²':'2', '³':'3', '⁴':'4', '⁵':'5', '⁶':'6', '⁷':'7', '⁸':'8', '⁹':'9' }
   return value
     .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g, chars => '^' + [...chars].map(x => powerDigits[x]).join(''))
-    .replace(/\\\\frac\\{([^{}]+)\\}\\{([^{}]+)\\}/g, '$1/$2')
-    .replace(/\\\\sqrt\\{([^{}]+)\\}/g, '√$1')
-    .replace(/\\\\(?:cdot|times)\\b/g, '×')
-    .replace(/\\\\pi\\b/g, 'π')
-    .replace(/\\\\(?:left|right)\\b/g, '')
+    .replace(/\\frac\{([^{}]+)\}\{([^{}]+)\}/g, '$1/$2')
+    .replace(/\\sqrt\{([^{}]+)\}/g, '√$1')
+    .replace(/\\(?:cdot|times)\b/g, '×')
+    .replace(/\\pi\b/g, 'π')
+    .replace(/\\(?:left|right)\b/g, '')
     .replace(/\\$/g, '')
     .normalize('NFKC')
     .trim()
