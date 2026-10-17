@@ -1,8 +1,10 @@
 import { InlineMath } from 'react-katex'
+import katex from 'katex'
 import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
+import { fillResolvedMathHoles } from '../domain/textbookFormulaFill'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
 import { findTextbookLessonTarget, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
@@ -25,12 +27,15 @@ function resolveAssetSrc(src: string) {
   return `${base}${src.replace(/^\.?\/+/, '')}`
 }
 
+function blockItemIds(block: TextbookReadingBlock): string[] {
+  if (block.type !== 'paragraph' && block.type !== 'formula') return []
+  return [...new Set(block.parts.flatMap((part) =>
+    part.type === 'choice' ? [part.itemId] : part.type === 'math' ? (part.holeIds ?? []) : [],
+  ))]
+}
+
 function readingGroupItemIds(blocks: TextbookReadingBlock[]) {
-  return blocks.flatMap((block) =>
-    block.type === 'paragraph' || block.type === 'formula'
-      ? block.parts.filter((part) => part.type === 'choice').map((part) => part.itemId)
-      : [],
-  )
+  return [...new Set(blocks.flatMap(blockItemIds))]
 }
 
 function groupReadingFlow(blocks: TextbookReadingBlock[]) {
@@ -87,6 +92,27 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
   })
 }
 
+// Display mathematics as mathematics, while keeping Japanese reasoning choices
+// in ordinary readable textbook language.
+function GuidedChoiceValue({ value }: { value: string }) {
+  const looksLikeMath = !/[ぁ-んァ-ン一-龯]/u.test(value)
+    && /[\d^²³⁴⁵⁶⁷⁸⁹+\-−×÷=√<>]/.test(value)
+    && value.length < 160
+  if (!looksLikeMath) return <>{value}</>
+  const superscripts: Record<string,string> = { '⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9' }
+  const latex = value
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g, digits => '^{' + [...digits].map(d => superscripts[d]).join('') + '}')
+    .replace(/√(\d+)/g, '\\sqrt{$1}')
+    .replace(/×/g, '\\cdot ')
+    .replace(/[−–—]/g, '-')
+  try {
+    katex.renderToString(latex, { throwOnError: true, strict: 'ignore' })
+    return <InlineMath math={latex} />
+  } catch {
+    return <>{value}</>
+  }
+}
+
 function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord) {
   if (record.isFirstCorrect) {
     return (
@@ -124,10 +150,10 @@ function renderActiveChoice(
       data-testid={`textbook-item-${item.id}`}
       className={`reading-inline-blank${isWrong ? ' reading-inline-blank--wrong' : ''}`}
       onClick={() => onOpen(item.id)}
-      aria-label={`${item.label} ${text('を選ぶ', '选择答案')}`}
+      aria-label={`${item.label} ${item.choices.length ? text('を選ぶ', '选择答案') : text('を入力', '输入答案')}`}
     >
       <span>{item.label}</span>
-      <strong>{value || text('選択', '选择')}</strong>
+      <strong>{value || (item.choices.length ? text('選択', '选择') : text('入力', '输入'))}</strong>
     </button>
   )
 }
@@ -140,7 +166,31 @@ function renderPart(
   text: (ja: string, zh: string) => string,
 ): ReactNode {
   if (part.type === 'text') return part.text
-  if (part.type === 'math') return <InlineMath math={part.latex} />
+  if (part.type === 'math') {
+    const holeIds = part.holeIds ?? []
+    if (!holeIds.length) return <InlineMath math={part.latex} />
+    const latexWithAnswers = fillResolvedMathHoles(part.latex, holeIds, progress?.answers)
+    const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
+    if (!pendingId) {
+      return (
+        <span className="reading-math-answered" data-testid={`textbook-math-filled-${holeIds[0]}`}>
+          <InlineMath math={latexWithAnswers} />
+        </span>
+      )
+    }
+    return (
+      <button
+        type="button"
+        className="reading-math-blank-button"
+        data-testid={`textbook-math-item-${pendingId}`}
+        onClick={() => onOpen(pendingId)}
+        aria-label={text('式の空欄を解答する', '回答公式中的空格')}
+      >
+        <InlineMath math={latexWithAnswers} />
+        <span className="reading-math-blank-button__hint">{text('選択', '选择')}</span>
+      </button>
+    )
+  }
 
   const item = section.items.find((candidate) => candidate.id === part.itemId)
   if (!item) return null
@@ -191,7 +241,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
     Boolean(
       activeItemId
       && (block.type === 'paragraph' || block.type === 'formula')
-      && block.parts.some((part) => part.type === 'choice' && part.itemId === activeItemId),
+      && blockItemIds(block).includes(activeItemId),
     )
 
   const renderInlineChoicePanel = (block: TextbookReadingBlock) => {
@@ -202,7 +252,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
           <strong>{activeItem.label}</strong>
           <span>{activeItem.prompt}</span>
         </div>
-        <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
+        {activeChoices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
           {activeChoices.map((choice, index) => {
             const selectedWrong = Boolean(activeWrongResult && (activeRecord?.firstValue ?? activeRecord?.value) === choice)
             const revealedCorrect = Boolean(activeWrongResult && activeRecord?.value === choice)
@@ -211,17 +261,24 @@ function TextbookReadingFlow({ unit, section, progress }: {
                 type="button"
                 key={choice}
                 data-testid={`textbook-choice-${activeItem.id}-${index}`}
+                data-choice-value={choice}
+                aria-label={`${index + 1}. ${choice}`}
                 className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
                 disabled={Boolean(activeRecord?.resolved) || submittingItemId === activeItem.id}
                 onClick={() => void selectChoice(choice)}
               >
                 <span>{index + 1}</span>
-                <strong>{choice}</strong>
+                <strong><GuidedChoiceValue value={choice} /></strong>
                 {activeItem.unit && <small>{activeItem.unit}</small>}
               </button>
             )
           })}
-        </div>
+        </div>}
+        {activeChoices.length < 2 && (
+          <p className="reading-inline-choice-error" role="alert">
+            {text('選択肢の読み込みに失敗しました。画面を更新してください。', '选项加载失败，请刷新页面。')}
+          </p>
+        )}
         {activeWrongResult && (
           <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
             {text(`不正解です。正解は「${activeRecord?.value ?? ''}」です。`, `回答错误。正确答案是「${activeRecord?.value ?? ''}」。`)}
@@ -348,9 +405,44 @@ function TextbookReadingFlow({ unit, section, progress }: {
       )
     }
 
-    const content = block.parts.map((part, index) => (
+    // In mathematics, do not display the remainder of a formula or paragraph
+    // after its first unanswered interactive blank.
+    const firstUnansweredPart = unit.subject === 'math-1a'
+      ? block.parts.findIndex((part) => (
+          part.type === 'choice' ? !progress?.answers[part.itemId]?.resolved
+            : part.type === 'math' && (part.holeIds ?? []).some((id) => !progress?.answers[id]?.resolved)
+        ))
+      : -1
+    const visibleParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
+    const linkedAnswerId = blockItemIds(block)[0]
+    const renderVisiblePart = (part: TextbookReadingPart): ReactNode => {
+      if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
+        return renderPart(part, section, progress, setActiveItemId, text)
+      }
+      // The source has several holes per question but only one reviewed
+      // combined answer. Link the additional blanks to the same response.
+      const segments = part.text.split(/(【[^】]*】)/g)
+      return segments.map((segment, segmentIndex) => {
+        if (!/^【[^】]*】$/.test(segment)) return segment
+        if (!linkedAnswerId) {
+          return <span key={segmentIndex} className="reading-inline-blank reading-ungraded-blank"
+            title={text('この空欄には確認済みの解答がありません', '这个空栏暂未核对答案')}>
+            {text('未採点', '未录入答案')}
+          </span>
+        }
+        if (progress?.answers[linkedAnswerId]?.resolved) {
+          return <span key={segmentIndex} className="reading-inline-answer">{text('回答済み', '已回答')}</span>
+        }
+        return <button key={segmentIndex} type="button" className="reading-inline-blank reading-linked-blank"
+          aria-label={text('この問題の解答欄を開く', '打开本题的答题区')}
+          onClick={() => setActiveItemId(linkedAnswerId)}>
+          {text('解答欄', '答题区')}
+        </button>
+      })
+    }
+    const content = visibleParts.map((part, index) => (
       <span key={`${block.id}-part-${index}`}>
-        {renderPart(part, section, progress, setActiveItemId, text)}
+        {renderVisiblePart(part)}
       </span>
     ))
 
@@ -533,12 +625,19 @@ function TextbookReadingFlow({ unit, section, progress }: {
       )}
 
       {displayedGroups.map((group) => {
+        // Unlock the next mathematics reasoning block only after the preceding
+        // answer has been submitted. Independent chapters remain navigable.
+        const unansweredBlock = unit.subject === 'math-1a'
+          ? group.findIndex((block) => (block.type === 'paragraph' || block.type === 'formula')
+            && blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
+          : -1
+        const visibleGroup = unansweredBlock < 0 ? group : group.slice(0, unansweredBlock + 1)
         const groupIndex = groups.indexOf(group)
         const groupItemIds = readingGroupItemIds(group)
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
           <section className={`reading-subsection${group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
-            {renderExampleSequence(group)}
+            {renderExampleSequence(visibleGroup)}
             {completed && groupIndex < groups.length - 1 && (
               <div className="reading-subsection-complete">
                 <Check size={16} aria-hidden="true" />
@@ -638,9 +737,9 @@ export function TextbookUnitPage() {
   const focusedSection = Boolean(groupedSection || targetedSection || legacySection)
   const targetSelected = Boolean(lessonTarget)
   const targetSummary = lessonTarget?.kind === 'unit' ? summary : sectionSummary
-  const targetComplete = targetSummary.completed === targetSummary.total
-  const sectionComplete = sectionSummary.completed === sectionSummary.total
-  const unitComplete = summary.completed === summary.total
+  const targetComplete = targetSummary.total > 0 && targetSummary.completed === targetSummary.total
+  const sectionComplete = sectionSummary.total > 0 && sectionSummary.completed === sectionSummary.total
+  const unitComplete = summary.total > 0 && summary.completed === summary.total
   const physicsPrefix = lessonTarget?.kind === 'unit' && unit.subject === 'physics' ? physicsTopicPrefix(unit) : undefined
   const goNext = () => {
     setSelectedSectionIndex((index) => Math.min(unit.sections.length - 1, index + 1))
@@ -654,7 +753,7 @@ export function TextbookUnitPage() {
           <h1>{targetMatch ? `${targetMatch.chapter.label}：${targetMatch.lesson.label}` : focusedSection ? `${conciseTextbookTitle(unit)}：${currentSection.title}` : unit.title}</h1>
           {!targetSelected && !focusedSection && unit.subtitle && <p>{unit.subtitle}</p>}
         </div>
-        <StatusBadge>{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
+        <StatusBadge>{text('改訂版', '改订版')} · {text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
       </header>
 
       <ProgressBar
@@ -674,7 +773,7 @@ export function TextbookUnitPage() {
         <nav className="textbook-section-nav" aria-label={text('知識項目', '知识点')}>
           {unit.sections.map((section, index) => {
             const sectionProgress = textbookSectionProgress(unit, progress, section.id)
-            const complete = sectionProgress.completed === sectionProgress.total
+            const complete = sectionProgress.total > 0 && sectionProgress.completed === sectionProgress.total
             return (
               <button
                 type="button"
