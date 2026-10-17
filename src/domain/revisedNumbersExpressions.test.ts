@@ -43,12 +43,35 @@ describe('revised 数と式 corpus', () => {
   })
   it('only publishes verified answer keys and no duplicates', () => {
     const items = unit.sections.flatMap(s => s.items)
-    expect(items).toHaveLength(237)
-    expect(unit.sections.find(x => x.id === 'revised-n01')?.items).toHaveLength(10)
+    expect(items).toHaveLength(243)
+    expect(unit.sections.find(x => x.id === 'revised-n01')?.items).toHaveLength(16)
     expect(unit.sections.find(x => x.id === 'revised-n04')?.items).toHaveLength(20)
     expect(unit.sections.find(x => x.id === 'revised-n05')?.items).toHaveLength(25)
     expect(unit.sections.find(x => x.id === 'revised-n06')?.items).toHaveLength(17)
     expect(new Set(items.map(x => x.id)).size).toBe(items.length)
+    // Every reviewed answer must be reachable at the exact manuscript blank.
+    const references = new Map<string, number>()
+    const mathHoleExamples: string[] = []
+    for (const section of unit.sections) {
+      for (const block of section.readingFlow) {
+        if (block.type !== 'paragraph' && block.type !== 'formula') continue
+        for (const part of block.parts) {
+          const ids = part.type === 'choice' ? [part.itemId] : part.type === 'math' ? (part.holeIds ?? []) : []
+          for (const id of ids) references.set(id, (references.get(id) ?? 0) + 1)
+          if (part.type === 'math' && (part.holeIds?.length ?? 0) > 0) mathHoleExamples.push(part.holeIds![0])
+          if (part.type === 'math' && /\\\\square\\b/.test(part.latex)) {
+            expect(part.holeIds?.length).toBeGreaterThan(0)
+          }
+          if (part.type === 'text') expect(part.text).not.toMatch(/【[^】]*】|\\\\square/)
+        }
+      }
+    }
+    expect(mathHoleExamples).toContain('math-revised-n01-question-01')
+    expect(mathHoleExamples).toContain('math-revised-n01-question-03')
+    expect(mathHoleExamples).toContain('math-revised-n01-question-07')
+    expect(mathHoleExamples).toContain('math-revised-n01-question-09')
+    expect(references.size).toBe(items.length)
+    expect([...references.values()].every(count => count >= 1)).toBe(true)
     const report = assertTextbookContract(unit, answerBook)
     expect(report.errors).toEqual([])
     const publicUnit = JSON.stringify(publicTextbookUnit(unit, answerBook))
