@@ -227,7 +227,7 @@ export function loadRevisedNumbersExpressions() {
             if (!answer) throw new Error('N01 unexpected unbound answer at source question ' + n01QuestionIndex)
             const itemId = 'math-revised-n01-question-' + String(n01QuestionIndex).padStart(2,'0')
             items.push({id:itemId,label:'問 ' + n01QuestionIndex,
-              prompt:'式または文章中の空欄へ答えなさい。',answerType:'text',acceptedAnswers:[]})
+              prompt:'式または文章中の空欄に入るものを選んでください。',answerType:'text',acceptedAnswers:[]})
             answers[itemId] = {validator:'normalized-text',answer,acceptedAnswers:[]}
             lastBlock.parts = bindManuscriptHoles(lastBlock.parts,[itemId],false)
           }
@@ -244,7 +244,7 @@ export function loadRevisedNumbersExpressions() {
         const itemId = `math-revised-${name.toLowerCase()}-answer-${String(answerIndex).padStart(2, '0')}`
         items.push({
           id: itemId, label: `問 ${answerIndex}`,
-          prompt: `${name} 問${answerIndex}：この設問の空欄に対応する解答を入力してください（複数の空欄はまとめて記入）。`,
+          prompt: `${name} 問${answerIndex}：この設問の空欄に合う答えを選んでください（複数の空欄は一つの選択肢で答えます）。`,
           answerType: 'text', acceptedAnswers: [],
         })
         answers[itemId] = {
@@ -275,7 +275,7 @@ export function loadRevisedNumbersExpressions() {
             && sourceOptions.includes(rawAnswer) ? sourceOptions : undefined
           items.push({
             id: itemId, label: '空欄 ' + pilotHoleIndex,
-            prompt: name + ' の空欄 ' + pilotHoleIndex + ' に入る式・語句を記入してください。',
+            prompt: name + ' の空欄 ' + pilotHoleIndex + ' に入る式・語句を選んでください。',
             answerType: 'text', acceptedAnswers: [],
             ...(publishedOptions ? { choices: publishedOptions } : {}),
           })
@@ -304,7 +304,7 @@ export function loadRevisedNumbersExpressions() {
       readingFlow:blocks,items,figures}
   })
   const unit = TextbookUnitSchema.parse({
-    schemaVersion:'1.0',unitId:'math-1a-numbers-expressions-revised',revision:3,
+    schemaVersion:'1.0',unitId:'math-1a-numbers-expressions-revised',revision:4,
     status:'published',subject:'math-1a',title:'数学I 数と式（改訂版）',
     subtitle:'N01–N14 / NE01–NE02',
     source:{type:'original',label:'ユーザー提供の改訂版Word原稿 N01–N14 / NE01–NE02',
