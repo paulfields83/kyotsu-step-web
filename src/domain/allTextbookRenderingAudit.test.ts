@@ -7,6 +7,7 @@ describe('all published math and physics textbook rendering', () => {
   it('counts unresolved KaTeX errors, damaged characters and noninteractive source markers', () => {
     const brokenMath: Array<{unitId: string; blockId: string; latex: string; error: string}> = []
     const damagedText: Array<{unitId: string; blockId: string; value: string}> = []
+    const unlinkedBoxes: Array<{unitId:string; blockId:string; type:string; value:string}> = []
     let equations = 0
     let figures = 0
     let blanks = 0
@@ -19,6 +20,12 @@ describe('all published math and physics textbook rendering', () => {
         for (const block of section.readingFlow) {
           if (block.type !== 'paragraph' && block.type !== 'formula') continue
           for (const part of block.parts) {
+            if (part.type === 'math' && /\\square/.test(part.latex) && !(part.holeIds?.length)) {
+              unlinkedBoxes.push({unitId:unit.unitId,blockId:block.id,type:'formula',value:part.latex.slice(0,100)})
+            }
+            if (part.type === 'text' && /【[^】]*】|▫/.test(part.text)) {
+              unlinkedBoxes.push({unitId:unit.unitId,blockId:block.id,type:'text',value:part.text.slice(0,100)})
+            }
             if (part.type === 'math') {
               equations += 1
               try { katex.renderToString(part.latex, {throwOnError:true,strict:'ignore'}) }
@@ -32,8 +39,9 @@ describe('all published math and physics textbook rendering', () => {
       }
     }
     const mathGroups = Object.fromEntries([...new Set(brokenMath.map(x=>x.unitId))].map(id=>[id,brokenMath.filter(x=>x.unitId===id).length]))
-    console.log('ALL_TEXTBOOK_RENDER_AUDIT ' + JSON.stringify({publishedUnits:loadedTextbookUnits.filter(x=>x.unit.status==='published').length,equations,figures,blanks,latexErrors:brokenMath.length,mathGroups,mathSamples:brokenMath.slice(0,30),damagedCharacters:damagedText.length,textSamples:damagedText.slice(0,20)}))
+    console.log('ALL_TEXTBOOK_RENDER_AUDIT ' + JSON.stringify({publishedUnits:loadedTextbookUnits.filter(x=>x.unit.status==='published').length,equations,figures,blanks,latexErrors:brokenMath.length,mathGroups,mathSamples:brokenMath.slice(0,30),damagedCharacters:damagedText.length,textSamples:damagedText.slice(0,20),unlinkedBoxCount:unlinkedBoxes.length,unlinkedBoxExamples:unlinkedBoxes.slice(0,30)}))
     expect(equations).toBeGreaterThan(100)
+    expect(unlinkedBoxes.filter(x => x.unitId === 'math-1a-numbers-expressions-revised')).toEqual([])
     expect(brokenMath).toEqual([])
     expect(damagedText).toEqual([])
   })
