@@ -25,12 +25,15 @@ function resolveAssetSrc(src: string) {
   return `${base}${src.replace(/^\.?\/+/, '')}`
 }
 
+function blockItemIds(block: TextbookReadingBlock): string[] {
+  if (block.type !== 'paragraph' && block.type !== 'formula') return []
+  return [...new Set(block.parts.flatMap((part) =>
+    part.type === 'choice' ? [part.itemId] : part.type === 'math' ? (part.holeIds ?? []) : [],
+  ))]
+}
+
 function readingGroupItemIds(blocks: TextbookReadingBlock[]) {
-  return blocks.flatMap((block) =>
-    block.type === 'paragraph' || block.type === 'formula'
-      ? block.parts.filter((part) => part.type === 'choice').map((part) => part.itemId)
-      : [],
-  )
+  return [...new Set(blocks.flatMap(blockItemIds))]
 }
 
 function groupReadingFlow(blocks: TextbookReadingBlock[]) {
@@ -140,7 +143,34 @@ function renderPart(
   text: (ja: string, zh: string) => string,
 ): ReactNode {
   if (part.type === 'text') return part.text
-  if (part.type === 'math') return <InlineMath math={part.latex} />
+  if (part.type === 'math') {
+    const holeIds = part.holeIds ?? []
+    const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
+    if (!holeIds.length) return <InlineMath math={part.latex} />
+    if (!pendingId) {
+      return (
+        <span className="reading-math-answered">
+          <InlineMath math={part.latex} />
+          <span className="reading-math-answered__result">
+            <Check size={14} aria-hidden="true" />
+            {progress?.answers[holeIds[holeIds.length - 1]]?.value}
+          </span>
+        </span>
+      )
+    }
+    return (
+      <button
+        type="button"
+        className="reading-math-blank-button"
+        data-testid={`textbook-math-item-${pendingId}`}
+        onClick={() => onOpen(pendingId)}
+        aria-label={text('式の空欄を解答する', '回答公式中的空格')}
+      >
+        <InlineMath math={part.latex} />
+        <span className="reading-math-blank-button__hint">{text('入力', '作答')}</span>
+      </button>
+    )
+  }
 
   const item = section.items.find((candidate) => candidate.id === part.itemId)
   if (!item) return null
@@ -193,7 +223,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
     Boolean(
       activeItemId
       && (block.type === 'paragraph' || block.type === 'formula')
-      && block.parts.some((part) => part.type === 'choice' && part.itemId === activeItemId),
+      && blockItemIds(block).includes(activeItemId),
     )
 
   const renderInlineChoicePanel = (block: TextbookReadingBlock) => {
@@ -375,10 +405,13 @@ function TextbookReadingFlow({ unit, section, progress }: {
     // In mathematics, do not display the remainder of a formula or paragraph
     // after its first unanswered interactive blank.
     const firstUnansweredPart = unit.subject === 'math-1a'
-      ? block.parts.findIndex((part) => part.type === 'choice' && !progress?.answers[part.itemId]?.resolved)
+      ? block.parts.findIndex((part) => (
+          part.type === 'choice' ? !progress?.answers[part.itemId]?.resolved
+            : part.type === 'math' && (part.holeIds ?? []).some((id) => !progress?.answers[id]?.resolved)
+        ))
       : -1
     const visibleParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
-    const linkedAnswerId = block.parts.find((part) => part.type === 'choice')?.itemId
+    const linkedAnswerId = blockItemIds(block)[0]
     const renderVisiblePart = (part: TextbookReadingPart): ReactNode => {
       if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
         return renderPart(part, section, progress, setActiveItemId, text)
@@ -593,7 +626,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         // answer has been submitted. Independent chapters remain navigable.
         const unansweredBlock = unit.subject === 'math-1a'
           ? group.findIndex((block) => (block.type === 'paragraph' || block.type === 'formula')
-            && block.parts.some((part) => part.type === 'choice' && !progress?.answers[part.itemId]?.resolved))
+            && blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
           : -1
         const visibleGroup = unansweredBlock < 0 ? group : group.slice(0, unansweredBlock + 1)
         const groupIndex = groups.indexOf(group)
