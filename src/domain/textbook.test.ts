@@ -14,8 +14,8 @@ describe('textbook learning state', () => {
 
   it('accepts equivalent textbook typography in free responses', () => {
     expect(normalizeTextbookAnswer('-2x²-3x+3')).toBe(normalizeTextbookAnswer('-2x^2-3x+3'))
-    expect(normalizeTextbookAnswer('5\sqrt{3}')).toBe(normalizeTextbookAnswer('5√3'))
-    expect(normalizeTextbookAnswer('\frac{3}{4}')).toBe(normalizeTextbookAnswer('3/4'))
+    expect(normalizeTextbookAnswer('5\\sqrt{3}')).toBe(normalizeTextbookAnswer('5√3'))
+    expect(normalizeTextbookAnswer('\\frac{3}{4}')).toBe(normalizeTextbookAnswer('3/4'))
     expect(isTextbookAnswerCorrect({
       validator: 'normalized-text', answer: '-2x^2-3x+3', acceptedAnswers: [],
     }, '-2x²-3x+3')).toBe(true)
