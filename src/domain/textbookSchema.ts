@@ -36,7 +36,7 @@ export const TextbookFigureSchema = z.object({
 
 export const TextbookReadingPartSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('text'), text: z.string().min(1) }),
-  z.object({ type: z.literal('math'), latex: z.string().min(1) }),
+  z.object({ type: z.literal('math'), latex: z.string().min(1), holeIds: z.array(IdSchema).optional() }),
   z.object({ type: z.literal('choice'), itemId: IdSchema }),
 ])
 
@@ -99,11 +99,15 @@ export const TextbookUnitSchema = TextbookUnitBaseSchema.superRefine((unit, cont
       }
       if (block.type === 'paragraph' || block.type === 'formula') {
         block.parts.forEach((part, partIndex) => {
-          if (part.type !== 'choice') return
-          if (!sectionItemIds.has(part.itemId)) {
-            context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'parts', partIndex, 'itemId'], message: `存在しない item 参照: ${part.itemId}` })
+          const linkedIds = part.type === 'choice'
+            ? [part.itemId]
+            : part.type === 'math' ? (part.holeIds ?? []) : []
+          for (const itemId of linkedIds) {
+            if (!sectionItemIds.has(itemId)) {
+              context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'parts', partIndex], message: `存在しない item 参照: ${itemId}` })
+            }
+            referencedItems.add(itemId)
           }
-          referencedItems.add(part.itemId)
         })
       }
     })
