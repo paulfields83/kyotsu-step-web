@@ -1,4 +1,5 @@
-import { getTextbookChoices, isTextbookAnswerCorrect, normalizeTextbookAnswer } from '../../src/domain/textbook'
+import { isTextbookAnswerCorrect, normalizeTextbookAnswer } from '../../src/domain/textbook'
+import { getGuidedTextbookChoices } from './guidedTextbookChoices'
 import type { TextbookAnswerBook, TextbookUnit } from '../../src/domain/textbookSchema'
 
 export type TextbookContractReport = {
@@ -63,16 +64,11 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
       }
     }
 
-    const isLedgerFreeResponse = unit.unitId === 'math-1a-numbers-expressions-revised'
-      && (item.id.includes('-answer-') || item.id.includes('-hole-') || item.id.includes('-question-'))
-          && !(item.choices && item.choices.length >= 2)
-    const choices = isLedgerFreeResponse ? [] : getTextbookChoices(unit, item, answerBook.answers)
+    const choices = getGuidedTextbookChoices(unit, item, answerBook)
     const normalizedChoices = choices.map(normalizeTextbookAnswer)
     const uniqueChoices = new Set(normalizedChoices)
-    if (!isLedgerFreeResponse && choices.length < 2) {
-      const message = `item ${item.id} has fewer than 2 exportable choices`
-      if (unit.subject === 'math-1a') errors.push(message)
-      else warnings.push(message)
+    if (choices.length < 2) {
+      errors.push(`item ${item.id} has fewer than two guided choices`)
     }
     if (choices.length > 4) {
       warnings.push(`item ${item.id} exports ${choices.length} choices (expected at most 4)`)
@@ -80,7 +76,7 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     if (uniqueChoices.size !== choices.length) {
       errors.push(`item ${item.id} has duplicate choices after normalization`)
     }
-    if (!isLedgerFreeResponse && !uniqueChoices.has(normalizeTextbookAnswer(answer.answer))) {
+    if (!uniqueChoices.has(normalizeTextbookAnswer(answer.answer))) {
       errors.push(`item ${item.id} choices do not contain the primary answer`)
     }
   }
