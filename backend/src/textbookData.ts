@@ -5,6 +5,7 @@ import { builtInTextbookUnits } from '../../src/data/textbookUnits'
 import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookAnswerBook, type TextbookUnit } from '../../src/domain/textbookSchema'
 import { strictSetsPropositionsAnswers, strictSetsPropositionsUnit } from './setsPropositionsStrict'
 import { applyMathLearningFigures } from './mathLearningFigures'
+import { loadRevisedNumbersExpressions } from './revisedNumbersExpressions'
 import { assertTextbookContract, type TextbookContractReport } from './textbookContract'
 
 export type LoadedTextbookUnit = {
@@ -153,6 +154,7 @@ const loadedUnits: LoadedTextbookUnit[] = [
   ...legacyTextbooks,
   ...generatedTextbooks,
   ...jsonTextbooks,
+  loadRevisedNumbersExpressions(),
 ]
 
 export const textbookContractReports: TextbookContractReport[] = loadedUnits.map(({ unit, answerBook }) => (

@@ -1,4 +1,5 @@
-import { getTextbookChoices, isTextbookAnswerCorrect, normalizeTextbookAnswer } from '../../src/domain/textbook'
+import { isTextbookAnswerCorrect, normalizeTextbookAnswer } from '../../src/domain/textbook'
+import { getGuidedTextbookChoices } from './guidedTextbookChoices'
 import type { TextbookAnswerBook, TextbookUnit } from '../../src/domain/textbookSchema'
 
 export type TextbookContractReport = {
@@ -17,8 +18,10 @@ function collectChoiceReferences(unit: TextbookUnit) {
     for (const block of section.readingFlow) {
       if (block.type !== 'paragraph' && block.type !== 'formula') continue
       for (const part of block.parts) {
-        if (part.type !== 'choice') continue
-        counts.set(part.itemId, (counts.get(part.itemId) ?? 0) + 1)
+        const ids = part.type === 'choice'
+          ? [part.itemId]
+          : part.type === 'math' ? (part.holeIds ?? []) : []
+        for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1)
       }
     }
   }
@@ -45,8 +48,9 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     }
 
     const referenceCount = references.get(item.id) ?? 0
-    if (referenceCount !== 1) {
-      errors.push(`item ${item.id} must map to exactly one blank; found ${referenceCount}`)
+    const groupedRevisedBlank = unit.unitId === 'math-1a-numbers-expressions-revised'
+    if (referenceCount < 1 || (!groupedRevisedBlank && referenceCount !== 1)) {
+      errors.push(`item ${item.id} must map to ${groupedRevisedBlank ? 'at least one' : 'exactly one'} blank; found ${referenceCount}`)
     }
 
     if (!isTextbookAnswerCorrect(answer, answer.answer)) {
@@ -60,13 +64,11 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
       }
     }
 
-    const choices = getTextbookChoices(unit, item, answerBook.answers)
+    const choices = getGuidedTextbookChoices(unit, item, answerBook)
     const normalizedChoices = choices.map(normalizeTextbookAnswer)
     const uniqueChoices = new Set(normalizedChoices)
     if (choices.length < 2) {
-      const message = `item ${item.id} has fewer than 2 exportable choices`
-      if (unit.subject === 'math-1a') errors.push(message)
-      else warnings.push(message)
+      errors.push(`item ${item.id} has fewer than two guided choices`)
     }
     if (choices.length > 4) {
       warnings.push(`item ${item.id} exports ${choices.length} choices (expected at most 4)`)
