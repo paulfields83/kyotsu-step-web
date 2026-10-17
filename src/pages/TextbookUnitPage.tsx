@@ -4,6 +4,7 @@ import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
+import { fillResolvedMathHoles } from '../domain/textbookFormulaFill'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
 import { findTextbookLessonTarget, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
@@ -167,16 +168,13 @@ function renderPart(
   if (part.type === 'text') return part.text
   if (part.type === 'math') {
     const holeIds = part.holeIds ?? []
-    const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
     if (!holeIds.length) return <InlineMath math={part.latex} />
+    const latexWithAnswers = fillResolvedMathHoles(part.latex, holeIds, progress?.answers)
+    const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
     if (!pendingId) {
       return (
-        <span className="reading-math-answered">
-          <InlineMath math={part.latex} />
-          <span className="reading-math-answered__result">
-            <Check size={14} aria-hidden="true" />
-            {progress?.answers[holeIds[holeIds.length - 1]]?.value}
-          </span>
+        <span className="reading-math-answered" data-testid={`textbook-math-filled-${holeIds[0]}`}>
+          <InlineMath math={latexWithAnswers} />
         </span>
       )
     }
@@ -188,8 +186,8 @@ function renderPart(
         onClick={() => onOpen(pendingId)}
         aria-label={text('式の空欄を解答する', '回答公式中的空格')}
       >
-        <InlineMath math={part.latex} />
-        <span className="reading-math-blank-button__hint">{text('入力', '作答')}</span>
+        <InlineMath math={latexWithAnswers} />
+        <span className="reading-math-blank-button__hint">{text('選択', '选择')}</span>
       </button>
     )
   }
