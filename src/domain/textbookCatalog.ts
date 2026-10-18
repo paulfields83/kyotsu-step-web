@@ -118,7 +118,7 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
           {group:'証明',unitId:'math-propositions-proof',number:'第3節'},
         ]
         chapters.push({
-          key:'math-golden-sets-propositions',label:'集合と命題',order:30,
+          key:'math-golden-sets-propositions',label:'集合と命題（改訂版）',order:30,
           lessons:groups.filter(meta=>units.some(candidate=>candidate.unitId===meta.unitId))
             .map(meta=>({
               key:'math-golden-group-'+meta.unitId,
@@ -159,7 +159,7 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
       ]
       chapters.push({
         key: 'math-revised-numbers-expressions',
-        label: '数と式（改訂版）',
+        label: '数と式',
         order: 10,
         lessons: revisedGroups.map((group, index) => ({
           key: 'math-revised-numbers-expressions-' + group.key,
