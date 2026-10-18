@@ -166,6 +166,7 @@ function renderPart(
   text: (ja: string, zh: string) => string,
 ): ReactNode {
   if (part.type === 'text') return part.text
+  if (part.type === 'term') return <strong className="reading-term">{part.text}</strong>
   if (part.type === 'math') {
     const holeIds = part.holeIds ?? []
     if (!holeIds.length) return <InlineMath math={part.latex} />
@@ -332,6 +333,19 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
   const renderBlock = (block: TextbookReadingBlock) => {
     if (block.type === 'topic') return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
+    if (block.type === 'marker') return (
+      <div className={`reading-role-marker reading-role-marker--${block.kind}`} key={block.id}>
+        {block.text}
+      </div>
+    )
+    if (block.type === 'dialogue') {
+      const speaker = block.speaker === 'teacher' ? '先生' : block.speaker === 'hanako' ? '花子' : '太郎'
+      return (
+        <p className="reading-dialogue" key={block.id}>
+          <strong>{speaker}：</strong><span>{block.text}</span>
+        </p>
+      )
+    }
 
     if (hasSolutionTrack && block.type === 'heading' && block.text.startsWith('教科書対応問')) {
       return <h4 className="reading-subheading" key={block.id}>{block.text.replace(/^教科書対応問[　\s]*/u, '')}</h4>
