@@ -50,20 +50,25 @@ test('N04 revised: manuscript blank opens an answer field, accepts an answer, un
   await expect(page.getByTestId('resolved-math-revised-n04-hole-01')).toBeVisible({ timeout: 60_000 })
 })
 
-test('sets-and-propositions: the first guided blank can be opened and answered', async ({ page }) => {
-  await page.goto('/#/learning/textbook/math-1a-sets-propositions?section=sec-sets')
-  await page.waitForTimeout(4000)
-  console.log('SETS_BROWSER_PAGE', page.url(), (await page.locator('body').innerText()).slice(0, 400))
-  const first = page.locator('[data-testid^="textbook-item-"]').first()
-  await expect(first).toBeVisible({ timeout: 95_000 })
+test('GOLDEN 集合: reads mother text, selects the 24 divisors and keeps the answer after reload', async ({ page }) => {
+  await page.goto('/#/learning/textbook/math-sets', {waitUntil: 'domcontentloaded'})
+  await expect(page.getByText('第1部　集合を表す')).toBeVisible({ timeout: 75_000 })
+  await expect(page.getByText(/24の正の約数/).first()).toBeVisible()
+  const first = page.getByTestId('textbook-item-set-a01')
+  await expect(first).toBeVisible()
   await first.click()
-  const panel = page.locator('[data-testid^="inline-choice-panel-"]').first()
-  await expect(panel).toBeVisible()
-  const options = panel.locator('.reading-choice-option')
-  await expect(options.first()).toBeVisible()
-  expect(await options.count()).toBeGreaterThanOrEqual(2)
-  await options.first().click()
-  await expect(page.locator('[data-testid^="resolved-"]').first()).toBeVisible({ timeout: 15_000 })
+  const panel = page.getByTestId('inline-choice-panel-set-a01')
+  await expect(panel.locator('.reading-choice-option')).toHaveCount(4)
+  await panel.locator('.reading-choice-option[data-choice-value="1, 2, 3, 4, 6, 8, 12, 24"]').click()
+  await expect(page.getByTestId('resolved-set-a01')).toBeVisible({timeout: 15_000})
+  await page.reload()
+  await expect(page.getByTestId('resolved-set-a01')).toBeVisible({timeout: 50_000})
+})
+
+test('review-only proposition lesson remains accessible under its source status', async ({ page }) => {
+  await page.goto('/#/learning/textbook/math-propositions-reading')
+  const first = page.locator('[data-testid^="textbook-item-"]').first()
+  await expect(first).toBeVisible({timeout: 75_000})
 })
 
 test('physics textbook: a choice remains answerable after the revised math import', async ({ page }) => {
