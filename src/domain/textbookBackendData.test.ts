@@ -175,7 +175,7 @@ describe('backend textbook data', () => {
     const ids=['math-sets','math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof']
     const units=loadedTextbookUnits.filter(row=>ids.includes(row.unit.unitId))
       .map(row=>publicTextbookUnit(row.unit,row.answerBook))
-    const chapter=buildTextbookChapters(units,'math-1a').find(row=>row.label==='集合と命題')!
+    const chapter=buildTextbookChapters(units,'math-1a').find(row=>row.label==='集合と命題（改訂版）')!
     expect(chapter.lessons.map(lesson=>lesson.label)).toEqual([
       '第1節　集合','第2節　命題','第3節　証明',
     ])
@@ -206,9 +206,9 @@ describe('backend textbook data', () => {
       .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook))
 
     const mathChapters = buildTextbookChapters(publicUnits, 'math-1a')
-    expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題')
+    expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題（改訂版）')
     expect(mathChapters.map((chapter) => chapter.label)).toContain('場合の数と確率')
-    expect(mathChapters.find(chapter=>chapter.label==='集合と命題')?.lessons.map(lesson=>lesson.label))
+    expect(mathChapters.find(chapter=>chapter.label==='集合と命題（改訂版）')?.lessons.map(lesson=>lesson.label))
       .toEqual(['第1節　集合'])
     expect(mathChapters.find((chapter) => chapter.label === '場合の数と確率')?.lessons.map((lesson) => lesson.label)).toEqual([
       '場合の数',
@@ -216,7 +216,7 @@ describe('backend textbook data', () => {
       '確率と期待値',
       'いろいろな確率',
     ])
-    for (const label of ['数と式（改訂版）', '2次関数', '図形と計量', 'データの分析', '図形の性質', '数学と人間の活動']) {
+    for (const label of ['数と式', '2次関数', '図形と計量', 'データの分析', '図形の性質', '数学と人間の活動']) {
       expect(mathChapters.map((chapter) => chapter.label)).toContain(label)
     }
 
