@@ -88,7 +88,10 @@ test('physics textbook: a choice remains answerable after the revised math impor
 test('GOLDEN home restores the original 数と式 3-row chapter layout', async ({page})=>{
   await page.goto('/#/learn',{waitUntil:'domcontentloaded'})
   await page.getByRole('button',{name:/数学 I・A/}).first().click()
-  const card=page.locator('.v2-course-card').filter({hasText:'集合と命題'})
+  const card=page.locator('.v2-course-card').filter({hasText:'集合と命題（改訂版）'})
+  await expect(card.locator('h2')).toHaveText('集合と命題（改訂版）')
+  const numbers=page.locator('.v2-course-card').filter({hasText:'数と式'})
+  await expect(numbers.locator('h2')).toHaveText('数と式')
   await expect(card).toBeVisible({timeout:75000})
   await expect(card.locator('.v2-lesson-list > a')).toHaveCount(3)
   await expect(card.locator('.v2-lesson-list > .reading-topic-title')).toHaveCount(0)
