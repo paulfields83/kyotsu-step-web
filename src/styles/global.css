@@ -865,3 +865,10 @@ button.reading-inline-blank:hover { background: var(--color-section); }
 .v2-golden-chapter-lessons > h3 { margin:.2rem 0 .5rem; font-size:1.05rem; }
 .v2-golden-review-note { margin:0 0 .65rem;line-height:1.6;font-size:.84rem; }
 .v2-golden-chapter-lessons > a + a { border-top:1px solid #edf0f4; }
+
+/* Textbook's authored hints are disclosed one at a time beside the decision. */
+.reading-staged-hints { margin:.65rem 0; }
+.reading-hint-trigger { padding:.55rem .8rem; border:1px solid #b9c8d7; border-radius:.5rem; background:#f7f9fc; color:inherit; cursor:pointer; font:inherit; }
+.reading-hint-trigger:disabled { opacity:.6; cursor:default; }
+.reading-hint-steps { margin:.55rem 0 .25rem; padding-left:1.6rem; line-height:1.7; }
+.reading-hint-steps li + li { margin-top:.4rem; }
