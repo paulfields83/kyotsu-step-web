@@ -5,9 +5,10 @@ export type TextbookLessonTarget = {
   key: string
   label: string
   unitId: string
-  kind: 'unit' | 'section' | 'section-group'
+  kind: 'unit' | 'section' | 'section-group' | 'cross-unit-group'
   sectionId?: string
   sectionIds?: string[]
+  sectionRefs?: Array<{unitId:string;sectionId:string}>
   topicPrefix?: string
   group?: '集合' | '命題' | '証明'
 }
@@ -76,14 +77,37 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
         const lessons:TextbookLessonTarget[] = goldenGroups.flatMap(meta=> {
           const source = units.find(candidate=>candidate.unitId===meta.unitId)
           if(!source) return []
-          return source.sections.map(section=>({
-            key:'math-golden-'+meta.unitId+'-'+section.id,
-            label:section.number+' '+section.title,
-            unitId:meta.unitId,
-            kind:'section' as const,
-            sectionId:section.id,
-            group:meta.group,
-          }))
+          const ordinary = (sections: typeof source.sections):TextbookLessonTarget[] =>
+            sections.map(section=>({
+              key:'math-golden-'+meta.unitId+'-'+section.id,
+              label:section.number+' '+section.title,
+              unitId:meta.unitId,
+              kind:'section' as const,
+              sectionId:section.id,
+              group:meta.group,
+            }))
+          if(meta.unitId==='math-quantifiers-all-exists') return []
+          if(meta.unitId!=='math-propositions-reading') return ordinary(source.sections)
+          return [
+            ...ordinary(source.sections.filter(section=>section.id==='golden-prop-01')),
+            {
+              key:'math-golden-proposition-conditions',
+              label:'2.2～2.4 必要条件・十分条件・同値条件・否定',
+              unitId:meta.unitId,group:meta.group,kind:'section-group' as const,
+              sectionIds:['golden-prop-02','golden-prop-03','golden-prop-04'],
+              topicPrefix:'2',
+            },
+            {
+              key:'math-golden-proposition-negation-quantifiers',
+              label:'2.5～2.7 「かつ」「または」の否定・「ある」「すべて」',
+              unitId:meta.unitId,group:meta.group,kind:'cross-unit-group' as const,
+              sectionRefs:[
+                {unitId:'math-propositions-reading',sectionId:'golden-prop-05'},
+                {unitId:'math-quantifiers-all-exists',sectionId:'golden-quant-01'},
+                {unitId:'math-quantifiers-all-exists',sectionId:'golden-quant-02'},
+              ],
+            },
+          ]
         })
         chapters.push({
           key:'math-golden-sets-propositions',label:'集合と命題',order:30,lessons,
@@ -219,6 +243,15 @@ export function buildTextbookChapters(units: PublicTextbookUnit[], subject: Ques
 
 export function findTextbookLessonTarget(units: PublicTextbookUnit[], key: string | null | undefined) {
   if (!key) return undefined
+  // Old direct lesson bookmarks continue to open the consolidated source
+  // rather than accidentally falling back to an unrelated first section.
+  const legacyToMerged:Record<string,string> = {
+    'math-golden-math-propositions-reading-golden-prop-02':'math-golden-proposition-conditions',
+    'math-golden-math-propositions-reading-golden-prop-03':'math-golden-proposition-conditions',
+    'math-golden-math-propositions-reading-golden-prop-04':'math-golden-proposition-conditions',
+    'math-golden-math-propositions-reading-golden-prop-05':'math-golden-proposition-negation-quantifiers',
+  }
+  key = legacyToMerged[key] ?? key
   for (const subject of ['math-1a', 'physics'] as const) {
     for (const chapter of buildTextbookChapters(units, subject)) {
       const lesson = chapter.lessons.find((candidate) => candidate.key === key)
@@ -243,7 +276,9 @@ export function textbookLessonItemIds(unit: PublicTextbookUnit | undefined, less
   if (lesson.kind === 'section') {
     return unit.sections.find((section) => section.id === lesson.sectionId)?.items.map((item) => item.id) ?? []
   }
-  const sectionIds = new Set(lesson.sectionIds ?? [])
+  const sectionIds = new Set(lesson.kind === 'cross-unit-group'
+    ? (lesson.sectionRefs ?? []).filter(ref=>ref.unitId===unit.unitId).map(ref=>ref.sectionId)
+    : (lesson.sectionIds ?? []))
   return unit.sections
     .filter((section) => sectionIds.has(section.id))
     .flatMap((section) => section.items.map((item) => item.id))
