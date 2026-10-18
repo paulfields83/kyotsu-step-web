@@ -5,12 +5,13 @@ export type TextbookLessonTarget = {
   key: string
   label: string
   unitId: string
-  kind: 'unit' | 'section' | 'section-group' | 'cross-unit-group'
+  kind: 'unit' | 'section' | 'section-group' | 'cross-unit-group' | 'chapter-group'
   sectionId?: string
   sectionIds?: string[]
   sectionRefs?: Array<{unitId:string;sectionId:string}>
   topicPrefix?: string
   group?: '集合' | '命題' | '証明'
+  topics?: TextbookLessonTarget[]
 }
 
 export type TextbookChapter = {
@@ -109,8 +110,24 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
             },
           ]
         })
+        // Match the existing 数と式 UI: chapter rows first, then the
+        // established knowledge-point tile grid inside a chapter page.
+        const groups: Array<{group:'集合'|'命題'|'証明';unitId:string;number:string}> = [
+          {group:'集合',unitId:'math-sets',number:'第1節'},
+          {group:'命題',unitId:'math-propositions-reading',number:'第2節'},
+          {group:'証明',unitId:'math-propositions-proof',number:'第3節'},
+        ]
         chapters.push({
-          key:'math-golden-sets-propositions',label:'集合と命題',order:30,lessons,
+          key:'math-golden-sets-propositions',label:'集合と命題',order:30,
+          lessons:groups.filter(meta=>units.some(candidate=>candidate.unitId===meta.unitId))
+            .map(meta=>({
+              key:'math-golden-group-'+meta.unitId,
+              label:meta.number+'　'+meta.group,
+              unitId:meta.unitId,
+              kind:'chapter-group' as const,
+              group:meta.group,
+              topics:lessons.filter(target=>target.group===meta.group),
+            })),
         })
       }
       continue
@@ -256,6 +273,10 @@ export function findTextbookLessonTarget(units: PublicTextbookUnit[], key: strin
     for (const chapter of buildTextbookChapters(units, subject)) {
       const lesson = chapter.lessons.find((candidate) => candidate.key === key)
       if (lesson) return { chapter, lesson }
+      // Existing direct links to individual knowledge points remain valid.
+      // Only the learning hub shows the grouped chapter rows.
+      const nested = chapter.lessons.flatMap(parent=>parent.topics ?? []).find(topic=>topic.key===key)
+      if (nested) return {chapter,lesson:nested}
     }
   }
   return undefined
@@ -273,6 +294,9 @@ export function textbookLessonHref(lesson: TextbookLessonTarget) {
 export function textbookLessonItemIds(unit: PublicTextbookUnit | undefined, lesson: TextbookLessonTarget | undefined) {
   if (!unit || !lesson) return []
   if (lesson.kind === 'unit') return unit.sections.flatMap((section) => section.items.map((item) => item.id))
+  if (lesson.kind === 'chapter-group') {
+    return unit.sections.flatMap(section=>section.items.map(item=>item.id))
+  }
   if (lesson.kind === 'section') {
     return unit.sections.find((section) => section.id === lesson.sectionId)?.items.map((item) => item.id) ?? []
   }
