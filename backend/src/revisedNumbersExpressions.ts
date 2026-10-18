@@ -300,12 +300,12 @@ export function loadRevisedNumbersExpressions() {
       throw new Error(`figure count mismatch: ${name}, expected ${figureOrder[name]?.length ?? 0}, actual ${pictureIndex}`)
     }
     return {id:'revised-'+name.toLowerCase(),number:String(idx+1),title:name+' '+titles[name],
-      description:name.startsWith('NE')?'参考・発展':'改訂版 教科書学習',
+      description:name.startsWith('NE')?'参考・発展':'教科書学習',
       readingFlow:blocks,items,figures}
   })
   const unit = TextbookUnitSchema.parse({
     schemaVersion:'1.0',unitId:'math-1a-numbers-expressions-revised',revision:4,
-    status:'published',subject:'math-1a',title:'数学I 数と式（改訂版）',
+    status:'published',subject:'math-1a',title:'数学I 数と式',
     subtitle:'N01–N14 / NE01–NE02',
     source:{type:'original',label:'ユーザー提供の改訂版Word原稿 N01–N14 / NE01–NE02',
       rightsNote:'ユーザー提供の改訂原稿と解答台帳を対応付け。複数空欄の個別分解およびN04〜N06の解答変換は追加QA対象。'},
