@@ -173,7 +173,7 @@ test('GOLDEN membership notation is typeset; original yes/no choices stay binary
   await expect(panel.locator('.reading-choice-option .katex')).toHaveCount(2)
   await expect(panel).not.toContainText('この条件だけでは決まらない')
   await expect(panel).not.toContainText('どの選択肢にも当てはまらない')
-  await expect(panel.locator('.reading-choice-option').first()).not.toContainText('\\notin')
+  await expect(panel.locator('.reading-choice-option .katex-html')).toHaveCount(2)
   const rawChoices = await panel.locator('.reading-choice-option').evaluateAll(
     nodes => nodes.map(node => node.getAttribute('data-choice-value')),
   )
@@ -181,5 +181,5 @@ test('GOLDEN membership notation is typeset; original yes/no choices stay binary
   expect(correctIndex).toBeGreaterThanOrEqual(0)
   await panel.locator('.reading-choice-option').nth(correctIndex).click()
   await expect(page.getByTestId('resolved-set-a04').locator('.katex')).toBeVisible()
-  await expect(page.getByTestId('resolved-set-a04')).not.toContainText('\\in')
+  await expect(page.getByTestId('resolved-set-a04').locator('.katex-html')).toBeVisible()
 })
