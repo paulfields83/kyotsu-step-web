@@ -85,19 +85,36 @@ test('physics textbook: a choice remains answerable after the revised math impor
   await expect(page.getByTestId('resolved-a-1')).toBeVisible({ timeout: 15_000 })
 })
 
-test('GOLDEN knowledge taxonomy: chapter opens three subchapters with distinct links', async ({ page }) => {
-  await page.goto('/#/learn', {waitUntil:'domcontentloaded'})
-  await page.getByRole('button', {name:/数学 I・A/}).first().click()
-  const card = page.locator('.v2-course-card').filter({hasText:'集合と命題'})
-  await expect(card).toBeVisible({timeout:75_000})
-  const lessonList = card.locator('.v2-lesson-list')
-  await expect(lessonList.locator(':scope > .reading-topic-title')).toHaveText(['集合','命題','証明'])
-  await expect(lessonList.locator('a')).toHaveCount(13)
-  await expect(card.getByRole('link',{name:/2.1 命題の真偽/})).toBeVisible()
-  await expect(card.getByRole('link',{name:/2.2～2.4 必要条件/})).toBeVisible()
-  await expect(card.getByRole('link',{name:/2.5～2.7 「かつ」/})).toBeVisible()
-  await expect(card.getByRole('link',{name:/3.3 背理法/})).toBeVisible()
+test('GOLDEN home restores the original 数と式 3-row chapter layout', async ({page})=>{
+  await page.goto('/#/learn',{waitUntil:'domcontentloaded'})
+  await page.getByRole('button',{name:/数学 I・A/}).first().click()
+  const card=page.locator('.v2-course-card').filter({hasText:'集合と命題'})
+  await expect(card).toBeVisible({timeout:75000})
+  await expect(card.locator('.v2-lesson-list > a')).toHaveCount(3)
+  await expect(card.locator('.v2-lesson-list > .reading-topic-title')).toHaveCount(0)
+  await expect(card.getByRole('link',{name:/第1節.*集合/})).toBeVisible()
+  await expect(card.getByRole('link',{name:/第2節.*命題/})).toBeVisible()
+  await expect(card.getByRole('link',{name:/第3節.*証明/})).toBeVisible()
 })
+
+test('GOLDEN group pages reuse the 数と式 knowledge tile grid, not a flat chapter list', async ({page})=>{
+  const groups=[
+    {name:'集合',unit:'math-sets',count:7},
+    {name:'命題',unit:'math-propositions-reading',count:3},
+    {name:'証明',unit:'math-propositions-proof',count:3},
+  ]
+  for(const group of groups){
+    await page.goto('/#/learning/textbook/'+group.unit+'?target=math-golden-group-'+group.unit,{waitUntil:'domcontentloaded'})
+    await expect(page.locator('.textbook-section-nav button')).toHaveCount(group.count,{timeout:75000})
+    await expect(page.locator('.session-header h1')).toContainText(group.name)
+    await expect(page.locator('.textbook-section-heading h2')).not.toBeEmpty()
+    if(group.count>1){
+      await page.locator('.textbook-section-nav button').nth(1).click()
+      await expect(page.locator('.textbook-section-nav button').nth(1)).toHaveAttribute('aria-pressed','true')
+    }
+  }
+})
+
 
 test('GOLDEN only renders requested knowledge point and keeps other lessons accessible', async ({ page }) => {
   await page.goto('/#/learning/textbook/math-sets?target=math-golden-math-sets-golden-set-02', {waitUntil:'domcontentloaded'})
