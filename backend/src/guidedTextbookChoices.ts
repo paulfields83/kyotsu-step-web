@@ -91,6 +91,17 @@ export function getGuidedTextbookChoices(unit: TextbookUnit, item: TextbookItem,
     ? getTextbookChoices(unit,item,book.answers)
     : []
 
+  // The GOLDEN workbook has author-reviewed alternatives. Never pad a
+  // two-answer membership/yes-no decision with unrelated generic options.
+  if (sourceChoices.length >= 2) {
+    const entry = book.answers[item.id]
+    const distinct = [...new Map(sourceChoices.map(choice=>[normalizeTextbookAnswer(choice),choice])).values()]
+    if (distinct.length >= 2 &&
+        distinct.filter(choice => entry && isTextbookAnswerCorrect(entry,choice)).length === 1) {
+      return distinct.slice(0,4)
+    }
+  }
+
   const seen = new Set<string>()
   const options: string[] = []
   const push = (candidate: string) => {
