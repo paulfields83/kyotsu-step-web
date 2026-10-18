@@ -3,6 +3,7 @@ import {loadedTextbookUnits} from '../../backend/src/textbookData'
 import {publicTextbookUnit} from '../../backend/src/publicTextbook'
 import {getGuidedTextbookChoices} from '../../backend/src/guidedTextbookChoices'
 import {isTextbookAnswerCorrect,normalizeTextbookAnswer} from './textbook'
+import {textbookMathLatex} from './textbookMathDisplay'
 
 const expected=[
   {unitId:'math-sets',sections:7,status:'published'},
@@ -48,6 +49,24 @@ describe('complete 集合と命題 ZIP integration',()=>{
           expect(new Set(choices.map(normalizeTextbookAnswer)).size,item.id).toBe(choices.length)
           expect(choices.filter(x=>isTextbookAnswerCorrect(entry,x)),item.id).toHaveLength(1)
           expect(exportItem.hints,item.id).toEqual(item.hints)
+          if (item.choices?.length && item.choices.length >= 2) {
+            // Authored binary choices stay binary. No invented undecidable/
+            // none-of-the-above filler in any GOLDEN source section.
+            expect(choices.length,item.id).toBeLessThanOrEqual(item.choices.length)
+            for (const choice of choices) expect(item.choices,item.id).toContain(choice)
+            expect(choices.filter(choice =>
+              choice === 'この条件だけでは決まらない'
+              || choice === 'どの選択肢にも当てはまらない',
+            ),item.id).toEqual(item.choices.filter(choice =>
+              choice === 'この条件だけでは決まらない'
+              || choice === 'どの選択肢にも当てはまらない',
+            ))
+          }
+          for (const choice of choices) {
+            if (/\\\\[A-Za-z]+/.test(choice) && !/[ぁ-んァ-ン一-龯]/u.test(choice)) {
+              expect(textbookMathLatex(choice),item.id+' '+choice).not.toBeNull()
+            }
+          }
         }
       }
       hints.push({unit:source.unitId,count:items.filter(x=>Boolean(x.hints?.length)).length})
