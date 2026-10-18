@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { builtInTextbookUnits } from '../../src/data/textbookUnits'
 import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookAnswerBook, type TextbookUnit } from '../../src/domain/textbookSchema'
-import { strictSetsPropositionsAnswers, strictSetsPropositionsUnit } from './setsPropositionsStrict'
+import { loadGoldenMathTextbooks } from './goldenMath/importGoldenMath'
 import { applyMathLearningFigures } from './mathLearningFigures'
 import { loadRevisedNumbersExpressions } from './revisedNumbersExpressions'
 import { assertTextbookContract, type TextbookContractReport } from './textbookContract'
@@ -139,11 +139,8 @@ function loadJsonTextbooks(): LoadedTextbookUnit[] {
 }
 
 const legacyTextbooks: LoadedTextbookUnit[] = builtInTextbookUnits.map((unit) => ({ unit, answerBook: legacyAnswerBook(unit) }))
-const generatedTextbooks: LoadedTextbookUnit[] = [{
-  unit: strictSetsPropositionsUnit,
-  answerBook: strictSetsPropositionsAnswers,
-  dataDir: join(dataRoot, 'math-1a', 'sets-propositions'),
-}]
+const generatedTextbooks: LoadedTextbookUnit[] = loadGoldenMathTextbooks()
+
 const jsonTextbooks = loadJsonTextbooks()
 
 // Math Word files under backend/data/textbooks/math-1a/source are authoring sources only.
@@ -164,7 +161,14 @@ export const textbookContractReports: TextbookContractReport[] = loadedUnits.map
 export const loadedTextbookUnits: LoadedTextbookUnit[] = loadedUnits
 
 export function findLoadedTextbook(unitId: string) {
-  return loadedTextbookUnits.find(({ unit }) => unit.unitId === unitId && unit.status === 'published')
+  return loadedTextbookUnits.find(({ unit }) =>
+    unit.unitId === unitId && (
+      unit.status === 'published'
+      || (unit.status === 'review' && [
+        'math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof',
+      ].includes(unit.unitId))
+    ),
+  )
 }
 
 export function textbookDataRoot() {
