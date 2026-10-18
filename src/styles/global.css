@@ -802,3 +802,25 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   color: #285a34;
   font-weight: 700;
 }
+
+/* ZIP GOLDEN textbook semantics: no rainbow concept labels or heavy cards. */
+.reading-term { font-weight: 750; color: inherit; }
+.reading-role-marker {
+  margin: 1.15rem 0 .5rem;
+  font-size: .86rem;
+  font-weight: 750;
+  color: #222b36;
+  letter-spacing: .02em;
+}
+.reading-role-marker--proof { border-left: 2px solid #465263; padding-left: .55rem; }
+.reading-role-marker--check, .reading-role-marker--summary {
+  border-top: 1px solid #d6dfe8;
+  padding-top: .55rem;
+}
+.reading-dialogue {
+  margin: .7rem 0;
+  line-height: 1.85;
+  color: #202a36;
+  overflow-wrap: anywhere;
+}
+.reading-dialogue strong { font-weight: 700; margin-right: .15rem; }
