@@ -90,18 +90,11 @@ test('GOLDEN knowledge taxonomy: chapter opens three subchapters with distinct l
   await page.getByRole('button', {name:/数学 I・A/}).first().click()
   const card = page.locator('.v2-course-card').filter({hasText:'集合と命題'})
   await expect(card).toBeVisible({timeout:75_000})
-  const groups = card.locator('.v2-golden-subchapter-nav [role="tab"]')
-  await expect(groups).toHaveCount(3)
-  await expect(groups.nth(0)).toContainText('集合')
-  await expect(groups.nth(1)).toContainText('命題')
-  await expect(groups.nth(2)).toContainText('証明')
-  await expect(card.getByTestId('golden-knowledge-list').locator('a')).toHaveCount(7)
-  await groups.nth(1).click()
-  await expect(card.getByTestId('golden-knowledge-list').locator('a')).toHaveCount(7)
+  const lessonList = card.locator('.v2-lesson-list')
+  await expect(lessonList.locator('> .reading-topic-title')).toHaveText(['集合','命題','証明'])
+  await expect(lessonList.locator('a')).toHaveCount(17)
   await expect(card.getByRole('link',{name:/2.1 命題の真偽/})).toBeVisible()
-  await expect(card.getByText(/2.6 「ある」を考える/)).toBeVisible()
-  await groups.nth(2).click()
-  await expect(card.getByTestId('golden-knowledge-list').locator('a')).toHaveCount(3)
+  await expect(card.getByRole('link',{name:/2.6 「ある」を考える/})).toBeVisible()
   await expect(card.getByRole('link',{name:/3.3 背理法/})).toBeVisible()
 })
 
@@ -160,4 +153,28 @@ test('GOLDEN proof: 逆・裏・対偶 and 背理法 are separately accessible',
   await expect(page.getByTestId('resolved-proof-a01')).toBeVisible({timeout:15000})
   await page.goto('/#/learning/textbook/math-propositions-proof?target=math-golden-math-propositions-proof-golden-proof-03')
   await expect(page.locator('.textbook-section-heading h2')).toHaveText('背理法',{timeout:60000})
+})
+
+test('GOLDEN membership notation is typeset; original yes/no choices stay binary', async ({page}) => {
+  await page.goto('/#/learning/textbook/math-sets?target=math-golden-math-sets-golden-set-01', {waitUntil:'domcontentloaded'})
+  for (const [id,right] of [
+    ['set-a01','1, 2, 3, 4, 6, 8, 12, 24'],
+    ['set-a02','入っている'],
+    ['set-a03','入っていない'],
+  ]) {
+    const trigger=page.getByTestId('textbook-item-'+id)
+    await expect(trigger).toBeVisible({timeout:75000})
+    await trigger.click()
+    await page.locator('.reading-choice-option[data-choice-value='+JSON.stringify(right)+']').click()
+  }
+  await page.getByTestId('textbook-item-set-a04').click()
+  const panel=page.getByTestId('inline-choice-panel-set-a04')
+  await expect(panel.locator('.reading-choice-option')).toHaveCount(2)
+  await expect(panel.locator('.reading-choice-option .katex')).toHaveCount(2)
+  await expect(panel).not.toContainText('この条件だけでは決まらない')
+  await expect(panel).not.toContainText('どの選択肢にも当てはまらない')
+  await expect(panel.locator('.reading-choice-option').first()).not.toContainText('\\notin')
+  await panel.locator('.reading-choice-option[data-choice-value="\\in"]').click()
+  await expect(page.getByTestId('resolved-set-a04').locator('.katex')).toBeVisible()
+  await expect(page.getByTestId('resolved-set-a04')).not.toContainText('\\in')
 })
