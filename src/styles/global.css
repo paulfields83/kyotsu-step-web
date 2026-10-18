@@ -803,69 +803,6 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   font-weight: 700;
 }
 
-/* ZIP GOLDEN textbook semantics: no rainbow concept labels or heavy cards. */
-.reading-term { font-weight: 750; color: inherit; }
-.reading-role-marker {
-  margin: 1.15rem 0 .5rem;
-  font-size: .86rem;
-  font-weight: 750;
-  color: #222b36;
-  letter-spacing: .02em;
-}
-.reading-role-marker--proof { border-left: 2px solid #465263; padding-left: .55rem; }
-.reading-role-marker--check, .reading-role-marker--summary {
-  border-top: 1px solid #d6dfe8;
-  padding-top: .55rem;
-}
-.reading-dialogue {
-  margin: .7rem 0;
-  line-height: 1.85;
-  color: #202a36;
-  overflow-wrap: anywhere;
-}
-.reading-dialogue strong { font-weight: 700; margin-right: .15rem; }
-
-/* GOLDEN textbook: chapter -> 3 subchapters -> individual knowledge lessons. */
-.v2-lesson-group {
-  margin: .45rem 0;
-  border: 1px solid #d9e3ec;
-  border-radius: .75rem;
-  overflow: clip;
-  background: #fff;
-}
-.v2-lesson-group > summary {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .8rem;
-  min-height: 3rem;
-  padding: .75rem 1rem;
-  font-size: 1.05rem;
-  font-weight: 750;
-  background: #f3f7fb;
-}
-.v2-lesson-group > summary::marker { color: #38638a; }
-.v2-lesson-group > summary small { font-size: .82rem; font-weight: 500; }
-.v2-lesson-group__items { display: grid; }
-.v2-lesson-group__items > a { margin: 0; border-radius: 0; }
-.v2-lesson-group__items > a + a { border-top: 1px solid #edf0f4; }
-
-/* Clear three-tier GOLDEN chapter taxonomy: chapter / subchapter / knowledge point. */
-.v2-golden-subchapter-nav { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.5rem; margin:.5rem 0 1rem; }
-.v2-golden-subchapter-nav > button {
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;
-  padding:.8rem .3rem; min-height:3.7rem; border:1px solid #d0dae5;border-radius:.6rem;
-  color:inherit;background:#f7f9fc;cursor:pointer;font:inherit;
-}
-.v2-golden-subchapter-nav > button[aria-selected="true"] {
-  background:#edf4fc;border:2px solid #3979b7;
-}
-.v2-golden-subchapter-nav > button small { font-size:.75rem; }
-.v2-golden-chapter-lessons > h3 { margin:.2rem 0 .5rem; font-size:1.05rem; }
-.v2-golden-review-note { margin:0 0 .65rem;line-height:1.6;font-size:.84rem; }
-.v2-golden-chapter-lessons > a + a { border-top:1px solid #edf0f4; }
-
 /* Textbook's authored hints are disclosed one at a time beside the decision. */
 .reading-staged-hints { margin:.65rem 0; }
 .reading-hint-trigger { padding:.55rem .8rem; border:1px solid #b9c8d7; border-radius:.5rem; background:#f7f9fc; color:inherit; cursor:pointer; font:inherit; }
