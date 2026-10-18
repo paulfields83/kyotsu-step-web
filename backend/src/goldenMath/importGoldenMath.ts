@@ -98,6 +98,7 @@ function splitSourceSection(raw:RawUnit, original:RawUnit['sections'][number], f
       id:item.id, label:item.label, prompt:item.prompt,
       answerType:item.answerType??'text' as const, acceptedAnswers:[...item.acceptedAnswers],
       ...(item.choices ? {choices:[...item.choices]} : {}),
+      ...(item.hints?.length ? {hints:[...item.hints]} : {}),
     }))
     const localFigures = figures.filter(fig=>figureIds.has(fig.id))
     if(localFigures.length !== figureIds.size) throw new Error('Lost GOLDEN figure at '+raw.unitId+'/'+cut.sectionId)
