@@ -819,7 +819,7 @@ function GoldenChapterGroupPage({
           </div>
           <strong>{activeStats.completed}/{activeStats.total}</strong>
         </header>
-        {activeParts.map((part,index)=><div key={part.unit.unitId+'-'+part.section.id}>
+        {activeParts.map(part=><div key={part.unit.unitId+'-'+part.section.id}>
           {activeParts.length>1&&<h3 className="reading-topic-title">
             {part.section.number} {part.section.title}
           </h3>}
