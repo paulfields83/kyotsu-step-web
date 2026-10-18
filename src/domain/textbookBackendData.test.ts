@@ -171,40 +171,33 @@ describe('backend textbook data', () => {
     }
   })
 
-  it('merges 2.2–2.4 and 2.5–2.7 as single lesson links without losing source questions', () => {
-    const goldenIds=['math-sets','math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof']
-    const units = loadedTextbookUnits.filter(row=>goldenIds.includes(row.unit.unitId))
+  it('uses the existing 3-row chapter hierarchy and retains every GOLDEN learning item', () => {
+    const ids=['math-sets','math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof']
+    const units=loadedTextbookUnits.filter(row=>ids.includes(row.unit.unitId))
       .map(row=>publicTextbookUnit(row.unit,row.answerBook))
-    const chapter = buildTextbookChapters(units,'math-1a').find(x=>x.label==='集合と命題')!
-    expect(chapter).toBeTruthy()
-    expect(chapter.lessons).toHaveLength(13)
-    expect(chapter.lessons.filter(x=>x.group==='集合')).toHaveLength(7)
-    expect(chapter.lessons.filter(x=>x.group==='命題')).toHaveLength(3)
-    expect(chapter.lessons.filter(x=>x.group==='証明')).toHaveLength(3)
-    expect(new Set(chapter.lessons.map(x=>x.key)).size).toBe(13)
-    const cond=chapter.lessons.find(x=>x.key==='math-golden-proposition-conditions')!
-    expect(cond.kind).toBe('section-group')
-    expect(cond.sectionIds).toEqual(['golden-prop-02','golden-prop-03','golden-prop-04'])
-    const quant=chapter.lessons.find(x=>x.key==='math-golden-proposition-negation-quantifiers')!
-    expect(quant.kind).toBe('cross-unit-group')
-    expect(quant.sectionRefs).toEqual([
+    const chapter=buildTextbookChapters(units,'math-1a').find(row=>row.label==='集合と命題')!
+    expect(chapter.lessons.map(lesson=>lesson.label)).toEqual([
+      '第1節　集合','第2節　命題','第3節　証明',
+    ])
+    expect(chapter.lessons.every(lesson=>lesson.kind==='chapter-group')).toBe(true)
+    expect(chapter.lessons.map(lesson=>lesson.topics?.length)).toEqual([7,3,3])
+    const sub=chapter.lessons[1].topics!
+    expect(sub[1].sectionIds).toEqual(['golden-prop-02','golden-prop-03','golden-prop-04'])
+    expect(sub[2].sectionRefs).toEqual([
       {unitId:'math-propositions-reading',sectionId:'golden-prop-05'},
       {unitId:'math-quantifiers-all-exists',sectionId:'golden-quant-01'},
       {unitId:'math-quantifiers-all-exists',sectionId:'golden-quant-02'},
     ])
-    const itemIds = chapter.lessons.flatMap(lesson => {
-      if (lesson.kind === 'cross-unit-group') {
-        return (lesson.sectionRefs ?? []).flatMap(ref=>
-          units.find(unit=>unit.unitId===ref.unitId)?.sections.find(sec=>sec.id===ref.sectionId)?.items.map(i=>i.id) ?? [])
-      }
-      const owner = units.find(unit=>unit.unitId===lesson.unitId)!
-      if(lesson.kind==='section-group')return owner.sections.filter(sec=>lesson.sectionIds?.includes(sec.id))
-        .flatMap(sec=>sec.items.map(i=>i.id))
-      return owner.sections.find(sec=>sec.id===lesson.sectionId)?.items.map(i=>i.id)??[]
-    })
-    const sourceItems = units.flatMap(unit=>unit.sections.flatMap(sec=>sec.items.map(item=>item.id)))
-    expect(itemIds.length).toBe(sourceItems.length)
-    expect(new Set(itemIds)).toEqual(new Set(sourceItems))
+    const lessonItems=chapter.lessons.flatMap(lesson=>(lesson.topics??[]).flatMap(topic=>{
+      const refs=topic.kind==='cross-unit-group' ? topic.sectionRefs??[]
+        :topic.kind==='section-group' ? (topic.sectionIds??[]).map(sectionId=>({unitId:topic.unitId,sectionId}))
+        :topic.sectionId ? [{unitId:topic.unitId,sectionId:topic.sectionId}] : []
+      return refs.flatMap(ref=>units.find(unit=>unit.unitId===ref.unitId)
+        ?.sections.find(section=>section.id===ref.sectionId)?.items.map(item=>item.id)??[])
+    }))
+    const sourceIds=units.flatMap(unit=>unit.sections.flatMap(section=>section.items.map(item=>item.id)))
+    expect(lessonItems.length).toBe(sourceIds.length)
+    expect(new Set(lessonItems)).toEqual(new Set(sourceIds))
   })
 
   it('builds the same unit -> learning item hierarchy for math and physics', () => {
@@ -215,11 +208,8 @@ describe('backend textbook data', () => {
     const mathChapters = buildTextbookChapters(publicUnits, 'math-1a')
     expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題')
     expect(mathChapters.map((chapter) => chapter.label)).toContain('場合の数と確率')
-    expect(mathChapters.find(chapter=>chapter.label==='集合と命題')?.lessons.map(lesson=>lesson.label)).toEqual([
-      '1.1 集合と要素','1.2 集合の表し方','1.3 共通部分と和集合',
-      '1.4 部分集合と空集合','1.5 全体集合と補集合',
-      '1.6 ド・モルガンの法則','1.7 実数の集合と数直線',
-    ])
+    expect(mathChapters.find(chapter=>chapter.label==='集合と命題')?.lessons.map(lesson=>lesson.label))
+      .toEqual(['第1節　集合'])
     expect(mathChapters.find((chapter) => chapter.label === '場合の数と確率')?.lessons.map((lesson) => lesson.label)).toEqual([
       '場合の数',
       '順列・組合せ',
