@@ -154,8 +154,9 @@ describe('backend textbook data', () => {
   it('imports the validated GOLDEN 集合 mother with role and dialogue structure intact', () => {
     const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-sets')!
     expect(loaded?.unit.status).toBe('published')
-    expect(loaded.unit.sections).toHaveLength(1)
-    const flow = loaded.unit.sections[0].readingFlow
+    expect(loaded.unit.sections).toHaveLength(7)
+    expect(loaded.unit.sections.map(section=>section.number)).toEqual(['1.1','1.2','1.3','1.4','1.5','1.6','1.7'])
+    const flow = loaded.unit.sections.flatMap(section=>section.readingFlow)
     const allProse = flow.flatMap(block => (
       block.type === 'paragraph' ? block.parts.filter(part=>part.type==='text').map(part=>part.text) : []
     )).join('')
@@ -170,6 +171,26 @@ describe('backend textbook data', () => {
     }
   })
 
+  it('offers three nested GOLDEN categories and independently addressable sections', () => {
+    const goldenIds=['math-sets','math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof']
+    const units = loadedTextbookUnits.filter(row=>goldenIds.includes(row.unit.unitId))
+      .map(row=>publicTextbookUnit(row.unit,row.answerBook))
+    const chapter = buildTextbookChapters(units,'math-1a').find(x=>x.label==='集合と命題')!
+    expect(chapter).toBeTruthy()
+    expect(chapter.lessons).toHaveLength(17)
+    expect(chapter.lessons.filter(x=>x.group==='集合')).toHaveLength(7)
+    expect(chapter.lessons.filter(x=>x.group==='命題')).toHaveLength(7)
+    expect(chapter.lessons.filter(x=>x.group==='証明')).toHaveLength(3)
+    expect(new Set(chapter.lessons.map(x=>x.key)).size).toBe(17)
+    for (const lesson of chapter.lessons) {
+      expect(lesson.kind).toBe('section')
+      const unit = units.find(x=>x.unitId===lesson.unitId)!
+      const target = unit.sections.find(x=>x.id===lesson.sectionId)!
+      expect(target).toBeTruthy()
+      expect(target.items.length).toBeGreaterThan(0)
+    }
+  })
+
   it('builds the same unit -> learning item hierarchy for math and physics', () => {
     const publicUnits = loadedTextbookUnits
       .filter(({ unit }) => unit.status === 'published')
@@ -178,7 +199,11 @@ describe('backend textbook data', () => {
     const mathChapters = buildTextbookChapters(publicUnits, 'math-1a')
     expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題')
     expect(mathChapters.map((chapter) => chapter.label)).toContain('場合の数と確率')
-    expect(mathChapters.find((chapter) => chapter.label === '集合と命題')?.lessons.map(lesson=>lesson.label)).toEqual(['集合（完成版）'])
+    expect(mathChapters.find(chapter=>chapter.label==='集合と命題')?.lessons.map(lesson=>lesson.label)).toEqual([
+      '1.1 集合と要素','1.2 集合の表し方','1.3 共通部分と和集合',
+      '1.4 部分集合と空集合','1.5 全体集合と補集合',
+      '1.6 ド・モルガンの法則','1.7 実数の集合と数直線',
+    ])
     expect(mathChapters.find((chapter) => chapter.label === '場合の数と確率')?.lessons.map((lesson) => lesson.label)).toEqual([
       '場合の数',
       '順列・組合せ',
