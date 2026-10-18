@@ -1,5 +1,5 @@
 import { InlineMath } from 'react-katex'
-import katex from 'katex'
+import { textbookMathLatex } from '../domain/textbookMathDisplay'
 import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
@@ -95,22 +95,8 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
 // Display mathematics as mathematics, while keeping Japanese reasoning choices
 // in ordinary readable textbook language.
 function GuidedChoiceValue({ value }: { value: string }) {
-  const looksLikeMath = !/[ぁ-んァ-ン一-龯]/u.test(value)
-    && /[\d^²³⁴⁵⁶⁷⁸⁹+\-−×÷=√<>]/.test(value)
-    && value.length < 160
-  if (!looksLikeMath) return <>{value}</>
-  const superscripts: Record<string,string> = { '⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9' }
-  const latex = value
-    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g, digits => '^{' + [...digits].map(d => superscripts[d]).join('') + '}')
-    .replace(/√(\d+)/g, '\\sqrt{$1}')
-    .replace(/×/g, '\\cdot ')
-    .replace(/[−–—]/g, '-')
-  try {
-    katex.renderToString(latex, { throwOnError: true, strict: 'ignore' })
-    return <InlineMath math={latex} />
-  } catch {
-    return <>{value}</>
-  }
+  const latex = textbookMathLatex(value)
+  return latex ? <InlineMath math={latex} /> : <>{value}</>
 }
 
 function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord) {
@@ -118,7 +104,7 @@ function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRe
     return (
       <span className="reading-inline-answer" data-testid={`resolved-${item.id}`}>
         <Check size={14} aria-hidden="true" />
-        <strong>{record.value}</strong>
+        <strong><GuidedChoiceValue value={record.value} /></strong>
       </span>
     )
   }
@@ -127,11 +113,11 @@ function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRe
     <span data-testid={`resolved-${item.id}`}>
       <span className="reading-inline-blank reading-inline-blank--wrong">
         <X size={14} aria-hidden="true" />
-        <strong>{record.firstValue ?? record.value}</strong>
+        <strong><GuidedChoiceValue value={record.firstValue ?? record.value} /></strong>
       </span>
       <span className="reading-inline-answer">
         <Check size={14} aria-hidden="true" />
-        <strong>{record.value}</strong>
+        <strong><GuidedChoiceValue value={record.value} /></strong>
       </span>
     </span>
   )
@@ -303,7 +289,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         )}
         {activeWrongResult && (
           <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
-            {text(`不正解です。正解は「${activeRecord?.value ?? ''}」です。`, `回答错误。正确答案是「${activeRecord?.value ?? ''}」。`)}
+            {text('不正解です。正解は「', '回答错误。正确答案是「')}<GuidedChoiceValue value={activeRecord?.value ?? ''} />{text('」です。', '」。')}
           </p>
         )}
         {submitError && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
