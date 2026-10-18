@@ -707,6 +707,142 @@ function progressForSection(section: PublicTextbookSection, progress: TextbookUn
   return { completed, total: section.items.length }
 }
 
+/** Reuse the original 数と式 chapter page: progress bar, knowledge-point tile
+ * navigation and reading cards. This is not a new layout or a new textbook.
+ * ZIP item IDs, answer owners and the original reading sequence stay intact.
+ */
+function GoldenChapterGroupPage({
+  chapterLabel,lesson,rootUnit,
+}:{
+  chapterLabel:string
+  lesson:TextbookLessonTarget
+  rootUnit:PublicTextbookUnit
+}) {
+  const {text} = useI18n()
+  const allProgress=useAppStore(state=>state.textbookProgress)
+  const resetTextbookUnit=useAppStore(state=>state.resetTextbookUnit)
+  const [searchParams] = useSearchParams()
+  const [otherUnits,setOtherUnits]=useState<Record<string,PublicTextbookUnit|null>>({})
+  const topics=lesson.topics ?? []
+  const otherIds=[...new Set(topics.flatMap(topic=>topic.kind==='cross-unit-group'
+    ? (topic.sectionRefs ?? []).map(ref=>ref.unitId) : [topic.unitId]))]
+    .filter(id=>id!==rootUnit.unitId)
+  const [selectedIndex,setSelectedIndex]=useState(0)
+  const selectedTopic=topics[Math.min(selectedIndex,Math.max(0,topics.length-1))]
+  useEffect(()=>{
+    let alive=true
+    setOtherUnits({})
+    void Promise.all(otherIds.map(async id=>{
+      try{return {id,unit:await textbookRepository.getById(id)??null}}
+      catch{return {id,unit:null}}
+    })).then(rows=>{if(alive)setOtherUnits(Object.fromEntries(rows.map(row=>[row.id,row.unit])))})
+    return ()=>{alive=false}
+  },[rootUnit.unitId,lesson.key])
+
+  useEffect(()=>{
+    const requested=searchParams.get('topic')
+    const next=topics.findIndex(topic=>topic.key===requested)
+    setSelectedIndex(next>=0?next:0)
+  },[lesson.key,searchParams])
+
+  const sourceOf=(id:string):PublicTextbookUnit|undefined=>
+    id===rootUnit.unitId ? rootUnit : otherUnits[id]??undefined
+
+  const partsFor=(topic:TextbookLessonTarget)=>{
+    const refs=topic.kind==='cross-unit-group' ? topic.sectionRefs??[]
+      : topic.kind==='section-group' ? (topic.sectionIds??[]).map(sectionId=>({unitId:topic.unitId,sectionId}))
+      : topic.kind==='section' && topic.sectionId ? [{unitId:topic.unitId,sectionId:topic.sectionId}] : []
+    return refs.flatMap(ref=>{
+      const unit=sourceOf(ref.unitId)
+      const section=unit?.sections.find(item=>item.id===ref.sectionId)
+      return unit&&section ? [{unit,section,progress:allProgress[ref.unitId]}] : []
+    })
+  }
+  const notLoaded=otherIds.some(id=>!(id in otherUnits))
+  const loadError=otherIds.some(id=>id in otherUnits && otherUnits[id]===null)
+  if (notLoaded) return <div className="state-panel"><span className="state-panel__mark">…</span>
+    <h2>{text('教材を読み込んでいます','正在加载教材')}</h2></div>
+  if(loadError) return <ErrorState title={text('教材を読み込めません','无法加载教材')}
+    body={text('関連する教材データの取得に失敗しました。','无法读取相关教材数据。')}
+    action={<Link className="raised-link" to="/learn">{text('学習へ戻る','返回学习')}</Link>} />
+
+  const topicStats=(topic:TextbookLessonTarget)=>partsFor(topic)
+    .reduce((sum,part)=>{
+      const counts=progressForSection(part.section,part.progress)
+      return {completed:sum.completed+counts.completed,total:sum.total+counts.total}
+    },{completed:0,total:0})
+  const totals=topics.reduce((sum,topic)=>{
+    const counts=topicStats(topic)
+    return {completed:sum.completed+counts.completed,total:sum.total+counts.total}
+  },{completed:0,total:0})
+  const activeParts=selectedTopic ? partsFor(selectedTopic) : []
+  const activeStats=selectedTopic ? topicStats(selectedTopic) : {completed:0,total:0}
+  const numberFor=(topic:TextbookLessonTarget,index:number)=>{
+    if(topic.key==='math-golden-proposition-conditions')return '2.2～2.4'
+    if(topic.key==='math-golden-proposition-negation-quantifiers')return '2.5～2.7'
+    if(topic.kind==='section'&&topic.sectionId)return sourceOf(topic.unitId)
+      ?.sections.find(section=>section.id===topic.sectionId)?.number??String(index+1)
+    return String(index+1)
+  }
+  const nameFor=(topic:TextbookLessonTarget)=>topic.label
+    .replace(/^(?:\d+\.\d+(?:～\d+\.\d+)?)[　\s]*/u,'')
+  const title=chapterLabel+'：'+lesson.label
+  return (
+    <div className="page-stack textbook-page">
+      <header className="session-header">
+        <div><p className="eyebrow">TEXTBOOK / MATH I・A</p><h1>{title}</h1></div>
+        <StatusBadge>{rootUnit.status==='review' ? text('レビュー中（未承認）','审核中（未批准）')
+          : text('GOLDEN 完成版','GOLDEN 完成版')}</StatusBadge>
+      </header>
+      <ProgressBar label={text('この学習項目の進み具合','本学习部分进度')}
+        value={totals.completed} max={totals.total}/>
+      <nav className="textbook-section-nav" aria-label={text('知識項目','知识点')}>
+        {topics.map((topic,index)=>{
+          const stats=topicStats(topic)
+          const complete=stats.total>0&&stats.completed===stats.total
+          return <button type="button" key={topic.key}
+            data-testid={`golden-topic-${index+1}`}
+            aria-pressed={selectedIndex===index} onClick={()=>{
+              setSelectedIndex(index)
+              window.scrollTo({top:0,behavior:'smooth'})
+            }}>
+            <span>{complete?<Check size={16} aria-hidden="true"/>:numberFor(topic,index)}</span>
+            <strong>{nameFor(topic)}</strong>
+            <small>{stats.completed}/{stats.total}</small>
+          </button>
+        })}
+      </nav>
+      <section className="textbook-section">
+        <header className="textbook-section-heading">
+          <div><span>{selectedTopic?numberFor(selectedTopic,selectedIndex):''}</span>
+            <div><h2>{selectedTopic?nameFor(selectedTopic):''}</h2></div>
+          </div>
+          <strong>{activeStats.completed}/{activeStats.total}</strong>
+        </header>
+        {activeParts.map((part,index)=><div key={part.unit.unitId+'-'+part.section.id}>
+          {activeParts.length>1&&<h3 className="reading-topic-title">
+            {part.section.number} {part.section.title}
+          </h3>}
+          <TextbookReadingFlow unit={part.unit} section={part.section} progress={part.progress}/>
+        </div>)}
+        {activeStats.total>0&&activeStats.completed===activeStats.total&&(
+          <div className="textbook-complete-panel" data-testid="textbook-unit-complete">
+            <Check size={28} aria-hidden="true"/>
+            <div><h2>{text('学習項目完了','学习部分完成')}</h2>
+              <p>{text('この学習項目をすべて完了しました。','本学习部分已完成。')}</p></div>
+          </div>
+        )}
+      </section>
+      <button type="button" className="text-button textbook-reset" onClick={()=>{
+        if(window.confirm(text('この節の進捗を最初からやり直しますか？','确定清空本节进度吗？'))){
+          for(const id of [rootUnit.unitId,...otherIds])resetTextbookUnit(id)
+          setSelectedIndex(0)
+        }
+      }}><RotateCcw size={15} aria-hidden="true"/>{text('この単元を最初から','本单元重新开始')}</button>
+    </div>
+  )
+}
+
 export function TextbookUnitPage() {
   const { unitId = '' } = useParams()
   const [searchParams] = useSearchParams()
@@ -802,6 +938,11 @@ export function TextbookUnitPage() {
   const goNext = () => {
     setSelectedSectionIndex((index) => Math.min(unit.sections.length - 1, index + 1))
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+  if(lessonTarget?.kind==='chapter-group'){
+    return <GoldenChapterGroupPage key={lessonTarget.key}
+      chapterLabel={targetMatch?.chapter.label ?? '集合と命題'}
+      lesson={lessonTarget} rootUnit={unit}/>
   }
   return (
     <div className="page-stack textbook-page">
