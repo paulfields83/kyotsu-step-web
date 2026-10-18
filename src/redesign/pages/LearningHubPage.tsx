@@ -30,6 +30,7 @@ export function LearningHubPage() {
   const [practiceError, setPracticeError] = useState(false)
   const [majorUnitId, setMajorUnitId] = useState('')
   const [subcategoryId, setSubcategoryId] = useState('')
+  const [goldenSubchapter, setGoldenSubchapter] = useState<'集合' | '命題' | '証明'>('集合')
 
   useEffect(() => {
     textbookRepository.listPublished()
@@ -152,16 +153,31 @@ export function LearningHubPage() {
                 <div className="v2-progress-line v2-progress-line--small"><span style={{ width: `${percent}%` }} /></div>
                 <div className="v2-lesson-list">
                   {chapter.key === 'math-golden-sets-propositions'
-                    ? (['集合','命題','証明'] as const).map(group => {
-                        const lessons = chapter.lessons.filter(lesson=>lesson.group===group)
-                        if (!lessons.length) return null
-                        return (
-                          <details className="v2-lesson-group" key={group} open={group === '集合'}>
-                            <summary>{group}<small>{lessons.length} {text('項目', '个知识点')}</small></summary>
-                            <div className="v2-lesson-group__items">{renderLessonLinks(lessons)}</div>
-                          </details>
-                        )
-                      })
+                    ? (
+                        <div className="v2-golden-chapter">
+                          <nav className="v2-golden-subchapter-nav" role="tablist" aria-label={text('集合と命題の小章', '集合与命题小章节')}>
+                            {(['集合','命題','証明'] as const).map(group => {
+                              const lessons = chapter.lessons.filter(lesson=>lesson.group===group)
+                              return <button key={group} type="button" role="tab"
+                                aria-selected={goldenSubchapter === group}
+                                data-testid={`golden-subchapter-${group}`}
+                                onClick={() => setGoldenSubchapter(group)}>
+                                <strong>{group}</strong>
+                                <small>{lessons.length} {text('項目', '个知识点')}</small>
+                              </button>
+                            })}
+                          </nav>
+                          <section className="v2-golden-chapter-lessons" role="tabpanel"
+                            aria-label={goldenSubchapter} data-testid="golden-knowledge-list">
+                            <h3>{goldenSubchapter}</h3>
+                            {goldenSubchapter !== '集合' && <p className="v2-golden-review-note">
+                              {text('この教材はレビュー中です。全小節を試せますが、完成版としては未承認です。',
+                                '本部分仍在审核，全部知识点可试玩，但尚未批准为完成版。')}
+                            </p>}
+                            {renderLessonLinks(chapter.lessons.filter(lesson=>lesson.group===goldenSubchapter))}
+                          </section>
+                        </div>
+                      )
                     : renderLessonLinks(chapter.lessons)}
 
                 </div>
