@@ -91,7 +91,7 @@ test('GOLDEN knowledge taxonomy: chapter opens three subchapters with distinct l
   const card = page.locator('.v2-course-card').filter({hasText:'集合と命題'})
   await expect(card).toBeVisible({timeout:75_000})
   const lessonList = card.locator('.v2-lesson-list')
-  await expect(lessonList.locator('> .reading-topic-title')).toHaveText(['集合','命題','証明'])
+  await expect(lessonList.locator(':scope > .reading-topic-title')).toHaveText(['集合','命題','証明'])
   await expect(lessonList.locator('a')).toHaveCount(17)
   await expect(card.getByRole('link',{name:/2.1 命題の真偽/})).toBeVisible()
   await expect(card.getByRole('link',{name:/2.6 「ある」を考える/})).toBeVisible()
@@ -174,7 +174,12 @@ test('GOLDEN membership notation is typeset; original yes/no choices stay binary
   await expect(panel).not.toContainText('この条件だけでは決まらない')
   await expect(panel).not.toContainText('どの選択肢にも当てはまらない')
   await expect(panel.locator('.reading-choice-option').first()).not.toContainText('\\notin')
-  await panel.locator('.reading-choice-option[data-choice-value="\\in"]').click()
+  const rawChoices = await panel.locator('.reading-choice-option').evaluateAll(
+    nodes => nodes.map(node => node.getAttribute('data-choice-value')),
+  )
+  const correctIndex = rawChoices.indexOf('\\in')
+  expect(correctIndex).toBeGreaterThanOrEqual(0)
+  await panel.locator('.reading-choice-option').nth(correctIndex).click()
   await expect(page.getByTestId('resolved-set-a04').locator('.katex')).toBeVisible()
   await expect(page.getByTestId('resolved-set-a04')).not.toContainText('\\in')
 })
