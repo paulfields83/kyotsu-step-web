@@ -770,7 +770,14 @@ export function TextbookUnitPage() {
           <h1>{targetMatch ? `${targetMatch.chapter.label}：${targetMatch.lesson.label}` : focusedSection ? `${conciseTextbookTitle(unit)}：${currentSection.title}` : unit.title}</h1>
           {!targetSelected && !focusedSection && unit.subtitle && <p>{unit.subtitle}</p>}
         </div>
-        <StatusBadge>{text('改訂版', '改订版')} · {text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
+        <StatusBadge>
+          {unit.status === 'review'
+            ? text('レビュー中（未承認）', '审核中（未批准）')
+            : unit.unitId === 'math-sets'
+              ? text('GOLDEN 完成版', 'GOLDEN 完成版')
+              : text('改訂版', '改订版')}
+          {' · '}{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}
+        </StatusBadge>
       </header>
 
       <ProgressBar
