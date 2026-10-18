@@ -146,7 +146,11 @@ const server = createServer(async (request, response) => {
       response,
       200,
       loadedTextbookUnits
-        .filter(({ unit }) => unit.status === 'published')
+        .filter(({ unit }) => unit.status === 'published' || (
+          unit.status === 'review' && [
+            'math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof',
+          ].includes(unit.unitId)
+        ))
         .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook, apiOrigin)),
     )
   }
