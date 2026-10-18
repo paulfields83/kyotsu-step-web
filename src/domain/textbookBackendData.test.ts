@@ -171,24 +171,40 @@ describe('backend textbook data', () => {
     }
   })
 
-  it('offers three nested GOLDEN categories and independently addressable sections', () => {
+  it('merges 2.2–2.4 and 2.5–2.7 as single lesson links without losing source questions', () => {
     const goldenIds=['math-sets','math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof']
     const units = loadedTextbookUnits.filter(row=>goldenIds.includes(row.unit.unitId))
       .map(row=>publicTextbookUnit(row.unit,row.answerBook))
     const chapter = buildTextbookChapters(units,'math-1a').find(x=>x.label==='集合と命題')!
     expect(chapter).toBeTruthy()
-    expect(chapter.lessons).toHaveLength(17)
+    expect(chapter.lessons).toHaveLength(13)
     expect(chapter.lessons.filter(x=>x.group==='集合')).toHaveLength(7)
-    expect(chapter.lessons.filter(x=>x.group==='命題')).toHaveLength(7)
+    expect(chapter.lessons.filter(x=>x.group==='命題')).toHaveLength(3)
     expect(chapter.lessons.filter(x=>x.group==='証明')).toHaveLength(3)
-    expect(new Set(chapter.lessons.map(x=>x.key)).size).toBe(17)
-    for (const lesson of chapter.lessons) {
-      expect(lesson.kind).toBe('section')
-      const unit = units.find(x=>x.unitId===lesson.unitId)!
-      const target = unit.sections.find(x=>x.id===lesson.sectionId)!
-      expect(target).toBeTruthy()
-      expect(target.items.length).toBeGreaterThan(0)
-    }
+    expect(new Set(chapter.lessons.map(x=>x.key)).size).toBe(13)
+    const cond=chapter.lessons.find(x=>x.key==='math-golden-proposition-conditions')!
+    expect(cond.kind).toBe('section-group')
+    expect(cond.sectionIds).toEqual(['golden-prop-02','golden-prop-03','golden-prop-04'])
+    const quant=chapter.lessons.find(x=>x.key==='math-golden-proposition-negation-quantifiers')!
+    expect(quant.kind).toBe('cross-unit-group')
+    expect(quant.sectionRefs).toEqual([
+      {unitId:'math-propositions-reading',sectionId:'golden-prop-05'},
+      {unitId:'math-quantifiers-all-exists',sectionId:'golden-quant-01'},
+      {unitId:'math-quantifiers-all-exists',sectionId:'golden-quant-02'},
+    ])
+    const itemIds = chapter.lessons.flatMap(lesson => {
+      if (lesson.kind === 'cross-unit-group') {
+        return (lesson.sectionRefs ?? []).flatMap(ref=>
+          units.find(unit=>unit.unitId===ref.unitId)?.sections.find(sec=>sec.id===ref.sectionId)?.items.map(i=>i.id) ?? [])
+      }
+      const owner = units.find(unit=>unit.unitId===lesson.unitId)!
+      if(lesson.kind==='section-group')return owner.sections.filter(sec=>lesson.sectionIds?.includes(sec.id))
+        .flatMap(sec=>sec.items.map(i=>i.id))
+      return owner.sections.find(sec=>sec.id===lesson.sectionId)?.items.map(i=>i.id)??[]
+    })
+    const sourceItems = units.flatMap(unit=>unit.sections.flatMap(sec=>sec.items.map(item=>item.id)))
+    expect(itemIds.length).toBe(sourceItems.length)
+    expect(new Set(itemIds)).toEqual(new Set(sourceItems))
   })
 
   it('builds the same unit -> learning item hierarchy for math and physics', () => {
