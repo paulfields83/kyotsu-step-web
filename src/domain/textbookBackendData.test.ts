@@ -6,7 +6,6 @@ import { loadedTextbookUnits } from '../../backend/src/textbookData'
 import { buildTextbookChapters } from './textbookCatalog'
 
 const mathRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'counting-permutation')
-const setsRoot = join(process.cwd(), 'backend', 'data', 'textbooks', 'math-1a', 'sets-propositions')
 const generatedFigureIdsByUnit: Record<string, string[]> = {
   'math-1a-numbers-expressions': [
     'tasuki-cross',
@@ -147,22 +146,28 @@ describe('backend textbook data', () => {
     const ids = loadedTextbookUnits.map(({ unit }) => unit.unitId)
     expect(ids).toContain('physics-a-displacement-velocity')
     expect(ids).toContain('math-1a-counting-permutation')
-    expect(ids).toContain('math-1a-sets-propositions')
+    for (const id of ['math-sets','math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof']) expect(ids).toContain(id)
     for (const unitId of staticMathUnitIds) expect(ids).toContain(unitId)
     for (const unitId of importedPhysicsUnitIds) expect(ids).toContain(unitId)
   })
 
-  it('groups 集合と命題 into three sections with topic cards', () => {
-    const unit = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-sets-propositions')!
-    expect(unit).toBeTruthy()
-    expect(unit.unit.sections.map((section) => section.title)).toEqual(['集合', '命題', '証明'])
-    expect(unit.unit.sections.map((section) => section.readingFlow.filter((block) => block.type === 'topic').length)).toEqual([8, 5, 5])
-    expect(unit.unit.sections[0].readingFlow.find((block) => block.type === 'topic')).toMatchObject({ text: '1.1 集合と要素' })
-    expect(unit.unit.sections[1].readingFlow.find((block) => block.type === 'topic')).toMatchObject({ text: '2.1 命題と真偽' })
-    expect(unit.unit.sections[2].readingFlow.find((block) => block.type === 'topic')).toMatchObject({ text: '3.1 対偶を用いた証明' })
-    expect(unit.unit.sections.flatMap((section) => section.items).length).toBeGreaterThan(0)
-    expect(new Set(choiceRefs(unit.unit))).toEqual(new Set(unit.unit.sections.flatMap((section) => section.items.map((item) => item.id))))
-    expect(new Set(Object.keys(unit.answerBook.answers))).toEqual(new Set(unit.unit.sections.flatMap((section) => section.items.map((item) => item.id))))
+  it('imports the validated GOLDEN 集合 mother with role and dialogue structure intact', () => {
+    const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-sets')!
+    expect(loaded?.unit.status).toBe('published')
+    expect(loaded.unit.sections).toHaveLength(1)
+    const flow = loaded.unit.sections[0].readingFlow
+    const allProse = flow.flatMap(block => (
+      block.type === 'paragraph' ? block.parts.filter(part=>part.type==='text').map(part=>part.text) : []
+    )).join('')
+    expect(allProse).toContain('24の正の約数')
+    expect(flow.filter(block=>block.type==='marker' && block.kind==='example')).toHaveLength(7)
+    expect(flow.filter(block=>block.type==='dialogue')).toHaveLength(8)
+    expect(flow.some(block => block.type==='paragraph' && block.parts.some(part=>part.type==='term' && part.text==='集合'))).toBe(true)
+    expect(new Set(choiceRefs(loaded.unit))).toEqual(new Set(loaded.unit.sections.flatMap(section=>section.items.map(item=>item.id))))
+    expect(new Set(Object.keys(loaded.answerBook.answers))).toEqual(new Set(loaded.unit.sections.flatMap(section=>section.items.map(item=>item.id))))
+    for (const id of ['math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof']) {
+      expect(loadedTextbookUnits.find(x=>x.unit.unitId===id)?.unit.status).toBe('review')
+    }
   })
 
   it('builds the same unit -> learning item hierarchy for math and physics', () => {
@@ -173,7 +178,7 @@ describe('backend textbook data', () => {
     const mathChapters = buildTextbookChapters(publicUnits, 'math-1a')
     expect(mathChapters.map((chapter) => chapter.label)).toContain('集合と命題')
     expect(mathChapters.map((chapter) => chapter.label)).toContain('場合の数と確率')
-    expect(mathChapters.find((chapter) => chapter.label === '集合と命題')?.lessons.map((lesson) => lesson.label)).toEqual(['集合', '命題', '証明'])
+    expect(mathChapters.find((chapter) => chapter.label === '集合と命題')?.lessons.map(lesson=>lesson.label)).toEqual(['集合（完成版）'])
     expect(mathChapters.find((chapter) => chapter.label === '場合の数と確率')?.lessons.map((lesson) => lesson.label)).toEqual([
       '場合の数',
       '順列・組合せ',
@@ -275,12 +280,15 @@ describe('backend textbook data', () => {
     }
   })
 
-  it('keeps 集合と命題 figures as backend SVG assets', () => {
-    const sets = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-1a-sets-propositions')!
-    const figures = sets.unit.sections.flatMap((section) => section.figures)
+  it('serves GOLDEN 集合 figures from imported validated SVG assets', () => {
+    const loaded = loadedTextbookUnits.find(({ unit }) => unit.unitId === 'math-sets')!
+    const figures = loaded.unit.sections.flatMap(section=>section.figures)
     expect(figures.length).toBeGreaterThanOrEqual(10)
-    expect(figures.every((figure) => figure.src.startsWith('assets/') && figure.src.endsWith('.svg'))).toBe(true)
-    for (const figure of figures) expect(existsSync(join(setsRoot, figure.src))).toBe(true)
+    expect(loaded.assetMap?.size).toBeGreaterThanOrEqual(10)
+    for (const fig of figures) {
+      expect(fig.src).toMatch(/^assets\/.*\.svg$/)
+      expect(loaded.assetMap?.has(fig.src.slice('assets/'.length))).toBe(true)
+    }
   })
 
   it('keeps imported physics blanks, answers, IDs, and figure assets in sync', () => {
