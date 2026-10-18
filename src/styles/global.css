@@ -824,3 +824,29 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   overflow-wrap: anywhere;
 }
 .reading-dialogue strong { font-weight: 700; margin-right: .15rem; }
+
+/* GOLDEN textbook: chapter -> 3 subchapters -> individual knowledge lessons. */
+.v2-lesson-group {
+  margin: .45rem 0;
+  border: 1px solid #d9e3ec;
+  border-radius: .75rem;
+  overflow: clip;
+  background: #fff;
+}
+.v2-lesson-group > summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  min-height: 3rem;
+  padding: .75rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 750;
+  background: #f3f7fb;
+}
+.v2-lesson-group > summary::marker { color: #38638a; }
+.v2-lesson-group > summary small { font-size: .82rem; font-weight: 500; }
+.v2-lesson-group__items { display: grid; }
+.v2-lesson-group__items > a { margin: 0; border-radius: 0; }
+.v2-lesson-group__items > a + a { border-top: 1px solid #edf0f4; }
