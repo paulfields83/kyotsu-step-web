@@ -84,3 +84,34 @@ test('physics textbook: a choice remains answerable after the revised math impor
   await panel.locator('.reading-choice-option').first().click()
   await expect(page.getByTestId('resolved-a-1')).toBeVisible({ timeout: 15_000 })
 })
+
+test('GOLDEN knowledge taxonomy: chapter opens three subchapters with distinct links', async ({ page }) => {
+  await page.goto('/#/learn', {waitUntil:'domcontentloaded'})
+  await page.getByRole('button', {name:/数学 I・A/}).first().click()
+  const card = page.locator('.v2-course-card').filter({hasText:'集合と命題'})
+  await expect(card).toBeVisible({timeout:75_000})
+  await expect(card.locator('.v2-lesson-group')).toHaveCount(3)
+  await expect(card.locator('.v2-lesson-group').first().locator('a')).toHaveCount(7)
+  await expect(card.locator('.v2-lesson-group').nth(1).locator('a')).toHaveCount(7)
+  await expect(card.locator('.v2-lesson-group').nth(2).locator('a')).toHaveCount(3)
+  await expect(card.getByText('「すべて」を考える')).toHaveCount(1)
+  await card.locator('.v2-lesson-group').nth(1).locator('summary').click()
+  await expect(card.getByRole('link',{name:/2.1 命題の真偽/})).toBeVisible()
+})
+
+test('GOLDEN only renders requested knowledge point and keeps other lessons accessible', async ({ page }) => {
+  await page.goto('/#/learning/textbook/math-sets?target=math-golden-math-sets-golden-set-02', {waitUntil:'domcontentloaded'})
+  await expect(page.locator('.textbook-section-heading h2')).toHaveText('集合の表し方', {timeout:75_000})
+  await expect(page.locator('.textbook-section')).not.toContainText('24の正の約数')
+  await expect(page.locator('.textbook-section')).not.toContainText('共通部分と和集合')
+  await page.goto('/#/learning/textbook/math-sets?target=math-golden-math-sets-golden-set-01')
+  await expect(page.getByText(/24の正の約数/).first()).toBeVisible()
+  await expect(page.getByTestId('textbook-item-set-a01')).toBeVisible()
+})
+
+test('GOLDEN proposition review preserves its own smaller section and status', async ({ page }) => {
+  await page.goto('/#/learning/textbook/math-propositions-reading?target=math-golden-math-propositions-reading-golden-prop-02')
+  await expect(page.locator('.textbook-section-heading h2')).toHaveText('必要条件と十分条件',{timeout:75_000})
+  await expect(page.getByText('レビュー中（未承認）')).toBeVisible()
+  await expect(page.locator('.textbook-section')).not.toContainText('条件から真偽を判断する')
+})
