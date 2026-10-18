@@ -11,6 +11,12 @@ export function textbookMathLatex(value: string): string | null {
   if (!hasMath) return null
 
   let formula = value.trim()
+  // Escape ORIGINAL literal set braces before superscript conversion inserts
+  // TeX grouping braces such as ^{3}, which must remain unescaped.
+  if (!hasCommand) {
+    formula = formula.replace(/\{/g,'\\{').replace(/\}/g,'\\}')
+  }
+  formula = formula
     .replace(/^\\\(([\s\S]*)\\\)$/,'$1')
     .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]+/g, digits => {
       const superscripts: Record<string,string> = {
@@ -25,12 +31,6 @@ export function textbookMathLatex(value: string): string | null {
     .replace(/[−–—]/g,'-')
     .replace(/∅/g,'\\varnothing ')
 
-  // A list of sets written as {1,2}, {1,3} is not KaTeX grouping syntax:
-  // the braces themselves must be visible as mathematical set delimiters.
-  // Preserve genuine TeX argument braces in \overline{A}, \frac{...}, etc.
-  if (!hasCommand) {
-    formula = formula.replace(/\{/g,'\\{').replace(/\}/g,'\\}')
-  }
 
   try {
     katex.renderToString(formula,{throwOnError:true,strict:'ignore'})
