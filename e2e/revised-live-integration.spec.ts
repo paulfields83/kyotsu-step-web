@@ -92,9 +92,10 @@ test('GOLDEN knowledge taxonomy: chapter opens three subchapters with distinct l
   await expect(card).toBeVisible({timeout:75_000})
   const lessonList = card.locator('.v2-lesson-list')
   await expect(lessonList.locator(':scope > .reading-topic-title')).toHaveText(['集合','命題','証明'])
-  await expect(lessonList.locator('a')).toHaveCount(17)
+  await expect(lessonList.locator('a')).toHaveCount(13)
   await expect(card.getByRole('link',{name:/2.1 命題の真偽/})).toBeVisible()
-  await expect(card.getByRole('link',{name:/2.6 「ある」を考える/})).toBeVisible()
+  await expect(card.getByRole('link',{name:/2.2～2.4 必要条件/})).toBeVisible()
+  await expect(card.getByRole('link',{name:/2.5～2.7 「かつ」/})).toBeVisible()
   await expect(card.getByRole('link',{name:/3.3 背理法/})).toBeVisible()
 })
 
@@ -110,9 +111,40 @@ test('GOLDEN only renders requested knowledge point and keeps other lessons acce
 
 test('GOLDEN proposition review preserves its own smaller section and status', async ({ page }) => {
   await page.goto('/#/learning/textbook/math-propositions-reading?target=math-golden-math-propositions-reading-golden-prop-02')
-  await expect(page.locator('.textbook-section-heading h2')).toHaveText('必要条件と十分条件',{timeout:75_000})
+  await expect(page.locator('.textbook-section-heading h2')).toHaveText('2.2～2.4 必要条件・十分条件・同値条件・否定',{timeout:75_000})
   await expect(page.getByText('レビュー中（未承認）')).toBeVisible()
   await expect(page.locator('.textbook-section')).not.toContainText('条件から真偽を判断する')
+})
+
+test('Merged 2.2–2.4: all original subsections appear inside one lesson', async ({page}) => {
+  await page.goto('/#/learning/textbook/math-propositions-reading?target=math-golden-proposition-conditions', {waitUntil:'domcontentloaded'})
+  await expect(page.locator('.textbook-section-heading h2')).toHaveText('2.2～2.4 必要条件・十分条件・同値条件・否定',{timeout:75_000})
+  const topicButtons=page.locator('.reading-topic-nav button')
+  await expect(topicButtons).toHaveCount(3)
+  await expect(topicButtons.nth(0)).toContainText('2.2')
+  await topicButtons.nth(1).click()
+  await expect(page.locator('.reading-topic-nav button[aria-pressed="true"]')).toContainText('2.3')
+  await topicButtons.nth(2).click()
+  await expect(page.locator('.reading-topic-nav button[aria-pressed="true"]')).toContainText('2.4')
+})
+
+test('Merged 2.5–2.7: two original backends load in one learning screen', async ({page}) => {
+  await page.goto('/#/learning/textbook/math-propositions-reading?target=math-golden-proposition-negation-quantifiers', {waitUntil:'domcontentloaded'})
+  const parts=page.locator('[data-testid^="merged-part-"]')
+  await expect(parts).toHaveCount(3,{timeout:75_000})
+  await expect(page.getByTestId('merged-part-golden-prop-05').locator('h2')).toHaveText('「かつ」「または」の否定')
+  await expect(page.getByTestId('merged-part-golden-quant-01').locator('h2')).toHaveText('「ある」を考える')
+  await expect(page.getByTestId('merged-part-golden-quant-02').locator('h2')).toHaveText('「すべて」を考える')
+  const quant=page.getByTestId('textbook-item-quant-a02')
+  await expect(quant).toBeVisible()
+  await quant.click()
+  const choices=page.getByTestId('inline-choice-panel-quant-a02').locator('.reading-choice-option')
+  await expect(choices.first()).toBeVisible()
+  await choices.first().click()
+  await expect(page.getByTestId('resolved-quant-a02')).toBeVisible()
+  await page.reload()
+  await expect(parts).toHaveCount(3,{timeout:75_000})
+  await expect(page.getByTestId('resolved-quant-a02')).toBeVisible()
 })
 
 test('GOLDEN proposition: original staged hints and choices remain operational', async ({ page }) => {
