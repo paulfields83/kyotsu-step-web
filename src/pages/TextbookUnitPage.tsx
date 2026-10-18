@@ -208,6 +208,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
 }) {
   const { text } = useI18n()
   const [activeItemId, setActiveItemId] = useState<string | null>(null)
+  const [shownHintCount, setShownHintCount] = useState(0)
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
   const [submitError, setSubmitError] = useState('')
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(0)
@@ -219,6 +220,10 @@ function TextbookReadingFlow({ unit, section, progress }: {
     setActiveItemId(null)
     setSubmitError('')
   }, [section.id])
+  useEffect(() => {
+    setShownHintCount(0)
+  }, [activeItemId])
+
 
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
@@ -276,6 +281,21 @@ function TextbookReadingFlow({ unit, section, progress }: {
             )
           })}
         </div>}
+        {Boolean(activeItem.hints?.length) && !activeRecord?.resolved && (
+          <div className="reading-staged-hints" data-testid={`textbook-hints-${activeItem.id}`}>
+            <button type="button" className="reading-hint-trigger"
+              onClick={() => setShownHintCount((count) => Math.min(count + 1,activeItem.hints?.length ?? 0))}
+              disabled={shownHintCount >= (activeItem.hints?.length ?? 0)}>
+              {text(`ヒントを見る ${shownHintCount}/${activeItem.hints?.length ?? 0}`,
+                `查看提示 ${shownHintCount}/${activeItem.hints?.length ?? 0}`)}
+            </button>
+            {shownHintCount > 0 && (
+              <ol className="reading-hint-steps">
+                {activeItem.hints?.slice(0, shownHintCount).map((hint,index)=><li key={index}>{hint}</li>)}
+              </ol>
+            )}
+          </div>
+        )}
         {activeChoices.length < 2 && (
           <p className="reading-inline-choice-error" role="alert">
             {text('選択肢の読み込みに失敗しました。画面を更新してください。', '选项加载失败，请刷新页面。')}
