@@ -193,6 +193,7 @@ function renderPart(
     )
   }
 
+  if (part.type !== 'choice') return null
   const item = section.items.find((candidate) => candidate.id === part.itemId)
   if (!item) return null
   const record = progress?.answers[item.id]
@@ -418,6 +419,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
         </figure>
       )
     }
+
+    if (block.type !== 'paragraph' && block.type !== 'formula') return null
 
     // In mathematics, do not display the remainder of a formula or paragraph
     // after its first unanswered interactive blank.
