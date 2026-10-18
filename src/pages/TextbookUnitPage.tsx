@@ -684,8 +684,9 @@ function groupedLessonSection(unit: PublicTextbookUnit, lesson: TextbookLessonTa
   const prefix = lesson.topicPrefix ?? '1'
   const readingFlow: TextbookReadingBlock[] = sourceSections.flatMap((section, index) => {
     const title = section.title.replace(/^第\\d+節[　\\s]*/u, '')
+    const number = lesson.key === 'math-golden-proposition-conditions' ? section.number : `${prefix}.${index + 1}`
     return [
-      { id: `group-topic-${lesson.key}-${section.id}`, type: 'topic' as const, text: `${prefix}.${index + 1} ${title}` },
+      { id: `group-topic-${lesson.key}-${section.id}`, type: 'topic' as const, text: `${number} ${title}` },
       ...section.readingFlow,
     ]
   })
@@ -712,8 +713,12 @@ export function TextbookUnitPage() {
   const targetKey = searchParams.get('target')
   const requestedSectionId = searchParams.get('section')
   const [unit, setUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
+  const [companionUnit, setCompanionUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0)
   const progress = useAppStore((state) => state.textbookProgress[unitId])
+  const companionProgress = useAppStore((state) => state.textbookProgress['math-quantifiers-all-exists'])
+  const isCrossUnitLesson = unitId === 'math-propositions-reading'
+    && targetKey === 'math-golden-proposition-negation-quantifiers'
   const resetTextbookUnit = useAppStore((state) => state.resetTextbookUnit)
   const { text } = useI18n()
 
@@ -726,6 +731,21 @@ export function TextbookUnitPage() {
     })
     return () => { active = false }
   }, [unitId])
+
+  // 2.5–2.7 spans two original ZIP units. Load both without migrating IDs
+  // or progress records between their original owning units.
+  useEffect(() => {
+    if (!isCrossUnitLesson) {
+      setCompanionUnit(undefined)
+      return
+    }
+    let active = true
+    setCompanionUnit(undefined)
+    textbookRepository.getById('math-quantifiers-all-exists')
+      .then(value => { if (active) setCompanionUnit(value ?? null) })
+      .catch(() => { if (active) setCompanionUnit(null) })
+    return () => { active = false }
+  }, [isCrossUnitLesson])
 
   useEffect(() => {
     if (!unit) {
@@ -742,10 +762,25 @@ export function TextbookUnitPage() {
 
   if (unit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
   if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
+  if (isCrossUnitLesson && companionUnit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
+  if (isCrossUnitLesson && companionUnit === null) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('量詞の教材データを読み込めませんでした。', '无法加载量词教材数据。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
 
   const targetMatch = targetKey ? findTextbookLessonTarget([unit], targetKey) : undefined
   const lessonTarget = targetMatch?.lesson
   const groupedSection = lessonTarget ? groupedLessonSection(unit, lessonTarget) : undefined
+  const crossParts = lessonTarget?.kind === 'cross-unit-group'
+    ? (lessonTarget.sectionRefs ?? []).flatMap(ref => {
+        const owner = ref.unitId === unit.unitId ? unit : companionUnit
+        const section = owner?.sections.find(candidate=>candidate.id===ref.sectionId)
+        return owner && section
+          ? [{unit:owner,section,progress:ref.unitId===unit.unitId ? progress : companionProgress}]
+          : []
+      })
+    : null
+  const crossSummary = crossParts?.reduce((sum,part)=>{
+    const counts = progressForSection(part.section,part.progress)
+    return {completed:sum.completed+counts.completed,total:sum.total+counts.total}
+  }, {completed:0,total:0})
   const targetedSection = lessonTarget?.kind === 'section'
     ? unit.sections.find((section) => section.id === lessonTarget.sectionId)
     : undefined
@@ -754,10 +789,10 @@ export function TextbookUnitPage() {
     : undefined
   const currentSection = groupedSection ?? targetedSection ?? legacySection ?? unit.sections[selectedSectionIndex]
   const summary = textbookUnitProgress(unit, progress)
-  const sectionSummary = groupedSection
+  const sectionSummary = crossSummary ?? (groupedSection
     ? progressForSection(groupedSection, progress)
-    : textbookSectionProgress(unit, progress, currentSection.id)
-  const focusedSection = Boolean(groupedSection || targetedSection || legacySection)
+    : textbookSectionProgress(unit, progress, currentSection.id))
+  const focusedSection = Boolean(groupedSection || targetedSection || legacySection || crossParts)
   const targetSelected = Boolean(lessonTarget)
   const targetSummary = lessonTarget?.kind === 'unit' ? summary : sectionSummary
   const targetComplete = targetSummary.total > 0 && targetSummary.completed === targetSummary.total
@@ -820,6 +855,22 @@ export function TextbookUnitPage() {
         </nav>
       )}
 
+      {crossParts && crossParts.map(part => {
+        const counts = progressForSection(part.section,part.progress)
+        return (
+          <section className="textbook-section" key={part.unit.unitId+'-'+part.section.id}
+            data-testid={`merged-part-${part.section.id}`}>
+            <header className="textbook-section-heading">
+              <div><span>{part.section.number}</span><div><h2>{part.section.title}</h2>
+                {part.section.description && <p>{part.section.description}</p>}
+              </div></div>
+              <strong>{counts.completed}/{counts.total}</strong>
+            </header>
+            <TextbookReadingFlow unit={part.unit} section={part.section} progress={part.progress} />
+          </section>
+        )
+      })}
+      {!crossParts && (
       <section className="textbook-section">
         <header className="textbook-section-heading">
           <div><span>{physicsPrefix && !focusedSection ? `${physicsPrefix}.${selectedSectionIndex + 1}` : currentSection.number}</span><div><h2>{currentSection.title}</h2>{currentSection.description && <p>{currentSection.description}</p>}</div></div>
@@ -851,6 +902,14 @@ export function TextbookUnitPage() {
           </div>
         )}
       </section>
+      )}
+      {crossParts && targetComplete && (
+        <div className="textbook-complete-panel" data-testid="textbook-unit-complete">
+          <Check size={28} aria-hidden="true" />
+          <div><h2>{text('学習項目完了','学习部分完成')}</h2>
+            <p>{text('この学習項目をすべて完了しました。','本学习部分已全部完成。')}</p></div>
+        </div>
+      )}
 
       <button type="button" className="text-button textbook-reset" onClick={() => {
         if (window.confirm(text('この単元の進捗を最初からやり直しますか？', '确定要清空本单元进度并重新开始吗？'))) {
