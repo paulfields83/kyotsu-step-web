@@ -941,7 +941,7 @@ export function TextbookUnitPage() {
   }
   if(lessonTarget?.kind==='chapter-group'){
     return <GoldenChapterGroupPage key={lessonTarget.key}
-      chapterLabel={targetMatch?.chapter.label ?? '集合と命題'}
+      chapterLabel={targetMatch?.chapter.label ?? '集合と命題（改訂版）'}
       lesson={lessonTarget} rootUnit={unit}/>
   }
   return (
@@ -957,7 +957,9 @@ export function TextbookUnitPage() {
             ? text('レビュー中（未承認）', '审核中（未批准）')
             : unit.unitId === 'math-sets'
               ? text('GOLDEN 完成版', 'GOLDEN 完成版')
-              : text('改訂版', '改订版')}
+              : unit.unitId === 'math-1a-numbers-expressions-revised'
+                ? text('教材', '教材')
+                : text('改訂版', '改订版')}
           {' · '}{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}
         </StatusBadge>
       </header>
