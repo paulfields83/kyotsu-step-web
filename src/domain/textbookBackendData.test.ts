@@ -185,7 +185,7 @@ describe('backend textbook data', () => {
       '確率と期待値',
       'いろいろな確率',
     ])
-    for (const label of ['数と式', '2次関数', '図形と計量', 'データの分析', '図形の性質', '数学と人間の活動']) {
+    for (const label of ['数と式（改訂版）', '2次関数', '図形と計量', 'データの分析', '図形の性質', '数学と人間の活動']) {
       expect(mathChapters.map((chapter) => chapter.label)).toContain(label)
     }
 
