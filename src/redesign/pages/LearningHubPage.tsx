@@ -124,6 +124,21 @@ export function LearningHubPage() {
               return sum + textbookLessonItemIds(unit, lesson).filter((id) => progress?.answers[id]?.resolved).length
             }, 0)
             const percent = allIds.length ? Math.round((completed / allIds.length) * 100) : 0
+            const renderLessonLinks = (lessons:typeof chapter.lessons) => lessons.map((lesson) => {
+              const lessonIndex = chapter.lessons.indexOf(lesson)
+              const unit = units.find(item=>item.unitId === lesson.unitId)
+              const ids = textbookLessonItemIds(unit,lesson)
+              const progress = textbookProgress[lesson.unitId]
+              const done = ids.filter(id=>progress?.answers[id]?.resolved).length
+              const complete = ids.length>0 && done===ids.length
+              return (
+                <Link to={textbookLessonHref(lesson)} key={lesson.key}>
+                  <span className={`v2-lesson-status${complete?' is-complete':''}`}>{complete?<Check size={15}/>:lessonIndex+1}</span>
+                  <div><strong>{lesson.label}</strong><small>{done}/{ids.length}</small></div>
+                  <ArrowRight size={17}/>
+                </Link>
+              )
+            })
             return (
               <article className="v2-course-card" key={chapter.key}>
                 <header>
@@ -137,48 +152,17 @@ export function LearningHubPage() {
                 <div className="v2-progress-line v2-progress-line--small"><span style={{ width: `${percent}%` }} /></div>
                 <div className="v2-lesson-list">
                   {chapter.key === 'math-golden-sets-propositions'
-                    ? (['集合', '命題', '証明'] as const).map(group => {
-                        const lessons = chapter.lessons.filter(lesson => lesson.group === group)
+                    ? (['集合','命題','証明'] as const).map(group => {
+                        const lessons = chapter.lessons.filter(lesson=>lesson.group===group)
                         if (!lessons.length) return null
-                        return <details className="v2-lesson-group" key={group} open={group === '集合'}>
-                          <summary>{group}<small>{lessons.length} {text('項目', '个知识点')}</small></summary>
-                          <div className="v2-lesson-group__items">
-                            {lessons.map((lesson) => {
-  const lessonIndex = chapter.lessons.indexOf(lesson)
-                    const unit = units.find((item) => item.unitId === lesson.unitId)
-                    const ids = textbookLessonItemIds(unit, lesson)
-                    const progress = textbookProgress[lesson.unitId]
-                    const done = ids.filter((id) => progress?.answers[id]?.resolved).length
-                    const complete = ids.length > 0 && done === ids.length
-                    return (
-                      <Link to={textbookLessonHref(lesson)} key={lesson.key}>
-                        <span className={`v2-lesson-status${complete ? ' is-complete' : ''}`}>{complete ? <Check size={15} /> : lessonIndex + 1}</span>
-                        <div><strong>{lesson.label}</strong><small>{done}/{ids.length}</small></div>
-                        <ArrowRight size={17} />
-                      </Link>
-                    )
-})}
-                          </div>
-                        </details>
+                        return (
+                          <details className="v2-lesson-group" key={group} open={group === '集合'}>
+                            <summary>{group}<small>{lessons.length} {text('項目', '个知识点')}</small></summary>
+                            <div className="v2-lesson-group__items">{renderLessonLinks(lessons)}</div>
+                          </details>
+                        )
                       })
-                    : (() => {
-                      const lessons = chapter.lessons
-                      return {lessons.map((lesson) => {
-  const lessonIndex = chapter.lessons.indexOf(lesson)
-                    const unit = units.find((item) => item.unitId === lesson.unitId)
-                    const ids = textbookLessonItemIds(unit, lesson)
-                    const progress = textbookProgress[lesson.unitId]
-                    const done = ids.filter((id) => progress?.answers[id]?.resolved).length
-                    const complete = ids.length > 0 && done === ids.length
-                    return (
-                      <Link to={textbookLessonHref(lesson)} key={lesson.key}>
-                        <span className={`v2-lesson-status${complete ? ' is-complete' : ''}`}>{complete ? <Check size={15} /> : lessonIndex + 1}</span>
-                        <div><strong>{lesson.label}</strong><small>{done}/{ids.length}</small></div>
-                        <ArrowRight size={17} />
-                      </Link>
-                    )
-})}
-                    })()}
+                    : renderLessonLinks(chapter.lessons)}
 
                 </div>
               </article>
