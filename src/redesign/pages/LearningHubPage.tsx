@@ -1,5 +1,5 @@
 import { ArrowRight, Atom, BookOpen, Check, ListChecks, Sigma } from 'lucide-react'
-import { useEffect, useMemo, useState } from 'react'
+import { Fragment, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { buildTextbookChapters, textbookLessonHref, textbookLessonItemIds } from '../../domain/textbookCatalog'
 import type { PublicTextbookUnit } from '../../domain/textbookPublic'
@@ -30,7 +30,6 @@ export function LearningHubPage() {
   const [practiceError, setPracticeError] = useState(false)
   const [majorUnitId, setMajorUnitId] = useState('')
   const [subcategoryId, setSubcategoryId] = useState('')
-  const [goldenSubchapter, setGoldenSubchapter] = useState<'集合' | '命題' | '証明'>('集合')
 
   useEffect(() => {
     textbookRepository.listPublished()
@@ -125,21 +124,6 @@ export function LearningHubPage() {
               return sum + textbookLessonItemIds(unit, lesson).filter((id) => progress?.answers[id]?.resolved).length
             }, 0)
             const percent = allIds.length ? Math.round((completed / allIds.length) * 100) : 0
-            const renderLessonLinks = (lessons:typeof chapter.lessons) => lessons.map((lesson) => {
-              const lessonIndex = chapter.lessons.indexOf(lesson)
-              const unit = units.find(item=>item.unitId === lesson.unitId)
-              const ids = textbookLessonItemIds(unit,lesson)
-              const progress = textbookProgress[lesson.unitId]
-              const done = ids.filter(id=>progress?.answers[id]?.resolved).length
-              const complete = ids.length>0 && done===ids.length
-              return (
-                <Link to={textbookLessonHref(lesson)} key={lesson.key}>
-                  <span className={`v2-lesson-status${complete?' is-complete':''}`}>{complete?<Check size={15}/>:lessonIndex+1}</span>
-                  <div><strong>{lesson.label}</strong><small>{done}/{ids.length}</small></div>
-                  <ArrowRight size={17}/>
-                </Link>
-              )
-            })
             return (
               <article className="v2-course-card" key={chapter.key}>
                 <header>
@@ -152,34 +136,25 @@ export function LearningHubPage() {
                 </header>
                 <div className="v2-progress-line v2-progress-line--small"><span style={{ width: `${percent}%` }} /></div>
                 <div className="v2-lesson-list">
-                  {chapter.key === 'math-golden-sets-propositions'
-                    ? (
-                        <div className="v2-golden-chapter">
-                          <nav className="v2-golden-subchapter-nav" role="tablist" aria-label={text('集合と命題の小章', '集合与命题小章节')}>
-                            {(['集合','命題','証明'] as const).map(group => {
-                              const lessons = chapter.lessons.filter(lesson=>lesson.group===group)
-                              return <button key={group} type="button" role="tab"
-                                aria-selected={goldenSubchapter === group}
-                                data-testid={`golden-subchapter-${group}`}
-                                onClick={() => setGoldenSubchapter(group)}>
-                                <strong>{group}</strong>
-                                <small>{lessons.length} {text('項目', '个知识点')}</small>
-                              </button>
-                            })}
-                          </nav>
-                          <section className="v2-golden-chapter-lessons" role="tabpanel"
-                            aria-label={goldenSubchapter} data-testid="golden-knowledge-list">
-                            <h3>{goldenSubchapter}</h3>
-                            {goldenSubchapter !== '集合' && <p className="v2-golden-review-note">
-                              {text('この教材はレビュー中です。全小節を試せますが、完成版としては未承認です。',
-                                '本部分仍在审核，全部知识点可试玩，但尚未批准为完成版。')}
-                            </p>}
-                            {renderLessonLinks(chapter.lessons.filter(lesson=>lesson.group===goldenSubchapter))}
-                          </section>
-                        </div>
-                      )
-                    : renderLessonLinks(chapter.lessons)}
-
+                  {chapter.lessons.map((lesson, lessonIndex) => {
+                    const unit = units.find((item) => item.unitId === lesson.unitId)
+                    const ids = textbookLessonItemIds(unit, lesson)
+                    const progress = textbookProgress[lesson.unitId]
+                    const done = ids.filter((id) => progress?.answers[id]?.resolved).length
+                    const complete = ids.length > 0 && done === ids.length
+                    return (
+                      <Fragment key={lesson.key}>
+                        {lesson.group && (lessonIndex === 0 || chapter.lessons[lessonIndex - 1]?.group !== lesson.group) && (
+                          <h3 className="reading-topic-title">{lesson.group}</h3>
+                        )}
+                        <Link to={textbookLessonHref(lesson)}>
+                        <span className={`v2-lesson-status${complete ? ' is-complete' : ''}`}>{complete ? <Check size={15} /> : lessonIndex + 1}</span>
+                        <div><strong>{lesson.label}</strong><small>{done}/{ids.length}</small></div>
+                          <ArrowRight size={17} />
+                        </Link>
+                      </Fragment>
+                    )
+                  })}
                 </div>
               </article>
             )
