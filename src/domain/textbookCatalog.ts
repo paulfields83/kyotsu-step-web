@@ -9,6 +9,7 @@ export type TextbookLessonTarget = {
   sectionId?: string
   sectionIds?: string[]
   topicPrefix?: string
+  group?: '集合' | '命題' | '証明'
 }
 
 export type TextbookChapter = {
@@ -54,38 +55,42 @@ function physicsChapterNumber(unit: PublicTextbookUnit) {
 function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
   const chapters: TextbookChapter[] = []
 
-  const hasGoldenSetChapter = units.some((unit) => unit.unitId === 'math-sets')
-  const hasStrictSetsPropositions = units.some((unit) => unit.unitId === 'math-1a-sets-propositions')
-  const hasRevisedNumbersExpressions = units.some((unit) => unit.unitId === 'math-1a-numbers-expressions-revised')
+  const goldenGroups = [
+    { unitId:'math-sets', group:'集合' as const },
+    { unitId:'math-propositions-reading', group:'命題' as const },
+    { unitId:'math-quantifiers-all-exists', group:'命題' as const },
+    { unitId:'math-propositions-proof', group:'証明' as const },
+  ]
+  const goldenUnitIds = new Set(goldenGroups.map(x=>x.unitId))
+  const hasGoldenSetChapter = units.some(unit=>goldenUnitIds.has(unit.unitId))
+  const hasStrictSetsPropositions = units.some(unit=>unit.unitId==='math-1a-sets-propositions')
+  const hasRevisedNumbersExpressions = units.some(unit=>unit.unitId==='math-1a-numbers-expressions-revised')
+  let insertedGolden = false
   for (const unit of units) {
-    // Hide the old numbers-and-expressions text only when the backend offers the revised source.
     if (hasRevisedNumbersExpressions && unit.unitId === 'math-1a-numbers-expressions') continue
     if (hasStrictSetsPropositions && unit.unitId === 'math-1a-sets-propositions-trial') continue
-    // Use the validated textbook factory sources for the entire chapter.
-    // Other content is visible for QA but remains explicitly review-only.
     if (hasGoldenSetChapter && ['math-1a-sets-propositions','math-1a-sets-propositions-trial'].includes(unit.unitId)) continue
-    if (unit.unitId === 'math-sets') {
-      const goldenLessons = [
-        { id: 'math-sets', label: '集合（完成版）' },
-        { id: 'math-propositions-reading', label: '命題（レビュー中）' },
-        { id: 'math-quantifiers-all-exists', label: '「すべて」と「ある」（レビュー中）' },
-        { id: 'math-propositions-proof', label: '命題の証明（レビュー中）' },
-      ]
-      chapters.push({
-        key: 'math-golden-sets-propositions',
-        label: '集合と命題',
-        order: 30,
-        lessons: goldenLessons.filter(lesson => units.some(candidate => candidate.unitId === lesson.id))
-          .map(lesson => ({
-            key: 'math-golden-' + lesson.id,
-            label: lesson.label,
-            unitId: lesson.id,
-            kind: 'unit' as const,
-          })),
-      })
+    if (goldenUnitIds.has(unit.unitId)) {
+      if (!insertedGolden) {
+        insertedGolden = true
+        const lessons:TextbookLessonTarget[] = goldenGroups.flatMap(meta=> {
+          const source = units.find(candidate=>candidate.unitId===meta.unitId)
+          if(!source) return []
+          return source.sections.map(section=>({
+            key:'math-golden-'+meta.unitId+'-'+section.id,
+            label:section.number+' '+section.title,
+            unitId:meta.unitId,
+            kind:'section' as const,
+            sectionId:section.id,
+            group:meta.group,
+          }))
+        })
+        chapters.push({
+          key:'math-golden-sets-propositions',label:'集合と命題',order:30,lessons,
+        })
+      }
       continue
     }
-    if (['math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof'].includes(unit.unitId)) continue
 
     if (unit.unitId === 'math-1a-sets-propositions') {
       chapters.push({
@@ -202,7 +207,12 @@ function physicsChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
 }
 
 export function buildTextbookChapters(units: PublicTextbookUnit[], subject: Question['subject']) {
-  const subjectUnits = units.filter((unit) => unit.subject === subject && unit.status === 'published')
+  // The three GOLDEN proposition sources are review-only but available for
+  // evaluation in this test UI; the catalog never promotes other review drafts.
+  const sourceReviewIds = new Set(['math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof'])
+  const subjectUnits = units.filter((unit) => unit.subject === subject && (
+    unit.status === 'published' || (unit.status === 'review' && sourceReviewIds.has(unit.unitId))
+  ))
   const chapters = subject === 'physics' ? physicsChapters(subjectUnits) : mathChapters(subjectUnits)
   return chapters.sort((a, b) => a.order - b.order || a.label.localeCompare(b.label, 'ja'))
 }
