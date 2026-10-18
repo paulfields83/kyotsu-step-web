@@ -114,7 +114,13 @@ export function LearningHubPage() {
           {loading && <div className="v2-empty-card">{text('教材を読み込んでいます…', '正在读取教材…')}</div>}
           {!loading && !chapters.length && <div className="v2-empty-card">{text('この科目の教材はまだありません。', '该科目暂时没有教材。')}</div>}
           {chapters.map((chapter, chapterIndex) => {
-            const lessonStats = (lesson:TextbookLessonTarget) => {
+            const lessonStats = (lesson:TextbookLessonTarget):{total:number;done:number} => {
+              if (lesson.kind === 'chapter-group') {
+                return (lesson.topics ?? []).reduce((total,topic) => {
+                  const next=lessonStats(topic)
+                  return {total:total.total+next.total,done:total.done+next.done}
+                }, {total:0,done:0})
+              }
               const sources = lesson.kind === 'cross-unit-group'
                 ? (lesson.sectionRefs ?? []).map(ref=>{
                     const unit = units.find(candidate=>candidate.unitId===ref.unitId)
@@ -146,7 +152,7 @@ export function LearningHubPage() {
                     const complete = stats.total > 0 && stats.done === stats.total
                     return (
                       <Fragment key={lesson.key}>
-                        {lesson.group && (lessonIndex === 0 || chapter.lessons[lessonIndex - 1]?.group !== lesson.group) && (
+                        {lesson.group && lesson.kind !== 'chapter-group' && (lessonIndex === 0 || chapter.lessons[lessonIndex - 1]?.group !== lesson.group) && (
                           <h3 className="reading-topic-title">{lesson.group}</h3>
                         )}
                         <Link to={textbookLessonHref(lesson)}>
