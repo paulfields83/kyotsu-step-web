@@ -249,7 +249,21 @@ function physicsChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
 
   const revisedOne=grouped.get('physics-1')
   const revisedLessons=revisedOne?.lessons.filter(lesson=>lesson.unitId.endsWith('-revised')) ?? []
-  if(revisedOne && revisedLessons.length===7){
+  if(revisedOne && revisedLessons.length>0){
+    // This lookup is also called with just the open lesson (not the whole
+    // catalog). The canonical ZIP map must remain complete even then.
+    const canonical=[
+      {code:'1A',unitId:'physics-a-displacement-velocity-revised',label:'1A 変位と速度'},
+      {code:'1B',unitId:'physics-1b-velocity-composition-revised',label:'1B 速度の合成と分解'},
+      {code:'1C',unitId:'physics-1c-relative-velocity-revised',label:'1C 相対速度'},
+      {code:'1D',unitId:'physics-1d-acceleration-revised',label:'1D 加速度'},
+      {code:'1E',unitId:'physics-1e-horizontal-projectile-revised',label:'1E 水平投射'},
+      {code:'1F',unitId:'physics-1f-oblique-projectile-revised',label:'1F 斜方投射'},
+      {code:'1G',unitId:'physics-1g-gravity-drag-terminal-velocity-revised',label:'1G 重力加速度・空気抵抗・終端速度'},
+    ]
+    const fullTopics:TextbookLessonTarget[]=canonical.map(meta=>
+      revisedLessons.find(lesson=>lesson.unitId===meta.unitId) ??
+      {key:meta.unitId,label:meta.label,unitId:meta.unitId,kind:'unit'})
     const groupDefs=[
       {id:'represent',label:'第1節　運動を表す',codes:['1A','1B','1C']},
       {id:'change',label:'第2節　速度の変化',codes:['1D','1E','1F']},
@@ -257,10 +271,8 @@ function physicsChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
     ]
     revisedOne.label='物体の運動（改訂版）'
     revisedOne.lessons=groupDefs.map(meta=>{
-      const topics=revisedLessons.filter(topic=>{
-        const owner=visibleUnits.find(unit=>unit.unitId===topic.unitId)
-        return owner && meta.codes.includes(physicsUnitCode(owner)??'')
-      }).sort((a,b)=>a.label.localeCompare(b.label,'ja'))
+      const topics=canonical.filter(item=>meta.codes.includes(item.code))
+        .map(item=>fullTopics.find(topic=>topic.unitId===item.unitId)!)
       return {
         key:'physics-revised-ch01-'+meta.id,
         label:meta.label,
