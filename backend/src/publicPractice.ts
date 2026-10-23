@@ -2,7 +2,16 @@ import type { PracticeQuestion } from './practiceSchema'
 
 function normalizeLatex(value: string) {
   const slash = String.fromCharCode(92)
-  return value.split(slash + slash).join(slash).replace(/□/g, slash + 'square ')
+  // A math box inside \text{...} must be extracted back to math mode.
+  // KaTeX cannot typeset \square inside a text-mode argument.
+  const normalized=value.split(slash + slash).join(slash)
+  return normalized
+    .replace(/\\text\{([^{}]*)\}/g,(original,text:string)=>{
+      if(!text.includes('□'))return original
+      return text.split('□').map((chunk,i)=>
+        (i?slash+'square ':'')+(chunk?slash+'text{'+chunk+'}':'')).join('')
+    })
+    .replace(/□/g,slash+'square ')
 }
 
 function publicContentBlocks(blocks: PracticeQuestion['stem']) {
