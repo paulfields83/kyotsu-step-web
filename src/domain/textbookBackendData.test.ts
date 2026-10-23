@@ -222,15 +222,20 @@ describe('backend textbook data', () => {
 
     const physicsChapters = buildTextbookChapters(publicUnits, 'physics')
     expect(physicsChapters.map((chapter) => chapter.label)).toEqual([
-      '運動の表し方',
+      '物体の運動（改訂版）',
       '剛体にはたらく力',
       '運動量と衝突',
       '円運動と単振動',
       '万有引力と天体運動',
     ])
-    expect(physicsChapters[0].lessons[0].label).toBe('1A 変位と速度')
-    expect(physicsChapters[0].lessons[1].label).toMatch(/^1B /)
-    expect(physicsChapters[0].lessons[2].label).toMatch(/^1C /)
+    const physicsRevised=physicsChapters[0]
+    expect(physicsRevised.lessons.map(lesson=>lesson.label))
+      .toEqual(['第1節　運動を表す','第2節　速度の変化','第3節　力と運動'])
+    expect(physicsRevised.lessons.map(lesson=>lesson.topics?.length)).toEqual([3,3,1])
+    expect(physicsRevised.lessons.flatMap(lesson=>lesson.topics??[])
+      .every(lesson=>lesson.unitId.endsWith('-revised'))).toBe(true)
+    expect(physicsRevised.lessons[0].topics?.map(lesson=>lesson.label))
+      .toEqual(['1A 変位と速度','1B 速度の合成と分解','1C 相対速度'])
   })
 
   it('keeps the standalone Math A 集合 source data hidden because it overlaps 集合と命題', () => {
