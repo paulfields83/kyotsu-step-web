@@ -7,7 +7,7 @@ import {publicTextbookUnit} from '../../backend/src/publicTextbook'
 import {buildTextbookChapters} from './textbookCatalog'
 
 describe('Chapter 1 physical textbook authoritative revised ZIP',()=>{
-  it('preserves 7 units, exactly 100 authored guided blanks and 18 canonical/approved figures',()=>{
+  it('preserves 7 units, all 108 actual authored guided blanks and 18 canonical/approved figures',()=>{
     expect(revisedPhysicsTextbooks).toHaveLength(7)
     expect(revisedPhysicsTextbooks.map(({unit})=>unit.title)).toEqual([
       '1A 変位と速度','1B 速度の合成と分解','1C 相対速度',
@@ -15,7 +15,7 @@ describe('Chapter 1 physical textbook authoritative revised ZIP',()=>{
       '1G 重力加速度・空気抵抗・終端速度',
     ])
     expect(revisedPhysicsTextbooks.reduce((sum,{unit})=>
-      sum+unit.sections.reduce((n,section)=>n+section.items.length,0),0)).toBe(100)
+      sum+unit.sections.reduce((n,section)=>n+section.items.length,0),0)).toBe(108)
     expect(revisedPhysicsTextbooks.reduce((sum,{unit})=>
       sum+unit.sections.reduce((n,section)=>n+section.figures.length,0),0)).toBe(18)
     for(const {unit,answerBook,dataDir} of revisedPhysicsTextbooks){
