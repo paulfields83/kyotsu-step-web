@@ -45,6 +45,28 @@ describe('ZIP 31 practice questions source-to-student display audit',()=>{
     expect(suspicious,'identical options: '+suspicious.join(', ')).toEqual([])
     expect(total).toBeGreaterThan(150)
   })
+  it('removes all-A answer-key bias while preserving every option ID and correct mapping',()=>{
+    let authoredFirst=0,servedFirst=0,total=0
+    for(const question of zipPracticeQuestions){
+      const served=publicPracticeQuestion(question)
+      const servedById=new Map(served.blanks.map(blank=>[blank.id,blank]))
+      for(const sourceBlank of question.blanks){
+        const publicBlank=servedById.get(sourceBlank.id)!
+        const correctId=sourceBlank.correctOptionIds[0]
+        total++
+        if(sourceBlank.options[0].id===correctId)authoredFirst++
+        if(publicBlank.options[0].id===correctId)servedFirst++
+        expect(new Set(publicBlank.options.map(option=>option.id))).toEqual(
+          new Set(sourceBlank.options.map(option=>option.id)),
+        )
+        expect(publicPracticeQuestion(question).blanks.find(blank=>blank.id===sourceBlank.id)?.options)
+          .toEqual(publicBlank.options)
+      }
+    }
+    expect(authoredFirst/total).toBeGreaterThan(0.9)
+    expect(servedFirst/total).toBeLessThan(0.65)
+    expect(servedFirst/total).toBeGreaterThan(0.1)
+  })
   it('does not publicly expose correct IDs, wrong reasons or model answers',()=>{
     for(const question of zipPracticeQuestions){
       const published=publicPracticeQuestion(question)
