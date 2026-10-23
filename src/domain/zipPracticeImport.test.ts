@@ -3,7 +3,7 @@ import {loadedPracticeUnits} from '../../backend/src/practiceData'
 import {zipPracticeCatalog,zipPracticeQuestions,zipPracticeSourceNumbers} from '../../backend/src/zipPracticeImport'
 import {publicPracticeQuestion} from '../../backend/src/publicPractice'
 
-describe('ZIP 4STEP guided practice mode phase-1 import',()=>{
+describe('ZIP 4STEP guided practice mode public 31-question import',()=>{
   it('preserves the 31 authored 87–117 questions without replacing legacy 36',()=>{
     expect(zipPracticeQuestions).toHaveLength(31)
     expect(zipPracticeSourceNumbers).toEqual(Array.from({length:31},(_,i)=>i+87))
@@ -14,10 +14,10 @@ describe('ZIP 4STEP guided practice mode phase-1 import',()=>{
     expect(legacy.questions.filter(q=>q.status==='published')).toHaveLength(36)
     expect(loadedPracticeUnits.find(u=>u.catalog.majorUnit.id===zipPracticeCatalog.majorUnit.id)?.questions).toHaveLength(31)
   })
-  it('publishes only pilot 87 while remaining originals await stage/figure QA',()=>{
+  it('publishes every 4STEP question independently, without requiring earlier questions',()=>{
     expect(zipPracticeQuestions.filter(q=>q.status==='published').map(q=>q.questionId))
-      .toEqual(['zip4step-087'])
-    expect(zipPracticeQuestions.filter(q=>q.status==='review')).toHaveLength(30)
+      .toEqual(Array.from({length:31},(_,i)=>'zip4step-'+String(i+87).padStart(3,'0')))
+    expect(zipPracticeQuestions.filter(q=>q.status==='review')).toHaveLength(0)
     const pilot=zipPracticeQuestions.find(q=>q.questionId==='zip4step-087')!
     expect(pilot.blanks).toHaveLength(10)
     expect(pilot.stem.map(block=>block.type)).toContain('latex')
