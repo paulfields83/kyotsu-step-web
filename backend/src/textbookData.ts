@@ -6,6 +6,7 @@ import { TextbookAnswerBookSchema, TextbookUnitSchema, type TextbookAnswerBook, 
 import { loadGoldenMathTextbooks } from './goldenMath/importGoldenMath'
 import { applyMathLearningFigures } from './mathLearningFigures'
 import { loadRevisedNumbersExpressions } from './revisedNumbersExpressions'
+import {revisedPhysicsTextbooks} from './zipPhysics/importRevisedPhysics'
 import { assertTextbookContract, type TextbookContractReport } from './textbookContract'
 
 export type LoadedTextbookUnit = {
@@ -152,6 +153,7 @@ const loadedUnits: LoadedTextbookUnit[] = [
   ...generatedTextbooks,
   ...jsonTextbooks,
   loadRevisedNumbersExpressions(),
+  ...revisedPhysicsTextbooks,
 ]
 
 export const textbookContractReports: TextbookContractReport[] = loadedUnits.map(({ unit, answerBook }) => (
