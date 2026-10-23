@@ -314,7 +314,6 @@ function parseUnit(meta: UnitMeta, next?: UnitCode) {
         src: 'assets/' + appAsset.split('/').pop(),
         alt: `${caption.replace(/^図\d+\s*/, '')}を示す学習図`,
         caption,
-        overlays: [],
       })
       figureIndex += 1
       blocks.push({ id: `figure-block-${figureIndex}`, type: 'figure', figureId })
