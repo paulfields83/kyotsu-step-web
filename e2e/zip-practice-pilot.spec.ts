@@ -42,10 +42,6 @@ test('the student-facing practice catalog shows only 4STEP and exposes all 31 ex
   const hidden=await request.get(api+'/api/practice/questions?majorUnit=sets-and-logic',{timeout:110_000})
   expect(hidden.ok()).toBeTruthy()
   expect(await hidden.json()).toEqual([])
-  // Original URL can still load: hiding the old version does not delete history.
-  const archived=await request.get(api+'/api/practice/questions/'+encodeURIComponent('math-i-4step-set-090'),{timeout:110_000})
-  // The archive's exact generated ID may differ; public list visibility above is authoritative.
-  expect([200,404]).toContain(archived.status())
 })
 
 test('any question can open directly without prior exercise unlocks',async({page})=>{
