@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { gunzipSync } from 'node:zlib'
+import { zipPracticeCatalog, zipPracticeQuestions } from './zipPracticeImport'
 import {
   PracticeCatalogSchema,
   PracticeQuestionSetSchema,
@@ -104,7 +105,15 @@ function loadPracticeUnits(): LoadedPracticeUnit[] {
   })
 }
 
-export const loadedPracticeUnits = loadPracticeUnits()
+// Kept separate from the existing 36-question bank so a trial import cannot
+// overwrite production history. Both are served through the SAME practice API.
+const zipPracticeUnit:LoadedPracticeUnit={
+  catalog:zipPracticeCatalog,
+  questions:zipPracticeQuestions,
+  dataDir:join(dataRoot,'_zip-practice-review-source'),
+}
+validateHierarchy(zipPracticeUnit.catalog,zipPracticeUnit.questions)
+export const loadedPracticeUnits = [...loadPracticeUnits(),zipPracticeUnit]
 
 export function findPracticeQuestion(questionId: string) {
   for (const unit of loadedPracticeUnits) {
