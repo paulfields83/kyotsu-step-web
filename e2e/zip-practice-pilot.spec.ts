@@ -49,3 +49,25 @@ test('any question can open directly without prior exercise unlocks',async({page
   await expect(page.locator('.session-header h1')).toContainText('4STEP 117',{timeout:110_000})
   await expect(page.locator('.practice-blank-line').first()).toBeVisible()
 })
+
+
+test('all 31 published 4STEP practice pages render without corrupt text, math errors or dead first steps',async({page})=>{
+  for(let n=87;n<=117;n++){
+    const id='zip4step-'+String(n).padStart(3,'0')
+    await page.goto('/#/practice/session/'+id,{waitUntil:'domcontentloaded'})
+    await expect(page.locator('.session-header h1'),id).toContainText('4STEP '+n,{timeout:110_000})
+    await expect(page.locator('.question-paper .content-renderer'),id).toBeVisible()
+    await expect(page.locator('.practice-blank-line').first(),id).toBeVisible()
+    await expect(page.locator('.katex-error'),id).toHaveCount(0)
+    const first=page.locator('.reading-inline-blank').first()
+    await expect(first,id).toBeVisible()
+    await first.click()
+    await expect(page.locator('.reading-inline-choice-panel .reading-choice-option').first(),id).toBeVisible()
+    const visible=await page.locator('.learning-page').innerText()
+    expect(visible,id).not.toContain('\uFFFD')
+    expect(visible,id).not.toMatch(/ãƒ|ã‚|ï¿½|â€/)
+    await expect(page.locator('.reading-inline-choice-panel .reading-choice-option'),id).toHaveCount(
+      await page.locator('.reading-inline-choice-panel .reading-choice-option').count(),
+    )
+  }
+})
