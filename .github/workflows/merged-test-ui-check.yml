@@ -28,4 +28,4 @@ jobs:
         env:
           VITE_API_BASE_URL: https://kyotsu-step-db-merged-preview.onrender.com
           E2E_BASE_URL: https://kyotsu-step-ui-merged-preview.onrender.com
-        run: pnpm exec playwright test e2e/revised-live-integration.spec.ts --workers=1 --retries=0
+        run: pnpm exec playwright test e2e/revised-live-integration.spec.ts e2e/zip-practice-pilot.spec.ts --workers=1 --retries=0
