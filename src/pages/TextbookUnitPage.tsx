@@ -783,7 +783,7 @@ function GoldenChapterGroupPage({
     if(topic.key==='math-golden-proposition-conditions')return '2.2～2.4'
     if(topic.key==='math-golden-proposition-negation-quantifiers')return '2.5～2.7'
     if(topic.kind==='unit'&&rootUnit.subject==='physics')
-      return topic.label.match(/^\\d+[A-G]/)?.[0] ?? String(index+1)
+      return topic.label.match(/^\d+[A-G]/)?.[0] ?? String(index+1)
     if(topic.kind==='section'&&topic.sectionId)return sourceOf(topic.unitId)
       ?.sections.find(section=>section.id===topic.sectionId)?.number??String(index+1)
     return String(index+1)
@@ -853,6 +853,8 @@ export function TextbookUnitPage() {
   const [searchParams] = useSearchParams()
   const targetKey = searchParams.get('target')
   const requestedSectionId = searchParams.get('section')
+  const isRevisedPhysicsGroup = Boolean(targetKey?.startsWith('physics-revised-ch01-'))
+  const [physicsChapterUnits, setPhysicsChapterUnits] = useState<PublicTextbookUnit[] | null | undefined>(undefined)
   const [unit, setUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
   const [companionUnit, setCompanionUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0)
@@ -872,6 +874,21 @@ export function TextbookUnitPage() {
     })
     return () => { active = false }
   }, [unitId])
+
+  // Chapter 1 spans seven separately owned units. A single unit cannot reconstruct
+  // the three chapter-group navigation rows or their topic tiles by itself.
+  useEffect(() => {
+    if (!isRevisedPhysicsGroup) {
+      setPhysicsChapterUnits(undefined)
+      return
+    }
+    let active = true
+    setPhysicsChapterUnits(undefined)
+    textbookRepository.listPublished()
+      .then(value => { if (active) setPhysicsChapterUnits(value) })
+      .catch(() => { if (active) setPhysicsChapterUnits(null) })
+    return () => { active = false }
+  }, [isRevisedPhysicsGroup])
 
   // 2.5–2.7 spans two original ZIP units. Load both without migrating IDs
   // or progress records between their original owning units.
@@ -905,8 +922,11 @@ export function TextbookUnitPage() {
   if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
   if (isCrossUnitLesson && companionUnit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
   if (isCrossUnitLesson && companionUnit === null) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('量詞の教材データを読み込めませんでした。', '无法加载量词教材数据。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
+  if (isRevisedPhysicsGroup && physicsChapterUnits === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
+  if (isRevisedPhysicsGroup && physicsChapterUnits === null) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('物理の章立てデータを取得できませんでした。', '无法获取物理章节目录。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
 
-  const targetMatch = targetKey ? findTextbookLessonTarget([unit], targetKey) : undefined
+  const targetMatch = targetKey ? findTextbookLessonTarget(isRevisedPhysicsGroup ? physicsChapterUnits ?? [unit] : [unit], targetKey) : undefined
+  if (isRevisedPhysicsGroup && !targetMatch) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('改訂版1A～1Gの目次が揃っていません。', '改订版1A～1G的目录数据不完整。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
   const lessonTarget = targetMatch?.lesson
   const groupedSection = lessonTarget ? groupedLessonSection(unit, lessonTarget) : undefined
   const crossParts = lessonTarget?.kind === 'cross-unit-group'
