@@ -18,6 +18,7 @@ describe('ZIP 31 practice questions source-to-student display audit',()=>{
         expect(text,question.questionId+' '+block.id).not.toMatch(control)
         if(block.type!=='latex')continue
         formulas++
+        expect(block.latex,question.questionId+' '+block.id+' uses an unsupported box glyph').not.toContain('□')
         expect(()=>katex.renderToString(block.latex,{throwOnError:true,strict:'ignore'}),question.questionId+' '+block.id+' '+block.latex).not.toThrow()
       }
     }
