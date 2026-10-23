@@ -407,7 +407,7 @@ export const revisedPhysicsTextbooks = rawChapter1Units.map((raw,index)=>{
     title:meta.code+' '+meta.title,
     subtitle:'第1章 物体の運動（改訂版）',
     source:{type:'reference',label:'CH1_LEARNING_TEXT.md (2026-10-03)',
-      rightsNote:'ユーザー提供の改訂版：第1章 1A～1G、canonical 17図＋補助図1、100穴。'},
+      rightsNote:'ユーザー提供の改訂版：第1章 1A～1G、canonical 17図＋補助図1、実本文の108穴（冒頭ヘッダーの100は旧集計）。'},
     objectives:raw.objectives,
     sections:raw.sections.map(section=>({
       id:section.id,number:section.number,title:section.title,
