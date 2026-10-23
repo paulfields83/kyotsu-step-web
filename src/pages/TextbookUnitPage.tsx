@@ -184,7 +184,7 @@ function renderPart(
   if (!item) return null
   const record = progress?.answers[item.id]
   if (record?.resolved) return renderResolvedChoice(item, record)
-  return renderActiveChoice(item, record?.firstValue, Boolean(record && !record.resolved), onOpen, text)
+  return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text)
 }
 
 function TextbookReadingFlow({ unit, section, progress }: {
@@ -214,7 +214,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem?.choices ?? []
-  const activeWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
+  const activeWrongResult = Boolean(activeRecord && !activeRecord.resolved && activeRecord.attemptCount > 0)
+  const activeRevealedWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
   const selectChoice = async (choice: string) => {
     if (!activeItem || activeRecord?.resolved || submittingItemId) return
     setSubmitError('')
@@ -247,8 +248,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
         </div>
         {activeChoices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
           {activeChoices.map((choice, index) => {
-            const selectedWrong = Boolean(activeWrongResult && (activeRecord?.firstValue ?? activeRecord?.value) === choice)
-            const revealedCorrect = Boolean(activeWrongResult && activeRecord?.value === choice)
+            const selectedWrong = Boolean((activeWrongResult || activeRevealedWrongResult) && activeRecord?.value === choice)
+            const revealedCorrect = Boolean(activeRevealedWrongResult && activeRecord?.value === choice)
             return (
               <button
                 type="button"
@@ -288,6 +289,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
           </p>
         )}
         {activeWrongResult && (
+          <p className="reading-inline-choice-error" data-testid={`textbook-retry-${activeItem.id}`} role="status">
+            {text('不正解です。ヒントを参考に、もう一度考えて選びましょう。', '回答错误。请参考提示，再思考后重新选择。')}
+          </p>
+        )}
+        {activeRevealedWrongResult && (
           <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
             {text('不正解です。正解は「', '回答错误。正确答案是「')}<GuidedChoiceValue value={activeRecord?.value ?? ''} />{text('」です。', '」。')}
           </p>
@@ -428,9 +434,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
     if (block.type !== 'paragraph' && block.type !== 'formula') return null
 
-    // In mathematics, do not display the remainder of a formula or paragraph
-    // after its first unanswered interactive blank.
-    const firstUnansweredPart = unit.subject === 'math-1a'
+    // Mathematics and revised Chapter-1 physics reveal the textbook one
+    // reasoning decision at a time. Legacy physics reading is unaffected.
+    const guidedReading = unit.subject === 'math-1a'
+      || (unit.subject === 'physics' && unit.unitId.endsWith('-revised'))
+    const firstUnansweredPart = guidedReading
       ? block.parts.findIndex((part) => (
           part.type === 'choice' ? !progress?.answers[part.itemId]?.resolved
             : part.type === 'math' && (part.holeIds ?? []).some((id) => !progress?.answers[id]?.resolved)
@@ -608,6 +616,14 @@ function TextbookReadingFlow({ unit, section, progress }: {
     return rendered
   }
 
+  const guidedRevisedPhysics = unit.subject === 'physics' && unit.unitId.endsWith('-revised')
+  const firstPendingPhysicsBlock = guidedRevisedPhysics
+    ? section.readingFlow.findIndex((block) =>
+        blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
+    : -1
+  const visiblePhysicsBlockIds = guidedRevisedPhysics && firstPendingPhysicsBlock >= 0
+    ? new Set(section.readingFlow.slice(0, firstPendingPhysicsBlock + 1).map((block) => block.id))
+    : undefined
   const displayedGroups = hasTopicNavigation
     ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0)))
     : groups
@@ -654,7 +670,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
           ? group.findIndex((block) => (block.type === 'paragraph' || block.type === 'formula')
             && blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
           : -1
-        const visibleGroup = unansweredBlock < 0 ? group : group.slice(0, unansweredBlock + 1)
+        const mathVisibleGroup = unansweredBlock < 0 ? group : group.slice(0, unansweredBlock + 1)
+        const visibleGroup = visiblePhysicsBlockIds
+          ? mathVisibleGroup.filter((block) => visiblePhysicsBlockIds.has(block.id))
+          : mathVisibleGroup
+        if (!visibleGroup.length) return null
         const groupIndex = groups.indexOf(group)
         const groupItemIds = readingGroupItemIds(group)
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
