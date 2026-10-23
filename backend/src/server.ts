@@ -322,10 +322,15 @@ const server = createServer(async (request, response) => {
       if (!value.trim()) return sendJson(request, response, 400, { error: 'answer value is required' })
 
       const correct = isTextbookAnswerCorrect(answer, value)
+      // The revised Chapter-1 physics textbook follows the same guided-learning
+      // contract as mathematics: a wrong answer must not unlock the rest of
+      // the reading or disclose the answer key. Legacy physics stays unchanged.
+      const isGuidedRevisedPhysics = loaded.unit.subject === 'physics'
+        && loaded.unit.unitId.endsWith('-revised')
       return sendJson(request, response, 200, {
         correct,
-        resolved: true,
-        ...(correct ? {} : { correctAnswer: answer.answer }),
+        resolved: isGuidedRevisedPhysics ? correct : true,
+        ...(correct || isGuidedRevisedPhysics ? {} : { correctAnswer: answer.answer }),
       })
     } catch (error) {
       return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
