@@ -220,9 +220,15 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
 }
 
 function physicsChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
+  const revisedCodes = new Set(units
+    .filter(unit=>unit.unitId.endsWith('-revised'))
+    .map(physicsUnitCode).filter(Boolean))
+  // The original Chapter 1 is archived as soon as its corresponding revised
+  // source is present; legacy IDs and answer histories remain untouched.
+  const visibleUnits=units.filter(unit=>
+    unit.unitId.endsWith('-revised') || !revisedCodes.has(physicsUnitCode(unit)))
   const grouped = new Map<string, TextbookChapter>()
-
-  for (const unit of units) {
+  for (const unit of visibleUnits) {
     const chapterNumber = physicsChapterNumber(unit)
     const meta = chapterNumber ? physicsChapterMeta[chapterNumber] : undefined
     const key = chapterNumber ? `physics-${chapterNumber}` : `physics-${unit.unitId}`
@@ -239,6 +245,30 @@ function physicsChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
       kind: 'unit',
     })
     grouped.set(key, current)
+  }
+
+  const revisedOne=grouped.get('physics-1')
+  const revisedLessons=revisedOne?.lessons.filter(lesson=>lesson.unitId.endsWith('-revised')) ?? []
+  if(revisedOne && revisedLessons.length===7){
+    const groupDefs=[
+      {id:'represent',label:'第1節　運動を表す',codes:['1A','1B','1C']},
+      {id:'change',label:'第2節　速度の変化',codes:['1D','1E','1F']},
+      {id:'force',label:'第3節　力と運動',codes:['1G']},
+    ]
+    revisedOne.label='物体の運動（改訂版）'
+    revisedOne.lessons=groupDefs.map(meta=>{
+      const topics=revisedLessons.filter(topic=>{
+        const owner=visibleUnits.find(unit=>unit.unitId===topic.unitId)
+        return owner && meta.codes.includes(physicsUnitCode(owner)??'')
+      }).sort((a,b)=>a.label.localeCompare(b.label,'ja'))
+      return {
+        key:'physics-revised-ch01-'+meta.id,
+        label:meta.label,
+        unitId:topics[0].unitId,
+        kind:'chapter-group' as const,
+        topics,
+      }
+    })
   }
 
   return [...grouped.values()].map((chapter) => ({
