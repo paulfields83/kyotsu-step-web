@@ -2,7 +2,7 @@ import type { PracticeQuestion } from './practiceSchema'
 
 function normalizeLatex(value: string) {
   const slash = String.fromCharCode(92)
-  return value.split(slash + slash).join(slash)
+  return value.split(slash + slash).join(slash).replace(/□/g, slash + 'square ')
 }
 
 function publicContentBlocks(blocks: PracticeQuestion['stem']) {
