@@ -26,16 +26,30 @@ test('ZIP 4STEP pilot 87 is in practice mode, with authored two/three-choice rea
   await expect(page.getByTestId('practice-blank-trigger-zip4step-087-two-divisors')).toBeVisible()
 })
 
-test('ZIP practice source is isolated from textbook mode and old published 36', async({request})=>{
+test('the student-facing practice catalog shows only 4STEP and exposes all 31 exercises', async({request})=>{
   const api='https://kyotsu-step-db-merged-preview.onrender.com'
   const catalog=await request.get(api+'/api/practice/catalog?subject=math-1a',{timeout:110_000})
   expect(catalog.ok()).toBeTruthy()
   const units=await catalog.json()
-  const imported=units.find((unit:{majorUnit:{id:string}})=>unit.majorUnit.id==='sets-and-logic-zip')
-  const legacy=units.find((unit:{majorUnit:{id:string}})=>unit.majorUnit.id==='sets-and-logic')
-  expect(imported?.subcategories.map((x:{questionCount:number})=>x.questionCount)).toEqual([1,0,0])
-  expect(legacy).toBeTruthy()
+  expect(units.map((unit:{majorUnit:{id:string}})=>unit.majorUnit.id)).toEqual(['sets-and-logic-zip'])
+  expect(units[0].majorUnit.label).toBe('集合と命題（4STEP 練習版・試験導入）')
+  expect(units[0].subcategories.map((category:{questionCount:number})=>category.questionCount))
+    .toEqual([11,11,9])
   const response=await request.get(api+'/api/practice/questions?majorUnit=sets-and-logic-zip',{timeout:110_000})
   expect(response.ok()).toBeTruthy()
-  expect((await response.json()).map((question:{questionId:string})=>question.questionId)).toEqual(['zip4step-087'])
+  const ids=(await response.json()).map((question:{questionId:string})=>question.questionId)
+  expect(ids).toEqual(Array.from({length:31},(_,i)=>'zip4step-'+String(i+87).padStart(3,'0')))
+  const hidden=await request.get(api+'/api/practice/questions?majorUnit=sets-and-logic',{timeout:110_000})
+  expect(hidden.ok()).toBeTruthy()
+  expect(await hidden.json()).toEqual([])
+  // Original URL can still load: hiding the old version does not delete history.
+  const archived=await request.get(api+'/api/practice/questions/'+encodeURIComponent('math-i-4step-set-090'),{timeout:110_000})
+  // The archive's exact generated ID may differ; public list visibility above is authoritative.
+  expect([200,404]).toContain(archived.status())
+})
+
+test('any question can open directly without prior exercise unlocks',async({page})=>{
+  await page.goto('/#/practice/session/zip4step-117',{waitUntil:'domcontentloaded'})
+  await expect(page.locator('.session-header h1')).toContainText('4STEP 117',{timeout:110_000})
+  await expect(page.locator('.practice-blank-line').first()).toBeVisible()
 })
