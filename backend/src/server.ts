@@ -9,6 +9,15 @@ import { findPracticeQuestion, loadedPracticeUnits } from './practiceData'
 import { publicPracticeQuestion, publicPracticeSummary } from './publicPractice'
 import { loadedPracticeSourceItems } from './practiceSourceData'
 
+// Hide only duplicated Chapter 1 physics source versions; keep older
+// Chapter 2–5 material visible until an actual revised source is supplied.
+function isArchivedPhysicsChapter1(unit:{subject:string;unitId:string}) {
+  return unit.subject==='physics'
+    && !unit.unitId.endsWith('-revised')
+    && (unit.unitId==='physics-a-displacement-velocity'
+      || /^physics-1[b-g]-/.test(unit.unitId))
+}
+
 const port = Number(process.env.PORT ?? 8787)
 const allowedOrigins = (process.env.FRONTEND_ORIGIN?.trim() || '*')
   .split(',')
@@ -146,6 +155,7 @@ const server = createServer(async (request, response) => {
       response,
       200,
       loadedTextbookUnits
+        .filter(({unit})=>!isArchivedPhysicsChapter1(unit))
         .filter(({ unit }) => unit.status === 'published' || (
           unit.status === 'review' && [
             'math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof',
@@ -255,6 +265,7 @@ const server = createServer(async (request, response) => {
   if (request.method === 'GET' && url.pathname === '/api/textbooks/export') {
     const subject = url.searchParams.get('subject')
     const units = loadedTextbookUnits
+      .filter(({unit})=>!isArchivedPhysicsChapter1(unit))
       .filter(({ unit }) => unit.status === 'published')
       .filter(({ unit }) => !subject || unit.subject === subject)
       .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook, apiOrigin))
