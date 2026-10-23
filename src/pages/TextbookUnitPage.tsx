@@ -749,7 +749,9 @@ function GoldenChapterGroupPage({
     id===rootUnit.unitId ? rootUnit : otherUnits[id]??undefined
 
   const partsFor=(topic:TextbookLessonTarget)=>{
-    const refs=topic.kind==='cross-unit-group' ? topic.sectionRefs??[]
+    const refs=topic.kind==='unit'
+      ? (sourceOf(topic.unitId)?.sections ?? []).map(section=>({unitId:topic.unitId,sectionId:section.id}))
+      : topic.kind==='cross-unit-group' ? topic.sectionRefs??[]
       : topic.kind==='section-group' ? (topic.sectionIds??[]).map(sectionId=>({unitId:topic.unitId,sectionId}))
       : topic.kind==='section' && topic.sectionId ? [{unitId:topic.unitId,sectionId:topic.sectionId}] : []
     return refs.flatMap(ref=>{
@@ -780,19 +782,22 @@ function GoldenChapterGroupPage({
   const numberFor=(topic:TextbookLessonTarget,index:number)=>{
     if(topic.key==='math-golden-proposition-conditions')return '2.2～2.4'
     if(topic.key==='math-golden-proposition-negation-quantifiers')return '2.5～2.7'
+    if(topic.kind==='unit'&&rootUnit.subject==='physics')
+      return topic.label.match(/^\\d+[A-G]/)?.[0] ?? String(index+1)
     if(topic.kind==='section'&&topic.sectionId)return sourceOf(topic.unitId)
       ?.sections.find(section=>section.id===topic.sectionId)?.number??String(index+1)
     return String(index+1)
   }
   const nameFor=(topic:TextbookLessonTarget)=>topic.label
-    .replace(/^(?:\d+\.\d+(?:～\d+\.\d+)?)[　\s]*/u,'')
+    .replace(/^(?:\d+\.\d+(?:～\d+\.\d+)?|\d+[A-G])[　\s]*/u,'')
   const title=chapterLabel+'：'+lesson.label
   return (
     <div className="page-stack textbook-page">
       <header className="session-header">
-        <div><p className="eyebrow">TEXTBOOK / MATH I・A</p><h1>{title}</h1></div>
+        <div><p className="eyebrow">{rootUnit.subject==='physics'?'TEXTBOOK / PHYSICS':'TEXTBOOK / MATH I・A'}</p><h1>{title}</h1></div>
         <StatusBadge>{rootUnit.status==='review' ? text('レビュー中（未承認）','审核中（未批准）')
-          : text('GOLDEN 完成版','GOLDEN 完成版')}</StatusBadge>
+          : rootUnit.subject==='physics' ? text('改訂版','改订版')
+            : text('GOLDEN 完成版','GOLDEN 完成版')}</StatusBadge>
       </header>
       <ProgressBar label={text('この学習項目の進み具合','本学习部分进度')}
         value={totals.completed} max={totals.total}/>
