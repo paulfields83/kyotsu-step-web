@@ -60,6 +60,31 @@ test('physics home and textbook pages reuse Math chapter rows then original topi
   }
 })
 
+
+test('all seven source-authored physics topics load their own first guided step through the three existing chapter rows',async({page})=>{
+  const cases=[
+    {group:'represent',index:0,id:codeToId[0],first:'a1',title:'変位と速度'},
+    {group:'represent',index:1,id:codeToId[1],first:'b1',title:'速度の合成と分解'},
+    {group:'represent',index:2,id:codeToId[2],first:'c2',title:'相対速度'},
+    {group:'change',index:0,id:codeToId[3],first:'d1',title:'加速度'},
+    {group:'change',index:1,id:codeToId[4],first:'e1',title:'水平投射'},
+    {group:'change',index:2,id:codeToId[5],first:'f1',title:'斜方投射'},
+    {group:'force',index:0,id:codeToId[6],first:'g0',title:'重力加速度'},
+  ]
+  for(const source of cases){
+    const route='/#/learning/textbook/'+source.id+
+      '?target=physics-revised-ch01-'+source.group+
+      '&topic='+encodeURIComponent(source.id)
+    await page.goto(route,{waitUntil:'domcontentloaded'})
+    const navigation=page.locator('.textbook-section-nav button')
+    await expect(navigation.nth(source.index)).toHaveAttribute('aria-pressed','true',{timeout:110_000})
+    await expect(page.locator('.textbook-section-heading h2')).toContainText(source.title)
+    await expect(page.getByTestId('textbook-item-'+source.first)).toBeVisible()
+    await expect(page.locator('.katex-error')).toHaveCount(0)
+    await expect(page.locator('.textbook-section')).not.toContainText('�')
+  }
+})
+
 test('revised physics answer choice is interactive and does not expose private keys',async({page})=>{
   await page.goto('/#/learning/textbook/'+codeToId[0]+'?target=physics-revised-ch01-represent',{waitUntil:'domcontentloaded'})
   const first=page.getByTestId('textbook-item-a1')
