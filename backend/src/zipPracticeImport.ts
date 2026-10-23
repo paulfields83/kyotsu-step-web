@@ -8,14 +8,14 @@ import { mathPracticePropositionsBatchBSource } from './zipPracticeSource/propos
 import { mathPracticeProofsBatchCSource } from './zipPracticeSource/proofsBatchC'
 import type { MathPracticeSourceBlock, MathPracticeSourceQuestion } from './zipPracticeSource/source'
 
-// Phase 1: preserve all 31 authored exercises, expose figure-free #87 pilot.
-// Other 30 need figure-timing, dependency, leakage and teaching-flow review.
+// All 31 authored 4STEP exercises are directly selectable in practice mode.
+// Each question keeps its own sequential in-question reasoning flow; there is
+// no dependency or unlock requirement between different question numbers.
 // This is PRACTICE MODE ONLY. There is no textbook-mode import.
 const sources:MathPracticeSourceQuestion[] = [
   ...mathPracticePilotSource,...mathPracticeSetsBatchASource,
   ...mathPracticePropositionsBatchBSource,...mathPracticeProofsBatchCSource,
 ].sort((a,b)=>a.problemNo-b.problemNo)
-const approvedPilotNumbers=new Set([87])
 
 export const zipPracticeCatalog:PracticeCatalog=PracticeCatalogSchema.parse({
   schemaVersion:'1.0',subject:'math-1a',course:'math-i',
@@ -90,13 +90,13 @@ function convert(original:MathPracticeSourceQuestion):PracticeQuestion {
   if(original.section==='functions')throw Error('Function source in 集合と命題: '+id)
   return PracticeQuestionSchema.parse({
     schemaVersion:'1.0',questionId:id,revision:1,
-    status:approvedPilotNumbers.has(original.problemNo)?'published':'review',
+    status:'published',
     subject:'math-1a',course:'math-i',majorUnit:zipPracticeCatalog.majorUnit.id,
     subcategory:original.section,problemType:'guided-reasoning',
     title:'4STEP '+original.problemNo+'｜'+original.title,
     difficulty:'basic',
     source:{type:'reference',label:'4STEP 問題'+original.problemNo,
-      rightsNote:'ZIP 2026-10-04 practice authority; review figures and reasoning dependencies before publishing non-pilot questions.'},
+      rightsNote:'ZIP 2026-10-04 authored 4STEP practice source. Original problem references preserved; stage-dependent visual presentation remains subject to quality review.'},
     stem:original.problem.map((b,i)=>block(id+'-problem-'+(i+1),b)),
     solutionSteps:steps,blanks,
     interaction:{reveal:'sequential',options:'inline-expand',
