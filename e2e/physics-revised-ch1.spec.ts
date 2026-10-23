@@ -85,6 +85,35 @@ test('all seven source-authored physics topics load their own first guided step 
   }
 })
 
+test('revised physics mirrors math: retry incorrect answers, use staged hints and unlock prose only on success',async({page,request})=>{
+  const unitId=codeToId[0]
+  const endpoint=api+'/api/textbooks/'+unitId+'/items/a1/answer'
+  const bad=await request.post(endpoint,{data:{value:'速さ'},timeout:110_000})
+  expect(bad.ok()).toBeTruthy()
+  expect(await bad.json()).toMatchObject({correct:false,resolved:false})
+  expect(await bad.text()).not.toContain('correctAnswer')
+
+  await page.goto('/#/learning/textbook/'+unitId+'?target=physics-revised-ch01-represent',{waitUntil:'domcontentloaded'})
+  const blank=page.getByTestId('textbook-item-a1')
+  await expect(blank).toBeVisible({timeout:110_000})
+  await expect(page.getByText('位置の変化を表す',{exact:true})).toHaveCount(0)
+
+  await blank.click()
+  const panel=page.getByTestId('inline-choice-panel-a1')
+  await expect(panel).toBeVisible()
+  await panel.getByRole('button',{name:/ヒントを見る/}).click()
+  await expect(panel.locator('.reading-hint-steps li')).toHaveCount(1)
+  await panel.locator('.reading-choice-option').filter({hasText:'速さ'}).click()
+  await expect(page.getByTestId('textbook-retry-a1')).toBeVisible()
+  await expect(page.getByTestId('resolved-a1')).toHaveCount(0)
+  await expect(page.getByText('位置の変化を表す',{exact:true})).toHaveCount(0)
+  await expect(page.getByTestId('answer-reveal-a1')).toHaveCount(0)
+  await expect(panel.locator('.reading-choice-option').filter({hasText:'位置'})).toBeEnabled()
+  await panel.locator('.reading-choice-option').filter({hasText:'位置'}).click()
+  await expect(page.getByTestId('resolved-a1')).toBeVisible()
+  await expect(page.getByText('位置の変化を表す',{exact:true})).toBeVisible()
+})
+
 test('revised physics answer choice is interactive and does not expose private keys',async({page})=>{
   await page.goto('/#/learning/textbook/'+codeToId[0]+'?target=physics-revised-ch01-represent',{waitUntil:'domcontentloaded'})
   const first=page.getByTestId('textbook-item-a1')
