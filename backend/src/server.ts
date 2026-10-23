@@ -161,6 +161,9 @@ const server = createServer(async (request, response) => {
     const majorUnit = url.searchParams.get('majorUnit')
 
     const catalogs = loadedPracticeUnits
+      // Archived legacy 36-question version remains on disk (and old deep
+      // links remain valid), but is hidden from all student-facing catalogs.
+      .filter((unit) => unit.catalog.majorUnit.id !== 'sets-and-logic')
       .filter((unit) => !subject || unit.catalog.subject === subject)
       .filter((unit) => !course || unit.catalog.course === course)
       .filter((unit) => !majorUnit || unit.catalog.majorUnit.id === majorUnit)
@@ -192,6 +195,7 @@ const server = createServer(async (request, response) => {
     const problemType = url.searchParams.get('problemType')
 
     const questions = loadedPracticeUnits
+      .filter((unit) => unit.catalog.majorUnit.id !== 'sets-and-logic')
       .flatMap((unit) => unit.questions)
       .filter((question) => question.status === 'published')
       .filter((question) => !subject || question.subject === subject)
