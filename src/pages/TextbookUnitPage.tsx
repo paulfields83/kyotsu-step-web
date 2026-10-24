@@ -96,7 +96,14 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
 // in ordinary readable textbook language.
 function GuidedChoiceValue({ value }: { value: string }) {
   const latex = textbookMathLatex(value)
-  return latex ? <InlineMath math={latex} /> : <>{value}</>
+  if (latex) return <InlineMath math={latex} />
+  // The original physics distractor sometimes appends Japanese explanation
+  // directly after a vector expression (e.g. |v⃗₂|−|v⃗₁|だけ).
+  // Keep the suffix as prose, but typeset the vector expression.
+  const mixed = value.match(/^(.+?)(だけ)$/u)
+  const mathPrefix = mixed ? textbookMathLatex(mixed[1]) : null
+  if (mixed && mathPrefix) return <><InlineMath math={mathPrefix} />{mixed[2]}</>
+  return <>{value}</>
 }
 
 function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord) {
