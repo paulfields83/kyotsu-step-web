@@ -174,6 +174,16 @@ test('A3 actual deployed browser options display four vector formulas without sq
     expect(entry.visible,entry.choice??'missing option').not.toMatch(/[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ]|[☒□�]/u)
   }
   await expect(panel.locator('.katex-error')).toHaveCount(0)
+
+  // Reproduce the EXACT ChatGPT referral URL visible in the reported screenshot.
+  // A separate query-string cache key must not keep an old untypeset JS bundle.
+  await page.goto('/?utm_source=chatgpt.com#/learning/textbook/'+codeToId[0]+
+    '?target=physics-revised-ch01-represent',{waitUntil:'domcontentloaded'})
+  await expect(page.getByTestId('textbook-item-a3')).toBeVisible({timeout:110_000})
+  await page.getByTestId('textbook-item-a3').click()
+  const referralPanel=page.getByTestId('inline-choice-panel-a3')
+  await expect(referralPanel.locator('.reading-choice-option .katex-html')).toHaveCount(4)
+  await expect(referralPanel.locator('.katex-error')).toHaveCount(0)
 })
 
 test('revised physics D1 guided hints typeset vector notation as readable math',async({page})=>{
