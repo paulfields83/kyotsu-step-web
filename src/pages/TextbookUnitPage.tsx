@@ -111,7 +111,7 @@ function GuidedChoiceValue({ value }: { value: string }) {
 function PhysicsInlineText({ value }: { value: string }) {
   const glyphs = /[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜΔθ√²³]/u
   if (!glyphs.test(value)) return <>{value}</>
-  const tokens = value.split(/([A-Za-zΔ√θ][A-Za-z0-9Δθ√°⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ²³_{}().,=+\-−×·/<>|]*)/gu)
+  const tokens = value.split(/([A-Za-zΔ√θ][A-Za-z0-9Δθ√°⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ²³_{}().,=+\-−×·\/<>|]*)/gu)
   return <>{tokens.map((token, index) => {
     const latex = glyphs.test(token) ? textbookMathLatex(token) : null
     return latex ? <InlineMath key={index} math={latex} /> : <span key={index}>{token}</span>
