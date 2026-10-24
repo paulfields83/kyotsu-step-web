@@ -1,10 +1,22 @@
 import katex from 'katex'
+import { normalizePhysicsTextbookChoice } from './physicsTextbookNotation'
 
 /**
  * Educational math must not appear as raw TeX in answer choices or inline
  * results. This is presentation-only; source answers and grading are unchanged.
  */
 export function textbookMathLatex(value: string): string | null {
+  // Physics ZIP uses combining vector arrows and Unicode subscripts. Render
+  // those with KaTeX before the generic GOLDEN math formatting path.
+  const physicsFormula = normalizePhysicsTextbookChoice(value)
+  if (physicsFormula) {
+    try {
+      katex.renderToString(physicsFormula, { throwOnError: true, strict: 'ignore' })
+      return physicsFormula
+    } catch {
+      return null
+    }
+  }
   if (!value.trim() || /[ぁ-んァ-ン一-龯]/u.test(value)) return null
   const hasCommand = /\\(?:[A-Za-z]+|[{}])/.test(value)
   const hasMath = hasCommand || /[∈∉∅∩∪⊂⊆∀∃¬⇒⇔≤≥^²³⁴√=<>0-9{}]/.test(value)
