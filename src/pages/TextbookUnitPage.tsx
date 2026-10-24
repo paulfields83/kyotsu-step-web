@@ -106,6 +106,18 @@ function GuidedChoiceValue({ value }: { value: string }) {
   return <>{value}</>
 }
 
+// Keep Japanese wording intact while replacing fragile combining math glyphs
+// in ZIP-derived hints, notes, figure captions and leftover inline source text.
+function PhysicsInlineText({ value }: { value: string }) {
+  const glyphs = /[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜΔθ√²³]/u
+  if (!glyphs.test(value)) return <>{value}</>
+  const tokens = value.split(/([A-Za-zΔ√θ][A-Za-z0-9Δθ√°⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ²³_{}().,=+\-−×·/<>|]*)/gu)
+  return <>{tokens.map((token, index) => {
+    const latex = glyphs.test(token) ? textbookMathLatex(token) : null
+    return latex ? <InlineMath key={index} math={latex} /> : <span key={index}>{token}</span>
+  })}</>
+}
+
 function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord) {
   if (record.isFirstCorrect) {
     return (
@@ -200,6 +212,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   progress: TextbookUnitProgress | undefined
 }) {
   const { text } = useI18n()
+  const revisedPhysics = unit.subject === 'physics' && unit.unitId.endsWith('-revised')
   const [activeItemId, setActiveItemId] = useState<string | null>(null)
   const [shownHintCount, setShownHintCount] = useState(0)
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
@@ -286,7 +299,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
             </button>
             {shownHintCount > 0 && (
               <ol className="reading-hint-steps">
-                {activeItem.hints?.slice(0, shownHintCount).map((hint,index)=><li key={index}>{hint}</li>)}
+                {activeItem.hints?.slice(0, shownHintCount).map((hint,index)=><li key={index}>{revisedPhysics ? <PhysicsInlineText value={hint}/> : hint}</li>)}
               </ol>
             )}
           </div>
@@ -405,7 +418,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
     }
 
     if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
-    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{block.text}</aside>
+    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text}/> : block.text}</aside>
 
     if (hasSolutionTrack && block.type === 'paragraph') {
       const plain = block.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
@@ -430,7 +443,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
       return (
         <figure className="reading-figure" key={block.id}>
           <img src={resolveAssetSrc(figure.src)} alt={figure.alt} />
-          {figure.caption && <figcaption>{figure.caption}</figcaption>}
+          {figure.caption && <figcaption>{revisedPhysics ? <PhysicsInlineText value={figure.caption}/> : figure.caption}</figcaption>}
         </figure>
       )
     }
@@ -450,6 +463,9 @@ function TextbookReadingFlow({ unit, section, progress }: {
     const visibleParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
     const linkedAnswerId = blockItemIds(block)[0]
     const renderVisiblePart = (part: TextbookReadingPart): ReactNode => {
+      if (part.type === 'text' && !/【[^】]*】/.test(part.text) && revisedPhysics) {
+        return <PhysicsInlineText value={part.text}/>
+      }
       if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
         return renderPart(part, section, progress, setActiveItemId, text)
       }
@@ -619,7 +635,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
     return rendered
   }
 
-  const guidedRevisedPhysics = unit.subject === 'physics' && unit.unitId.endsWith('-revised')
+  const guidedRevisedPhysics = revisedPhysics
   const firstPendingPhysicsBlock = guidedRevisedPhysics
     ? section.readingFlow.findIndex((block) =>
         blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
