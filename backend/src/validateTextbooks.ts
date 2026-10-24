@@ -14,8 +14,8 @@ for (const loaded of loadedTextbookUnits) {
       const rawItem = item as Record<string, unknown>
       if ('answer' in rawItem) exportErrors.push(`${unit.unitId}/${item.id}: public export leaks answer`)
       if ('acceptedAnswers' in rawItem) exportErrors.push(`${unit.unitId}/${item.id}: public export leaks acceptedAnswers`)
-      if (unit.subject === 'math-1a' && (!Array.isArray(item.choices) || item.choices.length < 2)) {
-        exportErrors.push(`${unit.unitId}/${item.id}: public export has fewer than 2 choices`)
+      if (!Array.isArray(item.choices) || item.choices.length < 2 || item.choices.length > 4) {
+        exportErrors.push(`${unit.unitId}/${item.id}: needs 2–4 guided choices`)
       }
     }
   }
