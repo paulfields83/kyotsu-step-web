@@ -146,6 +146,23 @@ test('revised physics: all source Unicode-math option values typeset without bro
   expect(mathChoices).toBeGreaterThan(80)
 })
 
+test('revised physics D1 guided hints typeset vector notation as readable math',async({page})=>{
+  const unitId=codeToId[3]
+  await page.goto('/#/learning/textbook/'+unitId+'?target=physics-revised-ch01-change&topic='+unitId,{waitUntil:'domcontentloaded'})
+  const first=page.getByTestId('textbook-item-d1')
+  await expect(first).toBeVisible({timeout:110_000})
+  await first.click()
+  const panel=page.getByTestId('inline-choice-panel-d1')
+  await expect(panel).toBeVisible()
+  const hintButton=panel.getByRole('button',{name:/ヒントを見る/})
+  await hintButton.click()
+  await hintButton.click()
+  const hints=panel.locator('.reading-hint-steps li')
+  await expect(hints).toHaveCount(2)
+  await expect(hints.nth(1).locator('.katex').first()).toBeVisible()
+  await expect(page.locator('.katex-error')).toHaveCount(0)
+})
+
 test('revised physics answer choice is interactive and does not expose private keys',async({page})=>{
   await page.goto('/#/learning/textbook/'+codeToId[0]+'?target=physics-revised-ch01-represent',{waitUntil:'domcontentloaded'})
   const first=page.getByTestId('textbook-item-a1')
