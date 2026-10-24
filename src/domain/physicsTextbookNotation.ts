@@ -8,7 +8,7 @@ const subscriptSymbols: Record<string, string> = {
   '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9',
   'ₓ': 'x', 'ᵧ': 'y', 'ₜ': 't',
 }
-const containsPhysicsSymbols = /[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜΔθ√²³]/u
+const containsPhysicsSymbols = /[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜΔθ√]/u
 
 export function normalizePhysicsTextbookChoice(value: string): string | null {
   const original = value.trim()
