@@ -146,6 +146,36 @@ test('revised physics: all source Unicode-math option values typeset without bro
   expect(mathChoices).toBeGreaterThan(80)
 })
 
+
+test('A3 actual deployed browser options display four vector formulas without square glyphs',async({page})=>{
+  await page.goto('/#/learning/textbook/'+codeToId[0]+'?target=physics-revised-ch01-represent',{waitUntil:'domcontentloaded'})
+  for(const [id,choice] of [['a1','位置'],['a2','位置の変化']] as const){
+    await page.getByTestId('textbook-item-'+id).click()
+    await page.locator('.reading-choice-option[data-choice-value='+JSON.stringify(choice)+']').click()
+    await expect(page.getByTestId('resolved-'+id)).toBeVisible()
+  }
+  const third=page.getByTestId('textbook-item-a3')
+  await expect(third).toBeVisible({timeout:110_000})
+  await third.click()
+  const panel=page.getByTestId('inline-choice-panel-a3')
+  const buttons=panel.locator('.reading-choice-option')
+  await expect(buttons).toHaveCount(4)
+  const snapshot=await buttons.evaluateAll(nodes=>nodes.map(n=>({
+    choice:n.getAttribute('data-choice-value'),
+    text:n.textContent,
+    mathCount:n.querySelectorAll('.katex-html').length,
+    visible:n.querySelector('.katex-html')?.textContent?.slice(0,100),
+    html:n.querySelector('strong')?.innerHTML.slice(0,450),
+  })))
+  console.log('A3_REAL_DEPLOYED_RENDER',JSON.stringify(snapshot))
+  expect(snapshot.map(x=>x.choice).every(x=>x && /[⃗̄]/u.test(x))).toBeTruthy()
+  for(const entry of snapshot){
+    expect(entry.mathCount,entry.choice??'missing option').toBeGreaterThan(0)
+    expect(entry.visible,entry.choice??'missing option').not.toMatch(/[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ]|[☒□�]/u)
+  }
+  await expect(panel.locator('.katex-error')).toHaveCount(0)
+})
+
 test('revised physics D1 guided hints typeset vector notation as readable math',async({page})=>{
   const unitId=codeToId[3]
   await page.goto('/#/learning/textbook/'+unitId+'?target=physics-revised-ch01-change&topic='+unitId,{waitUntil:'domcontentloaded'})
