@@ -45,6 +45,7 @@ function PracticeBlankLine({
 }) {
   const { text } = useI18n()
   const parts = promptParts(blank.prompt)
+  const hasInteractiveMarker = parts.some((part) => markerValue(part) === currentMarker)
   const resolvedPrompt = parts.map((part) => {
     const marker = markerValue(part)
     if (!marker || marker === currentMarker) return part
@@ -90,6 +91,21 @@ function PracticeBlankLine({
             </button>
           )
         })}
+        {/* ZIP authored practice prompts often contain no 【①】 marker.
+            Use the SAME existing inline-answer button, not a new UI style. */}
+        {!hasInteractiveMarker && (answer?.resolved ? (
+          <span className="reading-inline-answer" data-testid={`practice-blank-resolved-${blank.id}`}>
+            <Check size={14} aria-hidden="true" />
+            <strong>{answer.selectedLabel}</strong>
+          </span>
+        ) : (
+          <button type="button" data-testid={`practice-blank-trigger-${blank.id}`}
+            className={`reading-inline-blank${answer && !answer.correct ? ' reading-inline-blank--wrong' : ''}`}
+            onClick={onToggle} aria-label={blank.prompt} aria-expanded={open}>
+            {answer && !answer.correct ? <X size={14} aria-hidden="true" /> : <Circle size={13} aria-hidden="true" />}
+            <strong>{answer && !answer.correct ? answer.selectedLabel : text('選択', '选择')}</strong>
+          </button>
+        ))}
       </div>
 
       {!answer?.resolved && open && (
