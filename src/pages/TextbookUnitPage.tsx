@@ -214,7 +214,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem?.choices ?? []
-  const activeWrongResult = Boolean(activeRecord && !activeRecord.resolved && activeRecord.attemptCount > 0)
   const activeRevealedWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
   const selectChoice = async (choice: string) => {
     if (!activeItem || activeRecord?.resolved || submittingItemId) return
@@ -224,6 +223,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
       const result = await textbookRepository.submitAnswer(unit.unitId, activeItem.id, choice)
       recordServerAnswer(unit, activeItem.id, choice, result)
       if (result.correct) setActiveItemId(null)
+      // Wrong answers stay expanded to display the correct option, just as in
+      // the reviewed 集合と命題 textbook. There is no second attempt.
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : text('回答を送信できませんでした。', '无法提交答案。'))
     } finally {
@@ -248,7 +249,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         </div>
         {activeChoices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
           {activeChoices.map((choice, index) => {
-            const selectedWrong = Boolean((activeWrongResult || activeRevealedWrongResult) && activeRecord?.value === choice)
+            const selectedWrong = Boolean(activeRevealedWrongResult && activeRecord?.firstValue === choice)
             const revealedCorrect = Boolean(activeRevealedWrongResult && activeRecord?.value === choice)
             return (
               <button
@@ -286,11 +287,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
         {activeChoices.length < 2 && (
           <p className="reading-inline-choice-error" role="alert">
             {text('選択肢の読み込みに失敗しました。画面を更新してください。', '选项加载失败，请刷新页面。')}
-          </p>
-        )}
-        {activeWrongResult && (
-          <p className="reading-inline-choice-error" data-testid={`textbook-retry-${activeItem.id}`} role="status">
-            {text('不正解です。ヒントを参考に、もう一度考えて選びましょう。', '回答错误。请参考提示，再思考后重新选择。')}
           </p>
         )}
         {activeRevealedWrongResult && (
