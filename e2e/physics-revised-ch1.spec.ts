@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test'
+import { textbookMathLatex } from '../src/domain/textbookMathDisplay'
 
 test.setTimeout(150_000)
 
@@ -85,13 +86,12 @@ test('all seven source-authored physics topics load their own first guided step 
   }
 })
 
-test('revised physics mirrors math: retry incorrect answers, use staged hints and unlock prose only on success',async({page,request})=>{
+test('revised physics follows GOLDEN 集合と命題: wrong first choice immediately reveals answer and unlocks text',async({page,request})=>{
   const unitId=codeToId[0]
   const endpoint=api+'/api/textbooks/'+unitId+'/items/a1/answer'
   const bad=await request.post(endpoint,{data:{value:'速さ'},timeout:110_000})
   expect(bad.ok()).toBeTruthy()
-  expect(await bad.json()).toMatchObject({correct:false,resolved:false})
-  expect(await bad.text()).not.toContain('correctAnswer')
+  expect(await bad.json()).toMatchObject({correct:false,resolved:true,correctAnswer:'位置'})
 
   await page.goto('/#/learning/textbook/'+unitId+'?target=physics-revised-ch01-represent',{waitUntil:'domcontentloaded'})
   const blank=page.getByTestId('textbook-item-a1')
@@ -104,14 +104,46 @@ test('revised physics mirrors math: retry incorrect answers, use staged hints an
   await panel.getByRole('button',{name:/ヒントを見る/}).click()
   await expect(panel.locator('.reading-hint-steps li')).toHaveCount(1)
   await panel.locator('.reading-choice-option').filter({hasText:'速さ'}).click()
-  await expect(page.getByTestId('textbook-retry-a1')).toBeVisible()
-  await expect(page.getByTestId('resolved-a1')).toHaveCount(0)
-  await expect(page.getByText('位置の変化を表す',{exact:true})).toHaveCount(0)
-  await expect(page.getByTestId('answer-reveal-a1')).toHaveCount(0)
-  await expect(panel.locator('.reading-choice-option').filter({hasText:'位置'})).toBeEnabled()
-  await panel.locator('.reading-choice-option').filter({hasText:'位置'}).click()
   await expect(page.getByTestId('resolved-a1')).toBeVisible()
+  await expect(page.getByTestId('answer-reveal-a1')).toContainText('位置')
+  await expect(panel.locator('.reading-choice-option--wrong')).toContainText('速さ')
+  await expect(panel.locator('.textbook-choice--correct')).toContainText('位置')
+  await expect(panel.locator('.reading-choice-option').first()).toBeDisabled()
   await expect(page.getByText('位置の変化を表す',{exact:true})).toBeVisible()
+  await page.reload()
+  await expect(page.getByTestId('resolved-a1')).toBeVisible()
+  await expect(page.getByTestId('resolved-a1')).toContainText('速さ')
+  await expect(page.getByTestId('resolved-a1')).toContainText('位置')
+})
+
+
+test('revised physics: all source Unicode-math option values typeset without broken glyphs',async({request})=>{
+  const response=await request.get(api+'/api/textbooks',{timeout:110_000})
+  expect(response.ok()).toBeTruthy()
+  const units=(await response.json()) as Array<{
+    unitId:string, sections:Array<{items:Array<{id:string,choices:string[]}>}>
+  }>
+  const subjects=units.filter(unit=>codeToId.includes(unit.unitId))
+  let mathChoices=0
+  for(const unit of subjects){
+    for(const section of unit.sections){
+      for(const item of section.items){
+        for(const choice of item.choices){
+          if(!/[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜΔθ√²³]/u.test(choice))continue
+          if(/[ぁ-んァ-ヶ一-龯]/u.test(choice)){
+            expect(choice).toMatch(/だけ$/u)
+            expect(textbookMathLatex(choice.replace(/だけ$/u,'')),unit.unitId+' '+item.id+' '+choice).not.toBeNull()
+            continue
+          }
+          const converted=textbookMathLatex(choice)
+          expect(converted,unit.unitId+' '+item.id+' '+choice).not.toBeNull()
+          expect(converted,unit.unitId+' '+item.id+' '+choice).not.toMatch(/[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ]/u)
+          mathChoices++
+        }
+      }
+    }
+  }
+  expect(mathChoices).toBeGreaterThan(80)
 })
 
 test('revised physics answer choice is interactive and does not expose private keys',async({page})=>{
