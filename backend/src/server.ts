@@ -322,15 +322,13 @@ const server = createServer(async (request, response) => {
       if (!value.trim()) return sendJson(request, response, 400, { error: 'answer value is required' })
 
       const correct = isTextbookAnswerCorrect(answer, value)
-      // The revised Chapter-1 physics textbook follows the same guided-learning
-      // contract as mathematics: a wrong answer must not unlock the rest of
-      // the reading or disclose the answer key. Legacy physics stays unchanged.
-      const isGuidedRevisedPhysics = loaded.unit.subject === 'physics'
-        && loaded.unit.unitId.endsWith('-revised')
+      // Match the approved 集合と命題 textbook flow: one attempt always
+      // resolves the blank. A wrong attempt reveals the reviewed correct answer
+      // immediately, while recording that the first answer was incorrect.
       return sendJson(request, response, 200, {
         correct,
-        resolved: isGuidedRevisedPhysics ? correct : true,
-        ...(correct || isGuidedRevisedPhysics ? {} : { correctAnswer: answer.answer }),
+        resolved: true,
+        ...(correct ? {} : { correctAnswer: answer.answer }),
       })
     } catch (error) {
       return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
