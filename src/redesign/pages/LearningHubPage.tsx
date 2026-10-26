@@ -10,6 +10,7 @@ import { textbookRepository } from '../../repositories/textbookRepository'
 import { useAppStore } from '../../stores/useAppStore'
 import { useI18n } from '../../i18n/runtime'
 import { difficultyLabel } from '../../i18n/labels'
+import { PhysicsModulePicker } from '../components/PhysicsModulePicker'
 
 type Mode = 'knowledge' | 'practice'
 type PracticeMode = 'practice' | 'simulation'
@@ -25,6 +26,7 @@ export function LearningHubPage() {
   const [mode, setMode] = useState<Mode>('knowledge')
   const [practiceMode, setPracticeMode] = useState<PracticeMode>('practice')
   const [practiceCatalogs, setPracticeCatalogs] = useState<PracticeCatalog[]>([])
+  const [selectedPhysicsTextbookModule, setSelectedPhysicsTextbookModule] = useState('physics-1')
   const [practiceQuestions, setPracticeQuestions] = useState<PracticeQuestionSummary[]>([])
   const [practiceLoading, setPracticeLoading] = useState(false)
   const [practiceError, setPracticeError] = useState(false)
@@ -78,6 +80,7 @@ export function LearningHubPage() {
   }, [majorUnitId, mode, practiceMode, subcategoryId, subject])
 
   const chapters = useMemo(() => buildTextbookChapters(units, subject), [subject, units])
+  const physicsTextbookAvailableIds = useMemo(() => new Set(chapters.map(chapter => chapter.key)), [chapters])
   const selectedPracticeCatalog = practiceCatalogs.find((catalog) => catalog.majorUnit.id === majorUnitId) ?? practiceCatalogs[0]
   const selectedSubcategory = selectedPracticeCatalog?.subcategories.find((subcategory) => subcategory.id === subcategoryId)
   const problemTypeLabels = useMemo(() => new Map(
@@ -113,7 +116,13 @@ export function LearningHubPage() {
         <section className="v2-course-list">
           {loading && <div className="v2-empty-card">{text('教材を読み込んでいます…', '正在读取教材…')}</div>}
           {!loading && !chapters.length && <div className="v2-empty-card">{text('この科目の教材はまだありません。', '该科目暂时没有教材。')}</div>}
-          {chapters.map((chapter, chapterIndex) => {
+          {subject === 'physics' && <PhysicsModulePicker mode="textbook"
+            availableIds={physicsTextbookAvailableIds}
+            selectedId={selectedPhysicsTextbookModule}
+            onSelect={setSelectedPhysicsTextbookModule}
+            isLoading={loading}
+          />}
+          {(subject === 'physics' ? chapters.filter(chapter => chapter.key === selectedPhysicsTextbookModule) : chapters).map((chapter, chapterIndex) => {
             const lessonStats = (lesson:TextbookLessonTarget):{total:number;done:number} => {
               if (lesson.kind === 'chapter-group') {
                 return (lesson.topics ?? []).reduce((total,topic) => {
@@ -138,7 +147,7 @@ export function LearningHubPage() {
             return (
               <article className="v2-course-card" key={chapter.key}>
                 <header>
-                  <div className="v2-course-card__number">{String(chapterIndex + 1).padStart(2, '0')}</div>
+                  <div className="v2-course-card__number">{String((subject === 'physics' ? chapters.findIndex(candidate => candidate.key === chapter.key) : chapterIndex) + 1).padStart(2, '0')}</div>
                   <div>
                     <h2>{chapter.label}</h2>
                     <p>{text(`${completed} / ${totalItems} 項目完了`, `已完成 ${completed} / ${totalItems} 项`)}</p>
@@ -179,7 +188,12 @@ export function LearningHubPage() {
             </button>
           </div>
 
-          {practiceMode === 'practice' ? (
+          {practiceMode === 'practice' ? (subject === 'physics' ? (
+            <>
+              <PhysicsModulePicker mode="practice" availableIds={new Set<string>()} />
+              <div className="v2-empty-card">{text('物理の練習問題は準備中です。教材の学習内容は「知識学習」から開けます。', '物理练习题暂未导入；已有的教材内容仍可在「知识学习」中查看。')}</div>
+            </>
+          ) : (
             <>
               <div className="v2-practice-intro">
                 <div>
@@ -238,7 +252,7 @@ export function LearningHubPage() {
                 </article>
               ))}
             </>
-          ) : (
+          )) : (
             <div className="v2-empty-card">
               <p>{text('模擬テストでは、回答中に正解や解析を表示しません。', '模拟测试中，作答时不显示答案和解析。')}</p>
               <Link className="v2-primary-action" to="/simulation/setup">
