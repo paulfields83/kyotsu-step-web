@@ -246,16 +246,24 @@ const server = createServer(async (request, response) => {
       const correctIds = [...blank.correctOptionIds].sort()
       const correct = selected.length === correctIds.length && selected.every((value, index) => value === correctIds[index])
       const selectedWrongReason = blank.options.find((option) => selected.includes(option.id))?.wrongReason
-
+      const validIds = new Set(blank.options.map((option) => option.id))
+      if (selected.some((id) => !validIds.has(id))) {
+        return sendJson(request, response, 400, { error: 'unknown practice option' })
+      }
+      // The ZIP practice flow checks each blank only once. Keep the chosen
+      // wrong answer, disclose the correct option, and unlock the next step.
+      const orderedBlankIds = loaded.question.solutionSteps.flatMap((step) => step.blankIds)
+      const isFinalBlank = orderedBlankIds[orderedBlankIds.length - 1] === blank.id
       return sendJson(request, response, 200, {
         correct,
-        resolved: correct,
+        resolved: true,
         selectedOptionIds: selected,
-        ...(correct
-          ? { correctOptionIds: blank.correctOptionIds, explanation: blank.explanation }
-          : selectedWrongReason
-            ? { wrongReason: selectedWrongReason }
-            : {}),
+        correctOptionIds: blank.correctOptionIds,
+        explanation: blank.explanation,
+        ...(!correct && selectedWrongReason ? { wrongReason: selectedWrongReason } : {}),
+        ...(isFinalBlank && loaded.question.fullExplanation
+          ? { fullExplanation: loaded.question.fullExplanation }
+          : {}),
       })
     } catch (error) {
       return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
