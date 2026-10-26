@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react'
-import { InlineMath } from 'react-katex'
+import { BlockMath, InlineMath } from 'react-katex'
 import { useI18n } from '../../i18n/runtime'
 
 export type SymbolNote = { symbol: string; ja: string; zh: string }
@@ -67,7 +67,7 @@ export function GlossaryText({ value }: { value: string }) {
 // Do not rewrite mathematical LaTeX: KaTeX creates individual symbol spans.
 // Mark only rendered, leaf-level tokens matching question-scoped notes.
 // This preserves fractions, accents, \text, and all existing math formatting.
-export function GlossaryMath({ math }: { math: string }) {
+export function GlossaryMath({ math, display = false }: { math: string; display?: boolean }) {
   const ctx = useContext(GlossaryContext)
   const anchor = useId()
   const container = useRef<HTMLSpanElement>(null)
@@ -105,7 +105,7 @@ export function GlossaryMath({ math }: { math: string }) {
         if (event.key !== 'Enter' && event.key !== ' ') return
         if (activate(event.target)) { event.preventDefault(); event.stopPropagation() }
       }}>
-      <InlineMath math={math} />
+      {display ? <BlockMath math={math} /> : <InlineMath math={math} />}
     </span>
     {selected && <VisibleNote symbol={selected} />}
   </span>
