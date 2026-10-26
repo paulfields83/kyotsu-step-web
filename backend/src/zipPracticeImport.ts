@@ -7,6 +7,7 @@ import { mathPracticeSetsBatchASource } from './zipPracticeSource/setsBatchA'
 import { mathPracticePropositionsBatchBSource } from './zipPracticeSource/propositionsBatchB'
 import { mathPracticeProofsBatchCSource } from './zipPracticeSource/proofsBatchC'
 import type { MathPracticeSourceBlock, MathPracticeSourceQuestion } from './zipPracticeSource/source'
+import { zipPracticeSymbolNotes } from './zipPracticeSymbolNotes'
 
 // All 31 authored 4STEP exercises are directly selectable in practice mode.
 // Each question keeps its own sequential in-question reasoning flow; there is
