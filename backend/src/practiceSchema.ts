@@ -74,6 +74,7 @@ export const PracticeQuestionSchema = z.object({
   stem: z.array(PracticeContentBlockSchema).min(1),
   solutionSteps: z.array(PracticeSolutionStepSchema).min(1),
   blanks: z.array(PracticeBlankSchema).min(1),
+  fullExplanation: z.string().min(1).optional(),
   interaction: z.object({
     reveal: z.literal('sequential'),
     options: z.literal('inline-expand'),
