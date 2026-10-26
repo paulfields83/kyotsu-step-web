@@ -83,11 +83,20 @@ function PracticeBlankLine({
               : <span key={`${blank.id}-ref-${index}`}>{part}</span>
           }
           return answer?.resolved ? (
-            <span key={`${blank.id}-current-${index}`}
-              data-testid={`practice-blank-resolved-${blank.id}`}
-              className={`reading-inline-answer${answer.correct ? '' : ' reading-inline-answer--wrong'}`}>
-              {answer.correct ? <Check size={14} aria-hidden="true" /> : <X size={14} aria-hidden="true" />}
-              <strong>{answer.selectedLabel}</strong>
+            <span key={`${blank.id}-current-${index}`} className="practice-answer-pair">
+              <span data-testid={`practice-blank-resolved-${blank.id}`}
+                className={`reading-inline-answer${answer.correct ? '' : ' reading-inline-answer--wrong'}`}>
+                {answer.correct ? <Check size={14} aria-hidden="true" /> : <X size={14} aria-hidden="true" />}
+                <strong>{answer.selectedLabel}</strong>
+              </span>
+              {!answer.correct && (
+                <span className="reading-inline-answer practice-correct-inline"
+                  data-testid={`practice-inline-correct-${blank.id}`}>
+                  <Check size={14} aria-hidden="true" />
+                  <small>{text('正解', '正确答案')}：</small>
+                  <strong>{correctLabels.join('、')}</strong>
+                </span>
+              )}
             </span>
           ) : (
             <span
@@ -103,10 +112,20 @@ function PracticeBlankLine({
         {/* ZIP authored practice prompts often contain no 【①】 marker.
             Use the SAME existing inline-answer button, not a new UI style. */}
         {!hasInteractiveMarker && (answer?.resolved ? (
-          <span className={`reading-inline-answer${answer.correct ? '' : ' reading-inline-answer--wrong'}`}
-            data-testid={`practice-blank-resolved-${blank.id}`}>
-            {answer.correct ? <Check size={14} aria-hidden="true" /> : <X size={14} aria-hidden="true" />}
-            <strong>{answer.selectedLabel}</strong>
+          <span className="practice-answer-pair">
+            <span className={`reading-inline-answer${answer.correct ? '' : ' reading-inline-answer--wrong'}`}
+              data-testid={`practice-blank-resolved-${blank.id}`}>
+              {answer.correct ? <Check size={14} aria-hidden="true" /> : <X size={14} aria-hidden="true" />}
+              <strong>{answer.selectedLabel}</strong>
+            </span>
+            {!answer.correct && (
+              <span className="reading-inline-answer practice-correct-inline"
+                data-testid={`practice-inline-correct-${blank.id}`}>
+                <Check size={14} aria-hidden="true" />
+                <small>{text('正解', '正确答案')}：</small>
+                <strong>{correctLabels.join('、')}</strong>
+              </span>
+            )}
           </span>
         ) : (
           <span data-testid={`practice-blank-trigger-${blank.id}`}
