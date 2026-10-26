@@ -873,3 +873,45 @@ button.reading-inline-blank:hover { background: var(--color-section); }
 .reading-hint-trigger:disabled { opacity:.6; cursor:default; }
 .reading-hint-steps { margin:.55rem 0 .25rem; padding-left:1.6rem; line-height:1.7; }
 .reading-hint-steps li + li { margin-top:.4rem; }
+
+
+/* Tap a question-specific symbol once to reveal its meaning, again to close.
+   Hints stay in the normal document flow instead of covering the question. */
+.symbol-glossary-inline { display: inline; white-space: normal; }
+.symbol-glossary-trigger {
+  border: 0;
+  border-bottom: 1px dotted var(--color-primary);
+  border-radius: 2px;
+  padding: 0 .08em;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  text-underline-offset: 2px;
+}
+.symbol-glossary-trigger[aria-expanded="true"] { color: var(--color-primary); background: var(--color-section); }
+.symbol-glossary-trigger:focus-visible,
+.symbol-glossary-math-token:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+.symbol-glossary-math { display: inline; white-space: normal; }
+.symbol-glossary-math-token { cursor: pointer; text-decoration: underline dotted var(--color-primary); text-underline-offset: .15em; }
+.symbol-glossary-math-token:hover { background: var(--color-section); }
+.symbol-glossary-note {
+  display: inline-block;
+  max-width: min(95%, 34rem);
+  margin: .2rem .3rem .2rem .15rem;
+  padding: .3rem .6rem;
+  border-left: 3px solid var(--color-primary);
+  border-radius: 4px;
+  background: var(--color-section);
+  color: var(--color-text);
+  font-size: .79rem;
+  line-height: 1.65;
+  font-weight: 400;
+  text-align: left;
+  vertical-align: middle;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.symbol-glossary-note strong { color: var(--color-primary); }
