@@ -14,6 +14,44 @@ const codeToId=[
   'physics-1g-gravity-drag-terminal-velocity-revised',
 ]
 
+
+test('physics textbook and practice share the screenshot module headings with honest placeholders',async({page})=>{
+  await page.goto('/#/learn',{waitUntil:'domcontentloaded'})
+  await page.getByRole('button',{name:/物理/}).first().click()
+  const textbook=page.getByTestId('physics-textbook-module-picker')
+  await expect(textbook).toBeVisible({timeout:110_000})
+  const groups=[
+    {id:'mechanics',heading:'力学',count:5},
+    {id:'heat',heading:'熱',count:1},
+    {id:'waves',heading:'波動',count:3},
+    {id:'electromagnetism',heading:'電磁気',count:4},
+    {id:'atomic',heading:'原子',count:2},
+  ]
+  for(const group of groups){
+    const section=textbook.getByTestId('physics-category-'+group.id)
+    await expect(section.locator('h3')).toHaveText(group.heading)
+    await expect(section.locator('button')).toHaveCount(group.count)
+  }
+  await expect(textbook.locator('.v2-physics-module-button')).toHaveCount(15)
+  const textbookFirst=textbook.getByTestId('physics-module-textbook-physics-1')
+  await expect(textbookFirst).toBeEnabled()
+  await expect(textbook.getByTestId('physics-module-textbook-physics-heat-gas-molecules')).toBeDisabled()
+  await expect(page.locator('.v2-course-card').filter({hasText:'物体の運動（改訂版）'})).toBeVisible()
+  const second=textbook.getByTestId('physics-module-textbook-physics-2')
+  await expect(second).toBeEnabled()
+  await second.click()
+  await expect(page.locator('.v2-course-card').filter({hasText:'剛体にはたらく力'})).toBeVisible()
+  await textbookFirst.click()
+  await expect(page.locator('.v2-course-card').filter({hasText:'物体の運動（改訂版）'}).locator('.v2-lesson-list > a')).toHaveCount(3)
+
+  await page.getByRole('button',{name:/問題練習/}).click()
+  const practice=page.getByTestId('physics-practice-module-picker')
+  await expect(practice).toBeVisible()
+  await expect(practice.locator('.v2-physics-module-button')).toHaveCount(15)
+  await expect(practice.locator('.v2-physics-module-button:not(:disabled)')).toHaveCount(0)
+  await expect(page.locator('.v2-practice-card')).toHaveCount(0)
+})
+
 test('physics textbook public catalog exposes exactly 7 revised Chapter-1 units and archives originals',async({request})=>{
   const response=await request.get(api+'/api/textbooks',{timeout:110_000})
   expect(response.ok()).toBeTruthy()
