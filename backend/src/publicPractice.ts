@@ -43,8 +43,10 @@ function stablePracticeChoiceOrder<T extends {id:string}>(options:T[],seedText:s
 }
 
 export function publicPracticeQuestion(question: PracticeQuestion) {
+  // Keep the ZIP's whole-question explanation hidden until the final response.
+  const { fullExplanation: _fullExplanation, ...publicQuestion } = question
   return {
-    ...question,
+    ...publicQuestion,
     stem: publicContentBlocks(question.stem),
     solutionSteps: question.solutionSteps.map((step) => ({
       ...step,
