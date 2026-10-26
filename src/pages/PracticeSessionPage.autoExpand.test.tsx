@@ -46,7 +46,7 @@ describe('practice auto-expanded current choice', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     vi.mocked(practiceRepository.getQuestion).mockResolvedValue(question)
-    vi.mocked(practiceRepository.submitAnswer).mockImplementation(async (_questionId, blankId, optionIds) => ({
+    vi.mocked(practiceRepository.submitAnswer).mockImplementation(async (_questionId, _blankId, optionIds) => ({
       correct: true, resolved: true, selectedOptionIds: optionIds, correctOptionIds: optionIds,
     }))
   })
