@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import type { PublicPracticeQuestion } from '../domain/practice'
@@ -67,4 +67,45 @@ describe('practice auto-expanded current choice', () => {
     expect(within(second).getByText('第二正解')).toBeTruthy()
     expect(screen.queryByRole('group', { name: '第一の空欄【①】' })).toBeNull()
   })
+  it('settles a wrong choice once, preserves it, displays correct value and explanation, and advances', async () => {
+    vi.mocked(practiceRepository.submitAnswer).mockImplementation(async (_questionId, blankId, optionIds) => {
+      if (blankId === 'blank-1') {
+        return {
+          correct: false, resolved: true, selectedOptionIds: optionIds,
+          correctOptionIds: ['option-1'], wrongReason: '第一の選択肢を見直します。',
+          explanation: '最初のステップはこの考え方を使います。',
+        }
+      }
+      return {
+        correct: true, resolved: true, selectedOptionIds: optionIds,
+        correctOptionIds: ['option-3'], explanation: '第二のステップを確認します。',
+        fullExplanation: 'この問題の解法をまとめます。',
+      }
+    })
+
+    render(
+      <MemoryRouter initialEntries={['/practice/session/practice-auto-open']}>
+        <Routes><Route path="/practice/session/:questionId" element={<PracticeSessionPage />} /></Routes>
+      </MemoryRouter>,
+    )
+
+    const first = await screen.findByRole('group', { name: '第一の空欄【①】' })
+    fireEvent.click(within(first).getByText('第一不正解'))
+
+    const feedback = await screen.findByTestId('practice-answer-feedback-blank-1')
+    expect(feedback.textContent).toContain('不正解')
+    expect(screen.getByTestId('practice-selected-answer-blank-1').textContent).toContain('第一不正解')
+    expect(screen.getByTestId('practice-correct-answer-blank-1').textContent).toContain('第一正解')
+    expect(screen.getByTestId('practice-explanation-blank-1').textContent).toContain('最初のステップ')
+    expect(within(feedback).getByText(/第一の選択肢を見直します/)).toBeTruthy()
+    expect(screen.getByTestId('practice-blank-resolved-blank-1').textContent).toContain('第一不正解')
+    expect(screen.queryByRole('group', { name: '第一の空欄【①】' })).toBeNull()
+
+    const second = await screen.findByRole('group', { name: '第二の空欄【②】' })
+    fireEvent.click(within(second).getByText('第二正解'))
+    await waitFor(() => expect(screen.getByTestId('practice-full-explanation').textContent)
+      .toContain('この問題の解法をまとめます'))
+    expect(screen.getByTestId('practice-explanation-blank-2').textContent).toContain('第二のステップ')
+  })
+
 })
