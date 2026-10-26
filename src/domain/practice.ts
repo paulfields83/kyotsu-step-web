@@ -65,6 +65,7 @@ export type PublicPracticeQuestion = PracticeQuestionSummary & {
   stem: ContentBlock[]
   solutionSteps: PublicPracticeStep[]
   blanks: PublicPracticeBlank[]
+  symbolNotes?: { symbol: string; ja: string; zh: string }[]
   interaction: {
     reveal: 'sequential'
     options: 'inline-expand'
