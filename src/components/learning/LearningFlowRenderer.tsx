@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Check, Circle, RotateCcw, X } from 'lucide-react'
 import { InlineMath } from 'react-katex'
 import { ContentRenderer } from '../question/ContentRenderer'
@@ -43,24 +43,21 @@ function PracticeBlank({
   session,
   blank,
   blankNumber,
-  onActivate,
   onExplain,
   onSubmit,
-  isOpen,
 }: {
   question: Question
   session: LearningSession
   blank: LearningBlank
   blankNumber: number
-  onActivate: (blankId: string) => void
   onExplain: (blankId: string) => void
   onSubmit: (blankId: string, selectedOptionIds: string[]) => void
-  isOpen: boolean
 }) {
   const { text } = useI18n()
   const [multiSelection, setMultiSelection] = useState<string[]>([])
   const answer = session.answers[blank.id]
   const resolved = isLearningAnswerResolved(answer)
+  const isOpen = !resolved
   const prompt = splitBlankPrompt(blank.prompt)
   const selectedWrong = !resolved ? (answer?.lastSelectedOptionIds ?? answer?.firstSelectedOptionIds ?? []) : []
   const correctId = blank.correctOptionIds[0]
@@ -89,17 +86,14 @@ function PracticeBlank({
             <strong>{inlineOptionValue(blank, correctId, question.assets)}</strong>
           </span>
         ) : (
-          <button
-            type="button"
+          <span
             data-testid={`blank-${blank.id}`}
             className={`reading-inline-blank${answer ? ' reading-inline-blank--wrong' : ''}`}
-            onClick={() => onActivate(blank.id)}
-            aria-expanded={isOpen}
           >
             {answer ? <X size={14} aria-hidden="true" /> : <Circle size={13} aria-hidden="true" />}
             <span>{prompt.marker || blankNumber}</span>
             <strong>{answer ? inlineOptionValue(blank, selectedWrong[0], question.assets) : text('選択', '选择')}</strong>
-          </button>
+          </span>
         )}
         {prompt.after && <span>{prompt.after}</span>}
       </div>
@@ -158,8 +152,6 @@ export function LearningFlowRenderer({ question, session, onActivate, onExplain,
 }) {
   const { text } = useI18n()
   const interactive = new Set(question.learning.variants[session.variant])
-  const [openInlineBlankId, setOpenInlineBlankId] = useState<string | null>(null)
-  const [closedInlineBlankId, setClosedInlineBlankId] = useState<string | null>(null)
   let blankNumber = 0
 
   const firstUnresolvedIndex = question.learning.solutionFlow.findIndex((block) =>
@@ -167,25 +159,9 @@ export function LearningFlowRenderer({ question, session, onActivate, onExplain,
     && interactive.has(block.blankId)
     && !isLearningAnswerResolved(session.answers[block.blankId]),
   )
-  const unresolvedBlock = firstUnresolvedIndex >= 0 ? question.learning.solutionFlow[firstUnresolvedIndex] : undefined
-  const nextInlineBlankId = unresolvedBlock?.type === 'blank' ? unresolvedBlock.blankId : null
-
-  useEffect(() => {
-    setOpenInlineBlankId(null)
-    setClosedInlineBlankId(null)
-  }, [nextInlineBlankId, question.questionId])
-
   const cutoffIndex = inlineChoices && firstUnresolvedIndex >= 0
     ? firstUnresolvedIndex
     : question.learning.solutionFlow.length - 1
-
-  const activateInline = (blankId: string) => {
-    const isAlreadyOpen = openInlineBlankId === blankId
-      || (openInlineBlankId === null && closedInlineBlankId !== blankId && nextInlineBlankId === blankId)
-    setOpenInlineBlankId(isAlreadyOpen ? null : blankId)
-    setClosedInlineBlankId(isAlreadyOpen ? blankId : null)
-    onActivate(blankId)
-  }
 
   return (
     <div className={`learning-flow${inlineChoices ? ' learning-flow--practice' : ''}`} aria-label={text('連続解答', '连续解答')}>
@@ -210,11 +186,8 @@ export function LearningFlowRenderer({ question, session, onActivate, onExplain,
               session={session}
               blank={blank}
               blankNumber={blankNumber}
-              onActivate={activateInline}
               onExplain={onExplain}
               onSubmit={onSubmitInline}
-              isOpen={openInlineBlankId === blank.id
-                || (openInlineBlankId === null && closedInlineBlankId !== blank.id && nextInlineBlankId === blank.id)}
             />
           )
         }
