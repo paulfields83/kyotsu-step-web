@@ -64,17 +64,24 @@ function unique(notes: SymbolNote[]) {
 export function textbookSymbolNotes(unit: PublicTextbookUnit, section: PublicTextbookSection): SymbolNote[] {
   const context = [unit.title, section.title, unit.unitId].join(' ')
   if (unit.subject === 'math-1a') {
-    const notes = [...setSymbols]
-    if (/二次関数|quadratic/.test(context)) notes.push(
-      entry('x', '二次関数に入力する数（横軸の変数）', '二次函数的自变量（横轴）'),
-      entry('y', 'x に対応する関数の値（縦軸）', '对应 x 的函数值（纵轴）'),
-    )
-    if (/集合|命題|set|proposition/.test(context)) notes.push(
-      entry('A', '問題文で定義された集合 A', '题目中定义的集合 A'),
-      entry('B', '問題文で定義された集合 B', '题目中定义的集合 B'),
-      entry('U', '問題文で定義された全体集合', '题目中定义的全集'),
-    )
-    return unique(notes)
+    // A, B, x and y are often redefined between different textbook examples.
+    // Do not attach generic "the set in the question" explanations to them.
+    return unique(setSymbols)
+  }
+
+  // These meanings are explicitly defined in the 1A displacement/velocity
+  // textbook text and remain valid through its worked average-velocity example.
+  if (/変位と速度|displacement.velocity|1a[\s　_-]*変位/i.test(context)) {
+    return [
+      { symbol: 'vavg', label: 'v⃗_avg', ja: '平均速度ベクトル。変位 Δr⃗ を経過時間 Δt で割った量', zh: '平均速度矢量：位移 Δr⃗ 除以经过时间 Δt' },
+      { symbol: 'Δr', label: 'Δr⃗', ja: '変位ベクトル。最終位置 r⃗₂ − 初期位置 r⃗₁', zh: '位移矢量：末位置矢量 r⃗₂ 减初始位置矢量 r⃗₁' },
+      { symbol: 'Δt', label: 'Δt', ja: '経過時間。後の時刻 t₂ − 前の時刻 t₁', zh: '经过时间：较晚时刻 t₂ 减较早时刻 t₁' },
+      { symbol: 'r1', label: 'r⃗₁', ja: '時刻 t₁ における位置ベクトル。原点 O から P₁ への矢印', zh: 't₁ 时刻的位置矢量：从原点 O 指向 P₁ 的箭头' },
+      { symbol: 'r2', label: 'r⃗₂', ja: '時刻 t₂ における位置ベクトル。原点 O から P₂ への矢印', zh: 't₂ 时刻的位置矢量：从原点 O 指向 P₂ 的箭头' },
+      { symbol: 't1', label: 't₁', ja: '最初の位置を観測した時刻（例題では 2.0 秒）', zh: '观测初始位置的时刻（例题中为 2.0 秒）' },
+      { symbol: 't2', label: 't₂', ja: '移動後の位置を観測した時刻（例題では 5.0 秒）', zh: '观测末位置的时刻（例题中为 5.0 秒）' },
+      { symbol: 'v', label: 'v⃗', ja: '物体の瞬間の速度ベクトル', zh: '物体的瞬时速度矢量' },
+    ]
   }
 
   const notes: SymbolNote[] = []
