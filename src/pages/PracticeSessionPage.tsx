@@ -167,6 +167,12 @@ export function PracticeSessionPage() {
   const blankById = useMemo(() => new Map(question?.blanks.map((blank) => [blank.id, blank]) ?? []), [question])
   const orderedBlankIds = useMemo(() => question?.solutionSteps.flatMap((step) => step.blankIds) ?? [], [question])
   const firstUnresolvedIndex = orderedBlankIds.findIndex((blankId) => !answers[blankId]?.resolved)
+
+  // Keep only the current step expanded; advance automatically after a correct answer.
+  useEffect(() => {
+    setOpenBlankId(firstUnresolvedIndex < 0 ? null : orderedBlankIds[firstUnresolvedIndex] ?? null)
+  }, [firstUnresolvedIndex, orderedBlankIds])
+
   const completedCount = orderedBlankIds.filter((blankId) => answers[blankId]?.resolved).length
   const complete = orderedBlankIds.length > 0 && completedCount === orderedBlankIds.length
   const resolvedLabelsByMarker = Object.fromEntries(
