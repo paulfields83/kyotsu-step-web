@@ -170,18 +170,19 @@ function renderPart(
   progress: TextbookUnitProgress | undefined,
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
+  showSymbols = false,
 ): ReactNode {
   if (part.type === 'text') return <GlossaryText value={part.text} />
   if (part.type === 'term') return <strong className="reading-term"><GlossaryText value={part.text} /></strong>
   if (part.type === 'math') {
     const holeIds = part.holeIds ?? []
-    if (!holeIds.length) return <GlossaryMath math={part.latex} />
+    if (!holeIds.length) return <GlossaryMath math={part.latex} showSymbols={showSymbols} />
     const latexWithAnswers = fillResolvedMathHoles(part.latex, holeIds, progress?.answers)
     const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
     if (!pendingId) {
       return (
         <span className="reading-math-answered" data-testid={`textbook-math-filled-${holeIds[0]}`}>
-          <GlossaryMath math={latexWithAnswers} />
+          <GlossaryMath math={latexWithAnswers} showSymbols={showSymbols} />
         </span>
       )
     }
@@ -193,7 +194,7 @@ function renderPart(
         onClick={() => onOpen(pendingId)}
         aria-label={text('式の空欄を解答する', '回答公式中的空格')}
       >
-        <GlossaryMath math={latexWithAnswers} />
+        <GlossaryMath math={latexWithAnswers} interactive={false} />
         <span className="reading-math-blank-button__hint">{text('選択', '选择')}</span>
       </button>
     )
@@ -466,7 +467,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         return <PhysicsInlineText value={part.text}/>
       }
       if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
-        return renderPart(part, section, progress, setActiveItemId, text)
+        return renderPart(part, section, progress, setActiveItemId, text, block.type === 'formula')
       }
       // The source has several holes per question but only one reviewed
       // combined answer. Link the additional blanks to the same response.
