@@ -99,6 +99,11 @@ describe('practice auto-expanded current choice', () => {
     expect(screen.getByTestId('practice-explanation-blank-1').textContent).toContain('最初のステップ')
     expect(within(feedback).getByText(/第一の選択肢を見直します/)).toBeTruthy()
     expect(screen.getByTestId('practice-blank-resolved-blank-1').textContent).toContain('第一不正解')
+    // The correct value must also appear directly after the wrong answer,
+    // not only in the explanation card below the step.
+    const inlineCorrect = screen.getByTestId('practice-inline-correct-blank-1')
+    expect(inlineCorrect.textContent).toContain('第一正解')
+    expect(inlineCorrect.previousElementSibling?.textContent).toContain('第一不正解')
     expect(screen.queryByRole('group', { name: '第一の空欄【①】' })).toBeNull()
 
     const second = await screen.findByRole('group', { name: '第二の空欄【②】' })
@@ -106,6 +111,36 @@ describe('practice auto-expanded current choice', () => {
     await waitFor(() => expect(screen.getByTestId('practice-full-explanation').textContent)
       .toContain('この問題の解法をまとめます'))
     expect(screen.getByTestId('practice-explanation-blank-2').textContent).toContain('第二のステップ')
+  })
+
+  it('shows a correct-answer chip even when the prompt has no bracketed marker', async () => {
+    vi.mocked(practiceRepository.getQuestion).mockResolvedValue({
+      ...question,
+      blanks: question.blanks.map((blank) => blank.id === 'blank-1'
+        ? { ...blank, prompt: 'マーカーのない空欄' }
+        : blank),
+    })
+    vi.mocked(practiceRepository.submitAnswer).mockResolvedValue({
+      correct: false,
+      resolved: true,
+      selectedOptionIds: ['option-2'],
+      correctOptionIds: ['option-1'],
+      explanation: '正答の考え方を説明します。',
+    })
+
+    render(
+      <MemoryRouter initialEntries={['/practice/session/practice-auto-open']}>
+        <Routes><Route path="/practice/session/:questionId" element={<PracticeSessionPage />} /></Routes>
+      </MemoryRouter>,
+    )
+
+    const first = await screen.findByRole('group', { name: 'マーカーのない空欄' })
+    fireEvent.click(within(first).getByText('第一不正解'))
+
+    const inline = await screen.findByTestId('practice-inline-correct-blank-1')
+    expect(inline.textContent).toContain('第一正解')
+    expect(inline.previousElementSibling?.textContent).toContain('第一不正解')
+    expect(screen.getByTestId('practice-explanation-blank-1').textContent).toContain('正答の考え方')
   })
 
 })
