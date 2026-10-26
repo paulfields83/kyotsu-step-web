@@ -915,3 +915,40 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   overflow-wrap: anywhere;
 }
 .symbol-glossary-note strong { color: var(--color-primary); }
+
+
+/* Whole-variable controls for equations: placement never obscures the
+   equation and avoids inserting a definition into the middle of a fraction. */
+.reading-formula-line .symbol-glossary-math-options,
+.formula-scroll .symbol-glossary-math-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  margin: .35rem auto .1rem;
+}
+.symbol-glossary-math-options small { font-size: .75rem; color: var(--color-muted); }
+.symbol-glossary-option {
+  border: 1px solid var(--color-border);
+  border-radius: 7px;
+  background: white;
+  color: var(--color-primary);
+  padding: .18rem .45rem;
+  font: 600 .8rem/1.5 inherit;
+  cursor: pointer;
+}
+.symbol-glossary-option[aria-expanded="true"] {
+  background: var(--color-section);
+  border-color: var(--color-primary);
+}
+.reading-formula-line .symbol-glossary-math:has(.symbol-glossary-math-options) {
+  display: inline-block;
+  max-width: 100%;
+}
+.reading-formula-line .symbol-glossary-note,
+.formula-scroll .symbol-glossary-note {
+  display: block;
+  margin: .45rem auto .1rem;
+  max-width: min(95%, 32rem);
+}
