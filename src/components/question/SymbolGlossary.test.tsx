@@ -37,6 +37,30 @@ describe('question-scoped tap-to-toggle symbol explanations', () => {
     expect(container.querySelector('.katex')).not.toBeNull()
   })
 
+  it('shows full quantities for the 1A average-velocity equation and toggles their meanings', () => {
+    render(
+      <SymbolGlossaryProvider notes={[
+        { symbol: 'vavg', label: 'v⃗_avg', ja: '平均速度ベクトル', zh: '平均速度矢量' },
+        { symbol: 'Δr', label: 'Δr⃗', ja: '変位ベクトル', zh: '位移矢量' },
+        { symbol: 'Δt', ja: '経過時間', zh: '经过时间' },
+      ]}>
+        <GlossaryMath
+          math="\vec{v}_{\mathrm{avg}}=\frac{\Delta\vec{r}}{\Delta t}"
+          showSymbols
+        />
+      </SymbolGlossaryProvider>,
+    )
+    expect(screen.getByTestId('formula-symbol-vavg')).toBeTruthy()
+    const displacement = screen.getByTestId('formula-symbol-Δr')
+    expect(displacement).toBeTruthy()
+    expect(screen.getByTestId('formula-symbol-Δt')).toBeTruthy()
+    expect(screen.queryByTestId('symbol-note')).toBeNull()
+    fireEvent.click(displacement)
+    expect(screen.getByTestId('symbol-note').textContent).toContain('変位ベクトル')
+    fireEvent.click(displacement)
+    expect(screen.queryByTestId('symbol-note')).toBeNull()
+  })
+
   it('does not make unknown symbols interactive', () => {
     const { container } = render(<SymbolGlossaryProvider notes={[]}>
       <GlossaryText value="x と A" />
