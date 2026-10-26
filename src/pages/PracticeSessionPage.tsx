@@ -84,6 +84,7 @@ function PracticeBlankLine({
           }
           return answer?.resolved ? (
             <span key={`${blank.id}-current-${index}`}
+              data-testid={`practice-blank-resolved-${blank.id}`}
               className={`reading-inline-answer${answer.correct ? '' : ' reading-inline-answer--wrong'}`}>
               {answer.correct ? <Check size={14} aria-hidden="true" /> : <X size={14} aria-hidden="true" />}
               <strong>{answer.selectedLabel}</strong>
