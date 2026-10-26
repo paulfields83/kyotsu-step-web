@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react'
 import { Check, Circle, RotateCcw, X } from 'lucide-react'
-import { InlineMath } from 'react-katex'
+import { GlossaryMath } from '../question/SymbolGlossary'
 import { ContentRenderer } from '../question/ContentRenderer'
 import type { LearningSession } from '../../domain/attempts'
 import { isLearningAnswerResolved } from '../../domain/learning'
@@ -23,7 +23,7 @@ function inlineOptionValue(blank: LearningBlank, optionId: string, assets: Quest
   if (option.content.length === 1) {
     const block = option.content[0]
     if (block.type === 'text') return block.text
-    if (block.type === 'latex') return <InlineMath math={block.latex} />
+    if (block.type === 'latex') return <GlossaryMath math={block.latex} />
   }
   return <span className="practice-inline-render"><ContentRenderer blocks={option.content} assets={assets} /></span>
 }
