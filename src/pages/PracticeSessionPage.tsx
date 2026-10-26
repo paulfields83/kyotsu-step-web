@@ -163,7 +163,7 @@ function PracticeBlankLine({
       ) : (
         <div className="reading-inline-choice-panel">
           <div className="reading-inline-choice-panel__head">
-            <strong>{resolvedPrompt}</strong>
+            <strong><GlossaryText value={resolvedPrompt} /></strong>
           </div>
           <div className="reading-choice-options" role="group" aria-label={blank.prompt}>
             {blank.options.map((option, index) => {
