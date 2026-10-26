@@ -1,4 +1,5 @@
-import { InlineMath } from 'react-katex'
+import { GlossaryMath, GlossaryText, SymbolGlossaryProvider } from '../components/question/SymbolGlossary'
+import { textbookSymbolNotes } from '../domain/practiceSymbolNotes'
 import { textbookMathLatex } from '../domain/textbookMathDisplay'
 import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
@@ -96,13 +97,13 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
 // in ordinary readable textbook language.
 function GuidedChoiceValue({ value }: { value: string }) {
   const latex = textbookMathLatex(value)
-  if (latex) return <InlineMath math={latex} />
+  if (latex) return <GlossaryMath math={latex} />
   // The original physics distractor sometimes appends Japanese explanation
   // directly after a vector expression (e.g. |v⃗₂|−|v⃗₁|だけ).
   // Keep the suffix as prose, but typeset the vector expression.
   const mixed = value.match(/^(.+?)(だけ)$/u)
   const mathPrefix = mixed ? textbookMathLatex(mixed[1]) : null
-  if (mixed && mathPrefix) return <><InlineMath math={mathPrefix} />{mixed[2]}</>
+  if (mixed && mathPrefix) return <><GlossaryMath math={mathPrefix} />{mixed[2]}</>
   return <>{value}</>
 }
 
@@ -110,11 +111,11 @@ function GuidedChoiceValue({ value }: { value: string }) {
 // in ZIP-derived hints, notes, figure captions and leftover inline source text.
 function PhysicsInlineText({ value }: { value: string }) {
   const glyphs = /[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜΔθ√²³]/u
-  if (!glyphs.test(value)) return <>{value}</>
+  if (!glyphs.test(value)) return <GlossaryText value={value} />
   const tokens = value.split(/([A-Za-zΔ√θ][A-Za-z0-9Δθ√°⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ²³_{}().,=+\-−×·\/<>|]*)/gu)
   return <>{tokens.map((token, index) => {
     const latex = glyphs.test(token) ? textbookMathLatex(token) : null
-    return latex ? <InlineMath key={index} math={latex} /> : <span key={index}>{token}</span>
+    return latex ? <GlossaryMath key={index} math={latex} /> : <span key={index}><GlossaryText value={token} /></span>
   })}</>
 }
 
@@ -170,17 +171,17 @@ function renderPart(
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
 ): ReactNode {
-  if (part.type === 'text') return part.text
-  if (part.type === 'term') return <strong className="reading-term">{part.text}</strong>
+  if (part.type === 'text') return <GlossaryText value={part.text} />
+  if (part.type === 'term') return <strong className="reading-term"><GlossaryText value={part.text} /></strong>
   if (part.type === 'math') {
     const holeIds = part.holeIds ?? []
-    if (!holeIds.length) return <InlineMath math={part.latex} />
+    if (!holeIds.length) return <GlossaryMath math={part.latex} />
     const latexWithAnswers = fillResolvedMathHoles(part.latex, holeIds, progress?.answers)
     const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
     if (!pendingId) {
       return (
         <span className="reading-math-answered" data-testid={`textbook-math-filled-${holeIds[0]}`}>
-          <InlineMath math={latexWithAnswers} />
+          <GlossaryMath math={latexWithAnswers} />
         </span>
       )
     }
@@ -192,7 +193,7 @@ function renderPart(
         onClick={() => onOpen(pendingId)}
         aria-label={text('式の空欄を解答する', '回答公式中的空格')}
       >
-        <InlineMath math={latexWithAnswers} />
+        <GlossaryMath math={latexWithAnswers} />
         <span className="reading-math-blank-button__hint">{text('選択', '选择')}</span>
       </button>
     )
@@ -369,7 +370,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
       const speaker = block.speaker === 'teacher' ? '先生' : block.speaker === 'hanako' ? '花子' : '太郎'
       return (
         <p className="reading-dialogue" key={block.id}>
-          <strong>{speaker}：</strong><span>{block.text}</span>
+          <strong>{speaker}：</strong><span><GlossaryText value={block.text} /></span>
         </p>
       )
     }
@@ -415,8 +416,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
       }
     }
 
-    if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
-    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text}/> : block.text}</aside>
+    if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}><GlossaryText value={block.text} /></h4>
+    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text}/> : <GlossaryText value={block.text} />}</aside>
 
     if (hasSolutionTrack && block.type === 'paragraph') {
       const plain = block.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
@@ -653,6 +654,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   }
 
   return (
+    <SymbolGlossaryProvider key={section.id} notes={textbookSymbolNotes(unit, section)}>
     <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
       {hasTopicNavigation && (
         <nav className="reading-topic-nav" aria-label={text('知識項目', '知识点')}>
@@ -708,6 +710,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         )
       })}
     </article>
+    </SymbolGlossaryProvider>
   )
 }
 
