@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { Check, Circle, RotateCcw, X } from 'lucide-react'
 import { InlineMath } from 'react-katex'
 import { ContentRenderer } from '../question/ContentRenderer'
@@ -159,6 +159,7 @@ export function LearningFlowRenderer({ question, session, onActivate, onExplain,
   const { text } = useI18n()
   const interactive = new Set(question.learning.variants[session.variant])
   const [openInlineBlankId, setOpenInlineBlankId] = useState<string | null>(null)
+  const [closedInlineBlankId, setClosedInlineBlankId] = useState<string | null>(null)
   let blankNumber = 0
 
   const firstUnresolvedIndex = question.learning.solutionFlow.findIndex((block) =>
@@ -166,12 +167,23 @@ export function LearningFlowRenderer({ question, session, onActivate, onExplain,
     && interactive.has(block.blankId)
     && !isLearningAnswerResolved(session.answers[block.blankId]),
   )
+  const unresolvedBlock = firstUnresolvedIndex >= 0 ? question.learning.solutionFlow[firstUnresolvedIndex] : undefined
+  const nextInlineBlankId = unresolvedBlock?.type === 'blank' ? unresolvedBlock.blankId : null
+
+  useEffect(() => {
+    setOpenInlineBlankId(null)
+    setClosedInlineBlankId(null)
+  }, [nextInlineBlankId, question.questionId])
+
   const cutoffIndex = inlineChoices && firstUnresolvedIndex >= 0
     ? firstUnresolvedIndex
     : question.learning.solutionFlow.length - 1
 
   const activateInline = (blankId: string) => {
-    setOpenInlineBlankId((current) => current === blankId ? null : blankId)
+    const isAlreadyOpen = openInlineBlankId === blankId
+      || (openInlineBlankId === null && closedInlineBlankId !== blankId && nextInlineBlankId === blankId)
+    setOpenInlineBlankId(isAlreadyOpen ? null : blankId)
+    setClosedInlineBlankId(isAlreadyOpen ? blankId : null)
     onActivate(blankId)
   }
 
@@ -201,7 +213,8 @@ export function LearningFlowRenderer({ question, session, onActivate, onExplain,
               onActivate={activateInline}
               onExplain={onExplain}
               onSubmit={onSubmitInline}
-              isOpen={openInlineBlankId === blank.id}
+              isOpen={openInlineBlankId === blank.id
+                || (openInlineBlankId === null && closedInlineBlankId !== blank.id && nextInlineBlankId === blank.id)}
             />
           )
         }
