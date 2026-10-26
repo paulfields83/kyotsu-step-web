@@ -26,9 +26,7 @@ function PracticeBlankLine({
   questionId,
   blank,
   answer,
-  open,
   busy,
-  onToggle,
   onAnswered,
   currentMarker,
   resolvedLabelsByMarker,
@@ -36,9 +34,7 @@ function PracticeBlankLine({
   questionId: string
   blank: PublicPracticeBlank
   answer?: BlankState
-  open: boolean
   busy: boolean
-  onToggle: () => void
   onAnswered: (blankId: string, state: BlankState) => void
   currentMarker: string
   resolvedLabelsByMarker: Record<string, string>
@@ -61,7 +57,7 @@ function PracticeBlankLine({
   }
 
   return (
-    <div className={`practice-blank-block${open ? ' practice-blank-block--active' : ''}`}>
+    <div className={`practice-blank-block${!answer?.resolved ? ' practice-blank-block--active' : ''}`}>
       <div className="practice-blank-line">
         {parts.map((part, index) => {
           const marker = markerValue(part)
@@ -78,17 +74,14 @@ function PracticeBlankLine({
               <strong>{answer.selectedLabel}</strong>
             </span>
           ) : (
-            <button
-              type="button"
+            <span
               key={`${blank.id}-current-${index}`}
               className={`reading-inline-blank${answer && !answer.correct ? ' reading-inline-blank--wrong' : ''}`}
-              onClick={onToggle}
-              aria-expanded={open}
             >
               {answer && !answer.correct ? <X size={14} aria-hidden="true" /> : <Circle size={13} aria-hidden="true" />}
               <span>{marker}</span>
               <strong>{answer && !answer.correct ? answer.selectedLabel : text('選択', '选择')}</strong>
-            </button>
+            </span>
           )
         })}
         {/* ZIP authored practice prompts often contain no 【①】 marker.
@@ -99,16 +92,16 @@ function PracticeBlankLine({
             <strong>{answer.selectedLabel}</strong>
           </span>
         ) : (
-          <button type="button" data-testid={`practice-blank-trigger-${blank.id}`}
+          <span data-testid={`practice-blank-trigger-${blank.id}`}
             className={`reading-inline-blank${answer && !answer.correct ? ' reading-inline-blank--wrong' : ''}`}
-            onClick={onToggle} aria-label={blank.prompt} aria-expanded={open}>
+            aria-label={blank.prompt}>
             {answer && !answer.correct ? <X size={14} aria-hidden="true" /> : <Circle size={13} aria-hidden="true" />}
             <strong>{answer && !answer.correct ? answer.selectedLabel : text('選択', '选择')}</strong>
-          </button>
+          </span>
         ))}
       </div>
 
-      {!answer?.resolved && open && (
+      {!answer?.resolved && (
         <div className="reading-inline-choice-panel">
           <div className="reading-inline-choice-panel__head">
             <strong>{resolvedPrompt}</strong>
@@ -148,7 +141,6 @@ export function PracticeSessionPage() {
   const [loading, setLoading] = useState(true)
   const [loadError, setLoadError] = useState(false)
   const [answers, setAnswers] = useState<Record<string, BlankState>>({})
-  const [openBlankId, setOpenBlankId] = useState<string | null>(null)
   const [busyBlankId, setBusyBlankId] = useState<string | null>(null)
 
   useEffect(() => {
@@ -157,7 +149,6 @@ export function PracticeSessionPage() {
     practiceRepository.getQuestion(questionId)
       .then((value) => {
         setQuestion(value)
-        setOpenBlankId(null)
         setAnswers({})
       })
       .catch(() => setLoadError(true))
@@ -167,11 +158,6 @@ export function PracticeSessionPage() {
   const blankById = useMemo(() => new Map(question?.blanks.map((blank) => [blank.id, blank]) ?? []), [question])
   const orderedBlankIds = useMemo(() => question?.solutionSteps.flatMap((step) => step.blankIds) ?? [], [question])
   const firstUnresolvedIndex = orderedBlankIds.findIndex((blankId) => !answers[blankId]?.resolved)
-
-  // Keep only the current step expanded; advance automatically after a correct answer.
-  useEffect(() => {
-    setOpenBlankId(firstUnresolvedIndex < 0 ? null : orderedBlankIds[firstUnresolvedIndex] ?? null)
-  }, [firstUnresolvedIndex, orderedBlankIds])
 
   const completedCount = orderedBlankIds.filter((blankId) => answers[blankId]?.resolved).length
   const complete = orderedBlankIds.length > 0 && completedCount === orderedBlankIds.length
@@ -194,7 +180,6 @@ export function PracticeSessionPage() {
   const handleAnswered = (blankId: string, state: BlankState) => {
     setAnswers((current) => ({ ...current, [blankId]: state }))
     setBusyBlankId(null)
-    if (state.resolved) setOpenBlankId(null)
   }
 
   return (
@@ -242,9 +227,7 @@ export function PracticeSessionPage() {
                       questionId={question.questionId}
                       blank={blank}
                       answer={answers[blankId]}
-                      open={openBlankId === blankId}
                       busy={busyBlankId === blankId}
-                      onToggle={() => setOpenBlankId((current) => current === blankId ? null : blankId)}
                       currentMarker={circledMarkers[blankIndex] ?? String(blankIndex + 1)}
                       resolvedLabelsByMarker={resolvedLabelsByMarker}
                       onAnswered={(id, state) => {
