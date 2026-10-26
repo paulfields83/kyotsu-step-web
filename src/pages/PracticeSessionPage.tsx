@@ -247,6 +247,7 @@ export function PracticeSessionPage() {
   }
 
   return (
+    <SymbolGlossaryProvider key={question.questionId} notes={question.symbolNotes ?? []}>
     <div className="page-stack learning-page">
       <header className="session-header">
         <div>
