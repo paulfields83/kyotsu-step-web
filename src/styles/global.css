@@ -496,6 +496,27 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   grid-template-columns: 30px minmax(0, 1fr);
 }
 .learning-flow--practice .reading-choice-option > span { align-self: start; margin-top: .05rem; }
+/* Keep the learner's wrong selection and the reviewed answer together
+   at the exact point in the sentence where the blank was answered. */
+.learning-flow--practice .practice-answer-pair {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+  max-width: 100%;
+  white-space: normal;
+  vertical-align: middle;
+}
+.learning-flow--practice .practice-correct-inline {
+  margin: 0 .08rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.learning-flow--practice .practice-correct-inline small {
+  font-size: .75rem;
+  font-weight: 700;
+}
+
 /* Practice-only one-shot feedback: retain the first choice and its explanation. */
 .learning-flow--practice .reading-inline-answer--wrong {
   border-color: var(--color-error);
