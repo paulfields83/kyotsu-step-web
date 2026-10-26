@@ -319,5 +319,6 @@ export function PracticeSessionPage() {
         </div>
       )}
     </div>
+    </SymbolGlossaryProvider>
   )
 }
