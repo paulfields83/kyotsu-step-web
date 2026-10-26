@@ -226,12 +226,20 @@ function TextbookReadingFlow({ unit, section, progress }: {
     setActiveItemId(null)
     setSubmitError('')
   }, [section.id])
+  // The current visible knowledge group opens its first unanswered choice by default.
+  // A manually selected item still takes precedence (including wrong-answer feedback).
+  const selectedReadingBlocks = hasTopicNavigation
+    ? groups[Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0))] ?? []
+    : section.readingFlow
+  const nextPendingItemId = readingGroupItemIds(selectedReadingBlocks)
+    .find((id) => !progress?.answers[id]?.resolved) ?? null
+  const visibleActiveItemId = activeItemId ?? nextPendingItemId
+
   useEffect(() => {
     setShownHintCount(0)
-  }, [activeItemId])
+  }, [visibleActiveItemId])
 
-
-  const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
+  const activeItem = visibleActiveItemId ? section.items.find((item) => item.id === visibleActiveItemId) : undefined
   const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
   const activeChoices = activeItem?.choices ?? []
   const activeRevealedWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
@@ -242,7 +250,9 @@ function TextbookReadingFlow({ unit, section, progress }: {
     try {
       const result = await textbookRepository.submitAnswer(unit.unitId, activeItem.id, choice)
       recordServerAnswer(unit, activeItem.id, choice, result)
-      if (result.correct) setActiveItemId(null)
+      // Preserve wrong-answer feedback; a correct answer automatically reveals the
+      // next unanswered choice in the visible group.
+      setActiveItemId(result.correct ? null : activeItem.id)
       // Wrong answers stay expanded to display the correct option, just as in
       // the reviewed 集合と命題 textbook. There is no second attempt.
     } catch (error) {
@@ -254,9 +264,9 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
   const blockContainsActiveItem = (block: TextbookReadingBlock) =>
     Boolean(
-      activeItemId
+      visibleActiveItemId
       && (block.type === 'paragraph' || block.type === 'formula')
-      && blockItemIds(block).includes(activeItemId),
+      && blockItemIds(block).includes(visibleActiveItemId),
     )
 
   const renderInlineChoicePanel = (block: TextbookReadingBlock) => {
