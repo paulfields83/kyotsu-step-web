@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ContentRenderer } from '../components/question/ContentRenderer'
+import { SymbolGlossaryProvider } from '../components/question/SymbolGlossary'
+import { builtInPracticeSymbolNotes } from '../domain/practiceSymbolNotes'
 import { LearningFlowRenderer } from '../components/learning/LearningFlowRenderer'
 import { BottomSheet, ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
 import { activeBlankIds, isLearningAnswerResolved } from '../domain/learning'
@@ -147,6 +149,7 @@ export function LearningSessionPage() {
   const persistentVisualBlocks = question.stem.filter((block) => block.type === 'image')
 
   return (
+    <SymbolGlossaryProvider key={question.questionId} notes={builtInPracticeSymbolNotes[question.questionId] ?? []}>
     <div className="page-stack learning-page">
       <header className="session-header">
         <div>
@@ -261,5 +264,6 @@ export function LearningSessionPage() {
         </div>}
       </BottomSheet>
     </div>
+    </SymbolGlossaryProvider>
   )
 }
