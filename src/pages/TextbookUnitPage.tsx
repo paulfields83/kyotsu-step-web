@@ -214,7 +214,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const { text } = useI18n()
   const revisedPhysics = unit.subject === 'physics' && unit.unitId.endsWith('-revised')
   const [activeItemId, setActiveItemId] = useState<string | null>(null)
-  const [shownHintCount, setShownHintCount] = useState(0)
+  const [hintCounts, setHintCounts] = useState<Record<string, number>>({})
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
   const [submitError, setSubmitError] = useState('')
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(0)
@@ -224,37 +224,20 @@ function TextbookReadingFlow({ unit, section, progress }: {
   useEffect(() => {
     setSelectedGroupIndex(0)
     setActiveItemId(null)
+    setHintCounts({})
     setSubmitError('')
   }, [section.id])
-  // The current visible knowledge group opens its first unanswered choice by default.
-  // A manually selected item still takes precedence (including wrong-answer feedback).
-  const selectedReadingBlocks = hasTopicNavigation
-    ? groups[Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0))] ?? []
-    : section.readingFlow
-  const nextPendingItemId = readingGroupItemIds(selectedReadingBlocks)
-    .find((id) => !progress?.answers[id]?.resolved) ?? null
-  const visibleActiveItemId = activeItemId ?? nextPendingItemId
-
-  useEffect(() => {
-    setShownHintCount(0)
-  }, [visibleActiveItemId])
-
-  const activeItem = visibleActiveItemId ? section.items.find((item) => item.id === visibleActiveItemId) : undefined
-  const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
-  const activeChoices = activeItem?.choices ?? []
-  const activeRevealedWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
-  const selectChoice = async (choice: string) => {
-    if (!activeItem || activeRecord?.resolved || submittingItemId) return
+  // Choices are always shown for every currently visible unanswered item.
+  // Preserve the previously wrong choice without blocking the next item.
+  const selectChoice = async (item: PublicTextbookItem, choice: string) => {
+    if (progress?.answers[item.id]?.resolved || submittingItemId) return
     setSubmitError('')
-    setSubmittingItemId(activeItem.id)
+    setActiveItemId(item.id)
+    setSubmittingItemId(item.id)
     try {
-      const result = await textbookRepository.submitAnswer(unit.unitId, activeItem.id, choice)
-      recordServerAnswer(unit, activeItem.id, choice, result)
-      // Preserve wrong-answer feedback; a correct answer automatically reveals the
-      // next unanswered choice in the visible group.
-      setActiveItemId(result.correct ? null : activeItem.id)
-      // Wrong answers stay expanded to display the correct option, just as in
-      // the reviewed 集合と命題 textbook. There is no second attempt.
+      const result = await textbookRepository.submitAnswer(unit.unitId, item.id, choice)
+      recordServerAnswer(unit, item.id, choice, result)
+      setActiveItemId(result.correct ? null : item.id)
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : text('回答を送信できませんでした。', '无法提交答案。'))
     } finally {
@@ -262,71 +245,76 @@ function TextbookReadingFlow({ unit, section, progress }: {
     }
   }
 
-  const blockContainsActiveItem = (block: TextbookReadingBlock) =>
-    Boolean(
-      visibleActiveItemId
-      && (block.type === 'paragraph' || block.type === 'formula')
-      && blockItemIds(block).includes(visibleActiveItemId),
+  const renderInlineChoicePanel = (visibleParts: TextbookReadingPart[]) => {
+    const ids = [...new Set(visibleParts.flatMap((part) => {
+      if (part.type === 'choice') return [part.itemId]
+      if (part.type !== 'math') return []
+      const holes = part.holeIds ?? []
+      const next = holes.find((id) => !progress?.answers[id]?.resolved)
+      const lastWrong = holes.filter((id) =>
+        id === activeItemId && progress?.answers[id]?.resolved && !progress?.answers[id]?.isFirstCorrect)
+      return [...lastWrong, ...(next ? [next] : [])]
+    }))].filter((id) =>
+      !progress?.answers[id]?.resolved ||
+      (id === activeItemId && !progress?.answers[id]?.isFirstCorrect),
     )
 
-  const renderInlineChoicePanel = (block: TextbookReadingBlock) => {
-    if (!activeItem || !blockContainsActiveItem(block)) return null
-    return (
-      <div className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${activeItem.id}`}>
-        <div className="reading-inline-choice-panel__head">
-          <strong>{activeItem.label}</strong>
-          <span>{activeItem.prompt}</span>
-        </div>
-        {activeChoices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
-          {activeChoices.map((choice, index) => {
-            const selectedWrong = Boolean(activeRevealedWrongResult && activeRecord?.firstValue === choice)
-            const revealedCorrect = Boolean(activeRevealedWrongResult && activeRecord?.value === choice)
-            return (
-              <button
-                type="button"
-                key={choice}
-                data-testid={`textbook-choice-${activeItem.id}-${index}`}
-                data-choice-value={choice}
-                aria-label={`${index + 1}. ${choice}`}
-                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
-                disabled={Boolean(activeRecord?.resolved) || submittingItemId === activeItem.id}
-                onClick={() => void selectChoice(choice)}
-              >
-                <span>{index + 1}</span>
-                <strong><GuidedChoiceValue value={choice} /></strong>
-                {activeItem.unit && <small>{activeItem.unit}</small>}
-              </button>
-            )
-          })}
-        </div>}
-        {Boolean(activeItem.hints?.length) && !activeRecord?.resolved && (
-          <div className="reading-staged-hints" data-testid={`textbook-hints-${activeItem.id}`}>
-            <button type="button" className="reading-hint-trigger"
-              onClick={() => setShownHintCount((count) => Math.min(count + 1,activeItem.hints?.length ?? 0))}
-              disabled={shownHintCount >= (activeItem.hints?.length ?? 0)}>
-              {text(`ヒントを見る ${shownHintCount}/${activeItem.hints?.length ?? 0}`,
-                `查看提示 ${shownHintCount}/${activeItem.hints?.length ?? 0}`)}
-            </button>
-            {shownHintCount > 0 && (
-              <ol className="reading-hint-steps">
-                {activeItem.hints?.slice(0, shownHintCount).map((hint,index)=><li key={index}>{revisedPhysics ? <PhysicsInlineText value={hint}/> : hint}</li>)}
-              </ol>
-            )}
+    return ids.map((id) => {
+      const item = section.items.find((candidate) => candidate.id === id)
+      if (!item) return null
+      const record = progress?.answers[id]
+      const revealedWrong = Boolean(record?.resolved && !record.isFirstCorrect)
+      const hintCount = hintCounts[id] ?? 0
+      return (
+        <div key={id} className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${id}`}>
+          <div className="reading-inline-choice-panel__head">
+            <strong>{item.label}</strong><span>{item.prompt}</span>
           </div>
-        )}
-        {activeChoices.length < 2 && (
-          <p className="reading-inline-choice-error" role="alert">
+          {item.choices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${item.label} ${text('選択肢', '选项')}`}>
+            {item.choices.map((choice, index) => {
+              const selectedWrong = Boolean(revealedWrong && record?.firstValue === choice)
+              const revealedCorrect = Boolean(revealedWrong && record?.value === choice)
+              return (
+                <button type="button" key={choice}
+                  data-testid={`textbook-choice-${id}-${index}`}
+                  data-choice-value={choice} aria-label={`${index + 1}. ${choice}`}
+                  className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
+                  disabled={Boolean(record?.resolved) || submittingItemId !== null}
+                  onClick={() => void selectChoice(item, choice)}>
+                  <span>{index + 1}</span>
+                  <strong><GuidedChoiceValue value={choice} /></strong>
+                  {item.unit && <small>{item.unit}</small>}
+                </button>
+              )
+            })}
+          </div>}
+          {Boolean(item.hints?.length) && !record?.resolved && (
+            <div className="reading-staged-hints" data-testid={`textbook-hints-${id}`}>
+              <button type="button" className="reading-hint-trigger"
+                onClick={() => setHintCounts((current) => ({
+                  ...current, [id]: Math.min((current[id] ?? 0) + 1, item.hints?.length ?? 0),
+                }))}
+                disabled={hintCount >= (item.hints?.length ?? 0)}>
+                {text(`ヒントを見る ${hintCount}/${item.hints?.length ?? 0}`,
+                  `查看提示 ${hintCount}/${item.hints?.length ?? 0}`)}
+              </button>
+              {hintCount > 0 && (
+                <ol className="reading-hint-steps">
+                  {item.hints?.slice(0, hintCount).map((hint, index) => <li key={index}>{revisedPhysics ? <PhysicsInlineText value={hint}/> : hint}</li>)}
+                </ol>
+              )}
+            </div>
+          )}
+          {item.choices.length < 2 && <p className="reading-inline-choice-error" role="alert">
             {text('選択肢の読み込みに失敗しました。画面を更新してください。', '选项加载失败，请刷新页面。')}
-          </p>
-        )}
-        {activeRevealedWrongResult && (
-          <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
-            {text('不正解です。正解は「', '回答错误。正确答案是「')}<GuidedChoiceValue value={activeRecord?.value ?? ''} />{text('」です。', '」。')}
-          </p>
-        )}
-        {submitError && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
-      </div>
-    )
+          </p>}
+          {revealedWrong && <p className="reading-inline-choice-error" data-testid={`answer-reveal-${id}`}>
+            {text('不正解です。正解は「', '回答错误。正确答案是「')}<GuidedChoiceValue value={record?.value ?? ''} />{text('」です。', '」。')}
+          </p>}
+          {submitError && activeItemId === id && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
+        </div>
+      )
+    })
   }
 
   const hasSolutionTrack = section.readingFlow.some(
@@ -519,7 +507,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
             <div className="practice-blank-line">
               {content}
             </div>
-            {renderInlineChoicePanel(block)}
+            {renderInlineChoicePanel(visibleParts)}
           </div>
         </div>
       )
@@ -530,7 +518,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         {block.type === 'formula'
           ? <div className="reading-formula-line">{content}</div>
           : <p className="reading-paragraph">{content}</p>}
-        {renderInlineChoicePanel(block)}
+        {renderInlineChoicePanel(visibleParts)}
       </div>
     )
   }
