@@ -55,6 +55,38 @@ describe('textbook choice auto-expand', () => {
     })
   })
 
+  it('renders teacher, Hanako and Taro as static named guidance bubbles without touching lesson content', async () => {
+    const dialogues = [
+      { id: 'guide-hanako', type: 'dialogue' as const, speaker: 'hanako' as const, text: '同じ条件で集まっているんだね。' },
+      { id: 'guide-taro', type: 'dialogue' as const, speaker: 'taro' as const, text: 'どうやって考えればいいのかな。' },
+      { id: 'guide-teacher', type: 'dialogue' as const, speaker: 'teacher' as const, text: 'まず要素に注目しよう。' },
+    ]
+    vi.mocked(textbookRepository.getById).mockResolvedValue({
+      ...unit,
+      sections: [{
+        ...unit.sections[0],
+        readingFlow: [...dialogues, ...unit.sections[0].readingFlow],
+      }],
+    })
+
+    const { container } = render(
+      <MemoryRouter initialEntries={['/learning/textbook/math-auto-expand-test']}>
+        <Routes><Route path="/learning/textbook/:unitId" element={<TextbookUnitPage />} /></Routes>
+      </MemoryRouter>,
+    )
+
+    for (const [index, name] of ['花子', '太郎', '先生'].entries()) {
+      const bubble = await screen.findByTestId(`textbook-dialogue-${dialogues[index].id}`)
+      expect(bubble.classList.contains('reading-dialogue')).toBe(true)
+      expect(bubble.querySelector('.reading-dialogue__speaker')?.textContent).toBe(name)
+      expect(bubble.querySelector('.reading-dialogue__text')?.textContent).toBe(dialogues[index].text)
+      expect(bubble.querySelector('button')).toBeNull()
+      expect(bubble.querySelector('img')).toBeNull()
+    }
+    expect(container.querySelectorAll('.reading-dialogue')).toHaveLength(3)
+    expect(await screen.findByTestId('inline-choice-panel-choice-one')).toBeTruthy()
+  })
+
   it('breaks long set options and successive definitions into safe mobile-width fragments', async () => {
     const longSets = '∅,{1},{2},{3},{1,2},{1,3},{2,3},{1,2,3}'
     vi.mocked(textbookRepository.getById).mockResolvedValue({
