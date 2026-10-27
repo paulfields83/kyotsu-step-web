@@ -105,6 +105,20 @@ function condensed(value: string) {
     .toLowerCase()
 }
 
+// A base letter must not be inferred from a decorated or subscripted
+// quantity. In particular v inside v_0 / \vec v / v_avg is not plain v.
+function hasStandaloneBase(math: string, key: string) {
+  if (!/^[A-Za-z]$/.test(key)) return true
+  const stripped = math
+    .replace(/\\(?:vec|bar|overline|hat|tilde)\s*(?:\{\s*[A-Za-z]\s*\}|[A-Za-z])(?:\s*_\s*(?:\{[^{}]*\}|[A-Za-z0-9]+))?/g, ' ')
+    .replace(/\\Delta\s*(?:\{\s*[A-Za-z]\s*\}|[A-Za-z])/g, ' ')
+    .replace(/Δ[A-Za-z][⃗̄₀-₉]*/gu, ' ')
+    .replace(/[A-Za-z]\s*_\s*(?:\{[^{}]*\}|[A-Za-z0-9]+)/g, ' ')
+    .replace(/[A-Za-z][₀₁₂₃₄₅₆₇₈₉ₓᵧₜ]+/gu, ' ')
+    .replace(/\\[A-Za-z]+/g, ' ')
+  return new RegExp('(^|[^A-Za-z])' + key + '(?![A-Za-z0-9_])').test(stripped)
+}
+
 function formulaSearchText(math: string) {
   return condensed(math
     .replace(/\\(?:Delta)(?![A-Za-z])/g, 'Δ')
@@ -133,7 +147,9 @@ export function GlossaryMath({
   const container = useRef<HTMLSpanElement>(null)
   const search = formulaSearchText(math)
   const relevant = ctx ? [...ctx.notes.values()]
-    .filter((note) => condensed(note.symbol) !== '' && search.includes(condensed(note.symbol)))
+    .filter((note) => condensed(note.symbol) !== ''
+      && search.includes(condensed(note.symbol))
+      && hasStandaloneBase(math, note.symbol))
     .sort((a, b) => condensed(b.symbol).length - condensed(a.symbol).length)
     : []
   const [hasClickable, setHasClickable] = useState(false)
