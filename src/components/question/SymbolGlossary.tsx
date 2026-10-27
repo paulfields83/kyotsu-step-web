@@ -12,18 +12,18 @@ export type SymbolNote = {
 
 type GlossaryContextValue = {
   notes: Map<string, SymbolNote>
-  active: { anchor: string; symbol: string } | null
-  toggle: (anchor: string, symbol: string) => void
+  active: { anchor: string; symbol: string; scope?: string } | null
+  toggle: (anchor: string, symbol: string, scope?: string) => void
 }
 
 const GlossaryContext = createContext<GlossaryContextValue | null>(null)
 
 export function SymbolGlossaryProvider({ notes, children }: { notes: SymbolNote[]; children: ReactNode }) {
-  const [active, setActive] = useState<{ anchor: string; symbol: string } | null>(null)
+  const [active, setActive] = useState<{ anchor: string; symbol: string; scope?: string } | null>(null)
   const noteMap = useMemo(() => new Map(notes.map((note) => [note.symbol, note])), [notes])
-  const toggle = (anchor: string, symbol: string) => {
+  const toggle = (anchor: string, symbol: string, scope?: string) => {
     setActive((previous) =>
-      previous?.anchor === anchor && previous.symbol === symbol ? null : { anchor, symbol },
+      previous?.anchor === anchor && previous.symbol === symbol ? null : { anchor, symbol, scope },
     )
   }
   return <GlossaryContext.Provider value={{ notes: noteMap, active, toggle }}>{children}</GlossaryContext.Provider>
@@ -37,6 +37,16 @@ function VisibleNote({ symbol }: { symbol: string }) {
   return <span className="symbol-glossary-note" role="note" data-testid="symbol-note">
     <strong>{note.label ?? symbol}</strong>：{text(note.ja, note.zh)}
   </span>
+}
+
+// A formula is kept as an uninterrupted mathematical expression. A clicked
+// variable's note is displayed AFTER the complete formula line, never between
+// terms or inside an interactive answer button.
+export function GlossaryFormulaNote({ scope }: { scope: string }) {
+  const context = useContext(GlossaryContext)
+  const active = context?.active
+  if (!active || active.scope !== scope) return null
+  return <div className="symbol-glossary-formula-note"><VisibleNote symbol={active.symbol} /></div>
 }
 
 const textSymbols = /[A-Za-zπΔθ∈∉∩∪⇒]/gu
@@ -100,11 +110,13 @@ export function GlossaryMath({
   display = false,
   interactive = true,
   showSymbols = false,
+  scope,
 }: {
   math: string
   display?: boolean
   interactive?: boolean
   showSymbols?: boolean
+  scope?: string
 }) {
   const ctx = useContext(GlossaryContext)
   const anchor = useId()
@@ -160,7 +172,7 @@ export function GlossaryMath({
     if (!(target instanceof Element) || !ctx || !root || !interactive) return false
     const matched = target.closest<HTMLElement>('[data-glossary-symbol]')
     if (!matched || !root.contains(matched)) return false
-    ctx.toggle(anchor, matched.dataset.glossarySymbol ?? '')
+    ctx.toggle(anchor, matched.dataset.glossarySymbol ?? '', scope)
     return true
   }
 
@@ -184,9 +196,9 @@ export function GlossaryMath({
         return <button type="button" key={note.symbol} className="symbol-glossary-option"
           data-testid={'formula-symbol-' + note.symbol}
           aria-expanded={open}
-          onClick={() => ctx?.toggle(anchor, note.symbol)}>{note.label ?? note.symbol}</button>
+          onClick={() => ctx?.toggle(anchor, note.symbol, scope)}>{note.label ?? note.symbol}</button>
       })}
     </span>}
-    {interactive && (hasClickable || showChoices) && selected && <VisibleNote symbol={selected} />}
+    {interactive && !scope && (hasClickable || showChoices) && selected && <VisibleNote symbol={selected} />}
   </span>
 }
