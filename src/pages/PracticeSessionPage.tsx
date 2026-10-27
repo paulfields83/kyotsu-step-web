@@ -2,7 +2,6 @@ import { Check, Circle, X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ContentRenderer } from '../components/question/ContentRenderer'
-import { GlossaryText, SymbolGlossaryProvider } from '../components/question/SymbolGlossary'
 import { ProgressBar } from '../components/ui/Primitives'
 import type { PracticeAnswerResult, PublicPracticeBlank, PublicPracticeQuestion } from '../domain/practice'
 import { practiceRepository } from '../repositories/practiceRepository'
@@ -163,7 +162,7 @@ function PracticeBlankLine({
       ) : (
         <div className="reading-inline-choice-panel">
           <div className="reading-inline-choice-panel__head">
-            <strong><GlossaryText value={resolvedPrompt} /></strong>
+            <strong>{resolvedPrompt}</strong>
           </div>
           <div className="reading-choice-options" role="group" aria-label={blank.prompt}>
             {blank.options.map((option, index) => {
@@ -247,7 +246,6 @@ export function PracticeSessionPage() {
   }
 
   return (
-    <SymbolGlossaryProvider key={question.questionId} notes={question.symbolNotes ?? []}>
     <div className="page-stack learning-page">
       <header className="session-header">
         <div>
@@ -319,6 +317,5 @@ export function PracticeSessionPage() {
         </div>
       )}
     </div>
-    </SymbolGlossaryProvider>
   )
 }
