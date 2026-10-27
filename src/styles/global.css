@@ -331,6 +331,40 @@ a { color: inherit; }
 .reading-paragraph { margin: 0; font-size: 1rem; line-height: 2.05; }
 .reading-paragraph > span { display: inline; }
 .reading-paragraph .katex { font-size: 1.03em; }
+
+/* The teacher, Hanako and Taro are static guides within textbook reading,
+   not chat messages. One shared lightweight bubble, no avatar or interaction. */
+.reading-dialogue {
+  display: grid;
+  gap: .25rem;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: .7rem .9rem;
+  border: 1px solid #dde6f0;
+  border-radius: 12px;
+  background: #f3f6fa;
+  color: var(--color-text);
+}
+.reading-dialogue__speaker {
+  display: block;
+  color: #245b92;
+  font-size: .81rem;
+  font-weight: 750;
+  line-height: 1.4;
+}
+.reading-dialogue__text {
+  min-width: 0;
+  margin: 0;
+  font-size: .98rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 560px) {
+  .reading-dialogue { padding: .65rem .75rem; border-radius: 10px; }
+  .reading-dialogue__text { line-height: 1.8; }
+}
 .reading-formula-line { overflow-x: auto; padding: .7rem .85rem; border: 1px solid var(--color-line); background: #fff; font-size: 1.08rem; line-height: 2; text-align: center; white-space: nowrap; }
 .reading-formula-line > span { display: inline; }
 .reading-figure { display: grid; gap: .5rem; margin: .25rem 0; padding: .75rem; border: 1px solid var(--color-border); background: white; }
