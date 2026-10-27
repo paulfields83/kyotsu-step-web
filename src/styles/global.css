@@ -942,3 +942,14 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   .reading-math-set-entry { margin-right: .16em; }
   .reading-paragraph { overflow-wrap: anywhere; }
 }
+
+
+/* Selective emphasis is typography only: no wrappers, popovers or reflowing
+   annotations. Keep the original source prose, equations, and choice layout. */
+.key-concept-emphasis {
+  font-weight: 700;
+  color: inherit;
+  background: none;
+  border: 0;
+  text-decoration: none;
+}
