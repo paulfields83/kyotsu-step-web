@@ -1,4 +1,5 @@
 import { InlineMath } from 'react-katex'
+import { KeyConceptText, textbookEmphasisScope, type EmphasisScope } from '../components/learning/KeyConceptText'
 import { textbookMathLatex } from '../domain/textbookMathDisplay'
 import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
@@ -154,13 +155,13 @@ function GuidedChoiceValue({ value }: { value: string }) {
 
 // Keep Japanese wording intact while replacing fragile combining math glyphs
 // in ZIP-derived hints, notes, figure captions and leftover inline source text.
-function PhysicsInlineText({ value }: { value: string }) {
+function PhysicsInlineText({ value, scope }: { value: string; scope?: EmphasisScope }) {
   const glyphs = /[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜΔθ√²³]/u
-  if (!glyphs.test(value)) return value
+  if (!glyphs.test(value)) return <KeyConceptText value={value} scope={scope} />
   const tokens = value.split(/([A-Za-zΔ√θ][A-Za-z0-9Δθ√°⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ²³_{}().,=+\-−×·\/<>|]*)/gu)
   return <>{tokens.map((token, index) => {
     const latex = glyphs.test(token) ? textbookMathLatex(token) : null
-    return latex ? <InlineMath key={index} math={latex} /> : <span key={index}>{token}</span>
+    return latex ? <InlineMath key={index} math={latex} /> : <span key={index}><KeyConceptText value={token} scope={scope} /></span>
   })}</>
 }
 
@@ -215,8 +216,9 @@ function renderPart(
   progress: TextbookUnitProgress | undefined,
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
+  scope?: EmphasisScope,
 ): ReactNode {
-  if (part.type === 'text') return part.text
+  if (part.type === 'text') return <KeyConceptText value={part.text} scope={scope} />
   if (part.type === 'term') return <strong className="reading-term">{part.text}</strong>
   if (part.type === 'math') {
     const holeIds = part.holeIds ?? []
@@ -259,6 +261,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
 }) {
   const { text } = useI18n()
   const revisedPhysics = unit.subject === 'physics' && unit.unitId.endsWith('-revised')
+  const emphasisScope = textbookEmphasisScope(unit.subject, unit.unitId)
   const [activeItemId, setActiveItemId] = useState<string | null>(null)
   const [hintCounts, setHintCounts] = useState<Record<string, number>>({})
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
@@ -415,7 +418,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
       const speaker = block.speaker === 'teacher' ? '先生' : block.speaker === 'hanako' ? '花子' : '太郎'
       return (
         <p className="reading-dialogue" key={block.id}>
-          <strong>{speaker}：</strong><span>{block.text}</span>
+          <strong>{speaker}：</strong><span><KeyConceptText value={block.text} scope={emphasisScope} /></span>
         </p>
       )
     }
@@ -446,7 +449,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
             </div>
             <div className="textbook-example-step-detail">
               <span>{metaLabel}</span>
-              <p>{block.text.slice(kind.prefix.length)}</p>
+              <p><KeyConceptText value={block.text.slice(kind.prefix.length)} scope={emphasisScope} /></p>
             </div>
           </div>
         )
@@ -455,14 +458,14 @@ function TextbookReadingFlow({ unit, section, progress }: {
         return (
           <div className="textbook-example-check" key={block.id}>
             <span>CHECK</span>
-            <p>{block.text.slice('確認　'.length)}</p>
+            <p><KeyConceptText value={block.text.slice('確認　'.length)} scope={emphasisScope} /></p>
           </div>
         )
       }
     }
 
     if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
-    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text}/> : block.text}</aside>
+    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text} scope={emphasisScope}/> : <KeyConceptText value={block.text} scope={emphasisScope} />}</aside>
 
     if (hasSolutionTrack && block.type === 'paragraph') {
       const plain = block.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
@@ -508,10 +511,10 @@ function TextbookReadingFlow({ unit, section, progress }: {
     const linkedAnswerId = blockItemIds(block)[0]
     const renderVisiblePart = (part: TextbookReadingPart): ReactNode => {
       if (part.type === 'text' && !/【[^】]*】/.test(part.text) && revisedPhysics) {
-        return <PhysicsInlineText value={part.text}/>
+        return <PhysicsInlineText value={part.text} scope={emphasisScope}/>
       }
       if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
-        return renderPart(part, section, progress, setActiveItemId, text)
+        return renderPart(part, section, progress, setActiveItemId, text, emphasisScope)
       }
       // The source has several holes per question but only one reviewed
       // combined answer. Link the additional blanks to the same response.
