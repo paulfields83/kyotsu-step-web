@@ -1,0 +1,64 @@
+{
+  "figure_id": "venn-union",
+  "unit": "math-sets",
+  "figure_reference_id": "venn-union",
+  "source": "backend/src/goldenMath/set/setLesson.ts",
+  "svg_asset": "public/assets/math/textbook/sets/venn-union.svg",
+  "topic": "共通部分と和集合",
+  "teaching_goal": "A∪B 内のすべての点（重なりも含む）を同一の灰色で塗り、外側は白のままにする。",
+  "viewBox": [
+    0,
+    0,
+    640,
+    360
+  ],
+  "objects": {
+    "A": {
+      "type": "circle",
+      "center": [
+        270,
+        180
+      ],
+      "r": 110
+    },
+    "B": {
+      "type": "circle",
+      "center": [
+        370,
+        180
+      ],
+      "r": 110
+    },
+    "labels": {
+      "A": [
+        175,
+        76
+      ],
+      "B": [
+        465,
+        76
+      ]
+    }
+  },
+  "constraints": [
+    "gray_region = disk(A) UNION disk(B)",
+    "overlap area is gray (not white)",
+    "both complete circle boundaries visible",
+    "labels outside circle strokes"
+  ],
+  "palette": {
+    "background": "#fff",
+    "ink": "#111",
+    "shaded": "#d9d9d9",
+    "outer_stroke_width": 3,
+    "shape_stroke_width": 4
+  },
+  "output": "SVG, white background with existing 640×360 textbook geometry",
+  "engine": "LaTeX/TikZ verified construction; equivalent minimal SVG coordinates",
+  "qa_rules": [
+    "mathematical union semantics",
+    "no label overlaps with curve",
+    "desktop and mobile viewBox legibility",
+    "preserve white/#111/#d9d9d9 family palette"
+  ]
+}
