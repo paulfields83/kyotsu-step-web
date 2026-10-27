@@ -18,6 +18,34 @@ describe('question-scoped tap-to-toggle symbol explanations', () => {
     expect(symbol.getAttribute('aria-expanded')).toBe('false')
   })
 
+  it('does not confuse a base letter with a subscript or vector in physical prose', () => {
+    render(
+      <SymbolGlossaryProvider notes={[
+        { symbol: 'v', ja: '速さ', zh: '速率' },
+        { symbol: 'v0', ja: '初速度', zh: '初速度' },
+        { symbol: 'vecv', ja: '速度ベクトル', zh: '速度矢量' },
+        { symbol: 'Δt', ja: '時間間隔', zh: '时间间隔' },
+      ]}>
+        <GlossaryText value="v₀ と v と v⃗、Δt" />
+      </SymbolGlossaryProvider>,
+    )
+    const initial = screen.getByTestId('symbol-trigger-v0')
+    const speed = screen.getByTestId('symbol-trigger-v')
+    const vector = screen.getByTestId('symbol-trigger-vecv')
+    const change = screen.getByTestId('symbol-trigger-Δt')
+    expect(screen.queryByTestId('symbol-note')).toBeNull()
+    fireEvent.click(initial)
+    expect(screen.getByTestId('symbol-note').textContent).toContain('初速度')
+    fireEvent.click(speed)
+    expect(screen.getByTestId('symbol-note').textContent).toContain('速さ')
+    fireEvent.click(vector)
+    expect(screen.getByTestId('symbol-note').textContent).toContain('速度ベクトル')
+    fireEvent.click(change)
+    expect(screen.getByTestId('symbol-note').textContent).toContain('時間間隔')
+    fireEvent.click(change)
+    expect(screen.queryByTestId('symbol-note')).toBeNull()
+  })
+
   it('makes original KaTeX tokens tappable without changing the LaTeX source', async () => {
     const { container } = render(<SymbolGlossaryProvider notes={[
       { symbol: 'v', ja: '速度', zh: '速度' },
