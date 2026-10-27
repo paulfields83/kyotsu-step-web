@@ -26,8 +26,42 @@ describe('selective emphasis in targeted lessons', () => {
     const source = '正しいか正しくないかがはっきり決まる文や式を命題という。'
     const spans = keyConceptRanges(source, 'math-sets-propositions')
     expect(spans.map((part) => part.phrase)).toEqual([
-      '正しいか正しくないかがはっきり決まる文や式', '命題',
+      '正しいか正しくないかがはっきり決まる', '命題',
     ])
+  })
+
+  it('uses dark-blue concept tone but keeps the definition condition plain black bold', () => {
+    const source = '真か偽かを判断できる文を命題という。'
+    const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
+    const parts = [...container.querySelectorAll('strong.key-concept-emphasis')]
+    expect(parts.map((el) => el.textContent)).toEqual(['真か偽かを判断できる文', '命題'])
+    expect(parts[0].classList.contains('key-concept-emphasis--condition')).toBe(true)
+    expect(parts[1].classList.contains('key-concept-emphasis--concept')).toBe(true)
+    expect(container.textContent).toBe(source)
+  })
+
+  it('marks short conditions and concepts in sets-and-elements explanations', () => {
+    const source = 'このように、ある条件を満たすものをひとまとまりとして考えたものを集合という。また、集合をつくっている一つ一つのものを、その集合の要素という。'
+    const result = keyConceptRanges(source, 'math-sets-propositions')
+    expect(result.map((x) => [x.phrase, x.tone])).toEqual([
+      ['条件を満たすもの', 'condition'], ['集合', 'concept'],
+      ['一つ一つのもの', 'condition'], ['要素', 'concept'],
+    ])
+    expect(result.map((x) => x.phrase).join('').length).toBeLessThan(source.length / 2)
+  })
+
+  it('highlights the positive/negative membership contrast without affecting formula layout', () => {
+    const source = 'あるもの a が集合 A の要素であることを a∈A と表す。反対に、要素でないことを b∉A と表す。'
+    const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
+    const terms = [...container.querySelectorAll('.key-concept-emphasis--concept')].map((node) => node.textContent)
+    expect(terms).toEqual(['要素である', '要素でない'])
+    expect(container.textContent).toBe(source)
+  })
+
+  it('shows the physics definition's term in blue and its condition in black', () => {
+    const source = 'このように、原点から物体の位置へ向かうベクトルを位置ベクトルという。'
+    const marks = keyConceptRanges(source, 'physics-1a')
+    expect(marks.map((x) => x.tone)).toEqual(['condition', 'concept'])
   })
 
   it('does not bold incidental concept mentions with no definition or reasoning role', () => {
@@ -47,7 +81,7 @@ describe('selective emphasis in targeted lessons', () => {
     const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
     expect(container.textContent).toBe(source)
     expect([...container.querySelectorAll('strong')].map((part) => part.textContent)).toEqual([
-      '何を入れるかがはっきり決まる集まり', '集合',
+      '何を入れるかがはっきり決まる', '集合',
     ])
   })
 
