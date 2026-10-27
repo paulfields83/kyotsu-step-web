@@ -1,6 +1,6 @@
 import type { ContentBlock, QuestionAsset } from '../../domain/questionSchema'
 import { useI18n } from '../../i18n/runtime'
-import { GlossaryMath, GlossaryText } from './SymbolGlossary'
+import { BlockMath, InlineMath } from 'react-katex'
 
 function resolveAssetSrc(src: string) {
   if (/^(?:https?:|data:|blob:)/i.test(src)) return src
@@ -19,14 +19,14 @@ export function ContentRenderer({ blocks, assets = [] }: { blocks: ContentBlock[
       {blocks.map((block) => {
         if (block.type === 'text') {
           if (block.speaker) {
-            return <div key={block.id} className="dialogue-block"><strong>{block.speaker}</strong><p><GlossaryText value={block.text} /></p></div>
+            return <div key={block.id} className="dialogue-block"><strong>{block.speaker}</strong><p>{block.text}</p></div>
           }
-          return <p key={block.id}><GlossaryText value={block.text} /></p>
+          return <p key={block.id}>{block.text}</p>
         }
         if (block.type === 'latex') {
           return block.display === 'block'
-            ? <div key={block.id} className="formula-scroll" data-testid="latex-block"><GlossaryMath math={block.latex} display /></div>
-            : <span key={block.id} className="formula-inline"><GlossaryMath math={block.latex} /></span>
+            ? <div key={block.id} className="formula-scroll" data-testid="latex-block"><BlockMath math={block.latex} /></div>
+            : <span key={block.id} className="formula-inline"><InlineMath math={block.latex} /></span>
         }
         if (block.type === 'image') {
           const asset = assets.find((candidate) => candidate.id === block.assetId)
