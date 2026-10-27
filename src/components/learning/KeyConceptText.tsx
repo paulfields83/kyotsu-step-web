@@ -33,6 +33,7 @@ const mathPatterns: TeachingPattern[] = [
   definition(/(ある条件を満たすものをひとまとまりとして考えたもの)/gu, 1),
   definition(/(集合の中に入っている一つ一つのもの)/gu, 1),
   definition(/(すべての要素)[^。]{0,80}?(部分集合)/gu, 1, 2),
+  definition(/(すべての要素)[^。]{0,55}?含まれるかを調べる/gu, 1),
   definition(/(どの要素も別の集合の要素であるとき)/gu, 1),
   definition(/(どれか1つ選んだとき、それが必ず [A-Z] にも入るなら)[^。]{0,30}?(部分集合)/gu, 1, 2),
   definition(/(両方に入る要素を集めた集合)が(共通部分)/gu, 1, 2),
@@ -73,6 +74,7 @@ const mathPatterns: TeachingPattern[] = [
 const physicsPatterns: Record<Exclude<EmphasisScope, 'math-sets-propositions'>, TeachingPattern[]> = {
   'physics-1a': [
     definition(/(原点から物体の位置へ向かうベクトル)を(位置ベクトル)という/gu, 1, 2),
+    definition(/(変位ベクトル)[^。]{0,55}?(位置の変化)/gu, 1, 2),
     definition(/(位置の変化)[^。]{0,20}?(変位)といい/gu, 1, 2),
     definition(/(変位)は(「後の位置から最初の位置を引いたもの」)/gu, 1, 2),
     definition(/(変位)は(途中の経路には依存しない)/gu, 1, 2),
