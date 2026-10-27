@@ -2,7 +2,6 @@ import { Check, Circle, X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ContentRenderer } from '../components/question/ContentRenderer'
-import { KeyConceptText, type EmphasisScope } from '../components/learning/KeyConceptText'
 import { ProgressBar } from '../components/ui/Primitives'
 import type { PracticeAnswerResult, PublicPracticeBlank, PublicPracticeQuestion } from '../domain/practice'
 import { practiceRepository } from '../repositories/practiceRepository'
@@ -32,7 +31,6 @@ function PracticeBlankLine({
   onAnswered,
   currentMarker,
   resolvedLabelsByMarker,
-  emphasisScope,
 }: {
   questionId: string
   blank: PublicPracticeBlank
@@ -42,7 +40,6 @@ function PracticeBlankLine({
   onAnswered: (blankId: string, state: BlankState) => void
   currentMarker: string
   resolvedLabelsByMarker: Record<string, string>
-  emphasisScope?: EmphasisScope
 }) {
   const { text } = useI18n()
   const [submitError, setSubmitError] = useState('')
@@ -152,13 +149,13 @@ function PracticeBlankLine({
               <p data-testid={`practice-correct-answer-${blank.id}`}>
                 {text('正解', '正确答案')}：{correctLabels.join('、')}
               </p>
-              {answer.wrongReason && <p>{text('誤答の理由', '错误原因')}：<KeyConceptText value={answer.wrongReason} scope={emphasisScope} /></p>}
+              {answer.wrongReason && <p>{text('誤答の理由', '错误原因')}：{answer.wrongReason}</p>}
             </>
           )}
           {answer.explanation && (
             <div className="practice-answer-feedback__explanation" data-testid={`practice-explanation-${blank.id}`}>
               <strong>{text('解説', '解说')}</strong>
-              <p><KeyConceptText value={answer.explanation} scope={emphasisScope} /></p>
+              <p>{answer.explanation}</p>
             </div>
           )}
         </div>
@@ -218,8 +215,6 @@ export function PracticeSessionPage() {
 
   const completedCount = orderedBlankIds.filter((blankId) => answers[blankId]?.resolved).length
   const complete = orderedBlankIds.length > 0 && completedCount === orderedBlankIds.length
-  const emphasisScope: EmphasisScope | undefined = question?.subject === 'math-1a' && question.majorUnit === 'sets-and-logic'
-    ? 'math-sets-propositions' : undefined
   const resolvedLabelsByMarker = Object.fromEntries(
     orderedBlankIds.flatMap((blankId, index) => {
       const marker = circledMarkers[index]
@@ -283,7 +278,7 @@ export function PracticeSessionPage() {
                   <span>STEP {stepIndex + 1}</span>
                   <strong>{step.operation}</strong>
                 </div>
-                <ContentRenderer blocks={step.content} assets={[]} emphasisScope={emphasisScope} />
+                <ContentRenderer blocks={step.content} assets={[]} />
                 {step.blankIds.map((blankId) => {
                   const blank = blankById.get(blankId)
                   if (!blank) return null
@@ -298,7 +293,6 @@ export function PracticeSessionPage() {
                       busy={busyBlankId === blankId}
                       currentMarker={circledMarkers[blankIndex] ?? String(blankIndex + 1)}
                       resolvedLabelsByMarker={resolvedLabelsByMarker}
-                      emphasisScope={emphasisScope}
                       onBusyChange={setBusyBlankId}
                       onAnswered={handleAnswered}
                     />
@@ -316,7 +310,7 @@ export function PracticeSessionPage() {
           {fullExplanation && (
             <div className="practice-full-explanation" data-testid="practice-full-explanation">
               <h3>{text('問題全体の解説', '整题综合解说')}</h3>
-              <p><KeyConceptText value={fullExplanation} scope={emphasisScope} /></p>
+              <p>{fullExplanation}</p>
             </div>
           )}
           <Link className="v2-primary-action" to="/learn">{text('問題一覧へ戻る', '返回题目列表')}</Link>
