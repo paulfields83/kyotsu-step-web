@@ -145,7 +145,7 @@ function physicsChapterNotes(unit: PublicTextbookUnit): SymbolNote[] {
   if (id.includes('displacement-velocity')) return displacementVelocity
   if (id.includes('velocity-composition')) return motionComposition
   if (id.includes('relative-velocity')) return relativeMotion
-  if (id.includes('acceleration')) return acceleration
+  if (id.startsWith('physics-1d-acceleration')) return acceleration
   if (id.includes('horizontal-project')) return horizontalProjectile
   if (id.includes('oblique-project') || id.includes('projectile-motion')) return obliqueProjectile
   if (id.includes('gravity-drag-terminal-velocity')) return fallingWithDrag
