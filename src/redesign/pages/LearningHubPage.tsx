@@ -1,4 +1,4 @@
-import { ArrowRight, Atom, BookOpen, Check, ListChecks, Sigma } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Atom, BookOpen, Check, ListChecks, Sigma } from 'lucide-react'
 import { Fragment, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { buildTextbookChapters, textbookLessonHref, textbookLessonItemIds, type TextbookLessonTarget } from '../../domain/textbookCatalog'
@@ -27,6 +27,7 @@ export function LearningHubPage() {
   const [practiceQuestions, setPracticeQuestions] = useState<PracticeQuestionSummary[]>([])
   const [practiceLoading, setPracticeLoading] = useState(false)
   const [practiceError, setPracticeError] = useState(false)
+  const [selectedPracticeCategory, setSelectedPracticeCategory] = useState<string | null>(null)
 
   useEffect(() => {
     textbookRepository.listPublished()
@@ -73,6 +74,21 @@ export function LearningHubPage() {
     }
     return grouped
   }, [practiceQuestions])
+  // Keep only the THREE (or however many are actually returned by the API)
+  // category titles in the outer list. Questions render only inside a chosen
+  // category as topic tiles, matching the textbook navigation.
+  const practiceCategories = useMemo(() => sortedPracticeCatalogs.flatMap((catalog) =>
+    [...catalog.subcategories].sort((a, b) => a.order - b.order).map((subcategory) => {
+      const key = `${catalog.majorUnit.id}/${subcategory.id}`
+      return {
+        key,
+        majorLabel: catalog.majorUnit.label,
+        title: subcategory.label,
+        questions: practiceQuestionGroups.get(key) ?? [],
+      }
+    }),
+  ), [sortedPracticeCatalogs, practiceQuestionGroups])
+  const selectedCategory = practiceCategories.find((category) => category.key === selectedPracticeCategory)
 
   return (
     <div className="v2-page">
@@ -83,13 +99,13 @@ export function LearningHubPage() {
       </header>
 
       <div className="v2-subject-switch">
-        <button type="button" aria-pressed={subject === 'math-1a'} onClick={() => setSubject('math-1a')}><Sigma size={18} />数学 I・A</button>
-        <button type="button" aria-pressed={subject === 'physics'} onClick={() => setSubject('physics')}><Atom size={18} />{text('物理', '物理')}</button>
+        <button type="button" aria-pressed={subject === 'math-1a'} onClick={() => { setSubject('math-1a'); setSelectedPracticeCategory(null) }}><Sigma size={18} />数学 I・A</button>
+        <button type="button" aria-pressed={subject === 'physics'} onClick={() => { setSubject('physics'); setSelectedPracticeCategory(null) }}><Atom size={18} />{text('物理', '物理')}</button>
       </div>
 
       <div className="v2-mode-switch">
-        <button type="button" aria-pressed={mode === 'knowledge'} onClick={() => setMode('knowledge')}><BookOpen size={17} />{text('知識学習', '知识学习')}</button>
-        <button type="button" aria-pressed={mode === 'practice'} onClick={() => setMode('practice')}><ListChecks size={17} />{text('問題練習', '题目练习')}</button>
+        <button type="button" aria-pressed={mode === 'knowledge'} onClick={() => { setMode('knowledge'); setSelectedPracticeCategory(null) }}><BookOpen size={17} />{text('知識学習', '知识学习')}</button>
+        <button type="button" aria-pressed={mode === 'practice'} onClick={() => { setMode('practice'); setSelectedPracticeCategory(null) }}><ListChecks size={17} />{text('問題練習', '题目练习')}</button>
       </div>
 
       {mode === 'knowledge' ? (
@@ -154,65 +170,88 @@ export function LearningHubPage() {
       ) : (
         <section className="v2-practice-list">
           <div className="v2-mode-switch" role="group" aria-label={text('問題練習の種類', '题目练习类型')}>
-            <button type="button" aria-pressed={practiceMode === 'practice'} onClick={() => setPracticeMode('practice')}>
+            <button type="button" aria-pressed={practiceMode === 'practice'} onClick={() => { setPracticeMode('practice'); setSelectedPracticeCategory(null) }}>
               <ListChecks size={17} />{text('練習', '练习')}
             </button>
-            <button type="button" aria-pressed={practiceMode === 'simulation'} onClick={() => setPracticeMode('simulation')}>
+            <button type="button" aria-pressed={practiceMode === 'simulation'} onClick={() => { setPracticeMode('simulation'); setSelectedPracticeCategory(null) }}>
               {text('模擬テスト', '模拟测试')}
             </button>
           </div>
 
           {practiceMode === 'practice' ? (
-            <section className="v2-course-list v2-practice-courses" data-testid="practice-chapter-list">
+            <section className="v2-course-list v2-practice-courses" data-testid="practice-category-navigation">
               {practiceError && <div className="v2-empty-card">
                 {text('問題練習 API に接続できません。', '无法连接题目练习后端。')}
               </div>}
               {practiceLoading && <div className="v2-empty-card">
                 {text('問題一覧を読み込んでいます…', '正在读取练习题列表…')}
               </div>}
-              {!practiceLoading && !practiceError && sortedPracticeCatalogs.length === 0 && (
+              {!practiceLoading && !practiceError && practiceCategories.length === 0 && (
                 <div className="v2-empty-card">
                   {text('この科目の練習問題はまだ登録されていません。', '该科目的练习题目前尚未导入。')}
                 </div>
               )}
-              {!practiceLoading && !practiceError && sortedPracticeCatalogs.map((catalog, chapterIndex) => {
-                const subcategories = [...catalog.subcategories].sort((a, b) => a.order - b.order)
-                const questionCount = subcategories.reduce((n, cat) =>
-                  n + (practiceQuestionGroups.get(`${catalog.majorUnit.id}/${cat.id}`)?.length ?? 0), 0)
+              {!practiceLoading && !practiceError && !selectedCategory && sortedPracticeCatalogs.map((catalog, chapterIndex) => {
+                const categories = practiceCategories.filter((category) =>
+                  category.key.startsWith(`${catalog.majorUnit.id}/`))
                 return (
                   <article className="v2-course-card v2-practice-course-card" key={catalog.majorUnit.id}>
                     <header>
                       <div className="v2-course-card__number">{String(chapterIndex + 1).padStart(2, '0')}</div>
                       <div>
                         <h2>{catalog.majorUnit.label}</h2>
-                        <p>{text(`${questionCount} 問題`, `${questionCount} 道题`)}</p>
+                        <p>{text('練習する項目を選ぶ', '选择要练习的章节')}</p>
                       </div>
                     </header>
-                    <div className="v2-lesson-list">
-                      {subcategories.map((subcategory) => {
-                        const questions = practiceQuestionGroups.get(`${catalog.majorUnit.id}/${subcategory.id}`) ?? []
-                        return (
-                          <section className="v2-practice-subcategory" key={subcategory.id}>
-                            <h3>{subcategory.label}<small>{questions.length}</small></h3>
-                            {questions.length ? questions.map((question, index) => (
-                              <Link key={question.questionId} to={`/practice/session/${question.questionId}`}>
-                                <span className="v2-lesson-status">{index + 1}</span>
-                                <div>
-                                  <strong>{question.title}</strong>
-                                  <small>{difficultyLabel(question.difficulty, language)} · {question.source.label}</small>
-                                </div>
-                                <ArrowRight size={17} />
-                              </Link>
-                            )) : <p className="v2-practice-subcategory__empty">
-                              {text('問題はまだ準備中です。', '题目暂未准备好。')}
-                            </p>}
-                          </section>
-                        )
-                      })}
+                    <div className="v2-practice-category-list" data-testid="practice-category-list">
+                      {categories.map((category, index) => (
+                        <button type="button" key={category.key}
+                          className="v2-practice-category-row"
+                          data-testid={`practice-category-${index + 1}`}
+                          onClick={() => setSelectedPracticeCategory(category.key)}>
+                          <span className="v2-lesson-status">{index + 1}</span>
+                          <span className="v2-practice-category-label">
+                            <strong>{category.title}</strong>
+                            <small>{text(`${category.questions.length} 問題`, `${category.questions.length} 道题`)}</small>
+                          </span>
+                          <ArrowRight size={17} aria-hidden="true" />
+                        </button>
+                      ))}
                     </div>
                   </article>
                 )
               })}
+              {!practiceLoading && !practiceError && selectedCategory && (
+                <section className="v2-practice-topic-page" data-testid="practice-topic-page">
+                  <button type="button" className="v2-practice-topic-back"
+                    onClick={() => setSelectedPracticeCategory(null)}>
+                    <ArrowLeft size={17} />
+                    {text('分野一覧へ戻る', '返回分类列表')}
+                  </button>
+                  <div className="v2-practice-topic-heading">
+                    <small>{selectedCategory.majorLabel}</small>
+                    <h2>{selectedCategory.title}</h2>
+                    <p>{text(`${selectedCategory.questions.length} 問題`, `共 ${selectedCategory.questions.length} 道题`)}</p>
+                  </div>
+                  {selectedCategory.questions.length ? (
+                    <div className="v2-practice-topic-grid" data-testid="practice-question-tiles">
+                      {selectedCategory.questions.map((question, index) => (
+                        <Link key={question.questionId}
+                          to={`/practice/session/${question.questionId}`}
+                          className="v2-practice-topic-tile">
+                          <span className="v2-practice-topic-index">{index + 1}</span>
+                          <strong>{question.title}</strong>
+                          <small>{difficultyLabel(question.difficulty, language)}</small>
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="v2-empty-card">
+                      {text('この分類の問題はまだ準備中です。', '这一分类的题目尚未准备好。')}
+                    </div>
+                  )}
+                </section>
+              )}
             </section>
           ) : (
             <div className="v2-empty-card">
