@@ -1,0 +1,22 @@
+% !TeX program = pdflatex
+% Exact A union B construction, same 640 x 360 coordinate system as GOLDEN SVG.
+% Final frontend SVG is simplified from this verified TikZ construction to
+% preserve adjacent diagram font, stroke and accessibility conventions.
+\documentclass[tikz,border=0pt]{standalone}
+\usepackage{tikz}
+\definecolor{DiagramInk}{HTML}{111111}
+\definecolor{DiagramGray}{HTML}{D9D9D9}
+\begin{document}
+\begin{tikzpicture}[x=1bp,y=-1bp,line cap=round,line join=round]
+  \path[use as bounding box] (0,0) rectangle (640,360);
+  \fill[white] (0,0) rectangle (640,360);
+  \draw[draw=DiagramInk,line width=3bp,rounded corners=18bp] (20,20) rectangle (620,340);
+  % Exactly the union of two closed disks: entire overlap included.
+  \fill[DiagramGray] (270,180) circle [radius=110bp];
+  \fill[DiagramGray] (370,180) circle [radius=110bp];
+  \draw[DiagramInk,line width=4bp] (270,180) circle [radius=110bp];
+  \draw[DiagramInk,line width=4bp] (370,180) circle [radius=110bp];
+  \node[inner sep=0,anchor=center,text=DiagramInk,font=\sffamily\fontsize{32}{38}\selectfont] at (175,76) {A};
+  \node[inner sep=0,anchor=center,text=DiagramInk,font=\sffamily\fontsize{32}{38}\selectfont] at (465,76) {B};
+\end{tikzpicture}
+\end{document}

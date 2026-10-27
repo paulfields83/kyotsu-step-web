@@ -9,6 +9,15 @@ import { findPracticeQuestion, loadedPracticeUnits } from './practiceData'
 import { publicPracticeQuestion, publicPracticeSummary } from './publicPractice'
 import { loadedPracticeSourceItems } from './practiceSourceData'
 
+// Hide only duplicated Chapter 1 physics source versions; keep older
+// Chapter 2–5 material visible until an actual revised source is supplied.
+function isArchivedPhysicsChapter1(unit:{subject:string;unitId:string}) {
+  return unit.subject==='physics'
+    && !unit.unitId.endsWith('-revised')
+    && (unit.unitId==='physics-a-displacement-velocity'
+      || /^physics-1[b-g]-/.test(unit.unitId))
+}
+
 const port = Number(process.env.PORT ?? 8787)
 const allowedOrigins = (process.env.FRONTEND_ORIGIN?.trim() || '*')
   .split(',')
@@ -146,7 +155,12 @@ const server = createServer(async (request, response) => {
       response,
       200,
       loadedTextbookUnits
-        .filter(({ unit }) => unit.status === 'published')
+        .filter(({unit})=>!isArchivedPhysicsChapter1(unit))
+        .filter(({ unit }) => unit.status === 'published' || (
+          unit.status === 'review' && [
+            'math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof',
+          ].includes(unit.unitId)
+        ))
         .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook, apiOrigin)),
     )
   }
@@ -157,6 +171,9 @@ const server = createServer(async (request, response) => {
     const majorUnit = url.searchParams.get('majorUnit')
 
     const catalogs = loadedPracticeUnits
+      // Archived legacy 36-question version remains on disk (and old deep
+      // links remain valid), but is hidden from all student-facing catalogs.
+      .filter((unit) => unit.catalog.majorUnit.id !== 'sets-and-logic')
       .filter((unit) => !subject || unit.catalog.subject === subject)
       .filter((unit) => !course || unit.catalog.course === course)
       .filter((unit) => !majorUnit || unit.catalog.majorUnit.id === majorUnit)
@@ -188,6 +205,7 @@ const server = createServer(async (request, response) => {
     const problemType = url.searchParams.get('problemType')
 
     const questions = loadedPracticeUnits
+      .filter((unit) => unit.catalog.majorUnit.id !== 'sets-and-logic')
       .flatMap((unit) => unit.questions)
       .filter((question) => question.status === 'published')
       .filter((question) => !subject || question.subject === subject)
@@ -228,16 +246,24 @@ const server = createServer(async (request, response) => {
       const correctIds = [...blank.correctOptionIds].sort()
       const correct = selected.length === correctIds.length && selected.every((value, index) => value === correctIds[index])
       const selectedWrongReason = blank.options.find((option) => selected.includes(option.id))?.wrongReason
-
+      const validIds = new Set(blank.options.map((option) => option.id))
+      if (selected.some((id) => !validIds.has(id))) {
+        return sendJson(request, response, 400, { error: 'unknown practice option' })
+      }
+      // The ZIP practice flow checks each blank only once. Keep the chosen
+      // wrong answer, disclose the correct option, and unlock the next step.
+      const orderedBlankIds = loaded.question.solutionSteps.flatMap((step) => step.blankIds)
+      const isFinalBlank = orderedBlankIds[orderedBlankIds.length - 1] === blank.id
       return sendJson(request, response, 200, {
         correct,
-        resolved: correct,
+        resolved: true,
         selectedOptionIds: selected,
-        ...(correct
-          ? { correctOptionIds: blank.correctOptionIds, explanation: blank.explanation }
-          : selectedWrongReason
-            ? { wrongReason: selectedWrongReason }
-            : {}),
+        correctOptionIds: blank.correctOptionIds,
+        explanation: blank.explanation,
+        ...(!correct && selectedWrongReason ? { wrongReason: selectedWrongReason } : {}),
+        ...(isFinalBlank && loaded.question.fullExplanation
+          ? { fullExplanation: loaded.question.fullExplanation }
+          : {}),
       })
     } catch (error) {
       return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
@@ -247,6 +273,7 @@ const server = createServer(async (request, response) => {
   if (request.method === 'GET' && url.pathname === '/api/textbooks/export') {
     const subject = url.searchParams.get('subject')
     const units = loadedTextbookUnits
+      .filter(({unit})=>!isArchivedPhysicsChapter1(unit))
       .filter(({ unit }) => unit.status === 'published')
       .filter(({ unit }) => !subject || unit.subject === subject)
       .map(({ unit, answerBook }) => publicTextbookUnit(unit, answerBook, apiOrigin))
@@ -303,6 +330,9 @@ const server = createServer(async (request, response) => {
       if (!value.trim()) return sendJson(request, response, 400, { error: 'answer value is required' })
 
       const correct = isTextbookAnswerCorrect(answer, value)
+      // Match the approved 集合と命題 textbook flow: one attempt always
+      // resolves the blank. A wrong attempt reveals the reviewed correct answer
+      // immediately, while recording that the first answer was incorrect.
       return sendJson(request, response, 200, {
         correct,
         resolved: true,
