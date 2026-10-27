@@ -49,7 +49,19 @@ export function GlossaryFormulaNote({ scope }: { scope: string }) {
   return <div className="symbol-glossary-formula-note"><VisibleNote symbol={active.symbol} /></div>
 }
 
-const textSymbols = /[A-Za-zπΔθ∈∉∩∪⇒]/gu
+// Annotate full written notation, never an arbitrary letter within it:
+// v₀ is different from v, Δt is different from t, and r⃗₁ is different from r.
+const textSymbols = /(?:Δ)?[A-Za-zπθ](?:[⃗̄])*(?:[₀₁₂₃₄₅₆₇₈₉ₓᵧₜ]+|_(?:\{[^}]+\}|[A-Za-z0-9/]+))?|[∈∉∩∪⇒]/gu
+
+function textSymbolKey(token: string) {
+  if (token === 'v̄⃗' || token === 'v⃗̄') return 'vavg'
+  const hasArrow = token.includes('⃗')
+  const base = token.normalize('NFKC')
+    .replace(/[⃗̄{}\s]/gu, '')
+    .replace(/_/g, '')
+  if (hasArrow && /^v$/i.test(base)) return 'vecv'
+  return base
+}
 
 export function GlossaryText({ value }: { value: string }) {
   const ctx = useContext(GlossaryContext)
@@ -59,11 +71,11 @@ export function GlossaryText({ value }: { value: string }) {
   let cursor = 0
   for (const found of value.matchAll(textSymbols)) {
     const index = found.index ?? 0
-    const symbol = found[0]
+    const literal = found[0]
+    const symbol = textSymbolKey(literal)
     const prev = value[index - 1] ?? ''
-    const next = value[index + symbol.length] ?? ''
-    if (!ctx.notes.has(symbol)
-        || (/[A-Za-z]/.test(symbol) && (/[A-Za-z]/.test(prev) || /[A-Za-z]/.test(next)))) continue
+    const next = value[index + literal.length] ?? ''
+    if (!ctx.notes.has(symbol) || (/[A-Za-z]/.test(literal[0]) && (/[A-Za-z]/.test(prev) || /[A-Za-z]/.test(next)))) continue
     if (index > cursor) parts.push(value.slice(cursor, index))
     const open = ctx.active?.anchor === anchor && ctx.active.symbol === symbol
     parts.push(
@@ -71,12 +83,12 @@ export function GlossaryText({ value }: { value: string }) {
         <button type="button" className="symbol-glossary-trigger"
           data-testid={'symbol-trigger-' + symbol}
           aria-expanded={open}
-          aria-label={symbol + ' ' + (open ? '閉じる' : '説明を見る')}
-          onClick={() => ctx.toggle(anchor, symbol)}>{symbol}</button>
+          aria-label={literal + ' ' + (open ? '閉じる' : '説明を見る')}
+          onClick={() => ctx.toggle(anchor, symbol)}>{literal}</button>
         {open && <VisibleNote symbol={symbol} />}
       </span>,
     )
-    cursor = index + symbol.length
+    cursor = index + literal.length
   }
   if (!parts.length) return <>{value}</>
   if (cursor < value.length) parts.push(value.slice(cursor))
@@ -163,6 +175,12 @@ export function GlossaryMath({
       const key = condensed(note.symbol)
       for (const element of candidates) {
         if (condensed(element.textContent ?? '') !== key) continue
+        // Never label the base of v₀ or vₓ as plain v. The container that
+        // owns a subscript must be annotated as the full quantity instead.
+        if (key.length === 1 && /[a-z]/.test(key)) {
+          const composed = element.parentElement?.closest<HTMLElement>('.mord')
+          if (composed?.querySelector('.msupsub') && condensed(composed.textContent ?? '') !== key) continue
+        }
         mark(element, note)
       }
     }
