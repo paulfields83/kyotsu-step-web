@@ -1,7 +1,6 @@
 import type { ContentBlock, QuestionAsset } from '../../domain/questionSchema'
 import { useI18n } from '../../i18n/runtime'
 import { BlockMath, InlineMath } from 'react-katex'
-import { KeyConceptText, type EmphasisScope } from '../learning/KeyConceptText'
 
 function resolveAssetSrc(src: string) {
   if (/^(?:https?:|data:|blob:)/i.test(src)) return src
@@ -13,16 +12,16 @@ function resolveAssetSrc(src: string) {
   return `${base}${src.replace(/^\.?\/+/, '')}`
 }
 
-export function ContentRenderer({ blocks, assets = [], emphasisScope }: { blocks: ContentBlock[]; assets?: QuestionAsset[]; emphasisScope?: EmphasisScope }) {
+export function ContentRenderer({ blocks, assets = [] }: { blocks: ContentBlock[]; assets?: QuestionAsset[] }) {
   const { text } = useI18n()
   return (
     <div className="content-renderer">
       {blocks.map((block) => {
         if (block.type === 'text') {
           if (block.speaker) {
-            return <div key={block.id} className="dialogue-block"><strong>{block.speaker}</strong><p><KeyConceptText value={block.text} scope={emphasisScope} /></p></div>
+            return <div key={block.id} className="dialogue-block"><strong>{block.speaker}</strong><p>{block.text}</p></div>
           }
-          return <p key={block.id}><KeyConceptText value={block.text} scope={emphasisScope} /></p>
+          return <p key={block.id}>{block.text}</p>
         }
         if (block.type === 'latex') {
           return block.display === 'block'
