@@ -1,181 +1,91 @@
 // @vitest-environment jsdom
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { ContentRenderer } from '../question/ContentRenderer'
-import { KeyConceptText, keyConceptRanges, textbookEmphasisScope } from './KeyConceptText'
+import {
+  isReviewedConceptTerm, KeyConceptText,
+  keyConceptRanges, textbookEmphasisScope,
+} from './KeyConceptText'
 
-describe('selective emphasis in targeted lessons', () => {
-  it('limits emphasis to math sets-propositions and revised physics 1A–1G', () => {
-    expect(textbookEmphasisScope('math-1a', 'math-1a-sets-propositions')).toBe('math-sets-propositions')
-    expect(textbookEmphasisScope('math-1a', 'math-sets')).toBe('math-sets-propositions')
-    expect(textbookEmphasisScope('math-1a', 'math-1a-numbers-expressions')).toBeUndefined()
-    expect(textbookEmphasisScope('physics', 'physics-a-displacement-velocity-revised')).toBe('physics-1a')
-    expect(textbookEmphasisScope('physics', 'physics-1g-gravity-drag-terminal-velocity-revised')).toBe('physics-1g')
-    expect(textbookEmphasisScope('physics', 'physics-1b-velocity-composition')).toBeUndefined()
+const math = 'math-sets-propositions' as const
+
+describe('reviewed textbook reading-block emphasis', () => {
+  it('activates only for the four GOLDEN math units and revised physics 1A-1G', () => {
+    for (const unit of ['math-sets','math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof']) {
+      expect(textbookEmphasisScope('math-1a',unit)).toBe(math)
+    }
+    expect(textbookEmphasisScope('math-1a','math-1a-numbers-expressions')).toBeUndefined()
+    expect(textbookEmphasisScope('physics','physics-a-displacement-velocity-revised')).toBe('physics-1a')
+    expect(textbookEmphasisScope('physics','physics-1g-gravity-drag-terminal-velocity-revised')).toBe('physics-1g')
+    expect(textbookEmphasisScope('physics','physics-1g-gravity-drag-terminal-velocity')).toBeUndefined()
   })
 
-  it('pairs the definition condition and concept name in the photographed proposition lesson', () => {
-    const line = '真か偽かを判断できる文を命題という。今のように、条件pを満たすとき必ず条件qも満たすなら真である。'
-    const { container } = render(<p><KeyConceptText value={line} scope="math-sets-propositions" /></p>)
-    const spans = [...container.querySelectorAll('.key-concept-emphasis')].map((el) => el.textContent)
-    expect(spans).toEqual(['真か偽かを判断できる文', '命題'])
-    expect(container.querySelector('p')?.textContent).toBe(line)
+  it('marks definition criteria in black and named concepts in blue, even when terms are separate atoms', () => {
+    const source = 'Aのように有限個の要素からなる集合を'
+    const marks = keyConceptRanges(source,math,'paragraph-finite-concept','math-sets')
+    expect(marks.map(x=>[x.phrase,x.tone])).toEqual([['有限個の要素からなる','condition']])
+    expect(isReviewedConceptTerm('有限集合',math,'paragraph-finite-concept','math-sets')).toBe(true)
+    expect(isReviewedConceptTerm('無限集合',math,'paragraph-finite-concept','math-sets')).toBe(true)
+    expect(isReviewedConceptTerm('有限集合',math,'paragraph-a01','math-sets')).toBe(false)
   })
 
-  it('pairs the alternative authored strict-textbook proposition definition', () => {
-    const source = '正しいか正しくないかがはっきり決まる文や式を命題という。'
-    const spans = keyConceptRanges(source, 'math-sets-propositions')
-    expect(spans.map((part) => part.phrase)).toEqual([
-      '正しいか正しくないかがはっきり決まる', '命題',
-    ])
-  })
-
-  it('uses dark-blue concept tone but keeps the definition condition plain black bold', () => {
-    const source = '真か偽かを判断できる文を命題という。'
-    const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
-    const parts = [...container.querySelectorAll('strong.key-concept-emphasis')]
-    expect(parts.map((el) => el.textContent)).toEqual(['真か偽かを判断できる文', '命題'])
-    expect(parts[0].classList.contains('key-concept-emphasis--condition')).toBe(true)
-    expect(parts[1].classList.contains('key-concept-emphasis--concept')).toBe(true)
+  it('handles the photographed sets / elements definition across split text and term atoms', () => {
+    const source='今並べた数は、どれも「24の正の約数である」という同じ条件を満たしている。このように、ある条件を満たすものをひとまとまりとして考えたものを'
+    const {container} = render(<p><KeyConceptText scope={math} unitId="math-sets" blockId="paragraph-set-concept" value={source}/></p>)
+    const matches=[...container.querySelectorAll('strong.key-concept-emphasis')]
+    expect(matches.map(x=>x.textContent)).toEqual(['同じ条件','条件を満たすもの'])
+    expect(matches.every(x=>x.classList.contains('key-concept-emphasis--condition'))).toBe(true)
+    expect(isReviewedConceptTerm('集合',math,'paragraph-set-concept','math-sets')).toBe(true)
+    expect(isReviewedConceptTerm('要素',math,'paragraph-set-concept','math-sets')).toBe(true)
     expect(container.textContent).toBe(source)
   })
 
-  it('separately marks the universal-set condition and concept in the screenshot passage', () => {
-    const source = 'このように、考える対象全体を一つの集合として決める。その集合を全体集合といい、ここでは U を考える。'
-    const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
-    expect([...container.querySelectorAll('.key-concept-emphasis')].map((element) => ({
-      text: element.textContent,
-      blue: element.classList.contains('key-concept-emphasis--concept'),
-    }))).toEqual([
-      { text: '考える対象全体', blue: false },
-      { text: '全体集合', blue: true },
-    ])
+  it('handles full-set and complement examples without modifying the original text', () => {
+    const original='このように、考える対象全体を一つの集合として決める。その集合を'
+    const {container}=render(<p><KeyConceptText scope={math} unitId="math-sets" blockId="paragraph-universal-concept" value={original}/></p>)
+    expect(container.querySelector('strong')?.textContent).toBe('考える対象全体')
+    expect(isReviewedConceptTerm('全体集合',math,'paragraph-universal-concept','math-sets')).toBe(true)
+    expect(container.textContent).toBe(original)
+    expect(keyConceptRanges('全体集合Uの中でAに属さない要素全体の集合をAの',math,'paragraph-complement-concept','math-sets')
+      .map(m=>m.phrase)).toEqual(['全体集合Uの中でAに属さない要素全体'])
+    expect(isReviewedConceptTerm('補集合',math,'paragraph-complement-concept','math-sets')).toBe(true)
+  })
+
+  it('annotates relevant propositions and proof blocks rather than incidental same-term mentions', () => {
+    const original='真か偽かを判断できる文を'
+    expect(keyConceptRanges(original,math,'paragraph-implication-concept','math-propositions-reading')
+      .map(m=>m.phrase)).toEqual(['真か偽かを判断できる文'])
+    expect(isReviewedConceptTerm('命題',math,'paragraph-implication-concept','math-propositions-reading')).toBe(true)
+    expect(isReviewedConceptTerm('反例',math,'paragraph-counterexample-concept','math-propositions-reading')).toBe(true)
+    expect(isReviewedConceptTerm('背理法',math,'paragraph-contradiction-concept','math-propositions-proof')).toBe(true)
+    expect(keyConceptRanges('この後も命題について勉強する。',math,'paragraph-a01','math-sets')).toEqual([])
+  })
+
+  it('pairs meaningful physics teaching criteria and named concepts without styling formulas', () => {
+    const source='このように、原点から物体の位置へ向かうベクトルを位置ベクトルという。'
+    expect(keyConceptRanges(source,'physics-1a','paragraph-3')
+      .map(m=>[m.phrase,m.tone])).toEqual([
+        ['原点から物体の位置へ向かう','condition'],
+        ['位置ベクトル','concept'],
+      ])
+    const finite='このように、ある観測者から見た別の物体の速度を、物理では**相対速度**という。'
+    expect(keyConceptRanges(finite,'physics-1c','paragraph-3')
+      .map(x=>x.phrase)).toEqual(['ある観測者から見た別の物体の速度','相対速度'])
+    expect(keyConceptRanges('合力が0なら加速度も0で、速度は変化しない。','physics-1g','paragraph-4')
+      .map(x=>x.phrase)).toContain('合力が0なら加速度も0')
+  })
+
+  it('does not change unselected textbook paragraphs or normal practice text', () => {
+    const source='要素がこの先もずっと続く集合を考える。'
+    const {container}=render(<p><KeyConceptText scope={math} blockId="paragraph-a07" unitId="math-sets" value={source}/></p>)
     expect(container.textContent).toBe(source)
-  })
-
-  it('identifies complement-set membership criteria and concept without changing text', () => {
-    const source = 'U の中で A に入らないもの全体を A の補集合という。'
-    const parts = keyConceptRanges(source, 'math-sets-propositions')
-    expect(parts.map((part) => [part.phrase, part.tone])).toEqual([
-      ['U の中で A に入らないもの全体', 'condition'],
-      ['補集合', 'concept'],
-    ])
-    expect(parts.every((part) => part.phrase.length < source.length)).toBe(true)
-  })
-
-  it('marks only the stated set-minus-A operation before the answer is revealed', () => {
-    const source = 'Uの中からAの要素を取り除くと、残る要素は'
-    const parts = keyConceptRanges(source, 'math-sets-propositions')
-    expect(parts.map((part) => part.phrase)).toEqual(['Uの中からAの要素を取り除く'])
-    expect(parts.every((part) => part.tone === 'condition')).toBe(true)
-  })
-
-  it('marks short conditions and concepts in sets-and-elements explanations', () => {
-    const source = 'このように、ある条件を満たすものをひとまとまりとして考えたものを集合という。また、集合をつくっている一つ一つのものを、その集合の要素という。'
-    const result = keyConceptRanges(source, 'math-sets-propositions')
-    expect(result.map((x) => [x.phrase, x.tone])).toEqual([
-      ['条件を満たすもの', 'condition'], ['集合', 'concept'],
-      ['一つ一つのもの', 'condition'], ['要素', 'concept'],
-    ])
-    expect(result.map((x) => x.phrase).join('').length).toBeLessThan(source.length / 2)
-  })
-
-  it('highlights the positive/negative membership contrast without affecting formula layout', () => {
-    const source = 'あるもの a が集合 A の要素であることを a∈A と表す。反対に、要素でないことを b∉A と表す。'
-    const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
-    const terms = [...container.querySelectorAll('.key-concept-emphasis--concept')].map((node) => node.textContent)
-    expect(terms).toEqual(['要素である', '要素でない'])
-    expect(container.textContent).toBe(source)
-  })
-
-  it('supports a definition whose concept name is still an unresolved answer blank', () => {
-    const source = 'このように、ある条件を満たすものをひとまとまりとして考えたものを'
-    const parts = keyConceptRanges(source, 'math-sets-propositions')
-    expect(parts.map((x) => x.phrase)).toEqual(['条件を満たすもの'])
-    expect(parts.every((x) => x.tone === 'condition')).toBe(true)
-  })
-
-  it('matches membership descriptions split by formula or answer widgets', () => {
-    const source = 'あるもの a が集合 A の要素であることを '
-    expect(keyConceptRanges(source, 'math-sets-propositions').map((x) => x.phrase)).toEqual(['要素である'])
-    const second = '反対に、要素でないことを '
-    expect(keyConceptRanges(second, 'math-sets-propositions').map((x) => x.phrase)).toEqual(['要素でない'])
-  })
-
-  it('shows the physics definition term in blue and its condition in black', () => {
-    const source = 'このように、原点から物体の位置へ向かうベクトルを位置ベクトルという。'
-    const marks = keyConceptRanges(source, 'physics-1a')
-    expect(marks.map((x) => x.tone)).toEqual(['condition', 'concept'])
-  })
-
-  it('does not bold incidental concept mentions with no definition or reasoning role', () => {
-    expect(keyConceptRanges('この後も命題について勉強する。', 'math-sets-propositions')).toHaveLength(0)
-    expect(keyConceptRanges('次に加速度の練習問題を解いてみよう。', 'physics-1d')).toHaveLength(0)
-  })
-
-  it('identifies definition and term in the revised physics position-vector lesson', () => {
-    const source = 'このように、原点から物体の位置へ向かうベクトルを位置ベクトルという。'
-    expect(keyConceptRanges(source, 'physics-1a').map((part) => part.phrase)).toEqual([
-      '原点から物体の位置へ向かう', '位置ベクトル',
-    ])
-  })
-
-  it('never bolds blanks or changes the identity of a lesson phrase', () => {
-    const source = '何を入れるかがはっきり決まる集まりを集合という。【1】を選ぶ。'
-    const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
-    expect(container.textContent).toBe(source)
-    expect([...container.querySelectorAll('strong')].map((part) => part.textContent)).toEqual([
-      '何を入れるかがはっきり決まる', '集合',
-    ])
-  })
-
-  it('preserves all original Japanese characters and selects a few relevant phrases', () => {
-    const source = '集合 B のすべての要素が集合 A に含まれるとき、B は A の部分集合であるという。'
-    const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
-    expect(container.querySelector('p')?.textContent).toBe(source)
-    const marked = [...container.querySelectorAll('strong.key-concept-emphasis')].map((element) => element.textContent)
-    expect(marked).toContain('すべての要素')
-    expect(marked).toContain('部分集合')
-    expect(marked.length).toBeLessThanOrEqual(2)
-  })
-
-  it('emphasizes physics concepts but never rewrites formulas or unselected chapters', () => {
-    const text = '変位ベクトルは最初の位置から後の位置までの位置の変化を表す。'
-    const { container, rerender } = render(
-      <p><KeyConceptText value={text} scope="physics-1a" /></p>,
-    )
-    expect(container.textContent).toBe(text)
-    expect(container.querySelectorAll('.key-concept-emphasis').length).toBeGreaterThan(0)
-    rerender(<p><KeyConceptText value={text} /></p>)
     expect(container.querySelectorAll('.key-concept-emphasis')).toHaveLength(0)
-    expect(container.textContent).toBe(text)
-  })
-
-  it('never turns a whole paragraph into bold text', () => {
-    const value = '反例を1つ探すことで命題が成り立たないことを調べる。仮定と結論を混同しないようにする。'
-    const matches = keyConceptRanges(value, 'math-sets-propositions')
-    expect(matches.length).toBeLessThanOrEqual(2)
-    expect(matches.reduce((total, match) => total + match.phrase.length, 0)).toBeLessThan(value.length / 2)
-  })
-
-  it('keeps plain question stems and mathematical expressions unchanged by default', () => {
-    const { container } = render(<ContentRenderer blocks={[
-      { id: 'stem', type: 'text', text: '部分集合はどれか。' },
-      { id: 'formula', type: 'latex', latex: 'A \\subseteq B', display: 'inline' },
-    ]} />)
-    expect(container.querySelectorAll('.key-concept-emphasis')).toHaveLength(0)
-    expect(container.querySelector('.katex')).not.toBeNull()
-    expect(screen.getByText(/部分集合はどれか/)).toBeTruthy()
-  })
-
-  it('never emphasizes exercise/practice content, even when it contains a textbook definition', () => {
-    const source = '考える対象全体を一つの集合として決める。その集合を全体集合という。'
-    const { container } = render(<ContentRenderer blocks={[
-      { id: 'step', type: 'text', text: source },
-      { id: 'dialogue', type: 'text', speaker: '先生', text: '真か偽かを判断できる文を命題という。' },
-    ]} />)
-    expect(container.querySelectorAll('strong.key-concept-emphasis')).toHaveLength(0)
-    expect(container.querySelectorAll('.key-concept-emphasis--concept')).toHaveLength(0)
-    expect(container.querySelector('p')?.textContent).toBe(source)
+    const practice=render(<ContentRenderer blocks={[
+      { id: 'dialogue',type:'text',speaker:'先生',text:'真か偽かを判断できる文を命題という。' },
+      { id: 'hint',type:'text',text:'集合の要素を比べる。' },
+      { id:'math',type:'latex',latex:'A \\subseteq B',display:'inline' },
+    ]}/>)
+    expect(practice.container.querySelector('.key-concept-emphasis')).toBeNull()
+    expect(practice.container.querySelector('.katex')).not.toBeNull()
   })
 })
