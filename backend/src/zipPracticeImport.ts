@@ -99,7 +99,6 @@ function convert(original:MathPracticeSourceQuestion):PracticeQuestion {
       rightsNote:'ZIP 2026-10-04 authored 4STEP practice source. Original problem references preserved; stage-dependent visual presentation remains subject to quality review.'},
     stem:original.problem.map((b,i)=>block(id+'-problem-'+(i+1),b)),
     solutionSteps:steps,blanks,
-    symbolNotes:zipPracticeSymbolNotes[original.problemNo] ?? [],
     fullExplanation:original.fullExplanation,
     interaction:{reveal:'sequential',options:'inline-expand',
       substituteCorrectAnswer:true,lockFutureSteps:true},
