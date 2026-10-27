@@ -3,7 +3,7 @@
   "unit": "math-sets",
   "figure_reference_id": "subset-after",
   "source": "backend/src/goldenMath/set/setLesson.ts",
-  "svg_asset": "public/assets/math/textbook/sets/subset-after.svg",
+  "svg_asset": "public/assets/math/textbook/sets/subset-after-20261027.svg",
   "topic": "部分集合",
   "teaching_goal": "Bのすべての点はAの内部に入り（B⊆A）、CはAの内外にまたがり（C⊈A）、要素包含の判定を目で確認する。",
   "viewBox": [
@@ -84,5 +84,6 @@
     "sample C boundary to confirm both sides",
     "mobile and desktop label overlap inspection",
     "preserve grayscale palette"
-  ]
+  ],
+  "immutable_cache_note": "The lesson points to a versioned image filename because server sends Cache-Control: public, max-age=31536000, immutable."
 }
