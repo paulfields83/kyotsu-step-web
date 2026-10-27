@@ -18,7 +18,7 @@ describe('meaningful and local symbol notes', () => {
 
   it('keeps a defined, reused math set only within its own example', () => {
     const blocks = [{ id: 'definition', type: 'paragraph', parts: [
-      { type: 'math', latex: 'A=\\\\{1,2,3\\\\}' },
+      { type: 'math', latex: 'A=\\{1,2,3\\}' },
       { type: 'text', text: '集合 A に属するものを調べる。' },
     ] }] as TextbookReadingBlock[]
     const notes = textbookSymbolNotes(unit('math-1a', 'math-sets'), section, blocks)
@@ -28,8 +28,8 @@ describe('meaningful and local symbol notes', () => {
 
   it('suppresses ambiguous definitions reused for another math question', () => {
     const blocks = [
-      { id: 'one', type: 'formula', parts: [{ type: 'math', latex: 'A=\\\\{1,2,3\\\\}' }] },
-      { id: 'two', type: 'formula', parts: [{ type: 'math', latex: 'A=\\\\{4,5,6\\\\}' }] },
+      { id: 'one', type: 'formula', parts: [{ type: 'math', latex: 'A=\\{1,2,3\\}' }] },
+      { id: 'two', type: 'formula', parts: [{ type: 'math', latex: 'A=\\{4,5,6\\}' }] },
     ] as TextbookReadingBlock[]
     expect(textbookSymbolNotes(unit('math-1a', 'math-sets'), section, blocks)).toEqual([])
   })
