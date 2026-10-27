@@ -97,7 +97,7 @@ export function keyConceptRanges(
   if (!scope || !value.trim()) return []
   // Short lines should have just one highlight. Longer explanation paragraphs
   // can have two or three, but never turn into an all-bold paragraph.
-  const limit = maxCount ?? (value.length < 55 ? 1 : value.length < 135 ? 2 : 3)
+  const limit = maxCount ?? (value.length < 35 ? 1 : value.length < 105 ? 2 : 3)
   if (limit <= 0) return []
   const candidates: HighlightRange[] = []
   const phrases = [...new Set(keywords(scope))].sort((a, b) => b.length - a.length)
