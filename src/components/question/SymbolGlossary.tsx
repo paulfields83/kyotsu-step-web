@@ -51,7 +51,7 @@ export function GlossaryFormulaNote({ scope }: { scope: string }) {
 
 // Annotate full written notation, never an arbitrary letter within it:
 // v₀ is different from v, Δt is different from t, and r⃗₁ is different from r.
-const textSymbols = /(?:Δ)?[A-Za-zπθ](?:[⃗̄])*(?:[₀₁₂₃₄₅₆₇₈₉ₓᵧₜ]+|_(?:\{[^}]+\}|[A-Za-z0-9/]+))?|[∈∉∩∪⇒]/gu
+const textSymbols = /(?:Δ)?[A-Za-zπθω](?:[⃗̄])*(?:[₀₁₂₃₄₅₆₇₈₉ₓᵧₜ]+|_(?:\{[^}]+\}|[A-Za-z0-9/]+))?|[∈∉∩∪⇒]/gu
 
 function textSymbolKey(token: string) {
   if (token === 'v̄⃗' || token === 'v⃗̄') return 'vavg'
@@ -101,7 +101,7 @@ function condensed(value: string) {
   return value
     .normalize('NFKC')
     .replace(/[⃗̄→←⇀⇁⇃⇂\u200b-\u200d\s{}_\\^()[\]]/gu, '')
-    .replace(/[^A-Za-z0-9πΔθ∈∉∩∪⇒]/gu, '')
+    .replace(/[^A-Za-z0-9πΔθω∈∉∩∪⇒]/gu, '')
     .toLowerCase()
 }
 
@@ -123,6 +123,7 @@ function formulaSearchText(math: string) {
   return condensed(math
     .replace(/\\(?:Delta)(?![A-Za-z])/g, 'Δ')
     .replace(/\\(?:theta)(?![A-Za-z])/g, 'θ')
+    .replace(/\\(?:omega)(?![A-Za-z])/g, 'ω')
     .replace(/\\(?:pi)(?![A-Za-z])/g, 'π')
     .replace(/\\(?:cap)(?![A-Za-z])/g, '∩')
     .replace(/\\(?:cup)(?![A-Za-z])/g, '∪')
