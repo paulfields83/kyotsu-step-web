@@ -42,6 +42,7 @@ const displacementVelocity: SymbolNote[] = [
   note('P2', '移動後に物体がいる点', '物体移动后所在的位置点', 'P₂'),
   note('O', '位置ベクトルの基準となる原点', '定义位置矢量所采用的坐标原点'),
   note('v', '速度の大きさ（速さ）。向きのある速度ベクトル v⃗ と区別する', '速度的大小（速率），与带方向的速度矢量 v⃗ 不同'),
+  note('vecv', 'その瞬間の速度ベクトル（向きと大きさを含む）', '瞬时速度矢量（包含大小和方向）', 'v⃗'),
 ]
 
 const motionComposition: SymbolNote[] = [
