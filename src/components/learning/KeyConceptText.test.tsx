@@ -40,6 +40,36 @@ describe('selective emphasis in targeted lessons', () => {
     expect(container.textContent).toBe(source)
   })
 
+  it('separately marks the universal-set condition and concept in the screenshot passage', () => {
+    const source = 'このように、考える対象全体を一つの集合として決める。その集合を全体集合といい、ここでは U を考える。'
+    const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
+    expect([...container.querySelectorAll('.key-concept-emphasis')].map((element) => ({
+      text: element.textContent,
+      blue: element.classList.contains('key-concept-emphasis--concept'),
+    }))).toEqual([
+      { text: '考える対象全体', blue: false },
+      { text: '全体集合', blue: true },
+    ])
+    expect(container.textContent).toBe(source)
+  })
+
+  it('identifies complement-set membership criteria and concept without changing text', () => {
+    const source = 'U の中で A に入らないもの全体を A の補集合という。'
+    const parts = keyConceptRanges(source, 'math-sets-propositions')
+    expect(parts.map((part) => [part.phrase, part.tone])).toEqual([
+      ['U の中で A に入らないもの全体', 'condition'],
+      ['補集合', 'concept'],
+    ])
+    expect(parts.every((part) => part.phrase.length < source.length)).toBe(true)
+  })
+
+  it('marks only the stated set-minus-A operation before the answer is revealed', () => {
+    const source = 'Uの中からAの要素を取り除くと、残る要素は'
+    const parts = keyConceptRanges(source, 'math-sets-propositions')
+    expect(parts.map((part) => part.phrase)).toEqual(['Uの中からAの要素を取り除く'])
+    expect(parts.every((part) => part.tone === 'condition')).toBe(true)
+  })
+
   it('marks short conditions and concepts in sets-and-elements explanations', () => {
     const source = 'このように、ある条件を満たすものをひとまとまりとして考えたものを集合という。また、集合をつくっている一つ一つのものを、その集合の要素という。'
     const result = keyConceptRanges(source, 'math-sets-propositions')
@@ -138,11 +168,14 @@ describe('selective emphasis in targeted lessons', () => {
     expect(screen.getByText(/部分集合はどれか/)).toBeTruthy()
   })
 
-  it('emphasizes practice reasoning only on explicit opt-in', () => {
-    const { container } = render(<ContentRenderer emphasisScope="math-sets-propositions" blocks={[
-      { id: 'reasoning', type: 'text', text: '集合 B のすべての要素が集合 A に含まれるかを調べる。' },
+  it('never emphasizes exercise/practice content, even when it contains a textbook definition', () => {
+    const source = '考える対象全体を一つの集合として決める。その集合を全体集合という。'
+    const { container } = render(<ContentRenderer blocks={[
+      { id: 'step', type: 'text', text: source },
+      { id: 'dialogue', type: 'text', speaker: '先生', text: '真か偽かを判断できる文を命題という。' },
     ]} />)
-    expect(container.querySelector('p')?.textContent).toContain('すべての要素')
-    expect(container.querySelectorAll('strong.key-concept-emphasis')).toHaveLength(1)
+    expect(container.querySelectorAll('strong.key-concept-emphasis')).toHaveLength(0)
+    expect(container.querySelectorAll('.key-concept-emphasis--concept')).toHaveLength(0)
+    expect(container.querySelector('p')?.textContent).toBe(source)
   })
 })
