@@ -51,14 +51,14 @@ const rawMathSetUnit = {
         },
         {
           id: 'venn-union',
-          src: '/assets/math/textbook/sets/venn-union.svg',
+          src: '/assets/math/textbook/sets/venn-union-20261027.svg',
           alt: '集合Aまたは集合Bに属する領域を示した図',
           caption: '少なくとも一方に属する要素は、2つの円全体に広がる。',
           overlays: [],
         },
         {
           id: 'subset-after',
-          src: '/assets/math/textbook/sets/subset-after.svg',
+          src: '/assets/math/textbook/sets/subset-after-20261027.svg',
           alt: '集合Bが集合Aに含まれ、集合Cは一部がAの外側にある図',
           caption: '「要素が全部入っているか」が部分集合を判断する基準になる。',
           overlays: [],
