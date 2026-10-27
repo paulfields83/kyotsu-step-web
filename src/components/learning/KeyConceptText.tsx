@@ -26,12 +26,15 @@ const definition = (expression: RegExp, ...groups: number[]): TeachingPattern =>
 // incidental appearance of 命題/集合/反例 in an unrelated sentence.
 const mathPatterns: TeachingPattern[] = [
   definition(/(真か偽かを判断できる文)を(命題)という/gu, 1, 2),
-  definition(/(正しいか正しくないかがはっきり決まる文や式)を(命題)という/gu, 1, 2),
+  definition(/(正しいか正しくないかがはっきり決まる)[^。]{0,8}?(命題)という/gu, 1, 2),
   definition(/(真偽を客観的に決められる)[^。]{0,24}?(命題)/gu, 1, 2),
   definition(/(客観的に真[・\/]偽のどちらか(?:一方)?へ定まる)/gu, 1),
-  definition(/(何を入れるかがはっきり決まる集まり)を(集合)という/gu, 1, 2),
-  definition(/(ある条件を満たすものをひとまとまりとして考えたもの)/gu, 1),
-  definition(/(集合の中に入っている一つ一つのもの)/gu, 1),
+  definition(/(何を入れるかがはっきり決まる)[^。]{0,10}?(集合)という/gu, 1, 2),
+  definition(/(条件を満たすもの)[^。]{0,55}?(集合)という/gu, 1, 2),
+  definition(/(一つ一つのもの)[^。]{0,22}?(要素)という/gu, 1, 2),
+  definition(/(同じ条件)[^。]{0,24}?(満たしている)/gu, 1),
+  definition(/(要素である)ことを[^。]{0,65}?(要素でない)こと/gu, 1, 2),
+  definition(/(その数は集合の中に入っているか)/gu, 1),
   definition(/(すべての要素)[^。]{0,80}?(部分集合)/gu, 1, 2),
   definition(/(すべての要素)[^。]{0,55}?含まれるかを調べる/gu, 1),
   definition(/(どの要素も別の集合の要素であるとき)/gu, 1),
@@ -56,7 +59,7 @@ const mathPatterns: TeachingPattern[] = [
   definition(/(仮定と結論を入れ替える)\s*→\s*(逆)/gu, 1, 2),
   definition(/(両方を否定する)\s*→\s*(裏)/gu, 1, 2),
   definition(/(入れ替えて両方を否定する)\s*→\s*(対偶)/gu, 1, 2),
-  definition(/(「証明したい結論が成り立たない」と仮定し、その仮定から矛盾を出す方法)/gu, 1),
+  definition(/(結論が成り立たない)[^。]{0,42}?(矛盾を出す方法)/gu, 1, 2),
   definition(/(背理法)は[^。]{0,50}?(矛盾を出す方法)/gu, 1, 2),
   definition(/(否定して)[^。]{0,25}?(仮定する)/gu, 1, 2),
   definition(/(仮定と結論を分けること)/gu, 1),
@@ -78,7 +81,7 @@ const physicsPatterns: Record<Exclude<EmphasisScope, 'math-sets-propositions'>, 
     definition(/(位置の変化)[^。]{0,20}?(変位)といい/gu, 1, 2),
     definition(/(変位)は(「後の位置から最初の位置を引いたもの」)/gu, 1, 2),
     definition(/(変位)は(途中の経路には依存しない)/gu, 1, 2),
-    definition(/(単位時間あたりにどれだけ位置が変化したか)/gu, 1),
+    definition(/(単位時間あたり)[^。]{0,42}?(位置が変化したか)/gu, 1, 2),
     definition(/(この量)を(平均の速度)という/gu, 1, 2),
     definition(/(時間間隔)[^。]{0,40}?(瞬間の速度)という/gu, 1, 2),
     definition(/(Δt→0 とした極限で得られる速度)を(瞬間の速度)という/gu, 1, 2),
@@ -144,7 +147,30 @@ export function textbookEmphasisScope(subject: string, unitId: string): Emphasis
   return section ? ('physics-1' + section) as EmphasisScope : undefined
 }
 
-export type HighlightRange = { start: number; end: number; phrase: string }
+export type EmphasisTone = 'condition' | 'concept'
+export type HighlightRange = {
+  start: number
+  end: number
+  phrase: string
+  tone: EmphasisTone
+}
+
+// A concept is blue only when a contextual definition/comparison pattern
+// matched it; merely mentioning the same term elsewhere never decorates it.
+const conceptPhrases = new Set([
+  '集合', '要素', '部分集合', '空集合', '全体集合', '補集合',
+  '共通部分', '和集合', '有限集合', '無限集合',
+  '命題', '反例', '対偶', '逆', '裏', '背理法', '必要十分条件',
+  '要素である', '要素でない',
+  '位置ベクトル', '変位', '変位ベクトル', '平均の速度',
+  '瞬間の速度', '速さ', '速度の合成', '相対速度',
+  '加速度', '等加速度運動', '水平投射', '斜方投射',
+  '最高点', '終端速度', '空気抵抗',
+])
+
+function toneFor(phrase: string): EmphasisTone {
+  return conceptPhrases.has(phrase) ? 'concept' : 'condition'
+}
 
 export function keyConceptRanges(
   value: string,
@@ -152,7 +178,7 @@ export function keyConceptRanges(
   maxCount?: number,
 ): HighlightRange[] {
   if (!scope || !value.trim()) return []
-  const limit = maxCount ?? (value.length < 35 ? 1 : value.length < 105 ? 2 : 3)
+  const limit = maxCount ?? (value.length < 40 ? 2 : value.length < 145 ? 3 : 4)
   if (limit <= 0) return []
   const rules = scope === 'math-sets-propositions' ? mathPatterns : physicsPatterns[scope]
   const candidates: { range: HighlightRange; ruleRank: number }[] = []
@@ -166,7 +192,7 @@ export function keyConceptRanges(
         const offset = match[0].indexOf(phrase, cursor)
         if (offset < 0) continue
         const start = (match.index ?? 0) + offset
-        candidates.push({ range: { start, end: start + phrase.length, phrase }, ruleRank })
+        candidates.push({ range: { start, end: start + phrase.length, phrase, tone: toneFor(phrase) }, ruleRank })
         cursor = offset + phrase.length
       }
     }
@@ -204,7 +230,7 @@ export function KeyConceptText({
   for (const range of ranges) {
     if (range.start > cursor) result.push(value.slice(cursor, range.start))
     result.push(
-      <strong className="key-concept-emphasis" key={range.start}>
+      <strong className={'key-concept-emphasis key-concept-emphasis--' + range.tone} key={range.start}>
         {value.slice(range.start, range.end)}
       </strong>,
     )
