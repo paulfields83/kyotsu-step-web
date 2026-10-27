@@ -331,6 +331,40 @@ a { color: inherit; }
 .reading-paragraph { margin: 0; font-size: 1rem; line-height: 2.05; }
 .reading-paragraph > span { display: inline; }
 .reading-paragraph .katex { font-size: 1.03em; }
+
+/* The teacher, Hanako and Taro are static guides within textbook reading,
+   not chat messages. One shared lightweight bubble, no avatar or interaction. */
+.reading-dialogue {
+  display: grid;
+  gap: .25rem;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: .7rem .9rem;
+  border: 1px solid #dde6f0;
+  border-radius: 12px;
+  background: #f3f6fa;
+  color: var(--color-text);
+}
+.reading-dialogue__speaker {
+  display: block;
+  color: #245b92;
+  font-size: .81rem;
+  font-weight: 750;
+  line-height: 1.4;
+}
+.reading-dialogue__text {
+  min-width: 0;
+  margin: 0;
+  font-size: .98rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 560px) {
+  .reading-dialogue { padding: .65rem .75rem; border-radius: 10px; }
+  .reading-dialogue__text { line-height: 1.8; }
+}
 .reading-formula-line { overflow-x: auto; padding: .7rem .85rem; border: 1px solid var(--color-line); background: #fff; font-size: 1.08rem; line-height: 2; text-align: center; white-space: nowrap; }
 .reading-formula-line > span { display: inline; }
 .reading-figure { display: grid; gap: .5rem; margin: .25rem 0; padding: .75rem; border: 1px solid var(--color-border); background: white; }
@@ -496,6 +530,70 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   grid-template-columns: 30px minmax(0, 1fr);
 }
 .learning-flow--practice .reading-choice-option > span { align-self: start; margin-top: .05rem; }
+/* Keep the learner's wrong selection and the reviewed answer together
+   at the exact point in the sentence where the blank was answered. */
+.learning-flow--practice .practice-answer-pair {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+  max-width: 100%;
+  white-space: normal;
+  vertical-align: middle;
+}
+.learning-flow--practice .practice-correct-inline {
+  margin: 0 .08rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.learning-flow--practice .practice-correct-inline small {
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+/* Practice-only one-shot feedback: retain the first choice and its explanation. */
+.learning-flow--practice .reading-inline-answer--wrong {
+  border-color: var(--color-error);
+  background: #fff8f6;
+  color: var(--color-error);
+}
+.learning-flow--practice .practice-answer-feedback {
+  display: grid;
+  gap: .4rem;
+  width: min(100%, 760px);
+  margin: .1rem 0 .6rem;
+  padding: .8rem;
+  border: 1px solid var(--color-success);
+  border-radius: 9px;
+  background: #f6fff8;
+  line-height: 1.65;
+}
+.learning-flow--practice .practice-answer-feedback--wrong {
+  border-color: var(--color-error);
+  background: #fff8f6;
+}
+.learning-flow--practice .practice-answer-feedback > strong { color: var(--color-success); }
+.learning-flow--practice .practice-answer-feedback--wrong > strong { color: var(--color-error); }
+.learning-flow--practice .practice-answer-feedback p { margin: 0; font-size: .86rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.learning-flow--practice .practice-answer-feedback__explanation {
+  display: grid;
+  gap: .3rem;
+  margin-top: .25rem;
+  padding-top: .55rem;
+  border-top: 1px solid var(--color-line);
+}
+.learning-flow--practice .practice-answer-feedback__explanation > strong { color: var(--color-text); font-size: .86rem; }
+.practice-full-explanation {
+  display: grid;
+  gap: .5rem;
+  margin: .75rem 0;
+  padding: .85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: white;
+}
+.practice-full-explanation h3 { margin: 0; font-size: .95rem; }
+.practice-full-explanation p { margin: 0; font-size: .88rem; white-space: pre-wrap; line-height: 1.85; overflow-wrap: anywhere; }
 .practice-inline-error { display: flex; align-items: center; justify-content: space-between; gap: .65rem; flex-wrap: wrap; }
 .practice-inline-error p { margin: 0; color: var(--color-error); font-size: .78rem; }
 .practice-inline-confirm {
@@ -701,4 +799,200 @@ button.reading-inline-blank:hover { background: var(--color-section); }
 .textbook-meta-note > span {
   color: var(--color-muted);
   line-height: 1.65;
+}
+
+
+/* Reviewed mathematics answer-ledger fields; all options remain source-backed. */
+.reading-free-answer {
+  display: grid;
+  gap: .55rem;
+  padding: .2rem 0;
+  min-width: 0;
+}
+.reading-free-answer label {
+  font-weight: 700;
+  font-size: .88rem;
+}
+.reading-free-answer input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: .7rem .8rem;
+  border: 2px solid var(--color-border);
+  border-radius: .2rem;
+  color: var(--color-text);
+  background: #fff;
+  font: inherit;
+}
+.reading-free-answer input:focus-visible {
+  border-color: var(--color-primary);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+.reading-free-answer button {
+  justify-self: start;
+  min-height: 2.7rem;
+  padding: .55rem 1.1rem;
+  border: 2px solid var(--color-primary);
+  border-radius: .2rem;
+  background: var(--color-primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: .94rem;
+  line-height: 1.35;
+  cursor: pointer;
+}
+.reading-free-answer button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+.reading-formula-line {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+.reading-paragraph,
+.reading-inline-choice-panel {
+  overflow-wrap: anywhere;
+}
+
+/* Readable, keyboard-accessible answer control for blank markers inside KaTeX. */
+.reading-math-blank-button {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .45rem;
+  max-width: 100%;
+  min-height: 2.65rem;
+  margin: .15rem .05rem;
+  padding: .25rem .65rem;
+  border: 2px solid #94b5d7;
+  border-radius: .6rem;
+  background: #f5f9ff;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.reading-math-blank-button:hover,
+.reading-math-blank-button:focus-visible {
+  border-color: #265e96;
+  background: #e8f3ff;
+  outline-offset: 2px;
+}
+.reading-math-blank-button__hint {
+  font-size: .75em;
+  font-weight: 700;
+  color: #265e96;
+}
+.reading-math-answered {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+}
+.reading-math-answered__result {
+  display: inline-flex;
+  align-items: center;
+  gap: .2rem;
+  color: #285a34;
+  font-weight: 700;
+}
+
+/* Textbook's authored hints are disclosed one at a time beside the decision. */
+.reading-staged-hints { margin:.65rem 0; }
+.reading-hint-trigger { padding:.55rem .8rem; border:1px solid #b9c8d7; border-radius:.5rem; background:#f7f9fc; color:inherit; cursor:pointer; font:inherit; }
+.reading-hint-trigger:disabled { opacity:.6; cursor:default; }
+.reading-hint-steps { margin:.55rem 0 .25rem; padding-left:1.6rem; line-height:1.7; }
+.reading-hint-steps li + li { margin-top:.4rem; }
+
+
+/* Responsive textbook mathematics: give consecutive set entries/definitions
+   genuine line-break opportunities instead of forcing a single wide KaTeX run. */
+.textbook-reading-flow,
+.reading-block-with-choice,
+.reading-inline-choice-panel,
+.reading-choice-options,
+.reading-choice-option,
+.reading-choice-option > strong,
+.reading-formula-line,
+.practice-blank-line {
+  min-width: 0;
+  max-width: 100%;
+}
+.reading-math-assignments {
+  display: inline-flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0 .6em;
+  white-space: normal;
+}
+.reading-math-assignment {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+}
+.reading-math-set-list {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 2;
+}
+.reading-math-set-entry {
+  display: inline-block;
+  max-width: 100%;
+  margin-right: .25em;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.reading-choice-option > strong,
+.reading-inline-choice-panel__head,
+.reading-choice-panel,
+.reading-choice-option .symbol-glossary-math {
+  min-width: 0;
+  max-width: 100%;
+}
+.reading-choice-option > strong {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+.reading-formula-line {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+.reading-formula-line > span { max-width: 100%; }
+@media (max-width: 640px) {
+  .reading-formula-line { white-space: normal; }
+  .reading-math-assignments { justify-content: flex-start; }
+  .reading-choice-option { grid-template-columns: 27px minmax(0, 1fr); }
+  .reading-choice-option > small { grid-column: 2; }
+  .reading-math-set-entry { margin-right: .16em; }
+  .reading-paragraph { overflow-wrap: anywhere; }
+}
+
+
+/* Selective emphasis is typography only: no wrappers, popovers or reflowing
+   annotations. Keep the original source prose, equations, and choice layout. */
+.key-concept-emphasis {
+  font-weight: 700;
+  color: inherit;
+  background: none;
+  border: 0;
+  text-decoration: none;
+}
+
+/* Keep reasoning/criteria black; reserve dark blue for the actual
+   defined concept and important paired contrasts, never for choices. */
+.key-concept-emphasis--concept {
+  color: #245b92;
+}
+.key-concept-emphasis--condition {
+  color: inherit;
 }

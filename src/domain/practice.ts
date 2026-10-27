@@ -80,4 +80,5 @@ export type PracticeAnswerResult = {
   correctOptionIds?: string[]
   explanation?: string
   wrongReason?: string
+  fullExplanation?: string
 }

@@ -1,6 +1,6 @@
-import { BlockMath, InlineMath } from 'react-katex'
 import type { ContentBlock, QuestionAsset } from '../../domain/questionSchema'
 import { useI18n } from '../../i18n/runtime'
+import { BlockMath, InlineMath } from 'react-katex'
 
 function resolveAssetSrc(src: string) {
   if (/^(?:https?:|data:|blob:)/i.test(src)) return src
