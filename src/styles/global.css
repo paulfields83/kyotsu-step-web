@@ -953,3 +953,12 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   border: 0;
   text-decoration: none;
 }
+
+/* Keep reasoning/criteria black; reserve dark blue for the actual
+   defined concept and important paired contrasts, never for choices. */
+.key-concept-emphasis--concept {
+  color: #245b92;
+}
+.key-concept-emphasis--condition {
+  color: inherit;
+}
