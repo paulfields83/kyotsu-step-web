@@ -1,6 +1,6 @@
 import { ArrowRight, Atom, BookOpen, Check, ListChecks, Sigma } from 'lucide-react'
 import { Fragment, useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { buildTextbookChapters, textbookLessonHref, textbookLessonItemIds, type TextbookLessonTarget } from '../../domain/textbookCatalog'
 import type { PublicTextbookUnit } from '../../domain/textbookPublic'
 import type { PracticeCatalog, PracticeQuestionSummary } from '../../domain/practice'
@@ -10,13 +10,11 @@ import { textbookRepository } from '../../repositories/textbookRepository'
 import { useAppStore } from '../../stores/useAppStore'
 import { useI18n } from '../../i18n/runtime'
 import { difficultyLabel } from '../../i18n/labels'
-import { PhysicsModulePicker } from '../components/PhysicsModulePicker'
 
 type Mode = 'knowledge' | 'practice'
 type PracticeMode = 'practice' | 'simulation'
 
 export function LearningHubPage() {
-  const navigate = useNavigate()
   const defaultSubject = useAppStore((state) => state.settings.defaultSubject)
   const textbookProgress = useAppStore((state) => state.textbookProgress)
   const { language, text } = useI18n()
@@ -26,12 +24,9 @@ export function LearningHubPage() {
   const [mode, setMode] = useState<Mode>('knowledge')
   const [practiceMode, setPracticeMode] = useState<PracticeMode>('practice')
   const [practiceCatalogs, setPracticeCatalogs] = useState<PracticeCatalog[]>([])
-  const [selectedPhysicsTextbookModule, setSelectedPhysicsTextbookModule] = useState('physics-1')
   const [practiceQuestions, setPracticeQuestions] = useState<PracticeQuestionSummary[]>([])
   const [practiceLoading, setPracticeLoading] = useState(false)
   const [practiceError, setPracticeError] = useState(false)
-  const [majorUnitId, setMajorUnitId] = useState('')
-  const [subcategoryId, setSubcategoryId] = useState('')
 
   useEffect(() => {
     textbookRepository.listPublished()
@@ -42,57 +37,42 @@ export function LearningHubPage() {
 
   useEffect(() => {
     if (mode !== 'practice' || practiceMode !== 'practice') return
+    let cancelled = false
     setPracticeLoading(true)
     setPracticeError(false)
-    practiceRepository.listCatalog({ subject })
-      .then((catalogs) => {
-        setPracticeCatalogs(catalogs)
-        const selectedMajor = catalogs.find((catalog) => catalog.majorUnit.id === majorUnitId) ?? catalogs[0]
-        const nextMajorId = selectedMajor?.majorUnit.id ?? ''
-        setMajorUnitId(nextMajorId)
-        const preferredSubcategory = selectedMajor?.subcategories.find((subcategory) => subcategory.id === subcategoryId)
-          ?? selectedMajor?.subcategories.find((subcategory) => subcategory.questionCount > 0)
-          ?? selectedMajor?.subcategories[0]
-        setSubcategoryId(preferredSubcategory?.id ?? '')
-      })
-      .catch(() => {
-        setPracticeCatalogs([])
-        setPracticeQuestions([])
-        setPracticeError(true)
-      })
-      .finally(() => setPracticeLoading(false))
-  }, [majorUnitId, mode, practiceMode, subcategoryId, subject])
-
-  useEffect(() => {
-    if (mode !== 'practice' || practiceMode !== 'practice' || !majorUnitId || !subcategoryId) {
+    setPracticeCatalogs([])
+    setPracticeQuestions([])
+    // Load all available categories and questions. Choosing a subject is the
+    // only filter: learners no longer need major/minor dropdowns to see topics.
+    Promise.all([
+      practiceRepository.listCatalog({ subject }),
+      practiceRepository.listQuestions({ subject }),
+    ]).then(([catalogs, questions]) => {
+      if (cancelled) return
+      setPracticeCatalogs(catalogs)
+      setPracticeQuestions(questions)
+    }).catch(() => {
+      if (cancelled) return
+      setPracticeCatalogs([])
       setPracticeQuestions([])
-      return
-    }
-    setPracticeLoading(true)
-    setPracticeError(false)
-    practiceRepository.listQuestions({ subject, majorUnit: majorUnitId, subcategory: subcategoryId })
-      .then(setPracticeQuestions)
-      .catch(() => {
-        setPracticeQuestions([])
-        setPracticeError(true)
-      })
-      .finally(() => setPracticeLoading(false))
-  }, [majorUnitId, mode, practiceMode, subcategoryId, subject])
+      setPracticeError(true)
+    }).finally(() => {
+      if (!cancelled) setPracticeLoading(false)
+    })
+    return () => { cancelled = true }
+  }, [mode, practiceMode, subject])
 
   const chapters = useMemo(() => buildTextbookChapters(units, subject), [subject, units])
-  const physicsTextbookAvailableIds = useMemo(() => new Set(chapters.map(chapter => chapter.key)), [chapters])
-  const selectedPracticeCatalog = practiceCatalogs.find((catalog) => catalog.majorUnit.id === majorUnitId) ?? practiceCatalogs[0]
-  const selectedSubcategory = selectedPracticeCatalog?.subcategories.find((subcategory) => subcategory.id === subcategoryId)
-  const problemTypeLabels = useMemo(() => new Map(
-    selectedSubcategory?.problemTypes.map((problemType) => [problemType.id, problemType.label]) ?? [],
-  ), [selectedSubcategory])
-
-  const changeMajorUnit = (nextMajorUnitId: string) => {
-    const catalog = practiceCatalogs.find((candidate) => candidate.majorUnit.id === nextMajorUnitId)
-    setMajorUnitId(nextMajorUnitId)
-    const nextSubcategory = catalog?.subcategories.find((subcategory) => subcategory.questionCount > 0) ?? catalog?.subcategories[0]
-    setSubcategoryId(nextSubcategory?.id ?? '')
-  }
+  const sortedPracticeCatalogs = useMemo(() => [...practiceCatalogs]
+    .sort((a, b) => a.majorUnit.order - b.majorUnit.order), [practiceCatalogs])
+  const practiceQuestionGroups = useMemo(() => {
+    const grouped = new Map<string, PracticeQuestionSummary[]>()
+    for (const question of practiceQuestions) {
+      const key = `${question.majorUnit}/${question.subcategory}`
+      grouped.set(key, [...(grouped.get(key) ?? []), question])
+    }
+    return grouped
+  }, [practiceQuestions])
 
   return (
     <div className="v2-page">
@@ -116,13 +96,7 @@ export function LearningHubPage() {
         <section className="v2-course-list">
           {loading && <div className="v2-empty-card">{text('教材を読み込んでいます…', '正在读取教材…')}</div>}
           {!loading && !chapters.length && <div className="v2-empty-card">{text('この科目の教材はまだありません。', '该科目暂时没有教材。')}</div>}
-          {subject === 'physics' && <PhysicsModulePicker mode="textbook"
-            availableIds={physicsTextbookAvailableIds}
-            selectedId={selectedPhysicsTextbookModule}
-            onSelect={setSelectedPhysicsTextbookModule}
-            isLoading={loading}
-          />}
-          {(subject === 'physics' ? chapters.filter(chapter => chapter.key === selectedPhysicsTextbookModule) : chapters).map((chapter, chapterIndex) => {
+          {chapters.map((chapter, chapterIndex) => {
             const lessonStats = (lesson:TextbookLessonTarget):{total:number;done:number} => {
               if (lesson.kind === 'chapter-group') {
                 return (lesson.topics ?? []).reduce((total,topic) => {
@@ -147,7 +121,7 @@ export function LearningHubPage() {
             return (
               <article className="v2-course-card" key={chapter.key}>
                 <header>
-                  <div className="v2-course-card__number">{String((subject === 'physics' ? chapters.findIndex(candidate => candidate.key === chapter.key) : chapterIndex) + 1).padStart(2, '0')}</div>
+                  <div className="v2-course-card__number">{String(chapterIndex + 1).padStart(2, '0')}</div>
                   <div>
                     <h2>{chapter.label}</h2>
                     <p>{text(`${completed} / ${totalItems} 項目完了`, `已完成 ${completed} / ${totalItems} 项`)}</p>
@@ -188,71 +162,59 @@ export function LearningHubPage() {
             </button>
           </div>
 
-          {practiceMode === 'practice' ? (subject === 'physics' ? (
-            <>
-              <PhysicsModulePicker mode="practice" availableIds={new Set<string>()} />
-              <div className="v2-empty-card">{text('物理の練習問題は準備中です。教材の学習内容は「知識学習」から開けます。', '物理练习题暂未导入；已有的教材内容仍可在「知识学习」中查看。')}</div>
-            </>
-          ) : (
-            <>
-              <div className="v2-practice-intro">
-                <div>
-                  <span className="v2-eyebrow">PRACTICE / BACKEND</span>
-                  <h2>{text('単元と小分類を選ぶ', '选择大类与小类别')}</h2>
-                </div>
-              </div>
-
-              {practiceError && <div className="v2-empty-card">{text('問題練習 API に接続できません。', '无法连接题目练习后端。')}</div>}
-              {practiceLoading && !practiceCatalogs.length && <div className="v2-empty-card">{text('問題分類を読み込んでいます…', '正在读取题目分类…')}</div>}
-              {!practiceLoading && !practiceError && !practiceCatalogs.length && <div className="v2-empty-card">{text('この科目の普通練習はまだありません。', '该科目暂时没有普通练习。')}</div>}
-
-              {practiceCatalogs.length > 0 && (
-                <div className="practice-taxonomy-controls">
-                  <label className="field-label" htmlFor="practice-major-unit">{text('大分類', '大类')}</label>
-                  <select id="practice-major-unit" className="select-control" value={majorUnitId} onChange={(event) => changeMajorUnit(event.target.value)}>
-                    {practiceCatalogs.map((catalog) => <option key={catalog.majorUnit.id} value={catalog.majorUnit.id}>{catalog.majorUnit.label}</option>)}
-                  </select>
-
-                  <label className="field-label" htmlFor="practice-subcategory">{text('小分類', '小类别')}</label>
-                  <select id="practice-subcategory" className="select-control" value={subcategoryId} onChange={(event) => setSubcategoryId(event.target.value)}>
-                    {selectedPracticeCatalog?.subcategories.map((subcategory) => (
-                      <option key={subcategory.id} value={subcategory.id}>{subcategory.label} ({subcategory.questionCount})</option>
-                    ))}
-                  </select>
+          {practiceMode === 'practice' ? (
+            <section className="v2-course-list v2-practice-courses" data-testid="practice-chapter-list">
+              {practiceError && <div className="v2-empty-card">
+                {text('問題練習 API に接続できません。', '无法连接题目练习后端。')}
+              </div>}
+              {practiceLoading && <div className="v2-empty-card">
+                {text('問題一覧を読み込んでいます…', '正在读取练习题列表…')}
+              </div>}
+              {!practiceLoading && !practiceError && sortedPracticeCatalogs.length === 0 && (
+                <div className="v2-empty-card">
+                  {text('この科目の練習問題はまだ登録されていません。', '该科目的练习题目前尚未导入。')}
                 </div>
               )}
-
-              {selectedSubcategory && (
-                <div className="v2-practice-intro">
-                  <div><span className="v2-eyebrow">{selectedPracticeCatalog?.majorUnit.label}</span><h2>{selectedSubcategory.label}</h2></div>
-                </div>
-              )}
-
-              {!practiceLoading && selectedSubcategory && !practiceQuestions.length && (
-                <div className="v2-empty-card">{text('この小分類の問題はまだ量産前です。', '这个小类别的题目还未开始量产。')}</div>
-              )}
-
-              {practiceQuestions.map((question) => (
-                <article className="v2-practice-card" key={question.questionId}>
-                  <div className="v2-practice-card__body">
-                    <div className="v2-tag-row">
-                      <span>{difficultyLabel(question.difficulty, language)}</span>
-                      <span>{problemTypeLabels.get(question.problemType) ?? question.problemType}</span>
-                      <span>rev.{question.revision}</span>
+              {!practiceLoading && !practiceError && sortedPracticeCatalogs.map((catalog, chapterIndex) => {
+                const subcategories = [...catalog.subcategories].sort((a, b) => a.order - b.order)
+                const questionCount = subcategories.reduce((n, cat) =>
+                  n + (practiceQuestionGroups.get(`${catalog.majorUnit.id}/${cat.id}`)?.length ?? 0), 0)
+                return (
+                  <article className="v2-course-card v2-practice-course-card" key={catalog.majorUnit.id}>
+                    <header>
+                      <div className="v2-course-card__number">{String(chapterIndex + 1).padStart(2, '0')}</div>
+                      <div>
+                        <h2>{catalog.majorUnit.label}</h2>
+                        <p>{text(`${questionCount} 問題`, `${questionCount} 道题`)}</p>
+                      </div>
+                    </header>
+                    <div className="v2-lesson-list">
+                      {subcategories.map((subcategory) => {
+                        const questions = practiceQuestionGroups.get(`${catalog.majorUnit.id}/${subcategory.id}`) ?? []
+                        return (
+                          <section className="v2-practice-subcategory" key={subcategory.id}>
+                            <h3>{subcategory.label}<small>{questions.length}</small></h3>
+                            {questions.length ? questions.map((question, index) => (
+                              <Link key={question.questionId} to={`/practice/session/${question.questionId}`}>
+                                <span className="v2-lesson-status">{index + 1}</span>
+                                <div>
+                                  <strong>{question.title}</strong>
+                                  <small>{difficultyLabel(question.difficulty, language)} · {question.source.label}</small>
+                                </div>
+                                <ArrowRight size={17} />
+                              </Link>
+                            )) : <p className="v2-practice-subcategory__empty">
+                              {text('問題はまだ準備中です。', '题目暂未准备好。')}
+                            </p>}
+                          </section>
+                        )
+                      })}
                     </div>
-                    <h3>{question.title}</h3>
-                    <p>{question.source.label}</p>
-                  </div>
-                  <div className="v2-practice-actions">
-                    <button type="button" onClick={() => navigate(`/practice/session/${question.questionId}`)}>
-                      <strong>{text('問題を解く', '开始练习')}</strong>
-                      <small>{text('後端の引導データで進む', '读取后端引导数据作答')}</small>
-                    </button>
-                  </div>
-                </article>
-              ))}
-            </>
-          )) : (
+                  </article>
+                )
+              })}
+            </section>
+          ) : (
             <div className="v2-empty-card">
               <p>{text('模擬テストでは、回答中に正解や解析を表示しません。', '模拟测试中，作答时不显示答案和解析。')}</p>
               <Link className="v2-primary-action" to="/simulation/setup">
