@@ -462,7 +462,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
     }
 
     if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
-    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text}/> : {block.text}}</aside>
+    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text}/> : block.text}</aside>
 
     if (hasSolutionTrack && block.type === 'paragraph') {
       const plain = block.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
