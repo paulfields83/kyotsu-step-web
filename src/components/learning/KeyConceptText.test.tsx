@@ -58,6 +58,20 @@ describe('selective emphasis in targeted lessons', () => {
     expect(container.textContent).toBe(source)
   })
 
+  it('supports a definition whose concept name is still an unresolved answer blank', () => {
+    const source = 'このように、ある条件を満たすものをひとまとまりとして考えたものを'
+    const parts = keyConceptRanges(source, 'math-sets-propositions')
+    expect(parts.map((x) => x.phrase)).toEqual(['条件を満たすもの'])
+    expect(parts.every((x) => x.tone === 'condition')).toBe(true)
+  })
+
+  it('matches membership descriptions split by formula or answer widgets', () => {
+    const source = 'あるもの a が集合 A の要素であることを '
+    expect(keyConceptRanges(source, 'math-sets-propositions').map((x) => x.phrase)).toEqual(['要素である'])
+    const second = '反対に、要素でないことを '
+    expect(keyConceptRanges(second, 'math-sets-propositions').map((x) => x.phrase)).toEqual(['要素でない'])
+  })
+
   it('shows the physics definition's term in blue and its condition in black', () => {
     const source = 'このように、原点から物体の位置へ向かうベクトルを位置ベクトルという。'
     const marks = keyConceptRanges(source, 'physics-1a')
@@ -72,7 +86,7 @@ describe('selective emphasis in targeted lessons', () => {
   it('identifies definition and term in the revised physics position-vector lesson', () => {
     const source = 'このように、原点から物体の位置へ向かうベクトルを位置ベクトルという。'
     expect(keyConceptRanges(source, 'physics-1a').map((part) => part.phrase)).toEqual([
-      '原点から物体の位置へ向かうベクトル', '位置ベクトル',
+      '原点から物体の位置へ向かう', '位置ベクトル',
     ])
   })
 
