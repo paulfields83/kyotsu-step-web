@@ -31,9 +31,14 @@ const mathPatterns: TeachingPattern[] = [
   definition(/(客観的に真[・\/]偽のどちらか(?:一方)?へ定まる)/gu, 1),
   definition(/(何を入れるかがはっきり決まる)[^。]{0,10}?(集合)という/gu, 1, 2),
   definition(/(条件を満たすもの)[^。]{0,55}?(集合)という/gu, 1, 2),
+  // Some textbook definitions end in a graded answer blank. Keep the
+  // criterion visible but never pre-reveal the missing concept name.
+  definition(/このように、ある(条件を満たすもの)をひとまとまりとして考えた/gu, 1),
   definition(/(一つ一つのもの)[^。]{0,22}?(要素)という/gu, 1, 2),
+  definition(/集合をつくっている(一つ一つのもの)/gu, 1),
   definition(/(同じ条件)[^。]{0,24}?(満たしている)/gu, 1),
-  definition(/(要素である)ことを[^。]{0,65}?(要素でない)こと/gu, 1, 2),
+  definition(/(要素である)ことを[^。]{0,32}?表す/gu, 1),
+  definition(/反対に、(要素でない)ことを[^。]{0,32}?表す/gu, 1),
   definition(/(その数は集合の中に入っているか)/gu, 1),
   definition(/(すべての要素)[^。]{0,80}?(部分集合)/gu, 1, 2),
   definition(/(すべての要素)[^。]{0,55}?含まれるかを調べる/gu, 1),
