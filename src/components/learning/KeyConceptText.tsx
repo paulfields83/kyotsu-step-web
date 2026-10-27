@@ -37,8 +37,8 @@ const mathPatterns: TeachingPattern[] = [
   definition(/(一つ一つのもの)[^。]{0,22}?(要素)という/gu, 1, 2),
   definition(/集合をつくっている(一つ一つのもの)/gu, 1),
   definition(/(同じ条件)[^。]{0,24}?(満たしている)/gu, 1),
-  definition(/(要素である)ことを[^。]{0,32}?表す/gu, 1),
-  definition(/反対に、(要素でない)ことを[^。]{0,32}?表す/gu, 1),
+  definition(/(要素である)ことを/gu, 1),
+  definition(/反対に、(要素でない)ことを/gu, 1),
   definition(/(その数は集合の中に入っているか)/gu, 1),
   definition(/(すべての要素)[^。]{0,80}?(部分集合)/gu, 1, 2),
   definition(/(すべての要素)[^。]{0,55}?含まれるかを調べる/gu, 1),
@@ -81,7 +81,7 @@ const mathPatterns: TeachingPattern[] = [
 // not in every subsequent calculation or sentence mentioning them.
 const physicsPatterns: Record<Exclude<EmphasisScope, 'math-sets-propositions'>, TeachingPattern[]> = {
   'physics-1a': [
-    definition(/(原点から物体の位置へ向かうベクトル)を(位置ベクトル)という/gu, 1, 2),
+    definition(/(原点から物体の位置へ向かう)ベクトルを(位置ベクトル)という/gu, 1, 2),
     definition(/(変位ベクトル)[^。]{0,55}?(位置の変化)/gu, 1, 2),
     definition(/(位置の変化)[^。]{0,20}?(変位)といい/gu, 1, 2),
     definition(/(変位)は(「後の位置から最初の位置を引いたもの」)/gu, 1, 2),
