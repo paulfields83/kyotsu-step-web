@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { GlossaryMath, GlossaryText, SymbolGlossaryProvider } from './SymbolGlossary'
+import { GlossaryFormulaNote, GlossaryMath, GlossaryText, SymbolGlossaryProvider } from './SymbolGlossary'
 
 describe('question-scoped tap-to-toggle symbol explanations', () => {
   it('shows and hides the local meaning when the same text symbol is clicked twice', () => {
@@ -59,6 +59,35 @@ describe('question-scoped tap-to-toggle symbol explanations', () => {
     expect(screen.getByTestId('symbol-note').textContent).toContain('変位ベクトル')
     fireEvent.click(displacement)
     expect(screen.queryByTestId('symbol-note')).toBeNull()
+  })
+
+  it('does not insert symbol buttons between formula fragments or resolved answers', async () => {
+    const { container } = render(
+      <SymbolGlossaryProvider notes={[{ symbol: 'v', ja: '速度', zh: '速度' }]}>
+        <div className="reading-formula-line" data-testid="uninterrupted-formula">
+          <GlossaryMath math="v" scope="formula-1a" />
+          <span> + </span>
+          <span className="reading-inline-answer">✓ 6.0</span>
+          <span> = 8.0</span>
+        </div>
+        <GlossaryFormulaNote scope="formula-1a" />
+      </SymbolGlossaryProvider>,
+    )
+    const formula = screen.getByTestId('uninterrupted-formula')
+    expect(formula.querySelector('[data-testid="formula-symbols"]')).toBeNull()
+    expect(formula.querySelectorAll('.reading-inline-answer')).toHaveLength(1)
+    const token = await waitFor(() => {
+      const found = formula.querySelector<HTMLElement>('[data-glossary-symbol="v"]')
+      expect(found).not.toBeNull()
+      return found!
+    })
+    fireEvent.click(token)
+    const note = screen.getByTestId('symbol-note')
+    expect(note.textContent).toContain('速度')
+    expect(formula.contains(note)).toBe(false)
+    fireEvent.click(token)
+    expect(screen.queryByTestId('symbol-note')).toBeNull()
+    expect(container.querySelectorAll('.reading-inline-answer')).toHaveLength(1)
   })
 
   it('does not make unknown symbols interactive', () => {
