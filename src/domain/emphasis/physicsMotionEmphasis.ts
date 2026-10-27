@@ -132,7 +132,6 @@ export const physicsMotionEmphasis: Record<string, UnitEmphasis> = {
     'paragraph-27': [B('加速度が0なら、合力がどうなっているか')],
     'paragraph-28': [C('終端速度'), B('重力と空気抵抗がつり合って合力が0になる')],
     'paragraph-30': [B('グラフが水平へ近づく → a→0 → F_{net}→0 → 重力と抵抗がつり合う'), B('m が大きいほど v_t は大きく'), B('k が大きいほど v_t は小さい')],
-    'paragraph-32': [C('終端速度')],
     'paragraph-33': [B('力 → 加速度 → 速度の変化')],
     'paragraph-34': [B('抵抗が増え'), B('合力が減り'), B('加速度が減る'), C('終端速度')],
   },
