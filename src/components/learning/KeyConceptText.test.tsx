@@ -72,7 +72,7 @@ describe('selective emphasis in targeted lessons', () => {
     expect(keyConceptRanges(second, 'math-sets-propositions').map((x) => x.phrase)).toEqual(['要素でない'])
   })
 
-  it('shows the physics definition's term in blue and its condition in black', () => {
+  it('shows the physics definition term in blue and its condition in black', () => {
     const source = 'このように、原点から物体の位置へ向かうベクトルを位置ベクトルという。'
     const marks = keyConceptRanges(source, 'physics-1a')
     expect(marks.map((x) => x.tone)).toEqual(['condition', 'concept'])
