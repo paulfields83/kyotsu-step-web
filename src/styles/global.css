@@ -929,3 +929,72 @@ button.reading-inline-blank:hover { background: var(--color-section); }
   max-width: min(100%, 38rem);
   margin: .25rem 0;
 }
+
+
+/* Responsive textbook mathematics: give consecutive set entries/definitions
+   genuine line-break opportunities instead of forcing a single wide KaTeX run. */
+.textbook-reading-flow,
+.reading-block-with-choice,
+.reading-inline-choice-panel,
+.reading-choice-options,
+.reading-choice-option,
+.reading-choice-option > strong,
+.reading-formula-line,
+.practice-blank-line {
+  min-width: 0;
+  max-width: 100%;
+}
+.reading-math-assignments {
+  display: inline-flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0 .6em;
+  white-space: normal;
+}
+.reading-math-assignment {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+}
+.reading-math-set-list {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 2;
+}
+.reading-math-set-entry {
+  display: inline-block;
+  max-width: 100%;
+  margin-right: .25em;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.reading-choice-option > strong,
+.reading-inline-choice-panel__head,
+.reading-choice-panel,
+.reading-choice-option .symbol-glossary-math {
+  min-width: 0;
+  max-width: 100%;
+}
+.reading-choice-option > strong {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+}
+.reading-formula-line {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+.reading-formula-line > span { max-width: 100%; }
+@media (max-width: 640px) {
+  .reading-formula-line { white-space: normal; }
+  .reading-math-assignments { justify-content: flex-start; }
+  .reading-choice-option { grid-template-columns: 27px minmax(0, 1fr); }
+  .reading-choice-option > small { grid-column: 2; }
+  .reading-math-set-entry { margin-right: .16em; }
+  .reading-paragraph { overflow-wrap: anywhere; }
+}
