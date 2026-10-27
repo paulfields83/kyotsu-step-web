@@ -95,7 +95,53 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
 
 // Display mathematics as mathematics, while keeping Japanese reasoning choices
 // in ordinary readable textbook language.
+// A KaTeX expression containing multiple set answers is a single unbreakable
+// inline box. Split only commas OUTSIDE braces so that mobile can wrap between
+// complete sets, never between a brace and its elements.
+function splitTopLevelSetList(value: string): string[] {
+  if (!/[{}∅]/u.test(value)) return []
+  const fragments: string[] = []
+  let depth = 0
+  let start = 0
+  for (let index = 0; index < value.length; index += 1) {
+    const char = value[index]
+    if (char === '{') depth += 1
+    if (char === '}') depth -= 1
+    if (char === ',' && depth === 0) {
+      fragments.push(value.slice(start, index).trim())
+      start = index + 1
+    }
+  }
+  fragments.push(value.slice(start).trim())
+  return fragments.length > 1 && fragments.every(Boolean) ? fragments : []
+}
+
+function ReadableMath({ latex, scope }: { latex: string; scope?: string }) {
+  // E.g. A={1,2,3}, B={1,3}, C={1,4}: keep each assignment intact,
+  // but allow a line break before the next definition on narrow screens.
+  const assignments = latex.split(/,\s*(?=[A-Z]\s*=)/u)
+  if (assignments.length === 1) return <GlossaryMath math={latex} scope={scope} />
+  return <span className="reading-math-assignments">
+    {assignments.map((assignment, index) => (
+      <span className="reading-math-assignment" key={index}>
+        <GlossaryMath math={assignment} scope={scope} />
+        {index < assignments.length - 1 && ','}
+      </span>
+    ))}
+  </span>
+}
+
 function GuidedChoiceValue({ value }: { value: string }) {
+  const setList = splitTopLevelSetList(value)
+  if (setList.length) return <span className="reading-math-set-list">
+    {setList.map((part, index) => {
+      const fragment = textbookMathLatex(part)
+      return <span className="reading-math-set-entry" key={index}>
+        {fragment ? <GlossaryMath math={fragment} interactive={false} /> : part}
+        {index < setList.length - 1 && ','}
+      </span>
+    })}
+  </span>
   const latex = textbookMathLatex(value)
   if (latex) return <GlossaryMath math={latex} interactive={false} />
   // The original physics distractor sometimes appends Japanese explanation
@@ -176,13 +222,13 @@ function renderPart(
   if (part.type === 'term') return <strong className="reading-term"><GlossaryText value={part.text} /></strong>
   if (part.type === 'math') {
     const holeIds = part.holeIds ?? []
-    if (!holeIds.length) return <GlossaryMath math={part.latex} scope={noteScope} />
+    if (!holeIds.length) return <ReadableMath latex={part.latex} scope={noteScope} />
     const latexWithAnswers = fillResolvedMathHoles(part.latex, holeIds, progress?.answers)
     const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
     if (!pendingId) {
       return (
         <span className="reading-math-answered" data-testid={`textbook-math-filled-${holeIds[0]}`}>
-          <GlossaryMath math={latexWithAnswers} scope={noteScope} />
+          <ReadableMath latex={latexWithAnswers} scope={noteScope} />
         </span>
       )
     }
