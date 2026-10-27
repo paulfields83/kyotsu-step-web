@@ -109,13 +109,11 @@ export function GlossaryMath({
   math,
   display = false,
   interactive = true,
-  showSymbols = false,
   scope,
 }: {
   math: string
   display?: boolean
   interactive?: boolean
-  showSymbols?: boolean
   scope?: string
 }) {
   const ctx = useContext(GlossaryContext)
@@ -176,7 +174,6 @@ export function GlossaryMath({
     return true
   }
 
-  const showChoices = Boolean(interactive && showSymbols && relevant.length)
   return <span className={'symbol-glossary-math' + (display ? ' symbol-glossary-math--display' : '')}>
     <span ref={container}
       onClick={(event) => {
@@ -188,17 +185,7 @@ export function GlossaryMath({
       }}>
       {display ? <BlockMath math={math} /> : <InlineMath math={math} />}
     </span>
-    {showChoices && <span className="symbol-glossary-math-options"
-      aria-label="この式の記号" data-testid="formula-symbols">
-      <small>記号：</small>
-      {relevant.map((note) => {
-        const open = selected === note.symbol
-        return <button type="button" key={note.symbol} className="symbol-glossary-option"
-          data-testid={'formula-symbol-' + note.symbol}
-          aria-expanded={open}
-          onClick={() => ctx?.toggle(anchor, note.symbol, scope)}>{note.label ?? note.symbol}</button>
-      })}
-    </span>}
-    {interactive && !scope && (hasClickable || showChoices) && selected && <VisibleNote symbol={selected} />}
+
+    {interactive && !scope && hasClickable && selected && <VisibleNote symbol={selected} />}
   </span>
 }
