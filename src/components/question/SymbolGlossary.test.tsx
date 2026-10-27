@@ -37,28 +37,23 @@ describe('question-scoped tap-to-toggle symbol explanations', () => {
     expect(container.querySelector('.katex')).not.toBeNull()
   })
 
-  it('shows full quantities for the 1A average-velocity equation and toggles their meanings', () => {
-    render(
+  it('keeps the complete 1A average-velocity equation visually intact without extra chips', () => {
+    const { container } = render(
       <SymbolGlossaryProvider notes={[
         { symbol: 'vavg', label: 'v⃗_avg', ja: '平均速度ベクトル', zh: '平均速度矢量' },
         { symbol: 'Δr', label: 'Δr⃗', ja: '変位ベクトル', zh: '位移矢量' },
         { symbol: 'Δt', ja: '経過時間', zh: '经过时间' },
       ]}>
-        <GlossaryMath
-          math="\vec{v}_{\mathrm{avg}}=\frac{\Delta\vec{r}}{\Delta t}"
-          showSymbols
-        />
+        <div className="reading-formula-line">
+          <GlossaryMath math="\\vec{v}_{\\mathrm{avg}}=\\frac{\\Delta\\vec{r}}{\\Delta t}" scope="physics-1a" />
+        </div>
+        <GlossaryFormulaNote scope="physics-1a" />
       </SymbolGlossaryProvider>,
     )
-    expect(screen.getByTestId('formula-symbol-vavg')).toBeTruthy()
-    const displacement = screen.getByTestId('formula-symbol-Δr')
-    expect(displacement).toBeTruthy()
-    expect(screen.getByTestId('formula-symbol-Δt')).toBeTruthy()
-    expect(screen.queryByTestId('symbol-note')).toBeNull()
-    fireEvent.click(displacement)
-    expect(screen.getByTestId('symbol-note').textContent).toContain('変位ベクトル')
-    fireEvent.click(displacement)
-    expect(screen.queryByTestId('symbol-note')).toBeNull()
+    expect(container.querySelector('.katex')).not.toBeNull()
+    expect(container.querySelector('[data-testid="formula-symbols"]')).toBeNull()
+    expect(container.querySelectorAll('.symbol-glossary-option')).toHaveLength(0)
+    expect(container.querySelectorAll('.reading-formula-line .symbol-glossary-note')).toHaveLength(0)
   })
 
   it('does not insert symbol buttons between formula fragments or resolved answers', async () => {
