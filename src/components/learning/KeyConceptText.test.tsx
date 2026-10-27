@@ -14,6 +14,43 @@ describe('selective emphasis in targeted lessons', () => {
     expect(textbookEmphasisScope('physics', 'physics-1b-velocity-composition')).toBeUndefined()
   })
 
+  it('pairs the definition condition and concept name in the photographed proposition lesson', () => {
+    const line = '真か偽かを判断できる文を命題という。今のように、条件pを満たすとき必ず条件qも満たすなら真である。'
+    const { container } = render(<p><KeyConceptText value={line} scope="math-sets-propositions" /></p>)
+    const spans = [...container.querySelectorAll('.key-concept-emphasis')].map((el) => el.textContent)
+    expect(spans).toEqual(['真か偽かを判断できる文', '命題'])
+    expect(container.querySelector('p')?.textContent).toBe(line)
+  })
+
+  it('pairs the alternative authored strict-textbook proposition definition', () => {
+    const source = '正しいか正しくないかがはっきり決まる文や式を命題という。'
+    const spans = keyConceptRanges(source, 'math-sets-propositions')
+    expect(spans.map((part) => part.phrase)).toEqual([
+      '正しいか正しくないかがはっきり決まる文や式', '命題',
+    ])
+  })
+
+  it('does not bold incidental concept mentions with no definition or reasoning role', () => {
+    expect(keyConceptRanges('この後も命題について勉強する。', 'math-sets-propositions')).toHaveLength(0)
+    expect(keyConceptRanges('次に加速度の練習問題を解いてみよう。', 'physics-1d')).toHaveLength(0)
+  })
+
+  it('identifies definition and term in the revised physics position-vector lesson', () => {
+    const source = 'このように、原点から物体の位置へ向かうベクトルを位置ベクトルという。'
+    expect(keyConceptRanges(source, 'physics-1a').map((part) => part.phrase)).toEqual([
+      '原点から物体の位置へ向かうベクトル', '位置ベクトル',
+    ])
+  })
+
+  it('never bolds blanks or changes the identity of a lesson phrase', () => {
+    const source = '何を入れるかがはっきり決まる集まりを集合という。【1】を選ぶ。'
+    const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
+    expect(container.textContent).toBe(source)
+    expect([...container.querySelectorAll('strong')].map((part) => part.textContent)).toEqual([
+      '何を入れるかがはっきり決まる集まり', '集合',
+    ])
+  })
+
   it('preserves all original Japanese characters and selects a few relevant phrases', () => {
     const source = '集合 B のすべての要素が集合 A に含まれるとき、B は A の部分集合であるという。'
     const { container } = render(<p><KeyConceptText value={source} scope="math-sets-propositions" /></p>)
