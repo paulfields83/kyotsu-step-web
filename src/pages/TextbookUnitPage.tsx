@@ -216,7 +216,7 @@ function renderPart(
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
 ): ReactNode {
-  if (part.type === 'text') return {part.text}
+  if (part.type === 'text') return part.text
   if (part.type === 'term') return <strong className="reading-term">{part.text}</strong>
   if (part.type === 'math') {
     const holeIds = part.holeIds ?? []
