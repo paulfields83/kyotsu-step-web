@@ -656,7 +656,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
   }
 
   return (
-    <SymbolGlossaryProvider key={section.id} notes={textbookSymbolNotes(unit, section)}>
     <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
       {hasTopicNavigation && (
         <nav className="reading-topic-nav" aria-label={text('知識項目', '知识点')}>
@@ -701,6 +700,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
           <section className={`reading-subsection${group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
+            <SymbolGlossaryProvider notes={textbookSymbolNotes(unit, section, visibleGroup)}>
             {renderExampleSequence(visibleGroup)}
             {completed && groupIndex < groups.length - 1 && (
               <div className="reading-subsection-complete">
@@ -708,11 +708,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
                 <span>{text('この小節を完了しました。次の項目へ進めます。', '本知识点已完成，可以继续下一知识点。')}</span>
               </div>
             )}
+            </SymbolGlossaryProvider>
           </section>
         )
       })}
     </article>
-    </SymbolGlossaryProvider>
   )
 }
 
