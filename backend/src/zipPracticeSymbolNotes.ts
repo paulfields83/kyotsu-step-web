@@ -1,16 +1,11 @@
-// Curated notes grounded in the authored ZIP 4STEP question statements.
-// No generic/global interpretation is assigned to a symbol across different questions.
+// Reviewed, problem-specific ZIP 4STEP definitions only.
+// Keep an entry only when the original problem assigns a meaningful role to
+// the symbol and a learner may need to recall it later in the solution.
+// Do not annotate ordinary unknowns, generic number domains or operators.
 export type PracticeSymbolNote = { symbol: string; ja: string; zh: string }
 export const zipPracticeSymbolNotes: Record<number, PracticeSymbolNote[]> = {
   87: [
     {"symbol":"A","ja":"30以下の素数全体の集合","zh":"30 以下所有素数组成的集合"},
-    {"symbol":"x","ja":"集合 A の要素を表す数","zh":"表示集合 A 中元素的数"},
-    {"symbol":"∈","ja":"左の数が右の集合の要素である","zh":"左侧数属于右侧集合"},
-    {"symbol":"∉","ja":"左の数が右の集合の要素ではない","zh":"左侧数不属于右侧集合"},
-  ],
-  88: [
-    {"symbol":"x","ja":"条件を満たす整数（小問ごとに範囲が違う）","zh":"满足条件的整数（各小题范围不同）"},
-    {"symbol":"n","ja":"一般項 3n−2 の番号。n=1,2,3,…","zh":"通项 3n−2 中的序号，n=1,2,3,…"},
   ],
   89: [
     {"symbol":"A","ja":"1以上10以下の偶数全体の集合","zh":"1 到 10 的所有偶数组成的集合"},
@@ -19,87 +14,29 @@ export const zipPracticeSymbolNotes: Record<number, PracticeSymbolNote[]> = {
     {"symbol":"D","ja":"集合 {10,12}","zh":"集合 {10,12}"},
     {"symbol":"E","ja":"集合 {8}","zh":"集合 {8}"},
   ],
-  90: [
-    {"symbol":"n","ja":"各小問で範囲を指定された整数","zh":"各小题指定范围内的整数"},
-    {"symbol":"x","ja":"第(2)問の方程式を満たす整数","zh":"第 (2) 小题满足方程的整数"},
-  ],
-  91: [
-    {"symbol":"a","ja":"第(1)問の集合 {a,b} の要素","zh":"第 (1) 小题集合 {a,b} 的一个元素"},
-    {"symbol":"b","ja":"第(1)問の集合 {a,b} の要素","zh":"第 (1) 小题集合 {a,b} 的一个元素"},
-  ],
-  92: [
-    {"symbol":"x","ja":"第(3)問で不等式の範囲にある実数","zh":"第 (3) 小题不等式范围内的实数"},
-    {"symbol":"n","ja":"第(4)(5)問で条件を満たす数","zh":"第 (4)(5) 小题中满足条件的数"},
-    {"symbol":"∩","ja":"2つの集合の共通部分","zh":"两个集合的交集"},
-    {"symbol":"∪","ja":"2つの集合の和集合","zh":"两个集合的并集"},
-  ],
   93: [
     {"symbol":"A","ja":"16の正の約数全体の集合","zh":"16 的所有正约数构成的集合"},
     {"symbol":"B","ja":"24の正の約数全体の集合","zh":"24 的所有正约数构成的集合"},
     {"symbol":"C","ja":"8以下の自然数全体の集合","zh":"不大于 8 的自然数集合"},
-    {"symbol":"n","ja":"それぞれの集合の要素となる自然数","zh":"作为相应集合元素的自然数"},
-    {"symbol":"∩","ja":"共通部分（すべてに属する要素）","zh":"交集（同时属于这些集合的元素）"},
-    {"symbol":"∪","ja":"和集合（いずれかに属する要素）","zh":"并集（属于至少一个集合的元素）"},
   ],
   94: [
     {"symbol":"U","ja":"1～10 の整数全体の集合（全体集合）","zh":"1 到 10 的所有整数（全集）"},
     {"symbol":"A","ja":"集合 {1,2,3,5,7}","zh":"集合 {1,2,3,5,7}"},
     {"symbol":"B","ja":"集合 {2,3,8,10}","zh":"集合 {2,3,8,10}"},
-    {"symbol":"x","ja":"U に含まれる整数","zh":"全集 U 中的整数"},
-    {"symbol":"∩","ja":"共通部分","zh":"交集"},
-    {"symbol":"∪","ja":"和集合","zh":"并集"},
   ],
   95: [
     {"symbol":"U","ja":"集合 {1,2,3,4,5,6,7,8,9}（全体集合）","zh":"集合 {1,2,3,4,5,6,7,8,9}（全集）"},
-    {"symbol":"∩","ja":"共通部分","zh":"交集"},
-    {"symbol":"∪","ja":"和集合","zh":"并集"},
   ],
   96: [
     {"symbol":"U","ja":"1～10 の整数全体の集合（全体集合）","zh":"1 到 10 的所有整数（全集）"},
     {"symbol":"A","ja":"集合 {1,2,3,4,8}","zh":"集合 {1,2,3,4,8}"},
     {"symbol":"B","ja":"集合 {3,4,5,6}","zh":"集合 {3,4,5,6}"},
     {"symbol":"C","ja":"集合 {2,3,6,7}","zh":"集合 {2,3,6,7}"},
-    {"symbol":"x","ja":"全体集合 U の整数","zh":"全集 U 中的整数"},
-    {"symbol":"∩","ja":"共通部分","zh":"交集"},
-    {"symbol":"∪","ja":"和集合","zh":"并集"},
   ],
   97: [
     {"symbol":"A","ja":"集合 {1,3,3a−2}","zh":"集合 {1,3,3a−2}"},
     {"symbol":"B","ja":"集合 {−5,a+2,a²−2a+1}","zh":"集合 {−5,a+2,a²−2a+1}"},
     {"symbol":"a","ja":"共通部分 A∩B={1,4} から求める定数","zh":"利用交集 A∩B={1,4} 求出的常数"},
-  ],
-  98: [
-    {"symbol":"π","ja":"円周率","zh":"圆周率"},
-  ],
-  99: [
-    {"symbol":"x","ja":"問題文で指定された実数","zh":"题目中指定的实数"},
-    {"symbol":"⇒","ja":"左の条件が成り立つなら右も成り立つ、という含意","zh":"若左侧条件成立则右侧也成立（蕴含）"},
-  ],
-  100: [
-    {"symbol":"x","ja":"実数（y と比較する値）","zh":"实数（与 y 比较）"},
-    {"symbol":"y","ja":"実数（x と比較する値）","zh":"实数（与 x 比较）"},
-    {"symbol":"n","ja":"自然数","zh":"自然数"},
-    {"symbol":"⇒","ja":"条件から結論への含意","zh":"由条件推出结论的蕴含关系"},
-  ],
-  101: [
-    {"symbol":"x","ja":"実数","zh":"实数"},
-    {"symbol":"y","ja":"実数","zh":"实数"},
-  ],
-  102: [
-    {"symbol":"x","ja":"各条件を満たす実数","zh":"满足各项条件的实数"},
-  ],
-  103: [
-    {"symbol":"x","ja":"実数","zh":"实数"},
-    {"symbol":"y","ja":"実数","zh":"实数"},
-    {"symbol":"n","ja":"自然数","zh":"自然数"},
-  ],
-  104: [
-    {"symbol":"x","ja":"実数","zh":"实数"},
-    {"symbol":"y","ja":"実数","zh":"实数"},
-  ],
-  105: [
-    {"symbol":"a","ja":"実数","zh":"实数"},
-    {"symbol":"b","ja":"実数","zh":"实数"},
   ],
   106: [
     {"symbol":"p","ja":"「2の倍数である」という条件","zh":"“是 2 的倍数”这个条件"},
@@ -108,48 +45,20 @@ export const zipPracticeSymbolNotes: Record<number, PracticeSymbolNote[]> = {
     {"symbol":"Q","ja":"条件 q を満たす自然数の集合","zh":"满足条件 q 的自然数集合"},
   ],
   107: [
-    {"symbol":"x","ja":"実数","zh":"实数"},
-    {"symbol":"y","ja":"実数","zh":"实数"},
-    {"symbol":"z","ja":"実数","zh":"实数"},
     {"symbol":"a","ja":"第(5)問の辺 BC の長さ","zh":"第 (5) 小题三角形边 BC 的长度"},
     {"symbol":"b","ja":"第(5)問の辺 CA の長さ","zh":"第 (5) 小题三角形边 CA 的长度"},
     {"symbol":"c","ja":"第(5)問の辺 AB の長さ","zh":"第 (5) 小题三角形边 AB 的长度"},
   ],
   108: [
-    {"symbol":"a","ja":"実数","zh":"实数"},
-    {"symbol":"b","ja":"実数","zh":"实数"},
     {"symbol":"p","ja":"条件 a>1 かつ b>1","zh":"条件 a>1 且 b>1"},
     {"symbol":"q","ja":"条件 a+b>2 かつ (a−1)(b−1)>0","zh":"条件 a+b>2 且 (a−1)(b−1)>0"},
   ],
-  109: [
-    {"symbol":"x","ja":"実数","zh":"实数"},
-    {"symbol":"n","ja":"自然数","zh":"自然数"},
-  ],
-  110: [
-    {"symbol":"x","ja":"実数","zh":"实数"},
-    {"symbol":"n","ja":"自然数","zh":"自然数"},
-    {"symbol":"⇒","ja":"前件が成り立てば後件も成り立つという含意","zh":"前件成立则后件也成立的蕴含关系"},
-  ],
-  111: [
-    {"symbol":"x","ja":"実数","zh":"实数"},
-    {"symbol":"y","ja":"実数","zh":"实数"},
-    {"symbol":"n","ja":"整数","zh":"整数"},
-    {"symbol":"⇒","ja":"条件から結論への含意","zh":"从条件到结论的蕴含"},
-  ],
   113: [
     {"symbol":"x","ja":"正の無理数","zh":"正无理数"},
-  ],
-  114: [
-    {"symbol":"m","ja":"整数","zh":"整数"},
-    {"symbol":"n","ja":"整数","zh":"整数"},
   ],
   116: [
     {"symbol":"p","ja":"有理数","zh":"有理数"},
     {"symbol":"q","ja":"有理数","zh":"有理数"},
     {"symbol":"X","ja":"無理数（大文字の X）","zh":"无理数（大写 X）"},
-  ],
-  117: [
-    {"symbol":"p","ja":"求める有理数","zh":"要求出的有理数"},
-    {"symbol":"q","ja":"求める有理数","zh":"要求出的有理数"},
   ],
 }
