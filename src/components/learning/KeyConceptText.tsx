@@ -178,7 +178,7 @@ export function keyConceptRanges(
   maxCount?: number,
 ): HighlightRange[] {
   if (!scope || !value.trim()) return []
-  const limit = maxCount ?? (value.length < 40 ? 2 : value.length < 145 ? 3 : 4)
+  const limit = maxCount ?? (value.length < 40 ? 2 : value.length < 70 ? 3 : 4)
   if (limit <= 0) return []
   const rules = scope === 'math-sets-propositions' ? mathPatterns : physicsPatterns[scope]
   const candidates: { range: HighlightRange; ruleRank: number }[] = []
