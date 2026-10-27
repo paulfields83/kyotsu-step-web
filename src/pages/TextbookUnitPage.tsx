@@ -1,5 +1,4 @@
-import { GlossaryFormulaNote, GlossaryMath, GlossaryText, SymbolGlossaryProvider } from '../components/question/SymbolGlossary'
-import { textbookSymbolNotes } from '../domain/practiceSymbolNotes'
+import { InlineMath } from 'react-katex'
 import { textbookMathLatex } from '../domain/textbookMathDisplay'
 import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
@@ -116,15 +115,15 @@ function splitTopLevelSetList(value: string): string[] {
   return fragments.length > 1 && fragments.every(Boolean) ? fragments : []
 }
 
-function ReadableMath({ latex, scope }: { latex: string; scope?: string }) {
+function ReadableMath({ latex }: { latex: string }) {
   // E.g. A={1,2,3}, B={1,3}, C={1,4}: keep each assignment intact,
   // but allow a line break before the next definition on narrow screens.
   const assignments = latex.split(/,\s*(?=[A-Z]\s*=)/u)
-  if (assignments.length === 1) return <GlossaryMath math={latex} scope={scope} />
+  if (assignments.length === 1) return <InlineMath math={latex} />
   return <span className="reading-math-assignments">
     {assignments.map((assignment, index) => (
       <span className="reading-math-assignment" key={index}>
-        <GlossaryMath math={assignment} scope={scope} />
+        <InlineMath math={assignment} />
         {index < assignments.length - 1 && ','}
       </span>
     ))}
@@ -137,19 +136,19 @@ function GuidedChoiceValue({ value }: { value: string }) {
     {setList.map((part, index) => {
       const fragment = textbookMathLatex(part)
       return <span className="reading-math-set-entry" key={index}>
-        {fragment ? <GlossaryMath math={fragment} interactive={false} /> : part}
+        {fragment ? <InlineMath math={fragment} /> : part}
         {index < setList.length - 1 && ','}
       </span>
     })}
   </span>
   const latex = textbookMathLatex(value)
-  if (latex) return <GlossaryMath math={latex} interactive={false} />
+  if (latex) return <InlineMath math={latex} />
   // The original physics distractor sometimes appends Japanese explanation
   // directly after a vector expression (e.g. |v⃗₂|−|v⃗₁|だけ).
   // Keep the suffix as prose, but typeset the vector expression.
   const mixed = value.match(/^(.+?)(だけ)$/u)
   const mathPrefix = mixed ? textbookMathLatex(mixed[1]) : null
-  if (mixed && mathPrefix) return <><GlossaryMath math={mathPrefix} interactive={false} />{mixed[2]}</>
+  if (mixed && mathPrefix) return <><InlineMath math={mathPrefix} />{mixed[2]}</>
   return <>{value}</>
 }
 
@@ -157,11 +156,11 @@ function GuidedChoiceValue({ value }: { value: string }) {
 // in ZIP-derived hints, notes, figure captions and leftover inline source text.
 function PhysicsInlineText({ value }: { value: string }) {
   const glyphs = /[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜΔθ√²³]/u
-  if (!glyphs.test(value)) return <GlossaryText value={value} />
+  if (!glyphs.test(value)) return value
   const tokens = value.split(/([A-Za-zΔ√θ][A-Za-z0-9Δθ√°⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ²³_{}().,=+\-−×·\/<>|]*)/gu)
   return <>{tokens.map((token, index) => {
     const latex = glyphs.test(token) ? textbookMathLatex(token) : null
-    return latex ? <GlossaryMath key={index} math={latex} /> : <span key={index}><GlossaryText value={token} /></span>
+    return latex ? <InlineMath key={index} math={latex} /> : <span key={index}>{token}</span>
   })}</>
 }
 
@@ -216,19 +215,18 @@ function renderPart(
   progress: TextbookUnitProgress | undefined,
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
-  noteScope?: string,
 ): ReactNode {
-  if (part.type === 'text') return <GlossaryText value={part.text} />
-  if (part.type === 'term') return <strong className="reading-term"><GlossaryText value={part.text} /></strong>
+  if (part.type === 'text') return {part.text}
+  if (part.type === 'term') return <strong className="reading-term">{part.text}</strong>
   if (part.type === 'math') {
     const holeIds = part.holeIds ?? []
-    if (!holeIds.length) return <ReadableMath latex={part.latex} scope={noteScope} />
+    if (!holeIds.length) return <ReadableMath latex={part.latex} />
     const latexWithAnswers = fillResolvedMathHoles(part.latex, holeIds, progress?.answers)
     const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
     if (!pendingId) {
       return (
         <span className="reading-math-answered" data-testid={`textbook-math-filled-${holeIds[0]}`}>
-          <ReadableMath latex={latexWithAnswers} scope={noteScope} />
+          <ReadableMath latex={latexWithAnswers} />
         </span>
       )
     }
@@ -240,7 +238,7 @@ function renderPart(
         onClick={() => onOpen(pendingId)}
         aria-label={text('式の空欄を解答する', '回答公式中的空格')}
       >
-        <GlossaryMath math={latexWithAnswers} interactive={false} />
+        <InlineMath math={latexWithAnswers} />
         <span className="reading-math-blank-button__hint">{text('選択', '选择')}</span>
       </button>
     )
@@ -417,7 +415,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
       const speaker = block.speaker === 'teacher' ? '先生' : block.speaker === 'hanako' ? '花子' : '太郎'
       return (
         <p className="reading-dialogue" key={block.id}>
-          <strong>{speaker}：</strong><span><GlossaryText value={block.text} /></span>
+          <strong>{speaker}：</strong><span>{block.text}</span>
         </p>
       )
     }
@@ -463,8 +461,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
       }
     }
 
-    if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}><GlossaryText value={block.text} /></h4>
-    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text}/> : <GlossaryText value={block.text} />}</aside>
+    if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
+    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text}/> : {block.text}}</aside>
 
     if (hasSolutionTrack && block.type === 'paragraph') {
       const plain = block.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
@@ -513,7 +511,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         return <PhysicsInlineText value={part.text}/>
       }
       if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
-        return renderPart(part, section, progress, setActiveItemId, text, block.type === 'formula' ? block.id : undefined)
+        return renderPart(part, section, progress, setActiveItemId, text)
       }
       // The source has several holes per question but only one reviewed
       // combined answer. Link the additional blanks to the same response.
@@ -555,7 +553,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
             <div className="practice-blank-line">
               {content}
             </div>
-            {block.type === 'formula' && <GlossaryFormulaNote scope={block.id} />}
             {renderInlineChoicePanel(visibleParts)}
           </div>
         </div>
@@ -565,7 +562,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
     return (
       <div className="reading-block-with-choice" key={block.id}>
         {block.type === 'formula'
-          ? <><div className="reading-formula-line">{content}</div><GlossaryFormulaNote scope={block.id} /></>
+          ? <div className="reading-formula-line">{content}</div>
           : <p className="reading-paragraph">{content}</p>}
         {renderInlineChoicePanel(visibleParts)}
       </div>
@@ -746,7 +743,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
         const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
         return (
           <section className={`reading-subsection${group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
-            <SymbolGlossaryProvider notes={textbookSymbolNotes(unit, section, visibleGroup)}>
             {renderExampleSequence(visibleGroup)}
             {completed && groupIndex < groups.length - 1 && (
               <div className="reading-subsection-complete">
@@ -754,7 +750,6 @@ function TextbookReadingFlow({ unit, section, progress }: {
                 <span>{text('この小節を完了しました。次の項目へ進めます。', '本知识点已完成，可以继续下一知识点。')}</span>
               </div>
             )}
-            </SymbolGlossaryProvider>
           </section>
         )
       })}
