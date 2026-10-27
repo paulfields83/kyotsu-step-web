@@ -1,0 +1,88 @@
+{
+  "figure_id": "subset-after",
+  "unit": "math-sets",
+  "figure_reference_id": "subset-after",
+  "source": "backend/src/goldenMath/set/setLesson.ts",
+  "svg_asset": "public/assets/math/textbook/sets/subset-after.svg",
+  "topic": "部分集合",
+  "teaching_goal": "Bのすべての点はAの内部に入り（B⊆A）、CはAの内外にまたがり（C⊈A）、要素包含の判定を目で確認する。",
+  "viewBox": [
+    0,
+    0,
+    640,
+    360
+  ],
+  "objects": {
+    "A": {
+      "type": "ellipse",
+      "center": [
+        290,
+        192
+      ],
+      "radii": [
+        190,
+        110
+      ]
+    },
+    "B": {
+      "type": "ellipse",
+      "center": [
+        245,
+        189
+      ],
+      "radii": [
+        74,
+        46
+      ]
+    },
+    "C": {
+      "type": "ellipse",
+      "center": [
+        454,
+        191
+      ],
+      "radii": [
+        85,
+        57
+      ],
+      "style": "gray dashed"
+    },
+    "labels": {
+      "A": [
+        156,
+        67
+      ],
+      "B": [
+        245,
+        189
+      ],
+      "C": [
+        500,
+        191
+      ]
+    }
+  },
+  "constraints": [
+    "every point of B lies strictly inside A",
+    "part of C is inside A and part of C is outside A",
+    "A solid black, B solid black, C dashed charcoal",
+    "B alone filled light gray; no arbitrary new colors",
+    "all labels clear of boundaries"
+  ],
+  "palette": {
+    "background": "#fff",
+    "ink": "#111",
+    "dashed": "#555",
+    "shaded": "#e9e9e9",
+    "outer_stroke_width": 3,
+    "solid_shape_stroke_width": 4
+  },
+  "output": "SVG 640×360, same adjacent set lesson styling",
+  "engine": "LaTeX/TikZ verified construction; equivalent minimal SVG coordinates",
+  "qa_rules": [
+    "sample B boundary to confirm inclusion",
+    "sample C boundary to confirm both sides",
+    "mobile and desktop label overlap inspection",
+    "preserve grayscale palette"
+  ]
+}
