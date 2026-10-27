@@ -422,9 +422,12 @@ function TextbookReadingFlow({ unit, section, progress }: {
     if (block.type === 'dialogue') {
       const speaker = block.speaker === 'teacher' ? '先生' : block.speaker === 'hanako' ? '花子' : '太郎'
       return (
-        <p className="reading-dialogue" key={block.id}>
-          <strong>{speaker}：</strong><span><KeyConceptText value={block.text} scope={emphasisScope} blockId={block.id} unitId={unit.unitId} /></span>
-        </p>
+        <div className="reading-dialogue" key={block.id} data-testid={`textbook-dialogue-${block.id}`}>
+          <span className="reading-dialogue__speaker">{speaker}</span>
+          <p className="reading-dialogue__text">
+            <KeyConceptText value={block.text} scope={emphasisScope} blockId={block.id} unitId={unit.unitId} />
+          </p>
+        </div>
       )
     }
 
