@@ -122,28 +122,48 @@ function physicsChapterNotes(unit: PublicTextbookUnit): SymbolNote[] {
 }
 
 function mathGroupDefinitions(blocks: TextbookReadingBlock[]): SymbolNote[] {
-  // Only one clearly introduced definition per symbol in this currently
-  // visible group, and a later reuse. Multiple redefinitions => no note.
+  // Only one clearly defined and reused set per currently visible group.
+  // A new definition of A in the same group makes A ambiguous: suppress it.
   const body = blocks.flatMap((block) => {
     if (block.type !== 'formula' && block.type !== 'paragraph') return []
     return block.parts.flatMap((part) => part.type === 'math'
       ? [part.latex] : part.type === 'text' ? [part.text] : [])
   }).join(' ')
   const found = new Map<string, Set<string>>()
-  const declared = /(^|[^A-Za-z])([A-Z])\s*=\s*\\?\{([^{}]{1,90})\\?\}/g
-  for (const match of body.matchAll(declared)) {
+  const declaration = /(^|[^A-Za-z])([A-Z])\s*=\s*(\\\{|\{)/g
+  for (const match of body.matchAll(declaration)) {
+    const start = (match.index ?? 0) + match[0].length
+    const latexBrace = match[3] === '\\{'
+    let end = -1
+    if (latexBrace) {
+      end = body.indexOf('\\}', start)
+    } else {
+      let depth = 1
+      for (let index = start; index < body.length; index++) {
+        if (body[index] === '{') depth++
+        if (body[index] === '}') {
+          depth--
+          if (depth === 0) { end = index; break }
+        }
+      }
+    }
+    if (end < 0 || end - start > 140) continue
+    const definition = body.slice(start, end)
+      .replace(/\\text\{([^{}]*)\}/g, '$1')
+      .replace(/\\mid/g, '｜')
+      .replace(/\\leq?/g, '≤')
+      .replace(/\\geq?/g, '≥')
+      .replace(/\\in/g, '∈')
+      .replace(/\\/g, '')
+      .trim()
+    if (!definition) continue
     const symbol = match[2]
-    const definition = match[3]
-      .replace(/\\(?:mid|leq|le|geq|ge|in|mathbb)(?:\s|$)/g, ' ')
-      .replace(/\\/g, '').trim()
-    if (!definition || /(?:square|phantom|boxed)/i.test(definition)) continue
     const set = found.get(symbol) ?? new Set<string>()
     set.add(definition)
     found.set(symbol, set)
   }
   return [...found].flatMap(([symbol, definitions]) => {
     if (definitions.size !== 1) return []
-    // Reuse in the present text (not merely in a generic glossary header).
     if ((body.match(new RegExp('\\b' + symbol + '\\b', 'g')) ?? []).length < 2) return []
     const definition = [...definitions][0]
     return [note(symbol, 'この問題で定義された集合：{' + definition + '}',
