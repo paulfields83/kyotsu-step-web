@@ -1,4 +1,4 @@
-import { GlossaryMath, GlossaryText, SymbolGlossaryProvider } from '../components/question/SymbolGlossary'
+import { GlossaryFormulaNote, GlossaryMath, GlossaryText, SymbolGlossaryProvider } from '../components/question/SymbolGlossary'
 import { textbookSymbolNotes } from '../domain/practiceSymbolNotes'
 import { textbookMathLatex } from '../domain/textbookMathDisplay'
 import { Check, RotateCcw, X } from 'lucide-react'
@@ -97,13 +97,13 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
 // in ordinary readable textbook language.
 function GuidedChoiceValue({ value }: { value: string }) {
   const latex = textbookMathLatex(value)
-  if (latex) return <GlossaryMath math={latex} />
+  if (latex) return <GlossaryMath math={latex} interactive={false} />
   // The original physics distractor sometimes appends Japanese explanation
   // directly after a vector expression (e.g. |v⃗₂|−|v⃗₁|だけ).
   // Keep the suffix as prose, but typeset the vector expression.
   const mixed = value.match(/^(.+?)(だけ)$/u)
   const mathPrefix = mixed ? textbookMathLatex(mixed[1]) : null
-  if (mixed && mathPrefix) return <><GlossaryMath math={mathPrefix} />{mixed[2]}</>
+  if (mixed && mathPrefix) return <><GlossaryMath math={mathPrefix} interactive={false} />{mixed[2]}</>
   return <>{value}</>
 }
 
@@ -170,18 +170,19 @@ function renderPart(
   progress: TextbookUnitProgress | undefined,
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
+  noteScope?: string,
 ): ReactNode {
   if (part.type === 'text') return <GlossaryText value={part.text} />
   if (part.type === 'term') return <strong className="reading-term"><GlossaryText value={part.text} /></strong>
   if (part.type === 'math') {
     const holeIds = part.holeIds ?? []
-    if (!holeIds.length) return <GlossaryMath math={part.latex} />
+    if (!holeIds.length) return <GlossaryMath math={part.latex} scope={noteScope} />
     const latexWithAnswers = fillResolvedMathHoles(part.latex, holeIds, progress?.answers)
     const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
     if (!pendingId) {
       return (
         <span className="reading-math-answered" data-testid={`textbook-math-filled-${holeIds[0]}`}>
-          <GlossaryMath math={latexWithAnswers} />
+          <GlossaryMath math={latexWithAnswers} scope={noteScope} />
         </span>
       )
     }
@@ -466,7 +467,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
         return <PhysicsInlineText value={part.text}/>
       }
       if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
-        return renderPart(part, section, progress, setActiveItemId, text)
+        return renderPart(part, section, progress, setActiveItemId, text, block.type === 'formula' ? block.id : undefined)
       }
       // The source has several holes per question but only one reviewed
       // combined answer. Link the additional blanks to the same response.
@@ -508,6 +509,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
             <div className="practice-blank-line">
               {content}
             </div>
+            {block.type === 'formula' && <GlossaryFormulaNote scope={block.id} />}
             {renderInlineChoicePanel(visibleParts)}
           </div>
         </div>
@@ -517,7 +519,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
     return (
       <div className="reading-block-with-choice" key={block.id}>
         {block.type === 'formula'
-          ? <div className="reading-formula-line">{content}</div>
+          ? <><div className="reading-formula-line">{content}</div><GlossaryFormulaNote scope={block.id} /></>
           : <p className="reading-paragraph">{content}</p>}
         {renderInlineChoicePanel(visibleParts)}
       </div>
