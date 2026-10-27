@@ -147,18 +147,40 @@ export function GlossaryMath({
     // A note named "v_avg" must win over the generic "v" for that expression.
     const sortedNotes = [...relevant].sort((a, b) => condensed(b.symbol).length - condensed(a.symbol).length)
     let marked = 0
+    const mark = (element: HTMLElement, note: SymbolNote) => {
+      if (element.closest('[data-glossary-symbol]')) return false
+      element.dataset.glossarySymbol = note.symbol
+      element.classList.add('symbol-glossary-math-token')
+      element.setAttribute('role', 'button')
+      element.setAttribute('tabindex', '0')
+      element.setAttribute('aria-label', note.label ?? note.symbol)
+      marked += 1
+      return true
+    }
+    // Prefer complete KaTeX atoms (including their subscript or accent), so
+    // v_avg and r_1 do not accidentally receive the generic v/r explanation.
     for (const note of sortedNotes) {
       const key = condensed(note.symbol)
       for (const element of candidates) {
-        if (element.closest('[data-glossary-symbol]')) continue
         if (condensed(element.textContent ?? '') !== key) continue
-        // Avoid instrumenting invisible accessibility markup and command-generated labels.
-        element.dataset.glossarySymbol = note.symbol
-        element.classList.add('symbol-glossary-math-token')
-        element.setAttribute('role', 'button')
-        element.setAttribute('tabindex', '0')
-        element.setAttribute('aria-label', note.label ?? note.symbol)
-        marked += 1
+        mark(element, note)
+      }
+    }
+    // KaTeX renders Delta and an accented variable as neighboring visual
+    // atoms rather than a single node. Allow tapping EITHER original atom.
+    // No extra DOM elements, buttons, text, or layout boxes are inserted.
+    for (const note of sortedNotes) {
+      const key = condensed(note.symbol)
+      if (!key.startsWith('δ') || key.length < 2) continue
+      for (const element of candidates) {
+        if (condensed(element.textContent ?? '') !== 'δ') continue
+        let neighbor = element.nextElementSibling as HTMLElement | null
+        while (neighbor && !/\b(?:mord|mop|mrel|mbin)\b/.test(neighbor.className)) {
+          neighbor = neighbor.nextElementSibling as HTMLElement | null
+        }
+        if (!neighbor || !condensed(neighbor.textContent ?? '').startsWith(key.slice(1))) continue
+        mark(element, note)
+        mark(neighbor, note)
       }
     }
     setHasClickable(marked > 0)
