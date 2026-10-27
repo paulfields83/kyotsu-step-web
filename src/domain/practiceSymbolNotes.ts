@@ -107,6 +107,39 @@ const fallingWithDrag: SymbolNote[] = [
   note('vt', '加速度が0に近づくときの終端速度', '加速度趋于零时的终端速度', 'vₜ'),
 ]
 
+// Additional textbook chapters with explicit quantities in their authored
+// knowledge checks / formula derivations. Other chapters remain unannotated
+// until the definitions have been checked rather than guessed by letter.
+const momentOfForce: SymbolNote[] = [
+  note('M', '支点まわりの力のモーメント（回転させる効果）', '相对支点的力矩（使物体转动的效应）'),
+  note('F', '剛体に加える力の大きさ', '作用于刚体的力的大小'),
+  note('L', '支点から力の作用点までの長さ', '支点到力的作用点的距离'),
+  note('h', '支点から力の作用線までの垂直距離（腕の長さ）', '支点到力的作用线的垂直距离（力臂）'),
+  note('θ', '棒と力の向きがなす角', '杆与力方向的夹角'),
+]
+const momentum: SymbolNote[] = [
+  note('p', '物体の運動量。質量と速度の積 p⃗=m v⃗', '物体的动量，质量乘以速度 p⃗=m v⃗', 'p⃗'),
+  note('m', '運動する物体の質量', '运动物体的质量'),
+  note('v', '運動する物体の速度（符号で向きも表す）', '物体的速度（可用正负号表示方向）'),
+]
+const circularKinematics: SymbolNote[] = [
+  note('ω', '単位時間あたりの回転角度（角速度、rad/s）', '单位时间转过的角度（角速度，rad/s）'),
+  note('θ', '回転した角度（rad）', '转过的角度（弧度）'),
+  note('T', '一周するのに必要な時間（周期）', '转一周所需的时间（周期）'),
+  note('n', '単位時間あたりの回転数', '单位时间内转过的圈数'),
+  note('r', '円運動の半径', '圆周运动的半径'),
+  note('v', '円周に沿う速さ', '沿圆周运动的速率'),
+  note('s', '円周に沿って動いた弧の長さ', '沿圆周走过的弧长'),
+]
+const keplerLaws: SymbolNote[] = [
+  note('T', '惑星の公転周期', '行星的公转周期'),
+  note('a', '惑星の楕円軌道の長半径', '行星椭圆轨道的半长轴'),
+  note('r1', '近日点での太陽までの距離', '近日点到太阳的距离', 'r₁'),
+  note('r2', '遠日点での太陽までの距離', '远日点到太阳的距离', 'r₂'),
+  note('v1', '近日点での惑星の速さ', '行星位于近日点时的速度大小', 'v₁'),
+  note('v2', '遠日点での惑星の速さ', '行星位于远日点时的速度大小', 'v₂'),
+]
+
 function physicsChapterNotes(unit: PublicTextbookUnit): SymbolNote[] {
   const id = unit.unitId.toLowerCase()
   if (id.includes('displacement-velocity')) return displacementVelocity
@@ -116,6 +149,10 @@ function physicsChapterNotes(unit: PublicTextbookUnit): SymbolNote[] {
   if (id.includes('horizontal-project')) return horizontalProjectile
   if (id.includes('oblique-project') || id.includes('projectile-motion')) return obliqueProjectile
   if (id.includes('gravity-drag-terminal-velocity')) return fallingWithDrag
+  if (id.includes('moment-of-force')) return momentOfForce
+  if (id.includes('3a-momentum')) return momentum
+  if (id.includes('4a-circular-motion-kinematics')) return circularKinematics
+  if (id.includes('5a-kepler-laws')) return keplerLaws
   // Other physics chapters need their own reviewed definitions. Generic
   // guesses such as "x=position" or "θ=angle" are intentionally disabled.
   return []
