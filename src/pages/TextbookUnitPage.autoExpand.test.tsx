@@ -55,6 +55,36 @@ describe('textbook choice auto-expand', () => {
     })
   })
 
+  it('breaks long set options and successive definitions into safe mobile-width fragments', async () => {
+    const longSets = '∅,{1},{2},{3},{1,2},{1,3},{2,3},{1,2,3}'
+    vi.mocked(textbookRepository.getById).mockResolvedValue({
+      ...unit,
+      sections: [{
+        ...unit.sections[0],
+        items: [{ ...unit.sections[0].items[0], choices: [longSets, '∅'] }],
+        readingFlow: [{
+          id: 'long-sets-formula',
+          type: 'formula',
+          parts: [
+            { type: 'math', latex: 'A=\\{1,2,3\\}, B=\\{1,3\\}, C=\\{1,4\\}' },
+            { type: 'choice', itemId: 'choice-one' },
+          ],
+        }],
+      }],
+    })
+
+    const { container } = render(
+      <MemoryRouter initialEntries={['/learning/textbook/math-auto-expand-test']}>
+        <Routes><Route path="/learning/textbook/:unitId" element={<TextbookUnitPage />} /></Routes>
+      </MemoryRouter>,
+    )
+
+    await screen.findByTestId('inline-choice-panel-choice-one')
+    expect(container.querySelectorAll('.reading-math-assignment').length).toBe(3)
+    expect(container.querySelectorAll('.reading-math-set-entry').length).toBe(8)
+    expect(container.querySelector('.reading-choice-options')).not.toBeNull()
+  })
+
   it('shows the current choice without clicking and advances even after a wrong answer', async () => {
     render(
       <MemoryRouter initialEntries={['/learning/textbook/math-auto-expand-test']}>
