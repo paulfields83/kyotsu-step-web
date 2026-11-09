@@ -42,18 +42,36 @@ function stablePracticeChoiceOrder<T extends {id:string}>(options:T[],seedText:s
   return ordered
 }
 
+function publicAssets(question: PracticeQuestion, apiOrigin: string) {
+  return (question.assets ?? []).map((asset) => ({
+    ...asset,
+    src: asset.src.startsWith('assets/')
+      ? `${apiOrigin}/api/practice/questions/${encodeURIComponent(question.questionId)}/assets/${encodeURIComponent(asset.src.slice('assets/'.length))}`
+      : asset.src,
+  }))
+}
+
+export function publicPracticeCompletion(question: PracticeQuestion, apiOrigin = '') {
+  if (!question.completionContent) return {}
+  const ids = new Set(question.completionContent.flatMap((block) => block.type === 'image' ? [block.assetId] : []))
+  return {
+    completionContent: publicContentBlocks(question.completionContent),
+    completionAssets: publicAssets(question, apiOrigin).filter((asset) => ids.has(asset.id)),
+  }
+}
+
 export function publicPracticeQuestion(question: PracticeQuestion, apiOrigin = '') {
   // Keep the ZIP's whole-question explanation hidden until the final response.
-  const { fullExplanation: _fullExplanation, ...publicQuestion } = question
+  const { fullExplanation: _fullExplanation, completionContent: _completionContent, ...publicQuestion } = question
+  const initialAssetIds = new Set([
+    ...question.stem,
+    ...question.solutionSteps.flatMap((step) => step.content),
+  ].flatMap((block) => block.type === 'image' ? [block.assetId] : []))
+  for (const id of question.referenceTable ?? []) initialAssetIds.add(id)
   return {
     ...publicQuestion,
     ...(question.assets ? {
-      assets: question.assets.map((asset) => ({
-        ...asset,
-        src: asset.src.startsWith('assets/')
-          ? `${apiOrigin}/api/practice/questions/${encodeURIComponent(question.questionId)}/assets/${encodeURIComponent(asset.src.slice('assets/'.length))}`
-          : asset.src,
-      })),
+      assets: publicAssets(question, apiOrigin).filter((asset) => !question.completionContent || initialAssetIds.has(asset.id)),
     } : {}),
     stem: publicContentBlocks(question.stem),
     solutionSteps: question.solutionSteps.map((step) => ({
@@ -65,7 +83,7 @@ export function publicPracticeQuestion(question: PracticeQuestion, apiOrigin = '
       stepId: blank.stepId,
       prompt: blank.prompt,
       answerType: blank.answerType,
-      options: (question.questionId.startsWith('zip4step-') || question.majorUnit === 'geometry-measurement'
+      options: (question.questionId.startsWith('zip4step-') || ['geometry-measurement', 'geometric-properties'].includes(question.majorUnit)
         ? stablePracticeChoiceOrder(blank.options,question.questionId+'/'+blank.id)
         : blank.options
       ).map(({ wrongReason: _wrongReason, ...option }) => option),
@@ -81,6 +99,7 @@ export function publicPracticeSummary(question: PracticeQuestion) {
     course: question.course,
     majorUnit: question.majorUnit,
     subcategory: question.subcategory,
+    ...(question.subcategoryLabel ? { subcategoryLabel: question.subcategoryLabel } : {}),
     problemType: question.problemType,
     title: question.title,
     difficulty: question.difficulty,

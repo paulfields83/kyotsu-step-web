@@ -12,7 +12,7 @@ export const PracticeContentBlockSchema = z.discriminatedUnion('type', [
 export const PracticeCatalogSchema = z.object({
   schemaVersion: z.literal('1.0'),
   subject: z.literal('math-1a'),
-  course: z.literal('math-i'),
+  course: z.enum(['math-i', 'math-a']),
   majorUnit: z.object({
     id: IdSchema,
     label: z.string().min(1),
@@ -62,9 +62,10 @@ export const PracticeQuestionSchema = z.object({
   revision: z.number().int().positive(),
   status: z.enum(['draft', 'review', 'published']),
   subject: z.literal('math-1a'),
-  course: z.literal('math-i'),
+  course: z.enum(['math-i', 'math-a']),
   majorUnit: IdSchema,
   subcategory: IdSchema,
+  subcategoryLabel: z.string().min(1).optional(),
   problemType: IdSchema,
   title: z.string().min(1),
   difficulty: z.enum(['basic', 'standard', 'advanced']),
@@ -77,6 +78,7 @@ export const PracticeQuestionSchema = z.object({
   solutionSteps: z.array(PracticeSolutionStepSchema).min(1),
   blanks: z.array(PracticeBlankSchema).min(1),
   fullExplanation: z.string().min(1).optional(),
+  completionContent: z.array(PracticeContentBlockSchema).min(1).optional(),
   assets: z.array(AssetSchema.extend({ caption: z.string().optional() })).optional(),
   referenceTable: z.array(IdSchema).length(2).optional(),
   interaction: z.object({

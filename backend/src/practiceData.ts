@@ -49,7 +49,7 @@ function validateHierarchy(catalog: PracticeCatalog, questions: PracticeQuestion
     const stepIds = new Set(question.solutionSteps.map((step) => step.id))
     const blankIds = new Set(question.blanks.map((blank) => blank.id))
     const assetIds = new Set(question.assets?.map((asset) => asset.id) ?? [])
-    const blocks = [...question.stem, ...question.solutionSteps.flatMap((step) => step.content)]
+    const blocks = [...question.stem, ...question.solutionSteps.flatMap((step) => step.content), ...(question.completionContent ?? [])]
     for (const block of blocks) {
       if (block.type === 'image' && !assetIds.has(block.assetId)) {
         throw new Error(`unknown practice image ${block.assetId}: ${question.questionId}`)

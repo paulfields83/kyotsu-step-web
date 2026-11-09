@@ -1,375 +1,1053 @@
 {
   "unitId": "math-1a-geometric-properties",
   "answers": {
-    "math-1a-geometric-properties-s1-main-b001": {
-      "validator": "normalized-text",
-      "answer": "相似",
-      "acceptedAnswers": []
+    "math-geo-c01-step-1": {
+      "validator": "exact",
+      "answer": "$BE-CE$",
+      "wrongReasons": {
+        "$BE+CE$": "CEを加えると延長部分を二度数えてしまいます。",
+        "$CE-BE$": "BEはCEより長いので、この差は負になります。"
+      }
     },
-    "math-1a-geometric-properties-s1-main-b002": {
-      "validator": "normalized-text",
-      "answer": "外角の性質",
-      "acceptedAnswers": []
+    "math-geo-c01-step-2": {
+      "validator": "exact",
+      "answer": "$BD:DC$",
+      "wrongReasons": {
+        "$AB:BC$": "比較する三角形の底辺はBDとDCです。",
+        "$BD^2:DC^2$": "高さが共通なので面積比は底辺比そのものです。"
+      }
     },
-    "math-1a-geometric-properties-s1-main-b003": {
-      "validator": "normalized-text",
-      "answer": "DE:BC",
-      "acceptedAnswers": []
+    "math-geo-q01-step-1": {
+      "validator": "exact",
+      "answer": "$AC=AQ$",
+      "wrongReasons": {
+        "$AC=CQ$": "等しい角の対辺はAQとACです。",
+        "$AB=AC$": "QはABの途中の点であり、AB全体との等しさは得られません。"
+      }
     },
-    "math-1a-geometric-properties-s1-main-b004": {
-      "validator": "normalized-text",
-      "answer": "m:nに内分",
-      "acceptedAnswers": []
+    "math-geo-q01-step-2": {
+      "validator": "exact",
+      "answer": "$AQ=AC$",
+      "wrongReasons": {
+        "$AQ=AB$": "QとBが一致するという条件はありません。",
+        "$BE=EC$": "EはBCの外側でBEとECの差がBCです。"
+      }
     },
-    "math-1a-geometric-properties-s1-main-b005": {
-      "validator": "normalized-text",
-      "answer": "内分点",
-      "acceptedAnswers": []
+    "math-geo-q02-step-1": {
+      "validator": "exact",
+      "answer": "$5\\times\\frac{3}{3+2}$",
+      "wrongReasons": {
+        "$5\\times\\frac{2}{3+2}$": "これはDCの長さになります。",
+        "$5\\times\\frac{3}{3-2}$": "これは外分の計算です。Dは辺の内側です。"
+      }
     },
-    "math-1a-geometric-properties-s1-main-b006": {
-      "validator": "number",
-      "answer": "1",
-      "acceptedAnswers": []
+    "math-geo-q02-step-2": {
+      "validator": "exact",
+      "answer": "$2(5+x)=3x$",
+      "wrongReasons": {
+        "$2(5-x)=3x$": "EはCの外側なのでBEはBCとCEの和です。",
+        "$3(5+x)=2x$": "BE:EC=3:2の内項と外項を取り違えています。"
+      }
     },
-    "math-1a-geometric-properties-s1-main-b007": {
-      "validator": "number",
-      "answer": "2",
-      "acceptedAnswers": []
+    "math-geo-q03-step-1": {
+      "validator": "exact",
+      "answer": "$AB:AC=5:4$",
+      "wrongReasons": {
+        "$AP:AC=3:4$": "二等分線を持つ三角形はABCなのでAB全体を使います。",
+        "$BP:AC=2:4$": "BPだけではAB全体に対応しません。"
+      }
     },
-    "math-1a-geometric-properties-s1-main-b008": {
-      "validator": "normalized-text",
+    "math-geo-q03-step-2": {
+      "validator": "exact",
+      "answer": "$BP/BA=2/5$",
+      "wrongReasons": {
+        "$AP/BA=3/5$": "共通の頂点Bから測る対応辺を使います。",
+        "$BA/BP=5/2$": "小さい三角形の辺BQはBDより短くなります。"
+      }
+    },
+    "math-geo-c02-step-1": {
+      "validator": "exact",
+      "answer": "$1:3$",
+      "wrongReasons": {
+        "$1:2$": "AMはAGとGMを合わせた全体です。",
+        "$2:3$": "2に対応する部分はAGです。"
+      }
+    },
+    "math-geo-c02-step-2": {
+      "validator": "exact",
+      "answer": "$1:3$",
+      "wrongReasons": {
+        "$1:1$": "底辺が同じでも高さは同じではありません。",
+        "$2:1$": "Gの高さとAの高さはGMとAMの比に対応します。"
+      }
+    },
+    "math-geo-q04-step-1": {
+      "validator": "exact",
+      "answer": "$\\frac13$",
+      "wrongReasons": {
+        "$\\frac23$": "頂点から重心までの比ではなく、底辺からの高さを比べます。",
+        "$\\frac12$": "中点Mは底辺を半分にしますがGは高さの中点ではありません。"
+      }
+    },
+    "math-geo-c03-step-1": {
+      "validator": "exact",
+      "answer": "$OA=OC$",
+      "wrongReasons": {
+        "$AB=BC$": "中心からの距離が等しくても弦の長さは等しいとは限りません。",
+        "$O$から三辺への距離が等しい": "これは内心に関係する条件で、今は頂点までの距離です。"
+      }
+    },
+    "math-geo-q05-step-1": {
+      "validator": "exact",
+      "answer": "$20^\\circ$",
+      "wrongReasons": {
+        "$40^\\circ$": "二つの底角の和と一つの底角を区別します。",
+        "$80^\\circ$": "80°はAOBの中心角で、AOCの底角ではありません。"
+      }
+    },
+    "math-geo-q05-step-2": {
+      "validator": "exact",
+      "answer": "$360^\\circ-80^\\circ-140^\\circ$",
+      "wrongReasons": {
+        "$180^\\circ-80^\\circ-140^\\circ$": "Oの周囲全体は360°です。",
+        "$140^\\circ-80^\\circ$": "二つの中心角の差ではなく、残りの角を求めます。"
+      }
+    },
+    "math-geo-c04-step-1": {
+      "validator": "exact",
+      "answer": "直角三角形の合同",
+      "wrongReasons": {
+        "三角形の三辺がすべて等しいから": "元の三角形は正三角形とは限りません。",
+        "二点間の長さがすべて同じだから": "等しいのは辺への垂直距離であり、頂点への距離ではありません。"
+      }
+    },
+    "math-geo-c21-step-1": {
+      "validator": "exact",
       "answer": "AC",
-      "acceptedAnswers": []
+      "wrongReasons": {
+        "AB": "Bから引く高さの相手は、Bを含まない対辺ACです。",
+        "BC": "BCは頂点Bを含む辺で、Bの対辺ではありません。"
+      }
     },
-    "math-1a-geometric-properties-s1-main-b009": {
-      "validator": "number",
-      "answer": "4",
-      "acceptedAnswers": []
+    "math-geo-c22-step-1": {
+      "validator": "exact",
+      "answer": "$90^\\circ$",
+      "wrongReasons": {
+        "$45^\\circ$": "二等分する元の二角の和は90°ではなく180°です。",
+        "$180^\\circ$": "元の内角と外角の和を、二等分してから足します。"
+      }
     },
-    "math-1a-geometric-properties-s1-main-b010": {
-      "validator": "number",
-      "answer": "6",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b011": {
-      "validator": "normalized-text",
-      "answer": "2:1",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b012": {
-      "validator": "number",
-      "answer": "4",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b013": {
-      "validator": "number",
-      "answer": "12",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b014": {
-      "validator": "normalized-text",
-      "answer": "外心",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b015": {
-      "validator": "normalized-text",
-      "answer": "内心",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b016": {
-      "validator": "normalized-text",
-      "answer": "垂心",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b017": {
-      "validator": "normalized-text",
-      "answer": "外心",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b018": {
-      "validator": "normalized-text",
-      "answer": "傍心",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b019": {
-      "validator": "normalized-text",
-      "answer": "外角の二等分線",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b020": {
-      "validator": "normalized-text",
-      "answer": "115°",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b021": {
-      "validator": "normalized-text",
-      "answer": "7:9",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b022": {
-      "validator": "normalized-text",
-      "answer": "7/2",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b023": {
-      "validator": "normalized-text",
-      "answer": "9/2",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b024": {
-      "validator": "normalized-text",
-      "answer": "垂直二等分線",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b025": {
-      "validator": "normalized-text",
-      "answer": "正三角形",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b026": {
-      "validator": "number",
-      "answer": "1",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b027": {
-      "validator": "number",
-      "answer": "1",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b028": {
-      "validator": "normalized-text",
-      "answer": "一直線上",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b029": {
-      "validator": "normalized-text",
-      "answer": "AF:FB=15:8",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b030": {
-      "validator": "normalized-text",
-      "answer": "統一",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b031": {
-      "validator": "normalized-text",
-      "answer": "1点で交わる",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b032": {
-      "validator": "normalized-text",
-      "answer": "一直線上",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b033": {
-      "validator": "normalized-text",
-      "answer": "大きい",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b034": {
-      "validator": "normalized-text",
-      "answer": "a+b",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b035": {
-      "validator": "normalized-text",
-      "answer": "2<x<8",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s1-main-b036": {
-      "validator": "normalized-text",
-      "answer": "∠C>∠B",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s2-main-b001": {
-      "validator": "normalized-text",
-      "answer": "等しい",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometric-properties-s2-main-b002": {
-      "validator": "normalized-text",
+    "math-geo-q06-step-1": {
+      "validator": "exact",
       "answer": "2倍",
-      "acceptedAnswers": []
+      "wrongReasons": {
+        "半分": "IBCとICBの方が元の内角の半分です。",
+        "同じ": "BIとCIは内角を二等分します。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b003": {
-      "validator": "normalized-text",
-      "answer": "35°",
-      "acceptedAnswers": []
+    "math-geo-c05-step-1": {
+      "validator": "exact",
+      "answer": "$1$",
+      "wrongReasons": {
+        "$0$": "面積は正で、積は0にはなりません。",
+        "$[ABC]$": "分子分母に同じ三つの面積が現れて約分されます。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b004": {
-      "validator": "normalized-text",
-      "answer": "180°",
-      "acceptedAnswers": []
+    "math-geo-q07-step-1": {
+      "validator": "exact",
+      "answer": "$\\frac53\\frac{CQ}{QA}\\frac21=1$",
+      "wrongReasons": {
+        "$\\frac35\\frac{CQ}{QA}\\frac21=1$": "BP:PCの向きだけを逆にしています。",
+        "$\\frac53+\\frac{CQ}{QA}+\\frac21=1$": "チェバは比の和ではなく積です。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b005": {
-      "validator": "normalized-text",
-      "answer": "同一円周上",
-      "acceptedAnswers": []
+    "math-geo-c06-step-1": {
+      "validator": "exact",
+      "answer": "三点が一本の直線上にある",
+      "wrongReasons": {
+        "三本の線が一点に集まる": "それはチェバの定理の配置です。",
+        "三角形が正三角形である": "辺の長さが等しいという仮定は不要です。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b006": {
-      "validator": "normalized-text",
-      "answer": "等しい",
-      "acceptedAnswers": []
+    "math-geo-q08-step-1": {
+      "validator": "exact",
+      "answer": "$1:6$",
+      "wrongReasons": {
+        "$1:5$": "PCはPBとBCの和です。",
+        "$1:4$": "PはBの外側なので和を取ります。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b007": {
-      "validator": "normalized-text",
-      "answer": "PC·PD",
-      "acceptedAnswers": []
+    "math-geo-q08-step-2": {
+      "validator": "exact",
+      "answer": "$4:1$",
+      "wrongReasons": {
+        "$1:4$": "AQ/QBの値は4で、逆数ではありません。",
+        "$3:2$": "3:2はCR:RAであり別の辺の比です。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b008": {
-      "validator": "normalized-text",
-      "answer": "PA·PB",
-      "acceptedAnswers": []
+    "math-geo-q09-1-step-1": {
+      "validator": "exact",
+      "answer": "$3:7$",
+      "wrongReasons": {
+        "$3:10$": "AB全体からARを引いた残りがRBです。",
+        "$7:3$": "求める比の順序はAR:RBです。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b009": {
-      "validator": "number",
-      "answer": "4",
-      "acceptedAnswers": []
+    "math-geo-q09-2-step-1": {
+      "validator": "exact",
+      "answer": "$4:7$",
+      "wrongReasons": {
+        "$3:7$": "これはAR:RBで、別の辺の比です。",
+        "$7:4$": "設問ではAQが先です。逆数にします。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b010": {
-      "validator": "normalized-text",
-      "answer": "垂直",
-      "acceptedAnswers": []
+    "math-geo-c07-step-1": {
+      "validator": "exact",
+      "answer": "作れない。和が最大辺に等しい",
+      "wrongReasons": {
+        "作れる。2+3=5だから": "等号では三点が一直線に並びます。",
+        "作れない。三辺は同じ長さでなければならない": "三角形は正三角形である必要はありません。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b011": {
-      "validator": "normalized-text",
-      "answer": "同一円周上",
-      "acceptedAnswers": []
+    "math-geo-q10-step-1": {
+      "validator": "exact",
+      "answer": "最大角の対辺を選ぶ",
+      "wrongReasons": {
+        "最大角に接する辺を選ぶ": "対角とは向かい合う角で、接している角ではありません。",
+        "図で最も水平な辺を選ぶ": "紙面の向きは長さの根拠になりません。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b012": {
-      "validator": "normalized-text",
-      "answer": "108°",
-      "acceptedAnswers": []
+    "math-geo-q11-step-1": {
+      "validator": "exact",
+      "answer": "$6<b<30$",
+      "wrongReasons": {
+        "$0<b<30$": "他の二辺の差よりも長い必要があります。",
+        "$6\\le b\\le30$": "等号では三角形になりません。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b013": {
-      "validator": "normalized-text",
-      "answer": "等しい",
-      "acceptedAnswers": []
+    "math-geo-q12-step-1": {
+      "validator": "exact",
+      "answer": "$x+(x+2)>x+4$",
+      "wrongReasons": {
+        "$x+(x+2)\\ge x+4$": "等号では面積が0です。",
+        "$x>x+4$": "一辺が最大辺より大きい必要はありません。二辺の和を比べます。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b014": {
-      "validator": "normalized-text",
-      "answer": "PB",
-      "acceptedAnswers": []
+    "math-geo-s1e01-step-1": {
+      "validator": "exact",
+      "answer": "$BM=CM$",
+      "wrongReasons": {
+        "$AB=AC$": "二等辺三角形という条件はありません。",
+        "$AM=BM$": "Mが中点でもAMとBMは等しいとは限りません。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b015": {
-      "validator": "number",
-      "answer": "6",
-      "acceptedAnswers": []
+    "math-geo-s1e02-1-step-1": {
+      "validator": "exact",
+      "answer": "$\\triangle ABD$で$BA:BD$",
+      "wrongReasons": {
+        "$\\triangle ABC$で$AB:AC$": "IはAD上なので、BIで分ける対象は三角形ABDです。",
+        "$\\triangle ABD$で$BD:BA$": "AIに対応するのはBAです。向きをそろえます。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b016": {
-      "validator": "normalized-text",
-      "answer": "垂直二等分線",
-      "acceptedAnswers": []
+    "math-geo-s1e02-2-step-1": {
+      "validator": "exact",
+      "answer": "掛ける",
+      "wrongReasons": {
+        "足す": "中間の面積ABDを約分して消すために積を取ります。",
+        "引く": "求めるのは差ではなく比です。"
+      }
     },
-    "math-1a-geometric-properties-s3-main-b001": {
-      "validator": "normalized-text",
-      "answer": "垂直二等分線",
-      "acceptedAnswers": []
+    "math-geo-s1e03-1-step-1": {
+      "validator": "exact",
+      "answer": "三角形の内部",
+      "wrongReasons": {
+        "三角形の外部": "中心と三角形の位置は最大角が直角より大きいか小さいかで変わります。",
+        "斜辺の中点": "鋭角三角形では、三頂点への距離が等しい位置を円周角と垂直二等分線から確認します。"
+      }
     },
-    "math-1a-geometric-properties-s3-main-b002": {
-      "validator": "normalized-text",
-      "answer": "角の二等分線",
-      "acceptedAnswers": []
+    "math-geo-s1e03-2-step-1": {
+      "validator": "exact",
+      "answer": "斜辺の中点",
+      "wrongReasons": {
+        "三角形の外部": "中心と三角形の位置は最大角が直角より大きいか小さいかで変わります。",
+        "三角形の内部": "直角三角形では、三頂点への距離が等しい位置を円周角と垂直二等分線から確認します。"
+      }
     },
-    "math-1a-geometric-properties-s3-main-b003": {
-      "validator": "normalized-text",
-      "answer": "交点",
-      "acceptedAnswers": []
+    "math-geo-s1e03-3-step-1": {
+      "validator": "exact",
+      "answer": "三角形の外部",
+      "wrongReasons": {
+        "三角形の内部": "鈍角三角形では、三頂点への距離が等しい位置を円周角と垂直二等分線から確認します。",
+        "斜辺の中点": "中心と三角形の位置は最大角が直角より大きいか小さいかで変わります。"
+      }
     },
-    "math-1a-geometric-properties-s3-main-b004": {
-      "validator": "normalized-text",
-      "answer": "垂直二等分線",
-      "acceptedAnswers": []
+    "math-geo-s1e04-1-step-1": {
+      "validator": "exact",
+      "answer": "$1:6$",
+      "wrongReasons": {
+        "$7:6$": "BC全体をBPと取り違えています。",
+        "$6:1$": "求める順序はBP、PCです。"
+      }
     },
-    "math-1a-geometric-properties-s3-main-b005": {
-      "validator": "normalized-text",
-      "answer": "√(ab)",
-      "acceptedAnswers": []
+    "math-geo-s1e04-2-step-1": {
+      "validator": "exact",
+      "answer": "$BX$",
+      "wrongReasons": {
+        "$AC$": "ACはどちらの三角形の辺でもありません。",
+        "$BC$": "XABはBCを辺に持ちません。"
+      }
     },
-    "math-1a-geometric-properties-s3-main-b006": {
-      "validator": "normalized-text",
-      "answer": "二等分線",
-      "acceptedAnswers": []
+    "math-geo-s1e05-step-1": {
+      "validator": "exact",
+      "answer": "$\\frac23<x<6$",
+      "wrongReasons": {
+        "$x<6$": "下限2/3より大きい条件も必要です。",
+        "$\\frac23\\le x\\le6$": "等号では三角形が一直線に退化します。"
+      }
     },
-    "math-1a-geometric-properties-s3-main-b007": {
-      "validator": "normalized-text",
-      "answer": "垂直二等分線",
-      "acceptedAnswers": []
+    "math-geo-c08-step-1": {
+      "validator": "exact",
+      "answer": "$90^\\circ$",
+      "wrongReasons": {
+        "$45^\\circ$": "中心角180°を一度だけ半分にします。",
+        "$180^\\circ$": "180°は中心角です。"
+      }
     },
-    "math-1a-geometric-properties-s3-main-b008": {
-      "validator": "normalized-text",
-      "answer": "交点",
-      "acceptedAnswers": []
+    "math-geo-q13-1-step-1": {
+      "validator": "exact",
+      "answer": "同じ弧を見込む円周角",
+      "wrongReasons": {
+        "対頂角": "二つの角の頂点は異なります。",
+        "中心角と円周角": "どちらの頂点も円周上にあります。"
+      }
     },
-    "math-1a-geometric-properties-s4-main-b001": {
-      "validator": "normalized-text",
-      "answer": "ねじれの位置",
-      "acceptedAnswers": []
+    "math-geo-q13-1-step-2": {
+      "validator": "exact",
+      "answer": "$33^\\circ+55^\\circ=88^\\circ$",
+      "wrongReasons": {
+        "$55^\\circ-33^\\circ=22^\\circ$": "外角は隣り合わない二内角の和です。",
+        "$180^\\circ-33^\\circ-55^\\circ=92^\\circ$": "92°は隣の内角で、βはその外角です。"
+      }
     },
-    "math-1a-geometric-properties-s4-main-b002": {
-      "validator": "normalized-text",
-      "answer": "三垂線の定理",
-      "acceptedAnswers": []
+    "math-geo-q13-2-step-1": {
+      "validator": "exact",
+      "answer": "$24^\\circ$",
+      "wrongReasons": {
+        "$48^\\circ$": "48°は二つを合わせた角です。",
+        "$96^\\circ$": "同じ大きさの二角に分けるので半分です。"
+      }
     },
-    "math-1a-geometric-properties-s4-main-b003": {
-      "validator": "normalized-text",
-      "answer": "垂直",
-      "acceptedAnswers": []
+    "math-geo-q13-2-step-2": {
+      "validator": "exact",
+      "answer": "$66^\\circ$",
+      "wrongReasons": {
+        "$24^\\circ$": "βは24°の角と合わせて90°になります。",
+        "$156^\\circ$": "180°ではなく半円に対する円周角90°から引きます。"
+      }
     },
-    "math-1a-geometric-properties-s4-main-b004": {
-      "validator": "number",
-      "answer": "2",
-      "acceptedAnswers": []
+    "math-geo-c09-step-1": {
+      "validator": "exact",
+      "answer": "PとQが直線ABの同じ側にある",
+      "wrongReasons": {
+        "ABとPQが平行である": "円周角の逆に平行という条件はありません。",
+        "AP=AQである": "等しい必要があるのは今は角で、辺の長さではありません。"
+      }
     },
-    "math-1a-geometric-properties-s4-main-b005": {
-      "validator": "normalized-text",
-      "answer": "5種類",
-      "acceptedAnswers": []
+    "math-geo-q14-step-1": {
+      "validator": "exact",
+      "answer": "$\\angle BAC$と$\\angle BDC$",
+      "wrongReasons": {
+        "$\\angle AEC$と$\\angle BDC$": "同じ線分BCを見込む二角を選びます。",
+        "$\\angle ACE$と$\\angle BDC$": "ACEはBCを見込む角ではありません。"
+      }
     },
-    "math-1a-geometric-properties-s4-main-b006": {
-      "validator": "number",
-      "answer": "2",
-      "acceptedAnswers": []
+    "math-geo-q15-1-step-1": {
+      "validator": "exact",
+      "answer": "一つの外角は向かい合う内角に等しい",
+      "wrongReasons": {
+        "すべての内角が90°": "円に内接する四角形が必ず長方形とは限りません。",
+        "隣り合う二つの内角の和は180°": "和が180°になるのは向かい合う内角です。"
+      }
     },
-    "math-1a-geometric-properties-s4-main-b007": {
-      "validator": "normalized-text",
-      "answer": "ねじれの位置",
-      "acceptedAnswers": []
+    "math-geo-q15-2-step-1": {
+      "validator": "exact",
+      "answer": "一つの外角は向かい合う内角に等しい",
+      "wrongReasons": {
+        "すべての内角が90°": "円に内接する四角形が必ず長方形とは限りません。",
+        "隣り合う二つの内角の和は180°": "和が180°になるのは向かい合う内角です。"
+      }
     },
-    "math-1a-geometric-properties-s4-main-b008": {
-      "validator": "normalized-text",
-      "answer": "垂直",
-      "acceptedAnswers": []
+    "math-geo-q16-step-1": {
+      "validator": "exact",
+      "answer": "A,P,D,Q",
+      "wrongReasons": {
+        "A,B,C,D": "この四点について二つの直角の条件はありません。",
+        "P,B,C,Q": "これは最後に示す結論であり、まだ根拠が必要です。"
+      }
     },
-    "math-1a-geometric-properties-s4-main-b009": {
-      "validator": "normalized-text",
-      "answer": "5種類",
-      "acceptedAnswers": []
+    "math-geo-q16-step-2": {
+      "validator": "exact",
+      "answer": "$\\angle APQ$と$\\angle BCQ$",
+      "wrongReasons": {
+        "$\\angle DPQ$と$\\angle BCQ$": "DPQそのものではなく、その余角APQを使います。",
+        "$\\angle ABC$と$\\angle ACB$": "三角形ABCが二等辺であるとは限りません。"
+      }
     },
-    "math-1a-geometric-properties-s4-end-b001": {
-      "validator": "normalized-text",
-      "answer": "仮定",
-      "acceptedAnswers": []
+    "math-geo-c10-step-1": {
+      "validator": "exact",
+      "answer": "共通の斜辺OPと等しい半径",
+      "wrongReasons": {
+        "円の中心が接点の中点": "中心は通常、接点どうしを結ぶ線分の中点ではありません。",
+        "接線の長さがすでに等しい": "それは今から証明する結論で、根拠に使うと循環します。"
+      }
     },
-    "math-1a-geometric-properties-s4-end-b002": {
-      "validator": "normalized-text",
-      "answer": "定義",
-      "acceptedAnswers": []
+    "math-geo-q17-step-1": {
+      "validator": "exact",
+      "answer": "$CR=CQ=7-4$",
+      "wrongReasons": {
+        "$CR=AP=4$": "同じ外部点からの接線であるCQとCRを対応させます。",
+        "$CR=7+4$": "CQはACの残りの部分です。"
+      }
     },
-    "math-1a-geometric-properties-s4-end-b003": {
-      "validator": "normalized-text",
-      "answer": "1つ選ぶ",
-      "acceptedAnswers": []
+    "math-geo-q18-step-1": {
+      "validator": "exact",
+      "answer": "$AP=AS, BP=BQ, CR=CQ, DR=DS$",
+      "wrongReasons": {
+        "$AP=BP=CR=DR$": "異なる頂点からの接線をすべて等しいとはいえません。",
+        "$AB=CD, BC=DA$": "外接四角形が必ず平行四辺形とは限りません。"
+      }
     },
-    "math-1a-geometric-properties-s4-end-b004": {
-      "validator": "normalized-text",
-      "answer": "円周角・軌跡",
-      "acceptedAnswers": []
+    "math-geo-c11-step-1": {
+      "validator": "exact",
+      "answer": "見込む弧を合わせる",
+      "wrongReasons": {
+        "円周上ならどの角でもよい": "同じ円でも異なる弧の角は一般に異なります。",
+        "接線の長さを合わせる": "今比較するのは角であり、長さの等しさではありません。"
+      }
     },
-    "math-1a-geometric-properties-s2-main-b017": {
-      "validator": "normalized-text",
-      "answer": "40°",
-      "acceptedAnswers": []
+    "math-geo-q19-1-step-1": {
+      "validator": "exact",
+      "answer": "接点で接線に垂直な直線が中心を通るから",
+      "wrongReasons": {
+        "弦は必ず中心を通るから": "中心を通る弦だけを直径といいます。",
+        "APとPBが等しいから": "その等長条件は与えられていません。"
+      }
+    },
+    "math-geo-q19-2-step-1": {
+      "validator": "exact",
+      "answer": "$90^\\circ$",
+      "wrongReasons": {
+        "$180^\\circ$": "接線と直径の角、半円の円周角はどちらも90°です。",
+        "$45^\\circ$": "ここに45°を作る条件はありません。"
+      }
+    },
+    "math-geo-q20-1-step-1": {
+      "validator": "exact",
+      "answer": "接線と弦の角は対応する円周角に等しい",
+      "wrongReasons": {
+        "接線と弦は必ず垂直": "垂直なのは接点を通る半径と接線です。",
+        "円周角は接線の角の半分": "半分になるのは中心角と円周角の関係です。"
+      }
+    },
+    "math-geo-q20-2-step-1": {
+      "validator": "exact",
+      "answer": "接線と弦の角は対応する円周角に等しい",
+      "wrongReasons": {
+        "接線と弦は必ず垂直": "垂直なのは接点を通る半径と接線です。",
+        "円周角は接線の角の半分": "半分になるのは中心角と円周角の関係です。"
+      }
+    },
+    "math-geo-q20-3-step-1": {
+      "validator": "exact",
+      "answer": "$OA=OB$の二等辺三角形",
+      "wrongReasons": {
+        "Oが円の中心になる": "この図のOは外部の点で、中心ではありません。",
+        "必ず正三角形になる": "頂角は50°なので正三角形にはなりません。"
+      }
+    },
+    "math-geo-c12-step-1": {
+      "validator": "exact",
+      "answer": "$2$と$5$",
+      "wrongReasons": {
+        "$2$と$3$": "遠い交点までの距離には外側の2も含めます。",
+        "$3$と$5$": "近い交点までの距離は2です。"
+      }
+    },
+    "math-geo-q21-1-step-1": {
+      "validator": "exact",
+      "answer": "$4x=3\\times6$",
+      "wrongReasons": {
+        "$3x=4\\times6$": "同じ直線上にある二つの距離を一組にします。",
+        "$4+x=3+6$": "保存されるのは和ではなく積です。"
+      }
+    },
+    "math-geo-q21-2-step-1": {
+      "validator": "exact",
+      "answer": "$2(2+3)=x(2x)$",
+      "wrongReasons": {
+        "$2\\times3=x^2$": "遠い交点までの全距離を使います。",
+        "$2+3=x+x$": "方べきは長さの和ではなく積です。"
+      }
+    },
+    "math-geo-q22-step-1": {
+      "validator": "exact",
+      "answer": "$PA:PT=PT:PB$",
+      "wrongReasons": {
+        "$PA+PB=2PT$": "相似から等しいのは比であり和ではありません。",
+        "$PA:PB=PT:PT$": "対応辺の順序が異なります。PAはPTに対応します。"
+      }
+    },
+    "math-geo-q23-1-step-1": {
+      "validator": "exact",
+      "answer": "$2^2=1(1+x)$",
+      "wrongReasons": {
+        "$2^2=x$": "割線は遠い交点までの1+xを使います。",
+        "$2=1(1+x)$": "接線の長さは二乗します。"
+      }
+    },
+    "math-geo-q23-2-step-1": {
+      "validator": "exact",
+      "answer": "$2+2r$",
+      "wrongReasons": {
+        "$2r$": "円の外側の2も含めます。",
+        "$2+r$": "中心まででなく、円を通り抜けた交点まで測ります。"
+      }
+    },
+    "math-geo-c13-step-1": {
+      "validator": "exact",
+      "answer": "$R-r<d<R+r$",
+      "wrongReasons": {
+        "$d=R+r$": "これは外接で共有点が1点です。",
+        "$d<R-r$": "一方が他方の内部に収まり、共有点がありません。"
+      }
+    },
+    "math-geo-q24-step-1": {
+      "validator": "exact",
+      "answer": "$R+r=10, R-r=6$",
+      "wrongReasons": {
+        "$R-r=10, R+r=6$": "半径の和は差より大きく、外接の距離に対応します。",
+        "$2R=10, 2r=6$": "中心間距離をそれぞれ直径とみなしてはいけません。"
+      }
+    },
+    "math-geo-q25-step-1": {
+      "validator": "exact",
+      "answer": "7と3",
+      "wrongReasons": {
+        "7と7": "同じ側の共通接線では、垂直方向の差は半径の差です。",
+        "5と2": "斜辺は二中心を結ぶOO′です。"
+      }
+    },
+    "math-geo-s2e01-1-step-1": {
+      "validator": "exact",
+      "answer": "二角の和が180°",
+      "wrongReasons": {
+        "二角が等しい": "円に内接する四角形の対角は補角です。",
+        "二角の和が90°": "90°になるのは直角三角形の二鋭角の関係です。"
+      }
+    },
+    "math-geo-s2e01-2-step-1": {
+      "validator": "exact",
+      "answer": "$\\angle DAB$",
+      "wrongReasons": {
+        "$\\angle ADB$": "直径の両端D,Bを円周上のAから見る角です。",
+        "$\\angle ABD$": "ABDは弧ADを見込んでいます。"
+      }
+    },
+    "math-geo-s2e02-step-1": {
+      "validator": "exact",
+      "answer": "$\\angle BAC=\\angle BDC=58^\\circ$",
+      "wrongReasons": {
+        "$\\angle ABC=\\angle ACB$": "90°と32°は等しくありません。",
+        "$\\angle DEC=\\angle ADB$": "交点の62°は円周角32°と異なります。"
+      }
+    },
+    "math-geo-s2e02-step-2": {
+      "validator": "exact",
+      "answer": "$30^\\circ$",
+      "wrongReasons": {
+        "$86^\\circ$": "内角の和で処理するならEの内角は118°です。",
+        "$94^\\circ$": "62°は外角で、αと32°の和です。"
+      }
+    },
+    "math-geo-s2e03-step-1": {
+      "validator": "exact",
+      "answer": "7と3",
+      "wrongReasons": {
+        "5と2": "Pから円周までの二距離を使います。",
+        "5と5": "Pは中心から2離れているので両側の距離は等しくありません。"
+      }
+    },
+    "math-geo-s2e04-1-step-1": {
+      "validator": "exact",
+      "answer": "$r=8$または$r=16$",
+      "wrongReasons": {
+        "$r=6$": "中心間距離を半分にしても二半径には対応しません。",
+        "$r=8$だけ": "内接する場合もあります。"
+      }
+    },
+    "math-geo-s2e04-2-step-1": {
+      "validator": "exact",
+      "answer": "$8<r<16$",
+      "wrongReasons": {
+        "$8\\le r\\le16$": "端点では共有点は1個です。",
+        "$0<r<8$": "半径の和が中心距離より小さく、離れています。"
+      }
+    },
+    "math-geo-s2e04-3-step-1": {
+      "validator": "exact",
+      "answer": "$r>16$",
+      "wrongReasons": {
+        "$r\\ge16$": "r=16では内接し共通接線が1本あります。",
+        "$0<r<8$": "離れた二円には共通接線が4本あります。"
+      }
+    },
+    "math-geo-s2e05-step-1": {
+      "validator": "exact",
+      "answer": "$3+4=7$",
+      "wrongReasons": {
+        "$10-4=6$": "中心距離は斜辺であり半径を直接引きません。",
+        "$4-3=1$": "それは二中心が接線の同じ側にある外側の共通接線の場合です。"
+      }
+    },
+    "math-geo-s2e05-step-2": {
+      "validator": "exact",
+      "answer": "$4-3=1$",
+      "wrongReasons": {
+        "$4+3=7$": "二中心が接線の同じ側にあるので半径の差を使います。",
+        "$3\times4=12$": "垂直方向の距離を求めるので積ではありません。"
+      }
+    },
+    "math-geo-c14-step-1": {
+      "validator": "exact",
+      "answer": "5個",
+      "wrongReasons": {
+        "6個": "比の積ではなく和を使います。",
+        "1個": "比の差を使うのは外分の場合です。"
+      }
+    },
+    "math-geo-q26-1-step-1": {
+      "validator": "exact",
+      "answer": "3個目のR",
+      "wrongReasons": {
+        "4個目のS": "Sを選ぶとAC:CB=4:1になります。",
+        "2個目のQ": "Qを選ぶとAC:CB=2:3になります。"
+      }
+    },
+    "math-geo-q26-2-step-1": {
+      "validator": "exact",
+      "answer": "2個目のQ",
+      "wrongReasons": {
+        "4個目の点": "外分では3+1ではなく3−1をABに対応させます。",
+        "3個目のR": "3個目をBに対応させると、BがAC全体の終点になってしまいます。"
+      }
+    },
+    "math-geo-q27-step-1": {
+      "validator": "exact",
+      "answer": "BC",
+      "wrongReasons": {
+        "AC": "ACはAB+BCなので5/3になります。",
+        "AB": "ABは単位の1のままです。"
+      }
+    },
+    "math-geo-c15-step-1": {
+      "validator": "exact",
+      "answer": "RP=RQ",
+      "wrongReasons": {
+        "PRが必ずPQと垂直": "垂直になるのは等距離点を結ぶ直線です。",
+        "RがPQの中点": "Rは線分PQ上にあるとは限りません。"
+      }
+    },
+    "math-geo-s3e01-1-step-1": {
+      "validator": "exact",
+      "answer": "三組の辺がそれぞれ等しい",
+      "wrongReasons": {
+        "二辺とその間でない角が等しい": "その条件では一般に合同を決められません。",
+        "三組の角がそれぞれ等しい": "角の等しさだけでは相似であり、ここでは辺の等しさが直接得られます。"
+      }
+    },
+    "math-geo-s3e01-2-step-1": {
+      "validator": "exact",
+      "answer": "ひし形の対辺は平行",
+      "wrongReasons": {
+        "ひし形の対角線は必ず同じ長さ": "対角線が等しいのは正方形などに限られます。",
+        "四辺が等しければ各角は90°": "ひし形の角は必ずしも直角ではありません。"
+      }
+    },
+    "math-geo-s3e02-o-step-1": {
+      "validator": "exact",
+      "answer": "二辺の垂直二等分線",
+      "wrongReasons": {
+        "二つの内角の二等分線": "それらの交点は内心です。",
+        "二本の中線": "それらの交点は重心です。"
+      }
+    },
+    "math-geo-s3e02-i-step-1": {
+      "validator": "exact",
+      "answer": "二つの内角の二等分線",
+      "wrongReasons": {
+        "二辺の垂直二等分線": "それらの交点は頂点まで等距離の外心です。",
+        "二本の高さ": "それらの交点は垂心であり、内心ではありません。"
+      }
+    },
+    "math-geo-s3e03-step-1": {
+      "validator": "exact",
+      "answer": "Oからℓへ下ろした垂線の長さ",
+      "wrongReasons": {
+        "Oからℓ上の任意の点までの長さ": "斜めの線分を半径にすると円は通常ℓと二点で交わります。",
+        "Oを通るℓへの平行線の長さ": "直線に有限の長さはなく、接する半径も決まりません。"
+      }
+    },
+    "math-geo-s3e04-step-1": {
+      "validator": "exact",
+      "answer": "$60^\\circ$",
+      "wrongReasons": {
+        "$120^\\circ$": "120°はこの区間を二つ合わせた角です。",
+        "$90^\\circ$": "二本の半径と弦がすべて同じ長さになるので正三角形です。"
+      }
+    },
+    "math-geo-s3e04-step-2": {
+      "validator": "exact",
+      "answer": "二つ分ずつ",
+      "wrongReasons": {
+        "三つ分ずつ": "三つ分は180°で直径の両端になります。",
+        "一つ分ずつ": "一つ分だと隣り合う中心角が60°で、円全体を三等分しません。"
+      }
+    },
+    "math-geo-c16-step-1": {
+      "validator": "exact",
+      "answer": "同じ一つの平面に含まれる",
+      "wrongReasons": {
+        "長さが等しい": "直線に有限の長さはなく、位置関係を判定できません。",
+        "それぞれがある平面と交わらない": "同じ平面に平行でも、二直線同士はねじれの位置になり得ます。"
+      }
+    },
+    "math-geo-q28-step-1": {
+      "validator": "exact",
+      "answer": "αに平行な別の平面上で交わる二直線",
+      "wrongReasons": {
+        "α上にある二本の平行線": "直線がαに含まれる状態は、αと共通点がないという平行の定義に当たりません。",
+        "αと一点で交わる二直線": "各直線がαに平行という仮定を満たしません。"
+      }
+    },
+    "math-geo-c17-step-1": {
+      "validator": "exact",
+      "answer": "2で割る",
+      "wrongReasons": {
+        "8で割る": "面数で割ると一面の辺数に戻るだけです。",
+        "3で割る": "3は一面の辺数で、すでに8×3に含めています。"
+      }
+    },
+    "math-geo-q29-1-step-1": {
+      "validator": "exact",
+      "answer": "3で割る",
+      "wrongReasons": {
+        "12で割る": "合計そのもので割ると1になり、共有の回数を表しません。",
+        "2で割る": "2で割るのは辺を数えるときです。"
+      }
+    },
+    "math-geo-q29-2-step-1": {
+      "validator": "exact",
+      "answer": "3で割る",
+      "wrongReasons": {
+        "24で割る": "合計そのもので割ると1になり、共有の回数を表しません。",
+        "2で割る": "2で割るのは辺を数えるときです。"
+      }
+    },
+    "math-geo-q29-3-step-1": {
+      "validator": "exact",
+      "answer": "4で割る",
+      "wrongReasons": {
+        "2で割る": "2で割るのは辺を数えるときです。",
+        "24で割る": "合計そのもので割ると1になり、共有の回数を表しません。"
+      }
+    },
+    "math-geo-q29-4-step-1": {
+      "validator": "exact",
+      "answer": "3で割る",
+      "wrongReasons": {
+        "60で割る": "合計そのもので割ると1になり、共有の回数を表しません。",
+        "2で割る": "2で割るのは辺を数えるときです。"
+      }
+    },
+    "math-geo-q29-5-step-1": {
+      "validator": "exact",
+      "answer": "5で割る",
+      "wrongReasons": {
+        "60で割る": "合計そのもので割ると1になり、共有の回数を表しません。",
+        "2で割る": "2で割るのは辺を数えるときです。"
+      }
+    },
+    "math-geo-q30-1-step-1": {
+      "validator": "exact",
+      "answer": "$5+5+5$",
+      "wrongReasons": {
+        "$5\times5$": "面の数と辺の数を掛けても辺の集計にはなりません。",
+        "$5+5$": "上下の対応頂点を結ぶ側辺5本が抜けています。"
+      }
+    },
+    "math-geo-q30-2-step-1": {
+      "validator": "exact",
+      "answer": "5",
+      "wrongReasons": {
+        "4": "底面の頂点だけでなく、錐の頂点も数えます。",
+        "8": "上下に四角形があるのは四角柱です。錐では上の頂点が一つです。"
+      }
+    },
+    "math-geo-c18-step-1": {
+      "validator": "exact",
+      "answer": "角の和が360°で平らになる",
+      "wrongReasons": {
+        "辺の長さをそろえられない": "合同な正六角形なら辺の長さはそろえられます。",
+        "頂点に3面集まること自体が不可能": "立体の頂点には少なくとも3面が集まります。"
+      }
+    },
+    "math-geo-c19-step-1": {
+      "validator": "exact",
+      "answer": "α内の交わる二直線の両方にℓが垂直",
+      "wrongReasons": {
+        "α内の平行な二直線にℓが垂直": "平行な二本は同じ方向しか調べておらず、別方向も必要です。",
+        "α内の一本だけにℓが垂直": "一本に垂直でも、他の方向へ傾くことができます。"
+      }
+    },
+    "math-geo-c23-step-1": {
+      "validator": "exact",
+      "answer": "OPとPH",
+      "wrongReasons": {
+        "OHとℓ": "OH⊥ℓはこれから示したい結論で、根拠にはまだ使えません。",
+        "OPとℓ": "ℓが自分自身に垂直という条件にはなりません。"
+      }
+    },
+    "math-geo-s4e01-1-step-1": {
+      "validator": "exact",
+      "answer": "EF",
+      "wrongReasons": {
+        "AC": "ACは上面の対角線でABと平行ではありません。",
+        "BC": "BCはABと垂直な向きです。"
+      }
+    },
+    "math-geo-s4e01-2-step-1": {
+      "validator": "exact",
+      "answer": "正三角形",
+      "wrongReasons": {
+        "辺の長さがすべて異なる三角形": "合同な正方形の対角線なので三辺は等しいです。",
+        "直角二等辺三角形": "三辺がすべて等しいため、一角90°の三角形ではありません。"
+      }
+    },
+    "math-geo-s4e01-3-step-1": {
+      "validator": "exact",
+      "answer": "AHとDH",
+      "wrongReasons": {
+        "HGとDH": "HGは交線そのもので、両平面の開き具合を表しません。",
+        "ABとDC": "二本とも交線HGに平行であり、二面角を測れません。"
+      }
+    },
+    "math-geo-s4e01-4-step-1": {
+      "validator": "exact",
+      "answer": "BCとCG",
+      "wrongReasons": {
+        "BCとFG": "この二直線は平行で、一方向しか調べていません。",
+        "BDとCG": "BDは平面BFGC内に含まれません。"
+      }
+    },
+    "math-geo-s4e02-1-step-1": {
+      "validator": "exact",
+      "answer": "$1:2$",
+      "wrongReasons": {
+        "$2:3$": "長方形の対角線は互いに二等分します。",
+        "$1:1$": "OMは対角線DO全体ではなく、その半分です。"
+      }
+    },
+    "math-geo-s4e02-2-step-1": {
+      "validator": "exact",
+      "answer": "$\\sqrt{4^2+(\\sqrt{34}/2)^2}$",
+      "wrongReasons": {
+        "$\\sqrt{4^2+34}$": "Mは底面の対角線の中点なのでOMは√34/2です。",
+        "$4+\\sqrt{34}/2$": "直角三角形の斜辺は二辺の和ではなく三平方で求めます。"
+      }
+    },
+    "math-geo-s4e02-2-step-2": {
+      "validator": "exact",
+      "answer": "$2/3$",
+      "wrongReasons": {
+        "$1/3$": "1/3はGMの割合です。",
+        "$2$": "比の2をそのまま掛けず、全体3に対する割合にします。"
+      }
+    },
+    "math-geo-c20-step-1": {
+      "validator": "exact",
+      "answer": "選んだ底面に垂直な高さ",
+      "wrongReasons": {
+        "元の図で一番長い辺": "最長の辺が底面への垂線とは限りません。",
+        "頂点から底面の任意の頂点への距離": "斜めの辺を高さとして使うことはできません。"
+      }
+    },
+    "math-geo-s4e03-step-1": {
+      "validator": "exact",
+      "answer": "$3V/S$",
+      "wrongReasons": {
+        "$V/(3S)$": "V=S(h+i+j+k)/3なので両辺を3倍してSで割ります。",
+        "$3S/V$": "長さの次元にもならず、式の解き方が逆です。"
+      }
+    },
+    "math-geo-s4e04-step-1": {
+      "validator": "exact",
+      "answer": "$4a$",
+      "wrongReasons": {
+        "$2a$": "2aは差IH−IDであるDHの長さです。",
+        "$3a$": "IDとIHの比1:2、差2aを同時に満たしません。"
+      }
+    },
+    "math-geo-s4e04-step-2": {
+      "validator": "exact",
+      "answer": "$V_{IHEG}-V_{IDPQ}$",
+      "wrongReasons": {
+        "$V_{IHEG}+V_{IDPQ}$": "小さい錐は切り取る側なので引きます。",
+        "$V_{IDPQ}$": "それは上側の切り取られる小さい錐です。"
+      }
+    },
+    "math-geo-e01-a-step-1": {
+      "validator": "exact",
+      "answer": "$2:3$",
+      "wrongReasons": {
+        "$2:1$": "BAはBDとDAの和で、ADだけではありません。",
+        "$1:2$": "これはAD:DBで、今回必要なのはDB:BAです。"
+      }
+    },
+    "math-geo-e01-b-step-1": {
+      "validator": "exact",
+      "answer": "$PD+DQ$",
+      "wrongReasons": {
+        "$CP+CQ$": "Cからの距離を足すと共通部分を二度数えます。",
+        "$PD-DQ$": "DはPとQの間にあるので和を使います。"
+      }
+    },
+    "math-geo-e02-step-1": {
+      "validator": "exact",
+      "answer": "$\\angle CBD$と$\\angle BCD$",
+      "wrongReasons": {
+        "$\\angle BAD$と$\\angle CAD$": "この等しさは出発点ですが、DBとDCを対辺に持つ底角へ移す必要があります。",
+        "$\\angle BIC$と$\\angle BAC$": "この二角は一般に等しくありません。"
+      }
+    },
+    "math-geo-e02-step-2": {
+      "validator": "exact",
+      "answer": "$\\angle BID$",
+      "wrongReasons": {
+        "$\\angle BDI$": "その組だとBI=BDが得られ、目的の二辺と異なります。",
+        "$\\angle IAB$": "別の三角形の角一つでは底角の等しさになりません。"
+      }
+    },
+    "math-geo-e03-step-1": {
+      "validator": "exact",
+      "answer": "Tでの共通接線",
+      "wrongReasons": {
+        "AとBを結ぶ直線": "A,B,Tはすでに同一直線上で、新しい角の関係が増えません。",
+        "二つの円の半径を適当に結ぶ線": "接点Tで同じ角に結ぶ根拠が得られません。"
+      }
+    },
+    "math-geo-e03-step-2": {
+      "validator": "exact",
+      "answer": "$11:6$",
+      "wrongReasons": {
+        "$5:6$": "5はABであり、TからAまでの全長は11です。",
+        "$11:7$": "7はBDで、対応する直線TA,TBの比ではありません。"
+      }
+    },
+    "math-geo-e04-step-1": {
+      "validator": "exact",
+      "answer": "平行で、長さも等しい",
+      "wrongReasons": {
+        "長さだけが等しい": "一組の対辺の長さが等しいだけでは平行四辺形と限りません。",
+        "同じ平面にあるだけ": "平面四角形であるだけでは対辺の関係が決まりません。"
+      }
+    },
+    "math-geo-e05-step-1": {
+      "validator": "exact",
+      "answer": "$AD\\cdot AB=AE\\cdot AC$",
+      "wrongReasons": {
+        "$AD\\cdot DB=AE\\cdot EC$": "どちらの距離もAから測る必要があり、DB,ECは円内の部分だけです。",
+        "$AD+AB=AE+AC$": "方べきは和ではなく積を用います。"
+      }
+    },
+    "math-geo-e05-step-2": {
+      "validator": "exact",
+      "answer": "$BD:CE=9:5$",
+      "wrongReasons": {
+        "$BD:EC=5:9$": "辺の値を逆にしています。BD=9、EC=5です。",
+        "$AD:AE=3:4$": "AD,AEはこの二つの相似な三角形の辺ではありません。"
+      }
+    },
+    "math-geo-e06-step-1": {
+      "validator": "exact",
+      "answer": "$\\frac14(PA\\cdot PB)(PC\\cdot PD)$",
+      "wrongReasons": {
+        "$\\frac14(PA+PB)(PC+PD)$": "面積は辺の積からできており、和に置き換えられません。",
+        "$\\frac12(PA\\cdot PB)(PC\\cdot PD)$": "二つの面積にそれぞれ1/2があり、積では1/4です。"
+      }
+    },
+    "math-geo-e07-1-step-1": {
+      "validator": "exact",
+      "answer": "$\\sqrt5+BE$",
+      "wrongReasons": {
+        "$\\sqrt5-BE$": "EはB側の延長上なので、CEはCBとBEの和です。",
+        "$BE$": "CからBまでの距離も含めます。"
+      }
+    },
+    "math-geo-e07-2-step-1": {
+      "validator": "exact",
+      "answer": "$5:3$",
+      "wrongReasons": {
+        "$2:3$": "2はCDであり、CからAまでの全体は5です。",
+        "$3:5$": "定理の比はC→A→Dの順で、CA/ADです。"
+      }
+    },
+    "math-geo-e07-3-step-1": {
+      "validator": "exact",
+      "answer": "$15/4$",
+      "wrongReasons": {
+        "$15$": "全体の比は4個分なので、5を4で分けてから3倍します。",
+        "$5/4$": "5/4は短いPBに当たります。"
+      }
+    },
+    "math-geo-e07-3-step-2": {
+      "validator": "exact",
+      "answer": "$(15/4)(5/4)=15y^2$",
+      "wrongReasons": {
+        "$(15/4)+(5/4)=8y$": "方べきは同じ直線上の二距離の積を比べます。",
+        "$(15/4)(5/4)=8y^2$": "PD×PE=(3y)(5y)=15y²です。"
+      }
+    },
+    "math-geo-e08-1-step-1": {
+      "validator": "exact",
+      "answer": "CAとCG",
+      "wrongReasons": {
+        "CAとBD": "BDが自分自身に垂直になることはありません。",
+        "ABとDC": "ABとDCは平行で、BDにも垂直ではありません。"
+      }
+    },
+    "math-geo-e08-1-step-2": {
+      "validator": "exact",
+      "answer": "BD,BEが平面BDE内の交わる二直線",
+      "wrongReasons": {
+        "AGが最も長い辺である": "長さの大小は垂直の判定条件ではありません。",
+        "BD,BEの長さが等しい": "長さの等しさだけではAGと平面の垂直は導けません。"
+      }
+    },
+    "math-geo-e08-2-step-1": {
+      "validator": "exact",
+      "answer": "$1/6$",
+      "wrongReasons": {
+        "$1/2$": "1/2は底面積で、体積では高さを掛けてさらに3で割ります。",
+        "$1/3$": "底面ABDは正方形の半分なので面積は1/2です。"
+      }
+    },
+    "math-geo-e08-2-step-2": {
+      "validator": "exact",
+      "answer": "AP",
+      "wrongReasons": {
+        "AB": "ABは平面BDEに垂直とは限りません。",
+        "AG": "Gは底面BDE上にないため、AG全体ではありません。"
+      }
     }
   }
 }

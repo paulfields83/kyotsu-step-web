@@ -6,7 +6,7 @@ import { findLoadedTextbook, loadedTextbookUnits, textbookContractReports, textb
 import { publicTextbookUnit } from './publicTextbook'
 import { textbookInteractionContract } from './textbookContract'
 import { findPracticeQuestion, loadedPracticeUnits } from './practiceData'
-import { publicPracticeQuestion, publicPracticeSummary } from './publicPractice'
+import { publicPracticeCompletion, publicPracticeQuestion, publicPracticeSummary } from './publicPractice'
 import { loadedPracticeSourceItems } from './practiceSourceData'
 
 // Hide only duplicated Chapter 1 physics source versions; keep older
@@ -280,6 +280,7 @@ const server = createServer(async (request, response) => {
         ...(isFinalBlank && loaded.question.fullExplanation
           ? { fullExplanation: loaded.question.fullExplanation }
           : {}),
+        ...(isFinalBlank ? publicPracticeCompletion(loaded.question, apiOrigin) : {}),
       })
     } catch (error) {
       return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
