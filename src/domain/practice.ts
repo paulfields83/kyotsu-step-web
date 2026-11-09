@@ -1,4 +1,4 @@
-import type { ContentBlock } from './questionSchema'
+import type { ContentBlock, QuestionAsset } from './questionSchema'
 
 export type PracticeProblemType = {
   id: string
@@ -65,6 +65,8 @@ export type PublicPracticeQuestion = PracticeQuestionSummary & {
   stem: ContentBlock[]
   solutionSteps: PublicPracticeStep[]
   blanks: PublicPracticeBlank[]
+  assets?: Array<QuestionAsset & { caption?: string }>
+  referenceTable?: string[]
   interaction: {
     reveal: 'sequential'
     options: 'inline-expand'

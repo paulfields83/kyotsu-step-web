@@ -1,5 +1,7 @@
 import { InlineMath } from 'react-katex'
 import { KeyConceptText, isReviewedConceptTerm, textbookEmphasisScope, type EmphasisScope } from '../components/learning/KeyConceptText'
+import { MathText } from '../components/learning/MathText'
+import { TrigonometryReferenceTable } from '../components/learning/TrigonometryReferenceTable'
 import { textbookMathLatex } from '../domain/textbookMathDisplay'
 import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
@@ -73,6 +75,7 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
       isFirstCorrect: previous?.isFirstCorrect ?? result.correct,
       resolved: result.resolved,
       attemptCount: (previous?.attemptCount ?? 0) + 1,
+      ...(result.wrongReason ? { wrongReason: result.wrongReason } : {}),
       firstAnsweredAt: previous?.firstAnsweredAt ?? now,
       lastAnsweredAt: now,
     }
@@ -132,6 +135,7 @@ function ReadableMath({ latex }: { latex: string }) {
 }
 
 function GuidedChoiceValue({ value }: { value: string }) {
+  if (value.includes('$') || value.includes('\\(')) return <MathText value={value} />
   const setList = splitTopLevelSetList(value)
   if (setList.length) return <span className="reading-math-set-list">
     {setList.map((part, index) => {
@@ -322,7 +326,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
       return (
         <div key={id} className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${id}`}>
           <div className="reading-inline-choice-panel__head">
-            <strong>{item.label}</strong><span>{item.prompt}</span>
+            <strong>{item.label}</strong><span><MathText value={item.prompt} /></span>
           </div>
           {item.choices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${item.label} ${text('選択肢', '选项')}`}>
             {item.choices.map((choice, index) => {
@@ -365,6 +369,9 @@ function TextbookReadingFlow({ unit, section, progress }: {
           {revealedWrong && <p className="reading-inline-choice-error" data-testid={`answer-reveal-${id}`}>
             {text('不正解です。正解は「', '回答错误。正确答案是「')}<GuidedChoiceValue value={record?.value ?? ''} />{text('」です。', '」。')}
           </p>}
+          {revealedWrong && record?.wrongReason && (
+            <p className="reading-inline-choice-error"><MathText value={record.wrongReason} /></p>
+          )}
           {submitError && activeItemId === id && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
         </div>
       )
@@ -490,6 +497,14 @@ function TextbookReadingFlow({ unit, section, progress }: {
           </aside>
         )
       }
+    }
+
+    if (block.type === 'reference-table') {
+      const images = block.figureIds.flatMap((id) => {
+        const figure = section.figures.find((candidate) => candidate.id === id)
+        return figure ? [{ ...figure, src: resolveAssetSrc(figure.src) }] : []
+      })
+      return <TrigonometryReferenceTable key={block.id} images={images} />
     }
 
     if (block.type === 'figure') {
@@ -712,7 +727,9 @@ function TextbookReadingFlow({ unit, section, progress }: {
   return (
     <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
       {hasTopicNavigation && (
-        <nav className="reading-topic-nav" aria-label={text('知識項目', '知识点')}>
+        <nav className={groups.length > 12 && unit.unitId === 'math-1a-geometry-measurement'
+          ? 'reading-topic-nav reading-topic-nav--scroll' : 'reading-topic-nav'}
+          aria-label={text('知識項目', '知识点')}>
           {groups.map((group, groupIndex) => {
             const label = topicLabel(group, groupIndex)
             const itemIds = readingGroupItemIds(group)

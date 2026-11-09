@@ -7,6 +7,7 @@ export type TextbookAnswerRecord = {
   isFirstCorrect: boolean
   resolved: boolean
   attemptCount: number
+  wrongReason?: string
   firstAnsweredAt: number
   lastAnsweredAt: number
 }

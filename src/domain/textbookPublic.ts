@@ -19,4 +19,5 @@ export type TextbookAnswerResult = {
   correct: boolean
   resolved: boolean
   correctAnswer?: string
+  wrongReason?: string
 }

@@ -2,6 +2,8 @@ import { Check, Circle, X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ContentRenderer } from '../components/question/ContentRenderer'
+import { MathText } from '../components/learning/MathText'
+import { TrigonometryReferenceTable } from '../components/learning/TrigonometryReferenceTable'
 import { ProgressBar } from '../components/ui/Primitives'
 import type { PracticeAnswerResult, PublicPracticeBlank, PublicPracticeQuestion } from '../domain/practice'
 import { practiceRepository } from '../repositories/practiceRepository'
@@ -75,11 +77,11 @@ function PracticeBlankLine({
       <div className="practice-blank-line">
         {parts.map((part, index) => {
           const marker = markerValue(part)
-          if (!marker) return <span key={`${blank.id}-text-${index}`}>{part}</span>
+          if (!marker) return <span key={`${blank.id}-text-${index}`}><MathText value={part} /></span>
           if (marker !== currentMarker) {
             const substituted = resolvedLabelsByMarker[marker]
             return substituted
-              ? <strong key={`${blank.id}-ref-${index}`} className="practice-substituted-value">{substituted}</strong>
+              ? <strong key={`${blank.id}-ref-${index}`} className="practice-substituted-value"><MathText value={substituted} /></strong>
               : <span key={`${blank.id}-ref-${index}`}>{part}</span>
           }
           return answer?.resolved ? (
@@ -87,14 +89,14 @@ function PracticeBlankLine({
               <span data-testid={`practice-blank-resolved-${blank.id}`}
                 className={`reading-inline-answer${answer.correct ? '' : ' reading-inline-answer--wrong'}`}>
                 {answer.correct ? <Check size={14} aria-hidden="true" /> : <X size={14} aria-hidden="true" />}
-                <strong>{answer.selectedLabel}</strong>
+                <strong><MathText value={answer.selectedLabel} /></strong>
               </span>
               {!answer.correct && (
                 <span className="reading-inline-answer practice-correct-inline"
                   data-testid={`practice-inline-correct-${blank.id}`}>
                   <Check size={14} aria-hidden="true" />
                   <small>{text('正解', '正确答案')}：</small>
-                  <strong>{correctLabels.join('、')}</strong>
+                  <strong><MathText value={correctLabels.join('、')} /></strong>
                 </span>
               )}
             </span>
@@ -116,14 +118,14 @@ function PracticeBlankLine({
             <span className={`reading-inline-answer${answer.correct ? '' : ' reading-inline-answer--wrong'}`}
               data-testid={`practice-blank-resolved-${blank.id}`}>
               {answer.correct ? <Check size={14} aria-hidden="true" /> : <X size={14} aria-hidden="true" />}
-              <strong>{answer.selectedLabel}</strong>
+              <strong><MathText value={answer.selectedLabel} /></strong>
             </span>
             {!answer.correct && (
               <span className="reading-inline-answer practice-correct-inline"
                 data-testid={`practice-inline-correct-${blank.id}`}>
                 <Check size={14} aria-hidden="true" />
                 <small>{text('正解', '正确答案')}：</small>
-                <strong>{correctLabels.join('、')}</strong>
+                <strong><MathText value={correctLabels.join('、')} /></strong>
               </span>
             )}
           </span>
@@ -144,25 +146,25 @@ function PracticeBlankLine({
           {!answer.correct && (
             <>
               <p data-testid={`practice-selected-answer-${blank.id}`}>
-                {text('あなたの解答', '你的答案')}：{answer.selectedLabel}
+                {text('あなたの解答', '你的答案')}：<MathText value={answer.selectedLabel} />
               </p>
               <p data-testid={`practice-correct-answer-${blank.id}`}>
-                {text('正解', '正确答案')}：{correctLabels.join('、')}
+                {text('正解', '正确答案')}：<MathText value={correctLabels.join('、')} />
               </p>
-              {answer.wrongReason && <p>{text('誤答の理由', '错误原因')}：{answer.wrongReason}</p>}
+              {answer.wrongReason && <p>{text('誤答の理由', '错误原因')}：<MathText value={answer.wrongReason} /></p>}
             </>
           )}
           {answer.explanation && (
             <div className="practice-answer-feedback__explanation" data-testid={`practice-explanation-${blank.id}`}>
               <strong>{text('解説', '解说')}</strong>
-              <p>{answer.explanation}</p>
+              <p><MathText value={answer.explanation} /></p>
             </div>
           )}
         </div>
       ) : (
         <div className="reading-inline-choice-panel">
           <div className="reading-inline-choice-panel__head">
-            <strong>{resolvedPrompt}</strong>
+            <strong><MathText value={resolvedPrompt} /></strong>
           </div>
           <div className="reading-choice-options" role="group" aria-label={blank.prompt}>
             {blank.options.map((option, index) => {
@@ -176,7 +178,7 @@ function PracticeBlankLine({
                   onClick={() => void choose(option.id)}
                 >
                   <span>{String.fromCharCode(65 + index)}</span>
-                  <div className="practice-option-content"><p>{option.label}</p></div>
+                  <div className="practice-option-content"><p><MathText value={option.label} /></p></div>
                 </button>
               )
             })}
@@ -244,6 +246,12 @@ export function PracticeSessionPage() {
     setAnswers((current) => ({ ...current, [blankId]: state }))
     setBusyBlankId(null)
   }
+  const assets = question.assets ?? []
+  const tableImages = question.referenceTable?.flatMap((id) => {
+    const image = assets.find((candidate) => candidate.id === id)
+    return image ? [image] : []
+  }) ?? []
+  const isTrigonometry = question.majorUnit === 'geometry-measurement'
 
   return (
     <div className="page-stack learning-page">
@@ -251,6 +259,7 @@ export function PracticeSessionPage() {
         <div>
           <p className="eyebrow">PRACTICE / BACKEND</p>
           <h1>{question.title}</h1>
+          {isTrigonometry && <p>{question.source.label}</p>}
         </div>
         <div className="tag-row">
           <span className="status-badge">{question.subcategory}</span>
@@ -261,8 +270,9 @@ export function PracticeSessionPage() {
       <ProgressBar label={text('空欄の進み具合', '填空进度')} value={completedCount} max={orderedBlankIds.length} />
 
       <article className="question-paper">
-        <ContentRenderer blocks={question.stem} assets={[]} />
+        <ContentRenderer blocks={question.stem} assets={assets} mathInText={isTrigonometry} />
       </article>
+      {tableImages.length > 0 && <TrigonometryReferenceTable key={question.questionId} images={tableImages} />}
 
       <section>
         <h2 className="solution-heading">{text('連続解答', '连续解答')}</h2>
@@ -278,7 +288,9 @@ export function PracticeSessionPage() {
                   <span>STEP {stepIndex + 1}</span>
                   <strong>{step.operation}</strong>
                 </div>
-                <ContentRenderer blocks={step.content} assets={[]} />
+                {step.content.length > 0 && (
+                  <ContentRenderer blocks={step.content} assets={assets} mathInText={isTrigonometry} />
+                )}
                 {step.blankIds.map((blankId) => {
                   const blank = blankById.get(blankId)
                   if (!blank) return null
@@ -310,7 +322,9 @@ export function PracticeSessionPage() {
           {fullExplanation && (
             <div className="practice-full-explanation" data-testid="practice-full-explanation">
               <h3>{text('問題全体の解説', '整题综合解说')}</h3>
-              <p>{fullExplanation}</p>
+              {isTrigonometry
+                ? fullExplanation.split('\n').map((line, index) => <p key={index}><MathText value={line} /></p>)
+                : <p>{fullExplanation}</p>}
             </div>
           )}
           <Link className="v2-primary-action" to="/learn">{text('問題一覧へ戻る', '返回题目列表')}</Link>

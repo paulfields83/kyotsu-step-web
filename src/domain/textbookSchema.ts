@@ -50,6 +50,7 @@ export const TextbookReadingBlockSchema = z.discriminatedUnion('type', [
   z.object({ id: IdSchema, type: z.literal('paragraph'), parts: z.array(TextbookReadingPartSchema).min(1) }),
   z.object({ id: IdSchema, type: z.literal('formula'), parts: z.array(TextbookReadingPartSchema).min(1) }),
   z.object({ id: IdSchema, type: z.literal('figure'), figureId: IdSchema }),
+  z.object({ id: IdSchema, type: z.literal('reference-table'), figureIds: z.array(IdSchema).length(2) }),
   z.object({ id: IdSchema, type: z.literal('note'), text: z.string().min(1) }),
 ])
 
