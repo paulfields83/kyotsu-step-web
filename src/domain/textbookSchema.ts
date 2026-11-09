@@ -21,6 +21,7 @@ export const TextbookAnswerEntrySchema = z.object({
   validator: TextbookAnswerValidatorSchema.default('normalized-text'),
   answer: z.string().min(1),
   acceptedAnswers: z.array(z.string().min(1)).default([]),
+  wrongReasons: z.record(z.string(), z.string().min(1)).optional(),
 })
 
 export const TextbookAnswerBookSchema = z.object({
@@ -50,6 +51,7 @@ export const TextbookReadingBlockSchema = z.discriminatedUnion('type', [
   z.object({ id: IdSchema, type: z.literal('paragraph'), parts: z.array(TextbookReadingPartSchema).min(1) }),
   z.object({ id: IdSchema, type: z.literal('formula'), parts: z.array(TextbookReadingPartSchema).min(1) }),
   z.object({ id: IdSchema, type: z.literal('figure'), figureId: IdSchema }),
+  z.object({ id: IdSchema, type: z.literal('reference-table'), figureIds: z.array(IdSchema).length(2) }),
   z.object({ id: IdSchema, type: z.literal('note'), text: z.string().min(1) }),
 ])
 
@@ -100,6 +102,9 @@ export const TextbookUnitSchema = TextbookUnitBaseSchema.superRefine((unit, cont
     section.readingFlow.forEach((block, blockIndex) => {
       if (block.type === 'figure' && !figureIds.has(block.figureId)) {
         context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'figureId'], message: `存在しない figure 参照: ${block.figureId}` })
+      }
+      if (block.type === 'reference-table' && block.figureIds.some((id) => !figureIds.has(id))) {
+        context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'figureIds'], message: '参照表の図が見つかりません' })
       }
       if (block.type === 'paragraph' || block.type === 'formula') {
         block.parts.forEach((part, partIndex) => {

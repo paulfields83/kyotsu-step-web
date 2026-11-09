@@ -19,6 +19,7 @@ function isArchivedPhysicsChapter1(unit:{subject:string;unitId:string}) {
 }
 
 const port = Number(process.env.PORT ?? 8787)
+const host = process.env.HOST ?? '0.0.0.0'
 const allowedOrigins = (process.env.FRONTEND_ORIGIN?.trim() || '*')
   .split(',')
   .map((origin) => origin.trim().replace(/\/$/, ''))
@@ -222,7 +223,22 @@ const server = createServer(async (request, response) => {
   if (request.method === 'GET' && practiceQuestionMatch) {
     const loaded = findPracticeQuestion(decodeURIComponent(practiceQuestionMatch[1]))
     if (!loaded) return sendJson(request, response, 404, { error: 'practice question not found' })
-    return sendJson(request, response, 200, publicPracticeQuestion(loaded.question))
+    return sendJson(request, response, 200, publicPracticeQuestion(loaded.question, apiOrigin))
+  }
+
+  const practiceAssetMatch = url.pathname.match(/^\/api\/practice\/questions\/([^/]+)\/assets\/([^/]+)$/)
+  if (request.method === 'GET' && practiceAssetMatch) {
+    const loaded = findPracticeQuestion(decodeURIComponent(practiceAssetMatch[1]))
+    const fileName = decodeURIComponent(practiceAssetMatch[2])
+    if (!/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(fileName)) {
+      return sendJson(request, response, 400, { error: 'invalid asset name' })
+    }
+    if (!loaded?.question.assets?.some((asset) => asset.src === `assets/${fileName}`)) {
+      return sendJson(request, response, 404, { error: 'practice asset not found' })
+    }
+    const assetPath = join(loaded.unit.dataDir, 'assets', fileName)
+    if (!existsSync(assetPath)) return sendJson(request, response, 404, { error: 'practice asset not found' })
+    return sendAsset(request, response, assetPath, fileName)
   }
 
   const practiceAnswerMatch = url.pathname.match(/^\/api\/practice\/questions\/([^/]+)\/blanks\/([^/]+)\/answer$/)
@@ -330,6 +346,7 @@ const server = createServer(async (request, response) => {
       if (!value.trim()) return sendJson(request, response, 400, { error: 'answer value is required' })
 
       const correct = isTextbookAnswerCorrect(answer, value)
+      const wrongReason = !correct && answer.wrongReasons?.[value]
       // Match the approved 集合と命題 textbook flow: one attempt always
       // resolves the blank. A wrong attempt reveals the reviewed correct answer
       // immediately, while recording that the first answer was incorrect.
@@ -337,6 +354,7 @@ const server = createServer(async (request, response) => {
         correct,
         resolved: true,
         ...(correct ? {} : { correctAnswer: answer.answer }),
+        ...(wrongReason ? { wrongReason } : {}),
       })
     } catch (error) {
       return sendJson(request, response, 400, { error: error instanceof Error ? error.message : 'invalid request body' })
@@ -346,6 +364,6 @@ const server = createServer(async (request, response) => {
   return sendJson(request, response, 404, { error: 'not found' })
 })
 
-server.listen(port, '0.0.0.0', () => {
-  console.log(`kyotsu-step-api listening on 0.0.0.0:${port}`)
+server.listen(port, host, () => {
+  console.log(`kyotsu-step-api listening on ${host}:${port}`)
 })

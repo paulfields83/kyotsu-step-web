@@ -130,6 +130,7 @@ export const textbookInteractionContract = {
       correct: 'boolean',
       resolved: 'boolean',
       correctAnswer: 'string | omitted when correct',
+      wrongReason: 'string | omitted when no reviewed reason applies',
     },
   },
   security: {

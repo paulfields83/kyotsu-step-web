@@ -42,11 +42,19 @@ function stablePracticeChoiceOrder<T extends {id:string}>(options:T[],seedText:s
   return ordered
 }
 
-export function publicPracticeQuestion(question: PracticeQuestion) {
+export function publicPracticeQuestion(question: PracticeQuestion, apiOrigin = '') {
   // Keep the ZIP's whole-question explanation hidden until the final response.
   const { fullExplanation: _fullExplanation, ...publicQuestion } = question
   return {
     ...publicQuestion,
+    ...(question.assets ? {
+      assets: question.assets.map((asset) => ({
+        ...asset,
+        src: asset.src.startsWith('assets/')
+          ? `${apiOrigin}/api/practice/questions/${encodeURIComponent(question.questionId)}/assets/${encodeURIComponent(asset.src.slice('assets/'.length))}`
+          : asset.src,
+      })),
+    } : {}),
     stem: publicContentBlocks(question.stem),
     solutionSteps: question.solutionSteps.map((step) => ({
       ...step,
@@ -57,7 +65,7 @@ export function publicPracticeQuestion(question: PracticeQuestion) {
       stepId: blank.stepId,
       prompt: blank.prompt,
       answerType: blank.answerType,
-      options: (question.questionId.startsWith('zip4step-')
+      options: (question.questionId.startsWith('zip4step-') || question.majorUnit === 'geometry-measurement'
         ? stablePracticeChoiceOrder(blank.options,question.questionId+'/'+blank.id)
         : blank.options
       ).map(({ wrongReason: _wrongReason, ...option }) => option),
