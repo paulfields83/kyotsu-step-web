@@ -233,6 +233,12 @@ export function PracticeSessionPage() {
   const fullExplanation = orderedBlankIds
     .map((blankId) => answers[blankId]?.fullExplanation)
     .find((value): value is string => Boolean(value))
+  const completionContent = orderedBlankIds
+    .map((blankId) => answers[blankId]?.completionContent)
+    .find((value) => value !== undefined)
+  const completionAssets = orderedBlankIds
+    .map((blankId) => answers[blankId]?.completionAssets)
+    .find((value) => value !== undefined) ?? []
 
   if (loading) return <div className="page-stack"><div className="v2-empty-card">{text('問題を読み込んでいます…', '正在读取题目…')}</div></div>
   if (loadError || !question) return (
@@ -246,12 +252,12 @@ export function PracticeSessionPage() {
     setAnswers((current) => ({ ...current, [blankId]: state }))
     setBusyBlankId(null)
   }
-  const assets = question.assets ?? []
+  const assets = [...(question.assets ?? []), ...completionAssets]
   const tableImages = question.referenceTable?.flatMap((id) => {
     const image = assets.find((candidate) => candidate.id === id)
     return image ? [image] : []
   }) ?? []
-  const isTrigonometry = question.majorUnit === 'geometry-measurement'
+  const hasGuidedMath = ['geometry-measurement', 'geometric-properties'].includes(question.majorUnit)
 
   return (
     <div className="page-stack learning-page">
@@ -259,10 +265,10 @@ export function PracticeSessionPage() {
         <div>
           <p className="eyebrow">PRACTICE / BACKEND</p>
           <h1>{question.title}</h1>
-          {isTrigonometry && <p>{question.source.label}</p>}
+          {hasGuidedMath && <p>{question.source.label}</p>}
         </div>
         <div className="tag-row">
-          <span className="status-badge">{question.subcategory}</span>
+          <span className="status-badge">{question.subcategoryLabel ?? question.subcategory}</span>
           <span className="status-badge">rev.{question.revision}</span>
         </div>
       </header>
@@ -270,7 +276,7 @@ export function PracticeSessionPage() {
       <ProgressBar label={text('空欄の進み具合', '填空进度')} value={completedCount} max={orderedBlankIds.length} />
 
       <article className="question-paper">
-        <ContentRenderer blocks={question.stem} assets={assets} mathInText={isTrigonometry} />
+        <ContentRenderer blocks={question.stem} assets={assets} mathInText={hasGuidedMath} />
       </article>
       {tableImages.length > 0 && <TrigonometryReferenceTable key={question.questionId} images={tableImages} />}
 
@@ -289,7 +295,7 @@ export function PracticeSessionPage() {
                   <strong>{step.operation}</strong>
                 </div>
                 {step.content.length > 0 && (
-                  <ContentRenderer blocks={step.content} assets={assets} mathInText={isTrigonometry} />
+                  <ContentRenderer blocks={step.content} assets={assets} mathInText={hasGuidedMath} />
                 )}
                 {step.blankIds.map((blankId) => {
                   const blank = blankById.get(blankId)
@@ -322,9 +328,10 @@ export function PracticeSessionPage() {
           {fullExplanation && (
             <div className="practice-full-explanation" data-testid="practice-full-explanation">
               <h3>{text('問題全体の解説', '整题综合解说')}</h3>
-              {isTrigonometry
+              {hasGuidedMath
                 ? fullExplanation.split('\n').map((line, index) => <p key={index}><MathText value={line} /></p>)
                 : <p>{fullExplanation}</p>}
+              {completionContent && <ContentRenderer blocks={completionContent} assets={assets} mathInText={hasGuidedMath} />}
             </div>
           )}
           <Link className="v2-primary-action" to="/learn">{text('問題一覧へ戻る', '返回题目列表')}</Link>

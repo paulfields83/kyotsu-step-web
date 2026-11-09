@@ -18,7 +18,7 @@ export type PracticeSubcategory = {
 export type PracticeCatalog = {
   schemaVersion: '1.0'
   subject: 'math-1a'
-  course: 'math-i'
+  course: 'math-i' | 'math-a'
   majorUnit: { id: string; label: string; order: number }
   subcategories: PracticeSubcategory[]
 }
@@ -27,9 +27,10 @@ export type PracticeQuestionSummary = {
   questionId: string
   revision: number
   subject: 'math-1a'
-  course: 'math-i'
+  course: 'math-i' | 'math-a'
   majorUnit: string
   subcategory: string
+  subcategoryLabel?: string
   problemType: string
   title: string
   difficulty: 'basic' | 'standard' | 'advanced'
@@ -83,4 +84,6 @@ export type PracticeAnswerResult = {
   explanation?: string
   wrongReason?: string
   fullExplanation?: string
+  completionContent?: ContentBlock[]
+  completionAssets?: Array<QuestionAsset & { caption?: string }>
 }

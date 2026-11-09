@@ -727,7 +727,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
   return (
     <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
       {hasTopicNavigation && (
-        <nav className={groups.length > 12 && unit.unitId === 'math-1a-geometry-measurement'
+        <nav className={groups.length > 12 && ['math-1a-geometry-measurement', 'math-1a-geometric-properties'].includes(unit.unitId)
           ? 'reading-topic-nav reading-topic-nav--scroll' : 'reading-topic-nav'}
           aria-label={text('知識項目', '知识点')}>
           {groups.map((group, groupIndex) => {
