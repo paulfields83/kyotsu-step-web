@@ -83,6 +83,7 @@ export function publicPracticeQuestion(question: PracticeQuestion, apiOrigin = '
       stepId: blank.stepId,
       prompt: blank.prompt,
       answerType: blank.answerType,
+      ...(blank.hints ? { hints: blank.hints } : {}),
       options: (question.questionId.startsWith('zip4step-') || ['geometry-measurement', 'geometric-properties'].includes(question.majorUnit)
         ? stablePracticeChoiceOrder(blank.options,question.questionId+'/'+blank.id)
         : blank.options

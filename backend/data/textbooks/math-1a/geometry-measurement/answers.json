@@ -1,1380 +1,1316 @@
 {
   "unitId": "math-1a-geometry-measurement",
   "answers": {
-    "math-trig-c01-step-1": {
+    "math-trig-c01-r2-scale": {
       "validator": "exact",
-      "answer": "$k$が約分され比は変わらない",
+      "answer": "$a/c$",
       "wrongReasons": {
-        "比も$k$倍になる": "分子だけでなく分母も同じ$k$倍です。",
-        "比は常に1になる": "同じ倍率でも元の二辺が同じ長さになるわけではありません。"
+        "$ka/c$": "分母もk倍されるので、分子だけのkを残すことはできない。",
+        "$1$": "aとcが等しいとは限らない。同じ倍率だけが約分される。"
       }
     },
-    "math-trig-c01-step-2": {
+    "math-trig-c01-r2-sin": {
       "validator": "exact",
-      "answer": "$BC$",
+      "answer": "$5/13$",
       "wrongReasons": {
-        "$CA$": "$CA$は$A$に接する隣の直角辺です。",
-        "$AB$": "$AB$は直角$C$の向かいにある斜辺です。"
+        "$12/13$": "これはAの隣辺と斜辺の比で、余弦に当たる。",
+        "$5/12$": "正弦の分母は斜辺。対辺/隣辺は正接である。"
       }
     },
-    "math-trig-l-trig-q01-01-step-1": {
+    "math-trig-c01-r2-transfer": {
       "validator": "exact",
-      "answer": "向かい$=BC$、隣$=CA$、斜辺$=AB$",
+      "answer": "$12/13$",
       "wrongReasons": {
-        "向かい$=CA$、隣$=BC$、斜辺$=AB$": "向かいの辺は頂点$A$と接していない辺です。",
-        "斜辺$=CA$": "斜辺は直角$C$の向かいの$AB$です。"
+        "$5/13$": "これは基準角をAのままにした正弦である。",
+        "$12/5$": "Bの対辺は12だが、正弦の分母は斜辺13である。"
       }
     },
-    "math-trig-l-trig-q01-02-step-1": {
+    "math-trig-l-trig-q01-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$\\tan  A=BC/CA$",
+      "answer": "$\\frac{5}{13}$",
       "wrongReasons": {
-        "$\\tan  A=BC/AB$": "斜辺で割るのは正弦です。正接の分母は隣の直角辺です。",
-        "$\\tan  A=CA/BC$": "比の分子と分母が逆です。正接は向かい/隣です。"
+        "$\\frac{12}{13}$": "これは隣辺を分子にした余弦。",
+        "$\\frac{5}{12}$": "分母に隣辺を使うのは正接。"
       }
     },
-    "math-trig-l-trig-q01-03-step-1": {
+    "math-trig-l-trig-q01-01-r2-node-2": {
       "validator": "exact",
-      "answer": "直角$C$の向かい$AB$が斜辺",
+      "answer": "$\\frac{5}{12}$",
       "wrongReasons": {
-        "紙面で最も水平な辺が斜辺": "斜辺は図の向きでは決まりません。",
-        "$A$の向かいの辺が常に斜辺": "$A$は鋭角です。斜辺の基準は$90^{\\circ}$の角です。"
+        "$\\frac{12}{5}$": "角Aの対辺BCを分子にする。",
+        "$\\frac{5}{13}$": "分母のABは斜辺であり、これは正弦。"
       }
     },
-    "math-trig-c02-step-1": {
+    "math-trig-l-trig-q01-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\frac{1}{\\sqrt5}$",
+      "wrongReasons": {
+        "$\\frac{2}{\\sqrt5}$": "これは隣辺を分子にした余弦。",
+        "$\\frac{1}{2}$": "分母に隣辺を使うのは正接。"
+      }
+    },
+    "math-trig-l-trig-q01-02-r2-node-2": {
+      "validator": "exact",
+      "answer": "$\\frac{1}{2}$",
+      "wrongReasons": {
+        "$\\frac{2}{1}$": "角Aの対辺BCを分子にする。",
+        "$\\frac{1}{\\sqrt5}$": "分母のABは斜辺であり、これは正弦。"
+      }
+    },
+    "math-trig-l-trig-q01-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\frac{2}{3}$",
+      "wrongReasons": {
+        "$\\frac{\\sqrt5}{3}$": "これは隣辺を分子にした余弦。",
+        "$\\frac{2}{\\sqrt5}$": "分母に隣辺を使うのは正接。"
+      }
+    },
+    "math-trig-l-trig-q01-03-r2-node-2": {
+      "validator": "exact",
+      "answer": "$\\frac{2}{\\sqrt5}$",
+      "wrongReasons": {
+        "$\\frac{\\sqrt5}{2}$": "角Aの対辺BCを分子にする。",
+        "$\\frac{2}{3}$": "分母のABは斜辺であり、これは正弦。"
+      }
+    },
+    "math-trig-c02-r2-diagonal": {
       "validator": "exact",
       "answer": "$\\sqrt2$",
       "wrongReasons": {
-        "2": "長さは平方和2の平方根です。",
-        "1": "1では直角辺より長くならず三平方に合いません。"
+        "$2$": "二乗和は2だが、斜辺の長さはその正の平方根。",
+        "$1$": "斜辺は直角辺より長い。"
       }
     },
-    "math-trig-c02-step-2": {
+    "math-trig-c02-r2-column": {
       "validator": "exact",
-      "answer": "$\\cos$列で0.53に近い値",
+      "answer": "cos列で0.53に最も近い値",
       "wrongReasons": {
-        "角度列で$0.53^{\\circ}$": "比と角度を入れ替えています。",
-        "$\\sin$列で0.53に近い値": "$\\cos$という条件を保ちます。"
+        "53°の行": "0.53は角度ではなく余弦の値。",
+        "sin列で0.53に最も近い値": "与えられた比は余弦であり、列を替えると別の角になる。"
       }
     },
-    "math-trig-l-trig-q02-01-step-1": {
+    "math-trig-l-trig-q02-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$63^{\\circ}$の行・$\\sin$の列",
+      "answer": "0.8910",
       "wrongReasons": {
-        "$27^{\\circ}$の行・$\\sin$の列": "$27^{\\circ}$は余角です。表を直接読む課題では指定角の行を選びます。",
-        "$63^{\\circ}$の行・$\\tan$の列": "列は求める三角比の種類に合わせます。"
+        "0.4540": "cosの列でなくsinの列を読む。",
+        "1.9626": "これはtanの列の値。"
       }
     },
-    "math-trig-l-trig-q02-02-step-1": {
+    "math-trig-l-trig-q02-02-r2-node-1": {
       "validator": "exact",
-      "answer": "$20^{\\circ}$の行・$\\cos$の列",
+      "answer": "0.9397",
       "wrongReasons": {
-        "$20^{\\circ}$の行・$\\sin$の列": "同じ角でも$\\sin$と$\\cos$の値は区別します。",
-        "$70^{\\circ}$の行・$\\cos$の列": "余角へ移すなら三角比の種類も入れ替える必要があります。"
+        "0.3420": "sinの列でなくcosの列を読む。",
+        "0.3640": "これはtanの列の値。"
       }
     },
-    "math-trig-l-trig-q02-03-step-1": {
+    "math-trig-l-trig-q02-03-r2-node-1": {
       "validator": "exact",
-      "answer": "正接には1以下という制限はない",
+      "answer": "1.1918",
       "wrongReasons": {
-        "1を超えたので読取り間違い": "$\\sin ,\\cos$の範囲を$\\tan$へ移してはいけません。",
-        "$\\tan  50^{\\circ}=1/1.1918$": "正接の逆数を求める条件は与えられていません。"
+        "0.7660": "sinの列でなくtanの列を読む。",
+        "0.6428": "これはcosの列の値。"
       }
     },
-    "math-trig-l-trig-q03-01-step-1": {
+    "math-trig-l-trig-q03-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$\\sin$列で0.39に近い値から角度を読む",
+      "answer": "$23^\\circ$",
       "wrongReasons": {
-        "0.39を角度として読む": "0.39は辺の比です。角度の列と比の列を区別します。",
-        "$\\sin$列で0.39の逆数を探す": "正弦の値が指定されています。逆数へ変える根拠がありません。"
+        "$22^\\circ$": "その行の表値と指定された値の差を確認する。",
+        "$24^\\circ$": "近くの行も調べて差が最小の角を選ぶ。"
       }
     },
-    "math-trig-l-trig-q03-02-step-1": {
+    "math-trig-l-trig-q03-02-r2-node-1": {
       "validator": "exact",
-      "answer": "$\\cos$列で0.53に近い値を探す",
+      "answer": "$58^\\circ$",
       "wrongReasons": {
-        "$\\sin$列で0.53を探す": "比の種類は元の条件$\\cos$を保ちます。",
-        "$58^{\\circ}$を正確な解とする": "表値は近似で、条件の小数も丸められているため角は近似です。"
+        "$57^\\circ$": "その行の表値と指定された値の差を確認する。",
+        "$59^\\circ$": "近くの行も調べて差が最小の角を選ぶ。"
       }
     },
-    "math-trig-l-trig-q03-03-step-1": {
+    "math-trig-l-trig-q03-03-r2-node-1": {
       "validator": "exact",
-      "answer": "$\\tan$列を逆引きする",
+      "answer": "$8^\\circ$",
       "wrongReasons": {
-        "$0.14^{\\circ}$と答える": "比と角の単位を取り違えています。",
-        "$\\tan$列の$1/0.14$を探す": "与えられた値そのものを比較します。"
+        "$7^\\circ$": "その行の表値と指定された値の差を確認する。",
+        "$9^\\circ$": "近くの行も調べて差が最小の角を選ぶ。"
       }
     },
-    "math-trig-c03-step-1": {
+    "math-trig-c03-r2-complement": {
       "validator": "exact",
-      "answer": "$76^{\\circ}$",
+      "answer": "$76^\\circ$",
       "wrongReasons": {
-        "$14^{\\circ}$": "$14^{\\circ}$の基準は水平線です。",
-        "$104^{\\circ}$": "直角三角形の内部の角を求めています。"
+        "$14^\\circ$": "14度は水平線との角であり、鉛直線との角ではない。",
+        "$104^\\circ$": "直角の内部を二つに分ける角なので、90度から引く。"
       }
     },
-    "math-trig-c03-step-2": {
+    "math-trig-c03-r2-gradient": {
       "validator": "exact",
-      "answer": "高さ/水平距離=0.20",
+      "answer": "$\\tan A=20/100=0.20$",
       "wrongReasons": {
-        "傾斜角$=20^{\\circ}$": "百分率は辺の比です。",
-        "高さ/斜面距離=0.20": "勾配は水平距離を分母にします。"
+        "$\\sin A=20/100=0.20$": "100は斜面の長さではなく水平距離である。",
+        "$A=20^\\circ$": "百分率は二つの距離の比であり度数ではない。"
       }
     },
-    "math-trig-l-trig-q04-01-step-1": {
+    "math-trig-l-trig-q04-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$\\cos  10^{\\circ}=AC/100$",
+      "answer": "$100\\cos10^\\circ$",
       "wrongReasons": {
-        "$\\sin  10^{\\circ}=AC/100$": "$AC$は$10^{\\circ}$の向かいではなく隣の辺です。",
-        "$\\cos  10^{\\circ}=100/AC$": "定義の分子は隣、分母は斜辺です。"
+        "$100\\sin10^\\circ$": "正弦なら鉛直方向の高さ。",
+        "$100/\\cos10^\\circ$": "水平距離は斜辺より短い。"
       }
     },
-    "math-trig-l-trig-q05-01-step-1": {
+    "math-trig-l-trig-q04-01-r2-node-2": {
       "validator": "exact",
-      "answer": "$\\angle ABC=90^{\\circ}-14^{\\circ}=76^{\\circ}$",
+      "answer": "98 m",
       "wrongReasons": {
-        "$\\angle ABC=14^{\\circ}$": "俯角は鉛直線でなく水平線を基準に測ります。",
-        "$\\angle ABC=90^{\\circ}+14^{\\circ}$": "直角三角形の残りの角$ABC$は鋭角です。"
+        "99 m": "小数第1位は4である。",
+        "98.5 m": "0.1 mの単位ではなく1 mの単位。"
       }
     },
-    "math-trig-l-trig-q06-01-step-1": {
+    "math-trig-l-trig-q05-01-r2-node-1": {
       "validator": "exact",
-      "answer": "高さ/水平距離=0.20",
+      "answer": "$76^\\circ$",
       "wrongReasons": {
-        "$A=20^{\\circ}$": "%は長さの比を100倍した表示で、角度の単位ではありません。",
-        "高さ/斜面距離=0.20": "勾配の基準は水平距離です。斜面距離なら正弦の比になります。"
+        "$14^\\circ$": "14°は水平線から測った角。",
+        "$104^\\circ$": "水平線と鉛直線の間の90°から俯角を引く。"
       }
     },
-    "math-trig-c04-step-1": {
+    "math-trig-l-trig-q05-01-r2-node-2": {
       "validator": "exact",
-      "answer": "正の平方根を取る",
+      "answer": "$15\\tan76^\\circ$",
       "wrongReasons": {
-        "必ず±を両方残す": "鋭角という追加条件で負は除けます。",
-        "二乗した値$5/9$をそのまま答える": "$\\sin$と$\\sin ^2$は異なります。"
+        "$15\\sin76^\\circ$": "高さ15は斜辺でなく角Bの隣辺。",
+        "$15/\\tan76^\\circ$": "求めるのが対辺なので、隣辺に正接を掛ける。"
       }
     },
-    "math-trig-l-trig-q07-01-step-1": {
+    "math-trig-l-trig-q06-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$\\sin  A>0$より正の平方根を選ぶ",
+      "answer": "$\\tan A=0.20$",
       "wrongReasons": {
-        "$\\sin  A=\\pm \\sqrt{5}/3$のままにする": "$A$が鋭角である条件を使うと符号は一つに決まります。",
-        "$\\sin  A=1-\\cos  A$": "二乗の和が1という恒等式で、比そのものの和ではありません。"
+        "$\\sin A=0.20$": "水平距離は斜辺ではない。",
+        "$\\tan A=5$": "高さ20を水平距離100で割る。"
       }
     },
-    "math-trig-l-trig-q07-01-step-2": {
+    "math-trig-c04-r2-quotient": {
       "validator": "exact",
-      "answer": "$\\tan A=\\sin A/\\cos A$",
+      "answer": "$a/b$",
       "wrongReasons": {
-        "$\\tan A=\\sin A\\cos A$": "恒等式は商です。",
-        "$\\tan A=\\cos A/\\sin A$": "分子分母が逆です。"
+        "$b/a$": "正弦を余弦で割る順なので、対辺aが分子に残る。",
+        "$a/c$": "余弦b/cで割った分のbが必要である。"
       }
     },
-    "math-trig-c05-step-1": {
-      "validator": "exact",
-      "answer": "$b/a$",
-      "wrongReasons": {
-        "$a/b$": "向かいと隣が入れ替わっています。",
-        "$-a/b$": "負号は補角の性質です。"
-      }
-    },
-    "math-trig-l-trig-q08-01-step-1": {
-      "validator": "exact",
-      "answer": "$1/\\cos ^2 A=1+\\tan ^2 A$",
-      "wrongReasons": {
-        "$\\cos ^2 A=1+\\tan ^2 A$": "恒等式の左辺は$\\cos ^2$の逆数です。",
-        "$\\sin ^2 A=1-\\tan ^2 A$": "$\\sin ^2+\\cos ^2=1$の$\\cos$を$\\tan$へ置換することはできません。"
-      }
-    },
-    "math-trig-l-trig-q08-01-step-2": {
-      "validator": "exact",
-      "answer": "正の根$3/5$",
-      "wrongReasons": {
-        "負の根$-3/5$": "鋭角の余弦は正です。",
-        "$\\pm 3/5$を残す": "鋭角という条件があるので一つに決まります。"
-      }
-    },
-    "math-trig-l-trig-q09-01-step-1": {
-      "validator": "exact",
-      "answer": "余角に移すと$\\sin$と$\\cos$が入れ替わる",
-      "wrongReasons": {
-        "$\\sin  15^{\\circ}$": "角だけ変えると値は保たれません。",
-        "$-\\cos  15^{\\circ}$": "$75^{\\circ}$も$15^{\\circ}$も鋭角で、この余角関係には負号が付きません。"
-      }
-    },
-    "math-trig-l-trig-q09-02-step-1": {
-      "validator": "exact",
-      "answer": "$\\cos (90^{\\circ}-4^{\\circ})=\\sin  4^{\\circ}$",
-      "wrongReasons": {
-        "$\\cos  4^{\\circ}$": "余角では$\\sin$と$\\cos$を入れ替えます。",
-        "$-\\sin  4^{\\circ}$": "鋭角の余弦と正弦は正です。"
-      }
-    },
-    "math-trig-l-trig-q09-03-step-1": {
-      "validator": "exact",
-      "answer": "正接は余角で逆数になる",
-      "wrongReasons": {
-        "$\\tan  38^{\\circ}$": "正接は辺の比の分子と分母が入れ替わります。",
-        "$-\\tan  38^{\\circ}$": "補角の負号と余角の逆数を混同しています。"
-      }
-    },
-    "math-trig-l-trig-s1e01-01-step-1": {
-      "validator": "exact",
-      "answer": "$BC=x$と置き$AC=5x$と表す",
-      "wrongReasons": {
-        "$AC=x$と置き$BC=5x$と表す": "$\\tan A=BC/AC=1/5$の大小が逆です。",
-        "$BC=AD=6$とする": "共通の長さという条件はありません。"
-      }
-    },
-    "math-trig-l-trig-s1e01-01-step-2": {
-      "validator": "exact",
-      "answer": "$AD=AC-DC$",
-      "wrongReasons": {
-        "$AD=AC+DC$": "図で$D$は$A$と$C$の間にあるので全体から$DC$を引きます。",
-        "$AD=DC-AC$": "$AC$は$DC$より長いのでその差は負になってしまいます。"
-      }
-    },
-    "math-trig-l-trig-s1e02-01-step-1": {
-      "validator": "exact",
-      "answer": "$\\sin  A=BC/c$",
-      "wrongReasons": {
-        "$\\cos  A=BC/c$": "$BC$は$A$の向かいです。",
-        "$\\sin  A=c/BC$": "斜辺は分母に置きます。"
-      }
-    },
-    "math-trig-l-trig-s1e02-02-step-1": {
-      "validator": "exact",
-      "answer": "$90^{\\circ}-A$",
-      "wrongReasons": {
-        "$A$": "元の三角形の二つの鋭角は互いに余角です。",
-        "$180^{\\circ}-A$": "直角三角形の鋭角を求めています。"
-      }
-    },
-    "math-trig-l-trig-s1e02-02-step-2": {
-      "validator": "exact",
-      "answer": "$CD=BC \\cos  A$",
-      "wrongReasons": {
-        "$CD=c \\cos  A$": "$\\triangle BCD$の斜辺は$BC$で、元の斜辺$c$ではありません。",
-        "$CD=BC \\sin  A$": "角$CBD$は$A$ではなく$90^{\\circ}-A$です。"
-      }
-    },
-    "math-trig-l-trig-s1e02-03-step-1": {
-      "validator": "exact",
-      "answer": "$BD=BC \\sin  A$",
-      "wrongReasons": {
-        "$BD=BC \\cos  A$": "角$CBD$は$90^{\\circ}-A$です。余角を$A$へ戻すと$\\sin$になります。",
-        "$BD=CD \\sin  A$": "斜辺は$BC$です。$CD$は直角辺で比の分母になりません。"
-      }
-    },
-    "math-trig-l-trig-s1e03-01-step-1": {
-      "validator": "exact",
-      "answer": "高さ/斜めの長さを正弦に対応させる",
-      "wrongReasons": {
-        "斜めの長さ/高さを正弦にする": "正弦は直角三角形では1以下です。斜辺を分母に置きます。",
-        "$0.9966^{\\circ}$と答える": "0.9966は比であり、角度ではありません。"
-      }
-    },
-    "math-trig-l-trig-s1e04-01-step-1": {
-      "validator": "exact",
-      "answer": "鋭角なので正の根",
-      "wrongReasons": {
-        "$\\pm 2\\sqrt{2}/3$": "鋭角の正弦は正です。",
-        "$8/9$": "$8/9$は$\\sin$の二乗です。平方根へ戻します。"
-      }
-    },
-    "math-trig-l-trig-s1e04-02-step-1": {
-      "validator": "exact",
-      "answer": "$\\tan  A=\\sin  A/\\cos  A$",
-      "wrongReasons": {
-        "$\\tan  A=\\cos  A/\\sin  A$": "正接の定義の比が逆です。",
-        "$\\tan  A=\\sin  A\\cdot \\cos  A$": "割り算の恒等式を掛け算に変えています。"
-      }
-    },
-    "math-trig-l-trig-s1e04-03-step-1": {
-      "validator": "exact",
-      "answer": "$\\cos (90^{\\circ}-A)=\\sin  A$",
-      "wrongReasons": {
-        "$\\cos (90^{\\circ}-A)=\\cos  A$": "余角では種類が入れ替わります。",
-        "$\\cos (90^{\\circ}-A)=-\\sin  A$": "補角と混同しています。"
-      }
-    },
-    "math-trig-l-trig-s1e04-04-step-1": {
-      "validator": "exact",
-      "answer": "$\\tan (90^{\\circ}-A)=1/\\tan  A$",
-      "wrongReasons": {
-        "$\\tan (90^{\\circ}-A)=-\\tan  A$": "これは補角の関係です。",
-        "$\\tan (90^{\\circ}-A)=\\tan  A$": "正接は余角で逆数です。"
-      }
-    },
-    "math-trig-c06-step-1": {
-      "validator": "exact",
-      "answer": "負",
-      "wrongReasons": {
-        "正": "$\\cos$は符号付き$x/r$です。",
-        "常に0": "$x=0$になるのは上端の$90^{\\circ}$だけです。"
-      }
-    },
-    "math-trig-c06-step-2": {
-      "validator": "exact",
-      "answer": "分母$x$が0になるため",
-      "wrongReasons": {
-        "$\\sin$が0だから": "$90^{\\circ}$では$\\sin =1$です。",
-        "値が大きいから禁止する": "大きさではなく0除算という定義上の問題です。"
-      }
-    },
-    "math-trig-l-trig-q10-01-step-1": {
-      "validator": "exact",
-      "answer": "$\\cos$は$x/r$なので負",
-      "wrongReasons": {
-        "$\\cos$は長さ$/r$なので正": "拡張後は符号付き座標$x$を使います。",
-        "$\\sin$も負になる": "上半円では$y$は正です。"
-      }
-    },
-    "math-trig-l-trig-q10-02-step-1": {
-      "validator": "exact",
-      "answer": "$\\tan$は正/負なので負",
-      "wrongReasons": {
-        "$\\tan =1/\\sqrt{3}$": "$x$座標の負号を落としています。",
-        "$\\tan =-\\sqrt{3}$": "正接は$y/x$で、$x/y$ではありません。"
-      }
-    },
-    "math-trig-c07-step-1": {
-      "validator": "exact",
-      "answer": "$x$の符号だけが変わる",
-      "wrongReasons": {
-        "$y$の符号だけが変わる": "それは$x$軸に関する反射です。",
-        "$x,y$両方の符号が変わる": "それは原点対称で、上半円の左右反射とは異なります。"
-      }
-    },
-    "math-trig-l-trig-q11-01-step-1": {
-      "validator": "exact",
-      "answer": "補角で$\\sin$は同じ",
-      "wrongReasons": {
-        "$-\\sin 25^{\\circ}$": "上半円で$y$座標は同じです。",
-        "$\\cos 25^{\\circ}$": "補角では$\\sin$と$\\cos$を入れ替えません。"
-      }
-    },
-    "math-trig-l-trig-q11-02-step-1": {
-      "validator": "exact",
-      "answer": "$\\cos$は補角で符号が反転",
-      "wrongReasons": {
-        "$\\cos 36^{\\circ}$": "左右反射で$x$座標は反対符号です。",
-        "$-\\sin 36^{\\circ}$": "余角ではなく補角です。"
-      }
-    },
-    "math-trig-l-trig-q11-03-step-1": {
-      "validator": "exact",
-      "answer": "$\\tan (180^{\\circ}-\\theta )=-\\tan \\theta$",
-      "wrongReasons": {
-        "$1/\\tan 8^{\\circ}$": "余角の逆数関係を使っています。",
-        "$\\tan 8^{\\circ}$": "第二象限では正接は負です。"
-      }
-    },
-    "math-trig-l-trig-q11-04-step-1": {
-      "validator": "exact",
-      "answer": "$\\sin 75^{\\circ}$は条件を満たす",
-      "wrongReasons": {
-        "$-\\sin 75^{\\circ}$": "上半円の正弦の符号を保ちます。",
-        "$\\sin 105^{\\circ}$のまま": "鋭角で表すという設問の条件を満たしていません。"
-      }
-    },
-    "math-trig-l-trig-q12-01-step-1": {
-      "validator": "exact",
-      "answer": "正と負の両方を残す",
-      "wrongReasons": {
-        "必ず正": "範囲は鈍角も含みます。",
-        "必ず負": "鋭角も条件を満たします。"
-      }
-    },
-    "math-trig-l-trig-q12-01-step-2": {
-      "validator": "exact",
-      "answer": "$\\cos$と$\\tan$の符号を同じ場合として対にする",
-      "wrongReasons": {
-        "$\\cos ,\\tan$の±を独立に選ぶ": "$\\tan =\\sin /\\cos$で$\\sin$は正なので、$\\cos$と$\\tan$の符号は連動します。",
-        "$\\cos$は常に正とする": "範囲には鈍角も含みます。$\\sin$の値だけでは一方に限定できません。"
-      }
-    },
-    "math-trig-l-trig-q13-01-step-1": {
-      "validator": "exact",
-      "answer": "正接が負なので鈍角、$\\cos \\theta <0$",
-      "wrongReasons": {
-        "$\\cos \\theta =+\\sqrt{10}/10$": "指定範囲で正接が負になるのは鈍角側です。",
-        "$\\sin \\theta <0$": "上半円では$\\sin \\theta \\ge 0$です。"
-      }
-    },
-    "math-trig-l-trig-q13-01-step-2": {
-      "validator": "exact",
-      "answer": "正の値になる",
-      "wrongReasons": {
-        "負の値になる": "$\\tan$も$\\cos$も負なので積は正です。",
-        "符号は不定": "二つの符号はすでに決まっています。"
-      }
-    },
-    "math-trig-c17-step-1": {
-      "validator": "exact",
-      "answer": "$30^{\\circ}$と$150^{\\circ}$",
-      "wrongReasons": {
-        "$30^{\\circ}$だけ": "上半円の反対側の同じ高さも解です。",
-        "$30^{\\circ}$と$330^{\\circ}$": "$330^{\\circ}$は指定範囲外です。"
-      }
-    },
-    "math-trig-c17-step-2": {
-      "validator": "exact",
-      "answer": "元の式では$\\sin \\ge 0$から$\\cos \\le 0$",
-      "wrongReasons": {
-        "$45^{\\circ}$は特別角でないから": "$45^{\\circ}$は特別角ですが元の符号条件に合いません。",
-        "二乗方程式を満たさないから": "$45^{\\circ}$は二乗後の式は満たします。元式の確認が必要です。"
-      }
-    },
-    "math-trig-c17-step-3": {
-      "validator": "exact",
-      "answer": "$\\cos$と$\\tan$は同符号",
-      "wrongReasons": {
-        "正負を独立に選ぶ": "$\\tan =\\sin /\\cos$により同じ$\\cos$の枝を使います。",
-        "常に反対符号": "分子$\\sin$が正なので$\\cos$と商の符号は同じです。"
-      }
-    },
-    "math-trig-l-trig-q14-01-step-1": {
-      "validator": "exact",
-      "answer": "$60^{\\circ}$とその補角$120^{\\circ}$の二つ",
-      "wrongReasons": {
-        "$60^{\\circ}$だけ": "正弦は上半円の左右で同じ値を取ることがあります。",
-        "$60^{\\circ}$と$240^{\\circ}$": "$240^{\\circ}$は指定範囲外です。"
-      }
-    },
-    "math-trig-l-trig-q14-02-step-1": {
-      "validator": "exact",
-      "answer": "負の$x$なので鈍角側",
-      "wrongReasons": {
-        "$45^{\\circ}$": "$45^{\\circ}$の余弦は正です。",
-        "$135^{\\circ}$と$225^{\\circ}$": "$225^{\\circ}$は上半円の指定範囲外です。"
-      }
-    },
-    "math-trig-l-trig-q14-03-step-1": {
-      "validator": "exact",
-      "answer": "$30^{\\circ}$と$150^{\\circ}$",
-      "wrongReasons": {
-        "$30^{\\circ}$だけ": "上半円の同じ高さの左右二点を確認します。",
-        "$150^{\\circ}$だけ": "鋭角の解も指定範囲に含みます。"
-      }
-    },
-    "math-trig-l-trig-q14-04-step-1": {
-      "validator": "exact",
-      "answer": "余弦が正なので鋭角側",
-      "wrongReasons": {
-        "$150^{\\circ}$": "$150^{\\circ}$の余弦は負です。",
-        "$30^{\\circ}$と$150^{\\circ}$": "正弦の二解関係を余弦へそのまま移しています。"
-      }
-    },
-    "math-trig-l-trig-q15-01-step-1": {
-      "validator": "exact",
-      "answer": "正接が正なので鋭角側",
-      "wrongReasons": {
-        "$135^{\\circ}$": "$135^{\\circ}$では$x<0,y>0$なので正接は負です。",
-        "$45^{\\circ}$と$135^{\\circ}$": "正弦の対称性とは異なり、正接は補角で符号が変わります。"
-      }
-    },
-    "math-trig-l-trig-q15-02-step-1": {
-      "validator": "exact",
-      "answer": "負の正接なので鈍角側",
-      "wrongReasons": {
-        "$30^{\\circ}$": "$30^{\\circ}$では正接が正です。",
-        "$-30^{\\circ}$": "指定範囲は$0^{\\circ}$〜$180^{\\circ}$です。"
-      }
-    },
-    "math-trig-c08-step-1": {
-      "validator": "exact",
-      "answer": "$135^{\\circ}$",
-      "wrongReasons": {
-        "$-45^{\\circ}$": "今回の角域は$0^{\\circ}$〜$180^{\\circ}$未満です。",
-        "$45^{\\circ}$": "$45^{\\circ}$の直線の傾きは正です。"
-      }
-    },
-    "math-trig-l-trig-q16-01-step-1": {
-      "validator": "exact",
-      "answer": "傾き$=\\tan \\theta$",
-      "wrongReasons": {
-        "傾き$=\\sin \\theta$": "傾きの分母は水平距離$x$で、斜辺ではありません。",
-        "傾き$=\\cos \\theta$": "余弦は$x/r$です。"
-      }
-    },
-    "math-trig-l-trig-q16-02-step-1": {
-      "validator": "exact",
-      "answer": "指定角域内の$135^{\\circ}$",
-      "wrongReasons": {
-        "$-45^{\\circ}$": "同じ直線でも設問の測り方では負の角を用いません。",
-        "$45^{\\circ}$": "正の傾きの直線になってしまいます。"
-      }
-    },
-    "math-trig-l-trig-s2e01-01-step-1": {
-      "validator": "exact",
-      "answer": "$A+B=180^{\\circ}-C$",
-      "wrongReasons": {
-        "$A+B=90^{\\circ}-C$": "直角三角形という条件はありません。",
-        "$A+B=C$": "一般の三角形の内角和と一致しません。"
-      }
-    },
-    "math-trig-l-trig-s2e01-02-step-1": {
-      "validator": "exact",
-      "answer": "補角の余弦には負号",
-      "wrongReasons": {
-        "$\\cos  C$": "余弦は上半円の左右反射で$x$座標の符号が変わります。",
-        "$-\\sin  C$": "補角は三角比の種類を変えません。"
-      }
-    },
-    "math-trig-l-trig-s2e02-01-step-1": {
-      "validator": "exact",
-      "answer": "上半円なので$\\sin$は正",
-      "wrongReasons": {
-        "$\\sin \\theta =-\\sqrt{5}/3$": "鈍角の正弦は負ではありません。",
-        "$\\sin \\theta =\\pm \\sqrt{5}/3$": "指定角域で符号を確定できます。"
-      }
-    },
-    "math-trig-l-trig-s2e03-01-step-1": {
-      "validator": "exact",
-      "answer": "平方根で正負の二つを残す",
-      "wrongReasons": {
-        "$\\cos \\theta =\\sqrt{3}/2$だけ": "二乗の条件だけでは余弦の符号は決まりません。",
-        "$\\cos \\theta =3/4$": "$\\cos ^2$から$\\cos$へ戻すには平方根が必要です。"
-      }
-    },
-    "math-trig-l-trig-s2e04-01-step-1": {
-      "validator": "exact",
-      "answer": "二乗する前の符号条件$\\cos \\theta \\le 0$を保つ",
-      "wrongReasons": {
-        "二乗後だけから$45^{\\circ}$と$135^{\\circ}$を採用": "二乗により元の式にない解が増える場合があります。",
-        "$\\sin \\theta \\le 0$とする": "上半円の正弦は非負です。"
-      }
-    },
-    "math-trig-l-trig-s2e05-01-step-1": {
-      "validator": "exact",
-      "answer": "同じ基準からの傾き角の差",
-      "wrongReasons": {
-        "$135^{\\circ}+60^{\\circ}=195^{\\circ}$": "同じ基準から測った二方向の間は差を取ります。",
-        "$180^{\\circ}-75^{\\circ}=105^{\\circ}$": "$105^{\\circ}$は指定された$0^{\\circ}$〜$90^{\\circ}$の範囲外です。"
-      }
-    },
-    "math-trig-c09-step-1": {
-      "validator": "exact",
-      "answer": "$360^{\\circ}$",
-      "wrongReasons": {
-        "$180^{\\circ}$": "二つの弧は円一周です。",
-        "$90^{\\circ}$": "直角三角形という条件はありません。"
-      }
-    },
-    "math-trig-c10-step-1": {
-      "validator": "exact",
-      "answer": "$2R$",
-      "wrongReasons": {
-        "$R$": "直角三角形の斜辺に使うのは直径です。",
-        "$R/2$": "半径をさらに半分にする根拠はありません。"
-      }
-    },
-    "math-trig-c10-step-2": {
-      "validator": "exact",
-      "answer": "$A+B<180^{\\circ}$に反するため除く",
-      "wrongReasons": {
-        "$\\sin$の値が合うので採用する": "残る角$C$が正になりません。",
-        "常に$\\sin$の逆は鋭角だけとする": "条件がなければ鈍角の候補も残すべきです。"
-      }
-    },
-    "math-trig-l-trig-q17-01-step-1": {
-      "validator": "exact",
-      "answer": "二つの円周角は互いに補う弧を見込む",
-      "wrongReasons": {
-        "二つは同じ弧を見込む": "$A$と$C$が反対側にあるため、見込む弧は異なります。",
-        "中心角の和が$180^{\\circ}$": "二つの弧は円一周です。中心角の和は$360^{\\circ}$です。"
-      }
-    },
-    "math-trig-l-trig-q17-01-step-2": {
-      "validator": "exact",
-      "answer": "$1/2$倍",
-      "wrongReasons": {
-        "2倍": "円周角は中心角の半分です。",
-        "同じ大きさ": "頂点が円周にある角と中心にある角を区別します。"
-      }
-    },
-    "math-trig-l-trig-q18-01-step-1": {
-      "validator": "exact",
-      "answer": "$c/\\sin  C=2R$",
-      "wrongReasons": {
-        "$c/\\sin  C=R$": "正弦定理の比は直径$2R$です。",
-        "$c/\\cos  C=2R$": "対辺と対角の正弦を対応させます。"
-      }
-    },
-    "math-trig-l-trig-q18-02-step-1": {
-      "validator": "exact",
-      "answer": "$45^{\\circ}$と$135^{\\circ}$を残す",
-      "wrongReasons": {
-        "$45^{\\circ}$だけ": "半径と一辺だけでは鋭角・鈍角を決め切れません。",
-        "$135^{\\circ}$だけ": "鋭角も同じ正弦を持ち、排除する条件はありません。"
-      }
-    },
-    "math-trig-l-trig-q19-01-step-1": {
-      "validator": "exact",
-      "answer": "先に$b$の対角$B$を求める",
-      "wrongReasons": {
-        "$b$を角$75^{\\circ}$と組にする": "辺$b$は$B$の対辺であり、$A$とは組みません。",
-        "$c=6\\sin 60^{\\circ}$": "分母の$\\sin B$が必要です。辺6は直径$2R$ではありません。"
-      }
-    },
-    "math-trig-l-trig-q19-02-step-1": {
-      "validator": "exact",
-      "answer": "$\\sin B=b\\sin A/a$",
-      "wrongReasons": {
-        "$\\sin B=a\\sin A/b$": "比例式の移項で比を逆にしないようにします。",
-        "$\\sin B=b\\cos A/a$": "正弦定理は$\\sin$を用います。"
-      }
-    },
-    "math-trig-l-trig-q19-02-step-2": {
-      "validator": "exact",
-      "answer": "三角形の内角和で$150^{\\circ}$を除く",
-      "wrongReasons": {
-        "$30^{\\circ}$と$150^{\\circ}$を両方残す": "$135^{\\circ}+150^{\\circ}$は$180^{\\circ}$を超え三角形になりません。",
-        "$\\sin B=1/2$だから常に$30^{\\circ}$のみ": "今回は内角和が必要です。正弦だけでは二つの候補があります。"
-      }
-    },
-    "math-trig-c11-step-1": {
-      "validator": "exact",
-      "answer": "$B$",
-      "wrongReasons": {
-        "$A$": "$A$の対辺は$a$です。",
-        "$C$": "$C$の対辺は$c$です。"
-      }
-    },
-    "math-trig-c11-step-2": {
-      "validator": "exact",
-      "answer": "$\\cos 90^{\\circ}=0$により消える",
-      "wrongReasons": {
-        "$\\sin 90^{\\circ}=1$なので残る": "交差項には$\\sin$ではなく$\\cos$が入ります。",
-        "符号が逆になる": "0になるので正負の項は残りません。"
-      }
-    },
-    "math-trig-l-trig-q20-01-step-1": {
-      "validator": "exact",
-      "answer": "求める辺$b$の対角$B$を使う余弦定理",
-      "wrongReasons": {
-        "$b^2=a^2+c^2$": "$B$は$90^{\\circ}$ではないので三平方だけでは足りません。",
-        "$b^2=a^2+c^2-2ac \\sin B$": "余弦定理では挟角の$\\cos$を用います。"
-      }
-    },
-    "math-trig-l-trig-q21-01-step-1": {
-      "validator": "exact",
-      "answer": "対辺$a$の二乗を引く",
-      "wrongReasons": {
-        "$\\cos A=(a^2+b^2-c^2)/(2ab)$": "これは角$C$を求める形です。",
-        "$\\cos A=(b^2+c^2-a^2)/(bc)$": "係数2が欠けています。"
-      }
-    },
-    "math-trig-l-trig-q21-02-step-1": {
-      "validator": "exact",
-      "answer": "負の余弦なので$135^{\\circ}$",
-      "wrongReasons": {
-        "$45^{\\circ}$": "$45^{\\circ}$の余弦は正です。",
-        "$-45^{\\circ}$": "三角形の内角は$0^{\\circ}$〜$180^{\\circ}$です。"
-      }
-    },
-    "math-trig-c12-step-1": {
-      "validator": "exact",
-      "answer": "最長辺に対する最大角",
-      "wrongReasons": {
-        "どれか一つの角": "一つが鋭角でも他の角が鈍角かもしれません。",
-        "最短辺に対する最小角": "最小角は常に鋭角なので全体の判定になりません。"
-      }
-    },
-    "math-trig-l-trig-q22-01-step-1": {
-      "validator": "exact",
-      "answer": "$b^2+c^2<a^2$なので$A$は鈍角",
-      "wrongReasons": {
-        "$A$は鋭角": "対辺$a$が直角の場合より長く、余弦は負です。",
-        "$A$は直角": "等号ではなく不等号です。"
-      }
-    },
-    "math-trig-l-trig-q22-02-step-1": {
-      "validator": "exact",
-      "answer": "指定角$A$の$\\cos$の符号で判定",
-      "wrongReasons": {
-        "三角形全体が必ず鋭角三角形": "今の比較で分かるのはまず$A$です。全体の分類には最大角を見ます。",
-        "$A$は鈍角": "$b^2+c^2-a^2$は正です。"
-      }
-    },
-    "math-trig-l-trig-q23-01-step-1": {
-      "validator": "exact",
-      "answer": "最長辺$c$に対する最大角$C$を判定する",
-      "wrongReasons": {
-        "任意の角$A$だけを判定する": "$A$が鋭角でも別の角が鈍角かもしれません。",
-        "三辺の和と比較する": "角の分類には余弦定理由来の二乗比較を使います。"
-      }
-    },
-    "math-trig-l-trig-q24-01-step-1": {
-      "validator": "exact",
-      "answer": "$B=180^\\circ-45^\\circ-75^\\circ$",
-      "wrongReasons": {
-        "$B=45^\\circ+75^\\circ$": "三角形の三内角の和は$180^{\\circ}$です。",
-        "$B=90^\\circ-75^\\circ$": "直角三角形ではありません。"
-      }
-    },
-    "math-trig-l-trig-q24-01-step-2": {
-      "validator": "exact",
-      "answer": "辺$b$の対角$B=60^{\\circ}$",
-      "wrongReasons": {
-        "角$C=75^{\\circ}$の$\\cos$を未導入の既知値として使う": "$75^{\\circ}$の値の導出なしで既習表の値として扱いません。",
-        "角$A=45^{\\circ}$で$b^2=a^2+c^2-2ac \\cos A$とする": "その式の対辺は$b$なので角は$B$です。"
-      }
-    },
-    "math-trig-l-trig-q24-01-step-3": {
-      "validator": "exact",
-      "answer": "辺$c$は正なので正の根を選ぶ",
-      "wrongReasons": {
-        "二次方程式の二根をどちらも辺とする": "負の長さは三角形の辺になりません。",
-        "$c=(\\sqrt{6}-3\\sqrt{2})/2$": "$\\sqrt{6}<3\\sqrt{2}$なのでこの値は負です。"
-      }
-    },
-    "math-trig-l-trig-q24-02-step-1": {
-      "validator": "exact",
-      "answer": "余弦定理で$c^2$を求める",
-      "wrongReasons": {
-        "正弦定理だけで$A$を一つに決める": "既知の対辺対角の組がまだありません。",
-        "三平方で$c^2=a^2+b^2$とする": "$C$は$45^{\\circ}$で直角ではありません。"
-      }
-    },
-    "math-trig-l-trig-q24-02-step-2": {
-      "validator": "exact",
-      "answer": "角$A$は余弦$-1/2$より$120^{\\circ}$",
-      "wrongReasons": {
-        "角$A=60^{\\circ}$": "$\\cos 60^{\\circ}$は$+1/2$です。",
-        "$\\sin$から$30^{\\circ}$を選ぶ": "ここで求めたのは余弦です。関数を取り違えています。"
-      }
-    },
-    "math-trig-c18-step-1": {
-      "validator": "exact",
-      "answer": "$a=b$の二等辺三角形、または$C=90^{\\circ}$の直角三角形",
-      "wrongReasons": {
-        "$a=b$かつ$C=90^{\\circ}$を同時に満たす三角形だけ": "積が0となるには一方の因子が0なら足ります。両方を同時に要求すると有効な場合を落とします。",
-        "$a=b$の二等辺三角形だけ": "第二因子が0となる$c^2=a^2+b^2$の枝も排除できないため、直角三角形も残します。"
-      }
-    },
-    "math-trig-l-trig-rsh01-01-step-1": {
-      "validator": "exact",
-      "answer": "積が0なので因子ごとに場合分け",
-      "wrongReasons": {
-        "$a^2-b^2$で割って$C=90^{\\circ}$だけ得る": "$a=b$の場合に0で割ってしまい二等辺の解を失います。",
-        "両因子が必ず同時に0": "積が0で必要なのは少なくとも一方が0であることです。"
-      }
-    },
-    "math-trig-l-trig-rsh01-01-step-2": {
-      "validator": "exact",
-      "answer": "二等辺または$C=90^{\\circ}$",
-      "wrongReasons": {
-        "必ず正三角形": "$a=b$だけでは第三辺まで等しいとは限りません。",
-        "$A=90^{\\circ}$だけ": "三平方の左辺$a^2+b^2$に対する斜辺は$c$です。"
-      }
-    },
-    "math-trig-l-trig-rsh02-01-step-1": {
-      "validator": "exact",
-      "answer": "共通の外接半径で正弦を辺に置き換える",
-      "wrongReasons": {
-        "$\\sin ^2A=a^2$と置く": "比例係数$2R$を省くには、全項を共通因子で処理する説明が必要です。",
-        "$\\sin ^2A+\\sin ^2B=\\sin ^2(A+B)$": "正弦は一般にそのように二乗を分配できません。"
-      }
-    },
-    "math-trig-l-trig-rsh02-01-step-2": {
-      "validator": "exact",
-      "answer": "$C$",
-      "wrongReasons": {
-        "$A$": "$c$の対角は$C$です。",
-        "$B$": "$c^2$が単独になっている辺が斜辺です。"
-      }
-    },
-    "math-trig-l-trig-s3e01-01-step-1": {
-      "validator": "exact",
-      "answer": "$AC=\\sqrt{3^2+6^2}$",
-      "wrongReasons": {
-        "$AC=3+6$": "直角辺は同一直線上でなく、三平方で合成します。",
-        "$AC=6-3$": "長さの差を取る根拠はありません。"
-      }
-    },
-    "math-trig-l-trig-s3e01-01-step-2": {
-      "validator": "exact",
-      "answer": "鈍角$C$は補角だが$\\sin$は等しい",
-      "wrongReasons": {
-        "$\\sin \\angle ACB=-2/\\sqrt{5}$": "補角で$\\sin$の符号は変わりません。",
-        "$\\angle ACB=\\theta$": "$C$から見た$CB$と$CH$は反対向きです。"
-      }
-    },
-    "math-trig-l-trig-s3e01-02-step-1": {
-      "validator": "exact",
-      "answer": "9",
-      "wrongReasons": {
-        "3": "$BH=BC+CH$です。",
-        "6": "$BH$と$BC$は異なり、$CH=3$も加えます。"
-      }
-    },
-    "math-trig-l-trig-s3e01-02-step-2": {
-      "validator": "exact",
-      "answer": "辺$AB$は角$C$の対辺として組にする",
-      "wrongReasons": {
-        "辺$AC$を角$C$と組にする": "$AC$は角$B$の対辺です。",
-        "$R=AB/\\sin C$": "この比は半径でなく直径$2R$です。"
-      }
-    },
-    "math-trig-l-trig-s3e01-03-step-1": {
-      "validator": "exact",
-      "answer": "$\\sin A=BC/(2R)$",
-      "wrongReasons": {
-        "$\\sin A=2R/BC$": "比が逆で1を超える値になってしまいます。",
-        "$\\sin A=AC/(2R)$": "$A$の対辺は$BC$です。"
-      }
-    },
-    "math-trig-l-trig-s3e02-01-step-1": {
-      "validator": "exact",
-      "answer": "対辺$b^2$を引く",
-      "wrongReasons": {
-        "対辺$a^2$を引く": "対象角は$B$なので引く二乗は$b^2$です。",
-        "分母を$2ab$とする": "角$B$に接する二辺$c,a$を分母に置きます。"
-      }
-    },
-    "math-trig-l-trig-s3e02-02-step-1": {
-      "validator": "exact",
-      "answer": "小三角形で同じ角$B$と$BM=4$を使う",
-      "wrongReasons": {
-        "$\\triangle ABM$でも$BM=8$とする": "$M$は$BC$の中点なので辺の長さを更新します。",
-        "$\\angle ABM=180^{\\circ}-B$": "$BM$と$BC$は同じ向きの半直線です。"
-      }
-    },
-    "math-trig-l-trig-s3e03-01-step-1": {
-      "validator": "exact",
-      "answer": "三辺から先に余弦定理で角を得る",
-      "wrongReasons": {
-        "正弦定理だけで$a/\\sin A=2R$を解く": "$A$も$R$も未知で一本の式では決まりません。",
-        "最短辺$c$の対角$C$を$135^{\\circ}$とする": "長い辺ほど大きな角に対するため最短辺の角は最小です。"
-      }
-    },
-    "math-trig-l-trig-s3e03-01-step-2": {
-      "validator": "exact",
-      "answer": "$R=a/(2\\sin A)$",
-      "wrongReasons": {
-        "$R=a/\\sin A$": "この比は直径$2R$です。",
-        "$R=a/(2\\cos A)$": "外接円に結び付くのは正弦定理です。"
-      }
-    },
-    "math-trig-l-trig-s3e04-01-step-1": {
-      "validator": "exact",
-      "answer": "$b=2\\sin30^\\circ/\\sin45^\\circ$",
-      "wrongReasons": {
-        "$b=2\\sin45^\\circ/\\sin30^\\circ$": "比例式の比が逆です。",
-        "$b=2\\cos30^\\circ$": "直角三角形でなく、その余弦の比を使う根拠はありません。"
-      }
-    },
-    "math-trig-l-trig-s3e04-01-step-2": {
-      "validator": "exact",
-      "answer": "既知角$45^{\\circ}$を使って残辺$c$の二次式を作る",
-      "wrongReasons": {
-        "$\\cos 105^{\\circ}$を既習の特別値として無説明で使う": "この段階の特別角表には$105^{\\circ}$はありません。既知$45^{\\circ}$ならその表で完結できます。",
-        "$c=1-\\sqrt{3}$を採る": "負の長さを除きます。"
-      }
-    },
-    "math-trig-l-trig-s3e05-01-step-1": {
-      "validator": "exact",
-      "answer": "正弦の比は対応する辺の比",
-      "wrongReasons": {
-        "$a:b:c=1/5:1/3:1/7$": "等式の分母をそのまま辺の比へ読むと5:3:7です。",
-        "$\\sin C$が最大だから必ず$C$が最大とだけ言う": "$0^{\\circ}$〜$180^{\\circ}$全体で$\\sin$は単調ではありません。辺長の大小と対角の大小で説明します。"
-      }
-    },
-    "math-trig-l-trig-s3e05-01-step-2": {
-      "validator": "exact",
-      "answer": "余弦定理の分子分母の$k^2$を約す",
-      "wrongReasons": {
-        "$k=0$とする": "三辺は正なので$k>0$です。",
-        "$\\sin C$が最大だから角$C$が最大とだけ判断する": "$\\sin$は$0^{\\circ}$〜$180^{\\circ}$で単調ではありません。まず辺長の大小で$C$を選びます。"
-      }
-    },
-    "math-trig-c13-step-1": {
-      "validator": "exact",
-      "answer": "$S=\\frac12ca\\sin B$",
-      "wrongReasons": {
-        "$S=\\frac12ca\\sin A$": "$A$は二辺$c,a$の挟角ではありません。",
-        "$S=ca\\sin B$": "三角形の係数$1/2$が欠けています。"
-      }
-    },
-    "math-trig-l-trig-q25-01-step-1": {
-      "validator": "exact",
-      "answer": "$S=(1/2)ca \\sin B$",
-      "wrongReasons": {
-        "$S=(1/2)ca \\sin A$": "$A$はこの二辺の挟角ではありません。",
-        "$S=ca \\sin B$": "三角形の面積には係数$1/2$が必要です。"
-      }
-    },
-    "math-trig-l-trig-q25-02-step-1": {
-      "validator": "exact",
-      "answer": "鈍角でも$\\sin C>0$で面積は正",
-      "wrongReasons": {
-        "鈍角なので面積を負にする": "面積は非負で、$0^{\\circ}<C<180^{\\circ}$では正弦は正です。",
-        "$\\cos 135^{\\circ}$を使う": "高さに対応するのは正弦です。"
-      }
-    },
-    "math-trig-l-trig-q26-01-step-1": {
-      "validator": "exact",
-      "answer": "余弦定理で$\\cos C$",
-      "wrongReasons": {
-        "$a$と$b$をそのまま底辺高さとする": "$a$と$b$が垂直という条件はありません。",
-        "$S=ab/2$とする": "$\\sin C$が欠けています。"
-      }
-    },
-    "math-trig-l-trig-q26-01-step-2": {
-      "validator": "exact",
-      "answer": "角$C$の正弦は正の平方根",
-      "wrongReasons": {
-        "$\\sin C=\\pm 4\\sqrt{3}/7$": "三角形の内角は$0^{\\circ}$〜$180^{\\circ}$にあるため正弦は正です。",
-        "$S=(1/2)ab \\cos C$": "余弦は高さの比ではありません。"
-      }
-    },
-    "math-trig-l-trig-q26-01-step-3": {
-      "validator": "exact",
-      "answer": "$a,b$と$\\sin C$",
-      "wrongReasons": {
-        "$a,c$と$\\sin C$": "$C$の挟む二辺は$a,b$です。",
-        "$a,b$と$\\cos C$": "高さに対応するのは$\\sin$です。"
-      }
-    },
-    "math-trig-l-trig-q26-02-step-1": {
-      "validator": "exact",
-      "answer": "まず余弦定理で挟角$C$の$\\cos$を作る",
-      "wrongReasons": {
-        "$a$と$b$を直交する底辺高さとして$S=12$": "直角という条件は与えられていません。",
-        "$c$をそのまま高さとして$S=2\\sqrt{10}$": "$c$は一辺であり底辺への高さとは限りません。"
-      }
-    },
-    "math-trig-l-trig-q26-02-step-2": {
-      "validator": "exact",
-      "answer": "$0^{\\circ}<C<180^{\\circ}$で$\\sin C>0$",
-      "wrongReasons": {
-        "$\\cos C$が正なら$\\sin C$も必ず同値": "正負は分かりますが値が同じにはなりません。",
-        "根号には常に±を付ける": "求める量の範囲を使えば符号が確定します。"
-      }
-    },
-    "math-trig-c14-step-1": {
-      "validator": "exact",
-      "answer": "体積",
-      "wrongReasons": {
-        "底面積": "異なる面は一般に面積が違います。",
-        "高さ": "底面が違えば垂線長も異なります。"
-      }
-    },
-    "math-trig-c14-step-2": {
-      "validator": "exact",
-      "answer": "$OA$は交わる$OB$と$OC$の両方に垂直",
-      "wrongReasons": {
-        "$OA$が$OB$だけに垂直": "平面内の一本だけでは不十分です。",
-        "図で$OA$が縦に見える": "透視図の見た目は垂直の根拠になりません。"
-      }
-    },
-    "math-trig-l-trig-q27-01-step-1": {
-      "validator": "exact",
-      "answer": "等しい斜辺と共通の高さから$AH=BH=CH$を示す",
-      "wrongReasons": {
-        "見た目だけで$H$は重心とする": "垂線の足が底面の中心であることを、与条件から示す必要があります。",
-        "$OA=4$をそのまま高さにする": "$OA$は斜辺で平面$ABC$に垂直という条件はありません。"
-      }
-    },
-    "math-trig-l-trig-q27-01-step-2": {
-      "validator": "exact",
-      "answer": "底面正三角形の外接半径",
-      "wrongReasons": {
-        "内接半径": "頂点から等距離なのは外心です。",
-        "辺$OA=4$": "$AH$は底面内の線分で$OA$とは別です。"
-      }
-    },
-    "math-trig-l-trig-q27-01-step-3": {
-      "validator": "exact",
-      "answer": "$OH=\\sqrt{4^2-(2\\sqrt3)^2}$",
-      "wrongReasons": {
-        "$OH=4-2\\sqrt3$": "直角三角形の斜辺と直角辺は二乗差で結ばれます。",
-        "$OH=4$": "$OA$は斜めの辺で、底面への高さではありません。"
-      }
-    },
-    "math-trig-c15-step-1": {
-      "validator": "exact",
-      "answer": "三つとも内接円の半径$r$になる",
-      "wrongReasons": {
-        "三つとも外接円の半径$R$になる": "$R$は外接円の半径です。",
-        "$a,b,c$と異なる": "$a,b,c$は底辺であり中心から辺への距離ではありません。"
-      }
-    },
-    "math-trig-c16-step-1": {
-      "validator": "exact",
-      "answer": "9",
-      "wrongReasons": {
-        "18": "18は周長です。$s$はその半分です。",
-        "6": "三辺の平均ではありません。"
-      }
-    },
-    "math-trig-c16-step-2": {
+    "math-trig-c04-r2-sign": {
       "validator": "exact",
       "answer": "正の平方根",
       "wrongReasons": {
-        "±を両方採る": "$S$は非退化三角形の面積なので正です。",
-        "負の平方根": "面積の条件に反します。"
+        "負の平方根": "鋭角では対辺も斜辺も正なので正弦は正。",
+        "正負の両方": "二乗式だけでなく、Aが鋭角という条件も満たす必要がある。"
       }
     },
-    "math-trig-l-trig-rhe01-01-step-1": {
+    "math-trig-l-trig-q07-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$s$は辺の和の半分",
+      "answer": "$\\sqrt5/3$",
       "wrongReasons": {
-        "$s=18$": "$s$は周長ではなく半周長として定義されています。",
-        "$s=(a+b-c)/2$": "半周長には三辺をすべて加えます。"
+        "$-\\sqrt5/3$": "鋭角の正弦は正。",
+        "$5/9$": "これは正弦の二乗。"
       }
     },
-    "math-trig-l-trig-rin01-01-step-1": {
+    "math-trig-l-trig-q07-01-r2-node-2": {
       "validator": "exact",
-      "answer": "三つの小三角形の高さはいずれも内接円の半径$r$",
+      "answer": "$\\sqrt5/2$",
       "wrongReasons": {
-        "三つの小三角形の高さはいずれも外接円の半径$R$": "内接円は三辺に接する円で、外接円の半径とは異なります。",
-        "$S=(a+b+c)r$": "各小三角形の面積の係数$1/2$が抜けています。"
+        "$2/\\sqrt5$": "正接は正弦を余弦で割る。",
+        "$2\\sqrt5/9$": "正弦と余弦を掛けるのではない。"
       }
     },
-    "math-trig-l-trig-s4e01-01-step-1": {
+    "math-trig-c05-r2-reciprocal": {
       "validator": "exact",
-      "answer": "正弦定理で面積式の$\\sin A$を辺$a$に変える",
+      "answer": "$\\tan(90^\\circ-A)=b/a=1/\\tan A$",
       "wrongReasons": {
-        "$\\sin A=a/R$を使う": "外接半径の2倍が正弦定理の共通比です。",
-        "$S=abc/(2R)$": "二つの係数$1/2$の積を確認します。"
+        "$\\tan(90^\\circ-A)=a/b$": "角を替えると対辺と隣辺が入れ替わる。",
+        "$\\tan(90^\\circ-A)=-a/b$": "どちらも鋭角なので正接は正。"
       }
     },
-    "math-trig-l-trig-s4e01-01-step-2": {
+    "math-trig-c05-r2-tangent": {
       "validator": "exact",
-      "answer": "$4R$",
+      "answer": "$\\tan52^\\circ=1/\\tan38^\\circ$",
       "wrongReasons": {
-        "$2R$": "面積式の$1/2$と$\\sin A=a/(2R)$の2を両方残します。",
-        "$R$": "二つの係数2が失われています。"
+        "$\\tan52^\\circ=\\tan38^\\circ$": "対辺と隣辺の入替えで逆数になる。",
+        "$\\tan52^\\circ=-\\tan38^\\circ$": "負号になるのはこの余角の関係ではない。"
       }
     },
-    "math-trig-l-trig-s4e01-02-step-1": {
+    "math-trig-l-trig-q08-01-r2-node-1": {
       "validator": "exact",
-      "answer": "各辺を同一の$2R$で三つの正弦へ変換",
+      "answer": "$1/\\cos^2 A=1+(4/3)^2$",
       "wrongReasons": {
-        "$a=R\\sin A$等を使う": "正弦定理の共通比は直径$2R$です。",
-        "三つの辺に異なる$R$を置く": "同じ三角形の外接円は一つで共通$R$です。"
+        "$\\cos^2 A=1+(4/3)^2$": "1をcos²Aで割った量が現れる。",
+        "$1/\\cos^2 A=1-(4/3)^2$": "二乗和を割ったので引き算にはならない。"
       }
     },
-    "math-trig-l-trig-s4e01-02-step-2": {
+    "math-trig-l-trig-q08-01-r2-node-2": {
       "validator": "exact",
-      "answer": "$8R^3/(4R)=2R^2$",
+      "answer": "$4/5$",
       "wrongReasons": {
-        "$8R^3/(4R)=2R^3$": "分母の$R$も約分します。",
-        "$8R^3/(4R)=4R^2$": "8÷4は2です。"
+        "$3/5$": "これは余弦。",
+        "$5/4$": "正弦は1より小さい。"
       }
     },
-    "math-trig-l-trig-s4e02-01-step-1": {
+    "math-trig-l-trig-q09-01-r2-node-1": {
       "validator": "exact",
-      "answer": "補角の正弦が等しいので四項に同じ$\\sin \\theta$",
+      "answer": "$\\cos15^\\circ$",
       "wrongReasons": {
-        "四つの角がすべて$\\theta$である": "対角線が直角とは限らず、隣り合う角は通常補角です。",
-        "隣の三角形は負の$\\sin \\theta$にする": "補角の$\\sin$は同じ正の値です。"
+        "$\\sin15^\\circ$": "対辺と隣辺が入れ替わる。",
+        "$-\\cos15^\\circ$": "鋭角どうしなので負にはならない。"
       }
     },
-    "math-trig-l-trig-s4e02-01-step-2": {
+    "math-trig-l-trig-q09-02-r2-node-1": {
       "validator": "exact",
-      "answer": "$(x+y)(u+v)$",
+      "answer": "$\\sin4^\\circ$",
       "wrongReasons": {
-        "$(x-y)(u-v)$": "展開すると負の項が生じ、元の和になりません。",
-        "$(x+u)(y+v)$": "組になるのは同じ対角線の二部分です。"
+        "$\\cos4^\\circ$": "余弦を余角へ移すと正弦になる。",
+        "$-\\sin4^\\circ$": "余角で符号を反転させない。"
       }
     },
-    "math-trig-l-trig-s4e03-01-step-1": {
+    "math-trig-l-trig-q09-03-r2-node-1": {
       "validator": "exact",
-      "answer": "異なる。各面で三平方を使う",
+      "answer": "$1/\\tan38^\\circ$",
       "wrongReasons": {
-        "同じなので三辺2,1,3": "$BDE$の各辺は面の対角線です。",
-        "すべて空間対角線で$\\sqrt{14}$": "各線分はそれぞれ一つの面上にあります。"
+        "$\\tan38^\\circ$": "分子と分母が入れ替わる。",
+        "$-\\tan38^\\circ$": "両方の鋭角の正接は正。"
       }
     },
-    "math-trig-l-trig-s4e03-01-step-2": {
+    "math-trig-l-trig-s1e01-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$D$の向かいは$EB$なので$EB^2$を引く",
+      "answer": "$3x/2$",
       "wrongReasons": {
-        "$BD^2$を引く": "対象の頂点$D$に接しない辺は$EB$です。",
-        "三辺をそのまま2,1,3とする": "$\\triangle BDE$の辺は面の対角線で、直方体の元の三辺とは違います。"
+        "$2x/3$": "隣辺を求めるにはxを正接で割る。",
+        "$5x$": "5xはAからCまで。"
       }
     },
-    "math-trig-l-trig-s4e03-02-step-1": {
+    "math-trig-l-trig-s1e01-01-r2-node-2": {
       "validator": "exact",
-      "answer": "三角形の内角なので正の$\\sin$",
+      "answer": "$5x-3x/2=6$",
       "wrongReasons": {
-        "$\\sin \\angle BDE=-7\\sqrt{2}/10$": "$0^{\\circ}$〜$180^{\\circ}$の内角の正弦は正です。",
-        "$\\sin \\angle BDE=\\sqrt{2}/10$": "(1)は$\\cos$の値であり、$\\sin$とは区別します。"
+        "$5x+3x/2=6$": "ADはACからDCを引いた残り。",
+        "$3x/2=6$": "6はDCではなくAD。"
       }
     },
-    "math-trig-l-trig-s4e03-03-step-1": {
+    "math-trig-l-trig-s1e02-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$AE=3$",
+      "answer": "$BC=c\\sin A$",
       "wrongReasons": {
-        "$AB=2$": "$AB$は底面内の辺です。",
-        "$AD=1$": "$AD$も底面内の辺です。"
+        "$BC=c\\cos A$": "余弦で得られるのは隣辺AC。",
+        "$BC=c/\\sin A$": "BC/cをc倍すればBCが残る。"
       }
     },
-    "math-trig-l-trig-s4e03-03-step-2": {
+    "math-trig-l-trig-s1e02-02-r2-node-1": {
       "validator": "exact",
-      "answer": "同じ四面体の体積を底面を替えて等置する",
+      "answer": "$BC\\sin(90^\\circ-A)$",
       "wrongReasons": {
-        "距離は辺$AE=3$とする": "$AE$は平面$BDE$への垂線ではありません。",
-        "面積だけを等置する": "底面は異なり面積は等しくありません。不変なのは体積です。"
+        "$BC\\cos(90^\\circ-A)$": "余弦は角Bの隣辺BDに対応する。",
+        "$BC\\sin A$": "小さい三角形では角BがAの余角。"
       }
     },
-    "math-trig-l-trig-s4e04-01-step-1": {
+    "math-trig-l-trig-s1e02-03-r2-node-1": {
       "validator": "exact",
-      "answer": "二距離と挟角から余弦定理",
+      "answer": "$BC\\cos(90^\\circ-A)$",
       "wrongReasons": {
-        "$\\sin 60^{\\circ}$で二距離を直接加える": "三角比で個別の高さなどを作る根拠がなく、直接加算できません。",
-        "$AB^2=100^2+60^2$": "$C$は直角でないため交差項が必要です。"
+        "$BC\\sin(90^\\circ-A)$": "この式は対辺CDの長さ。",
+        "$BC\\cos A$": "小さい三角形の角BはAの余角。"
       }
     },
-    "math-trig-c19-step-1": {
+    "math-trig-l-trig-s1e03-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$\\sqrt6-\\sqrt2$",
+      "answer": "$\\sin\\angle BAC=58.2/58.4$",
       "wrongReasons": {
-        "$\\sqrt6+\\sqrt2$": "和の二乗では交差項が$+4\\sqrt{3}$になります。",
-        "$2-\\sqrt3$": "その値は$CH$です。$BC$の二乗は$1+CH^2$です。"
+        "$\\cos\\angle BAC=58.2/58.4$": "BCは角Aに接しない対辺。",
+        "$\\sin\\angle BAC=58.4/58.2$": "対辺を斜辺で割る。逆だと1を超える。"
       }
     },
-    "math-trig-l-trig-ca01-01-step-1": {
+    "math-trig-l-trig-s1e04-01-r2-node-1": {
       "validator": "exact",
-      "answer": "$15^{\\circ}$は$\\angle CBH$として図から作る",
+      "answer": "$2\\sqrt2/3$",
       "wrongReasons": {
-        "最初から$\\tan (45^{\\circ}-30^{\\circ})$の公式を使う": "加法定理はこの章の既習根拠ではありません。図の直角三角形で導きます。",
-        "$\\angle CBH=30^{\\circ}$": "底角$75^{\\circ}$と$\\angle ABH=60^{\\circ}$の差です。"
+        "$-2\\sqrt2/3$": "鋭角では正。",
+        "$8/9$": "それは二乗。"
       }
     },
-    "math-trig-l-trig-ca01-01-step-2": {
+    "math-trig-l-trig-s1e04-02-r2-node-1": {
       "validator": "exact",
-      "answer": "$CH/BH$",
+      "answer": "$2\\sqrt2$",
       "wrongReasons": {
-        "$BH/CH$": "正接は向かい/隣です。",
-        "$CH/BC$": "斜辺で割るのは正弦です。"
+        "$2\\sqrt2/9$": "二つの値を掛けるのではない。",
+        "$1/(2\\sqrt2)$": "余弦を正弦で割ると逆数になる。"
       }
     },
-    "math-trig-l-trig-ca02-01-step-1": {
+    "math-trig-l-trig-s1e04-03-r2-node-1": {
       "validator": "exact",
-      "answer": "平行線の錯角により$\\angle ACB=\\angle CAD$",
+      "answer": "$2\\sqrt2/3$",
       "wrongReasons": {
-        "$\\angle ABC=\\angle ADC$": "一般の台形でこの二角は等しいとは限りません。",
-        "対角線$AC$は平行辺の和の半分": "台形の中点連結線の長さと混同しています。"
+        "$1/3$": "1/3はAの余弦。余角の余弦にはAの正弦を使う。",
+        "$-2\\sqrt2/3$": "余角は鋭角だから余弦は正。"
       }
     },
-    "math-trig-l-trig-ca02-01-step-2": {
+    "math-trig-l-trig-s1e04-04-r2-node-1": {
       "validator": "exact",
-      "answer": "$3(x^2+48)=4(x^2+28)$",
+      "answer": "$\\sqrt2/4$",
       "wrongReasons": {
-        "$4(x^2+48)=3(x^2+28)$": "両辺を$48x$倍すると左は3倍、右は4倍です。",
-        "$x^2+48=x^2+28$": "分母$16x$と$12x$は異なります。分子だけを等置することはできません。"
+        "$2\\sqrt2$": "余角の正接では元の値の逆数を取る。",
+        "$\\sqrt2/2$": "2√2に√2を掛けた分母は4。"
       }
     },
-    "math-trig-l-trig-ca03-01-step-1": {
+    "math-trig-c06-r2-negative": {
       "validator": "exact",
-      "answer": "地面の三角形と鉛直の三角形を区別する",
+      "answer": "どちらも負",
       "wrongReasons": {
-        "$\\angle ABH$を仰角として使う": "$\\angle ABH$は地面上の三角形の角です。仰角は$\\angle PBH$です。",
-        "$AB=6$を水平距離$BH$とする": "$AB$と$BH$は異なる線分です。まず地面の三角形で$BH$を求めます。"
+        "どちらも正": "xが負なのでx/rとy/xはいずれも負。",
+        "余弦だけ負": "正接も正のyを負のxで割るので負。"
       }
     },
-    "math-trig-l-trig-ca03-01-step-2": {
+    "math-trig-c06-r2-zero": {
       "validator": "exact",
-      "answer": "$H$で直角の$\\triangle PBH$",
+      "answer": "分母の横座標が0になるから",
       "wrongReasons": {
-        "地面の$\\triangle ABH$": "地面上の三角形には頂点$P$がありません。",
-        "$\\triangle PAB$を直角と仮定する": "その三角形が直角という条件はありません。"
+        "縦座標が0になるから": "90度の縦座標はrで、正である。",
+        "半径が0になるから": "半径はr>0と定めている。"
       }
     },
-    "math-trig-c20-step-1": {
+    "math-trig-c06-r2-cosvalue": {
       "validator": "exact",
-      "answer": "分けた二角$45^{\\circ}$と$30^{\\circ}$が等しくないため",
+      "answer": "$-1/2$",
       "wrongReasons": {
-        "辺$AC$と$BC$が直角だから": "そのような直角条件はありません。",
-        "面積比は使えないため": "共通の高さがあるので面積比は使えます。"
+        "$1/2$": "横座標は−1であり、符号を保つ。",
+        "$-2$": "余弦はx/rでありr/xではない。"
       }
     },
-    "math-trig-l-trig-cb04-01-step-1": {
+    "math-trig-l-trig-q10-01-r2-node-1": {
       "validator": "exact",
-      "answer": "同じ高さなので底辺比=面積比",
+      "answer": "$-1/\\sqrt2$",
       "wrongReasons": {
-        "$AC/BC=OA/OB$だけとする": "角$AOC$と$BOC$が等しい二等分線ではないため角の$\\sin$も必要です。",
-        "面積比は底辺比の二乗": "高さが共通なので面積は底辺に一次比例します。"
+        "$1/\\sqrt2$": "横座標には絶対値を付けない。",
+        "$-1$": "横座標を半径で割った値が余弦。"
       }
     },
-    "math-trig-l-trig-cb04-01-step-2": {
+    "math-trig-l-trig-q10-01-r2-node-2": {
       "validator": "exact",
-      "answer": "$OC/4$",
+      "answer": "$-1$",
       "wrongReasons": {
-        "$OA/OB$": "$OA,OB$はそれぞれ7と5で異なります。",
-        "$\\sin 45^{\\circ}$と$\\sin 30^{\\circ}$を等しいとして約す": "二つの角は等しくなく正弦も異なります。"
+        "$1$": "横座標xの負号を残す。",
+        "$-1/\\sqrt2$": "これは横座標を半径で割った余弦。"
       }
     },
-    "math-trig-l-trig-cb05-01-step-1": {
+    "math-trig-l-trig-q10-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$-\\sqrt3/2$",
+      "wrongReasons": {
+        "$\\sqrt3/2$": "横座標には絶対値を付けない。",
+        "$1/2$": "横座標を半径で割った値が余弦。"
+      }
+    },
+    "math-trig-l-trig-q10-02-r2-node-2": {
+      "validator": "exact",
+      "answer": "$-1/\\sqrt3$",
+      "wrongReasons": {
+        "$1/\\sqrt3$": "横座標xの負号を残す。",
+        "$-\\sqrt3/2$": "これは横座標を半径で割った余弦。"
+      }
+    },
+    "math-trig-c07-r2-reflection": {
+      "validator": "exact",
+      "answer": "$(-x,y)$",
+      "wrongReasons": {
+        "$(x,-y)$": "y軸の対称では高さは保たれ、横座標の符号が変わる。",
+        "$(-x,-y)$": "縦方向まで反転するのは原点に関する対称である。"
+      }
+    },
+    "math-trig-c07-r2-value": {
+      "validator": "exact",
+      "answer": "$-\\cos36^\\circ$",
+      "wrongReasons": {
+        "$\\cos36^\\circ$": "144度は鈍角なので余弦は負。",
+        "$-\\sin36^\\circ$": "180度から引く関係ではsinとcosを入れ替えない。"
+      }
+    },
+    "math-trig-l-trig-q11-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sin25^\\circ$",
+      "wrongReasons": {
+        "$-\\sin25^\\circ$": "補角では縦座標の符号は変わらない。",
+        "$\\cos25^\\circ$": "補角は余角ではないので正弦が余弦にはならない。"
+      }
+    },
+    "math-trig-l-trig-q11-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$-\\cos36^\\circ$",
+      "wrongReasons": {
+        "$\\cos36^\\circ$": "補角では横座標が反対符号になる。",
+        "$-\\sin36^\\circ$": "余弦は横座標を使い、補角でも正弦へは替えない。"
+      }
+    },
+    "math-trig-l-trig-q11-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$-\\tan8^\\circ$",
+      "wrongReasons": {
+        "$\\tan8^\\circ$": "横座標が負になり正接も負になる。",
+        "$1/\\tan8^\\circ$": "逆数が現れるのは余角の関係。"
+      }
+    },
+    "math-trig-l-trig-q11-04-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sin75^\\circ$",
+      "wrongReasons": {
+        "$-\\sin75^\\circ$": "縦座標は補角でも同じ。",
+        "$\\cos75^\\circ$": "余角と異なり、補角で横と縦を入れ替えない。"
+      }
+    },
+    "math-trig-l-trig-q12-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\pm\\sqrt7/4$",
+      "wrongReasons": {
+        "$\\sqrt7/4$ だけ": "正弦からは横座標が正か負か決まらない。",
+        "$\\pm7/16$": "二乗の値からは平方根を取る。"
+      }
+    },
+    "math-trig-l-trig-q12-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "余弦と同じ",
+      "wrongReasons": {
+        "余弦と反対": "正の分子を負の分母で割ると、商も負。",
+        "どちらも正": "横座標の負の枝で商は負になる。"
+      }
+    },
+    "math-trig-l-trig-q13-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "負",
+      "wrongReasons": {
+        "正": "縦と横が両方正なら商も正。",
+        "0": "横座標が0では正接を定義できない。"
+      }
+    },
+    "math-trig-l-trig-q13-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$-\\sqrt{10}/10$",
+      "wrongReasons": {
+        "$\\sqrt{10}/10$": "鈍角では余弦は負。",
+        "$-1/10$": "1/10は二乗の値。"
+      }
+    },
+    "math-trig-c17-r2-count": {
+      "validator": "exact",
+      "answer": "二つ",
+      "wrongReasons": {
+        "一つ": "水平線は左右対称の二点で上半円と交わる。",
+        "常に三つ": "上半円の左右に一つずつの二点である。"
+      }
+    },
+    "math-trig-c17-r2-sign": {
+      "validator": "exact",
+      "answer": "0以下",
+      "wrongReasons": {
+        "0より大きい": "正弦が0以上なので、その負号付きの相手cosは0以下。",
+        "符号を決められない": "元の式と角域の両方を使えば符号は制限できる。"
+      }
+    },
+    "math-trig-l-trig-q14-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "60°、120°",
+      "wrongReasons": {
+        "60°だけ": "120°も60°と同じ高さを与える。",
+        "30°、150°": "この二つの正弦は1/2。"
+      }
+    },
+    "math-trig-l-trig-q14-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "135°",
+      "wrongReasons": {
+        "45°": "45°の点は半円の右側で余弦は正。",
+        "150°": "150°の余弦は−√3/2で、横座標がもっと小さい。"
+      }
+    },
+    "math-trig-l-trig-q14-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "30°、150°",
+      "wrongReasons": {
+        "30°だけ": "正弦はy軸をはさんだ反対側でも等しい。",
+        "60°、120°": "その高さは√3/2。"
+      }
+    },
+    "math-trig-l-trig-q14-04-r2-node-1": {
+      "validator": "exact",
+      "answer": "30°",
+      "wrongReasons": {
+        "150°": "150°では余弦が負になる。",
+        "60°": "60°の余弦は1/2。"
+      }
+    },
+    "math-trig-l-trig-q15-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "45°",
+      "wrongReasons": {
+        "135°": "135°では横座標が負で正接も負。",
+        "90°": "90°では分母の横座標が0。"
+      }
+    },
+    "math-trig-l-trig-q15-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "150°",
+      "wrongReasons": {
+        "30°": "30°の正接は正。",
+        "120°": "120°の正接は−√3。"
+      }
+    },
+    "math-trig-c08-r2-tangent": {
+      "validator": "exact",
+      "answer": "$\\tan\\theta$",
+      "wrongReasons": {
+        "$\\sin\\theta$": "sinはy/rであり、横座標で割る比ではない。",
+        "$\\cos\\theta$": "cosはx/rである。"
+      }
+    },
+    "math-trig-c08-r2-angle": {
+      "validator": "exact",
+      "answer": "$135^\\circ$",
+      "wrongReasons": {
+        "$45^\\circ$": "45度の正接は正の1である。",
+        "$-45^\\circ$": "負の角は今回の傾き角の約束の範囲外。"
+      }
+    },
+    "math-trig-l-trig-q16-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$30^\\circ$",
+      "wrongReasons": {
+        "$60^\\circ$": "60°の正接は√3。",
+        "$150^\\circ$": "150°では正接が負。"
+      }
+    },
+    "math-trig-l-trig-q16-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$135^\\circ$",
+      "wrongReasons": {
+        "$45^\\circ$": "45°の正接は正。",
+        "$90^\\circ$": "90°では直線の傾きは定義されない。"
+      }
+    },
+    "math-trig-l-trig-s2e01-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$180^\\circ-C$",
+      "wrongReasons": {
+        "$90^\\circ-C$": "三角形の内角の和は180°。",
+        "$180^\\circ+C$": "和からCを引けばAとBだけが残る。"
+      }
+    },
+    "math-trig-l-trig-s2e01-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "符号だけが反対になる",
+      "wrongReasons": {
+        "同じ値になる": "変わらないのは縦座標。横座標はy軸に関する対称移動で符号が変わる。",
+        "絶対値も変わる": "y軸からの距離は変わらない。"
+      }
+    },
+    "math-trig-l-trig-s2e02-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sqrt5/3$",
+      "wrongReasons": {
+        "$-\\sqrt5/3$": "上半円の縦座標は負にならない。",
+        "$5/9$": "正弦そのものには平方根を取る。"
+      }
+    },
+    "math-trig-l-trig-s2e03-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\pm\\sqrt3/2$",
+      "wrongReasons": {
+        "$\\sqrt3/2$ だけ": "二乗が同じなら負の平方根も候補に入る。",
+        "$\\pm3/4$": "3/4は余弦の二乗。"
+      }
+    },
+    "math-trig-l-trig-s2e04-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\cos\\theta\\le0$",
+      "wrongReasons": {
+        "$\\cos\\theta\\ge0$": "左辺と同じ符号なのは余弦そのものではなく余弦に負号を付けた値。",
+        "$\\cos\\theta=0$ だけ": "左辺は正でもよく、その場合の余弦は負。"
+      }
+    },
+    "math-trig-l-trig-s2e04-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "135°",
+      "wrongReasons": {
+        "45°": "45°では左辺が正、右辺は負。",
+        "45°、135°": "元の式の符号条件で45°を除く。"
+      }
+    },
+    "math-trig-l-trig-s2e05-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "135°、60°",
+      "wrongReasons": {
+        "45°、60°": "傾き−1の方向角は鈍角側の135°。",
+        "135°、30°": "正接が√3になる鋭角は60°。"
+      }
+    },
+    "math-trig-l-trig-s2e05-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "75°",
+      "wrongReasons": {
+        "105°": "これは75°の補角であり、指定の範囲を超える。",
+        "15°": "傾きが負の直線を45°として差を取ってはいけない。"
+      }
+    },
+    "math-trig-c09-r2-sum": {
+      "validator": "exact",
+      "answer": "$180^\\circ$",
+      "wrongReasons": {
+        "$360^\\circ$": "360度は中心角の和。円周角ではその半分にする。",
+        "$90^\\circ$": "二つの円周角の和は360度の半分である。"
+      }
+    },
+    "math-trig-c09-r2-cos": {
+      "validator": "exact",
+      "answer": "$-\\cos A$",
+      "wrongReasons": {
+        "$\\cos A$": "補角の余弦は逆符号。",
+        "$\\sin A$": "補角では種類をsinへ替えない。"
+      }
+    },
+    "math-trig-c10-r2-diameter": {
+      "validator": "exact",
+      "answer": "$BC=2R\\sin\\angle BDC$",
+      "wrongReasons": {
+        "$BC=R\\sin\\angle BDC$": "直角三角形の斜辺BDは半径でなく直径2R。",
+        "$BC=2R\\cos\\angle BDC$": "BCは角BDCの向かいにある辺なので正弦を使う。"
+      }
+    },
+    "math-trig-c10-r2-length": {
+      "validator": "exact",
+      "answer": "$4\\sqrt3$",
+      "wrongReasons": {
+        "$2\\sqrt3$": "共通比は2R=8。R=4をそのまま掛けない。",
+        "$8\\sqrt3$": "sin60度は√3/2なので分母2も掛ける。"
+      }
+    },
+    "math-trig-l-trig-q17-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "弧BAD",
+      "wrongReasons": {
+        "弧BCD": "同じ弧ではなくCを通らないBからDまでの弧を使う。",
+        "弧ABC": "角Cを作る二辺はCBとCDなので、弧の両端はBとD。"
+      }
+    },
+    "math-trig-l-trig-q18-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$2R$",
+      "wrongReasons": {
+        "$R$": "辺を対角の正弦で割った値は半径でなく直径。",
+        "$R/2$": "半径を2倍した直径が現れる。"
+      }
+    },
+    "math-trig-l-trig-q18-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "45°と135°",
+      "wrongReasons": {
+        "45°だけ": "正弦は補角でも同じ値。",
+        "45°と90°": "90°の正弦は1。"
+      }
+    },
+    "math-trig-l-trig-q19-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$6\\sin60^\\circ/\\sin45^\\circ$",
+      "wrongReasons": {
+        "$6\\sin45^\\circ/\\sin60^\\circ$": "求める辺cに対応する正弦を分子に置く。",
+        "$6\\sin75^\\circ/\\sin45^\\circ$": "角A=75°は辺aの対角。"
+      }
+    },
+    "math-trig-l-trig-q19-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$45^\\circ$ 未満",
+      "wrongReasons": {
+        "$45^\\circ$ より大きい": "BとCを足して45°になるため、Bはそれより小さい。",
+        "90°以下だけでよい": "B+C=45°から、さらに強い上限がある。"
+      }
+    },
+    "math-trig-c11-r2-coordinates": {
+      "validator": "exact",
+      "answer": "$(c\\cos B,c\\sin B)$",
+      "wrongReasons": {
+        "$(c\\sin B,c\\cos B)$": "横座標は余弦、縦座標は正弦で表す。",
+        "$(a\\cos B,a\\sin B)$": "Aまでの距離はBA=cであり、BC=aではない。"
+      }
+    },
+    "math-trig-c11-r2-distance": {
+      "validator": "exact",
+      "answer": "$b^2=(a-c\\cos B)^2+(c\\sin B)^2$",
+      "wrongReasons": {
+        "$b=(a-c\\cos B)+(c\\sin B)$": "直交する二方向の長さを足しても斜辺の長さにはならない。",
+        "$b^2=(a-c\\cos B)^2-(c\\sin B)^2$": "bは二方向の差が作る直角三角形の斜辺なので、二乗を足す。"
+      }
+    },
+    "math-trig-c11-r2-expand": {
+      "validator": "exact",
+      "answer": "$-2ac\\cos B$",
+      "wrongReasons": {
+        "$-ac\\cos B$": "積は二つ現れるので係数2が必要。",
+        "$+2ac\\cos B$": "aからc cos Bを引いた二乗なので、交差項の符号は負。"
+      }
+    },
+    "math-trig-c11-r2-identity": {
+      "validator": "exact",
+      "answer": "$1$",
+      "wrongReasons": {
+        "$0$": "正弦と余弦の二乗和は1。差の式と混同しない。",
+        "$2$": "二つの三角比がそれぞれ1になるわけではない。"
+      }
+    },
+    "math-trig-c11-r2-value": {
+      "validator": "exact",
+      "answer": "$19$",
+      "wrongReasons": {
+        "$34$": "60度の余弦は0ではないので、交差項を引く。",
+        "$49$": "余弦は正であり、15を加えるのでなく引く。"
+      }
+    },
+    "math-trig-c11-r2-reverse": {
+      "validator": "exact",
+      "answer": "$1/2$",
+      "wrongReasons": {
+        "$-1/2$": "分子は9+16−13=12で正である。",
+        "$2$": "分母は2×3×4=24。比を逆にしない。"
+      }
+    },
+    "math-trig-l-trig-q20-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$15^2+7^2-2\\cdot15\\cdot7\\cos60^\\circ$",
+      "wrongReasons": {
+        "$15^2+7^2+2\\cdot15\\cdot7\\cos60^\\circ$": "余弦定理の交差項は引く。",
+        "$15^2+7^2$": "60°は直角ではないので余弦の項は消えない。"
+      }
+    },
+    "math-trig-l-trig-q21-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$4+75-49$",
+      "wrongReasons": {
+        "$4+49-75$": "角Aの対辺aの二乗を引く。",
+        "$49-4-75$": "挟む二辺の二乗の和から対辺の二乗を引く。"
+      }
+    },
+    "math-trig-l-trig-q21-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$1+18-25$",
+      "wrongReasons": {
+        "$18+25-1$": "角Aの対辺aの二乗を引く。",
+        "$25-1-18$": "挟む二辺の二乗の和から対辺の二乗を引く。"
+      }
+    },
+    "math-trig-c12-r2-largest": {
+      "validator": "exact",
+      "answer": "最長辺の対角",
+      "wrongReasons": {
+        "最短辺の対角": "最小の角だけが鋭角でも、最大角が鈍角の場合がある。",
+        "任意の一角": "一角だけの鋭角判定では残りの角を制限できない。"
+      }
+    },
+    "math-trig-c12-r2-shape": {
+      "validator": "exact",
+      "answer": "鋭角三角形",
+      "wrongReasons": {
+        "直角三角形": "36と41は等しくない。",
+        "鈍角三角形": "最大角の余弦の分子は41−36>0である。"
+      }
+    },
+    "math-trig-l-trig-q22-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "鈍角",
+      "wrongReasons": {
+        "鋭角": "鋭角は余弦が正、鈍角は負。分子の差の符号に合わせる。",
+        "直角": "余弦が0になるのは二乗の和と対辺の二乗が等しいとき。"
+      }
+    },
+    "math-trig-l-trig-q22-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "鋭角",
+      "wrongReasons": {
+        "鈍角": "鋭角は余弦が正、鈍角は負。分子の差の符号に合わせる。",
+        "直角": "余弦が0になるのは二乗の和と対辺の二乗が等しいとき。"
+      }
+    },
+    "math-trig-l-trig-q23-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$C$",
+      "wrongReasons": {
+        "$A$": "Aは最短辺の向かい。最大角は最長辺の対角。",
+        "$B$": "Bの対辺8は最長でなく9より短い。"
+      }
+    },
+    "math-trig-l-trig-q24-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$9=c^2+6-\\sqrt6 c$",
+      "wrongReasons": {
+        "$9=c^2+6+\\sqrt6 c$": "cos60°は正なので交差項を引く。",
+        "$c^2=9+6-\\sqrt6 c$": "選んだ余弦の角Bの対辺はb=3。左辺はb²。"
+      }
+    },
+    "math-trig-l-trig-q24-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$(\\sqrt6+3\\sqrt2)/2$",
+      "wrongReasons": {
+        "$(\\sqrt6-3\\sqrt2)/2$": "3√2の方が√6より大きいので、この根は負。",
+        "正負どちらの根も使う": "三角形の辺の長さは正でなければならない。"
+      }
+    },
+    "math-trig-l-trig-q24-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$6-2\\sqrt3$",
+      "wrongReasons": {
+        "$3-\\sqrt3$": "2×√6×√2/2は2√3。これを√3−1に掛ける。",
+        "$6+2\\sqrt3$": "bは√3−1であり、交差項の中も引き算になる。"
+      }
+    },
+    "math-trig-l-trig-q24-02-r2-node-2": {
+      "validator": "exact",
+      "answer": "$-1/2$",
+      "wrongReasons": {
+        "$1/2$": "分子は2−2√3で負。",
+        "$-1/\\sqrt2$": "分子と分母の共通因子√3−1を約分すると−1/2。"
+      }
+    },
+    "math-trig-c18-r2-cases": {
+      "validator": "exact",
+      "answer": "二つの因子それぞれが0になる場合",
+      "wrongReasons": {
+        "後ろの因子が0になる場合だけ": "前の因子が0、すなわちa=bでも元の積は0になる。",
+        "両方の因子が同時に0の場合だけ": "積が0になるには少なくとも一方が0ならよい。"
+      }
+    },
+    "math-trig-c18-r2-sides": {
+      "validator": "exact",
+      "answer": "$a^2+b^2=c^2$",
+      "wrongReasons": {
+        "$a+b=c$": "元の正弦が二乗されているので辺も二乗になる。",
+        "$a^2-b^2=c^2$": "左辺の加法は置換後も加法のままである。"
+      }
+    },
+    "math-trig-l-trig-rsh01-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$(a^2-b^2)\\{c^2-(a^2+b^2)\\}=0$",
+      "wrongReasons": {
+        "$(a^2+b^2)\\{c^2-(a^2-b^2)\\}=0$": "四乗の差は平方の差と平方の和の積。c²にも平方の差が掛かる。",
+        "$(a^2-b^2)(c^2-a^2+b^2)=0$": "四乗の差を分解して引くと、括弧内ではa²もb²も引かれる。"
+      }
+    },
+    "math-trig-l-trig-rsh01-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$a=b$ の二等辺三角形、または $C=90^\\circ$ の直角三角形",
+      "wrongReasons": {
+        "両条件が必ず成り立つ直角二等辺三角形": "積が0なら、少なくとも一方の因子が0でよい。",
+        "$a=b$ の二等辺三角形だけ": "二つ目の因子も0になりうる。"
+      }
+    },
+    "math-trig-l-trig-rsh02-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$a^2+b^2=c^2$",
+      "wrongReasons": {
+        "$a+b=c$": "正弦は二乗されているため辺も二乗される。",
+        "$a^2+c^2=b^2$": "右辺は角Cの正弦なので、対応する辺cが右辺。"
+      }
+    },
+    "math-trig-l-trig-s3e01-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "補角",
+      "wrongReasons": {
+        "余角": "CBとCHは直線上で反対を向き、二角の和は180°。",
+        "等しい角": "二つの角の一方は△ACHの内角、もう一方はその外角。"
+      }
+    },
+    "math-trig-l-trig-s3e01-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$2R=AB/\\sin\\angle ACB$",
+      "wrongReasons": {
+        "$R=AB/\\sin\\angle ACB$": "正弦定理で出るのは直径2R。",
+        "$2R=AC/\\sin\\angle ACB$": "角Cの対辺はAB。"
+      }
+    },
+    "math-trig-l-trig-s3e01-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$BC/(2R)$",
+      "wrongReasons": {
+        "$BC/R$": "分母に置くのは外接円の直径。",
+        "$2R/BC$": "正弦定理を正弦について解くと辺が分子に残る。"
+      }
+    },
+    "math-trig-l-trig-s3e02-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$(c^2+a^2-b^2)/(2ca)$",
+      "wrongReasons": {
+        "$(c^2+b^2-a^2)/(2cb)$": "この式は角Aを求める組。",
+        "$(b^2-c^2-a^2)/(2ca)$": "挟む二辺の二乗を足してから対辺の二乗を引く。"
+      }
+    },
+    "math-trig-l-trig-s3e02-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$6^2+4^2-2\\cdot6\\cdot4\\cdot(7/8)$",
+      "wrongReasons": {
+        "$6^2+8^2-2\\cdot6\\cdot8\\cdot(7/8)$": "△ABMではBC全体でなくBMを使う。",
+        "$6^2+4^2$": "角Bは直角とは限らず、余弦の項が残る。"
+      }
+    },
+    "math-trig-l-trig-s3e03-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "135°",
+      "wrongReasons": {
+        "45°": "45°の余弦は正。",
+        "150°": "150°の余弦は−√3/2。"
+      }
+    },
+    "math-trig-l-trig-s3e03-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$\\sqrt2$",
+      "wrongReasons": {
+        "$2\\sqrt2$": "それは直径2R。",
+        "$1/\\sqrt2$": "Rはaを2sin Aで割る。"
+      }
+    },
+    "math-trig-l-trig-s3e04-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$4=2+c^2-2c$",
+      "wrongReasons": {
+        "$4=2+c^2+2c$": "45°の余弦は正で、余弦定理では交差項を引く。",
+        "$c^2=4+2-2c$": "角Aの対辺a=2の二乗が左辺。"
+      }
+    },
+    "math-trig-l-trig-s3e04-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$1+\\sqrt3$",
+      "wrongReasons": {
+        "$1-\\sqrt3$": "√3>1なので、この根は負。",
+        "$\\sqrt3-1$": "負の根の絶対値を取っても、元の方程式の解にはならない。"
+      }
+    },
+    "math-trig-l-trig-s3e05-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$5:3:7$",
+      "wrongReasons": {
+        "$7:3:5$": "角A、B、Cは順に辺a、b、cに対応する。",
+        "$1/5:1/3:1/7$": "同じ値で割ってあるので、正弦の比は分母の比と同じ。"
+      }
+    },
+    "math-trig-l-trig-s3e05-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "120°",
+      "wrongReasons": {
+        "60°": "60°の余弦は正の1/2。",
+        "150°": "150°の余弦は−√3/2。"
+      }
+    },
+    "math-trig-c13-r2-height": {
+      "validator": "exact",
+      "answer": "$h=c\\sin A$",
+      "wrongReasons": {
+        "$h=c\\cos A$": "高さは角Aの向かいで、cが斜辺である。",
+        "$h=b\\sin A$": "高さを含む直角三角形の斜辺はAB=c。"
+      }
+    },
+    "math-trig-c13-r2-radius": {
+      "validator": "exact",
+      "answer": "$S=abc/(4R)$",
+      "wrongReasons": {
+        "$S=abc/(2R)$": "面積公式にも分母2があり、2Rと合わせて4Rになる。",
+        "$S=2Rbc/a$": "正弦はa/(2R)であり、その逆数ではない。"
+      }
+    },
+    "math-trig-l-trig-q25-01-r2-formula": {
+      "validator": "exact",
+      "answer": "$S=ca\\sin B/2$",
+      "wrongReasons": {
+        "$S=ca\\sin A/2$": "辺cとaが挟む角はBである。",
+        "$S=ca\\cos B/2$": "高さを作るのは正弦。余弦ではない。"
+      }
+    },
+    "math-trig-l-trig-q25-02-r2-value": {
+      "validator": "exact",
+      "answer": "$1/\\sqrt2$",
+      "wrongReasons": {
+        "$-1/\\sqrt2$": "上半円では正弦は正。負になるのは鈍角の余弦。",
+        "$\\sqrt3/2$": "135度の補角は45度であり、60度ではない。"
+      }
+    },
+    "math-trig-l-trig-q26-01-r2-sine": {
+      "validator": "exact",
+      "answer": "$\\sin C=4\\sqrt3/7$",
+      "wrongReasons": {
+        "$\\sin C=-4\\sqrt3/7$": "三角形の内角の正弦は正。",
+        "$\\sin C=48/49$": "48/49は正弦の二乗であり、正の平方根を取る。"
+      }
+    },
+    "math-trig-l-trig-q26-02-r2-area": {
+      "validator": "exact",
+      "answer": "$S=4\\cdot6\\cdot(\\sqrt{15}/8)/2$",
+      "wrongReasons": {
+        "$S=4\\cdot6\\cdot(7/8)/2$": "7/8は余弦で、面積に必要なのは正弦。",
+        "$S=4\\cdot\\sqrt{10}\\cdot(\\sqrt{15}/8)/2$": "Cを挟む二辺はa,bであり、cを混ぜない。"
+      }
+    },
+    "math-trig-c14-r2-equal": {
+      "validator": "exact",
+      "answer": "$AH=BH=CH$",
+      "wrongReasons": {
+        "$AH=BH=OH$": "OHは共通に引いた高さであり、底面上の距離と等しいとはいえない。",
+        "$AH+BH=CH$": "二乗の値が等しいので各距離が等しくなる。"
+      }
+    },
+    "math-trig-c14-r2-height": {
+      "validator": "exact",
+      "answer": "$3$",
+      "wrongReasons": {
+        "$4$": "底面積が違うので高さをそのまま保てない。",
+        "$32/6$": "同じ体積よりh2=S1h1/S2。比の向きを逆にしない。"
+      }
+    },
+    "math-trig-l-trig-q27-01-r2-height": {
+      "validator": "exact",
+      "answer": "$OH=\\sqrt{4^2-(2\\sqrt3)^2}=2$",
+      "wrongReasons": {
+        "$OH=4$": "4は斜めの辺OAであり、高さOHとは異なる。",
+        "$OH=\\sqrt{4^2+(2\\sqrt3)^2}=2\\sqrt7$": "直角三角形でOAが斜辺なので、既知の直角辺の二乗を引く。"
+      }
+    },
+    "math-trig-c15-r2-sum": {
+      "validator": "exact",
+      "answer": "$ar/2+br/2+cr/2$",
+      "wrongReasons": {
+        "$ar+br+cr$": "各小三角形の面積にも2で割る係数が必要。",
+        "$abc/2$": "三辺を掛けても面積の分割を表せない。"
+      }
+    },
+    "math-trig-c15-r2-radius": {
+      "validator": "exact",
+      "answer": "$1$",
+      "wrongReasons": {
+        "$1/2$": "割るのは周長12でなく半周長6。",
+        "$6$": "面積の値をそのまま半径にはできない。"
+      }
+    },
+    "math-trig-c16-r2-factor": {
+      "validator": "exact",
+      "answer": "$((b+c)^2-a^2)(a^2-(b-c)^2)$",
+      "wrongReasons": {
+        "$((b+c)^2+a^2)(a^2+(b-c)^2)$": "平方差では一方を引き一方を足す。両方を和にはしない。",
+        "$(b^2+c^2-a^2)^2$": "元の式はこの二乗を4b²c²から引いたものである。"
+      }
+    },
+    "math-trig-c16-r2-area": {
+      "validator": "exact",
+      "answer": "$12$",
+      "wrongReasons": {
+        "$144$": "144は面積の二乗である。",
+        "$-12$": "面積は正なので負の平方根は採用しない。"
+      }
+    },
+    "math-trig-l-trig-rhe01-01-r2-half": {
+      "validator": "exact",
+      "answer": "$s=9$",
+      "wrongReasons": {
+        "$s=18$": "sは周長そのものではなく半分。",
+        "$s=6$": "三辺の平均でなく和の半分である。"
+      }
+    },
+    "math-trig-l-trig-rin01-01-r2-equation": {
+      "validator": "exact",
+      "answer": "$10\\sqrt3=(7+5+8)r/2=10r$",
+      "wrongReasons": {
+        "$10\\sqrt3=(7+5+8)r=20r$": "三つの小三角形それぞれの面積に1/2がある。",
+        "$10\\sqrt3=7\\cdot5\\cdot8/(4r)$": "abc/(4R)は外接半径Rの公式で、内接半径rには使わない。"
+      }
+    },
+    "math-trig-l-trig-s4e01-01-r2-sine": {
       "validator": "exact",
       "answer": "$\\sin A=a/(2R)$",
       "wrongReasons": {
-        "$\\sin A=2R/a$": "比が逆になり1を超えます。",
-        "$A$を鋭角に限定してから求める": "その限定条件はありません。"
+        "$\\sin A=2R/a$": "a=2R sin Aをsin Aについて解く。",
+        "$\\sin A=a/R$": "正弦定理の共通比は半径でなく直径2R。"
       }
     },
-    "math-trig-l-trig-cb05-01-step-2": {
+    "math-trig-l-trig-s4e01-02-r2-coefficient": {
       "validator": "exact",
-      "answer": "$B$に接する辺$c,a$と対辺$b$で余弦定理",
+      "answer": "$8R^3/(4R)=2R^2$",
       "wrongReasons": {
-        "$a^2=b^2+c^2-2bc \\cos B$": "角$B$と対応する対辺は$b$です。",
-        "$\\sin A$から$A$を一つだけ決めて進む": "$\\sin A$だけでは二候補があります。この解法は$A$を決めず$B$で余弦定理を使えます。"
+        "$8R^3/(4R)=2R$": "R³をRで割るとR²が残る。",
+        "$8R^3/(4R)=4R^2$": "数の係数は8÷4=2。"
       }
     },
-    "math-trig-l-trig-cb05-01-step-3": {
+    "math-trig-l-trig-s4e02-01-r2-factor": {
       "validator": "exact",
-      "answer": "$c>0$なので11を採る",
+      "answer": "$(x+y)(u+v)$",
       "wrongReasons": {
-        "どちらも採る": "負の根は辺の長さになりません。",
-        "−5だけ採る": "負の長さは条件を満たしません。"
+        "$(x+u)(y+v)$": "展開したときxyやuvが現れ、元の四つの積と一致しない。",
+        "$xu+yv$": "四つの小三角形のうち二つを落としている。"
       }
     },
-    "math-trig-l-trig-cb05-02-step-1": {
+    "math-trig-l-trig-s4e03-01-r2-formula": {
       "validator": "exact",
-      "answer": "$a=5,c=11$",
+      "answer": "$\\cos\\angle BDE=(BD^2+DE^2-BE^2)/(2BD\\cdot DE)$",
       "wrongReasons": {
-        "$a=5,b=4\\sqrt{5}$": "角$B$を挟む二辺ではありません。",
-        "$b=4\\sqrt{5},c=11$": "この二辺の挟角は$A$です。"
+        "$\\cos\\angle BDE=(BD^2+BE^2-DE^2)/(2BD\\cdot BE)$": "これは角DBEの式で、頂点Dの角ではない。",
+        "$\\cos\\angle BDE=(BD^2+DE^2+BE^2)/(2BD\\cdot DE)$": "対辺の二乗は分子で引く。"
       }
     },
-    "math-trig-l-trig-cb05-02-step-2": {
+    "math-trig-l-trig-s4e03-02-r2-sine": {
       "validator": "exact",
-      "answer": "面積22と辺の和を内接半径の式へ代入",
+      "answer": "$\\sin\\angle BDE=7\\sqrt2/10$",
       "wrongReasons": {
-        "$r=R=5\\sqrt{5}/2$": "内接円と外接円は異なる円です。",
-        "$22=(a+b+c)r$": "面積の係数$1/2$を保ちます。"
+        "$\\sin\\angle BDE=-7\\sqrt2/10$": "内角は0度と180度の間なので正弦は正。",
+        "$\\sin\\angle BDE=98/100$": "98/100は正弦の二乗。"
       }
     },
-    "math-trig-l-trig-cb06-01-step-1": {
+    "math-trig-l-trig-s4e03-03-r2-volume": {
       "validator": "exact",
-      "answer": "$180^{\\circ}-\\theta$",
+      "answer": "$1=(7/2)h/3$",
       "wrongReasons": {
-        "$\\theta$": "対角は一般に等角でなく補角です。",
-        "$90^{\\circ}-\\theta$": "対角の和は$180^{\\circ}$です。"
+        "$1=(7/2)h$": "四面体なので底面積×高さを3で割る。",
+        "$1=(7/2)\\cdot3/3$": "底面を替えたら高さもAからその平面へのhに替わる。"
       }
     },
-    "math-trig-l-trig-cb06-01-step-2": {
+    "math-trig-l-trig-s4e04-01-r2-equation": {
       "validator": "exact",
-      "answer": "補角の$\\cos$は符号が反転する",
+      "answer": "$AB^2=100^2+60^2-2\\cdot100\\cdot60\\cos60^\\circ$",
       "wrongReasons": {
-        "$AC^2=149-140\\cos \\theta$": "$\\cos (180^{\\circ}-\\theta )=-\\cos \\theta$の負号を忘れています。",
-        "二つの$AC$は別の長さとする": "共有対角線なので同じ未知数です。"
+        "$AB^2=100^2+60^2$": "挟角は90度でないので交差項を省けない。",
+        "$AB^2=100^2+60^2+2\\cdot100\\cdot60\\cos60^\\circ$": "余弦定理では交差項を引く。60度の余弦は正。"
       }
     },
-    "math-trig-l-trig-cb06-01-step-3": {
+    "math-trig-c19-r2-angle": {
       "validator": "exact",
-      "answer": "二つを等置する",
+      "answer": "$15^\\circ$",
       "wrongReasons": {
-        "二式の$AC$を別の未知数にする": "同じ対角線なので同一の量です。",
-        "必ず$AC^2=0$とする": "非退化四角形の対角線は正です。"
+        "$30^\\circ$": "底角75度から60度を引く。頂角とは異なる。",
+        "$45^\\circ$": "75−60の差を使う。"
       }
     },
-    "math-trig-l-trig-cb06-02-step-1": {
+    "math-trig-c19-r2-cos": {
       "validator": "exact",
-      "answer": "正の$4/5$",
+      "answer": "$(\\sqrt6+\\sqrt2)/4$",
       "wrongReasons": {
-        "負の$-4/5$": "上半円の正弦は正です。",
-        "$\\cos$と同じ$-3/5$": "$\\sin$と$\\cos$の値は別です。"
+        "$(\\sqrt6-\\sqrt2)/4$": "分母に共役な和を掛けるので、余弦の分子は和になる。",
+        "$(\\sqrt6+\\sqrt2)/8$": "共役を掛けた分母は6−2=4。"
       }
     },
-    "math-trig-l-trig-cb06-02-step-2": {
+    "math-trig-l-trig-ca01-01-r2-ratio": {
       "validator": "exact",
-      "answer": "$AC$と対角$\\theta$で正弦定理",
+      "answer": "$CH/BH$",
       "wrongReasons": {
-        "$R=AC/\\sin \\theta$": "この比は直径です。",
-        "$AB$を角$\\theta$と組み合わせる": "$\\theta =\\angle ABC$の対辺は$AC$です。"
+        "$BH/CH$": "15度の向かいはCH、隣はBHなのでこの順。",
+        "$CH/BC$": "BCは斜辺なので、その比は正弦になる。"
       }
     },
-    "math-trig-l-trig-cb06-03-step-1": {
+    "math-trig-l-trig-ca02-01-r2-equation": {
       "validator": "exact",
-      "answer": "二つの三角形の面積を加える",
+      "answer": "$3(x^2+48)=4(x^2+28)$",
       "wrongReasons": {
-        "面積を引く": "原図の凸四角形は対角線で二つの内部三角形に分かれます。",
-        "補角なので二つ目の面積は負": "補角で$\\sin$は同じ正値です。"
+        "$4(x^2+48)=3(x^2+28)$": "分母16x側には3、12x側には4が掛かる。",
+        "$x^2+48=x^2+28$": "二つの分母が異なるため、分子だけを等置できない。"
       }
     },
-    "math-trig-l-trig-cb06-03-step-2": {
+    "math-trig-l-trig-ca03-01-r2-sine-law": {
       "validator": "exact",
-      "answer": "$\\sin \\theta$",
+      "answer": "$BH/\\sin45^\\circ=6/\\sin30^\\circ$",
       "wrongReasons": {
-        "$-\\sin \\theta$": "補角で$\\sin$の符号は変わりません。",
-        "$\\cos \\theta$": "補角では関数の種類は変えません。"
+        "$BH/\\sin30^\\circ=6/\\sin45^\\circ$": "辺と対角の組が逆になっている。",
+        "$BH=6\\tan45^\\circ$": "三角形ABHは直角三角形ではない。"
       }
     },
-    "math-trig-l-trig-cb07-01-step-1": {
+    "math-trig-c20-r2-ratio": {
       "validator": "exact",
-      "answer": "二つの直角三角形で$OB,OC$を$OA$の式にする",
+      "answer": "$AC/BC=a\\sin\\alpha/(b\\sin\\beta)$",
       "wrongReasons": {
-        "$OB=\\sqrt{3}x$とする": "$\\angle ABO=60^{\\circ}$で$\\tan 60^{\\circ}=OA/OB$です。",
-        "$OA$を$\\triangle OBC$の高さと見なして余弦定理を省く": "まず底面の二辺$OB,OC$を定めるため三角比が必要です。"
+        "$AC/BC=a/b$": "角が等しいとは限らず、正弦の比をまだ約分できない。",
+        "$AC/BC=b\\sin\\beta/(a\\sin\\alpha)$": "分子はOACの面積に対応する。"
       }
     },
-    "math-trig-l-trig-cb07-01-step-2": {
+    "math-trig-c20-r2-value": {
       "validator": "exact",
-      "answer": "余弦定理で$BC^2$を表す",
+      "answer": "$\\sqrt2$",
       "wrongReasons": {
-        "三平方で$BC^2=OB^2+OC^2$": "角$BOC$は$30^{\\circ}$で直角ではありません。",
-        "$OA=BC=10$とする": "等しいという条件はありません。"
+        "$1$": "45度と30度の正弦は異なる。",
+        "$1/\\sqrt2$": "比はsin45度/sin30度の向きである。"
       }
     },
-    "math-trig-l-trig-cb07-01-step-3": {
+    "math-trig-l-trig-cb04-01-r2-ratio": {
       "validator": "exact",
-      "answer": "正の$10\\sqrt{3}$",
+      "answer": "$AC/BC=7\\sqrt2/5$",
       "wrongReasons": {
-        "$\\pm 10\\sqrt{3}$を両方採る": "$x$は辺の長さで正です。",
-        "300": "300は$x^2$で、長さ$x$ではありません。"
+        "$AC/BC=7/5$": "正弦45度と30度の比が残る。",
+        "$AC/BC=5/(7\\sqrt2)$": "分子はOACの面積に対応する。"
       }
     },
-    "math-trig-l-trig-cb07-02-step-1": {
+    "math-trig-l-trig-cb05-01-r2-equation": {
       "validator": "exact",
-      "answer": "二辺$OB,OC$の挟角$30^{\\circ}$で面積式",
+      "answer": "$80=c^2+25-6c$",
       "wrongReasons": {
-        "$SOBC=(1/2)OB\\cdot OC$": "$\\angle BOC$は直角ではありません。",
-        "$\\angle ACO=45^{\\circ}$を使う": "その角は底面$\\triangle OBC$の挟角ではありません。"
+        "$80=c^2+25+6c$": "cosB=3/5は正であり、余弦定理の交差項は引く。",
+        "$80=c^2+25-3c$": "交差項には係数2があり、2×5×3/5=6。"
       }
     },
-    "math-trig-l-trig-cb07-03-step-1": {
+    "math-trig-l-trig-cb05-02-r2-rationalize": {
       "validator": "exact",
-      "answer": "$AOB$と$AOC$の直角三角形の比を使う",
+      "answer": "$r=11(4-\\sqrt5)/(16-5)$",
       "wrongReasons": {
-        "$AB=OA$、$AC=OC$と仮定する": "$AB$と$AC$はそれぞれ斜辺で、等しいとは限りません。",
-        "$AB=AC$とする": "等辺という条件はありません。"
+        "$r=11(4+\\sqrt5)/(16-5)$": "分母4+√5を有理化するには共役な4−√5を掛ける。",
+        "$r=11(4-\\sqrt5)/(16+5)$": "共役の積は平方差16−5になる。"
       }
     },
-    "math-trig-l-trig-cb07-03-step-2": {
+    "math-trig-l-trig-cb06-01-r2-second": {
       "validator": "exact",
-      "answer": "三辺$AB,AC,BC$から角$BAC$の余弦を作る",
+      "answer": "$AC^2=149+140\\cos\\theta$",
       "wrongReasons": {
-        "$\\angle BAC=\\angle BOC=30^{\\circ}$とする": "空間の別の頂点の角に等しいという条件はありません。",
-        "$AB=OA$とする": "$\\triangle AOB$では$AB$は斜辺です。"
+        "$AC^2=149-140\\cos\\theta$": "補角の余弦の負号と、余弦定理の負号が重なって正になる。",
+        "$AC^2=149+70\\cos\\theta$": "交差項には2×7×10=140が必要。"
       }
     },
-    "math-trig-l-trig-cb07-03-step-3": {
+    "math-trig-l-trig-cb06-02-r2-radius": {
       "validator": "exact",
-      "answer": "内角なので正の根",
+      "answer": "$R=5\\sqrt{65}/8$",
       "wrongReasons": {
-        "$\\cos$と同符号なら無条件で同じ値": "正負が同じでも値は同じとは限りません。",
-        "負の根": "三角形の内角の$\\sin$は正です。"
+        "$R=5\\sqrt{65}/4$": "これはAC/sinθ、すなわち直径2Rの値。",
+        "$R=4\\sqrt{65}/5$": "正弦定理ではsinθを掛けるのでなく割り、さらに2で割る。"
       }
     },
-    "math-trig-l-trig-cb07-04-step-1": {
+    "math-trig-l-trig-cb06-03-r2-sum": {
       "validator": "exact",
-      "answer": "$OA\\perp OB,OC$から$OA\\perp$平面$OBC$を確認",
+      "answer": "$S=(10+35)\\sin\\theta$",
       "wrongReasons": {
-        "一つの直線$OB$に垂直なら平面全体に垂直": "一つだけでは不十分です。平面内の交わる二直線への垂直が必要です。",
-        "$h=OA$": "底面$ABC$への高さと底面$OBC$への高さは別です。"
+        "$S=(35-10)\\sin\\theta$": "二つの部分の面積は引かずに足す。",
+        "$S=(20+70)\\sin\\theta$": "各三角形の面積を2で割る係数が必要。"
       }
     },
-    "math-trig-l-trig-cb07-04-step-2": {
+    "math-trig-l-trig-cb07-01-r2-equation": {
       "validator": "exact",
-      "answer": "$S_{OBC}\\cdot OA=S_{ABC}h$",
+      "answer": "$100=OB^2+OC^2-2OB\\cdot OC\\cos30^\\circ$",
       "wrongReasons": {
-        "$S_{OBC}=S_{ABC}$": "異なる面の面積が等しいという条件はありません。",
-        "$OA=h$": "二つの底面への高さは異なります。"
+        "$100=OB^2+OC^2$": "OBCの角Oは30度で、直角ではない。",
+        "$100=OB^2+OC^2+2OB\\cdot OC\\cos30^\\circ$": "余弦定理では正の余弦の交差項を引く。"
+      }
+    },
+    "math-trig-l-trig-cb07-02-r2-area": {
+      "validator": "exact",
+      "answer": "$S_{OBC}=OB\\cdot OC\\sin30^\\circ/2$",
+      "wrongReasons": {
+        "$S_{OBC}=OB\\cdot OC/2$": "OBCは直角三角形ではなく、sin30度の係数が必要。",
+        "$S_{OBC}=OA\\cdot OC\\sin30^\\circ/2$": "面OBCの面積なので、面外の辺OAを入れない。"
+      }
+    },
+    "math-trig-l-trig-cb07-03-r2-sine": {
+      "validator": "exact",
+      "answer": "$\\sin\\angle BAC=\\sqrt{1-54/64}=\\sqrt{10}/8$",
+      "wrongReasons": {
+        "$\\sin\\angle BAC=\\sqrt{1-18/64}=\\sqrt{46}/8$": "(3√6)²は9×6=54である。",
+        "$\\sin\\angle BAC=-\\sqrt{10}/8$": "三角形の内角の正弦は正。"
+      }
+    },
+    "math-trig-l-trig-cb07-04-r2-volume": {
+      "validator": "exact",
+      "answer": "$S_{OBC}\\,OA/3=S_{ABC}h/3$",
+      "wrongReasons": {
+        "$S_{OBC}h/3=S_{ABC}\\,OA/3$": "OAはOBCへの高さ、hはABCへの高さであり、組を入れ替えない。",
+        "$S_{OBC}\\,OA=S_{ABC}h/3$": "同じ四面体なので両方の表示に1/3が必要。"
       }
     }
   }

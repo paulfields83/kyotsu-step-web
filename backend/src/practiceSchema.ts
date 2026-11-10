@@ -42,6 +42,7 @@ const PracticeBlankSchema = z.object({
   prompt: z.string().min(1),
   answerType: z.literal('single-choice'),
   options: z.array(PracticeOptionSchema).min(2),
+  hints: z.array(z.string().min(1)).min(1).optional(),
   correctOptionIds: z.array(IdSchema).min(1),
   explanation: z.string().min(1),
 })
@@ -86,6 +87,7 @@ export const PracticeQuestionSchema = z.object({
     options: z.literal('inline-expand'),
     substituteCorrectAnswer: z.literal(true),
     lockFutureSteps: z.literal(true),
+    solutionStyle: z.literal('continuous').optional(),
   }),
 })
 
