@@ -1,14 +1,21 @@
 import { InlineMath } from 'react-katex'
+import { KeyConceptText, isReviewedConceptTerm, textbookEmphasisScope, type EmphasisScope } from '../components/learning/KeyConceptText'
+import { MathText } from '../components/learning/MathText'
+import { TrigonometryReferenceTable } from '../components/learning/TrigonometryReferenceTable'
+import { textbookMathLatex } from '../domain/textbookMathDisplay'
 import { Check, RotateCcw, X } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../components/ui/Primitives'
+import { fillResolvedMathHoles } from '../domain/textbookFormulaFill'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
-import { findTextbookLessonTarget, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
+import { findTextbookLessonTarget, numbersZipGroupPrefix, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
 import type { TextbookReadingBlock, TextbookReadingPart } from '../domain/textbookSchema'
 import type { PublicTextbookItem, PublicTextbookSection, PublicTextbookUnit, TextbookAnswerResult } from '../domain/textbookPublic'
+import { KnowledgePointGrid } from '../components/learning/KnowledgePointGrid'
 import { useAppStore } from '../stores/useAppStore'
+import { isNumbersZipUnit } from '../domain/numbersZip'
 import { useI18n } from '../i18n/runtime'
 
 function conciseTextbookTitle(unit: PublicTextbookUnit) {
@@ -25,12 +32,15 @@ function resolveAssetSrc(src: string) {
   return `${base}${src.replace(/^\.?\/+/, '')}`
 }
 
+function blockItemIds(block: TextbookReadingBlock): string[] {
+  if (block.type !== 'paragraph' && block.type !== 'formula') return []
+  return [...new Set(block.parts.flatMap((part) =>
+    part.type === 'choice' ? [part.itemId] : part.type === 'math' ? (part.holeIds ?? []) : [],
+  ))]
+}
+
 function readingGroupItemIds(blocks: TextbookReadingBlock[]) {
-  return blocks.flatMap((block) =>
-    block.type === 'paragraph' || block.type === 'formula'
-      ? block.parts.filter((part) => part.type === 'choice').map((part) => part.itemId)
-      : [],
-  )
+  return [...new Set(blocks.flatMap(blockItemIds))]
 }
 
 function groupReadingFlow(blocks: TextbookReadingBlock[]) {
@@ -67,6 +77,7 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
       isFirstCorrect: previous?.isFirstCorrect ?? result.correct,
       resolved: result.resolved,
       attemptCount: (previous?.attemptCount ?? 0) + 1,
+      ...(result.wrongReason ? { wrongReason: result.wrongReason } : {}),
       firstAnsweredAt: previous?.firstAnsweredAt ?? now,
       lastAnsweredAt: now,
     }
@@ -87,12 +98,85 @@ function recordServerAnswer(unit: PublicTextbookUnit, itemId: string, selectedVa
   })
 }
 
+// Display mathematics as mathematics, while keeping Japanese reasoning choices
+// in ordinary readable textbook language.
+// A KaTeX expression containing multiple set answers is a single unbreakable
+// inline box. Split only commas OUTSIDE braces so that mobile can wrap between
+// complete sets, never between a brace and its elements.
+function splitTopLevelSetList(value: string): string[] {
+  if (!/[{}∅]/u.test(value)) return []
+  const fragments: string[] = []
+  let depth = 0
+  let start = 0
+  for (let index = 0; index < value.length; index += 1) {
+    const char = value[index]
+    if (char === '{') depth += 1
+    if (char === '}') depth -= 1
+    if (char === ',' && depth === 0) {
+      fragments.push(value.slice(start, index).trim())
+      start = index + 1
+    }
+  }
+  fragments.push(value.slice(start).trim())
+  return fragments.length > 1 && fragments.every(Boolean) ? fragments : []
+}
+
+function ReadableMath({ latex }: { latex: string }) {
+  // E.g. A={1,2,3}, B={1,3}, C={1,4}: keep each assignment intact,
+  // but allow a line break before the next definition on narrow screens.
+  const assignments = latex.split(/,\s*(?=[A-Z]\s*=)/u)
+  if (assignments.length === 1) return <InlineMath math={latex} />
+  return <span className="reading-math-assignments">
+    {assignments.map((assignment, index) => (
+      <span className="reading-math-assignment" key={index}>
+        <InlineMath math={assignment} />
+        {index < assignments.length - 1 && ','}
+      </span>
+    ))}
+  </span>
+}
+
+function GuidedChoiceValue({ value }: { value: string }) {
+  if (value.includes('$') || value.includes('\\(')) return <MathText value={value} />
+  const setList = splitTopLevelSetList(value)
+  if (setList.length) return <span className="reading-math-set-list">
+    {setList.map((part, index) => {
+      const fragment = textbookMathLatex(part)
+      return <span className="reading-math-set-entry" key={index}>
+        {fragment ? <InlineMath math={fragment} /> : part}
+        {index < setList.length - 1 && ','}
+      </span>
+    })}
+  </span>
+  const latex = textbookMathLatex(value)
+  if (latex) return <InlineMath math={latex} />
+  // The original physics distractor sometimes appends Japanese explanation
+  // directly after a vector expression (e.g. |v⃗₂|−|v⃗₁|だけ).
+  // Keep the suffix as prose, but typeset the vector expression.
+  const mixed = value.match(/^(.+?)(だけ)$/u)
+  const mathPrefix = mixed ? textbookMathLatex(mixed[1]) : null
+  if (mixed && mathPrefix) return <><InlineMath math={mathPrefix} />{mixed[2]}</>
+  return <>{value}</>
+}
+
+// Keep Japanese wording intact while replacing fragile combining math glyphs
+// in ZIP-derived hints, notes, figure captions and leftover inline source text.
+function PhysicsInlineText({ value, scope, blockId, unitId }: { value: string; scope?: EmphasisScope; blockId?: string; unitId?: string }) {
+  const glyphs = /[⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜΔθ√²³]/u
+  if (!glyphs.test(value)) return <KeyConceptText value={value} scope={scope} blockId={blockId} unitId={unitId} />
+  const tokens = value.split(/([A-Za-zΔ√θ][A-Za-z0-9Δθ√°⃗̄₀₁₂₃₄₅₆₇₈₉ₓᵧₜ²³_{}().,=+\-−×·\/<>|]*)/gu)
+  return <>{tokens.map((token, index) => {
+    const latex = glyphs.test(token) ? textbookMathLatex(token) : null
+    return latex ? <InlineMath key={index} math={latex} /> : <span key={index}><KeyConceptText value={token} scope={scope} blockId={blockId} unitId={unitId} /></span>
+  })}</>
+}
+
 function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord) {
   if (record.isFirstCorrect) {
     return (
       <span className="reading-inline-answer" data-testid={`resolved-${item.id}`}>
         <Check size={14} aria-hidden="true" />
-        <strong>{record.value}</strong>
+        <strong><GuidedChoiceValue value={record.value} /></strong>
       </span>
     )
   }
@@ -101,11 +185,11 @@ function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRe
     <span data-testid={`resolved-${item.id}`}>
       <span className="reading-inline-blank reading-inline-blank--wrong">
         <X size={14} aria-hidden="true" />
-        <strong>{record.firstValue ?? record.value}</strong>
+        <strong><GuidedChoiceValue value={record.firstValue ?? record.value} /></strong>
       </span>
       <span className="reading-inline-answer">
         <Check size={14} aria-hidden="true" />
-        <strong>{record.value}</strong>
+        <strong><GuidedChoiceValue value={record.value} /></strong>
       </span>
     </span>
   )
@@ -124,10 +208,10 @@ function renderActiveChoice(
       data-testid={`textbook-item-${item.id}`}
       className={`reading-inline-blank${isWrong ? ' reading-inline-blank--wrong' : ''}`}
       onClick={() => onOpen(item.id)}
-      aria-label={`${item.label} ${text('を選ぶ', '选择答案')}`}
+      aria-label={`${item.label} ${item.choices.length ? text('を選ぶ', '选择答案') : text('を入力', '输入答案')}`}
     >
       <span>{item.label}</span>
-      <strong>{value || text('選択', '选择')}</strong>
+      <strong>{value || (item.choices.length ? text('選択', '选择') : text('入力', '输入'))}</strong>
     </button>
   )
 }
@@ -138,48 +222,98 @@ function renderPart(
   progress: TextbookUnitProgress | undefined,
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
+  scope?: EmphasisScope,
+  blockId?: string,
+  unitId?: string,
 ): ReactNode {
-  if (part.type === 'text') return part.text
-  if (part.type === 'math') return <InlineMath math={part.latex} />
+  if (part.type === 'text') return <KeyConceptText value={part.text} scope={scope} blockId={blockId} unitId={unitId} />
+  if (part.type === 'term') {
+    const reviewed = isReviewedConceptTerm(part.text, scope, blockId, unitId)
+    return <strong className={reviewed ? 'reading-term key-concept-emphasis key-concept-emphasis--concept' : 'reading-term'}>{part.text}</strong>
+  }
+  if (part.type === 'math') {
+    const holeIds = part.holeIds ?? []
+    if (!holeIds.length) return <ReadableMath latex={part.latex} />
+    const latexWithAnswers = fillResolvedMathHoles(part.latex, holeIds, progress?.answers)
+    const pendingId = holeIds.find((itemId) => !progress?.answers[itemId]?.resolved)
+    if (!pendingId) {
+      return (
+        <span className="reading-math-answered" data-testid={`textbook-math-filled-${holeIds[0]}`}>
+          <ReadableMath latex={latexWithAnswers} />
+        </span>
+      )
+    }
+    return (
+      <button
+        type="button"
+        className="reading-math-blank-button"
+        data-testid={`textbook-math-item-${pendingId}`}
+        onClick={() => onOpen(pendingId)}
+        aria-label={text('式の空欄を解答する', '回答公式中的空格')}
+      >
+        <InlineMath math={latexWithAnswers} />
+        <span className="reading-math-blank-button__hint">{text('選択', '选择')}</span>
+      </button>
+    )
+  }
 
+  if (part.type !== 'choice') return null
   const item = section.items.find((candidate) => candidate.id === part.itemId)
   if (!item) return null
   const record = progress?.answers[item.id]
   if (record?.resolved) return renderResolvedChoice(item, record)
-  return renderActiveChoice(item, record?.firstValue, Boolean(record && !record.resolved), onOpen, text)
+  return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text)
 }
 
-function TextbookReadingFlow({ unit, section, progress }: {
+function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: {
   unit: PublicTextbookUnit
   section: PublicTextbookSection
   progress: TextbookUnitProgress | undefined
+  requestedKnowledgeId?: string | null
 }) {
   const { text } = useI18n()
+  const numbersZip = isNumbersZipUnit(unit.unitId)
+  const revisedPhysics = unit.subject === 'physics' && unit.unitId.endsWith('-revised')
+  const isGeometryUnit = ['math-1a-geometry-measurement', 'math-1a-geometric-properties'].includes(unit.unitId)
+  const emphasisScope = textbookEmphasisScope(unit.subject, unit.unitId)
   const [activeItemId, setActiveItemId] = useState<string | null>(null)
+  const [hintCounts, setHintCounts] = useState<Record<string, number>>({})
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
   const [submitError, setSubmitError] = useState('')
-  const [selectedGroupIndex, setSelectedGroupIndex] = useState(0)
+  const [selectedGroupIndex, setSelectedGroupIndex] = useState(() => {
+    if (!numbersZip) return 0
+    const firstPending = groupReadingFlow(section.readingFlow).findIndex((group) =>
+      readingGroupItemIds(group).some((id) => !progress?.answers[id]?.resolved))
+    return Math.max(0, firstPending)
+  })
+  const [selectedKnowledgeId, setSelectedKnowledgeId] = useState(requestedKnowledgeId ?? null)
+  const [expandedApplication, setExpandedApplication] = useState<{ knowledgeId: string; topicId: string | null }>()
   const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
   const hasTopicNavigation = groups.some((group) => group[0]?.type === 'topic')
+  const knowledgeGroups = section.knowledgeGroups?.filter((group) => group.topicIds.length > 0)
+  const selectedKnowledge = knowledgeGroups?.find((group) => group.id === selectedKnowledgeId)
 
   useEffect(() => {
-    setSelectedGroupIndex(0)
+    if (!numbersZip) setSelectedGroupIndex(0)
+    setExpandedApplication(undefined)
     setActiveItemId(null)
+    setHintCounts({})
     setSubmitError('')
-  }, [section.id])
-
-  const activeItem = activeItemId ? section.items.find((item) => item.id === activeItemId) : undefined
-  const activeRecord = activeItem ? progress?.answers[activeItem.id] : undefined
-  const activeChoices = activeItem?.choices ?? []
-  const activeWrongResult = Boolean(activeRecord?.resolved && !activeRecord.isFirstCorrect)
-  const selectChoice = async (choice: string) => {
-    if (!activeItem || activeRecord?.resolved || submittingItemId) return
+  }, [numbersZip, section.id])
+  useEffect(() => {
+    setSelectedKnowledgeId(requestedKnowledgeId ?? null)
+  }, [section.id, requestedKnowledgeId])
+  // Choices are always shown for every currently visible unanswered item.
+  // Preserve the previously wrong choice without blocking the next item.
+  const selectChoice = async (item: PublicTextbookItem, choice: string) => {
+    if (progress?.answers[item.id]?.resolved || submittingItemId) return
     setSubmitError('')
-    setSubmittingItemId(activeItem.id)
+    setActiveItemId(item.id)
+    setSubmittingItemId(item.id)
     try {
-      const result = await textbookRepository.submitAnswer(unit.unitId, activeItem.id, choice)
-      recordServerAnswer(unit, activeItem.id, choice, result)
-      if (result.correct) setActiveItemId(null)
+      const result = await textbookRepository.submitAnswer(unit.unitId, item.id, choice)
+      recordServerAnswer(unit, item.id, choice, result)
+      setActiveItemId(result.correct ? null : item.id)
     } catch (error) {
       setSubmitError(error instanceof Error ? error.message : text('回答を送信できませんでした。', '无法提交答案。'))
     } finally {
@@ -187,49 +321,86 @@ function TextbookReadingFlow({ unit, section, progress }: {
     }
   }
 
-  const blockContainsActiveItem = (block: TextbookReadingBlock) =>
-    Boolean(
-      activeItemId
-      && (block.type === 'paragraph' || block.type === 'formula')
-      && block.parts.some((part) => part.type === 'choice' && part.itemId === activeItemId),
+  const renderInlineChoicePanel = (visibleParts: TextbookReadingPart[]) => {
+    const ids = [...new Set(visibleParts.flatMap((part) => {
+      if (part.type === 'choice') return [part.itemId]
+      if (part.type !== 'math') return []
+      const holes = part.holeIds ?? []
+      const next = holes.find((id) => !progress?.answers[id]?.resolved)
+      const lastWrong = holes.filter((id) =>
+        id === activeItemId && progress?.answers[id]?.resolved && !progress?.answers[id]?.isFirstCorrect)
+      return [...lastWrong, ...(next ? [next] : [])]
+    }))].filter((id) =>
+      !progress?.answers[id]?.resolved ||
+      (id === activeItemId && !progress?.answers[id]?.isFirstCorrect),
     )
 
-  const renderInlineChoicePanel = (block: TextbookReadingBlock) => {
-    if (!activeItem || !blockContainsActiveItem(block)) return null
-    return (
-      <div className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${activeItem.id}`}>
-        <div className="reading-inline-choice-panel__head">
-          <strong>{activeItem.label}</strong>
-          <span>{activeItem.prompt}</span>
-        </div>
-        <div className="reading-choice-options" role="group" aria-label={`${activeItem.label} ${text('選択肢', '选项')}`}>
-          {activeChoices.map((choice, index) => {
-            const selectedWrong = Boolean(activeWrongResult && (activeRecord?.firstValue ?? activeRecord?.value) === choice)
-            const revealedCorrect = Boolean(activeWrongResult && activeRecord?.value === choice)
-            return (
-              <button
-                type="button"
-                key={choice}
-                data-testid={`textbook-choice-${activeItem.id}-${index}`}
-                className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
-                disabled={Boolean(activeRecord?.resolved) || submittingItemId === activeItem.id}
-                onClick={() => void selectChoice(choice)}
-              >
-                <span>{index + 1}</span>
-                <strong>{choice}</strong>
-                {activeItem.unit && <small>{activeItem.unit}</small>}
+    return ids.map((id) => {
+      const item = section.items.find((candidate) => candidate.id === id)
+      if (!item) return null
+      const record = progress?.answers[id]
+      const revealedWrong = Boolean(!item.retryOnWrong && record?.resolved && !record.isFirstCorrect)
+      const needsRetry = Boolean(record && !record.resolved)
+      const hintCount = hintCounts[id] ?? 0
+      return (
+        <div key={id} className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${id}`}>
+          <div className="reading-inline-choice-panel__head">
+            <strong>{item.label}</strong><span><MathText value={item.prompt} /></span>
+          </div>
+          {item.choices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${item.label} ${text('選択肢', '选项')}`}>
+            {item.choices.map((choice, index) => {
+              const selectedWrong = Boolean((revealedWrong && record?.firstValue === choice) || (needsRetry && record?.value === choice))
+              const revealedCorrect = Boolean(revealedWrong && record?.value === choice)
+              return (
+                <button type="button" key={choice}
+                  data-testid={`textbook-choice-${id}-${index}`}
+                  data-choice-value={choice} aria-label={`${index + 1}. ${choice}`}
+                  className={`reading-choice-option${selectedWrong ? ' reading-choice-option--wrong' : ''}${revealedCorrect ? ' textbook-choice--correct' : ''}`}
+                  disabled={Boolean(record?.resolved) || submittingItemId !== null}
+                  onClick={() => void selectChoice(item, choice)}>
+                  <span>{index + 1}</span>
+                  <strong>{item.choiceMathLines?.[choice] ? (
+                    <span className="numbers-zip-choice-lines">{item.choiceMathLines[choice].map((line, lineIndex) =>
+                      <ReadableMath key={lineIndex} latex={line} />)}</span>
+                  ) : <GuidedChoiceValue value={choice} />}</strong>
+                  {item.unit && <small>{item.unit}</small>}
+                </button>
+              )
+            })}
+          </div>}
+          {Boolean(item.hints?.length) && !record?.resolved && (
+            <div className="reading-staged-hints" data-testid={`textbook-hints-${id}`}>
+              <button type="button" className="reading-hint-trigger"
+                onClick={() => setHintCounts((current) => ({
+                  ...current, [id]: Math.min((current[id] ?? 0) + 1, item.hints?.length ?? 0),
+                }))}
+                disabled={hintCount >= (item.hints?.length ?? 0)}>
+                {text(`ヒントを見る ${hintCount}/${item.hints?.length ?? 0}`,
+                  `查看提示 ${hintCount}/${item.hints?.length ?? 0}`)}
               </button>
-            )
-          })}
+              {hintCount > 0 && (
+                <ol className="reading-hint-steps">
+                  {item.hints?.slice(0, hintCount).map((hint, index) => <li key={index}>{revisedPhysics ? <PhysicsInlineText value={hint}/> : numbersZip ? <MathText value={hint} /> : hint}</li>)}
+                </ol>
+              )}
+            </div>
+          )}
+          {item.choices.length < 2 && <p className="reading-inline-choice-error" role="alert">
+            {text('選択肢の読み込みに失敗しました。画面を更新してください。', '选项加载失败，请刷新页面。')}
+          </p>}
+          {revealedWrong && <p className="reading-inline-choice-error" data-testid={`answer-reveal-${id}`}>
+            {text('不正解です。正解は「', '回答错误。正确答案是「')}<GuidedChoiceValue value={record?.value ?? ''} />{text('」です。', '」。')}
+          </p>}
+          {needsRetry && <p className="reading-inline-choice-error" data-testid={`answer-retry-${id}`}>
+            {text('もう一度考えよう。', '再想一想。')}
+          </p>}
+          {(revealedWrong || needsRetry) && record?.wrongReason && (
+            <p className="reading-inline-choice-error"><MathText value={record.wrongReason} /></p>
+          )}
+          {submitError && activeItemId === id && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
         </div>
-        {activeWrongResult && (
-          <p className="reading-inline-choice-error" data-testid={`answer-reveal-${activeItem.id}`}>
-            {text(`不正解です。正解は「${activeRecord?.value ?? ''}」です。`, `回答错误。正确答案是「${activeRecord?.value ?? ''}」。`)}
-          </p>
-        )}
-        {submitError && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
-      </div>
-    )
+      )
+    })
   }
 
   const hasSolutionTrack = section.readingFlow.some(
@@ -274,7 +445,27 @@ function TextbookReadingFlow({ unit, section, progress }: {
   }
 
   const renderBlock = (block: TextbookReadingBlock) => {
-    if (block.type === 'topic') return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
+    if (block.type === 'topic') {
+      if (!knowledgeGroups) return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
+      const title = block.text.replace(/^\d+(?:\.\d+)?\s+/u, '')
+      return title === selectedKnowledge?.title ? null : <h4 className="reading-topic-title" key={block.id}>{title}</h4>
+    }
+    if (block.type === 'marker') return (
+      <div className={`reading-role-marker reading-role-marker--${block.kind}`} key={block.id}>
+        {block.text}
+      </div>
+    )
+    if (block.type === 'dialogue') {
+      const speaker = block.speaker === 'teacher' ? '先生' : block.speaker === 'hanako' ? '花子' : '太郎'
+      return (
+        <div className="reading-dialogue" key={block.id} data-testid={`textbook-dialogue-${block.id}`}>
+          <span className="reading-dialogue__speaker">{speaker}</span>
+          <p className="reading-dialogue__text">
+            <KeyConceptText value={block.text} scope={emphasisScope} blockId={block.id} unitId={unit.unitId} />
+          </p>
+        </div>
+      )
+    }
 
     if (hasSolutionTrack && block.type === 'heading' && block.text.startsWith('教科書対応問')) {
       return <h4 className="reading-subheading" key={block.id}>{block.text.replace(/^教科書対応問[　\s]*/u, '')}</h4>
@@ -302,7 +493,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
             </div>
             <div className="textbook-example-step-detail">
               <span>{metaLabel}</span>
-              <p>{block.text.slice(kind.prefix.length)}</p>
+              <p><KeyConceptText value={block.text.slice(kind.prefix.length)} scope={emphasisScope} blockId={block.id} unitId={unit.unitId} /></p>
             </div>
           </div>
         )
@@ -311,14 +502,14 @@ function TextbookReadingFlow({ unit, section, progress }: {
         return (
           <div className="textbook-example-check" key={block.id}>
             <span>CHECK</span>
-            <p>{block.text.slice('確認　'.length)}</p>
+            <p><KeyConceptText value={block.text.slice('確認　'.length)} scope={emphasisScope} blockId={block.id} unitId={unit.unitId} /></p>
           </div>
         )
       }
     }
 
     if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
-    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{block.text}</aside>
+    if (block.type === 'note') return <aside className="reading-note" key={block.id}>{revisedPhysics ? <PhysicsInlineText value={block.text} scope={emphasisScope} blockId={block.id} unitId={unit.unitId} /> : <KeyConceptText value={block.text} scope={emphasisScope} blockId={block.id} unitId={unit.unitId} />}</aside>
 
     if (hasSolutionTrack && block.type === 'paragraph') {
       const plain = block.parts.map((part) => part.type === 'text' ? part.text : '').join('').trim()
@@ -337,20 +528,76 @@ function TextbookReadingFlow({ unit, section, progress }: {
       }
     }
 
+    if (block.type === 'reference-table') {
+      const images = block.figureIds.flatMap((id) => {
+        const figure = section.figures.find((candidate) => candidate.id === id)
+        return figure ? [{ ...figure, src: resolveAssetSrc(figure.src) }] : []
+      })
+      return <TrigonometryReferenceTable key={block.id} images={images} />
+    }
+
+    if (block.type === 'math-table') return <div className="numbers-zip-math-table" key={block.id}>
+      <table><caption>{block.caption}</caption><thead><tr>{block.headers.map((header, index) =>
+        <th key={index} scope="col">{header}</th>)}</tr></thead><tbody>{block.rows.map((row, index) =>
+        <tr key={index}>{row.map((cell, column) => <td key={column}><ReadableMath latex={cell} /></td>)}</tr>)}</tbody></table>
+    </div>
+
     if (block.type === 'figure') {
       const figure = section.figures.find((candidate) => candidate.id === block.figureId)
       if (!figure) return null
       return (
         <figure className="reading-figure" key={block.id}>
           <img src={resolveAssetSrc(figure.src)} alt={figure.alt} />
-          {figure.caption && <figcaption>{figure.caption}</figcaption>}
+          {figure.caption && <figcaption>{revisedPhysics ? <PhysicsInlineText value={figure.caption}/> : figure.caption}</figcaption>}
         </figure>
       )
     }
 
-    const content = block.parts.map((part, index) => (
+    if (block.type !== 'paragraph' && block.type !== 'formula') return null
+
+    // Mathematics and revised Chapter-1 physics reveal the textbook one
+    // reasoning decision at a time. Legacy physics reading is unaffected.
+    const guidedReading = unit.subject === 'math-1a'
+      || (unit.subject === 'physics' && unit.unitId.endsWith('-revised'))
+    const firstUnansweredPart = guidedReading
+      ? block.parts.findIndex((part) => (
+          part.type === 'choice' ? !progress?.answers[part.itemId]?.resolved
+            : part.type === 'math' && (part.holeIds ?? []).some((id) => !progress?.answers[id]?.resolved)
+        ))
+      : -1
+    const visibleParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
+    const linkedAnswerId = blockItemIds(block)[0]
+    const renderVisiblePart = (part: TextbookReadingPart): ReactNode => {
+      if (part.type === 'text' && !/【[^】]*】/.test(part.text) && revisedPhysics) {
+        return <PhysicsInlineText value={part.text} scope={emphasisScope} blockId={block.id} unitId={unit.unitId} />
+      }
+      if (part.type !== 'text' || !/【[^】]*】/.test(part.text)) {
+        return renderPart(part, section, progress, setActiveItemId, text, emphasisScope, block.id, unit.unitId)
+      }
+      // The source has several holes per question but only one reviewed
+      // combined answer. Link the additional blanks to the same response.
+      const segments = part.text.split(/(【[^】]*】)/g)
+      return segments.map((segment, segmentIndex) => {
+        if (!/^【[^】]*】$/.test(segment)) return segment
+        if (!linkedAnswerId) {
+          return <span key={segmentIndex} className="reading-inline-blank reading-ungraded-blank"
+            title={text('この空欄には確認済みの解答がありません', '这个空栏暂未核对答案')}>
+            {text('未採点', '未录入答案')}
+          </span>
+        }
+        if (progress?.answers[linkedAnswerId]?.resolved) {
+          return <span key={segmentIndex} className="reading-inline-answer">{text('回答済み', '已回答')}</span>
+        }
+        return <button key={segmentIndex} type="button" className="reading-inline-blank reading-linked-blank"
+          aria-label={text('この問題の解答欄を開く', '打开本题的答题区')}
+          onClick={() => setActiveItemId(linkedAnswerId)}>
+          {text('解答欄', '答题区')}
+        </button>
+      })
+    }
+    const content = visibleParts.map((part, index) => (
       <span key={`${block.id}-part-${index}`}>
-        {renderPart(part, section, progress, setActiveItemId, text)}
+        {renderVisiblePart(part)}
       </span>
     ))
 
@@ -367,7 +614,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
             <div className="practice-blank-line">
               {content}
             </div>
-            {renderInlineChoicePanel(block)}
+            {renderInlineChoicePanel(visibleParts)}
           </div>
         </div>
       )
@@ -376,9 +623,9 @@ function TextbookReadingFlow({ unit, section, progress }: {
     return (
       <div className="reading-block-with-choice" key={block.id}>
         {block.type === 'formula'
-          ? <div className="reading-formula-line">{content}</div>
+          ? <div className="reading-formula-line">{content}{block.equationNumber && <span className="numbers-zip-equation-number">（{block.equationNumber}）</span>}</div>
           : <p className="reading-paragraph">{content}</p>}
-        {renderInlineChoicePanel(block)}
+        {renderInlineChoicePanel(visibleParts)}
       </div>
     )
   }
@@ -493,9 +740,23 @@ function TextbookReadingFlow({ unit, section, progress }: {
     return rendered
   }
 
-  const displayedGroups = hasTopicNavigation
-    ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0)))
-    : groups
+  const guidedRevisedPhysics = revisedPhysics
+  const firstPendingPhysicsBlock = guidedRevisedPhysics
+    ? section.readingFlow.findIndex((block) =>
+        blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
+    : -1
+  const visiblePhysicsBlockIds = guidedRevisedPhysics && firstPendingPhysicsBlock >= 0
+    ? new Set(section.readingFlow.slice(0, firstPendingPhysicsBlock + 1).map((block) => block.id))
+    : undefined
+  const firstIncompleteStage = numbersZip && hasTopicNavigation
+    ? groups.findIndex((group) => readingGroupItemIds(group).some((id) => !progress?.answers[id]?.resolved))
+    : -1
+  const maxStageIndex = firstIncompleteStage < 0 ? groups.length - 1 : firstIncompleteStage
+  const displayedGroups = knowledgeGroups
+    ? groups.filter((group) => selectedKnowledge?.topicIds.includes(group[0].id))
+    : hasTopicNavigation
+      ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, maxStageIndex))
+      : groups
 
   const topicLabel = (group: TextbookReadingBlock[], index: number) => {
     const topic = group[0]
@@ -504,10 +765,85 @@ function TextbookReadingFlow({ unit, section, progress }: {
     return match ? { number: match[1], title: match[2] } : { number: String(index + 1), title: raw }
   }
 
+  const knowledgePoints = knowledgeGroups?.map((point) => {
+    const ids = readingGroupItemIds(groups.filter((group) => point.topicIds.includes(group[0].id)).flat())
+    const done = ids.filter((id) => progress?.answers[id]?.resolved).length
+    return { id: point.id, title: point.title, detail: `${done}/${ids.length}` }
+  })
+  const defaultApplication = displayedGroups.every(([topic]) => topic?.type === 'topic' && topic.role === 'application')
+    ? displayedGroups[0]?.[0]?.id
+    : undefined
+
+  const readingContent = displayedGroups.map((group) => {
+    // Keep each original problem's steps gated by its own answers.
+    const unansweredBlock = unit.subject === 'math-1a'
+      ? group.findIndex((block) => (block.type === 'paragraph' || block.type === 'formula')
+        && blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
+      : -1
+    const mathVisibleGroup = unansweredBlock < 0 ? group : group.slice(0, unansweredBlock + 1)
+    const visibleGroup = mathVisibleGroup.filter((block) =>
+      (!visiblePhysicsBlockIds || visiblePhysicsBlockIds.has(block.id)) &&
+      (!('hideAfter' in block) || !block.hideAfter?.every((id) => progress?.answers[id]?.resolved)))
+    if (!visibleGroup.length) return null
+    const groupIndex = groups.indexOf(group)
+    const groupItemIds = readingGroupItemIds(group)
+    const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
+    const topic = group[0]
+    if (selectedKnowledge && topic?.type === 'topic' && topic.role === 'application') {
+      const applicationId = expandedApplication?.knowledgeId === selectedKnowledge.id
+        ? expandedApplication.topicId
+        : defaultApplication
+      const open = applicationId === topic.id
+      const panelId = `reading-application-${topic.id}`
+      return (
+        <section className="reading-subsection" data-testid={`reading-subsection-${groupIndex}`} key={topic.id}>
+          <h4 className="reading-topic-title">
+            <button type="button" className="reading-application-toggle"
+              aria-expanded={open} aria-controls={panelId}
+              onClick={() => {
+                setExpandedApplication({ knowledgeId: selectedKnowledge.id, topicId: open ? null : topic.id })
+                setActiveItemId(null)
+                setSubmitError('')
+              }}>
+              {topic.text.replace(/^\d+(?:\.\d+)?\s+/u, '')}
+            </button>
+          </h4>
+          <div id={panelId} hidden={!open}>{open && renderExampleSequence(visibleGroup.slice(1))}</div>
+        </section>
+      )
+    }
+    return (
+      <section className={`reading-subsection${!knowledgeGroups && group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
+        {renderExampleSequence(visibleGroup)}
+        {!knowledgeGroups && (completed || (numbersZip && hasTopicNavigation && !groupItemIds.length)) && groupIndex < groups.length - 1 && (
+          <div className="reading-subsection-complete">
+            <Check size={16} aria-hidden="true" />
+            <span>{text('この小節を完了しました。次の項目へ進めます。', '本知识点已完成，可以继续下一知识点。')}</span>
+            {numbersZip && hasTopicNavigation && <button type="button" className="text-button"
+              onClick={() => { setSelectedGroupIndex(groupIndex + 1); setActiveItemId(null); setSubmitError('') }}>
+              {text('次の段階へ', '进入下一阶段')}
+            </button>}
+          </div>
+        )}
+      </section>
+    )
+  })
+
   return (
-    <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
-      {hasTopicNavigation && (
-        <nav className="reading-topic-nav" aria-label={text('知識項目', '知识点')}>
+    <article className={`textbook-reading-flow${isGeometryUnit ? ' textbook-reading-flow--geometry' : ''}`} data-testid="textbook-reading-flow">
+      {knowledgePoints && (
+        <KnowledgePointGrid label={text('知識項目', '知识点')} points={knowledgePoints}
+          selectedId={selectedKnowledgeId} onSelect={(id) => {
+            setSelectedKnowledgeId(id)
+            setExpandedApplication(undefined)
+            setActiveItemId(null)
+            setSubmitError('')
+          }} />
+      )}
+      {!knowledgeGroups && hasTopicNavigation && (
+        <nav className={groups.length > 12 && isGeometryUnit
+          ? 'reading-topic-nav reading-topic-nav--scroll' : 'reading-topic-nav'}
+          aria-label={text('知識項目', '知识点')}>
           {groups.map((group, groupIndex) => {
             const label = topicLabel(group, groupIndex)
             const itemIds = readingGroupItemIds(group)
@@ -516,7 +852,8 @@ function TextbookReadingFlow({ unit, section, progress }: {
               <button
                 type="button"
                 key={group[0]?.id ?? groupIndex}
-                aria-pressed={selectedGroupIndex === groupIndex}
+                aria-pressed={Math.min(selectedGroupIndex, maxStageIndex) === groupIndex}
+                disabled={numbersZip && groupIndex > maxStageIndex}
                 onClick={() => {
                   setSelectedGroupIndex(groupIndex)
                   setActiveItemId(null)
@@ -532,22 +869,12 @@ function TextbookReadingFlow({ unit, section, progress }: {
         </nav>
       )}
 
-      {displayedGroups.map((group) => {
-        const groupIndex = groups.indexOf(group)
-        const groupItemIds = readingGroupItemIds(group)
-        const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
-        return (
-          <section className={`reading-subsection${group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
-            {renderExampleSequence(group)}
-            {completed && groupIndex < groups.length - 1 && (
-              <div className="reading-subsection-complete">
-                <Check size={16} aria-hidden="true" />
-                <span>{text('この小節を完了しました。次の項目へ進めます。', '本知识点已完成，可以继续下一知识点。')}</span>
-              </div>
-            )}
-          </section>
-        )
-      })}
+      {selectedKnowledge
+        ? <section className="reading-topic-card" data-testid="learning-knowledge-point">
+          <h3 className="reading-topic-title">{selectedKnowledge.title}</h3>
+          {readingContent}
+        </section>
+        : readingContent}
     </article>
   )
 }
@@ -562,8 +889,9 @@ function groupedLessonSection(unit: PublicTextbookUnit, lesson: TextbookLessonTa
   const prefix = lesson.topicPrefix ?? '1'
   const readingFlow: TextbookReadingBlock[] = sourceSections.flatMap((section, index) => {
     const title = section.title.replace(/^第\\d+節[　\\s]*/u, '')
+    const number = lesson.key === 'math-golden-proposition-conditions' ? section.number : `${prefix}.${index + 1}`
     return [
-      { id: `group-topic-${lesson.key}-${section.id}`, type: 'topic' as const, text: `${prefix}.${index + 1} ${title}` },
+      { id: `group-topic-${lesson.key}-${section.id}`, type: 'topic' as const, text: `${number} ${title}` },
       ...section.readingFlow,
     ]
   })
@@ -584,14 +912,168 @@ function progressForSection(section: PublicTextbookSection, progress: TextbookUn
   return { completed, total: section.items.length }
 }
 
+/** Reuse the original 数と式 chapter page: progress bar, knowledge-point tile
+ * navigation and reading cards. This is not a new layout or a new textbook.
+ * ZIP item IDs, answer owners and the original reading sequence stay intact.
+ */
+function GoldenChapterGroupPage({
+  chapterLabel,lesson,rootUnit,
+}:{
+  chapterLabel:string
+  lesson:TextbookLessonTarget
+  rootUnit:PublicTextbookUnit
+}) {
+  const {text} = useI18n()
+  const allProgress=useAppStore(state=>state.textbookProgress)
+  const resetTextbookUnit=useAppStore(state=>state.resetTextbookUnit)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [otherUnits,setOtherUnits]=useState<Record<string,PublicTextbookUnit|null>>({})
+  const topics=lesson.topics ?? []
+  const otherIds=[...new Set(topics.flatMap(topic=>topic.kind==='cross-unit-group'
+    ? (topic.sectionRefs ?? []).map(ref=>ref.unitId) : [topic.unitId]))]
+    .filter(id=>id!==rootUnit.unitId)
+  const [selectedIndex,setSelectedIndex]=useState(0)
+  const selectedTopic=topics[Math.min(selectedIndex,Math.max(0,topics.length-1))]
+  useEffect(()=>{
+    let alive=true
+    setOtherUnits({})
+    void Promise.all(otherIds.map(async id=>{
+      try{return {id,unit:await textbookRepository.getById(id)??null}}
+      catch{return {id,unit:null}}
+    })).then(rows=>{if(alive)setOtherUnits(Object.fromEntries(rows.map(row=>[row.id,row.unit])))})
+    return ()=>{alive=false}
+  },[rootUnit.unitId,lesson.key])
+
+  useEffect(()=>{
+    const requested=searchParams.get('topic')
+    const next=topics.findIndex(topic=>topic.key===requested)
+    setSelectedIndex(next>=0?next:0)
+  },[lesson.key,searchParams])
+
+  const sourceOf=(id:string):PublicTextbookUnit|undefined=>
+    id===rootUnit.unitId ? rootUnit : otherUnits[id]??undefined
+
+  const partsFor=(topic:TextbookLessonTarget)=>{
+    const refs=topic.kind==='unit'
+      ? (sourceOf(topic.unitId)?.sections ?? []).map(section=>({unitId:topic.unitId,sectionId:section.id}))
+      : topic.kind==='cross-unit-group' ? topic.sectionRefs??[]
+      : topic.kind==='section-group' ? (topic.sectionIds??[]).map(sectionId=>({unitId:topic.unitId,sectionId}))
+      : topic.kind==='section' && topic.sectionId ? [{unitId:topic.unitId,sectionId:topic.sectionId}] : []
+    return refs.flatMap(ref=>{
+      const unit=sourceOf(ref.unitId)
+      const section=unit?.sections.find(item=>item.id===ref.sectionId)
+      return unit&&section ? [{unit,section,progress:allProgress[ref.unitId]}] : []
+    })
+  }
+  const notLoaded=otherIds.some(id=>!(id in otherUnits))
+  const loadError=otherIds.some(id=>id in otherUnits && otherUnits[id]===null)
+  if (notLoaded) return <div className="state-panel"><span className="state-panel__mark">…</span>
+    <h2>{text('教材を読み込んでいます','正在加载教材')}</h2></div>
+  if(loadError) return <ErrorState title={text('教材を読み込めません','无法加载教材')}
+    body={text('関連する教材データの取得に失敗しました。','无法读取相关教材数据。')}
+    action={<Link className="raised-link" to="/learn">{text('学習へ戻る','返回学习')}</Link>} />
+
+  const topicStats=(topic:TextbookLessonTarget)=>partsFor(topic)
+    .reduce((sum,part)=>{
+      const counts=progressForSection(part.section,part.progress)
+      return {completed:sum.completed+counts.completed,total:sum.total+counts.total}
+    },{completed:0,total:0})
+  const totals=topics.reduce((sum,topic)=>{
+    const counts=topicStats(topic)
+    return {completed:sum.completed+counts.completed,total:sum.total+counts.total}
+  },{completed:0,total:0})
+  const activeParts=selectedTopic ? partsFor(selectedTopic) : []
+  const activeStats=selectedTopic ? topicStats(selectedTopic) : {completed:0,total:0}
+  const numberFor=(topic:TextbookLessonTarget,index:number)=>{
+    if(topic.key==='math-golden-proposition-conditions')return '2.2～2.4'
+    if(topic.key==='math-golden-proposition-negation-quantifiers')return '2.5～2.7'
+    if(topic.kind==='unit'&&rootUnit.subject==='physics')
+      return topic.label.match(/^\d+[A-G]/)?.[0] ?? String(index+1)
+    if(topic.kind==='section'&&topic.sectionId)return sourceOf(topic.unitId)
+      ?.sections.find(section=>section.id===topic.sectionId)?.number??String(index+1)
+    return String(index+1)
+  }
+  const nameFor=(topic:TextbookLessonTarget)=>topic.label
+    .replace(/^(?:\d+\.\d+(?:～\d+\.\d+)?|\d+[A-G])[　\s]*/u,'')
+  const title=chapterLabel+'：'+lesson.label
+  return (
+    <div className="page-stack textbook-page">
+      <header className="session-header">
+        <div><p className="eyebrow">{rootUnit.subject==='physics'?'TEXTBOOK / PHYSICS':'TEXTBOOK / MATH I・A'}</p><h1>{title}</h1></div>
+        <StatusBadge>{rootUnit.status==='review' ? text('レビュー中（未承認）','审核中（未批准）')
+          : rootUnit.subject==='physics' || isNumbersZipUnit(rootUnit.unitId) ? text('改訂版','改订版')
+            : text('GOLDEN 完成版','GOLDEN 完成版')}</StatusBadge>
+      </header>
+      <ProgressBar label={text('この学習項目の進み具合','本学习部分进度')}
+        value={totals.completed} max={totals.total}/>
+      <nav className="textbook-section-nav" aria-label={text('知識項目','知识点')}>
+        {topics.map((topic,index)=>{
+          const stats=topicStats(topic)
+          const complete=stats.total>0&&stats.completed===stats.total
+          return <button type="button" key={topic.key}
+            data-testid={`golden-topic-${index+1}`}
+            aria-pressed={selectedIndex===index} onClick={()=>{
+              setSelectedIndex(index)
+              if (isNumbersZipUnit(rootUnit.unitId)) {
+                const params = new URLSearchParams(searchParams)
+                params.set('topic', topic.key)
+                setSearchParams(params, { replace: true })
+              }
+              window.scrollTo({top:0,behavior:'smooth'})
+            }}>
+            <span>{complete?<Check size={16} aria-hidden="true"/>:numberFor(topic,index)}</span>
+            <strong>{nameFor(topic)}</strong>
+            <small>{stats.completed}/{stats.total}</small>
+          </button>
+        })}
+      </nav>
+      <section className="textbook-section">
+        <header className="textbook-section-heading">
+          <div><span>{selectedTopic?numberFor(selectedTopic,selectedIndex):''}</span>
+            <div><h2>{selectedTopic?nameFor(selectedTopic):''}</h2></div>
+          </div>
+          <strong>{activeStats.completed}/{activeStats.total}</strong>
+        </header>
+        {activeParts.map(part=><div key={part.unit.unitId+'-'+part.section.id}>
+          {activeParts.length>1&&<h3 className="reading-topic-title">
+            {part.section.number} {part.section.title}
+          </h3>}
+          <TextbookReadingFlow unit={part.unit} section={part.section} progress={part.progress}/>
+        </div>)}
+        {activeStats.total>0&&activeStats.completed===activeStats.total&&(
+          <div className="textbook-complete-panel" data-testid="textbook-unit-complete">
+            <Check size={28} aria-hidden="true"/>
+            <div><h2>{text('学習項目完了','学习部分完成')}</h2>
+              <p>{text('この学習項目をすべて完了しました。','本学习部分已完成。')}</p></div>
+          </div>
+        )}
+      </section>
+      <button type="button" className="text-button textbook-reset" onClick={()=>{
+        if(window.confirm(text('この節の進捗を最初からやり直しますか？','确定清空本节进度吗？'))){
+          for(const id of [rootUnit.unitId,...otherIds])resetTextbookUnit(id)
+          setSelectedIndex(0)
+        }
+      }}><RotateCcw size={15} aria-hidden="true"/>{text('この単元を最初から','本单元重新开始')}</button>
+    </div>
+  )
+}
+
 export function TextbookUnitPage() {
   const { unitId = '' } = useParams()
   const [searchParams] = useSearchParams()
   const targetKey = searchParams.get('target')
   const requestedSectionId = searchParams.get('section')
+  const isRevisedPhysicsGroup = Boolean(targetKey?.startsWith('physics-revised-ch01-'))
+  const isNumbersChapterGroup = Boolean(targetKey?.startsWith(numbersZipGroupPrefix))
+  const needsChapterCatalog = isRevisedPhysicsGroup || isNumbersChapterGroup
+  const [chapterUnits, setChapterUnits] = useState<PublicTextbookUnit[] | null | undefined>(undefined)
   const [unit, setUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
+  const [companionUnit, setCompanionUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0)
   const progress = useAppStore((state) => state.textbookProgress[unitId])
+  const companionProgress = useAppStore((state) => state.textbookProgress['math-quantifiers-all-exists'])
+  const isCrossUnitLesson = unitId === 'math-propositions-reading'
+    && targetKey === 'math-golden-proposition-negation-quantifiers'
   const resetTextbookUnit = useAppStore((state) => state.resetTextbookUnit)
   const { text } = useI18n()
 
@@ -604,6 +1086,36 @@ export function TextbookUnitPage() {
     })
     return () => { active = false }
   }, [unitId])
+
+  // Chapter 1 spans seven separately owned units. A single unit cannot reconstruct
+  // the three chapter-group navigation rows or their topic tiles by itself.
+  useEffect(() => {
+    if (!needsChapterCatalog) {
+      setChapterUnits(undefined)
+      return
+    }
+    let active = true
+    setChapterUnits(undefined)
+    textbookRepository.listPublished()
+      .then(value => { if (active) setChapterUnits(value) })
+      .catch(() => { if (active) setChapterUnits(null) })
+    return () => { active = false }
+  }, [needsChapterCatalog])
+
+  // 2.5–2.7 spans two original ZIP units. Load both without migrating IDs
+  // or progress records between their original owning units.
+  useEffect(() => {
+    if (!isCrossUnitLesson) {
+      setCompanionUnit(undefined)
+      return
+    }
+    let active = true
+    setCompanionUnit(undefined)
+    textbookRepository.getById('math-quantifiers-all-exists')
+      .then(value => { if (active) setCompanionUnit(value ?? null) })
+      .catch(() => { if (active) setCompanionUnit(null) })
+    return () => { active = false }
+  }, [isCrossUnitLesson])
 
   useEffect(() => {
     if (!unit) {
@@ -620,10 +1132,28 @@ export function TextbookUnitPage() {
 
   if (unit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
   if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
+  if (isCrossUnitLesson && companionUnit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
+  if (isCrossUnitLesson && companionUnit === null) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('量詞の教材データを読み込めませんでした。', '无法加载量词教材数据。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
+  if (needsChapterCatalog && chapterUnits === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
+  if (needsChapterCatalog && chapterUnits === null) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('物理の章立てデータを取得できませんでした。', '无法获取物理章节目录。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
 
-  const targetMatch = targetKey ? findTextbookLessonTarget([unit], targetKey) : undefined
+  const targetMatch = targetKey ? findTextbookLessonTarget(needsChapterCatalog ? chapterUnits ?? [unit] : [unit], targetKey) : undefined
+  if (needsChapterCatalog && !targetMatch) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('この章の目次データが揃っていません。', '本章目录数据不完整。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
   const lessonTarget = targetMatch?.lesson
   const groupedSection = lessonTarget ? groupedLessonSection(unit, lessonTarget) : undefined
+  const crossParts = lessonTarget?.kind === 'cross-unit-group'
+    ? (lessonTarget.sectionRefs ?? []).flatMap(ref => {
+        const owner = ref.unitId === unit.unitId ? unit : companionUnit
+        const section = owner?.sections.find(candidate=>candidate.id===ref.sectionId)
+        return owner && section
+          ? [{unit:owner,section,progress:ref.unitId===unit.unitId ? progress : companionProgress}]
+          : []
+      })
+    : null
+  const crossSummary = crossParts?.reduce((sum,part)=>{
+    const counts = progressForSection(part.section,part.progress)
+    return {completed:sum.completed+counts.completed,total:sum.total+counts.total}
+  }, {completed:0,total:0})
   const targetedSection = lessonTarget?.kind === 'section'
     ? unit.sections.find((section) => section.id === lessonTarget.sectionId)
     : undefined
@@ -632,19 +1162,24 @@ export function TextbookUnitPage() {
     : undefined
   const currentSection = groupedSection ?? targetedSection ?? legacySection ?? unit.sections[selectedSectionIndex]
   const summary = textbookUnitProgress(unit, progress)
-  const sectionSummary = groupedSection
+  const sectionSummary = crossSummary ?? (groupedSection
     ? progressForSection(groupedSection, progress)
-    : textbookSectionProgress(unit, progress, currentSection.id)
-  const focusedSection = Boolean(groupedSection || targetedSection || legacySection)
+    : textbookSectionProgress(unit, progress, currentSection.id))
+  const focusedSection = Boolean(groupedSection || targetedSection || legacySection || crossParts)
   const targetSelected = Boolean(lessonTarget)
   const targetSummary = lessonTarget?.kind === 'unit' ? summary : sectionSummary
-  const targetComplete = targetSummary.completed === targetSummary.total
-  const sectionComplete = sectionSummary.completed === sectionSummary.total
-  const unitComplete = summary.completed === summary.total
+  const targetComplete = targetSummary.total > 0 && targetSummary.completed === targetSummary.total
+  const sectionComplete = sectionSummary.total > 0 && sectionSummary.completed === sectionSummary.total
+  const unitComplete = summary.total > 0 && summary.completed === summary.total
   const physicsPrefix = lessonTarget?.kind === 'unit' && unit.subject === 'physics' ? physicsTopicPrefix(unit) : undefined
   const goNext = () => {
     setSelectedSectionIndex((index) => Math.min(unit.sections.length - 1, index + 1))
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+  if(lessonTarget?.kind==='chapter-group'){
+    return <GoldenChapterGroupPage key={lessonTarget.key}
+      chapterLabel={targetMatch?.chapter.label ?? '集合と命題（改訂版）'}
+      lesson={lessonTarget} rootUnit={unit}/>
   }
   return (
     <div className="page-stack textbook-page">
@@ -654,7 +1189,16 @@ export function TextbookUnitPage() {
           <h1>{targetMatch ? `${targetMatch.chapter.label}：${targetMatch.lesson.label}` : focusedSection ? `${conciseTextbookTitle(unit)}：${currentSection.title}` : unit.title}</h1>
           {!targetSelected && !focusedSection && unit.subtitle && <p>{unit.subtitle}</p>}
         </div>
-        <StatusBadge>{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}</StatusBadge>
+        <StatusBadge>
+          {unit.status === 'review'
+            ? text('レビュー中（未承認）', '审核中（未批准）')
+            : unit.unitId === 'math-sets'
+              ? text('GOLDEN 完成版', 'GOLDEN 完成版')
+              : unit.unitId === 'math-1a-numbers-expressions-revised'
+                ? text('教材', '教材')
+                : text('改訂版', '改订版')}
+          {' · '}{text(`第 ${unit.revision} 版`, `第 ${unit.revision} 版`)}
+        </StatusBadge>
       </header>
 
       <ProgressBar
@@ -674,7 +1218,7 @@ export function TextbookUnitPage() {
         <nav className="textbook-section-nav" aria-label={text('知識項目', '知识点')}>
           {unit.sections.map((section, index) => {
             const sectionProgress = textbookSectionProgress(unit, progress, section.id)
-            const complete = sectionProgress.completed === sectionProgress.total
+            const complete = sectionProgress.total > 0 && sectionProgress.completed === sectionProgress.total
             return (
               <button
                 type="button"
@@ -691,6 +1235,22 @@ export function TextbookUnitPage() {
         </nav>
       )}
 
+      {crossParts && crossParts.map(part => {
+        const counts = progressForSection(part.section,part.progress)
+        return (
+          <section className="textbook-section" key={part.unit.unitId+'-'+part.section.id}
+            data-testid={`merged-part-${part.section.id}`}>
+            <header className="textbook-section-heading">
+              <div><span>{part.section.number}</span><div><h2>{part.section.title}</h2>
+                {part.section.description && <p>{part.section.description}</p>}
+              </div></div>
+              <strong>{counts.completed}/{counts.total}</strong>
+            </header>
+            <TextbookReadingFlow unit={part.unit} section={part.section} progress={part.progress} />
+          </section>
+        )
+      })}
+      {!crossParts && (
       <section className="textbook-section">
         <header className="textbook-section-heading">
           <div><span>{physicsPrefix && !focusedSection ? `${physicsPrefix}.${selectedSectionIndex + 1}` : currentSection.number}</span><div><h2>{currentSection.title}</h2>{currentSection.description && <p>{currentSection.description}</p>}</div></div>
@@ -698,7 +1258,7 @@ export function TextbookUnitPage() {
         </header>
 
         {currentSection.readingFlow.length > 0
-          ? <TextbookReadingFlow unit={unit} section={currentSection} progress={progress} />
+          ? <TextbookReadingFlow unit={unit} section={currentSection} progress={progress} requestedKnowledgeId={searchParams.get('knowledge')} />
           : null}
 
         {!targetSelected && !focusedSection && sectionComplete && !unitComplete && selectedSectionIndex < unit.sections.length - 1 && (
@@ -722,6 +1282,14 @@ export function TextbookUnitPage() {
           </div>
         )}
       </section>
+      )}
+      {crossParts && targetComplete && (
+        <div className="textbook-complete-panel" data-testid="textbook-unit-complete">
+          <Check size={28} aria-hidden="true" />
+          <div><h2>{text('学習項目完了','学习部分完成')}</h2>
+            <p>{text('この学習項目をすべて完了しました。','本学习部分已全部完成。')}</p></div>
+        </div>
+      )}
 
       <button type="button" className="text-button textbook-reset" onClick={() => {
         if (window.confirm(text('この単元の進捗を最初からやり直しますか？', '确定要清空本单元进度并重新开始吗？'))) {

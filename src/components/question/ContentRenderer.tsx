@@ -1,6 +1,7 @@
-import { BlockMath, InlineMath } from 'react-katex'
 import type { ContentBlock, QuestionAsset } from '../../domain/questionSchema'
 import { useI18n } from '../../i18n/runtime'
+import { BlockMath, InlineMath } from 'react-katex'
+import { MathText } from '../learning/MathText'
 
 function resolveAssetSrc(src: string) {
   if (/^(?:https?:|data:|blob:)/i.test(src)) return src
@@ -12,7 +13,11 @@ function resolveAssetSrc(src: string) {
   return `${base}${src.replace(/^\.?\/+/, '')}`
 }
 
-export function ContentRenderer({ blocks, assets = [] }: { blocks: ContentBlock[]; assets?: QuestionAsset[] }) {
+export function ContentRenderer({ blocks, assets = [], mathInText = false }: {
+  blocks: ContentBlock[]
+  assets?: QuestionAsset[]
+  mathInText?: boolean
+}) {
   const { text } = useI18n()
   return (
     <div className="content-renderer">
@@ -21,7 +26,7 @@ export function ContentRenderer({ blocks, assets = [] }: { blocks: ContentBlock[
           if (block.speaker) {
             return <div key={block.id} className="dialogue-block"><strong>{block.speaker}</strong><p>{block.text}</p></div>
           }
-          return <p key={block.id}>{block.text}</p>
+          return <p key={block.id}>{mathInText ? <MathText value={block.text} /> : block.text}</p>
         }
         if (block.type === 'latex') {
           return block.display === 'block'

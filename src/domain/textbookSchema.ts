@@ -14,6 +14,9 @@ export const TextbookItemSchema = z.object({
   answerType: TextbookAnswerTypeSchema.default('text'),
   choices: z.array(z.string().min(1)).min(2).optional(),
   unit: z.string().optional(),
+  hints: z.array(z.string().min(1)).optional(),
+  retryOnWrong: z.literal(true).optional(),
+  choiceMathLines: z.record(z.string(), z.array(z.string().min(1)).min(1)).optional(),
 })
 
 export const TextbookAnswerEntrySchema = z.object({
@@ -36,16 +39,21 @@ export const TextbookFigureSchema = z.object({
 
 export const TextbookReadingPartSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('text'), text: z.string().min(1) }),
-  z.object({ type: z.literal('math'), latex: z.string().min(1) }),
+  z.object({ type: z.literal('term'), text: z.string().min(1) }),
+  z.object({ type: z.literal('math'), latex: z.string().min(1), holeIds: z.array(IdSchema).optional() }),
   z.object({ type: z.literal('choice'), itemId: IdSchema }),
 ])
 
 export const TextbookReadingBlockSchema = z.discriminatedUnion('type', [
-  z.object({ id: IdSchema, type: z.literal('topic'), text: z.string().min(1) }),
+  z.object({ id: IdSchema, type: z.literal('topic'), text: z.string().min(1), role: z.literal('application').optional() }),
   z.object({ id: IdSchema, type: z.literal('heading'), text: z.string().min(1) }),
-  z.object({ id: IdSchema, type: z.literal('paragraph'), parts: z.array(TextbookReadingPartSchema).min(1) }),
-  z.object({ id: IdSchema, type: z.literal('formula'), parts: z.array(TextbookReadingPartSchema).min(1) }),
+  z.object({ id: IdSchema, type: z.literal('marker'), kind: z.enum(['definition', 'example', 'proof', 'check', 'summary']), text: z.string().min(1) }),
+  z.object({ id: IdSchema, type: z.literal('dialogue'), speaker: z.enum(['hanako', 'taro', 'teacher']), text: z.string().min(1) }),
+  z.object({ id: IdSchema, type: z.literal('paragraph'), parts: z.array(TextbookReadingPartSchema).min(1), hideAfter: z.array(IdSchema).min(1).optional() }),
+  z.object({ id: IdSchema, type: z.literal('formula'), parts: z.array(TextbookReadingPartSchema).min(1), hideAfter: z.array(IdSchema).min(1).optional(), equationNumber: z.string().min(1).optional() }),
   z.object({ id: IdSchema, type: z.literal('figure'), figureId: IdSchema }),
+  z.object({ id: IdSchema, type: z.literal('reference-table'), figureIds: z.array(IdSchema).length(2) }),
+  z.object({ id: IdSchema, type: z.literal('math-table'), caption: z.string(), headers: z.array(z.string()).min(1), rows: z.array(z.array(z.string()).min(1)).min(1) }),
   z.object({ id: IdSchema, type: z.literal('note'), text: z.string().min(1) }),
 ])
 
@@ -98,12 +106,19 @@ export const TextbookUnitSchema = TextbookUnitBaseSchema.superRefine((unit, cont
         context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'figureId'], message: `存在しない figure 参照: ${block.figureId}` })
       }
       if (block.type === 'paragraph' || block.type === 'formula') {
+        if (block.hideAfter?.some((id) => !sectionItemIds.has(id))) {
+          context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'hideAfter'], message: '存在しない解答参照' })
+        }
         block.parts.forEach((part, partIndex) => {
-          if (part.type !== 'choice') return
-          if (!sectionItemIds.has(part.itemId)) {
-            context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'parts', partIndex, 'itemId'], message: `存在しない item 参照: ${part.itemId}` })
+          const linkedIds = part.type === 'choice'
+            ? [part.itemId]
+            : part.type === 'math' ? (part.holeIds ?? []) : []
+          for (const itemId of linkedIds) {
+            if (!sectionItemIds.has(itemId)) {
+              context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'parts', partIndex], message: `存在しない item 参照: ${itemId}` })
+            }
+            referencedItems.add(itemId)
           }
-          referencedItems.add(part.itemId)
         })
       }
     })

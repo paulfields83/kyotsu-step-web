@@ -1,4 +1,5 @@
-import type { ContentBlock } from './questionSchema'
+import type { ContentBlock, QuestionAsset } from './questionSchema'
+import type { TextbookKnowledgeGroup } from './textbookPublic'
 
 export type PracticeProblemType = {
   id: string
@@ -18,18 +19,23 @@ export type PracticeSubcategory = {
 export type PracticeCatalog = {
   schemaVersion: '1.0'
   subject: 'math-1a'
-  course: 'math-i'
+  course: 'math-i' | 'math-a'
   majorUnit: { id: string; label: string; order: number }
   subcategories: PracticeSubcategory[]
+  knowledge?: {
+    unitId: string
+    sections: Array<{ id: string; title: string; groups: TextbookKnowledgeGroup[] }>
+  }
 }
 
 export type PracticeQuestionSummary = {
   questionId: string
   revision: number
   subject: 'math-1a'
-  course: 'math-i'
+  course: 'math-i' | 'math-a'
   majorUnit: string
   subcategory: string
+  subcategoryLabel?: string
   problemType: string
   title: string
   difficulty: 'basic' | 'standard' | 'advanced'
@@ -47,6 +53,7 @@ export type PublicPracticeBlank = {
   prompt: string
   answerType: 'single-choice'
   options: PublicPracticeOption[]
+  hints?: string[]
 }
 
 export type PublicPracticeStep = {
@@ -60,16 +67,20 @@ export type PublicPracticeStep = {
 }
 
 export type PublicPracticeQuestion = PracticeQuestionSummary & {
+  knowledgeGroupTitle?: string
   schemaVersion: '1.0'
   status: 'draft' | 'review' | 'published'
   stem: ContentBlock[]
   solutionSteps: PublicPracticeStep[]
   blanks: PublicPracticeBlank[]
+  assets?: Array<QuestionAsset & { caption?: string }>
+  referenceTable?: string[]
   interaction: {
     reveal: 'sequential'
     options: 'inline-expand'
     substituteCorrectAnswer: true
     lockFutureSteps: true
+    solutionStyle?: 'continuous'
   }
 }
 
@@ -80,4 +91,7 @@ export type PracticeAnswerResult = {
   correctOptionIds?: string[]
   explanation?: string
   wrongReason?: string
+  fullExplanation?: string
+  completionContent?: ContentBlock[]
+  completionAssets?: Array<QuestionAsset & { caption?: string }>
 }

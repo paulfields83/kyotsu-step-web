@@ -642,3 +642,356 @@ body:has(.v2-app) {
   .v2-mastery-list > a { grid-template-columns: 1fr auto; }
   .v2-mastery-score { grid-column: 1 / -1; }
 }
+
+
+/* Screenshot-aligned physics taxonomy, shared by textbook and practice menus.
+ * Unavailable modules remain visible placeholders and cannot be opened. */
+.v2-physics-modules {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(.85rem, 2vw, 1.25rem);
+  border: 1px solid var(--v2-line);
+  border-radius: 18px;
+  background: white;
+}
+.v2-physics-modules__header h2 { margin: 0; font-size: 1rem; }
+.v2-physics-modules__header p { margin: .28rem 0 0; color: var(--v2-muted); font-size: .76rem; }
+.v2-physics-module-group { display: grid; gap: .5rem; }
+.v2-physics-module-group > h3 {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin: 0;
+  color: var(--v2-muted);
+  font-size: .8rem;
+  font-weight: 800;
+}
+.v2-physics-module-group > h3::before,
+.v2-physics-module-group > h3::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--v2-line);
+}
+.v2-physics-module-group > h3::before { max-width: 40px; }
+.v2-physics-module-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
+.v2-physics-module-button {
+  display: flex;
+  min-width: 0;
+  min-height: 62px;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  flex-wrap: wrap;
+  padding: .65rem;
+  border: 1px solid #cbd6e4;
+  border-radius: 9px;
+  background: white;
+  color: var(--v2-text, #26384c);
+  text-align: center;
+  cursor: pointer;
+}
+.v2-physics-module-button strong { font-size: .81rem; overflow-wrap: anywhere; }
+.v2-physics-module-button small,
+.v2-physics-module-revised { font-size: .64rem; font-weight: 700; }
+.v2-physics-module-revised { color: var(--v2-primary); }
+.v2-physics-module-button[aria-pressed="true"] {
+  border-color: var(--v2-primary);
+  background: var(--v2-primary-soft);
+  box-shadow: inset 0 0 0 1px var(--v2-primary);
+}
+.v2-physics-module-button:disabled {
+  cursor: default;
+  color: #8e98a5;
+  background: #f5f6f7;
+}
+.v2-physics-module-button:disabled small { color: #8792a0; }
+.v2-physics-module-button:not(:disabled):hover { border-color: var(--v2-primary); }
+@media (max-width: 580px) {
+  .v2-physics-module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+
+/* Practice navigation uses the same chapter -> section -> lesson hierarchy as
+   knowledge learning, without taxonomy dropdowns or separate question buttons. */
+.v2-practice-courses { margin-top: 0; min-width: 0; }
+.v2-practice-course-card > header > div:nth-child(2) { min-width: 0; }
+.v2-practice-subcategory { min-width: 0; }
+.v2-practice-subcategory + .v2-practice-subcategory { border-top: 1px solid var(--v2-line); }
+.v2-practice-subcategory > h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin: 0;
+  padding: .85rem 1rem .5rem;
+  background: #f8fafc;
+  font-size: .84rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+.v2-practice-subcategory > h3 small { font-size: .7rem; color: var(--v2-muted); }
+.v2-practice-subcategory > a {
+  display: grid;
+  min-width: 0;
+  min-height: 58px;
+  align-items: center;
+  gap: .7rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: .65rem 1rem;
+  border-top: 1px solid #eef2f6;
+  color: inherit;
+  text-decoration: none;
+}
+.v2-practice-subcategory > a:hover { background: #f8fafc; }
+.v2-practice-subcategory > a > div { min-width: 0; }
+.v2-practice-subcategory > a strong { display: block; overflow-wrap: anywhere; font-size: .82rem; }
+.v2-practice-subcategory > a small { display: block; overflow-wrap: anywhere; color: var(--v2-muted); font-size: .65rem; }
+.v2-practice-subcategory > a > svg { color: #8492a5; }
+.v2-practice-subcategory__empty { margin: 0; padding: .75rem 1rem; color: var(--v2-muted); font-size: .75rem; }
+@media (max-width: 560px) {
+  .v2-practice-subcategory > h3 { padding: .75rem .8rem .45rem; }
+  .v2-practice-subcategory > a { padding: .65rem .75rem; gap: .55rem; }
+  .v2-practice-course-card h2 { overflow-wrap: anywhere; }
+}
+
+
+/* Practice follows the textbook's two-layer navigation:
+   category titles outside; the exercises are compact topic tiles inside. */
+.v2-practice-category-list { border-top: 1px solid var(--v2-line); }
+.v2-practice-category-row {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  min-height: 62px;
+  grid-template-columns: 30px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: .75rem;
+  padding: .8rem 1rem;
+  border: 0;
+  border-bottom: 1px solid #eef2f6;
+  background: #fff;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.v2-practice-category-row:last-child { border-bottom: 0; }
+.v2-practice-category-row:hover { background: #f8fafc; }
+.v2-practice-category-row > svg { color: #8492a5; }
+.v2-practice-category-label { display: grid; min-width: 0; gap: .15rem; }
+.v2-practice-category-label strong { overflow-wrap: anywhere; font-size: .85rem; }
+.v2-practice-category-label small { color: var(--v2-muted); font-size: .69rem; }
+.v2-practice-topic-page {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--v2-line);
+  border-radius: 18px;
+  background: #fff;
+}
+.v2-practice-topic-back {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  border: 0;
+  padding: .35rem 0;
+  color: var(--v2-primary);
+  background: transparent;
+  font-size: .77rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.v2-practice-topic-heading { min-width: 0; margin: .65rem 0 1.1rem; }
+.v2-practice-topic-heading small,
+.v2-practice-topic-heading p { margin: 0; color: var(--v2-muted); font-size: .76rem; }
+.v2-practice-topic-heading h2 { margin: .2rem 0; font-size: clamp(1.15rem, 2.8vw, 1.55rem); overflow-wrap: anywhere; }
+.v2-practice-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: .55rem;
+  min-width: 0;
+}
+.v2-practice-topic-tile {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  min-width: 0;
+  min-height: 128px;
+  padding: .65rem;
+  border: 1px solid #8290a2;
+  background: #fffdf9;
+  color: var(--v2-text, #26384c);
+  text-decoration: none;
+  cursor: pointer;
+}
+.v2-practice-topic-tile:hover,
+.v2-practice-topic-tile:focus-visible {
+  border-color: var(--v2-primary);
+  background: #f1f6fd;
+}
+.v2-practice-topic-index {
+  display: inline-flex;
+  align-self: flex-start;
+  min-width: 2rem;
+  height: 1.85rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 .25rem;
+  border: 1px solid var(--v2-primary);
+  color: var(--v2-primary);
+  font-size: .76rem;
+}
+.v2-practice-topic-tile strong {
+  overflow-wrap: anywhere;
+  font-size: .76rem;
+  line-height: 1.5;
+}
+.v2-practice-topic-tile small {
+  margin-top: auto;
+  color: var(--v2-muted);
+  font-size: .69rem;
+}
+@media (max-width: 760px) {
+  .v2-practice-topic-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .v2-practice-category-row { gap: .6rem; padding: .8rem; }
+  .v2-practice-topic-page { padding: .75rem; }
+  .v2-practice-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .v2-practice-topic-tile { min-height: 120px; }
+}
+
+
+/* Single global terminology shortcut. Nothing is injected into textbook prose
+   or mathematical equations. The reference lives in a dismissible panel. */
+.v2-header__left { min-width: 0; }
+.v2-header__right { display: inline-flex; flex: 0 0 auto; align-items: center; gap: .45rem; }
+.v2-terms-open {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: .3rem;
+  padding: .35rem .65rem;
+  border: 1px solid var(--v2-line);
+  border-radius: 11px;
+  background: #fff;
+  color: var(--v2-primary);
+  font-size: .77rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.v2-terms-open[aria-expanded="true"] { background: var(--v2-primary-soft); border-color: var(--v2-primary); }
+.v2-terms-open:focus-visible, .v2-terms-panel button:focus-visible { outline: 3px solid #77a3d6; outline-offset: 2px; }
+.v2-terms-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  background: rgba(17, 31, 51, .42);
+}
+.v2-terms-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 455px);
+  min-width: 0;
+  height: 100dvh;
+  max-height: 100dvh;
+  background: #fff;
+  color: var(--v2-text);
+  box-shadow: -10px 0 35px rgba(10, 20, 40, .14);
+}
+.v2-terms-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--v2-line);
+}
+.v2-terms-panel__title { display: flex; align-items: center; gap: .6rem; min-width: 0; }
+.v2-terms-panel__title > svg { color: var(--v2-primary); flex: 0 0 auto; }
+.v2-terms-panel__title strong { display: block; font-size: .96rem; }
+.v2-terms-panel__title small { display: block; font-size: .72rem; color: var(--v2-muted); }
+.v2-terms-panel__close {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--v2-line);
+  border-radius: 9px;
+  background: white;
+  color: var(--v2-text);
+  cursor: pointer;
+}
+.v2-terms-subjects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .4rem;
+  margin: .8rem 1rem .5rem;
+  border: 1px solid var(--v2-line);
+  border-radius: 11px;
+  padding: .3rem;
+}
+.v2-terms-subjects button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font-size: .78rem;
+  font-weight: 800;
+  color: var(--v2-muted);
+  cursor: pointer;
+}
+.v2-terms-subjects button[aria-pressed="true"] { background: var(--v2-primary); color: white; }
+.v2-terms-panel__disclaimer {
+  margin: .1rem 1rem .7rem;
+  font-size: .69rem;
+  line-height: 1.55;
+  color: var(--v2-muted);
+}
+.v2-terms-panel__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: .15rem 1rem 2rem; }
+.v2-terms-group + .v2-terms-group { margin-top: 1.2rem; }
+.v2-terms-group h3 {
+  margin: .4rem 0 .55rem;
+  padding: .4rem .6rem;
+  border-left: 4px solid var(--v2-primary);
+  background: var(--v2-primary-soft);
+  font-size: .81rem;
+}
+.v2-terms-list { border: 1px solid var(--v2-line); border-radius: 12px; overflow: hidden; }
+.v2-terms-entry {
+  display: grid;
+  grid-template-columns: minmax(94px, 30%) minmax(0, 1fr);
+  align-items: start;
+  gap: .75rem;
+  min-width: 0;
+  padding: .8rem .75rem;
+}
+.v2-terms-entry + .v2-terms-entry { border-top: 1px solid var(--v2-line); }
+.v2-terms-entry__math {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  padding: .4rem .25rem;
+  border-radius: 7px;
+  background: var(--v2-surface-soft);
+  color: var(--v2-primary);
+  text-align: center;
+  overflow-x: auto;
+}
+.v2-terms-entry__definition { display: grid; gap: .2rem; min-width: 0; }
+.v2-terms-entry__definition > span { font-size: .79rem; line-height: 1.6; overflow-wrap: anywhere; }
+.v2-terms-entry__definition > small { color: var(--v2-muted); font-size: .69rem; }
+@media (max-width: 560px) {
+  .v2-header { gap: .45rem; }
+  .v2-header__right { gap: .3rem; }
+  .v2-terms-open { padding: .3rem .48rem; }
+  .v2-terms-panel { width: 100%; }
+  .v2-terms-panel__body { padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)); }
+}
+@media (max-width: 370px) {
+  .v2-terms-open span { display: none; }
+}

@@ -199,7 +199,7 @@ export function LearningSessionPage() {
                 </aside>
               )}
 
-              <LearningFlowRenderer question={question} session={session} onActivate={activate} onExplain={showExplanation} onRevisit={revisitLearning.bind(null, sessionId)} />
+              <LearningFlowRenderer question={question} session={session} onActivate={activate} onExplain={showExplanation} onRevisit={revisitLearning.bind(null, sessionId)} inlineChoices onSubmitInline={submitInline} />
               <RaisedButton className="primary-button" data-testid="open-final-choice" disabled={!guideComplete} onClick={() => setScreen('final')}>{text('元の選択肢へ戻る', '回到原选项')}</RaisedButton>
             </section>
           )}

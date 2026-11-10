@@ -1,8 +1,11 @@
-import { ArrowLeft, BarChart3, BookOpen, House, Languages, Settings2 } from 'lucide-react'
-import { useEffect } from 'react'
+import { ArrowLeft, BarChart3, BookOpen, BookOpenText, House, Languages, Settings2 } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useI18n } from '../../i18n/runtime'
 import { languageMeta, type AppLanguage } from '../../i18n/types'
+import { useAppStore } from '../../stores/useAppStore'
+import type { TermGlossarySubject } from '../../domain/termGlossary'
+import { TermGlossaryPanel } from '../components/TermGlossaryPanel'
 import './app-v2.css'
 
 function backTarget(pathname: string) {
@@ -16,6 +19,23 @@ function backTarget(pathname: string) {
 export function RedesignShell() {
   const location = useLocation()
   const { language, setLanguage, text } = useI18n()
+  const [termsOpen, setTermsOpen] = useState(false)
+  const defaultSubject = useAppStore((state) => state.settings.defaultSubject)
+  const learningSessions = useAppStore((state) => state.learningSessions)
+  const path = location.pathname
+  const lessonSessionId = path.match(/^\/learning\/session\/([^/]+)/)?.[1]
+  const currentQuestionId = lessonSessionId ? learningSessions[lessonSessionId]?.questionId : undefined
+  const glossarySubject: TermGlossarySubject = path.startsWith('/learning/textbook/physics-')
+    || path.startsWith('/practice/session/physics-')
+    || currentQuestionId?.startsWith('physics-')
+    ? 'physics'
+    : path.startsWith('/learning/textbook/math-')
+      || path.startsWith('/practice/session/zip4step-')
+      || currentQuestionId?.startsWith('math-')
+      ? 'math-1a'
+      : defaultSubject
+  const showTerms = path === '/learn' || path.startsWith('/learning/textbook/')
+    || path.startsWith('/learning/session/') || path.startsWith('/practice/session/')
   const back = backTarget(location.pathname)
   const focus = /^\/(learning\/(session|textbook)|simulation\/session)/.test(location.pathname)
 
@@ -24,6 +44,8 @@ export function RedesignShell() {
     document.title = text('共通 STEP｜数学・物理', '共通 STEP｜数学・物理')
     window.scrollTo({ top: 0, behavior: 'auto' })
   }, [language, location.pathname, text])
+
+  useEffect(() => setTermsOpen(false), [location.pathname])
 
   const nav = [
     { to: '/', label: text('ホーム', '首页'), icon: House, end: true },
@@ -48,17 +70,32 @@ export function RedesignShell() {
           )}
           {back && <NavLink className="v2-brand v2-brand--compact" to="/"><strong>共通 STEP</strong></NavLink>}
         </div>
-        <div className="v2-language" aria-label={text('表示言語', '显示语言')}>
-          <Languages size={15} />
-          {(Object.keys(languageMeta) as AppLanguage[]).map((value) => (
-            <button key={value} type="button" aria-pressed={language === value} onClick={() => setLanguage(value)}>
-              {value === 'ja' ? 'JA' : '中'}
+        <div className="v2-header__right">
+          {showTerms && (
+            <button type="button" className="v2-terms-open"
+              data-testid="term-glossary-trigger"
+              aria-expanded={termsOpen}
+              onClick={() => setTermsOpen((current) => !current)}>
+              <BookOpenText size={17} aria-hidden="true" />
+              <span>{text('用語', '用语')}</span>
             </button>
-          ))}
+          )}
+          <div className="v2-language" aria-label={text('表示言語', '显示语言')}>
+            <Languages size={15} />
+            {(Object.keys(languageMeta) as AppLanguage[]).map((value) => (
+              <button key={value} type="button" aria-pressed={language === value} onClick={() => setLanguage(value)}>
+                {value === 'ja' ? 'JA' : '中'}
+              </button>
+            ))}
+          </div>
         </div>
       </header>
 
       <main className="v2-content"><Outlet /></main>
+
+      {showTerms && termsOpen && (
+        <TermGlossaryPanel initialSubject={glossarySubject} onClose={() => setTermsOpen(false)} />
+      )}
 
       {!focus && (
         <nav className="v2-bottom-nav">
