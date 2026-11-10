@@ -63,6 +63,12 @@ export const TextbookSectionSchema = z.object({
   figures: z.array(TextbookFigureSchema).default([]),
   readingFlow: z.array(TextbookReadingBlockSchema).default([]),
   items: z.array(TextbookItemSchema).default([]),
+  knowledgeGroups: z.array(z.object({
+    id: IdSchema,
+    title: z.string().min(1),
+    topicIds: z.array(IdSchema),
+    practiceQuestionIds: z.array(IdSchema),
+  }).refine((group) => group.topicIds.length > 0 || group.practiceQuestionIds.length > 0)).min(1).optional(),
 })
 
 const TextbookUnitBaseSchema = z.object({
@@ -85,6 +91,7 @@ const TextbookUnitBaseSchema = z.object({
 export const TextbookUnitSchema = TextbookUnitBaseSchema.superRefine((unit, context) => {
   const sectionIds = new Set<string>()
   const itemIds = new Set<string>()
+  const knowledgeGroupIds = new Set<string>()
 
   for (const [sectionIndex, section] of unit.sections.entries()) {
     if (sectionIds.has(section.id)) context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'id'], message: 'section id が重複しています' })
@@ -93,6 +100,23 @@ export const TextbookUnitSchema = TextbookUnitBaseSchema.superRefine((unit, cont
     const sectionItemIds = new Set(section.items.map((item) => item.id))
     const figureIds = new Set(section.figures.map((figure) => figure.id))
     const referencedItems = new Set<string>()
+
+    if (section.knowledgeGroups) {
+      const topicIds = new Set(section.readingFlow.filter((block) => block.type === 'topic').map((block) => block.id))
+      for (const [groupIndex, group] of section.knowledgeGroups.entries()) {
+        const path = ['sections', sectionIndex, 'knowledgeGroups', groupIndex]
+        if (knowledgeGroupIds.has(group.id)) {
+          context.addIssue({ code: 'custom', path, message: `重複する知識項目: ${group.id}` })
+        }
+        knowledgeGroupIds.add(group.id)
+        for (const id of group.topicIds) {
+          if (!topicIds.delete(id)) context.addIssue({ code: 'custom', path, message: `無効な教材項目: ${id}` })
+        }
+      }
+      if (topicIds.size || (section.readingFlow.length > 0 && section.readingFlow[0].type !== 'topic')) {
+        context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'knowledgeGroups'], message: '教材の全項目を知識項目に割り当ててください' })
+      }
+    }
 
     for (const [itemIndex, item] of section.items.entries()) {
       if (itemIds.has(item.id)) context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'items', itemIndex, 'id'], message: 'item id が重複しています' })

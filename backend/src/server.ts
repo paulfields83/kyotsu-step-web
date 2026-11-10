@@ -9,6 +9,28 @@ import { findPracticeQuestion, loadedPracticeUnits } from './practiceData'
 import { publicPracticeCompletion, publicPracticeQuestion, publicPracticeSummary } from './publicPractice'
 import { loadedPracticeSourceItems } from './practiceSourceData'
 
+const practiceKnowledgeTitles = new Map<string, string>()
+const practiceKnowledgeUnits = new Map<string, (typeof loadedTextbookUnits)[number]['unit']>()
+for (const { unit } of loadedTextbookUnits) {
+  const groups = unit.sections.flatMap((section) => section.knowledgeGroups ?? [])
+  if (!groups.length) continue
+  const practice = loadedPracticeUnits.find(({ catalog }) =>
+    unit.unitId === `math-1a-${catalog.majorUnit.id}`)
+  if (!practice) throw new Error(`No practice catalog for ${unit.unitId}`)
+  practiceKnowledgeUnits.set(practice.catalog.majorUnit.id, unit)
+  const remaining = new Set(practice.questions
+    .filter((question) => question.status === 'published').map((question) => question.questionId))
+  for (const group of groups) {
+    for (const id of group.practiceQuestionIds) {
+      if (!remaining.delete(id) || practiceKnowledgeTitles.has(id)) {
+        throw new Error(`Invalid practice knowledge group reference: ${unit.unitId}/${group.id}/${id}`)
+      }
+      practiceKnowledgeTitles.set(id, group.title)
+    }
+  }
+  if (remaining.size) throw new Error(`Ungrouped practice questions: ${unit.unitId}`)
+}
+
 // Hide only duplicated Chapter 1 physics source versions; keep older
 // Chapter 2–5 material visible until an actual revised source is supplied.
 function isArchivedPhysicsChapter1(unit:{subject:string;unitId:string}) {
@@ -180,8 +202,17 @@ const server = createServer(async (request, response) => {
       .filter((unit) => !majorUnit || unit.catalog.majorUnit.id === majorUnit)
       .map((unit) => {
         const published = unit.questions.filter((question) => question.status === 'published')
+        const textbook = practiceKnowledgeUnits.get(unit.catalog.majorUnit.id)
         return {
           ...unit.catalog,
+          ...(textbook ? {
+            knowledge: {
+              unitId: textbook.unitId,
+              sections: textbook.sections.map(({ id, title, knowledgeGroups }) => ({
+                id, title, groups: knowledgeGroups ?? [],
+              })),
+            },
+          } : {}),
           subcategories: unit.catalog.subcategories.map((subcategory) => ({
             ...subcategory,
             questionCount: published.filter((question) => question.subcategory === subcategory.id).length,
@@ -223,7 +254,9 @@ const server = createServer(async (request, response) => {
   if (request.method === 'GET' && practiceQuestionMatch) {
     const loaded = findPracticeQuestion(decodeURIComponent(practiceQuestionMatch[1]))
     if (!loaded) return sendJson(request, response, 404, { error: 'practice question not found' })
-    return sendJson(request, response, 200, publicPracticeQuestion(loaded.question, apiOrigin))
+    const question = publicPracticeQuestion(loaded.question, apiOrigin)
+    const knowledgeGroupTitle = practiceKnowledgeTitles.get(loaded.question.questionId)
+    return sendJson(request, response, 200, knowledgeGroupTitle ? { ...question, knowledgeGroupTitle } : question)
   }
 
   const practiceAssetMatch = url.pathname.match(/^\/api\/practice\/questions\/([^/]+)\/assets\/([^/]+)$/)

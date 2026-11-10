@@ -6562,6 +6562,120 @@
             "$\\tan (90^{\\circ}-A)=\\tan  A$"
           ]
         }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "acute-definition",
+          "title": "三角比の定義と辺の長さ",
+          "topicIds": [
+            "trig-c01-topic",
+            "trig-l-trig-q01-01-topic",
+            "trig-l-trig-q01-02-topic",
+            "trig-l-trig-q01-03-topic",
+            "trig-l-trig-s1e01-01-topic",
+            "trig-l-trig-s1e02-01-topic",
+            "trig-l-trig-s1e02-02-topic",
+            "trig-l-trig-s1e02-03-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-238-1",
+            "math-trig-practice-practice-238-2",
+            "math-trig-practice-practice-245-1",
+            "math-trig-practice-practice-245-2",
+            "math-trig-practice-practice-245-3",
+            "math-trig-practice-practice-245-4",
+            "math-trig-practice-practice-245-5",
+            "math-trig-practice-practice-246-main",
+            "math-trig-practice-practice-247-main"
+          ]
+        },
+        {
+          "id": "special-angles",
+          "title": "特別な角と三角比の表",
+          "topicIds": [
+            "trig-c02-topic",
+            "trig-l-trig-q02-01-topic",
+            "trig-l-trig-q02-02-topic",
+            "trig-l-trig-q02-03-topic",
+            "trig-l-trig-q03-01-topic",
+            "trig-l-trig-q03-02-topic",
+            "trig-l-trig-q03-03-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-239-1",
+            "math-trig-practice-practice-239-2",
+            "math-trig-practice-practice-239-3",
+            "math-trig-practice-practice-240-1",
+            "math-trig-practice-practice-240-2",
+            "math-trig-practice-practice-240-3",
+            "math-trig-practice-example-36-main",
+            "math-trig-practice-practice-248-1",
+            "math-trig-practice-practice-248-2"
+          ]
+        },
+        {
+          "id": "right-triangle-measurement",
+          "title": "直角三角形の測量",
+          "topicIds": [
+            "trig-c03-topic",
+            "trig-l-trig-q04-01-topic",
+            "trig-l-trig-q05-01-topic",
+            "trig-l-trig-q06-01-topic",
+            "trig-l-trig-s1e03-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-241-1",
+            "math-trig-practice-practice-241-2",
+            "math-trig-practice-practice-241-3",
+            "math-trig-practice-practice-242-main",
+            "math-trig-practice-practice-243-main",
+            "math-trig-practice-example-35-main",
+            "math-trig-practice-practice-244-main"
+          ]
+        },
+        {
+          "id": "acute-identities",
+          "title": "鋭角の三角比の相互関係",
+          "topicIds": [
+            "trig-c04-topic",
+            "trig-l-trig-q07-01-topic",
+            "trig-l-trig-s1e04-01-topic",
+            "trig-l-trig-s1e04-02-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-249-1",
+            "math-trig-practice-practice-249-2",
+            "math-trig-practice-practice-249-3",
+            "math-trig-practice-practice-249-4",
+            "math-trig-practice-practice-249-5",
+            "math-trig-practice-practice-249-6",
+            "math-trig-practice-practice-253-1",
+            "math-trig-practice-practice-253-2",
+            "math-trig-practice-practice-254-main"
+          ]
+        },
+        {
+          "id": "complementary-angles",
+          "title": "余角の三角比",
+          "topicIds": [
+            "trig-c05-topic",
+            "trig-l-trig-q08-01-topic",
+            "trig-l-trig-q09-01-topic",
+            "trig-l-trig-q09-02-topic",
+            "trig-l-trig-q09-03-topic",
+            "trig-l-trig-s1e04-03-topic",
+            "trig-l-trig-s1e04-04-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-250-1",
+            "math-trig-practice-practice-250-2",
+            "math-trig-practice-practice-250-3",
+            "math-trig-practice-practice-251-main",
+            "math-trig-practice-practice-252-1",
+            "math-trig-practice-practice-252-2",
+            "math-trig-practice-practice-252-3"
+          ]
+        }
       ]
     },
     {
@@ -11936,6 +12050,133 @@
             "同じ基準からの傾き角の差",
             "$135^{\\circ}+60^{\\circ}=195^{\\circ}$",
             "$180^{\\circ}-75^{\\circ}=105^{\\circ}$"
+          ]
+        }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "expanded-definition",
+          "title": "0°から180°までの三角比",
+          "topicIds": [
+            "trig-c06-topic",
+            "trig-l-trig-q10-01-topic",
+            "trig-l-trig-q10-02-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-255-angle-0",
+            "math-trig-practice-practice-255-angle-30",
+            "math-trig-practice-practice-255-angle-45",
+            "math-trig-practice-practice-255-angle-60",
+            "math-trig-practice-practice-255-angle-90",
+            "math-trig-practice-practice-255-angle-120",
+            "math-trig-practice-practice-255-angle-135",
+            "math-trig-practice-practice-255-angle-150",
+            "math-trig-practice-practice-255-angle-180",
+            "math-trig-practice-practice-256-1",
+            "math-trig-practice-practice-256-2",
+            "math-trig-practice-practice-256-3"
+          ]
+        },
+        {
+          "id": "supplementary-angles",
+          "title": "補角の三角比",
+          "topicIds": [
+            "trig-c07-topic",
+            "trig-l-trig-q11-01-topic",
+            "trig-l-trig-q11-02-topic",
+            "trig-l-trig-q11-03-topic",
+            "trig-l-trig-q11-04-topic",
+            "trig-l-trig-s2e01-01-topic",
+            "trig-l-trig-s2e01-02-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-257-1",
+            "math-trig-practice-practice-257-2",
+            "math-trig-practice-practice-257-3",
+            "math-trig-practice-practice-264-main",
+            "math-trig-practice-practice-265-1",
+            "math-trig-practice-practice-265-2",
+            "math-trig-practice-practice-265-3"
+          ]
+        },
+        {
+          "id": "expanded-identities",
+          "title": "鈍角を含む三角比の相互関係",
+          "topicIds": [
+            "trig-l-trig-q12-01-topic",
+            "trig-l-trig-q13-01-topic",
+            "trig-l-trig-s2e02-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-259-main",
+            "math-trig-practice-practice-260-1",
+            "math-trig-practice-practice-260-2",
+            "math-trig-practice-practice-260-3",
+            "math-trig-practice-example-38-main",
+            "math-trig-practice-practice-267-main",
+            "math-trig-practice-practice-268-1",
+            "math-trig-practice-practice-268-2",
+            "math-trig-practice-practice-268-3"
+          ]
+        },
+        {
+          "id": "angles-and-ranges",
+          "title": "三角比から求める角度と値の範囲",
+          "topicIds": [
+            "trig-c17-topic",
+            "trig-l-trig-q14-01-topic",
+            "trig-l-trig-q14-02-topic",
+            "trig-l-trig-q14-03-topic",
+            "trig-l-trig-q14-04-topic",
+            "trig-l-trig-q15-01-topic",
+            "trig-l-trig-q15-02-topic",
+            "trig-l-trig-s2e03-01-topic",
+            "trig-l-trig-s2e04-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-258-1",
+            "math-trig-practice-practice-258-2",
+            "math-trig-practice-practice-258-3",
+            "math-trig-practice-practice-258-4",
+            "math-trig-practice-practice-258-5",
+            "math-trig-practice-practice-258-6",
+            "math-trig-practice-example-37-main",
+            "math-trig-practice-practice-266-1",
+            "math-trig-practice-practice-266-2",
+            "math-trig-practice-practice-266-3",
+            "math-trig-practice-practice-266-4",
+            "math-trig-practice-practice-266-5",
+            "math-trig-practice-practice-266-6",
+            "math-trig-practice-example-39-1",
+            "math-trig-practice-example-39-2",
+            "math-trig-practice-practice-269-1",
+            "math-trig-practice-practice-269-2",
+            "math-trig-practice-practice-269-3",
+            "math-trig-practice-practice-269-4",
+            "math-trig-practice-practice-269-5",
+            "math-trig-practice-practice-269-6",
+            "math-trig-practice-practice-269-7",
+            "math-trig-practice-practice-269-8",
+            "math-trig-practice-practice-269-9"
+          ]
+        },
+        {
+          "id": "slope",
+          "title": "直線の傾きと傾き角",
+          "topicIds": [
+            "trig-c08-topic",
+            "trig-l-trig-q16-01-topic",
+            "trig-l-trig-q16-02-topic",
+            "trig-l-trig-s2e05-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-261-1",
+            "math-trig-practice-practice-261-2",
+            "math-trig-practice-practice-262-1",
+            "math-trig-practice-practice-262-2",
+            "math-trig-practice-practice-262-3",
+            "math-trig-practice-practice-263-1",
+            "math-trig-practice-practice-263-2"
           ]
         }
       ]
@@ -18149,6 +18390,116 @@
             "$\\sin C$が最大だから角$C$が最大とだけ判断する"
           ]
         }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "sine-rule",
+          "title": "正弦定理と外接円",
+          "topicIds": [
+            "trig-c09-topic",
+            "trig-c10-topic",
+            "trig-l-trig-q17-01-topic",
+            "trig-l-trig-q18-01-topic",
+            "trig-l-trig-q18-02-topic",
+            "trig-l-trig-q19-01-topic",
+            "trig-l-trig-q19-02-topic",
+            "trig-l-trig-s3e01-01-topic",
+            "trig-l-trig-s3e01-02-topic",
+            "trig-l-trig-s3e01-03-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-270-1",
+            "math-trig-practice-practice-270-2",
+            "math-trig-practice-practice-270-3",
+            "math-trig-practice-practice-271-1",
+            "math-trig-practice-practice-271-2",
+            "math-trig-practice-practice-271-3",
+            "math-trig-practice-practice-278-main",
+            "math-trig-practice-practice-290-1",
+            "math-trig-practice-practice-290-2",
+            "math-trig-practice-example-43-1",
+            "math-trig-practice-example-43-2",
+            "math-trig-practice-practice-291-1",
+            "math-trig-practice-practice-291-2"
+          ]
+        },
+        {
+          "id": "cosine-rule",
+          "title": "余弦定理と辺・角",
+          "topicIds": [
+            "trig-c11-topic",
+            "trig-l-trig-q20-01-topic",
+            "trig-l-trig-q21-01-topic",
+            "trig-l-trig-q21-02-topic",
+            "trig-l-trig-s3e02-01-topic",
+            "trig-l-trig-s3e02-02-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-272-1",
+            "math-trig-practice-practice-272-2",
+            "math-trig-practice-practice-274-1",
+            "math-trig-practice-practice-274-2",
+            "math-trig-practice-practice-277-main",
+            "math-trig-practice-example-40-main",
+            "math-trig-practice-practice-279-main",
+            "math-trig-practice-example-41-main",
+            "math-trig-practice-practice-287-am",
+            "math-trig-practice-practice-287-ad"
+          ]
+        },
+        {
+          "id": "triangle-shape",
+          "title": "三角形の辺・角と形状",
+          "topicIds": [
+            "trig-c12-topic",
+            "trig-l-trig-q22-01-topic",
+            "trig-l-trig-q22-02-topic",
+            "trig-l-trig-q23-01-topic",
+            "trig-c18-topic",
+            "trig-l-trig-rsh01-01-topic",
+            "trig-l-trig-rsh02-01-topic",
+            "trig-l-trig-s3e05-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-275-main",
+            "math-trig-practice-practice-276-1",
+            "math-trig-practice-practice-276-2",
+            "math-trig-practice-practice-276-3",
+            "math-trig-practice-practice-282-main",
+            "math-trig-practice-practice-286-1",
+            "math-trig-practice-practice-286-2",
+            "math-trig-practice-example-44-main",
+            "math-trig-practice-practice-292-1",
+            "math-trig-practice-practice-292-2",
+            "math-trig-practice-practice-292-3"
+          ]
+        },
+        {
+          "id": "solve-triangle",
+          "title": "正弦定理と余弦定理の使い分け",
+          "topicIds": [
+            "trig-l-trig-q24-01-topic",
+            "trig-l-trig-q24-02-topic",
+            "trig-l-trig-s3e03-01-topic",
+            "trig-l-trig-s3e04-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-273-1",
+            "math-trig-practice-practice-273-2",
+            "math-trig-practice-practice-280-1",
+            "math-trig-practice-practice-280-2",
+            "math-trig-practice-practice-280-3",
+            "math-trig-practice-practice-280-4",
+            "math-trig-practice-practice-281-1",
+            "math-trig-practice-practice-281-2",
+            "math-trig-practice-practice-283-1",
+            "math-trig-practice-practice-283-2",
+            "math-trig-practice-practice-284-1",
+            "math-trig-practice-practice-284-2",
+            "math-trig-practice-practice-284-3",
+            "math-trig-practice-practice-285-main"
+          ]
+        }
       ]
     },
     {
@@ -24106,6 +24457,160 @@
             "$\\sin 45^{\\circ}$と$\\sin 30^{\\circ}$を等しいとして約す"
           ]
         }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "triangle-area",
+          "title": "三角形の面積",
+          "topicIds": [
+            "trig-c13-topic",
+            "trig-l-trig-q25-01-topic",
+            "trig-l-trig-q25-02-topic",
+            "trig-l-trig-q26-01-topic",
+            "trig-l-trig-q26-02-topic",
+            "trig-l-trig-s4e01-01-topic",
+            "trig-l-trig-s4e01-02-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-293-1",
+            "math-trig-practice-practice-293-2",
+            "math-trig-practice-practice-293-3",
+            "math-trig-practice-practice-293-4",
+            "math-trig-practice-practice-304-1",
+            "math-trig-practice-practice-304-2"
+          ]
+        },
+        {
+          "id": "polygon-measurement",
+          "title": "四角形・正多角形の計量",
+          "topicIds": [
+            "trig-l-trig-s4e02-01-topic",
+            "trig-l-trig-ca02-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-295-1",
+            "math-trig-practice-practice-295-2",
+            "math-trig-practice-practice-297-1",
+            "math-trig-practice-practice-297-2",
+            "math-trig-practice-practice-298-main",
+            "math-trig-practice-example-45-1",
+            "math-trig-practice-example-45-2",
+            "math-trig-practice-practice-299-1",
+            "math-trig-practice-practice-299-2",
+            "math-trig-practice-example-46-main",
+            "math-trig-practice-practice-300-inscribed",
+            "math-trig-practice-practice-300-circumscribed",
+            "math-trig-practice-practice-301-inscribed",
+            "math-trig-practice-practice-301-circumscribed",
+            "math-trig-practice-practice-303-main"
+          ]
+        },
+        {
+          "id": "solid-distance",
+          "title": "空間図形の角と距離",
+          "topicIds": [
+            "trig-l-trig-s4e03-01-topic",
+            "trig-l-trig-s4e03-02-topic",
+            "trig-l-trig-s4e03-03-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-306-1",
+            "math-trig-practice-practice-306-2",
+            "math-trig-practice-practice-307-1",
+            "math-trig-practice-practice-307-2",
+            "math-trig-practice-practice-307-3",
+            "math-trig-practice-example-48-main",
+            "math-trig-practice-practice-315-main"
+          ]
+        },
+        {
+          "id": "solid-volume",
+          "title": "立体の高さと体積",
+          "topicIds": [
+            "trig-c14-topic",
+            "trig-l-trig-q27-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-example-47-1",
+            "math-trig-practice-example-47-2",
+            "math-trig-practice-example-47-3",
+            "math-trig-practice-practice-308-1",
+            "math-trig-practice-practice-308-2",
+            "math-trig-practice-practice-308-3",
+            "math-trig-practice-practice-308-4",
+            "math-trig-practice-practice-309-main",
+            "math-trig-practice-practice-310-main",
+            "math-trig-practice-practice-311-1",
+            "math-trig-practice-practice-311-2",
+            "math-trig-practice-practice-312-1",
+            "math-trig-practice-practice-312-2",
+            "math-trig-practice-practice-312-3",
+            "math-trig-practice-practice-312-4"
+          ]
+        },
+        {
+          "id": "incircle-area",
+          "title": "内接円と三角形の面積",
+          "topicIds": [
+            "trig-c15-topic",
+            "trig-l-trig-rin01-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-302-1",
+            "math-trig-practice-practice-302-2"
+          ]
+        },
+        {
+          "id": "heron",
+          "title": "ヘロンの公式",
+          "topicIds": [
+            "trig-c16-topic",
+            "trig-l-trig-rhe01-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-294-1",
+            "math-trig-practice-practice-294-2",
+            "math-trig-practice-practice-305-1",
+            "math-trig-practice-practice-305-2"
+          ]
+        },
+        {
+          "id": "advanced-measurement",
+          "title": "平面・空間の測量",
+          "topicIds": [
+            "trig-l-trig-s4e04-01-topic",
+            "trig-l-trig-ca03-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-288-main",
+            "math-trig-practice-practice-313-main",
+            "math-trig-practice-practice-314-main"
+          ]
+        },
+        {
+          "id": "geometric-ratios",
+          "title": "図形を使った三角比",
+          "topicIds": [
+            "trig-c19-topic",
+            "trig-l-trig-ca01-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-example-42-main",
+            "math-trig-practice-practice-289-main"
+          ]
+        },
+        {
+          "id": "area-ratio-bisectors",
+          "title": "面積比と角の二等分線",
+          "topicIds": [
+            "trig-c20-topic",
+            "trig-l-trig-cb04-01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-practice-296-1",
+            "math-trig-practice-practice-296-2"
+          ]
+        }
       ]
     },
     {
@@ -26807,6 +27312,62 @@
             "$S_{OBC}\\cdot OA=S_{ABC}h$",
             "$S_{OBC}=S_{ABC}$",
             "$OA=h$"
+          ]
+        }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "review-ratios",
+          "title": "三角比の総合問題",
+          "topicIds": [],
+          "practiceQuestionIds": [
+            "math-trig-practice-exercise-26-1",
+            "math-trig-practice-exercise-26-2",
+            "math-trig-practice-exercise-26-3",
+            "math-trig-practice-exercise-27-1",
+            "math-trig-practice-exercise-27-2",
+            "math-trig-practice-exercise-31-main",
+            "math-trig-practice-exercise-32-1",
+            "math-trig-practice-exercise-32-2",
+            "math-trig-practice-exercise-32-3"
+          ]
+        },
+        {
+          "id": "review-plane",
+          "title": "平面図形の総合問題",
+          "topicIds": [
+            "trig-l-trig-cb05-01-topic",
+            "trig-l-trig-cb05-02-topic",
+            "trig-l-trig-cb06-01-topic",
+            "trig-l-trig-cb06-02-topic",
+            "trig-l-trig-cb06-03-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-exercise-28-1",
+            "math-trig-practice-exercise-28-2",
+            "math-trig-practice-exercise-28-3",
+            "math-trig-practice-exercise-29-1",
+            "math-trig-practice-exercise-29-2",
+            "math-trig-practice-exercise-29-3",
+            "math-trig-practice-exercise-29-4",
+            "math-trig-practice-exercise-33-1",
+            "math-trig-practice-exercise-33-2"
+          ]
+        },
+        {
+          "id": "review-solid",
+          "title": "空間図形の総合問題",
+          "topicIds": [
+            "trig-l-trig-cb07-01-topic",
+            "trig-l-trig-cb07-02-topic",
+            "trig-l-trig-cb07-03-topic",
+            "trig-l-trig-cb07-04-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-trig-practice-exercise-30-main",
+            "math-trig-practice-exercise-34-1",
+            "math-trig-practice-exercise-34-2",
+            "math-trig-practice-exercise-34-3"
           ]
         }
       ]

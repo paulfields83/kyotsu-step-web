@@ -6402,6 +6402,138 @@
             "$\\frac23<x<6$"
           ]
         }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "side-ratios",
+          "title": "内分・外分と角の二等分線",
+          "topicIds": [
+            "geo-c01-topic",
+            "geo-q01-topic",
+            "geo-q02-topic",
+            "geo-q03-topic",
+            "geo-s1e01-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-150-1",
+            "math-geo-practice-practice-150-2",
+            "math-geo-practice-practice-150-3",
+            "math-geo-practice-practice-150-4",
+            "math-geo-practice-practice-151-1",
+            "math-geo-practice-practice-151-2",
+            "math-geo-practice-practice-152-main",
+            "math-geo-practice-practice-153-1",
+            "math-geo-practice-practice-153-2"
+          ]
+        },
+        {
+          "id": "triangle-centers",
+          "title": "三角形の五心",
+          "topicIds": [
+            "geo-c02-topic",
+            "geo-q04-topic",
+            "geo-c03-topic",
+            "geo-q05-topic",
+            "geo-c04-topic",
+            "geo-c21-topic",
+            "geo-c22-topic",
+            "geo-q06-topic",
+            "geo-s1e02-1-topic",
+            "geo-s1e02-2-topic",
+            "geo-s1e03-1-topic",
+            "geo-s1e03-2-topic",
+            "geo-s1e03-3-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-154-1",
+            "math-geo-practice-practice-154-2",
+            "math-geo-practice-practice-155-1",
+            "math-geo-practice-practice-155-2",
+            "math-geo-practice-practice-162-1",
+            "math-geo-practice-practice-162-2",
+            "math-geo-practice-practice-156-1",
+            "math-geo-practice-practice-156-2",
+            "math-geo-practice-practice-157-main",
+            "math-geo-practice-practice-158-1",
+            "math-geo-practice-practice-158-2",
+            "math-geo-practice-practice-159-main",
+            "math-geo-practice-practice-160-main",
+            "math-geo-practice-practice-161-main",
+            "math-geo-practice-practice-163-main",
+            "math-geo-practice-practice-164-1",
+            "math-geo-practice-practice-164-2",
+            "math-geo-practice-practice-165-main"
+          ]
+        },
+        {
+          "id": "ceva-menelaus",
+          "title": "面積比とチェバ・メネラウスの定理",
+          "topicIds": [
+            "geo-c05-topic",
+            "geo-q07-topic",
+            "geo-c06-topic",
+            "geo-q08-topic",
+            "geo-q09-1-topic",
+            "geo-q09-2-topic",
+            "geo-s1e04-1-topic",
+            "geo-s1e04-2-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-166-1",
+            "math-geo-practice-practice-166-2",
+            "math-geo-practice-practice-167-1",
+            "math-geo-practice-practice-167-2",
+            "math-geo-practice-practice-168-1",
+            "math-geo-practice-practice-168-2",
+            "math-geo-practice-practice-169-1",
+            "math-geo-practice-practice-169-2a",
+            "math-geo-practice-practice-169-2b",
+            "math-geo-practice-practice-170-1",
+            "math-geo-practice-practice-170-2",
+            "math-geo-practice-practice-171-1",
+            "math-geo-practice-practice-171-2",
+            "math-geo-practice-practice-172-main",
+            "math-geo-practice-practice-173-main"
+          ]
+        },
+        {
+          "id": "side-angle-order",
+          "title": "三角形の辺と角の大小",
+          "topicIds": [
+            "geo-c07-topic",
+            "geo-q10-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-175-1",
+            "math-geo-practice-practice-175-2",
+            "math-geo-practice-practice-175-3",
+            "math-geo-practice-practice-175-4",
+            "math-geo-practice-practice-176-1",
+            "math-geo-practice-practice-176-2",
+            "math-geo-practice-practice-177-main",
+            "math-geo-practice-practice-178-main"
+          ]
+        },
+        {
+          "id": "triangle-inequalities",
+          "title": "三角形の成立条件と不等式",
+          "topicIds": [
+            "geo-q11-topic",
+            "geo-q12-topic",
+            "geo-s1e05-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-174-1",
+            "math-geo-practice-practice-174-2",
+            "math-geo-practice-practice-174-3",
+            "math-geo-practice-example-26-main",
+            "math-geo-practice-practice-179-1",
+            "math-geo-practice-practice-179-2",
+            "math-geo-practice-example-27-main",
+            "math-geo-practice-practice-180-main",
+            "math-geo-practice-practice-181-main"
+          ]
+        }
       ]
     },
     {
@@ -12000,6 +12132,150 @@
             "$4-3=1$"
           ]
         }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "inscribed-angles",
+          "title": "円周角の定理",
+          "topicIds": [
+            "geo-c08-topic",
+            "geo-q13-1-topic",
+            "geo-q13-2-topic",
+            "geo-s2e01-2-topic",
+            "geo-s2e02-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-182-1",
+            "math-geo-practice-practice-182-2",
+            "math-geo-practice-practice-183-1",
+            "math-geo-practice-practice-183-2",
+            "math-geo-practice-practice-183-3",
+            "math-geo-practice-practice-184-1",
+            "math-geo-practice-practice-184-2",
+            "math-geo-practice-practice-188-main",
+            "math-geo-practice-practice-189-main",
+            "math-geo-practice-practice-191-main"
+          ]
+        },
+        {
+          "id": "cyclic-quadrilaterals",
+          "title": "円に内接する四角形",
+          "topicIds": [
+            "geo-c09-topic",
+            "geo-q14-topic",
+            "geo-q15-1-topic",
+            "geo-q15-2-topic",
+            "geo-q16-topic",
+            "geo-s2e01-1-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-185-1",
+            "math-geo-practice-practice-185-2",
+            "math-geo-practice-practice-185-3",
+            "math-geo-practice-practice-186-1",
+            "math-geo-practice-practice-186-2",
+            "math-geo-practice-practice-186-3",
+            "math-geo-practice-practice-190-1",
+            "math-geo-practice-practice-190-2",
+            "math-geo-practice-practice-187-main",
+            "math-geo-practice-practice-192-main",
+            "math-geo-practice-practice-193-main"
+          ]
+        },
+        {
+          "id": "equal-tangents",
+          "title": "接線の長さと内接円",
+          "topicIds": [
+            "geo-c10-topic",
+            "geo-q17-topic",
+            "geo-q18-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-195-1",
+            "math-geo-practice-practice-195-2",
+            "math-geo-practice-practice-196-main",
+            "math-geo-practice-practice-198-1",
+            "math-geo-practice-practice-198-2",
+            "math-geo-practice-practice-198-3"
+          ]
+        },
+        {
+          "id": "tangent-chord",
+          "title": "接線と弦のなす角",
+          "topicIds": [
+            "geo-c11-topic",
+            "geo-q19-1-topic",
+            "geo-q19-2-topic",
+            "geo-q20-1-topic",
+            "geo-q20-2-topic",
+            "geo-q20-3-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-194-1",
+            "math-geo-practice-practice-194-2",
+            "math-geo-practice-practice-197-1",
+            "math-geo-practice-practice-197-2",
+            "math-geo-practice-practice-197-3",
+            "math-geo-practice-practice-199-main"
+          ]
+        },
+        {
+          "id": "power-of-point",
+          "title": "方べきの定理",
+          "topicIds": [
+            "geo-c12-topic",
+            "geo-q21-1-topic",
+            "geo-q21-2-topic",
+            "geo-q22-topic",
+            "geo-q23-1-topic",
+            "geo-q23-2-topic",
+            "geo-s2e03-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-200-1",
+            "math-geo-practice-practice-200-2",
+            "math-geo-practice-practice-200-3",
+            "math-geo-practice-practice-201-1",
+            "math-geo-practice-practice-201-2",
+            "math-geo-practice-practice-201-3",
+            "math-geo-practice-practice-203-1",
+            "math-geo-practice-practice-203-2",
+            "math-geo-practice-practice-203-3",
+            "math-geo-practice-practice-202-main",
+            "math-geo-practice-practice-204-main",
+            "math-geo-practice-practice-205-main",
+            "math-geo-practice-practice-206-main"
+          ]
+        },
+        {
+          "id": "two-circles",
+          "title": "2つの円の位置関係と共通接線",
+          "topicIds": [
+            "geo-c13-topic",
+            "geo-q24-topic",
+            "geo-q25-topic",
+            "geo-s2e04-1-topic",
+            "geo-s2e04-2-topic",
+            "geo-s2e04-3-topic",
+            "geo-s2e05-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-207-1",
+            "math-geo-practice-practice-207-2",
+            "math-geo-practice-practice-207-3",
+            "math-geo-practice-practice-207-4",
+            "math-geo-practice-practice-207-5",
+            "math-geo-practice-practice-208-main",
+            "math-geo-practice-example-28-main",
+            "math-geo-practice-practice-209-1",
+            "math-geo-practice-practice-209-2",
+            "math-geo-practice-practice-209-3",
+            "math-geo-practice-practice-210-1",
+            "math-geo-practice-practice-210-2",
+            "math-geo-practice-practice-210-3",
+            "math-geo-practice-practice-211-main"
+          ]
+        }
       ]
     },
     {
@@ -13376,6 +13652,57 @@
             "三つ分ずつ",
             "二つ分ずつ",
             "一つ分ずつ"
+          ]
+        }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "segment-construction",
+          "title": "長さと比の作図",
+          "topicIds": [
+            "geo-c14-topic",
+            "geo-q26-1-topic",
+            "geo-q26-2-topic",
+            "geo-q27-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-214-1",
+            "math-geo-practice-practice-214-2",
+            "math-geo-practice-practice-215-main",
+            "math-geo-practice-practice-216-1",
+            "math-geo-practice-practice-216-2",
+            "math-geo-practice-practice-217-1",
+            "math-geo-practice-practice-217-2",
+            "math-geo-practice-example-29-main",
+            "math-geo-practice-practice-221-main"
+          ]
+        },
+        {
+          "id": "basic-construction",
+          "title": "角・平行線・三角形の作図",
+          "topicIds": [
+            "geo-c15-topic",
+            "geo-s3e01-1-topic",
+            "geo-s3e01-2-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-212-main",
+            "math-geo-practice-practice-218-main"
+          ]
+        },
+        {
+          "id": "circle-construction",
+          "title": "円と接線の作図",
+          "topicIds": [
+            "geo-s3e02-o-topic",
+            "geo-s3e02-i-topic",
+            "geo-s3e03-topic",
+            "geo-s3e04-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-213-main",
+            "math-geo-practice-practice-219-main",
+            "math-geo-practice-practice-220-main"
           ]
         }
       ]
@@ -16199,6 +16526,97 @@
             "$V_{IHEG}-V_{IDPQ}$"
           ]
         }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "line-plane-position",
+          "title": "直線と平面の位置関係",
+          "topicIds": [
+            "geo-c16-topic",
+            "geo-q28-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-222-1",
+            "math-geo-practice-practice-222-2",
+            "math-geo-practice-practice-225-1",
+            "math-geo-practice-practice-225-2",
+            "math-geo-practice-practice-225-3",
+            "math-geo-practice-practice-226-1",
+            "math-geo-practice-practice-226-2",
+            "math-geo-practice-practice-226-3",
+            "math-geo-practice-practice-226-4",
+            "math-geo-practice-practice-227-main"
+          ]
+        },
+        {
+          "id": "polyhedra",
+          "title": "多面体とオイラーの定理",
+          "topicIds": [
+            "geo-c17-topic",
+            "geo-q29-1-topic",
+            "geo-q29-2-topic",
+            "geo-q29-3-topic",
+            "geo-q29-4-topic",
+            "geo-q29-5-topic",
+            "geo-q30-1-topic",
+            "geo-q30-2-topic",
+            "geo-c18-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-231-1",
+            "math-geo-practice-practice-231-2",
+            "math-geo-practice-practice-231-3",
+            "math-geo-practice-practice-231-4",
+            "math-geo-practice-practice-232-1",
+            "math-geo-practice-practice-232-2",
+            "math-geo-practice-practice-232-3"
+          ]
+        },
+        {
+          "id": "solid-perpendicularity",
+          "title": "空間の角と垂直",
+          "topicIds": [
+            "geo-c19-topic",
+            "geo-c23-topic",
+            "geo-s4e01-1-topic",
+            "geo-s4e01-2-topic",
+            "geo-s4e01-3-topic",
+            "geo-s4e01-4-topic",
+            "geo-s4e02-1-topic",
+            "geo-s4e02-2-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-223-1",
+            "math-geo-practice-practice-223-2",
+            "math-geo-practice-practice-223-3",
+            "math-geo-practice-practice-224-1",
+            "math-geo-practice-practice-224-2",
+            "math-geo-practice-practice-228-1",
+            "math-geo-practice-practice-228-2",
+            "math-geo-practice-practice-228-3",
+            "math-geo-practice-practice-228-4",
+            "math-geo-practice-practice-229-main",
+            "math-geo-practice-practice-230-1",
+            "math-geo-practice-practice-230-2"
+          ]
+        },
+        {
+          "id": "volume",
+          "title": "立体の体積と高さ",
+          "topicIds": [
+            "geo-c20-topic",
+            "geo-s4e03-topic",
+            "geo-s4e04-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-practice-233-1",
+            "math-geo-practice-practice-233-2",
+            "math-geo-practice-example-30-1",
+            "math-geo-practice-example-30-2",
+            "math-geo-practice-practice-234-1",
+            "math-geo-practice-practice-234-2"
+          ]
+        }
       ]
     },
     {
@@ -18642,6 +19060,51 @@
             "AB",
             "AP",
             "AG"
+          ]
+        }
+      ],
+      "knowledgeGroups": [
+        {
+          "id": "review-plane",
+          "title": "平面図形の総合問題",
+          "topicIds": [
+            "geo-e01-a-topic",
+            "geo-e01-b-topic",
+            "geo-e02-topic",
+            "geo-e03-topic",
+            "geo-e05-topic",
+            "geo-e06-topic",
+            "geo-e07-1-topic",
+            "geo-e07-2-topic",
+            "geo-e07-3-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-exercise-11-main",
+            "math-geo-practice-exercise-12-1",
+            "math-geo-practice-exercise-12-2",
+            "math-geo-practice-exercise-12-3",
+            "math-geo-practice-exercise-13-main",
+            "math-geo-practice-exercise-14-main",
+            "math-geo-practice-exercise-15-main",
+            "math-geo-practice-exercise-16-1",
+            "math-geo-practice-exercise-16-2",
+            "math-geo-practice-exercise-17-main"
+          ]
+        },
+        {
+          "id": "review-solid",
+          "title": "空間図形の総合問題",
+          "topicIds": [
+            "geo-e04-topic",
+            "geo-e08-1-topic",
+            "geo-e08-2-topic"
+          ],
+          "practiceQuestionIds": [
+            "math-geo-practice-exercise-18-1",
+            "math-geo-practice-exercise-18-2",
+            "math-geo-practice-exercise-19-1",
+            "math-geo-practice-exercise-19-2",
+            "math-geo-practice-exercise-20-main"
           ]
         }
       ]
