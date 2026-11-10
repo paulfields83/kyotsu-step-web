@@ -1,0 +1,344 @@
+{
+  "unitId": "math-numbers-expressions-n08",
+  "answers": {
+    "n08-q01-left-answer": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "原点と重なってはいません。",
+        "-5": "負なのは座標です。距離が負になっていないか確かめます。"
+      }
+    },
+    "n08-r5-q02-distance-build-r6-right": {
+      "validator": "exact",
+      "answer": "a",
+      "acceptedAnswers": []
+    },
+    "n08-r5-q02-distance-build-r6-left": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "n08-02-build-r7-term": {
+      "validator": "exact",
+      "answer": "a",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "直前の式で扱っている数や項を、符号を含めて確かめます。",
+        "-a": "直前の式で扱っている数や項を、符号を含めて確かめます。"
+      }
+    },
+    "n08-q03-order-build-r6-right": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "n08-q03-order-build-r6-left": {
+      "validator": "exact",
+      "answer": "a",
+      "acceptedAnswers": []
+    },
+    "n08-03-build-r6-sign": {
+      "validator": "exact",
+      "answer": "-",
+      "acceptedAnswers": []
+    },
+    "n08-04-build-r6-value": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "n08-q05-square-answer": {
+      "validator": "exact",
+      "answer": "9",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "同じ数を二つ掛けます。",
+        "6": "二乗は2倍ではありません。"
+      }
+    },
+    "n08-q05-compare-answer": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        ">": "左右の数の大きさをもう一度比べます。",
+        "=": "二つは同じ数ではありません。"
+      }
+    },
+    "n08-05-build-r7-relation": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        ">": "前の比較や場合分けの結果を、今の二つの数の関係へつなげます。",
+        "=": "前の比較や場合分けの結果を、今の二つの数の関係へつなげます。"
+      }
+    },
+    "n08-r5-q06-operation-answer": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "元の中身が左辺に現れるか、両辺への同じ操作を確かめよう。",
+        "-3": "元の中身が左辺に現れるか、両辺への同じ操作を確かめよう。"
+      }
+    },
+    "n08-q06-subtract-answer": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "右辺からも同じ数を引きます。",
+        "-3": "同じ数どうしの差を確かめます。"
+      }
+    },
+    "n08-06": {
+      "validator": "exact",
+      "answer": "負",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "不等号は等号ではありません。",
+        "正": "0より小さいという不等式と逆です。",
+        "符号は決まらない": "前の不等式から判断できます。"
+      }
+    },
+    "n08-q07-rule-build-r7-rule-sign": {
+      "validator": "exact",
+      "answer": "-",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "+": "中身や因数の符号を一つずつ確認し、今適用している規則を確かめます。"
+      }
+    },
+    "n08-q07-bracket-build-r7-whole-interior": {
+      "validator": "exact",
+      "answer": "\\sqrt5-3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt5": "絶対値の縦線で囲まれた範囲と、規則のuの対応を確かめます。",
+        "-3": "絶対値の縦線で囲まれた範囲と、規則のuの対応を確かめます。"
+      }
+    },
+    "n08-q07-distribute-build-r7-coefficient": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "外側の符号が中身の値をどのように変えるかを確かめます。",
+        "1": "外側の符号が中身の値をどのように変えるかを確かめます。"
+      }
+    },
+    "n08-q07-distribute-build-r7-second-term": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "直前の式で扱っている数や項を、符号を含めて確かめます。"
+      }
+    },
+    "n08-q07-distribute-build-r7-root-sign": {
+      "validator": "exact",
+      "answer": "-",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "+": "中身や因数の符号を一つずつ確認し、今適用している規則を確かめます。"
+      }
+    },
+    "n08-q07-distribute-build-r7-constant": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "直前の演算を、その二つの数の符号も含めて計算し直します。",
+        "-3": "直前の演算を、その二つの数の符号も含めて計算し直します。"
+      }
+    },
+    "n08-07-build-r6-first-term": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n08-q08-order-answer": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        ">": "整数部分が同じでも、小数部分が続いています。",
+        "=": "小数部分まで一致しているか確かめます。"
+      }
+    },
+    "n08-r5-q08-operation-answer": {
+      "validator": "exact",
+      "answer": "\\pi",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "元の中身が左辺に現れるか、両辺への同じ操作を確かめよう。",
+        "-\\pi": "元の中身が左辺に現れるか、両辺への同じ操作を確かめよう。"
+      }
+    },
+    "n08-q08-difference-build-r7-zero": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "前の行の右辺π−πを計算した値を入れます。選んだ値で不等式が成り立つことと、指定された計算の結果であることは別に確かめます。",
+        "\\pi": "前の行の右辺π−πを計算した値を入れます。選んだ値で不等式が成り立つことと、指定された計算の結果であることは別に確かめます。"
+      }
+    },
+    "n08-08-build-r7-sign-word": {
+      "validator": "exact",
+      "answer": "負",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "0との大小関係を、正・0・負の意味へ読み替えます。",
+        "正": "0との大小関係を、正・0・負の意味へ読み替えます。",
+        "符号は決まらない": "0との大小関係を、正・0・負の意味へ読み替えます。"
+      }
+    },
+    "n08-q09-bracket-build-r7-whole-interior": {
+      "validator": "exact",
+      "answer": "3-\\pi",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "絶対値の縦線で囲まれた範囲と、規則のuの対応を確かめます。",
+        "-\\pi": "絶対値の縦線で囲まれた範囲と、規則のuの対応を確かめます。"
+      }
+    },
+    "n08-q09-distribute-build-r7-coefficient": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "外側の符号が中身の値をどのように変えるかを確かめます。",
+        "1": "外側の符号が中身の値をどのように変えるかを確かめます。"
+      }
+    },
+    "n08-q09-distribute-build-r7-second-term": {
+      "validator": "exact",
+      "answer": "-\\pi",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\pi": "直前の式で扱っている数や項を、符号を含めて確かめます。"
+      }
+    },
+    "n08-q09-distribute-build-r7-first-sign": {
+      "validator": "exact",
+      "answer": "-",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "+": "中身や因数の符号を一つずつ確認し、今適用している規則を確かめます。"
+      }
+    },
+    "n08-q09-distribute-build-r7-joining-operation": {
+      "validator": "exact",
+      "answer": "+",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-": "演算の意味を確かめます。二乗と二倍、項の符号と項を結ぶ演算を区別します。"
+      }
+    },
+    "n08-09-build-r6-first-term": {
+      "validator": "exact",
+      "answer": "\\pi",
+      "acceptedAnswers": []
+    },
+    "n08-q10-forward-answer": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "原点から離れると距離は0ではありません。",
+        "-1": "原点の左側でも離れていれば距離は正です。"
+      }
+    },
+    "n08-q10-reverse-answer": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "同じ位置にある点どうしは離れていません。",
+        "a^2+1": "定義から求める距離ではありません。"
+      }
+    },
+    "n08-q11-positive-build-r7-opposite-relation": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        ">": "前の比較や場合分けの結果を、今の二つの数の関係へつなげます。",
+        "=": "前の比較や場合分けの結果を、今の二つの数の関係へつなげます。"
+      }
+    },
+    "n08-q11-positive-build-r7-rule-sign": {
+      "validator": "exact",
+      "answer": "-",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "+": "中身や因数の符号を一つずつ確認し、今適用している規則を確かめます。"
+      }
+    },
+    "n08-q11-positive-build-r7-result-sign": {
+      "validator": "exact",
+      "answer": "+",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-": "中身や因数の符号を一つずつ確認し、今適用している規則を確かめます。"
+      }
+    },
+    "n08-q11-negative-build-r7-opposite-relation": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "<": "前の比較や場合分けの結果を、今の二つの数の関係へつなげます。",
+        "=": "前の比較や場合分けの結果を、今の二つの数の関係へつなげます。"
+      }
+    },
+    "n08-q11-negative-build-r7-distance-term": {
+      "validator": "exact",
+      "answer": "-a",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "直前の式で扱っている数や項を、符号を含めて確かめます。",
+        "a": "直前の式で扱っている数や項を、符号を含めて確かめます。"
+      }
+    },
+    "n08-11-build-r7-relation": {
+      "validator": "exact",
+      "answer": "=",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        ">": "前の比較や場合分けの結果を、今の二つの数の関係へつなげます。",
+        "<": "前の比較や場合分けの結果を、今の二つの数の関係へつなげます。"
+      }
+    },
+    "n08-q12-nonnegative-build-r7-square-operation": {
+      "validator": "exact",
+      "answer": "\\times",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "+": "演算の意味を確かめます。二乗と二倍、項の符号と項を結ぶ演算を区別します。",
+        "-": "演算の意味を確かめます。二乗と二倍、項の符号と項を結ぶ演算を区別します。"
+      }
+    },
+    "n08-q12-negative-build-r7-second-factor": {
+      "validator": "exact",
+      "answer": "-a",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a": "直前の式で扱っている数や項を、符号を含めて確かめます。",
+        "a^{2}": "直前の式で扱っている数や項を、符号を含めて確かめます。"
+      }
+    },
+    "n08-q12-negative-build-r7-result-sign": {
+      "validator": "exact",
+      "answer": "+",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-": "中身や因数の符号を一つずつ確認し、今適用している規則を確かめます。"
+      }
+    }
+  }
+}

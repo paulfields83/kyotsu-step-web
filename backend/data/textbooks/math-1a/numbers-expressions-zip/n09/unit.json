@@ -1,0 +1,6079 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n09",
+  "revision": 10,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "平方根の符号と数直線",
+  "subtitle": "根号の非負性と、負の数でも変わらない整数部分の意味を確かめる。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N09",
+    "rightsNote": "教師編集Wordの原問14件と元図1点に対応。原図内容を改変せず漏洩防止で表示時点のみ調整。解答は独立導出、別冊公式解答と出版社の再配布許諾は未確認。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "二つの平方根と、根号が表す非負の値を区別する",
+    "符号別の場合分けから平方根と絶対値の関係を確かめる",
+    "大小の挟みと0以上1未満の小数部分を正負の数へ使う"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "09",
+      "title": "平方根の符号と数直線",
+      "description": "符号から根号を読み、数直線で負数の整数部分へつなぐ。",
+      "figures": [
+        {
+          "id": "n09-f01",
+          "src": "assets/n09-f01.png",
+          "alt": "元の数直線で、等間隔の目盛り-4、-3、-2、-1と、その-3と-2の間にある-2.1の点を示す。",
+          "caption": "直前に求めた整数の間に、負の小数の点があることを確かめよう。"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "n09-stage-01",
+          "type": "topic",
+          "text": "二つの平方根を確かめる"
+        },
+        {
+          "id": "n09-stage-01-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2乗すると16になる実数を、すべて求めよう。"
+            },
+            {
+              "type": "math",
+              "latex": "x^2=16"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-positive-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "乗すると"
+            },
+            {
+              "type": "math",
+              "latex": "16"
+            },
+            {
+              "type": "text",
+              "text": "になる実数をすべて調べます。まず正の候補"
+            },
+            {
+              "type": "math",
+              "latex": "4"
+            },
+            {
+              "type": "text",
+              "text": "を、同じ数を"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "回掛ける手本で確かめます。次に負の候補も同じ方法で調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-positive-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "は実数。"
+            },
+            {
+              "type": "math",
+              "latex": "x^2=16"
+            },
+            {
+              "type": "text",
+              "text": "を満たす数をすべて求める。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-positive-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4^2=4\\times4=16"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-positive-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正の候補"
+            },
+            {
+              "type": "math",
+              "latex": "4"
+            },
+            {
+              "type": "text",
+              "text": "が条件を満たしました。負の候補をまだ除外していません。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-negative-basis-n09-q01-positive-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4^2=16"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-negative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正の候補に続いて、負の候補も調べます。平方する対象が括弧のどこまでかに注意しましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-negative-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\in \\mathbb R"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "x^2=16"
+            },
+            {
+              "type": "text",
+              "text": "を満たすすべての実数を求める。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-negative-ux06-proposal-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-4)^2=(-4)\\times({\\square})",
+              "holeIds": [
+                "n09-q01-negative-ux06repeatedbase"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-negative-ux06-proposal-row-02-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの因子を掛け、平方の値を確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-negative-ux06-proposal-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "={\\square}",
+              "holeIds": [
+                "n09-q01-negative-value"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-negative-ux06-after-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正負の候補が条件に合うことは確かめられました。次は、ほかに解がないことまで示します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q01-negative-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「負の候補も確かめる」として "
+            },
+            {
+              "type": "math",
+              "latex": "(-4)^2=16"
+            },
+            {
+              "type": "text",
+              "text": " を確定しました。次の「すべての解を答える」では、この認定結果と条件を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-basis-n09-q01-negative-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-4)^2=(-4)(-4)=16"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補を確かめるだけでなく、他に解がないことも調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\in\\mathbb R"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-rule-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "既習の平方差の公式を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-rule-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(A-B)(A+B)=A^2-B^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-rule-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "実数の零積の法則。一方が0なら積は0です。どちらも0でなければ積は0になりません。"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-rule-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "AB=0\\iff A=0\\quad\\text{または}\\quad B=0"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2=16"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2-16=16-16=0"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2-4^2=0"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "{\\square}=0",
+              "holeIds": [
+                "n09-01-factorisedformux05"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "因子についての零条件の組："
+            },
+            {
+              "type": "choice",
+              "itemId": "n09-01-factorzeroconditionux05"
+            }
+          ],
+          "hideAfter": [
+            "n09-01-factorzeroconditionux05"
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-06",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x-4=0"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{または}\\quad x+4=0"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-08",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x-4=0\\ \\Rightarrow\\ x=4"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-09",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x+4=0\\ \\Rightarrow\\ x=-4"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-ux05-row-10",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同値変形で場合を尽くしたため、4と−4が全ての解です。"
+            }
+          ]
+        },
+        {
+          "id": "n09-01-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正負両方の候補を保持し、因数分解からこれ以外の実数解がないことも確認しました。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-02",
+          "type": "topic",
+          "text": "平方根と根号を区別する"
+        },
+        {
+          "id": "n09-stage-02-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "根号の値と、負の平方根を2乗した値を区別しよう。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{16},\\quad(-\\sqrt5)^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-definition-basis-n09-01-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=4\\quad\\text{または}\\quad x=-4"
+            }
+          ]
+        },
+        {
+          "id": "n09-definition-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "乗して"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "になる数を"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "の"
+            },
+            {
+              "type": "text",
+              "text": "平方根"
+            },
+            {
+              "type": "text",
+              "text": "といいます。"
+            },
+            {
+              "type": "math",
+              "latex": "a>0"
+            },
+            {
+              "type": "text",
+              "text": "のとき二つあり、正の方を"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{a}"
+            },
+            {
+              "type": "text",
+              "text": "、負の方を"
+            },
+            {
+              "type": "math",
+              "latex": "-\\sqrt{a}"
+            },
+            {
+              "type": "text",
+              "text": "と書きます。"
+            },
+            {
+              "type": "text",
+              "text": "根号"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{a}"
+            },
+            {
+              "type": "text",
+              "text": "そのものは、二つをまとめた記号ではなく非負の一つの数です。"
+            }
+          ]
+        },
+        {
+          "id": "n09-definition-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平方根"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "text",
+              "text": "根号"
+            },
+            {
+              "type": "text",
+              "text": "を区別する。"
+            },
+            {
+              "type": "math",
+              "latex": "a>0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "text",
+              "text": "平方根"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "\\pm \\sqrt{a}"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-definition-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a>0:\\quad (\\sqrt a)^2=a,\\quad(-\\sqrt a)^2=a"
+            }
+          ]
+        },
+        {
+          "id": "n09-definition-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt a\\ge0"
+            }
+          ]
+        },
+        {
+          "id": "n09-definition-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a>0"
+            },
+            {
+              "type": "text",
+              "text": "の"
+            },
+            {
+              "type": "text",
+              "text": "平方根"
+            },
+            {
+              "type": "text",
+              "text": "は正負二つで、"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{a}"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "-\\sqrt{a}"
+            },
+            {
+              "type": "text",
+              "text": "です。一方、"
+            },
+            {
+              "type": "text",
+              "text": "根号"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{a}"
+            },
+            {
+              "type": "text",
+              "text": "は非負の一つの値です。「"
+            },
+            {
+              "type": "text",
+              "text": "平方根"
+            },
+            {
+              "type": "text",
+              "text": "をすべて」と「"
+            },
+            {
+              "type": "text",
+              "text": "根号"
+            },
+            {
+              "type": "text",
+              "text": "の値」を区別します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-root-basis-n09-definition-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a>0:\\quad\\sqrt a,\\ -\\sqrt a"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-root-basis-n09-definition-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a)^2=a\\quad(a\\ge0)"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-root-basis-n09-definition-result-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt a\\ge0"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-root-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "根号は非負の方を表します。先ほど確かめた"
+            },
+            {
+              "type": "math",
+              "latex": "16"
+            },
+            {
+              "type": "text",
+              "text": "の平方根のうち、その条件に合う方を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-root-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "根号は非負の一つの値。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{16}"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "(-\\sqrt{5})^2"
+            },
+            {
+              "type": "text",
+              "text": "を元の順で求める。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-root-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{16}={\\square}",
+              "holeIds": [
+                "n09-q02-root-value"
+              ]
+            }
+          ],
+          "equationNumber": "3"
+        },
+        {
+          "id": "n09-q02-root-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{16}=4"
+            },
+            {
+              "type": "text",
+              "text": "を第1の答えとして保持します。次は別の式"
+            },
+            {
+              "type": "math",
+              "latex": "(-\\sqrt5)^2"
+            },
+            {
+              "type": "text",
+              "text": "を計算し、最後に元の順序で二つの値をまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-basis-n09-q02-root-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{16}=4"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "先ほどの負の数と同じように、今度は根号を含む数を平方します。括弧内全体を二つの因子に戻しましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "根号は非負の一つの値。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{16}"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "(-\\sqrt{5})^2"
+            },
+            {
+              "type": "text",
+              "text": "を元の順で求める。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-ux06-proposal-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-\\sqrt5)^2=(-\\sqrt5)({\\square})",
+              "holeIds": [
+                "n09-q02-negative-square-ux06rootbase"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-ux06-proposal-row-02-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "掛ける順を入れ替え、符号の部分と根号の部分をまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-ux06-proposal-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=(-1)(-1)(\\sqrt5)(\\sqrt5)"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-ux06-proposal-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "={\\square}(\\sqrt5)^2",
+              "holeIds": [
+                "n09-q02-negative-square-ux06signproduct"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-ux06-proposal-row-04-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "根号の定義を、残った平方へ適用します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-ux06-proposal-row-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "={\\square}",
+              "holeIds": [
+                "n09-q02-negative-square-signedrootsquareux05"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-ux06-after-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負号も含めて同じ数を二回掛けたので、結果は正になりました。根号自体の値と、負号を含む数の平方の値を区別して記録します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q02-negative-square-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「二つの値を元の順序でまとめる」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-02-basis-n09-q02-negative-square-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-\\sqrt5)^2=(-\\sqrt5)(-\\sqrt5)=(-1)(-1)(\\sqrt5)(\\sqrt5)=1(\\sqrt5)^2=5"
+            }
+          ]
+        },
+        {
+          "id": "n09-02-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "根号の値と、負の数全体の平方を別々に求めました。元の問いの順序で二つの結果を並べます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-02-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "根号は非負の一つの値。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{16}"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "(-\\sqrt{5})^2"
+            },
+            {
+              "type": "text",
+              "text": "を元の順で求める。"
+            }
+          ]
+        },
+        {
+          "id": "n09-02-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt{16},\\ (-\\sqrt5)^2)=(4,\\ 5)"
+            }
+          ],
+          "equationNumber": "5"
+        },
+        {
+          "id": "n09-02-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-boundary-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "の平方根と、負の数の平方根も定義の境界として確認します。実数の平方は必ず"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "以上なので、負の数を平方に持つ実数はありません。"
+            }
+          ]
+        },
+        {
+          "id": "n09-boundary-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この章は実数の範囲。負の数の平方根は実数には存在しない。"
+            }
+          ]
+        },
+        {
+          "id": "n09-boundary-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0^2=0,\\quad\\sqrt0=0"
+            }
+          ]
+        },
+        {
+          "id": "n09-boundary-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\in\\mathbb R\\Rightarrow x^2\\ge0"
+            }
+          ]
+        },
+        {
+          "id": "n09-boundary-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "の平方根は"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "一つです。実数の平方は"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "以上なので、"
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "x^2=a"
+            },
+            {
+              "type": "text",
+              "text": "となる実数"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "はなく、この章の実数範囲には負の数の平方根がありません。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-03",
+          "type": "topic",
+          "text": "負の数を平方してから根号へ"
+        },
+        {
+          "id": "n09-stage-03-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "内側の平方を先に計算して値を求めよう。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{(-4)^2}"
+            }
+          ]
+        },
+        {
+          "id": "n09-q03-inside-basis-n09-boundary-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt0=0"
+            }
+          ]
+        },
+        {
+          "id": "n09-q03-inside-basis-n09-boundary-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\in\\mathbb R\\Rightarrow x^2\\ge0"
+            }
+          ]
+        },
+        {
+          "id": "n09-q03-inside-basis-n09-q01-negative-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-4)^2=(-4)(-4)=16"
+            }
+          ]
+        },
+        {
+          "id": "n09-q03-inside-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定済みの平方を使い、平方根を調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q03-inside-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "実数の範囲で"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{(-4)^2}"
+            },
+            {
+              "type": "text",
+              "text": "を求める。根号の中と値は非負。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q03-inside-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-4)^2=16"
+            }
+          ]
+        },
+        {
+          "id": "n09-q03-inside-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{(-4)^2}=\\sqrt{16}"
+            }
+          ],
+          "equationNumber": "6"
+        },
+        {
+          "id": "n09-q03-inside-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "先に認定した負の候補の平方を参照し、根号の中を16へ直しました。次に非負の平方根を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-03-basis-n09-q03-inside-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-4)^2=16"
+            }
+          ]
+        },
+        {
+          "id": "n09-03-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "内側の値が求まりました。次に、平方がその値で非負になる数を取り、根号の値を決めます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-03-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "実数の範囲で"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{(-4)^2}"
+            },
+            {
+              "type": "text",
+              "text": "を求める。根号の中と値は非負。"
+            }
+          ]
+        },
+        {
+          "id": "n09-03-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{(-4)^2}=\\sqrt{16}={\\square}",
+              "holeIds": [
+                "n09-03-value"
+              ]
+            }
+          ],
+          "equationNumber": "7"
+        },
+        {
+          "id": "n09-03-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「0以上の場合」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-04",
+          "type": "topic",
+          "text": "実数の正負と根号の値"
+        },
+        {
+          "id": "n09-stage-04-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "実数の符号を分け、非負の値を一つの式へまとめよう。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}\\quad(a\\in\\mathbb R)"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-nonnegative-basis-n09-03-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{(-4)^2}=4"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-nonnegative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一般の実数"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "について、まず"
+            },
+            {
+              "type": "math",
+              "latex": "a\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "の範囲全体を考えます。平方が"
+            },
+            {
+              "type": "math",
+              "latex": "a^2"
+            },
+            {
+              "type": "text",
+              "text": "で、この範囲全体で非負になる表現を選びます。"
+            },
+            {
+              "type": "math",
+              "latex": "a=0"
+            },
+            {
+              "type": "text",
+              "text": "では"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "text",
+              "text": "が同じ"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "ですが、正の"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "も含む範囲全体で判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-nonnegative-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a\\in \\mathbb R"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "a\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "。境界"
+            },
+            {
+              "type": "math",
+              "latex": "a=0"
+            },
+            {
+              "type": "text",
+              "text": "では"
+            },
+            {
+              "type": "math",
+              "latex": "a=-a=0"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-nonnegative-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}={\\square}\\quad(a\\ge0)",
+              "holeIds": [
+                "n09-q04-nonnegative-value"
+              ]
+            }
+          ],
+          "equationNumber": "8"
+        },
+        {
+          "id": "n09-q04-nonnegative-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「負の場合」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-basis-n09-q04-nonnegative-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}=a\\quad(a\\ge0)"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は"
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": "の場合です。根号は非負の値を表すので、符号を反対にした"
+            },
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "text",
+              "text": "が条件に合うか、符号と平方の両方を調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a\\in \\mathbb R"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-ux06-proposal-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a<0\\quad\\Rightarrow\\quad -a\\ {\\square}\\ 0",
+              "holeIds": [
+                "n09-q04-negative-ux06candidatesign"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-ux06-proposal-row-02-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "続いて候補の平方を確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-ux06-proposal-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-a)^2=(-a)(-a)={\\square}",
+              "holeIds": [
+                "n09-q04-negative-ux06candidatesquare"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-ux06-proposal-row-03-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補は正で、その平方は元の数の平方と一致します。根号の定義に合う値を結論にします。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-ux06-proposal-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}={\\square}",
+              "holeIds": [
+                "n09-q04-negative-value"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-ux06-after-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の数の符号によって、その数自体を使う場合と符号を反対にする場合が分かれました。次は条件と結果を対にしてまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q04-negative-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「条件と結果の対応を保持する」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-04-basis-n09-q04-negative-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a<0\\Rightarrow-a>0"
+            }
+          ]
+        },
+        {
+          "id": "n09-04-basis-n09-q04-negative-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-a)^2=(-a)(-a)=a^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-04-basis-n09-q04-negative-result-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}=-a"
+            }
+          ]
+        },
+        {
+          "id": "n09-04-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "符号の場合によって表現が変わりました。条件を外して値だけを並べず、各結果を条件と対にして記録します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-04-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a\\in \\mathbb R"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            },
+            {
+              "type": "math",
+              "latex": "a=0"
+            },
+            {
+              "type": "text",
+              "text": "を非負の側に含める。"
+            }
+          ]
+        },
+        {
+          "id": "n09-04-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}=\\begin{cases}a&(a\\ge0)\\\\-a&(a<0)\\end{cases}"
+            }
+          ],
+          "equationNumber": "10"
+        },
+        {
+          "id": "n09-04-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「二つの場合を絶対値へ統合する」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-05-basis-n09-04-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}=a\\ (a\\ge0)"
+            }
+          ]
+        },
+        {
+          "id": "n09-05-basis-n09-04-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}=-a\\ (a<0)"
+            }
+          ]
+        },
+        {
+          "id": "n09-05-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの場合は、前に学んだ絶対値の定義と一致します。条件ごとの結果を一つにまとめる記号を判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-05-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値は"
+            },
+            {
+              "type": "math",
+              "latex": "a\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}={\\square}",
+              "holeIds": [
+                "n09-05-value"
+              ]
+            }
+          ],
+          "equationNumber": "11"
+        },
+        {
+          "type": "math-table",
+          "id": "n09-05-extra-0",
+          "caption": "根号の非負の値を選ぶ場合分け",
+          "headers": [
+            "条件",
+            "結果"
+          ],
+          "rows": [
+            [
+              "a\\ge0",
+              "\\sqrt{a^2}=a"
+            ],
+            [
+              "a<0",
+              "\\sqrt{a^2}=-a"
+            ]
+          ]
+        },
+        {
+          "id": "n09-05-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「非負の二数を平方で比較する」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-05",
+          "type": "topic",
+          "text": "中の式の符号から根号を外す"
+        },
+        {
+          "id": "n09-stage-05-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中の式の符号を判断してから、根号を外そう。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{(2-\\sqrt5)^2}"
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-squares-basis-n09-05-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{a^2}=|a|\\quad(a\\in\\mathbb R)"
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-squares-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "例題"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{(2-\\sqrt{5})^2}"
+            },
+            {
+              "type": "text",
+              "text": "では、根号の中身"
+            },
+            {
+              "type": "math",
+              "latex": "2-\\sqrt{5}"
+            },
+            {
+              "type": "text",
+              "text": "の符号を先に知りたいので、"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{5}"
+            },
+            {
+              "type": "text",
+              "text": "を比べます。二つは非負なので平方の大小を利用できます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-squares-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{5}\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-squares-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2^2=2\\times2={\\square}",
+              "holeIds": [
+                "n09-q06-squares-value"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-squares-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt5)^2=5"
+            }
+          ],
+          "equationNumber": "12"
+        },
+        {
+          "id": "n09-q06-squares-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「平方の比較を元の数へ戻す」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-order-basis-n09-q06-squares-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2^2=4"
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-order-basis-n09-q06-squares-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt5)^2=5"
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-order-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平方した値を比べると"
+            },
+            {
+              "type": "math",
+              "latex": "4<5"
+            },
+            {
+              "type": "text",
+              "text": "です。二つが非負であることを使い、元の二数の大小へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-order-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{5}\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "。非負範囲では平方の大小と元の大小が一致する。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q06-order-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4<5\\Rightarrow 2\\ {\\square}\\ \\sqrt5",
+              "holeIds": [
+                "n09-q06-order-relation"
+              ]
+            }
+          ],
+          "equationNumber": "13"
+        },
+        {
+          "id": "n09-q06-order-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「差の符号へつなぐ」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-06-basis-n09-q06-order-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2<\\sqrt5"
+            }
+          ]
+        },
+        {
+          "id": "n09-06-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定済みの比較を使い、差の符号を決めます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-06-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ実数を両辺へ加えても不等号の向きは変わらない。"
+            }
+          ]
+        },
+        {
+          "id": "n09-06-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2-\\sqrt5\\ {\\square}\\ 0",
+              "holeIds": [
+                "n09-06-differencerelationux05"
+              ]
+            }
+          ],
+          "hideAfter": [
+            "n09-06-differencerelationux05"
+          ]
+        },
+        {
+          "id": "n09-06-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2-\\sqrt5<\\sqrt5-\\sqrt5=0"
+            }
+          ],
+          "equationNumber": "14"
+        },
+        {
+          "id": "n09-06-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「負の式全体に負号を付ける」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q07-negation-basis-n09-06-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2-\\sqrt5<0"
+            }
+          ]
+        },
+        {
+          "id": "n09-q07-negation-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平方の平方根を絶対値へ直し、中身の符号に応じて外します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q07-negation-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2-\\sqrt{5}<0"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            },
+            {
+              "type": "math",
+              "latex": "u<0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "|u|=-u"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q07-negation-ux05-given-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|u|=\\begin{cases}u&(u\\ge0)\\\\-u&(u<0)\\end{cases}"
+            }
+          ]
+        },
+        {
+          "id": "n09-q07-negation-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{(2-\\sqrt5)^2}=|2-\\sqrt5|"
+            }
+          ]
+        },
+        {
+          "id": "n09-q07-negation-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|2-\\sqrt5|={\\square}",
+              "holeIds": [
+                "n09-q07-negation-absoluteexpressionux05"
+              ]
+            }
+          ],
+          "equationNumber": "15"
+        },
+        {
+          "id": "n09-q07-negation-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「両項の符号を変えて答える」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-07-basis-n09-q07-negation-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|2-\\sqrt5|=-(2-\\sqrt5)"
+            }
+          ]
+        },
+        {
+          "id": "n09-07-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した式を整理して、平方の平方根の値を仕上げます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-07-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2-\\sqrt{5}<0"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{u^2}=|u|"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "u<0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "|u|=-u"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-07-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(2-\\sqrt5)={\\square}",
+              "holeIds": [
+                "n09-07-expandedexpressionux05"
+              ]
+            }
+          ],
+          "hideAfter": [
+            "n09-07-expandedexpressionux05"
+          ]
+        },
+        {
+          "id": "n09-07-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(2-\\sqrt5)=-2+\\sqrt5=\\sqrt5-2"
+            }
+          ],
+          "equationNumber": "16"
+        },
+        {
+          "id": "n09-07-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{(2-\\sqrt5)^2}=\\sqrt5-2"
+            },
+            {
+              "type": "text",
+              "text": "で、この例題は終わりです。次は別の例で、小数の平方を使って"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt2"
+            },
+            {
+              "type": "text",
+              "text": "の範囲を調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-06",
+          "type": "topic",
+          "text": "小数の平方で両側から挟む"
+        },
+        {
+          "id": "n09-stage-06-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "端の数の平方と非負性から、この挟みを確かめよう。"
+            },
+            {
+              "type": "math",
+              "latex": "1.41<\\sqrt2<1.42"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-basis-n09-07-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{(2-\\sqrt5)^2}=\\sqrt5-2"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt2"
+            },
+            {
+              "type": "text",
+              "text": "を小数で挟むために、候補"
+            },
+            {
+              "type": "math",
+              "latex": "1.41"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "1.42"
+            },
+            {
+              "type": "text",
+              "text": "を平方して2と比べます。分数に直すと分子は"
+            },
+            {
+              "type": "math",
+              "latex": "141"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "142"
+            },
+            {
+              "type": "text",
+              "text": "です。これらを"
+            },
+            {
+              "type": "math",
+              "latex": "141=140+1"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "142=140+2"
+            },
+            {
+              "type": "text",
+              "text": "と分けると、和の平方として計算できます。まず二つの数を"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "と表し、"
+            },
+            {
+              "type": "math",
+              "latex": "(A+B)^2"
+            },
+            {
+              "type": "text",
+              "text": "を同じ式の積に戻すところから、一段ずつ式を作りましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A,B\\in\\mathbb R"
+            },
+            {
+              "type": "text",
+              "text": "。このあと"
+            },
+            {
+              "type": "math",
+              "latex": "A=140"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "B=1"
+            },
+            {
+              "type": "text",
+              "text": "または"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "として、候補の平方の計算に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(A+B)^2=(A+B)({\\square})",
+              "holeIds": [
+                "n09-decimal-method-ux06binomialbase"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-02-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "後ろの括弧の各項へ、それぞれ前の括弧を掛けます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=(A+B){\\square}+(A+B){\\square}",
+              "holeIds": [
+                "n09-decimal-method-ux06distributea",
+                "n09-decimal-method-ux06distributeb"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-03-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "さらに各括弧を分配し、二つの積から四つの項を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=A^2+{\\square}+AB+{\\square}",
+              "holeIds": [
+                "n09-decimal-method-ux06crossproduct",
+                "n09-decimal-method-ux06lastsquare"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-04-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積の順を入れ替え、二つの交差項を同じ順にそろえます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=A^2+AB+AB+B^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-05-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ交差項をまとめると、どの係数になるでしょうか。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-05",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=A^2+{\\square}AB+B^2",
+              "holeIds": [
+                "n09-decimal-method-ux06liketermcount"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-06-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和の平方が導けました。ここからA=140、B=1または2として分子を計算し、分母の平方で割って、小数の候補へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-06",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41=\\frac{141}{100},\\quad1.42=\\frac{142}{100}"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-07-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分数の平方は同じ分数どうしの積なので、分子と分母をそれぞれ平方できます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\left(\\frac pq\\right)^2=\\frac pq\\frac pq=\\frac{p^2}{q^2}\\quad(q\\ne0)"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-08-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "共通して使う平方を先に計算しておきます。残る小さい平方は各候補の計算で使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-proposal-row-08",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "140^2=14^2\\times100=19600,\\quad100^2=10000"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-ux06-after-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "導いた和の平方へ、まず下側の小数候補の分子を対応させます。その計算が終わったら、上側の候補へ進みます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-decimal-method-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平方計算の方法と、これから使える局所手本を確認しました。"
+            },
+            {
+              "type": "math",
+              "latex": "141^2"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "142^2"
+            },
+            {
+              "type": "text",
+              "text": "の計算済みの値はまだ示しません。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-basis-n09-decimal-method-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(A+B)^2=(A+B)(A+B)"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-basis-n09-decimal-method-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=(A+B)A+(A+B)B"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-basis-n09-decimal-method-result-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=A^2+AB+AB+B^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-basis-n09-decimal-method-result-3",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=A^2+2AB+B^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "導いた和の平方へ"
+            },
+            {
+              "type": "math",
+              "latex": "A=140"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "B=1"
+            },
+            {
+              "type": "text",
+              "text": "を対応させ、"
+            },
+            {
+              "type": "math",
+              "latex": "141^2"
+            },
+            {
+              "type": "text",
+              "text": "を求めます。まず中項を作り、その値・和・小数への戻しを順に計算しましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補"
+            },
+            {
+              "type": "math",
+              "latex": "1.41"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "1.42"
+            },
+            {
+              "type": "text",
+              "text": "は正。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{2}"
+            },
+            {
+              "type": "text",
+              "text": "を挟むため両候補の平方を"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "と比べる。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41^2=\\left(\\frac{141}{100}\\right)^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(140+1)^2=140^2+{\\square}+1^2",
+              "holeIds": [
+                "n09-p001-q08-left-square-middletermux05"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-ux05-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=19600+{\\square}+1",
+              "holeIds": [
+                "n09-p001-q08-left-square-l1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-ux05-row-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=19600+{\\square}+1={\\square}",
+              "holeIds": [
+                "n09-p001-q08-left-square-l1",
+                "n09-p001-q08-left-square-l2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-left-square-ux05-row-05",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41^2=\\frac{{\\square}}{10000}={\\square}",
+              "holeIds": [
+                "n09-p001-q08-left-square-l2",
+                "n09-p001-q08-left-square-l3"
+              ]
+            }
+          ],
+          "equationNumber": "17"
+        },
+        {
+          "id": "n09-p001-q08-left-square-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「左側の平方を小数へ戻す」として "
+            },
+            {
+              "type": "math",
+              "latex": "141^2=19881"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "1.41^2=1.9881"
+            },
+            {
+              "type": "text",
+              "text": " を確定しました。次の「右側の平方を小数へ戻す」では、この認定結果と条件を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-right-square-basis-n09-p001-q08-left-square-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "141^2=19881"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-right-square-basis-n09-p001-q08-left-square-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41^2=1.9881"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-right-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は"
+            },
+            {
+              "type": "math",
+              "latex": "142=140+2"
+            },
+            {
+              "type": "text",
+              "text": "です。同じ導出の"
+            },
+            {
+              "type": "math",
+              "latex": "A=140"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "B=2"
+            },
+            {
+              "type": "text",
+              "text": "として、中項から順に計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-right-square-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補"
+            },
+            {
+              "type": "math",
+              "latex": "1.41"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "1.42"
+            },
+            {
+              "type": "text",
+              "text": "は正。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{2}"
+            },
+            {
+              "type": "text",
+              "text": "を挟むため両候補の平方を"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "と比べる。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-right-square-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.42^2=\\left(\\frac{142}{100}\\right)^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-right-square-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(140+2)^2=140^2+{\\square}+2^2",
+              "holeIds": [
+                "n09-p001-q08-right-square-middletermux05"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-right-square-ux05-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=19600+{\\square}+4",
+              "holeIds": [
+                "n09-p001-q08-right-square-r1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-right-square-ux05-row-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "=19600+{\\square}+4={\\square}",
+              "holeIds": [
+                "n09-p001-q08-right-square-r1",
+                "n09-p001-q08-right-square-r2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-right-square-ux05-row-05",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.42^2=\\frac{{\\square}}{10000}={\\square}",
+              "holeIds": [
+                "n09-p001-q08-right-square-r2",
+                "n09-p001-q08-right-square-r3"
+              ]
+            }
+          ],
+          "equationNumber": "18"
+        },
+        {
+          "id": "n09-p001-q08-right-square-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「右側の平方を小数へ戻す」として "
+            },
+            {
+              "type": "math",
+              "latex": "142^2=20164"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "1.42^2=2.0164"
+            },
+            {
+              "type": "text",
+              "text": " を確定しました。次の「左の平方と"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "を比べる」では、この認定結果と条件を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-lower-sign-basis-n09-p001-q08-right-square-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "142^2=20164"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-lower-sign-basis-n09-p001-q08-right-square-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.42^2=2.0164"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-lower-sign-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左右の平方が求まりました。まず左の平方と"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "だけを比較します。小数点より左の桁を先に見ます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-lower-sign-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補"
+            },
+            {
+              "type": "math",
+              "latex": "1.41"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "1.42"
+            },
+            {
+              "type": "text",
+              "text": "は正。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{2}"
+            },
+            {
+              "type": "text",
+              "text": "を挟むため両候補の平方を"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "と比べる。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-lower-sign-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.9881\\ {\\square}\\ 2",
+              "holeIds": [
+                "n09-p001-q08-lower-sign-c"
+              ]
+            }
+          ],
+          "equationNumber": "19"
+        },
+        {
+          "id": "n09-p001-q08-lower-sign-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「左の平方と"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "を比べる」として "
+            },
+            {
+              "type": "math",
+              "latex": "1.9881<2"
+            },
+            {
+              "type": "text",
+              "text": " を確定しました。次の「"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "と右の平方を比べる」では、この認定結果と条件を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-upper-sign-basis-n09-p001-q08-lower-sign-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.9881<2"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-upper-sign-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "と右の平方を比べます。整数部分が同じなので小数部分を比べます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-upper-sign-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補"
+            },
+            {
+              "type": "math",
+              "latex": "1.41"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "1.42"
+            },
+            {
+              "type": "text",
+              "text": "は正。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{2}"
+            },
+            {
+              "type": "text",
+              "text": "を挟むため両候補の平方を"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "と比べる。"
+            }
+          ]
+        },
+        {
+          "id": "n09-p001-q08-upper-sign-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2\\ {\\square}\\ 2.0164",
+              "holeIds": [
+                "n09-p001-q08-upper-sign-d"
+              ]
+            }
+          ],
+          "equationNumber": "20"
+        },
+        {
+          "id": "n09-p001-q08-upper-sign-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": "と右の平方を比べる」として "
+            },
+            {
+              "type": "math",
+              "latex": "2<2.0164"
+            },
+            {
+              "type": "text",
+              "text": " を確定しました。次の「計算と比較を一つに記録する」では、この認定結果と条件を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-08-basis-n09-p001-q08-upper-sign-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2<2.0164"
+            }
+          ]
+        },
+        {
+          "id": "n09-08-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左右の計算と二つの比較が確定しました。左の平方から右の平方へ同じ順序で接続し、次に元の数へ戻す準備をします。"
+            }
+          ]
+        },
+        {
+          "id": "n09-08-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41>0"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "1.42>0"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            },
+            {
+              "type": "math",
+              "latex": "1.41^2=1.9881<2"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "2<2.0164=1.42^2"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-08-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41^2=1.9881<2<2.0164=1.42^2"
+            }
+          ],
+          "equationNumber": "21"
+        },
+        {
+          "id": "n09-08-extra-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "141^2=141(100+40+1)=14100+5640+141=19881"
+            }
+          ]
+        },
+        {
+          "id": "n09-08-extra-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "142^2=14200+5680+284=20164"
+            }
+          ]
+        },
+        {
+          "id": "n09-08-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数の計算済み補助もこの後で参照できます。平方比較が完成したので、次は非負性を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-09-basis-n09-08-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41^2=1.9881<2<2.0164=1.42^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-09-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "計算済みの平方の大小を、元の正の数の大小へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-09-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三数は正です。"
+            },
+            {
+              "type": "math",
+              "latex": "1.41^2=1.9881<2<2.0164=1.42^2"
+            }
+          ]
+        },
+        {
+          "id": "n09-09-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41{\\square}\\sqrt2",
+              "holeIds": [
+                "n09-09-lowerrelation"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-09-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt2{\\square}1.42",
+              "holeIds": [
+                "n09-09-upperrelation"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-09-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41<\\sqrt2<1.42"
+            }
+          ],
+          "equationNumber": "22"
+        },
+        {
+          "id": "n09-09-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "非負であることと平方の比較から、"
+            },
+            {
+              "type": "math",
+              "latex": "1.41<\\sqrt2<1.42"
+            },
+            {
+              "type": "text",
+              "text": "を確認できました。次は別の数"
+            },
+            {
+              "type": "math",
+              "latex": "-2.1"
+            },
+            {
+              "type": "text",
+              "text": "の整数部分と小数部分を、定義に沿って考えます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-07",
+          "type": "topic",
+          "text": "整数と残りの条件を使う"
+        },
+        {
+          "id": "n09-stage-07-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数と、0以上1未満の残りに分けよう。"
+            },
+            {
+              "type": "math",
+              "latex": "-2.1"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-basis-n09-09-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1.41<\\sqrt2<1.42"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2.1"
+            },
+            {
+              "type": "text",
+              "text": "を整数部分と小数部分に分けます。"
+            },
+            {
+              "type": "math",
+              "latex": "x=n+r"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "n"
+            },
+            {
+              "type": "text",
+              "text": "は整数、"
+            },
+            {
+              "type": "math",
+              "latex": "0\\le r<1"
+            },
+            {
+              "type": "text",
+              "text": "を満たす"
+            },
+            {
+              "type": "math",
+              "latex": "n"
+            },
+            {
+              "type": "text",
+              "text": "を整数部分、"
+            },
+            {
+              "type": "math",
+              "latex": "r"
+            },
+            {
+              "type": "text",
+              "text": "を小数部分と定めます。この定義から、"
+            },
+            {
+              "type": "math",
+              "latex": "n"
+            },
+            {
+              "type": "text",
+              "text": "を探すときに使える不等式を作りましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n"
+            },
+            {
+              "type": "text",
+              "text": "は整数。整数部分と小数部分をこの条件で定義する。"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-ux06-proposal-row-01-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定義の式を、小数部分について書き直します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-ux06-proposal-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=x-n"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-ux06-proposal-row-02-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "小数部分の条件へ、いまの式を代入します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-ux06-proposal-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0\\le x-n<1"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-ux06-proposal-row-03-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "各辺に同じ整数部分を加え、中央を元の数だけにします。"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-ux06-proposal-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "{\\square}\\le x<{\\square}",
+              "holeIds": [
+                "n09-parts-target-ux06intervallower",
+                "n09-parts-target-ux06intervalupper"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-ux06-after-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分は、いま導いた区間の左端になる整数です。負の数でも桁を切り取るだけでよいか、次に元の小数で確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-parts-target-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず候補"
+            },
+            {
+              "type": "math",
+              "latex": "-2"
+            },
+            {
+              "type": "text",
+              "text": "を調べ、定義を満たすかを判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q10-reject-truncation-basis-n09-parts-target-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=n+r\\Rightarrow r=x-n"
+            }
+          ]
+        },
+        {
+          "id": "n09-q10-reject-truncation-basis-n09-parts-target-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0\\le x-n<1"
+            }
+          ]
+        },
+        {
+          "id": "n09-q10-reject-truncation-basis-n09-parts-target-result-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n\\le x<n+1"
+            }
+          ]
+        },
+        {
+          "id": "n09-q10-reject-truncation-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "−2.1の整数部分を−2と仮定した候補を検査します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q10-reject-truncation-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残りは"
+            },
+            {
+              "type": "math",
+              "latex": "0\\le r<1"
+            },
+            {
+              "type": "text",
+              "text": "でなければならない。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q10-reject-truncation-ux05-given-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=n+r,\\quad n\\in\\mathbb Z,\\quad0\\le r<1"
+            }
+          ]
+        },
+        {
+          "id": "n09-q10-reject-truncation-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2.1-(-2)=-2.1+2={\\square}",
+              "holeIds": [
+                "n09-q10-reject-truncation-value"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-q10-reject-truncation-ux05-row-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補の判断："
+            },
+            {
+              "type": "choice",
+              "itemId": "n09-q10-reject-truncation-candidatevalidityux05"
+            }
+          ]
+        },
+        {
+          "id": "n09-q10-reject-truncation-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残りが負なので"
+            },
+            {
+              "type": "math",
+              "latex": "n=-2"
+            },
+            {
+              "type": "text",
+              "text": "は今回の定義に合いません。"
+            }
+          ]
+        },
+        {
+          "id": "n09-10-basis-n09-q10-reject-truncation-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2.1-(-2)=-0.1<0"
+            }
+          ]
+        },
+        {
+          "id": "n09-10-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "先ほどの候補では残りが負でした。元の数の左側の隣接整数を選び、"
+            },
+            {
+              "type": "math",
+              "latex": "n\\le -2.1<n+1"
+            },
+            {
+              "type": "text",
+              "text": "となる区間へ入れます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-10-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n\\in \\mathbb Z"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "n\\le x<n+1"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-10-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n={\\square}",
+              "holeIds": [
+                "n09-10-n"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-10-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "{\\square}\\le-2.1<{\\square}+1",
+              "holeIds": [
+                "n09-10-n",
+                "n09-10-n"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n09-10-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3\\le-2.1<-2"
+            }
+          ],
+          "equationNumber": "24"
+        },
+        {
+          "id": "n09-10-extra-0",
+          "type": "figure",
+          "figureId": "n09-f01"
+        },
+        {
+          "id": "n09-10-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分は"
+            },
+            {
+              "type": "math",
+              "latex": "-3"
+            },
+            {
+              "type": "text",
+              "text": "と確定しました。次に、元の数からこの整数を引いて残りを求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-08",
+          "type": "topic",
+          "text": "負数の整数部分と小数部分"
+        },
+        {
+          "id": "n09-stage-08-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ整数からの残りを計算し、元の数へ戻そう。"
+            },
+            {
+              "type": "math",
+              "latex": "-2.1"
+            }
+          ]
+        },
+        {
+          "id": "n09-q11-remainder-basis-n09-parts-target-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=n+r\\Rightarrow r=x-n"
+            }
+          ]
+        },
+        {
+          "id": "n09-q11-remainder-basis-n09-parts-target-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0\\le x-n<1"
+            }
+          ]
+        },
+        {
+          "id": "n09-q11-remainder-basis-n09-parts-target-result-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n\\le x<n+1"
+            }
+          ]
+        },
+        {
+          "id": "n09-q11-remainder-basis-n09-10-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n=-3"
+            }
+          ]
+        },
+        {
+          "id": "n09-q11-remainder-basis-n09-10-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3\\le-2.1<-2"
+            }
+          ]
+        },
+        {
+          "id": "n09-q11-remainder-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した整数部分n=−3を使い、rを計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q11-remainder-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=-2.1"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "n=-3"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "r=x-n"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "0\\le r<1"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q11-remainder-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=-2.1-(-3)=-2.1+3={\\square}",
+              "holeIds": [
+                "n09-q11-remainder-value"
+              ]
+            }
+          ],
+          "equationNumber": "25"
+        },
+        {
+          "id": "n09-q11-remainder-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「元の数を整数と残りへ分ける」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-11-basis-n09-q11-remainder-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=0.9"
+            }
+          ]
+        },
+        {
+          "id": "n09-11-basis-n09-q11-remainder-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0\\le0.9<1"
+            }
+          ]
+        },
+        {
+          "id": "n09-11-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分"
+            },
+            {
+              "type": "text",
+              "text": "と残りが求まりました。足して元の数へ戻ることと、残りが指定範囲内であることを確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-11-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=-2.1"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "n=-3"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "r=x-n"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "0\\le r<1"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-11-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3+0.9=-2.1"
+            }
+          ]
+        },
+        {
+          "id": "n09-11-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2.1=-3+0.9,\\quad0\\le0.9<1"
+            }
+          ],
+          "equationNumber": "26"
+        },
+        {
+          "id": "n09-11-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2.1=-3+0.9"
+            },
+            {
+              "type": "text",
+              "text": "において、"
+            },
+            {
+              "type": "math",
+              "latex": "-3"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "text",
+              "text": "整数部分"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "0.9"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "text",
+              "text": "小数部分"
+            },
+            {
+              "type": "text",
+              "text": "といいます。"
+            },
+            {
+              "type": "text",
+              "text": "小数部分"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "以上"
+            },
+            {
+              "type": "math",
+              "latex": "1"
+            },
+            {
+              "type": "text",
+              "text": "未満で、足すと元の数へ戻ります。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-09",
+          "type": "topic",
+          "text": "正の根号の位置を決める"
+        },
+        {
+          "id": "n09-stage-09-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正負の数の整数部分と小数部分を求めよう。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{10},\\quad-\\sqrt{10}"
+            }
+          ]
+        },
+        {
+          "id": "n09-q12-lower-basis-n09-11-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2.1=-3+0.9"
+            }
+          ]
+        },
+        {
+          "id": "n09-q12-lower-basis-n09-11-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0\\le0.9<1"
+            }
+          ]
+        },
+        {
+          "id": "n09-q12-lower-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "-\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "の整数部分を求めるため、まず正の根号を隣接整数で挟みます。左の候補"
+            },
+            {
+              "type": "math",
+              "latex": "3"
+            },
+            {
+              "type": "text",
+              "text": "を先に平方します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q12-lower-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "は正。"
+            },
+            {
+              "type": "math",
+              "latex": "3^2"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "4^2"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "math",
+              "latex": "10"
+            },
+            {
+              "type": "text",
+              "text": "と比べて隣接整数で挟む。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q12-lower-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3^2=3\\times3={\\square}",
+              "holeIds": [
+                "n09-q12-lower-value"
+              ]
+            }
+          ],
+          "equationNumber": "27"
+        },
+        {
+          "id": "n09-q12-lower-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「左側の整数の平方」として "
+            },
+            {
+              "type": "math",
+              "latex": "3^2=9"
+            },
+            {
+              "type": "text",
+              "text": " を確定しました。次の「右側の整数の平方」では、この認定結果と条件を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q12-upper-basis-n09-q12-lower-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3^2=9"
+            }
+          ]
+        },
+        {
+          "id": "n09-q12-upper-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左の平方が求まりました。次は右の候補"
+            },
+            {
+              "type": "math",
+              "latex": "4"
+            },
+            {
+              "type": "text",
+              "text": "を平方し、元の根号の中の"
+            },
+            {
+              "type": "math",
+              "latex": "10"
+            },
+            {
+              "type": "text",
+              "text": "を挟めるか確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q12-upper-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "は正。"
+            },
+            {
+              "type": "math",
+              "latex": "3^2"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "4^2"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "math",
+              "latex": "10"
+            },
+            {
+              "type": "text",
+              "text": "と比べて隣接整数で挟む。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q12-upper-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4^2=4\\times4={\\square}",
+              "holeIds": [
+                "n09-q12-upper-value"
+              ]
+            }
+          ],
+          "equationNumber": "28"
+        },
+        {
+          "id": "n09-q12-upper-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「右側の整数の平方」として "
+            },
+            {
+              "type": "math",
+              "latex": "4^2=16"
+            },
+            {
+              "type": "text",
+              "text": " を確定しました。次の「正の根号を隣接整数で挟む」では、この認定結果と条件を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n09-12-basis-n09-q12-upper-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4^2=16"
+            }
+          ]
+        },
+        {
+          "id": "n09-12-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "9<10<16"
+            },
+            {
+              "type": "text",
+              "text": "であり、"
+            },
+            {
+              "type": "math",
+              "latex": "3"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "4"
+            },
+            {
+              "type": "text",
+              "text": "は非負です。平方の比較から元の数の区間へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-12-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "4"
+            },
+            {
+              "type": "text",
+              "text": "は非負。"
+            }
+          ]
+        },
+        {
+          "id": "n09-12-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "9<10<16"
+            }
+          ]
+        },
+        {
+          "id": "n09-12-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\ {\\square}\\ \\sqrt{10}\\ {\\square}\\ 4",
+              "holeIds": [
+                "n09-12-lower",
+                "n09-12-upper"
+              ]
+            }
+          ],
+          "equationNumber": "29"
+        },
+        {
+          "id": "n09-12-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「負を掛けたときの不等号」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-10",
+          "type": "topic",
+          "text": "負の根号の区間へ移す"
+        },
+        {
+          "id": "n09-stage-10-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正の根号の区間から、負の根号の区間へ移そう。"
+            },
+            {
+              "type": "math",
+              "latex": "-\\sqrt{10}"
+            }
+          ]
+        },
+        {
+          "id": "n09-q13-reverse-basis-n09-12-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3<\\sqrt{10}<4"
+            }
+          ]
+        },
+        {
+          "id": "n09-q13-reverse-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した比較の各辺を−1倍し、−√10の範囲を表します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q13-reverse-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "各辺へ同じ負数"
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": "を掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q13-reverse-ux05-given-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の数を掛けると、大小の向きが変わります。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q13-reverse-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3<\\sqrt{10}<4"
+            }
+          ]
+        },
+        {
+          "id": "n09-q13-reverse-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3\\ {\\square}\\ -\\sqrt{10}\\ {\\square}\\ -4",
+              "holeIds": [
+                "n09-q13-reverse-s1",
+                "n09-q13-reverse-s2"
+              ]
+            }
+          ],
+          "equationNumber": "30"
+        },
+        {
+          "id": "n09-q13-reverse-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「小さい順に区間を書く」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-13-basis-n09-q13-reverse-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3>-\\sqrt{10}>-4"
+            }
+          ]
+        },
+        {
+          "id": "n09-13-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今の並びは大きい順です。小さい順に読むには右端から左端へ順序を入れ替えます。大小関係そのものを変える操作ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "n09-13-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3<\\sqrt{10}<4"
+            },
+            {
+              "type": "text",
+              "text": "。各辺へ"
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": "を掛け、不等号を反転する。"
+            }
+          ]
+        },
+        {
+          "id": "n09-13-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3>-\\sqrt{10}>-4"
+            }
+          ]
+        },
+        {
+          "id": "n09-13-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "{\\square}<-\\sqrt{10}<{\\square}",
+              "holeIds": [
+                "n09-13-left",
+                "n09-13-right"
+              ]
+            }
+          ],
+          "equationNumber": "31"
+        },
+        {
+          "id": "n09-13-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「正の根号の整数部分」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-stage-11",
+          "type": "topic",
+          "text": "正負の整数部分・小数部分"
+        },
+        {
+          "id": "n09-stage-11-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの数を整数部分と小数部分に分けよう。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{10},\\quad-\\sqrt{10}"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-integer-basis-n09-11-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2.1=-3+0.9"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-integer-basis-n09-11-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0\\le0.9<1"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-integer-basis-n09-12-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3<\\sqrt{10}<4"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-integer-basis-n09-13-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-4<-\\sqrt{10}<-3"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-integer-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正の根号の区間を整数部分の定義"
+            },
+            {
+              "type": "math",
+              "latex": "n\\le x<n+1"
+            },
+            {
+              "type": "text",
+              "text": "と比べます。左端の整数を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-integer-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分"
+            },
+            {
+              "type": "math",
+              "latex": "n\\in \\mathbb Z"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "n\\le x<n+1"
+            },
+            {
+              "type": "text",
+              "text": "、小数部分"
+            },
+            {
+              "type": "math",
+              "latex": "r=x-n"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "0\\le r<1"
+            },
+            {
+              "type": "text",
+              "text": "。対象は"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "-\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-integer-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3<\\sqrt{10}<4"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-integer-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n={\\square}",
+              "holeIds": [
+                "n09-q14-positive-integer-value"
+              ]
+            }
+          ],
+          "equationNumber": "32"
+        },
+        {
+          "id": "n09-q14-positive-integer-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「正の根号の小数部分」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-remainder-basis-n09-q14-positive-integer-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n=3\\quad(x=\\sqrt{10})"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-remainder-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "既に確定した整数部分を用いて、小数部分を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-remainder-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分"
+            },
+            {
+              "type": "math",
+              "latex": "n\\in \\mathbb Z"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "n\\le x<n+1"
+            },
+            {
+              "type": "text",
+              "text": "、小数部分"
+            },
+            {
+              "type": "math",
+              "latex": "r=x-n"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "0\\le r<1"
+            },
+            {
+              "type": "text",
+              "text": "。対象は"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "-\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-remainder-ux05-given-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=x-n"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-remainder-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r={\\square}",
+              "holeIds": [
+                "n09-q14-positive-remainder-remainderexpressionux05"
+              ]
+            }
+          ],
+          "hideAfter": [
+            "n09-q14-positive-remainder-remainderexpressionux05"
+          ]
+        },
+        {
+          "id": "n09-q14-positive-remainder-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=\\sqrt{10}-3"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-positive-remainder-ux05-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3<\\sqrt{10}<4\\ \\Rightarrow\\ 0<\\sqrt{10}-3<1"
+            }
+          ],
+          "equationNumber": "33"
+        },
+        {
+          "id": "n09-q14-positive-remainder-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「負の根号の整数部分」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-integer-basis-n09-q14-positive-remainder-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=\\sqrt{10}-3"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-integer-basis-n09-q14-positive-remainder-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0<\\sqrt{10}-3<1"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-integer-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の数でも同じ定義を使います。"
+            },
+            {
+              "type": "math",
+              "latex": "-4<-\\sqrt{10}<-3"
+            },
+            {
+              "type": "text",
+              "text": "の左端を選び、正の整数部分に負号を付けるだけではないことを確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-integer-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分"
+            },
+            {
+              "type": "math",
+              "latex": "n\\in \\mathbb Z"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "n\\le x<n+1"
+            },
+            {
+              "type": "text",
+              "text": "、小数部分"
+            },
+            {
+              "type": "math",
+              "latex": "r=x-n"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "0\\le r<1"
+            },
+            {
+              "type": "text",
+              "text": "。対象は"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "-\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-integer-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-4<-\\sqrt{10}<-3"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-integer-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n={\\square}",
+              "holeIds": [
+                "n09-q14-negative-integer-value"
+              ]
+            }
+          ],
+          "equationNumber": "34"
+        },
+        {
+          "id": "n09-q14-negative-integer-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「負の根号でも同じ定義を使う」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-remainder-basis-n09-q14-negative-integer-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "n=-4\\quad(x=-\\sqrt{10})"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-remainder-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "既に確定した整数部分を用いて、小数部分を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-remainder-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分"
+            },
+            {
+              "type": "math",
+              "latex": "n\\in \\mathbb Z"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "n\\le x<n+1"
+            },
+            {
+              "type": "text",
+              "text": "、小数部分"
+            },
+            {
+              "type": "math",
+              "latex": "r=x-n"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "0\\le r<1"
+            },
+            {
+              "type": "text",
+              "text": "。対象は"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "-\\sqrt{10}"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-remainder-ux05-given-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=x-n"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-remainder-ux05-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r={\\square}",
+              "holeIds": [
+                "n09-q14-negative-remainder-remainderexpressionux05"
+              ]
+            }
+          ],
+          "hideAfter": [
+            "n09-q14-negative-remainder-remainderexpressionux05"
+          ]
+        },
+        {
+          "id": "n09-q14-negative-remainder-ux05-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=-\\sqrt{10}-(-4)=-\\sqrt{10}+4=4-\\sqrt{10}"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-remainder-ux05-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-4<-\\sqrt{10}<-3"
+            }
+          ]
+        },
+        {
+          "id": "n09-q14-negative-remainder-ux05-row-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0<4-\\sqrt{10}<1"
+            }
+          ],
+          "equationNumber": "35"
+        },
+        {
+          "id": "n09-q14-negative-remainder-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで確定した式と条件を一緒に記録します。次は「正負の組をまとめて検算する」で、この結果を使えるか条件と照らして確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n09-14-basis-n09-q14-negative-remainder-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=4-\\sqrt{10}"
+            }
+          ]
+        },
+        {
+          "id": "n09-14-basis-n09-q14-negative-remainder-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0<4-\\sqrt{10}<1"
+            }
+          ]
+        },
+        {
+          "id": "n09-14-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "四つの結果を元の二数に対応させます。整数と残りの和が元へ戻ることと、残りの範囲を確認してこの例題を終えます。"
+            }
+          ]
+        },
+        {
+          "id": "n09-14-condition-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "各組は整数部分、小数部分の順。残りは"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "以上"
+            },
+            {
+              "type": "math",
+              "latex": "1"
+            },
+            {
+              "type": "text",
+              "text": "未満。"
+            }
+          ]
+        },
+        {
+          "id": "n09-14-row-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}=3+(\\sqrt{10}-3)"
+            }
+          ]
+        },
+        {
+          "id": "n09-14-row-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-\\sqrt{10}=-4+(4-\\sqrt{10})"
+            }
+          ]
+        },
+        {
+          "id": "n09-14-row-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0<\\sqrt{10}-3<1,\\quad0<4-\\sqrt{10}<1"
+            }
+          ],
+          "equationNumber": "36"
+        },
+        {
+          "type": "math-table",
+          "id": "n09-14-extra-0",
+          "caption": "正負の根号の整数部分と小数部分",
+          "headers": [
+            "元の数",
+            "整数部分",
+            "小数部分"
+          ],
+          "rows": [
+            [
+              "\\sqrt{10}",
+              "3",
+              "\\sqrt{10}-3"
+            ],
+            [
+              "-\\sqrt{10}",
+              "-4",
+              "4-\\sqrt{10}"
+            ]
+          ]
+        },
+        {
+          "id": "n09-14-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正負のどちらにも同じ定義を使いました。次の単元でも、平方の値と非負性を組にして候補を確かめます。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n09-q01-negative-ux06repeatedbase",
+          "label": "二つの平方根を確かめる",
+          "prompt": "同じ基底をもう一度掛ける形にします。",
+          "answerType": "formula",
+          "choices": [
+            "-4",
+            "4",
+            "-8"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q01-negative-value",
+          "label": "二つの平方根を確かめる",
+          "prompt": "負の候補を2回掛けた値を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "16",
+            "-16",
+            "-8"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-01-factorisedformux05",
+          "label": "二つの平方根を確かめる",
+          "prompt": "左辺x²−4²に恒等的に等しい因数分解を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "(x-4)(x+4)",
+            "(x-4)^2",
+            "(x+4)^2",
+            "x(x-16)"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-01-factorzeroconditionux05",
+          "label": "二つの平方根を確かめる",
+          "prompt": "確定した積が0になる条件を、因子についての式で表した組を選びます。",
+          "answerType": "text",
+          "choices": [
+            "第一因子が0、または第二因子が0",
+            "両因子が同時に0",
+            "二つの因子が等しい",
+            "変数が0"
+          ],
+          "retryOnWrong": true,
+          "choiceMathLines": {
+            "第一因子が0、または第二因子が0": [
+              "x-4=0",
+              "\\text{または}\\quad x+4=0"
+            ],
+            "両因子が同時に0": [
+              "x-4=0",
+              "\\text{かつ}\\quad x+4=0"
+            ],
+            "二つの因子が等しい": [
+              "x-4=x+4"
+            ],
+            "変数が0": [
+              "x=0"
+            ]
+          }
+        },
+        {
+          "id": "n09-q02-root-value",
+          "label": "平方根と根号を区別する",
+          "prompt": "平方が16で非負の数を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "-4",
+            "\\pm4"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q02-negative-square-ux06rootbase",
+          "label": "平方根と根号を区別する",
+          "prompt": "二つ目の因子を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "-\\sqrt5",
+            "\\sqrt5",
+            "-5"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q02-negative-square-ux06signproduct",
+          "label": "平方根と根号を区別する",
+          "prompt": "負号の部分を掛けた結果を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "-1",
+            "2"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q02-negative-square-signedrootsquareux05",
+          "label": "平方根と根号を区別する",
+          "prompt": "負号を含む括弧全体の平方(−√5)²を求めます。",
+          "answerType": "formula",
+          "choices": [
+            "5",
+            "-5",
+            "25",
+            "\\sqrt5"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-03-value",
+          "label": "負の数を平方してから根号へ",
+          "prompt": "平方が16になる非負の数を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "-4",
+            "16"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q04-nonnegative-value",
+          "label": "実数の正負と根号の値",
+          "prompt": "a≥0全体で根号の値を表す式を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "a",
+            "-a",
+            "a^2"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q04-negative-ux06candidatesign",
+          "label": "実数の正負と根号の値",
+          "prompt": "候補−aの符号を入れます。",
+          "answerType": "formula",
+          "choices": [
+            ">",
+            "<",
+            "="
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q04-negative-ux06candidatesquare",
+          "label": "実数の正負と根号の値",
+          "prompt": "候補−aを2回掛けた平方を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "a^2",
+            "-a^2",
+            "2a"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q04-negative-value",
+          "label": "実数の正負と根号の値",
+          "prompt": "負のaの平方について、非負の方を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "-a",
+            "a",
+            "a^2"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-05-value",
+          "label": "実数の正負と根号の値",
+          "prompt": "二つの符号の場合を一つに表す式を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "|a|",
+            "a",
+            "-a"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q06-squares-value",
+          "label": "中の式の符号から根号を外す",
+          "prompt": "2の平方を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "2",
+            "8"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q06-order-relation",
+          "label": "中の式の符号から根号を外す",
+          "prompt": "元の二数を左2、右√5の順に比較します。",
+          "answerType": "formula",
+          "choices": [
+            "<",
+            "=",
+            ">"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-06-differencerelationux05",
+          "label": "中の式の符号から根号を外す",
+          "prompt": "確定済みの2と√5の大小から、差2−√5と0の大小を決めます。",
+          "answerType": "formula",
+          "choices": [
+            "<",
+            ">",
+            "="
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q07-negation-absoluteexpressionux05",
+          "label": "中の式の符号から根号を外す",
+          "prompt": "2−√5<0を使い、絶対値を外します。まだ外側の負号は分配せず、括弧を残した形を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "-(2-\\sqrt5)",
+            "2-\\sqrt5",
+            "-2-\\sqrt5",
+            "2+\\sqrt5"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-07-expandedexpressionux05",
+          "label": "中の式の符号から根号を外す",
+          "prompt": "確定した−(2−√5)の括弧を外して整理します。根号を含む項が先の形を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "\\sqrt5-2",
+            "2-\\sqrt5",
+            "-2-\\sqrt5",
+            "2+\\sqrt5"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-decimal-method-ux06binomialbase",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "平方を同じ二つの因子の積に直します。",
+          "answerType": "formula",
+          "choices": [
+            "A+B",
+            "A-B",
+            "A^2+B^2"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-decimal-method-ux06distributea",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "後ろの括弧の第1項へ掛ける因子を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "A",
+            "B",
+            "2"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-decimal-method-ux06distributeb",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "後ろの括弧の第2項へ掛ける因子を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "B",
+            "A",
+            "AB"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-decimal-method-ux06crossproduct",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "最初の括弧のBへAを掛けてできる積の項を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "BA",
+            "A+B",
+            "A^2"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-decimal-method-ux06lastsquare",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "BとBからできる項を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "B^2",
+            "2B",
+            "AB"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-decimal-method-ux06liketermcount",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "同類項をまとめたABの係数を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "1",
+            "4"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-left-square-middletermux05",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "(140＋1)²を和の平方の公式で展開します。中項を作る因子の組を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "2\\times140\\times1",
+            "140\\times1",
+            "2\\times140^2",
+            "140+1"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-left-square-l1",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "中項2×140×1を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "280",
+            "140",
+            "2800"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-left-square-l2",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "三つの項を合計します。",
+          "answerType": "formula",
+          "choices": [
+            "19881",
+            "19880",
+            "19601"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-left-square-l3",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "整数の平方を10000で割って小数に戻します。",
+          "answerType": "formula",
+          "choices": [
+            "1.9881",
+            "19.881",
+            "0.19881"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-right-square-middletermux05",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "(140＋2)²を和の平方の公式で展開します。中項を作る因子の組を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "2\\times140\\times2",
+            "140\\times2",
+            "2\\times140^2",
+            "140+2"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-right-square-r1",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "中項2×140×2を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "560",
+            "280",
+            "5600"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-right-square-r2",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "三つの項を合計します。",
+          "answerType": "formula",
+          "choices": [
+            "20164",
+            "20160",
+            "19884"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-right-square-r3",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "整数の平方を小数に戻します。",
+          "answerType": "formula",
+          "choices": [
+            "2.0164",
+            "20.164",
+            "0.20164"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-lower-sign-c",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "左の平方と2を比較します。",
+          "answerType": "formula",
+          "choices": [
+            "<",
+            "=",
+            ">"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-p001-q08-upper-sign-d",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "2と右の平方を比較します。",
+          "answerType": "formula",
+          "choices": [
+            "<",
+            "=",
+            ">"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-09-lowerrelation",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "左の平方比較から、1.41と√2を比べます。",
+          "answerType": "formula",
+          "choices": [
+            "<",
+            ">",
+            "="
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-09-upperrelation",
+          "label": "小数の平方で両側から挟む",
+          "prompt": "右の平方比較から上限を決めます。",
+          "answerType": "formula",
+          "choices": [
+            "<",
+            ">",
+            "="
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-parts-target-ux06intervallower",
+          "label": "整数と残りの条件を使う",
+          "prompt": "各辺にnを加えた後の下端を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "n",
+            "0",
+            "n-1"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-parts-target-ux06intervalupper",
+          "label": "整数と残りの条件を使う",
+          "prompt": "同じ操作をした後の上端を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "n+1",
+            "n",
+            "n-1"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q10-reject-truncation-value",
+          "label": "整数と残りの条件を使う",
+          "prompt": "候補n=−2の残りを計算します。",
+          "answerType": "formula",
+          "choices": [
+            "-0.1",
+            "0.1",
+            "-4.1"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q10-reject-truncation-candidatevalidityux05",
+          "label": "整数と残りの条件を使う",
+          "prompt": "n=−2とした候補を、rの条件に照らしてどう判断しますか。",
+          "answerType": "text",
+          "choices": [
+            "rが許される範囲にないため不採用",
+            "nが整数なので採用",
+            "小数を切り捨てた形なので採用",
+            "nが負なので不採用"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-10-n",
+          "label": "整数と残りの条件を使う",
+          "prompt": "−2.1を含む単位区間の左端の整数を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "-2",
+            "-4"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q11-remainder-value",
+          "label": "負数の整数部分と小数部分",
+          "prompt": "残りの値を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "0.9",
+            "-0.9",
+            "-5.1"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q12-lower-value",
+          "label": "正の根号の位置を決める",
+          "prompt": "左の整数3の平方を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "9",
+            "6",
+            "3"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q12-upper-value",
+          "label": "正の根号の位置を決める",
+          "prompt": "右の整数4の平方を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "16",
+            "8",
+            "4"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-12-lower",
+          "label": "正の根号の位置を決める",
+          "prompt": "左端3と√10を比較します。",
+          "answerType": "formula",
+          "choices": [
+            "<",
+            "=",
+            ">"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-12-upper",
+          "label": "正の根号の位置を決める",
+          "prompt": "√10と右端4を比較します。",
+          "answerType": "formula",
+          "choices": [
+            "<",
+            "=",
+            ">"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q13-reverse-s1",
+          "label": "負の根号の区間へ移す",
+          "prompt": "左側の関係を負の乗算後へ移します。",
+          "answerType": "formula",
+          "choices": [
+            ">",
+            "=",
+            "<"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q13-reverse-s2",
+          "label": "負の根号の区間へ移す",
+          "prompt": "右側の関係も負の乗算後へ移します。",
+          "answerType": "formula",
+          "choices": [
+            ">",
+            "=",
+            "<"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-13-left",
+          "label": "負の根号の区間へ移す",
+          "prompt": "小さい順の左端を置きます。",
+          "answerType": "formula",
+          "choices": [
+            "-4",
+            "-3",
+            "4"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-13-right",
+          "label": "負の根号の区間へ移す",
+          "prompt": "小さい順の右端を置きます。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "-4",
+            "3"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q14-positive-integer-value",
+          "label": "正負の整数部分・小数部分",
+          "prompt": "√10の整数部分を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "4",
+            "10"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q14-positive-remainder-remainderexpressionux05",
+          "label": "正負の整数部分・小数部分",
+          "prompt": "定義r=x−nを使い、確定した整数部分を除いた小数部分の式を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "\\sqrt{10}-3",
+            "\\sqrt{10}+3",
+            "3-\\sqrt{10}",
+            "\\sqrt{10}/3"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q14-negative-integer-value",
+          "label": "正負の整数部分・小数部分",
+          "prompt": "−√10の整数部分を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "-4",
+            "-3",
+            "4"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n09-q14-negative-remainder-remainderexpressionux05",
+          "label": "正負の整数部分・小数部分",
+          "prompt": "定義r=x−nを使い、確定した整数部分を除いた小数部分の式を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "4-\\sqrt{10}",
+            "-\\sqrt{10}-4",
+            "\\sqrt{10}-4",
+            "4+\\sqrt{10}"
+          ],
+          "retryOnWrong": true
+        }
+      ]
+    }
+  ]
+}

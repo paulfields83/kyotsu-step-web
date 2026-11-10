@@ -1,4 +1,5 @@
 import { isTextbookAnswerCorrect, normalizeTextbookAnswer } from '../../src/domain/textbook'
+import { isNumbersZipUnit } from './numbersZip'
 import { getGuidedTextbookChoices } from './guidedTextbookChoices'
 import type { TextbookAnswerBook, TextbookUnit } from '../../src/domain/textbookSchema'
 
@@ -48,7 +49,7 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     }
 
     const referenceCount = references.get(item.id) ?? 0
-    const groupedRevisedBlank = unit.unitId === 'math-1a-numbers-expressions-revised'
+    const groupedRevisedBlank = unit.unitId === 'math-1a-numbers-expressions-revised' || isNumbersZipUnit(unit.unitId)
     if (referenceCount < 1 || (!groupedRevisedBlank && referenceCount !== 1)) {
       errors.push(`item ${item.id} must map to ${groupedRevisedBlank ? 'at least one' : 'exactly one'} blank; found ${referenceCount}`)
     }
@@ -65,7 +66,8 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     }
 
     const choices = getGuidedTextbookChoices(unit, item, answerBook)
-    const normalizedChoices = choices.map(normalizeTextbookAnswer)
+    const normalizeChoice = isNumbersZipUnit(unit.unitId) ? (value: string) => value.trim() : normalizeTextbookAnswer
+    const normalizedChoices = choices.map(normalizeChoice)
     const uniqueChoices = new Set(normalizedChoices)
     if (choices.length < 2) {
       errors.push(`item ${item.id} has fewer than two guided choices`)
@@ -76,7 +78,7 @@ export function validateTextbookContract(unit: TextbookUnit, answerBook: Textboo
     if (uniqueChoices.size !== choices.length) {
       errors.push(`item ${item.id} has duplicate choices after normalization`)
     }
-    if (!uniqueChoices.has(normalizeTextbookAnswer(answer.answer))) {
+    if (!uniqueChoices.has(normalizeChoice(answer.answer))) {
       errors.push(`item ${item.id} choices do not contain the primary answer`)
     }
   }

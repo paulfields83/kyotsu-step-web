@@ -1,0 +1,205 @@
+{
+  "unitId": "math-numbers-expressions-n02",
+  "answers": {
+    "n02-bridge-audit-like-b": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n02-01": {
+      "validator": "exact",
+      "answer": "3bx",
+      "acceptedAnswers": []
+    },
+    "n02-02": {
+      "validator": "exact",
+      "answer": "x^3-ax^2+3bx+5c",
+      "acceptedAnswers": []
+    },
+    "n02-s5-classify-linear": {
+      "validator": "exact",
+      "answer": "2xy-3x",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-detail-linear-coefficient": {
+      "validator": "exact",
+      "answer": "2y-3",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-constant-part": {
+      "validator": "exact",
+      "answer": "y^2-3y+2",
+      "acceptedAnswers": []
+    },
+    "n02-s4-reuse-linear": {
+      "validator": "exact",
+      "answer": "2y-3",
+      "acceptedAnswers": []
+    },
+    "n02-05": {
+      "validator": "exact",
+      "answer": "0x",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-sum-cube": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n02-s5-sum-square-regroup": {
+      "validator": "exact",
+      "answer": "-3+2",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-sum-square": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-sum-linear": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-sum-constant": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n02-s5-minus-distribute": {
+      "validator": "exact",
+      "answer": "(-1)(-x^3)+(-1)(2x^2)+(-1)2",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-minus-cube-sign": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-minus-square-sign": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-minus-constant-sign": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-diff-cube": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-diff-square": {
+      "validator": "exact",
+      "answer": "-5",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-diff-linear": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-diff-constant": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-distribute": {
+      "validator": "exact",
+      "answer": "2(2x^3)+2(-3x^2)+2x+2(-1)",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-detail-cube-coefficient": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-detail-signed-coefficient": {
+      "validator": "exact",
+      "answer": "-6",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-twice-linear": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-twice-constant": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-minus-multiplier": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-minus-cube": {
+      "validator": "exact",
+      "answer": "3x^3",
+      "acceptedAnswers": []
+    },
+    "n02-s5-minus-three-square-distribute": {
+      "validator": "exact",
+      "answer": "(-3)(2x^2)",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-minus-square": {
+      "validator": "exact",
+      "answer": "-6x^2",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-minus-constant": {
+      "validator": "exact",
+      "answer": "-6",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-cube-sum": {
+      "validator": "exact",
+      "answer": "7",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-like-square": {
+      "validator": "exact",
+      "answer": "-6x^2,\\quad-6x^2",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-square-sum": {
+      "validator": "exact",
+      "answer": "-12",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-constant-sum": {
+      "validator": "exact",
+      "answer": "-8",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-outer-minus": {
+      "validator": "exact",
+      "answer": "-A+B",
+      "acceptedAnswers": []
+    },
+    "n02-s5-group-a-coefficients": {
+      "validator": "exact",
+      "answer": "3-1",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-a-coefficient": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n02-bridge-audit-b-coefficient": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": []
+    },
+    "n02-12": {
+      "validator": "exact",
+      "answer": "7x^3-12x^2+2x-8",
+      "acceptedAnswers": []
+    }
+  }
+}

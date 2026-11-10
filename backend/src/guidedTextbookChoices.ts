@@ -1,3 +1,4 @@
+import { isNumbersZipUnit } from './numbersZip'
 import { getTextbookChoices, isTextbookAnswerCorrect, normalizeTextbookAnswer } from '../../src/domain/textbook'
 import type { TextbookAnswerBook, TextbookItem, TextbookUnit } from '../../src/domain/textbookSchema'
 
@@ -90,6 +91,9 @@ export function getGuidedTextbookChoices(unit: TextbookUnit, item: TextbookItem,
   const sourceChoices = item.choices?.length && item.choices.length >= 2
     ? getTextbookChoices(unit,item,book.answers)
     : []
+
+  // The reviewed 数と式 ZIP owns its exact option set.
+  if (isNumbersZipUnit(unit.unitId)) return sourceChoices
 
   // The GOLDEN workbook has author-reviewed alternatives. Never pad a
   // two-answer membership/yes-no decision with unrelated generic options.

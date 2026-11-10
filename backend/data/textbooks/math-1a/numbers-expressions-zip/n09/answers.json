@@ -1,0 +1,510 @@
+{
+  "unitId": "math-numbers-expressions-n09",
+  "answers": {
+    "n09-q01-negative-ux06repeatedbase": {
+      "validator": "exact",
+      "answer": "-4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "括弧の中の負号も基底に含まれます。",
+        "-8": "2乗は2倍ではありません。"
+      }
+    },
+    "n09-q01-negative-value": {
+      "validator": "exact",
+      "answer": "16",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-16": "負と負の積は正です。符号を積として扱います。",
+        "-8": "2乗と2倍は別の操作です。"
+      }
+    },
+    "n09-01-factorisedformux05": {
+      "validator": "exact",
+      "answer": "(x-4)(x+4)",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "(x-4)^2": "展開すると−8xという中間項が残ります。",
+        "(x+4)^2": "展開すると＋8xという中間項が残ります。",
+        "x(x-16)": "展開するとx²−16xとなり、定数項−16になりません。"
+      }
+    },
+    "n09-01-factorzeroconditionux05": {
+      "validator": "exact",
+      "answer": "第一因子が0、または第二因子が0",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "両因子が同時に0": "零積は同時に0である必要がありません。一方が0なら積は0です。",
+        "二つの因子が等しい": "因子が等しいだけでは、その積が0とは限りません。",
+        "変数が0": "積を作っている因子はxそのものではありません。"
+      }
+    },
+    "n09-q02-root-value": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-4": "根号の値は非負です。",
+        "\\pm4": "根号は二つの平方根をまとめる記号ではありません。"
+      }
+    },
+    "n09-q02-negative-square-ux06rootbase": {
+      "validator": "exact",
+      "answer": "-\\sqrt5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt5": "負号は括弧の中にあります。",
+        "-5": "基底は5ではなく根号を含む数です。"
+      }
+    },
+    "n09-q02-negative-square-ux06signproduct": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2": "二つの因子の積を計算します。和ではありません。",
+        "-1": "負と負の積の符号を確かめます。"
+      }
+    },
+    "n09-q02-negative-square-signedrootsquareux05": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "25": "二乗されるのは5ではなく√5です。",
+        "-5": "負号を括弧の外へ残していませんか。",
+        "\\sqrt5": "二乗によって元の根号の大きさをそのまま残すのではありません。"
+      }
+    },
+    "n09-03-value": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "16": "16は根号の中の数です。",
+        "-4": "平方と根号を消すのではなく非負の値を選びます。"
+      }
+    },
+    "n09-q04-nonnegative-value": {
+      "validator": "exact",
+      "answer": "a",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-a": "a=0だけでなく、正のaを含む範囲全体で非負になるかを確かめます。",
+        "a^2": "平方した値と、その非負の平方根を区別します。"
+      }
+    },
+    "n09-q04-negative-ux06candidatesign": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "<": "a<0の両辺に−1を掛けると不等号の向きが変わります。",
+        "=": "aは0ではありません。"
+      }
+    },
+    "n09-q04-negative-ux06candidatesquare": {
+      "validator": "exact",
+      "answer": "a^2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-a^2": "負号も二つの因子の中にあります。",
+        "2a": "平方は2倍ではありません。"
+      }
+    },
+    "n09-q04-negative-value": {
+      "validator": "exact",
+      "answer": "-a",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a": "a<0なのでa自身は根号の非負の値ではありません。",
+        "a^2": "元の平方と平方根を区別します。"
+      }
+    },
+    "n09-05-value": {
+      "validator": "exact",
+      "answer": "|a|",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a": "aが負の場合にも根号の非負性を保つ必要があります。",
+        "-a": "aが正の場合にも根号の非負性を保つ必要があります。"
+      }
+    },
+    "n09-q06-squares-value": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2": "平方は同じ数を二回掛けます。",
+        "8": "指数と掛け算の回数を確かめます。"
+      }
+    },
+    "n09-q06-order-relation": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "=": "同じ大きさかを、確定した計算結果で確認します。",
+        ">": "左右を元の式の順序に戻して比較します。"
+      }
+    },
+    "n09-06-differencerelationux05": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        ">": "2と√5のどちらが大きいか、確定済みの比較へ戻ってください。",
+        "=": "二つの数は等しくありません。"
+      }
+    },
+    "n09-q07-negation-absoluteexpressionux05": {
+      "validator": "exact",
+      "answer": "-(2-\\sqrt5)",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2-\\sqrt5": "確定済みの中身は負なので、そのままでは絶対値になりません。",
+        "-2-\\sqrt5": "中身全体の符号を反転する必要があります。",
+        "2+\\sqrt5": "二項の和を作る操作ではありません。"
+      }
+    },
+    "n09-07-expandedexpressionux05": {
+      "validator": "exact",
+      "answer": "\\sqrt5-2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2-\\sqrt5": "外側の負号を作用させていません。",
+        "-2-\\sqrt5": "第二項の負号も反転させてください。",
+        "2+\\sqrt5": "第一項2の符号も反転します。"
+      }
+    },
+    "n09-decimal-method-ux06binomialbase": {
+      "validator": "exact",
+      "answer": "A+B",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "A-B": "同じ和を二つ掛けます。符号を変えません。",
+        "A^2+B^2": "先に各項を平方する操作ではありません。"
+      }
+    },
+    "n09-decimal-method-ux06distributea": {
+      "validator": "exact",
+      "answer": "A",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2": "指数2を掛ける操作に変えません。",
+        "B": "後ろの括弧の第1項へ掛ける部分です。"
+      }
+    },
+    "n09-decimal-method-ux06distributeb": {
+      "validator": "exact",
+      "answer": "B",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "A": "今度は後ろの括弧の第2項への積です。",
+        "AB": "後ろの括弧の一項だけを対応させます。"
+      }
+    },
+    "n09-decimal-method-ux06crossproduct": {
+      "validator": "exact",
+      "answer": "BA",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "A+B": "AとBを掛ける項です。",
+        "A^2": "異なる文字を掛けています。"
+      }
+    },
+    "n09-decimal-method-ux06lastsquare": {
+      "validator": "exact",
+      "answer": "B^2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2B": "Bを二回掛けることと2倍を区別します。",
+        "AB": "最後はB同士の積です。"
+      }
+    },
+    "n09-decimal-method-ux06liketermcount": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "ABは二つあります。",
+        "4": "四項すべてがABではありません。"
+      }
+    },
+    "n09-p001-q08-left-square-middletermux05": {
+      "validator": "exact",
+      "answer": "2\\times140\\times1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "140\\times1": "交差する積は二つあります。一つ分だけではありません。",
+        "2\\times140^2": "二項のうち一方を二乗するのではなく、異なる二項を掛けます。",
+        "140+1": "中項は元の二項の和ではありません。"
+      }
+    },
+    "n09-p001-q08-left-square-l1": {
+      "validator": "exact",
+      "answer": "280",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "140": "中項には2を掛けます。",
+        "2800": "位取りを確かめ、140に掛ける因子を数えます。"
+      }
+    },
+    "n09-p001-q08-left-square-l2": {
+      "validator": "exact",
+      "answer": "19881",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "19601": "中項も合計に含めます。",
+        "19880": "最後の1²の値も合計します。"
+      }
+    },
+    "n09-p001-q08-left-square-l3": {
+      "validator": "exact",
+      "answer": "1.9881",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "19.881": "分母10000に対応する小数の桁数を確認します。",
+        "0.19881": "整数部分がいくつになるかも確認します。"
+      }
+    },
+    "n09-p001-q08-right-square-middletermux05": {
+      "validator": "exact",
+      "answer": "2\\times140\\times2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "140\\times2": "交差する積は二つあります。一つ分だけではありません。",
+        "2\\times140^2": "二項のうち一方を二乗するのではなく、異なる二項を掛けます。",
+        "140+2": "中項は元の二項の和ではありません。"
+      }
+    },
+    "n09-p001-q08-right-square-r1": {
+      "validator": "exact",
+      "answer": "560",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "280": "今回は最後の因子も2です。",
+        "5600": "位取りを確かめます。"
+      }
+    },
+    "n09-p001-q08-right-square-r2": {
+      "validator": "exact",
+      "answer": "20164",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "19884": "中項の因子2をもう一度確認します。",
+        "20160": "2²の値も合計します。"
+      }
+    },
+    "n09-p001-q08-right-square-r3": {
+      "validator": "exact",
+      "answer": "2.0164",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "20.164": "10000で割る小数の桁数を確認します。",
+        "0.20164": "整数部分を含めて大きさを確認します。"
+      }
+    },
+    "n09-p001-q08-lower-sign-c": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "=": "同じ大きさかを、確定した計算結果で確認します。",
+        ">": "左右を元の式の順序に戻して比較します。"
+      }
+    },
+    "n09-p001-q08-upper-sign-d": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "=": "同じ大きさかを、確定した計算結果で確認します。",
+        ">": "左右を元の式の順序に戻して比較します。"
+      }
+    },
+    "n09-09-lowerrelation": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        ">": "正の数では平方の大小と同じ向きです。",
+        "=": "計算済みの平方の値は2と一致していますか。"
+      }
+    },
+    "n09-09-upperrelation": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        ">": "2と1.42²の大小へ戻ってください。",
+        "=": "平方の値が異なるので等号ではありません。"
+      }
+    },
+    "n09-parts-target-ux06intervallower": {
+      "validator": "exact",
+      "answer": "n",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0": "不等式の各辺にnを加えた後の左端です。",
+        "n-1": "各辺に同じnを加えます。"
+      }
+    },
+    "n09-parts-target-ux06intervalupper": {
+      "validator": "exact",
+      "answer": "n+1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "n": "上端は1にもnを加えます。",
+        "n-1": "nを引く操作ではありません。"
+      }
+    },
+    "n09-q10-reject-truncation-value": {
+      "validator": "exact",
+      "answer": "-0.1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "0.1": "元の数の方が小さいので、差の符号を確認します。",
+        "-4.1": "負の数を引く操作は反対符号を足します。"
+      }
+    },
+    "n09-q10-reject-truncation-candidatevalidityux05": {
+      "validator": "exact",
+      "answer": "rが許される範囲にないため不採用",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "nが整数なので採用": "nが整数であることに加えて、rの範囲も必要です。",
+        "小数を切り捨てた形なので採用": "見た目ではなく、定義の条件を満たすかを確認します。",
+        "nが負なので不採用": "整数部分は負でも構いません。条件はrの範囲です。"
+      }
+    },
+    "n09-10-n": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-2": "元の数より大きい整数を選ぶと残りが負になります。",
+        "-4": "隣接区間の上端に元の数が入るかを確かめます。"
+      }
+    },
+    "n09-q11-remainder-value": {
+      "validator": "exact",
+      "answer": "0.9",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-0.9": "元の数と左端との距離として符号を確かめます。",
+        "-5.1": "引く整数の負号を保持します。"
+      }
+    },
+    "n09-q12-lower-value": {
+      "validator": "exact",
+      "answer": "9",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "元の数をそのままにせず同じ数を掛けます。",
+        "6": "2乗は2倍ではありません。"
+      }
+    },
+    "n09-q12-upper-value": {
+      "validator": "exact",
+      "answer": "16",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "平方の操作を行います。",
+        "8": "2乗と2倍を区別します。"
+      }
+    },
+    "n09-12-lower": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "=": "同じ大きさかを、確定した計算結果で確認します。",
+        ">": "左右を元の式の順序に戻して比較します。"
+      }
+    },
+    "n09-12-upper": {
+      "validator": "exact",
+      "answer": "<",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "=": "同じ大きさかを、確定した計算結果で確認します。",
+        ">": "左右を元の式の順序に戻して比較します。"
+      }
+    },
+    "n09-q13-reverse-s1": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "=": "等号にできる条件を満たすか確認します。",
+        "<": "負数を掛けたときは不等号の向きが逆になります。"
+      }
+    },
+    "n09-q13-reverse-s2": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "=": "等号にできる条件を満たすか確認します。",
+        "<": "負数を掛けたときは不等号の向きが逆になります。"
+      }
+    },
+    "n09-13-left": {
+      "validator": "exact",
+      "answer": "-4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "負号を保持して並べ直します。",
+        "-3": "小さい順では、より左側にある整数から始めます。"
+      }
+    },
+    "n09-13-right": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "元の負の区間の符号を保持します。",
+        "-4": "既に置いた左端と右端を区別します。"
+      }
+    },
+    "n09-q14-positive-integer-value": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "左端の整数からの残りを0以上1未満にします。",
+        "10": "根号の中の数と元の数を区別します。"
+      }
+    },
+    "n09-q14-positive-remainder-remainderexpressionux05": {
+      "validator": "exact",
+      "answer": "\\sqrt{10}-3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt{10}+3": "正の整数部分3は足すのではなく引きます。",
+        "3-\\sqrt{10}": "引く順序が逆です。小数部分の非負条件も確認してください。",
+        "\\sqrt{10}/3": "整数部分を除く操作は割り算ではありません。"
+      }
+    },
+    "n09-q14-negative-integer-value": {
+      "validator": "exact",
+      "answer": "-4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "元の数が入る負の区間を保持します。",
+        "-3": "元の数より右の整数では残りが負になります。"
+      }
+    },
+    "n09-q14-negative-remainder-remainderexpressionux05": {
+      "validator": "exact",
+      "answer": "4-\\sqrt{10}",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-\\sqrt{10}-4": "引く整数部分は−4です。−4を引く操作を確かめてください。",
+        "\\sqrt{10}-4": "対象の実数は−√10です。",
+        "4+\\sqrt{10}": "対象の−√10の符号を保持してください。"
+      }
+    }
+  }
+}

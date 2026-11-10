@@ -1,0 +1,3602 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n06",
+  "revision": 8,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "複雑な式を、既に知っている形へ戻す",
+  "subtitle": "式の塊を一文字と見て、因数分解の道筋を選ぶ。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N06",
+    "rightsNote": "教師編集原WordのN06原問16件に対応。公式解答別冊は未提供、答えは独立に導出したレビュー教材。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "共通する式の塊を置換する",
+    "変形後の式を因数分解して元の文字に戻す",
+    "低い次数の文字を選んで共通因数を見つける"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "06",
+      "title": "複雑な式を、既に知っている形へ戻す",
+      "description": "置換・復元・文字の選択を通して因数分解する。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "n06-heading-1",
+          "type": "heading",
+          "text": "共通の塊を置き換える"
+        },
+        {
+          "id": "n06-marker-1",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "n06-group-1",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "見慣れない式が現れても、新しい公式を増やす必要はない。繰り返す式を一つの文字として扱い、知っている二次式へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-first-goal",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+2y+1)(x+2y−2)−4"
+            },
+            {
+              "type": "text",
+              "text": "を因数分解します。繰り返す部分に"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "という名前を付け、"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "の二次式として因数分解してから、最後に"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの括弧に繰り返し現れる式のまとまりを見つけ、それを"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "と置いてみよう。"
+            },
+            {
+              "type": "math",
+              "latex": "(x+2y+1)(x+2y-2)-4"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-substitution-part-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-s4-substitution-part"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X=x+2y"
+            }
+          ]
+        },
+        {
+          "id": "n06-s5-substitute-whole-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+2y+1)(x+2y-2)-4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-s5-substitute-whole"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-01-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "を、元の二つの括弧へそれぞれ対応させる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-01-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x+2y+1=X+1"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-01-after-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " x+2y-2=X-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字を変えただけで元の式の値は変わらない。最後には"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "を戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "置換してできた式を通常の二次式へ展開する。"
+            },
+            {
+              "type": "math",
+              "latex": "(X+1)(X-2)-4"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-explain-n06-02-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "置き換えても式の値は変わりません。"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "の式を、既習の分配法則で展開します。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-x-expand-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "置換後の二つの括弧を四組の積へ開く。最後の−4も残しておこう。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-x-expand-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "と1を、後ろの括弧全体へ配る。外の"
+            },
+            {
+              "type": "math",
+              "latex": "−4"
+            },
+            {
+              "type": "text",
+              "text": "も残す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-x-expand-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(X+1)(X-2)-4=X(X-2)+1(X-2)-4"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-x-expand-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(X+1)(X-2)-4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-x-expand"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-x-linear-sum-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次項"
+            },
+            {
+              "type": "math",
+              "latex": "−2X"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "をまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-x-linear-sum-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2X+X=(-2+1)X=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-audit-x-linear-sum"
+            },
+            {
+              "type": "math",
+              "latex": ")X"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-x-constant-sum-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "括弧から出た−2と、外にあった−4をまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-x-constant-sum-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2-4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-audit-x-constant-sum"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(X+1)(X-2)-4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-02"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-explain-n06-02-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整理して得た二次式の一次係数と定数項が、次に因数分解の二数を探すための和と積の条件になる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "これは二次式の因数分解の問題へ戻った。"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-pair-method",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前に学んだ"
+            },
+            {
+              "type": "math",
+              "latex": "(X+r)(X+s)=X²+(r+s)X+rs"
+            },
+            {
+              "type": "text",
+              "text": "を使います。"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "の係数が"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "、定数が"
+            },
+            {
+              "type": "math",
+              "latex": "−6"
+            },
+            {
+              "type": "text",
+              "text": "なので、積が"
+            },
+            {
+              "type": "math",
+              "latex": "−6"
+            },
+            {
+              "type": "text",
+              "text": "になる整数の組から、和が"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "になる組を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和が−1、積が−6になる二つの整数を探す。"
+            },
+            {
+              "type": "math",
+              "latex": "X^2-X-6"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-x-pair-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "の一次係数は"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "、定数は"
+            },
+            {
+              "type": "math",
+              "latex": "−6"
+            },
+            {
+              "type": "text",
+              "text": "。積が"
+            },
+            {
+              "type": "math",
+              "latex": "−6"
+            },
+            {
+              "type": "text",
+              "text": "になる二数のうち、和が"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "になる組を選ぼう。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-x-pair-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-x-pair"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-x-pair-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ組が、係数から得た二条件を満たすことを代入で確認する。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-x-pair-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-3)+2=-1"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-x-pair-after-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-3)2=-6"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X^2-X-6="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-03"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "のままでは元の"
+            },
+            {
+              "type": "math",
+              "latex": "x,y"
+            },
+            {
+              "type": "text",
+              "text": "の問題の解答になっていない。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "置換の定義"
+            },
+            {
+              "type": "math",
+              "latex": "X=x+2y"
+            },
+            {
+              "type": "text",
+              "text": "を両方の因数へ戻そう。"
+            },
+            {
+              "type": "math",
+              "latex": "(X-3)(X+2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-restore-x-first-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最初の因数の"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "を、定義した"
+            },
+            {
+              "type": "math",
+              "latex": "x+2y"
+            },
+            {
+              "type": "text",
+              "text": "へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-restore-x-first-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X-3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-audit-restore-x-first"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-restore-x-second-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二番目の因数にも同じ定義を使う。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-restore-x-second-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-audit-restore-x-second"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(X-3)(X+2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-04"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "置換は途中の計算を短くするための仮の名前である。"
+            }
+          ]
+        },
+        {
+          "id": "n06-heading-2",
+          "type": "heading",
+          "text": "偶数次の式を二次式に変える"
+        },
+        {
+          "id": "n06-marker-2",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n06-group-2",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "四次式でも、繰り返し現れる式のまとまりを見つければ、二次式として扱える場合がある。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "四次式を見て、一文字に置き換えると二次式として扱える部分を探そう。"
+            },
+            {
+              "type": "math",
+              "latex": "x^4-5x^2+4"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-05-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず"
+            },
+            {
+              "type": "math",
+              "latex": "x^{4}"
+            },
+            {
+              "type": "text",
+              "text": "を、ある式を二乗した形に戻します。次に元の三項を、その同じ式で読み直します。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-05-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^4=(x^2)^2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-05-after-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^4-5x^2+4=(x^2)^2-5(x^2)+4"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-fourth-substitution-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-s4-fourth-substitution"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-05",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T=x^2,\\qquad x^4-5x^2+4=T^2-5T+4"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次式になれば和−5・積4を使える。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T²−5T+4"
+            },
+            {
+              "type": "text",
+              "text": "を積に直し、元の"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "へ戻す。"
+            },
+            {
+              "type": "math",
+              "latex": "T^2-5T+4"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-explain-n06-06-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "の二次式をまず積に直す。そのあと"
+            },
+            {
+              "type": "math",
+              "latex": "T=x²"
+            },
+            {
+              "type": "text",
+              "text": "を戻す。因数分解と置換からの復元を分ければ、途中の文字"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "を残したまま答える間違いを防げる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-t-pair-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T²−5T+4"
+            },
+            {
+              "type": "text",
+              "text": "の因数を決める。積が4、和が"
+            },
+            {
+              "type": "math",
+              "latex": "−5"
+            },
+            {
+              "type": "text",
+              "text": "になる二数はどれだろう。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-t-pair-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-t-pair"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-t-pair-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ二数で、和と積の条件をもう一度照合する。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-t-pair-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-1)+(-4)=-5"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-t-pair-after-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-1)(-4)=4"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-t-factor-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ二数を使い、まだ"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "のままで二つの因数を作ろう。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-t-factor-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T^2-5T+4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-t-factor"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-restore-first-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "のままの因数分解ができたので、"
+            },
+            {
+              "type": "math",
+              "latex": "T=x²"
+            },
+            {
+              "type": "text",
+              "text": "という定義へ戻る。まず最初の因数に同じ式を代入しよう。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-restore-first-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T-1="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-detail-restore-first"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-restore-first-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の文字へ戻す操作では、定数−1は変えない。二番目の因数も同じように戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-restore-second-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二番目の因数にも、同じ"
+            },
+            {
+              "type": "math",
+              "latex": "T=x²"
+            },
+            {
+              "type": "text",
+              "text": "を使う。一方の"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "だけを残さず、両方を戻そう。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-restore-second-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T-4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-detail-restore-second"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-restore-second-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの復元結果を掛ければ元の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "だけの式になる。次の回答ではこの二つを一つの積として書く。"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-06",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^4-5x^2+4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-06"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-explain-n06-06-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まだ二つの因数には"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "が残る。ここで終わらず、それぞれが平方の差になっていることを使い、次に一次式の積へ分ける。"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの因子はどちらも平方の差なので、さらに分解できる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x²−1"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "x²−4"
+            },
+            {
+              "type": "text",
+              "text": "をそれぞれ平方の差と見て、積を最後まで細かくする。"
+            },
+            {
+              "type": "math",
+              "latex": "(x^2-1)(x^2-4)"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-difference-first-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最初の因数"
+            },
+            {
+              "type": "math",
+              "latex": "x²−1"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の平方と1の平方の差である。平方差の公式へ対応させよう。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-difference-first-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2-1=x^2-1^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-detail-difference-first"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-difference-first-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次はもう一方の因数を分解する。いまの二つの因子は消さずに残しておく。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-difference-second-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "4は"
+            },
+            {
+              "type": "math",
+              "latex": "2²"
+            },
+            {
+              "type": "text",
+              "text": "なので、もう一方も平方差へ対応する。平方の内側の数を使って因子を作ろう。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-difference-second-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2-4=x^2-2^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-detail-difference-second"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-difference-second-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最初の因数から二つ、次の因数から二つの因子を得た。四つを掛けた形へまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x^2-1)(x^2-4)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-07"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "置換を戻して終わりとは限らない。残る各因子も確認する。"
+            }
+          ]
+        },
+        {
+          "id": "n06-heading-3",
+          "type": "heading",
+          "text": "整理に使う文字を選び直す"
+        },
+        {
+          "id": "n06-marker-3",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n06-group-3",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "が混ざるときは、低い次数でまとめられる文字に注目すると共通の括弧が浮かび上がる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の式を因数分解します。まず、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "それぞれについての次数を比べます。"
+            },
+            {
+              "type": "math",
+              "latex": "x^3+x^2y+x^2+xy-2x-2y"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-x-degree-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{xについての次数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-s4-x-degree"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-y-degree-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{yについての次数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-s4-y-degree"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-choose-variable-formula",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n06-s4-choose-variable"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-variable-reason",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この式では"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "について見ると一次式です。"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を含む部分と含まない部分の二つに分けられるので、共通部分を探しやすくなります。"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次数を比べた結果："
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "について3次、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "について1次。"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "で整理"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "については3次、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "については1次。"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "で整理すると二つの部分に分けられる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "の付く項をすべて集め、その残りと分けよう。"
+            },
+            {
+              "type": "math",
+              "latex": "x^3+x^2y+x^2+xy-2x-2y"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-09-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を含む三項を前へ集め、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を含まない残りの項と分ける。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-09-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3+x^2y+x^2+xy-2x-2y=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-s5-classify-y"
+            },
+            {
+              "type": "math",
+              "latex": ")+(x^3+x^2-2x)"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-y-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前半に共通する"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を一つ外へ出す。残る式を括弧に入れよう。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-y-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2y+xy-2y=y("
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-audit-y-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-09",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3+x^2y+x^2+xy-2x-2y="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-09"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残りの部分にも、よく似た"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の二次式が隠れている。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-10",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を含まない後半の三項は、全部に"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "が掛かっている。"
+            },
+            {
+              "type": "math",
+              "latex": "x^3+x^2-2x"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-10-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "後半も、一項ずつ"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "が掛かる形へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-10-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3=x\\cdot x^2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-10-before-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " x^2=x\\cdot x"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-10-before-0-equation-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2x=x(-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-10",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3+x^2-2x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-10"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-10",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前半と後半に同じ"
+            },
+            {
+              "type": "math",
+              "latex": "(x²+x−2)"
+            },
+            {
+              "type": "text",
+              "text": "が現れる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-11",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整理した二つの項を見比べ、どの括弧が共通しているかを探そう。残る係数も確かめて、一つの積にまとめよう。"
+            },
+            {
+              "type": "math",
+              "latex": "y(x^2+x-2)+x(x^2+x-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-11-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "共通因数を一度だけ外へ出し、残る係数の和を括弧へ入れた。"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-11",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "y(x^2+x-2)+x(x^2+x-2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-11"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-11-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "y(x^2+x-2)+x(x^2+x-2)=(y+x)(x^2+x-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-11",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "多変数の式でも一文字について整理することで、共通因数が見つかる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-12",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残った"
+            },
+            {
+              "type": "math",
+              "latex": "x²+x−2"
+            },
+            {
+              "type": "text",
+              "text": "では、和が1・積が"
+            },
+            {
+              "type": "math",
+              "latex": "−2"
+            },
+            {
+              "type": "text",
+              "text": "の二数を探す。"
+            },
+            {
+              "type": "math",
+              "latex": "(x+y)(x^2+x-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-last-pair-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残った"
+            },
+            {
+              "type": "math",
+              "latex": "x²+x−2"
+            },
+            {
+              "type": "text",
+              "text": "では、積が"
+            },
+            {
+              "type": "math",
+              "latex": "−2"
+            },
+            {
+              "type": "text",
+              "text": "、和が1になる二数が必要になる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-last-pair-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-last-pair"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-last-pair-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二数が二条件に一致することを確かめ、二次因子だけを分解する。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-last-pair-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2+(-1)=1"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-last-pair-after-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(-1)=-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-last-pair-after-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "外の"
+            },
+            {
+              "type": "math",
+              "latex": "x+y"
+            },
+            {
+              "type": "text",
+              "text": "を残し、この積を元の場所へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-last-pair-after-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+x-2=(x+2)(x-1)"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-12",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3+x^2y+x^2+xy-2x-2y="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-12"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-12",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後に逆展開すれば、元の"
+            },
+            {
+              "type": "math",
+              "latex": "x³"
+            },
+            {
+              "type": "text",
+              "text": "から"
+            },
+            {
+              "type": "math",
+              "latex": "−2y"
+            },
+            {
+              "type": "text",
+              "text": "まで全項が戻る。"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-previous-close",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次の因子も分解し、元の式の全体が"
+            },
+            {
+              "type": "math",
+              "latex": "(x+y)(x+2)(x−1)"
+            },
+            {
+              "type": "text",
+              "text": "になりました。共通因数"
+            },
+            {
+              "type": "math",
+              "latex": "x+y"
+            },
+            {
+              "type": "text",
+              "text": "は、最後まで残して使っています。"
+            }
+          ]
+        },
+        {
+          "id": "n06-heading-4",
+          "type": "heading",
+          "text": "係数も文字式として読む"
+        },
+        {
+          "id": "n06-marker-4",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n06-group-4",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "についての二次式と見れば、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を含む係数も「一つの数」と同じように扱える。"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-last-goal",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x²+3xy+2y²−x−3y−2"
+            },
+            {
+              "type": "text",
+              "text": "を因数分解します。まず"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の二次式へ整理し、定数部分を二因子へ分け、その二因子の和が一次係数にも一致するか調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-rule-definition",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "U,V"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を含まない式を表す仮の名前です。"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を含んでいても、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "については定数として扱えます。前に学んだ関係を、この場合にも使います。"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-factor-rule",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+U)(x+V)=x^2+(U+V)x+UV"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-13",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x²+3xy+2y²−x−3y−2"
+            },
+            {
+              "type": "text",
+              "text": "を、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の二次・一次・定数の順に並べる。"
+            },
+            {
+              "type": "math",
+              "latex": "x^2+3xy+2y^2-x-3y-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-13-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の一次項を一つに集め、それ以外を定数部分として残す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-13-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+3xy+2y^2-x-3y-2=x^2+("
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-s5-classify-x"
+            },
+            {
+              "type": "math",
+              "latex": ")+(2y^2-3y-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-x-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3xy−x"
+            },
+            {
+              "type": "text",
+              "text": "の共通する"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を外へ出す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-x-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3xy-x=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-audit-x-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-13",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+3xy+2y^2-x-3y-2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-13"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-13",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の係数"
+            },
+            {
+              "type": "math",
+              "latex": "3y−1"
+            },
+            {
+              "type": "text",
+              "text": "と定数項"
+            },
+            {
+              "type": "math",
+              "latex": "2y²−3y−2"
+            },
+            {
+              "type": "text",
+              "text": "を区別できた。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-14",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "に依存しない部分"
+            },
+            {
+              "type": "math",
+              "latex": "2y²−3y−2"
+            },
+            {
+              "type": "text",
+              "text": "を、二つの一次式の積へ分ける。"
+            },
+            {
+              "type": "math",
+              "latex": "2y^2-3y-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-explain-n06-14-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定数部分"
+            },
+            {
+              "type": "math",
+              "latex": "2y²−3y−2"
+            },
+            {
+              "type": "text",
+              "text": "を因数分解します。候補の形を"
+            },
+            {
+              "type": "math",
+              "latex": "(2y+r)(y+s)"
+            },
+            {
+              "type": "text",
+              "text": "と置き、展開から条件を作ります。"
+            },
+            {
+              "type": "math",
+              "latex": "r,s"
+            },
+            {
+              "type": "text",
+              "text": "はここで決める整数です。候補を決めるのは、二条件を比べた後です。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-14-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2y+r)(y+s)=2y^2+(2s+r)y+rs"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-14-before-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の式"
+            },
+            {
+              "type": "math",
+              "latex": "2y²−3y−2"
+            },
+            {
+              "type": "text",
+              "text": "と比べると、中央と定数から二条件が得られる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-14-before-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n06-s5-constant-linear-condition"
+            },
+            {
+              "type": "math",
+              "latex": "=-3"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-14-before-1-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " rs=-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-constant-pair-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積が"
+            },
+            {
+              "type": "math",
+              "latex": "−2"
+            },
+            {
+              "type": "text",
+              "text": "の候補から、"
+            },
+            {
+              "type": "math",
+              "latex": "2s+r=−3"
+            },
+            {
+              "type": "text",
+              "text": "も満たす組を選ぶ。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積が"
+            },
+            {
+              "type": "math",
+              "latex": "−2"
+            },
+            {
+              "type": "text",
+              "text": "となる四候補について、一次係数"
+            },
+            {
+              "type": "math",
+              "latex": "2s+r"
+            },
+            {
+              "type": "text",
+              "text": "も実際に計算して比較する。"
+            },
+            {
+              "type": "math",
+              "latex": "r=1"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "s=−2"
+            },
+            {
+              "type": "text",
+              "text": "の場合。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(-2)+1=-4+1=-3"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1(-2)=-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=−1"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "s=2"
+            },
+            {
+              "type": "text",
+              "text": "の場合。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2\\cdot2+(-1)=4-1=3"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-1-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-1)2=-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-2-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=2"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "s=−1"
+            },
+            {
+              "type": "text",
+              "text": "の場合。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-2-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(-1)+2=-2+2=0"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-2-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(-1)=-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-3-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=−2"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "s=1"
+            },
+            {
+              "type": "text",
+              "text": "の場合。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-3-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2\\cdot1+(-2)=2-2=0"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-bridge-audit-constant-pair-before-3-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2)1=-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-constant-pair-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(r,s)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-audit-constant-pair"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-constant-cross-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ"
+            },
+            {
+              "type": "math",
+              "latex": "r=1"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "s=−2"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "math",
+              "latex": "(2y+r)(y+s)"
+            },
+            {
+              "type": "text",
+              "text": "へ戻すと、候補は"
+            },
+            {
+              "type": "math",
+              "latex": "(2y+1)(y−2)"
+            },
+            {
+              "type": "text",
+              "text": "です。この実際の積の交差項でも、元の"
+            },
+            {
+              "type": "math",
+              "latex": "−3y"
+            },
+            {
+              "type": "text",
+              "text": "へ戻ることを検算します。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-constant-cross-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2y(-2)+1\\cdot y=-4y+y="
+            },
+            {
+              "type": "math",
+              "latex": "-3y"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-14",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2y^2-3y-2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-14"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-explain-n06-14-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定数部分の積の形が得られたが、元の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の二次式の因数に使えるかはまだ決まらない。次に二つの因子の和を調べ、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の一次係数へ一致するかを確かめる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-14",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの因子の組は、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の一次係数との一致も検査する。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-15",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2y+1)"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "(y−2)"
+            },
+            {
+              "type": "text",
+              "text": "を二つの一次式の定数項と見たとき、展開後の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の係数は何になるだろう。"
+            },
+            {
+              "type": "math",
+              "latex": "(2y+1)+(y-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-15-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和を、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "の項と定数の二組へ並べ替える。次にこの二組を別々に計算する。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-15-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2y+1)+(y-2)=(2y+y)+(1-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-sum-y-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの因子を足すとき、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "の係数だけを先に計算する。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-sum-y-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2y+y=(2+1)y="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-audit-sum-y-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-sum-y-constant-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定数の1と−2も別に足す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-sum-y-constant-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1-2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-bridge-audit-sum-y-constant"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-factor-sum",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2y+1)+(y-2)=3y-1"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-sum-compare",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定数部分の二因子の積は"
+            },
+            {
+              "type": "math",
+              "latex": "2y²−3y−2"
+            },
+            {
+              "type": "text",
+              "text": "でした。いま求めた和"
+            },
+            {
+              "type": "math",
+              "latex": "3y−1"
+            },
+            {
+              "type": "text",
+              "text": "を、元の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の一次係数"
+            },
+            {
+              "type": "math",
+              "latex": "3y−1"
+            },
+            {
+              "type": "text",
+              "text": "と比べます。"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-sum-match-formula",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n06-s5-factor-sum-target"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-15",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "U+V=3y-1,\\qquad UV=2y^2-3y-2"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-15",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和も積も一致したので、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "についての二つの一次式へ戻せる。"
+            }
+          ]
+        },
+        {
+          "id": "n06-lead-16",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x²+(3y−1)x+(2y+1)(y−2)"
+            },
+            {
+              "type": "text",
+              "text": "を、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "に関する二つの一次式へまとめる。"
+            },
+            {
+              "type": "math",
+              "latex": "x^2+(3y-1)x+(2y^2-3y-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-16-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定数部分は積、一次係数はその二因子の和として求まった。それぞれを"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の二次式へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n06-bridge-worked-n06-16-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+(3y-1)x+(2y^2-3y-2)=x^2+("
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-s5-restore-coefficient-sum"
+            },
+            {
+              "type": "math",
+              "latex": ")x+(2y+1)(y-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-last-return",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "U=2y+1"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "V=y−2"
+            },
+            {
+              "type": "text",
+              "text": "とすると、"
+            },
+            {
+              "type": "math",
+              "latex": "U+V"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "UV"
+            },
+            {
+              "type": "text",
+              "text": "が元の一次係数・定数部分に両方一致します。したがって、"
+            },
+            {
+              "type": "math",
+              "latex": "(x+U)(x+V)"
+            },
+            {
+              "type": "text",
+              "text": "の"
+            },
+            {
+              "type": "math",
+              "latex": "U,V"
+            },
+            {
+              "type": "text",
+              "text": "へこの二因子を入れます。"
+            }
+          ]
+        },
+        {
+          "id": "n06-formula-16",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+(3y-1)x+(2y^2-3y-2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n06-16"
+            }
+          ]
+        },
+        {
+          "id": "n06-s4-final-source",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+3xy+2y^2-x-3y-2=(x+2y+1)(x+y-2)"
+            }
+          ]
+        },
+        {
+          "id": "n06-after-16",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "係数が数でも文字式でも、先頭・中央・定数のすべてを逆展開で照合する。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n06-s4-substitution-part",
+          "label": "N06-S4-SUBSTITUTION-PART",
+          "prompt": "二つの括弧に同じ形で現れる部分を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "x+2y",
+            "x+2y+1",
+            "x+2y-2"
+          ],
+          "hints": [
+            "一方に+1、もう一方に−2が残るように共通部分を取り出します。"
+          ]
+        },
+        {
+          "id": "n06-s5-substitute-whole",
+          "label": "N06-S5-SUBSTITUTE-WHOLE",
+          "prompt": "同じx+2yだけをXへ置き換えます。",
+          "answerType": "formula",
+          "choices": [
+            "(X+1)(X-2)-4",
+            "(X+1)(X-2)",
+            "(X+1)(X+2)-4"
+          ],
+          "hints": [
+            "同じx+2yだけをXへ置き換えます。"
+          ]
+        },
+        {
+          "id": "n06-bridge-x-expand",
+          "label": "N06-BRIDGE-X-EXPAND",
+          "prompt": "置換後の二つの括弧を四組の積へ開く。最後の−4も残しておこう。",
+          "answerType": "formula",
+          "choices": [
+            "X^2-2X+X-2-4",
+            "X^2-2X-X-2-4",
+            "X^2-2X+X+2-4",
+            "X^2-2X+X-2+4"
+          ],
+          "hints": [
+            "後ろの定数−4は、括弧の積とは別の項である。"
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-x-linear-sum",
+          "label": "N06-BRIDGE-AUDIT-X-LINEAR-SUM",
+          "prompt": "一次項−2XとXをまとめる。",
+          "answerType": "formula",
+          "choices": [
+            "-1",
+            "1",
+            "-3",
+            "3"
+          ],
+          "hints": [
+            "Xは1Xとして読む。"
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-x-constant-sum",
+          "label": "N06-BRIDGE-AUDIT-X-CONSTANT-SUM",
+          "prompt": "括弧から出た−2と、外にあった−4をまとめる。",
+          "answerType": "formula",
+          "choices": [
+            "-6",
+            "2",
+            "6",
+            "-2"
+          ],
+          "hints": [
+            "外の定数も忘れずに加える。"
+          ]
+        },
+        {
+          "id": "n06-02",
+          "label": "N06-02",
+          "prompt": "同類項をまとめた二次式を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "X^2-X-6",
+            "X^2+X-6",
+            "X^2-X+2",
+            "X^2-2X-6"
+          ],
+          "hints": [
+            "交差項−2X+Xをまとめ、定数−2−4を足す。"
+          ]
+        },
+        {
+          "id": "n06-bridge-x-pair",
+          "label": "N06-BRIDGE-X-PAIR",
+          "prompt": "Xの一次係数は−1、定数は−6。積が−6になる二数のうち、和が−1になる組を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-3,\\quad2",
+            "3,\\quad-2",
+            "-6,\\quad1",
+            "-3,\\quad-2"
+          ],
+          "hints": [
+            "積と和を両方照らし合わせよう。"
+          ]
+        },
+        {
+          "id": "n06-03",
+          "label": "N06-03",
+          "prompt": "Xを使う因数分解を完成させよう。",
+          "answerType": "formula",
+          "choices": [
+            "(X-3)(X+2)",
+            "(X+3)(X-2)",
+            "(X-6)(X+1)",
+            "(X-3)(X-2)"
+          ],
+          "hints": [
+            "積が負なので二数は異符号。和が負になるには、絶対値の大きい方が負になる。和と積の両方を確かめよう。"
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-restore-x-first",
+          "label": "N06-BRIDGE-AUDIT-RESTORE-X-FIRST",
+          "prompt": "最初の因数のXを、定義したx+2yへ戻す。",
+          "answerType": "formula",
+          "choices": [
+            "x+2y-3",
+            "x-2y-3",
+            "x+2y+3",
+            "x+y-3"
+          ],
+          "hints": [
+            "Xが表す式全体を代入し、後ろの−3はそのまま残す。"
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-restore-x-second",
+          "label": "N06-BRIDGE-AUDIT-RESTORE-X-SECOND",
+          "prompt": "二番目の因数にも同じ定義を使う。",
+          "answerType": "formula",
+          "choices": [
+            "x+2y+2",
+            "x-2y+2",
+            "x+2y-2",
+            "x+y+2"
+          ],
+          "hints": [
+            "二つのXは同じ式の名前である。"
+          ]
+        },
+        {
+          "id": "n06-04",
+          "label": "N06-04",
+          "prompt": "元の文字だけで積を書こう。",
+          "answerType": "formula",
+          "choices": [
+            "(x+2y-3)(x+2y+2)",
+            "(x+2y-3)(X+2)",
+            "(x+2y+3)(x+2y-2)",
+            "(x-2y-3)(x-2y+2)"
+          ],
+          "hints": [
+            "Xをどちらの括弧からもなくす。"
+          ]
+        },
+        {
+          "id": "n06-s4-fourth-substitution",
+          "label": "N06-S4-FOURTH-SUBSTITUTION",
+          "prompt": "二乗と一乗の形で繰り返す部分を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "x^2",
+            "x^4",
+            "x"
+          ],
+          "hints": [
+            "x⁴を(x²)²と読むと、x²が一つのまとまりとして使えます。"
+          ]
+        },
+        {
+          "id": "n06-bridge-t-pair",
+          "label": "N06-BRIDGE-T-PAIR",
+          "prompt": "T²−5T+4の因数を決める。積が4、和が−5になる二数はどれだろう。",
+          "answerType": "formula",
+          "choices": [
+            "-1,\\quad-4",
+            "1,\\quad4",
+            "-2,\\quad-2",
+            "1,\\quad-4"
+          ],
+          "hints": [
+            "積が正で和が負なら、二数の符号はどうなるだろう。"
+          ]
+        },
+        {
+          "id": "n06-bridge-t-factor",
+          "label": "N06-BRIDGE-T-FACTOR",
+          "prompt": "選んだ二数を使い、まだTのままで二つの因数を作ろう。",
+          "answerType": "formula",
+          "choices": [
+            "(T-1)(T-4)",
+            "(T+1)(T+4)",
+            "(T-2)^2",
+            "(T-1)(T+4)"
+          ],
+          "hints": [
+            "二つの一次式を展開したとき、一次係数が二数の和に戻る。"
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-restore-first",
+          "label": "N06-BRIDGE-DETAIL-RESTORE-FIRST",
+          "prompt": "Tのままの因数分解ができたので、T=x²という定義へ戻る。まず最初の因数に同じ式を代入しよう。",
+          "answerType": "formula",
+          "choices": [
+            "x^2-1",
+            "x-1",
+            "x^2+1",
+            "T-x"
+          ],
+          "hints": [
+            "置換で決めたTの内容を変えず、その場所にx²を入れる。"
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-restore-second",
+          "label": "N06-BRIDGE-DETAIL-RESTORE-SECOND",
+          "prompt": "二番目の因数にも、同じT=x²を使う。一方のTだけを残さず、両方を戻そう。",
+          "answerType": "formula",
+          "choices": [
+            "x^2-4",
+            "x-4",
+            "x^2+4",
+            "x^4-4"
+          ],
+          "hints": [
+            "二つの因数に出るTは同じ式の名前である。"
+          ]
+        },
+        {
+          "id": "n06-06",
+          "label": "N06-06",
+          "prompt": "xの式として戻した積を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "(x^2-1)(x^2-4)",
+            "(x^2+1)(x^2+4)",
+            "(x^2-2)(x^2-2)",
+            "(x^2-1)(x^2+4)"
+          ],
+          "hints": [
+            "積が正なので二数は同符号。和が負なので両方とも負になる。和と積を確かめ、最後にTをx²へ戻そう。"
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-difference-first",
+          "label": "N06-BRIDGE-DETAIL-DIFFERENCE-FIRST",
+          "prompt": "最初の因数x²−1はxの平方と1の平方の差である。平方差の公式へ対応させよう。",
+          "answerType": "formula",
+          "choices": [
+            "(x-1)(x+1)",
+            "(x-1)^2",
+            "(x+1)^2",
+            "(x-1)(x+2)"
+          ],
+          "hints": [
+            "平方差では、同じ二つの数の和と差を一組にする。"
+          ]
+        },
+        {
+          "id": "n06-bridge-detail-difference-second",
+          "label": "N06-BRIDGE-DETAIL-DIFFERENCE-SECOND",
+          "prompt": "4は2²なので、もう一方も平方差へ対応する。平方の内側の数を使って因子を作ろう。",
+          "answerType": "formula",
+          "choices": [
+            "(x-2)(x+2)",
+            "(x-4)(x+4)",
+            "(x-2)^2",
+            "(x+2)^2"
+          ],
+          "hints": [
+            "最後の定数4をそのまま括弧に入れず、何の平方かを先に読む。"
+          ]
+        },
+        {
+          "id": "n06-07",
+          "label": "N06-07",
+          "prompt": "一次式の積まで因数分解しよう。",
+          "answerType": "formula",
+          "choices": [
+            "(x-1)(x+1)(x-2)(x+2)",
+            "(x-1)^2(x-2)^2",
+            "(x-1)(x+1)(x^2-4)",
+            "(x+1)(x+2)(x^2-2)"
+          ],
+          "hints": [
+            "x²−a²=(x−a)(x+a)を両方の因子に使う。"
+          ]
+        },
+        {
+          "id": "n06-s4-x-degree",
+          "label": "N06-S4-X-DEGREE",
+          "prompt": "xだけに注目した最高次数を読みます。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "2",
+            "1"
+          ],
+          "hints": [
+            "x³という項があります。yは係数側へ含めます。"
+          ]
+        },
+        {
+          "id": "n06-s4-y-degree",
+          "label": "N06-S4-Y-DEGREE",
+          "prompt": "今度はyだけに注目した最高次数を読みます。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "3",
+            "2"
+          ],
+          "hints": [
+            "yを含む項は、どれもyが一つ掛かっています。"
+          ]
+        },
+        {
+          "id": "n06-s4-choose-variable",
+          "label": "N06-S4-CHOOSE-VARIABLE",
+          "prompt": "二つの部分に分けるため、今回使う見方を選びます。",
+          "answerType": "text",
+          "choices": [
+            "yについて整理",
+            "xについて整理",
+            "項をすべて別々に二乗"
+          ],
+          "hints": [
+            "最高次数が1だった文字に注目します。"
+          ]
+        },
+        {
+          "id": "n06-s5-classify-y",
+          "label": "N06-S5-CLASSIFY-Y",
+          "prompt": "各項にyが含まれるかを一つずつ見ます。",
+          "answerType": "formula",
+          "choices": [
+            "x^2y+xy-2y",
+            "x^2y+xy-2x",
+            "x^2y-xy-2y"
+          ],
+          "hints": [
+            "各項にyが含まれるかを一つずつ見ます。"
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-y-coefficient",
+          "label": "N06-BRIDGE-AUDIT-Y-COEFFICIENT",
+          "prompt": "前半に共通するyを一つ外へ出す。残る式を括弧に入れよう。",
+          "answerType": "formula",
+          "choices": [
+            "x^2+x-2",
+            "x^2+x+2",
+            "x^2-x-2",
+            "x^2+x"
+          ],
+          "hints": [
+            "yを一つ取り除いた各項を、符号を変えずに並べる。"
+          ]
+        },
+        {
+          "id": "n06-09",
+          "label": "N06-09",
+          "prompt": "yをくくった形を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "y(x^2+x-2)+(x^3+x^2-2x)",
+            "y(x^2+x-2)+(x^3+x^2)",
+            "y(x^2+x+2)+(x^3+x^2-2x)",
+            "y(x^2+x-2)+(x^3-x^2-2x)"
+          ],
+          "hints": [
+            "yを含むのはx²y、xy、−2yの三項。"
+          ]
+        },
+        {
+          "id": "n06-10",
+          "label": "N06-10",
+          "prompt": "この部分だけを共通因数でくくろう。",
+          "answerType": "formula",
+          "choices": [
+            "x(x^2+x-2)",
+            "x(x^2+x+2)",
+            "x^2(x+1-2x)",
+            "x(x^2-x-2)"
+          ],
+          "hints": [
+            "どの項にもxを一回ずつくくり出せる。"
+          ]
+        },
+        {
+          "id": "n06-11",
+          "label": "N06-11",
+          "prompt": "共通の括弧を一度だけ外へ出そう。",
+          "answerType": "formula",
+          "choices": [
+            "(x+y)(x^2+x-2)",
+            "(x-y)(x^2+x-2)",
+            "(x+y)(x^2-x-2)",
+            "xy(x^2+x-2)"
+          ],
+          "hints": [
+            "二つの係数はyとx。その和が括弧の外に残る。"
+          ]
+        },
+        {
+          "id": "n06-bridge-last-pair",
+          "label": "N06-BRIDGE-LAST-PAIR",
+          "prompt": "残ったx²+x−2では、積が−2、和が1になる二数が必要になる。",
+          "answerType": "formula",
+          "choices": [
+            "2,\\quad-1",
+            "-2,\\quad1",
+            "2,\\quad1",
+            "-2,\\quad-1"
+          ],
+          "hints": [
+            "正負を入れ替えると、積は同じでも和の符号が変わる。"
+          ]
+        },
+        {
+          "id": "n06-12",
+          "label": "N06-12",
+          "prompt": "因数分解を最後まで完成させよう。",
+          "answerType": "formula",
+          "choices": [
+            "(x+y)(x+2)(x-1)",
+            "(x+y)(x-2)(x+1)",
+            "(x-y)(x+2)(x-1)",
+            "(x+y)(x+2)(x+1)"
+          ],
+          "hints": [
+            "積が負なので二数は異符号。和が正なので、絶対値の大きい方が正になる。元の因子(x+y)も残そう。"
+          ]
+        },
+        {
+          "id": "n06-s5-classify-x",
+          "label": "N06-S5-CLASSIFY-X",
+          "prompt": "xを一つ含む二項を、前の符号と一緒に選びます。",
+          "answerType": "formula",
+          "choices": [
+            "3xy-x",
+            "3xy-3y",
+            "3xy+x"
+          ],
+          "hints": [
+            "xを一つ含む二項を、前の符号と一緒に選びます。"
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-x-coefficient",
+          "label": "N06-BRIDGE-AUDIT-X-COEFFICIENT",
+          "prompt": "3xy−xの共通するxを外へ出す。",
+          "answerType": "formula",
+          "choices": [
+            "3y-1",
+            "3y+1",
+            "3y",
+            "2y-1"
+          ],
+          "hints": [
+            "−xの係数−1も括弧内に残す。"
+          ]
+        },
+        {
+          "id": "n06-13",
+          "label": "N06-13",
+          "prompt": "xについて整理した形を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x^2+(3y-1)x+(2y^2-3y-2)",
+            "x^2+(3y+1)x+(2y^2-3y-2)",
+            "x^2+(3y-1)x+(2y^2+3y-2)",
+            "x^2+(3y-1)+(2y^2-3y-2)x"
+          ],
+          "hints": [
+            "3xy−xからxを外へ出し、残りはxを含まない項。"
+          ]
+        },
+        {
+          "id": "n06-s5-constant-linear-condition",
+          "label": "N06-S5-CONSTANT-LINEAR-CONDITION",
+          "prompt": "2yとs、rとyの交差積を足します。",
+          "answerType": "formula",
+          "choices": [
+            "2s+r",
+            "2r+s",
+            "r+s"
+          ],
+          "hints": [
+            "2yとs、rとyの交差積を足します。"
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-constant-pair",
+          "label": "N06-BRIDGE-AUDIT-CONSTANT-PAIR",
+          "prompt": "積が−2の候補から、2s+r=−3も満たす組を選ぶ。",
+          "answerType": "formula",
+          "choices": [
+            "(1,-2)",
+            "(-1,2)",
+            "(2,-1)",
+            "(-2,1)"
+          ],
+          "hints": [
+            "一次係数はr+sではなく2s+rで比べる。"
+          ]
+        },
+        {
+          "id": "n06-14",
+          "label": "N06-14",
+          "prompt": "定数項の因数分解を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "(2y+1)(y-2)",
+            "(2y-1)(y+2)",
+            "(2y+1)(y+2)",
+            "(y-1)(2y+2)"
+          ],
+          "hints": [
+            "先頭は2y²、最後は−2。交差積を合わせる。"
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-sum-y-coefficient",
+          "label": "N06-BRIDGE-AUDIT-SUM-Y-COEFFICIENT",
+          "prompt": "二つの因子を足すとき、yの係数だけを先に計算する。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "2",
+            "1",
+            "4"
+          ],
+          "hints": [
+            "文字yを一つ残して係数を足す。"
+          ]
+        },
+        {
+          "id": "n06-bridge-audit-sum-y-constant",
+          "label": "N06-BRIDGE-AUDIT-SUM-Y-CONSTANT",
+          "prompt": "定数の1と−2も別に足す。",
+          "answerType": "formula",
+          "choices": [
+            "-1",
+            "1",
+            "-3",
+            "3"
+          ],
+          "hints": [
+            "文字の項と定数の項を混ぜない。"
+          ]
+        },
+        {
+          "id": "n06-s5-factor-sum-target",
+          "label": "N06-S5-FACTOR-SUM-TARGET",
+          "prompt": "(x+U)(x+V)の展開でU+Vが掛かる場所を見ます。",
+          "answerType": "text",
+          "choices": [
+            "xの一次係数",
+            "xの定数部分",
+            "x²の係数"
+          ],
+          "hints": [
+            "(x+U)(x+V)の展開でU+Vが掛かる場所を見ます。"
+          ]
+        },
+        {
+          "id": "n06-s5-restore-coefficient-sum",
+          "label": "N06-S5-RESTORE-COEFFICIENT-SUM",
+          "prompt": "xの前は和、最後の部分は積に対応します。",
+          "answerType": "formula",
+          "choices": [
+            "(2y+1)+(y-2)",
+            "(2y+1)(y-2)",
+            "(2y+1)-(y-2)"
+          ],
+          "hints": [
+            "xの前は和、最後の部分は積に対応します。"
+          ]
+        },
+        {
+          "id": "n06-16",
+          "label": "N06-16",
+          "prompt": "xとyを含む因数分解の完成形を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "(x+2y+1)(x+y-2)",
+            "(x+2y-1)(x+y+2)",
+            "(x+2y+1)(x+y+2)",
+            "(x+2y-2)(x+y+1)"
+          ],
+          "hints": [
+            "二つの定数項は2y+1とy−2で、足すと3y−1。"
+          ]
+        }
+      ]
+    }
+  ]
+}

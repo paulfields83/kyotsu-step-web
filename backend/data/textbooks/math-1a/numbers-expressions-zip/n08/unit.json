@@ -1,0 +1,3608 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n08",
+  "revision": 7,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "向きと距離を分けて、絶対値を読む",
+  "subtitle": "数直線の距離から場合分けを作り、式全体の符号を判定する。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N08",
+    "rightsNote": "原問12件、原図1点。W-MATH-033/P-001承認に基づく小段階と本文。 W-MATH-037/P-001: preserve r4 and add whole-problem context. / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "数直線上の距離を絶対値として捉える",
+    "式の正負を先に確かめて絶対値を外す",
+    "絶対値の一般的な性質を距離から導く"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "08",
+      "title": "向きと距離を分けて、絶対値を読む",
+      "figures": [
+        {
+          "id": "n08-f01",
+          "src": "assets/n08-f01.png",
+          "alt": "原点の左右に2.3と−5の点が配置された元の数直線。距離の解答は書かれていない。",
+          "caption": "点の位置を読み、原点までの距離を考えよう。"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "n08-stage-01",
+          "type": "topic",
+          "text": "原点からの距離"
+        },
+        {
+          "id": "n08-stage-01-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二点の距離を、与えられた順に求めよう。"
+            },
+            {
+              "type": "math",
+              "latex": "2.3,\\quad-5"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-01-number-line",
+          "type": "figure",
+          "figureId": "n08-f01"
+        },
+        {
+          "id": "n08-q01-right-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "図の右側にある "
+            },
+            {
+              "type": "math",
+              "latex": "2.3"
+            },
+            {
+              "type": "text",
+              "text": " の点を見ます。原点の座標は "
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": " です。右側の座標から左側の座標を引き、距離を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q01-right-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2.3-0=2.3"
+            },
+            {
+              "type": "text",
+              "text": " です。右側の点は原点から "
+            },
+            {
+              "type": "math",
+              "latex": "2.3"
+            },
+            {
+              "type": "text",
+              "text": " 離れています。次は左側の点を同じ方法で見ます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q01-right-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2.3-0= 2.3"
+            }
+          ]
+        },
+        {
+          "id": "n08-q01-left-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-5"
+            },
+            {
+              "type": "text",
+              "text": " の点は原点の左側です。右側は "
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "、左側は "
+            },
+            {
+              "type": "math",
+              "latex": "-5"
+            },
+            {
+              "type": "text",
+              "text": " なので、距離は "
+            },
+            {
+              "type": "math",
+              "latex": "0-(-5)"
+            },
+            {
+              "type": "text",
+              "text": " と表せます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q01-left-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0-(-5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-q01-left-answer"
+            }
+          ],
+          "equationNumber": "1"
+        },
+        {
+          "id": "n08-q01-left-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0-(-5)"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            }
+          ],
+          "equationNumber": "1"
+        },
+        {
+          "id": "n08-q01-left-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "座標に負号が付いていても、原点からの距離は正です。"
+            }
+          ]
+        },
+        {
+          "id": "n08-01-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "問題の順序は "
+            },
+            {
+              "type": "math",
+              "latex": "2.3"
+            },
+            {
+              "type": "text",
+              "text": " の点、次に "
+            },
+            {
+              "type": "math",
+              "latex": "-5"
+            },
+            {
+              "type": "text",
+              "text": " の点です。求めた二つの距離を、この順序でまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-01-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2.3,\\quad5"
+            }
+          ],
+          "equationNumber": "2"
+        },
+        {
+          "id": "n08-01-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "どちらも向きではなく、原点との離れ具合を表しています。"
+            }
+          ]
+        },
+        {
+          "id": "n08-01-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " 2.3, 5"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-02",
+          "type": "topic",
+          "text": "絶対値の定義と右側の点"
+        },
+        {
+          "id": "n08-stage-02-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "0以上の場合の絶対値を表そう。"
+            },
+            {
+              "type": "math",
+              "latex": "a\\ge0"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-02-source-expression",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|\\quad(a\\in\\mathbb R)"
+            }
+          ]
+        },
+        {
+          "id": "n08-definition-basis-n08-01-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " 2.3, 5"
+            }
+          ]
+        },
+        {
+          "id": "n08-definition-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "実数 "
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " を表す点と原点との距離を、"
+            },
+            {
+              "type": "term",
+              "text": "絶対値"
+            },
+            {
+              "type": "text",
+              "text": "といい、"
+            },
+            {
+              "type": "math",
+              "latex": "|a|"
+            },
+            {
+              "type": "text",
+              "text": " と書きます。縦の二本の線は、中にある式全体について距離を取る記号です。"
+            }
+          ]
+        },
+        {
+          "id": "n08-definition-r5-after-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この記号が表すのは、座標の正負ではなく、原点からの距離です。次に、点の位置に応じてこの距離を式で表します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-r5-q02-distance-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "条件"
+            },
+            {
+              "type": "math",
+              "latex": "a\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "を使い、点"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "と原点の位置を確認します。距離は、右の座標から左の座標を引いて表します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-r5-q02-distance-assembly",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\left|a\\right|= {\\square}-{\\square}",
+              "holeIds": [
+                "n08-r5-q02-distance-build-r6-right",
+                "n08-r5-q02-distance-build-r6-left"
+              ]
+            }
+          ],
+          "equationNumber": "3"
+        },
+        {
+          "id": "n08-r5-q02-distance-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "原点の座標を引く式になりました。この引き算を整理し、絶対値を外した式をまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-r5-q02-distance-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a-0"
+            }
+          ]
+        },
+        {
+          "id": "n08-02-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の"
+            },
+            {
+              "type": "math",
+              "latex": "a-0"
+            },
+            {
+              "type": "text",
+              "text": "を計算し、絶対値を外した式を完成させます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-02-r7-simplify",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a-0= {\\square}",
+              "holeIds": [
+                "n08-02-build-r7-term"
+              ]
+            }
+          ],
+          "equationNumber": "4"
+        },
+        {
+          "id": "n08-02-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "条件 "
+            },
+            {
+              "type": "math",
+              "latex": "a\\ge0"
+            },
+            {
+              "type": "text",
+              "text": " の場合の結論です。"
+            },
+            {
+              "type": "math",
+              "latex": "a=0"
+            },
+            {
+              "type": "text",
+              "text": " の場合も含みます。左側の場合も調べれば、すべての実数を扱えます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-02-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-03",
+          "type": "topic",
+          "text": "左側の点の距離"
+        },
+        {
+          "id": "n08-stage-03-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の場合の距離を式にしよう。"
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-03-source-expression",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|\\quad(a\\in\\mathbb R)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q03-order-basis-condition-n08-02-result",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a\\ge0"
+            }
+          ]
+        },
+        {
+          "id": "n08-q03-order-basis-n08-02-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a"
+            }
+          ]
+        },
+        {
+          "id": "n08-q03-order-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": "の条件を使い、点"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "と原点の左右関係を確かめます。正のときと同じ距離の求め方を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q03-order-assembly",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\left|a\\right|= {\\square}-{\\square}",
+              "holeIds": [
+                "n08-q03-order-build-r6-right",
+                "n08-q03-order-build-r6-left"
+              ]
+            }
+          ],
+          "equationNumber": "5"
+        },
+        {
+          "id": "n08-q03-order-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "条件 "
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": " の場合の結論です。次は、この引き算を一つの項にします。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q03-order-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= 0-a"
+            }
+          ]
+        },
+        {
+          "id": "n08-03-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "から"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "を引く計算を、"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "の一つの項で表します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-03-assembly",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0-a= {\\square}a",
+              "holeIds": [
+                "n08-03-build-r6-sign"
+              ]
+            }
+          ],
+          "equationNumber": "6"
+        },
+        {
+          "id": "n08-03-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "条件 "
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": " の場合の結論です。"
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": " のとき、"
+            },
+            {
+              "type": "math",
+              "latex": "|a|=-a"
+            },
+            {
+              "type": "text",
+              "text": " です。"
+            },
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "text",
+              "text": " という見た目だけで、値まで負と判断しないようにします。"
+            }
+          ]
+        },
+        {
+          "id": "n08-03-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= -a"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-04",
+          "type": "topic",
+          "text": "代入と場合分け"
+        },
+        {
+          "id": "n08-stage-04-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の値を代入して確かめよう。"
+            },
+            {
+              "type": "math",
+              "latex": "a=-5"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-04-source-expression",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|\\quad(a\\in\\mathbb R)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q04-substitute-basis-condition-n08-03-result",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a<0"
+            }
+          ]
+        },
+        {
+          "id": "n08-q04-substitute-basis-n08-03-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= -a"
+            }
+          ]
+        },
+        {
+          "id": "n08-q04-substitute-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いまの式 "
+            },
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "text",
+              "text": " の "
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " へ "
+            },
+            {
+              "type": "math",
+              "latex": "-5"
+            },
+            {
+              "type": "text",
+              "text": " を入れます。元からある負号と代入する負の数を区別するため、代入する数を括弧で囲みます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q04-substitute-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-a="
+            },
+            {
+              "type": "math",
+              "latex": "-(-5)"
+            },
+            {
+              "type": "math",
+              "latex": "\\quad(a=-5)"
+            }
+          ],
+          "equationNumber": "7"
+        },
+        {
+          "id": "n08-q04-substitute-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "-(-5)"
+            }
+          ],
+          "equationNumber": "7"
+        },
+        {
+          "id": "n08-q04-substitute-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "外側の負号は、括弧の中の数と符号が反対の数を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q04-substitute-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-a= -(-5)"
+            }
+          ]
+        },
+        {
+          "id": "n08-04-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の数 "
+            },
+            {
+              "type": "math",
+              "latex": "-5"
+            },
+            {
+              "type": "text",
+              "text": " と符号が反対の数を求めます。式と値を等号でつないで、左側の点の距離と照合します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-04-assembly",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(-5)= {\\square}",
+              "holeIds": [
+                "n08-04-build-r6-value"
+              ]
+            }
+          ],
+          "equationNumber": "8"
+        },
+        {
+          "id": "n08-04-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "初めに図から求めた距離と一致しました。"
+            },
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "text",
+              "text": " は、"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " が負の場合には正になります。"
+            }
+          ]
+        },
+        {
+          "id": "n08-04-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(-5)= 5"
+            }
+          ]
+        },
+        {
+          "id": "n08-cases-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここまでの二つの場合を、条件と式が対応する表にまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-cases-case-table",
+          "type": "math-table",
+          "caption": "絶対値を外す場合分け",
+          "headers": [
+            "中身の条件",
+            "絶対値を外した式"
+          ],
+          "rows": [
+            [
+              "a\\ge0",
+              "|a|=a"
+            ],
+            [
+              "a<0",
+              "|a|=-a"
+            ]
+          ]
+        },
+        {
+          "id": "n08-cases-case-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値を外す前に、中の式全体がどちらの条件に当てはまるかを調べます。減号があるという理由だけでは決まりません。"
+            }
+          ]
+        },
+        {
+          "id": "n08-cases-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a\\quad(a\\ge0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-cases-terminal-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= -a\\quad(a<0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-05",
+          "type": "topic",
+          "text": "二乗の比較から大小へ"
+        },
+        {
+          "id": "n08-stage-05-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二乗した数を比べ、中身の大小関係を求めよう。"
+            },
+            {
+              "type": "math",
+              "latex": "|\\sqrt5-3|"
+            }
+          ]
+        },
+        {
+          "id": "n08-q05-square-basis-n08-cases-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a\\quad(a\\ge0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q05-square-basis-n08-cases-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= -a\\quad(a<0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q05-square-r5-before-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "求めたいのは "
+            },
+            {
+              "type": "math",
+              "latex": "|\\sqrt5-3|"
+            },
+            {
+              "type": "text",
+              "text": " を絶対値記号のない式で表すことです。まず中身の符号を決めるため、"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt5"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "3"
+            },
+            {
+              "type": "text",
+              "text": " を比べます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q05-square-r5-before-1",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5"
+            },
+            {
+              "type": "text",
+              "text": " は正で、二乗すると "
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            },
+            {
+              "type": "text",
+              "text": " になる数です。二つの数はともに正なので、二乗した値を比べて元の数の大小を決められます。はじめに "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt5"
+            },
+            {
+              "type": "text",
+              "text": " の二乗を確かめ、次に "
+            },
+            {
+              "type": "math",
+              "latex": "3"
+            },
+            {
+              "type": "text",
+              "text": " の二乗を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-r5-root-square-given-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt5)^2=5"
+            }
+          ]
+        },
+        {
+          "id": "n08-q05-square-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-q05-square-answer"
+            }
+          ],
+          "equationNumber": "9"
+        },
+        {
+          "id": "n08-q05-square-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3^2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "9"
+            }
+          ],
+          "equationNumber": "9"
+        },
+        {
+          "id": "n08-q05-square-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt5)^2=5"
+            },
+            {
+              "type": "text",
+              "text": " と、いま求めた値を比較します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q05-compare-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両方とも正なので、二乗した値の比較を元の二数の比較に戻せます。まず "
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "9"
+            },
+            {
+              "type": "text",
+              "text": " の間の不等号を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q05-compare-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "5\\ "
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-q05-compare-answer"
+            },
+            {
+              "type": "math",
+              "latex": "\\ 9"
+            }
+          ]
+        },
+        {
+          "id": "n08-q05-compare-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "5\\ <\\ 9"
+            }
+          ],
+          "equationNumber": "10"
+        },
+        {
+          "id": "n08-q05-compare-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここでは二乗した値の比較ができました。次に元の二数について結論を出します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-05-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つとも非負です。二乗した値の比較を、元の二つの数の比較へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-05-r7-given-comparison",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "5< 9"
+            }
+          ]
+        },
+        {
+          "id": "n08-05-r7-root-comparison",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5 {\\square}  3",
+              "holeIds": [
+                "n08-05-build-r7-relation"
+              ]
+            }
+          ],
+          "equationNumber": "11"
+        },
+        {
+          "id": "n08-05-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "大小関係は、次の差の符号の根拠として記録します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-05-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5< 3"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-06",
+          "type": "topic",
+          "text": "大小から差の符号へ"
+        },
+        {
+          "id": "n08-stage-06-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "差の符号を判断しよう。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt5-3"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-06-source-expression",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|\\sqrt5-3|"
+            }
+          ]
+        },
+        {
+          "id": "n08-r5-q06-operation-basis-n08-05-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5< 3"
+            }
+          ]
+        },
+        {
+          "id": "n08-r5-q06-operation-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の絶対値の中身は "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt5-3"
+            },
+            {
+              "type": "text",
+              "text": " です。先ほど得た "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt5<3"
+            },
+            {
+              "type": "text",
+              "text": " を、この中身と比べられる形に変えます。両辺から同じ数を引く式を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "n08-r5-q06-operation-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5-"
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-r5-q06-operation-answer"
+            },
+            {
+              "type": "math",
+              "latex": "<3-"
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-r5-q06-operation-answer"
+            }
+          ],
+          "equationNumber": "12"
+        },
+        {
+          "id": "n08-r5-q06-operation-result-formula-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5-3<3-3"
+            }
+          ],
+          "equationNumber": "12"
+        },
+        {
+          "id": "n08-r5-q06-operation-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両辺に同じ操作をしたので、不等号の向きは変わりません。右辺を整理して中身の符号を調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q06-subtract-r5-before-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "右辺に同じ数の差が残りました。左辺は元の絶対値の中身です。右辺を計算し、中身の符号を読み取れる形に整理します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q06-subtract-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5-3<"
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-q06-subtract-answer"
+            }
+          ],
+          "equationNumber": "13"
+        },
+        {
+          "id": "n08-q06-subtract-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5-3<0"
+            }
+          ],
+          "equationNumber": "13"
+        },
+        {
+          "id": "n08-q06-subtract-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5-3<0"
+            },
+            {
+              "type": "text",
+              "text": " なので、差の符号が決められます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-06-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値の中身を0と比較できました。この結果を、正・0・負という言葉で読み取ります。"
+            }
+          ]
+        },
+        {
+          "id": "n08-06-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "判断："
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-06"
+            }
+          ]
+        },
+        {
+          "id": "n08-06-answer",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5-3<0"
+            },
+            {
+              "type": "text",
+              "text": "、したがって負です。"
+            }
+          ]
+        },
+        {
+          "id": "n08-06-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中身が負だと分かりました。ここで初めて、絶対値を外す場合を選べます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-07",
+          "type": "topic",
+          "text": "負の式の絶対値を外す"
+        },
+        {
+          "id": "n08-stage-07-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値を外し、括弧も外した式へつなげよう。"
+            },
+            {
+              "type": "math",
+              "latex": "|\\sqrt5-3|"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-rule-basis-n08-06-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5-3< 0"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-rule-basis-n08-cases-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a\\quad(a\\ge0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-rule-basis-n08-cases-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= -a\\quad(a<0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-rule-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "u"
+            },
+            {
+              "type": "text",
+              "text": "は絶対値の中身を表します。中身が負の場合に使う規則を、式の中で完成させます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-rule-r7-rule",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|u|= {\\square}u\\quad(u<0)",
+              "holeIds": [
+                "n08-q07-rule-build-r7-rule-sign"
+              ]
+            }
+          ],
+          "equationNumber": "14"
+        },
+        {
+          "id": "n08-q07-rule-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "式全体に負号を付けます。一つの項だけの符号を変えるのではありません。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-rule-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|u|= -u"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-bracket-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "規則の"
+            },
+            {
+              "type": "math",
+              "latex": "u"
+            },
+            {
+              "type": "text",
+              "text": "に、今回の式のどの範囲が対応するかを元の式で指定します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-bracket-r7-scope",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|\\sqrt5-3|= -({\\square})",
+              "holeIds": [
+                "n08-q07-bracket-build-r7-whole-interior"
+              ]
+            }
+          ],
+          "equationNumber": "15"
+        },
+        {
+          "id": "n08-q07-bracket-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値を外す操作はここまでです。次は、できた括弧を外す計算をします。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-bracket-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|\\sqrt5-3|= -(\\sqrt5-3)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-distribute-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず、括弧の前の負号を数を掛ける操作で表します。次に分配法則で各項へ掛け、最後に二つの積を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-distribute-r7-factor",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(\\sqrt5-3)= {\\square}(\\sqrt5-3)",
+              "holeIds": [
+                "n08-q07-distribute-build-r7-coefficient"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-distribute-r7-distribute",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "= \\left({\\square}\\right)\\sqrt5+\\left({\\square}\\right)({\\square})",
+              "holeIds": [
+                "n08-q07-distribute-build-r7-coefficient",
+                "n08-q07-distribute-build-r7-coefficient",
+                "n08-q07-distribute-build-r7-second-term"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-distribute-r7-products",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "= {\\square}\\sqrt5+{\\square}",
+              "holeIds": [
+                "n08-q07-distribute-build-r7-root-sign",
+                "n08-q07-distribute-build-r7-constant"
+              ]
+            }
+          ],
+          "equationNumber": "16"
+        },
+        {
+          "id": "n08-q07-distribute-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "括弧の中の二つの項の符号が、それぞれ反対になりました。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q07-distribute-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " -\\sqrt5+3"
+            }
+          ]
+        },
+        {
+          "id": "n08-07-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-\\sqrt5+3"
+            },
+            {
+              "type": "text",
+              "text": " は、加法の交換法則で項の順を変えられます。絶対値も括弧もない形を、元の問題の答えにします。"
+            }
+          ]
+        },
+        {
+          "id": "n08-07-assembly",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " {\\square}+\\phantom{0}",
+              "holeIds": [
+                "n08-07-build-r6-first-term"
+              ]
+            }
+          ],
+          "hideAfter": [
+            "n08-07-build-r6-first-term"
+          ]
+        },
+        {
+          "id": "n08-07-completed-assembly",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " 3-\\sqrt{5}"
+            }
+          ],
+          "equationNumber": "17"
+        },
+        {
+          "id": "n08-07-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "符号を判定する操作と、括弧を外す計算をつなげて答えられました。"
+            }
+          ]
+        },
+        {
+          "id": "n08-07-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|\\sqrt5-3|= 3-\\sqrt5"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-08",
+          "type": "topic",
+          "text": "円周率を含む差の符号"
+        },
+        {
+          "id": "n08-stage-08-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "与えられた円周率の小数表示から、差の符号と根拠を求めよう。"
+            },
+            {
+              "type": "math",
+              "latex": "3-\\pi"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-08-source-expression",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|3-\\pi|"
+            }
+          ]
+        },
+        {
+          "id": "n08-q08-order-r5-before-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は "
+            },
+            {
+              "type": "math",
+              "latex": "|3-\\pi|"
+            },
+            {
+              "type": "text",
+              "text": " を絶対値記号のない式で表します。与えられた "
+            },
+            {
+              "type": "math",
+              "latex": "\\pi=3.14159\\ldots"
+            },
+            {
+              "type": "text",
+              "text": " を使い、まず中身の符号を決めるために "
+            },
+            {
+              "type": "math",
+              "latex": "3"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "\\pi"
+            },
+            {
+              "type": "text",
+              "text": " を比べます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q08-order-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\ "
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-q08-order-answer"
+            },
+            {
+              "type": "math",
+              "latex": "\\ \\pi"
+            }
+          ]
+        },
+        {
+          "id": "n08-q08-order-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\ <\\ \\pi"
+            }
+          ],
+          "equationNumber": "18"
+        },
+        {
+          "id": "n08-q08-order-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "数の大小を、差の符号へつなげます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-r5-q08-operation-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今回調べたい中身は "
+            },
+            {
+              "type": "math",
+              "latex": "3-\\pi"
+            },
+            {
+              "type": "text",
+              "text": " です。"
+            },
+            {
+              "type": "math",
+              "latex": "3<\\pi"
+            },
+            {
+              "type": "text",
+              "text": " の両辺へ同じ操作を行い、左辺にこの中身が現れる式を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "n08-r5-q08-operation-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-"
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-r5-q08-operation-answer"
+            },
+            {
+              "type": "math",
+              "latex": "<\\pi-"
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-r5-q08-operation-answer"
+            }
+          ],
+          "equationNumber": "19"
+        },
+        {
+          "id": "n08-r5-q08-operation-result-formula-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-\\pi<\\pi-\\pi"
+            }
+          ],
+          "equationNumber": "19"
+        },
+        {
+          "id": "n08-r5-q08-operation-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の例と同じ手順で、中身と右辺の差を比較する形になりました。右辺を整理します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q08-difference-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "不等号の向きは前の行から保ち、右辺の同じ数の差を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q08-difference-r7-reduce",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-\\pi< {\\square}",
+              "holeIds": [
+                "n08-q08-difference-build-r7-zero"
+              ]
+            }
+          ],
+          "equationNumber": "20"
+        },
+        {
+          "id": "n08-q08-difference-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中身と0を比べられました。元の小数表示も、根拠として残します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q08-difference-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-\\pi< 0"
+            }
+          ]
+        },
+        {
+          "id": "n08-08-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中身と"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "の大小関係を、正・"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "・負という意味で読み取ります。前の大小関係も根拠として残します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-08-r7-interpret-prose",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-\\pi"
+            },
+            {
+              "type": "text",
+              "text": " の符号は "
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-08-build-r7-sign-word"
+            },
+            {
+              "type": "text",
+              "text": " です。"
+            }
+          ]
+        },
+        {
+          "id": "n08-08-answer",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-\\pi<0"
+            },
+            {
+              "type": "text",
+              "text": " であり、"
+            },
+            {
+              "type": "math",
+              "latex": "\\pi>3"
+            },
+            {
+              "type": "text",
+              "text": " だから負です。"
+            }
+          ]
+        },
+        {
+          "id": "n08-08-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中身が負であるという結論を使い、絶対値を外します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-09",
+          "type": "topic",
+          "text": "同じ規則を別の式へ使う"
+        },
+        {
+          "id": "n08-stage-09-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値記号のない式で表そう。"
+            },
+            {
+              "type": "math",
+              "latex": "|3-\\pi|"
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-bracket-basis-n08-08-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-\\pi< 0"
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-bracket-basis-n08-cases-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a\\quad(a\\ge0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-bracket-basis-n08-cases-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= -a\\quad(a<0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-bracket-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の例で使った規則を、今回の中身へ当てはめます。負号を作用させる範囲を指定します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-bracket-r7-scope",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|3-\\pi|= -({\\square})",
+              "holeIds": [
+                "n08-q09-bracket-build-r7-whole-interior"
+              ]
+            }
+          ],
+          "equationNumber": "21"
+        },
+        {
+          "id": "n08-q09-bracket-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に括弧を外します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-bracket-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|3-\\pi|= -(3-\\pi)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-distribute-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の例の順序で、掛ける数、分配する相手、二つの積を順に決めます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-distribute-r7-factor",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(3-\\pi)= {\\square}(3-\\pi)",
+              "holeIds": [
+                "n08-q09-distribute-build-r7-coefficient"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-distribute-r7-distribute",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "= \\left({\\square}\\right)3+\\left({\\square}\\right)({\\square})",
+              "holeIds": [
+                "n08-q09-distribute-build-r7-coefficient",
+                "n08-q09-distribute-build-r7-coefficient",
+                "n08-q09-distribute-build-r7-second-term"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-distribute-r7-products",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "= {\\square}3 {\\square}\\pi",
+              "holeIds": [
+                "n08-q09-distribute-build-r7-first-sign",
+                "n08-q09-distribute-build-r7-joining-operation"
+              ]
+            }
+          ],
+          "equationNumber": "22"
+        },
+        {
+          "id": "n08-q09-distribute-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二項の符号がともに反転しました。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q09-distribute-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " -3+\\pi"
+            }
+          ]
+        },
+        {
+          "id": "n08-09-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "項の順序を整え、正の項を先に書きます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-09-assembly",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " {\\square}+\\phantom{0}",
+              "holeIds": [
+                "n08-09-build-r6-first-term"
+              ]
+            }
+          ],
+          "hideAfter": [
+            "n08-09-build-r6-first-term"
+          ]
+        },
+        {
+          "id": "n08-09-completed-assembly",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " \\pi-3"
+            }
+          ],
+          "equationNumber": "23"
+        },
+        {
+          "id": "n08-09-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの例とも、大小→差の符号→場合の選択→括弧全体の反転という順序で処理しました。"
+            }
+          ]
+        },
+        {
+          "id": "n08-09-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|3-\\pi|= \\pi-3"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-10",
+          "type": "topic",
+          "text": "距離が0になる条件"
+        },
+        {
+          "id": "n08-stage-10-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "距離が0になる条件を、位置の意味から説明しよう。"
+            },
+            {
+              "type": "math",
+              "latex": "|a|=0"
+            }
+          ]
+        },
+        {
+          "id": "n08-q10-forward-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここからは性質です。"
+            },
+            {
+              "type": "math",
+              "latex": "|a|=0"
+            },
+            {
+              "type": "text",
+              "text": " は、"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " の点と原点との距離が0という意味です。離れていない二点は同じ位置にあります。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q10-forward-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|=0\\ \\Rightarrow\\ a="
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-q10-forward-answer"
+            }
+          ],
+          "equationNumber": "24"
+        },
+        {
+          "id": "n08-q10-forward-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|=0\\ "
+            },
+            {
+              "type": "math",
+              "latex": "\\Rightarrow"
+            },
+            {
+              "type": "math",
+              "latex": "\\ a=0"
+            }
+          ],
+          "equationNumber": "24"
+        },
+        {
+          "id": "n08-q10-forward-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値が0なら、元の数も0です。逆向きも確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q10-reverse-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a=0"
+            },
+            {
+              "type": "text",
+              "text": " なら、点は最初から原点と一致します。このときの距離を求めて、逆向きの関係も確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q10-reverse-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a=0\\ \\Rightarrow\\ |a|="
+            },
+            {
+              "type": "choice",
+              "itemId": "n08-q10-reverse-answer"
+            }
+          ],
+          "equationNumber": "25"
+        },
+        {
+          "id": "n08-q10-reverse-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a=0\\ "
+            },
+            {
+              "type": "math",
+              "latex": "\\Rightarrow"
+            },
+            {
+              "type": "math",
+              "latex": "\\ |a|=0"
+            }
+          ],
+          "equationNumber": "25"
+        },
+        {
+          "id": "n08-q10-reverse-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両方向が確かめられたので、"
+            },
+            {
+              "type": "math",
+              "latex": "|a|=0"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "a=0"
+            },
+            {
+              "type": "text",
+              "text": " は同値です。"
+            }
+          ]
+        },
+        {
+          "id": "n08-10-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二方向の結論を、数直線上の理由とともにまとめます。数の条件だけで終えず、距離が0になる意味を説明します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-10-answer",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a=0"
+            },
+            {
+              "type": "text",
+              "text": "、原点と同じ位置にある。"
+            }
+          ]
+        },
+        {
+          "id": "n08-10-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "性質は "
+            },
+            {
+              "type": "math",
+              "latex": "|a|=0\\Leftrightarrow a=0"
+            },
+            {
+              "type": "text",
+              "text": " と記録します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-11",
+          "type": "topic",
+          "text": "反対の二数の距離"
+        },
+        {
+          "id": "n08-stage-11-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "反対の二数の絶対値の関係を求めよう。"
+            },
+            {
+              "type": "math",
+              "latex": "|a|,\\quad|-a|"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-positive-basis-n08-cases-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a\\quad(a\\ge0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-positive-basis-n08-cases-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= -a\\quad(a<0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-positive-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a>0"
+            },
+            {
+              "type": "text",
+              "text": "の場合に、反対の数"
+            },
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "と比べます。次に、その符号に合う絶対値の規則を使い、最後に計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-positive-r7-condition",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-a {\\square}  0",
+              "holeIds": [
+                "n08-q11-positive-build-r7-opposite-relation"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-positive-r7-apply",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|-a|= {\\square}(-a)",
+              "holeIds": [
+                "n08-q11-positive-build-r7-rule-sign"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-positive-r7-calculate",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "= {\\square}a",
+              "holeIds": [
+                "n08-q11-positive-build-r7-result-sign"
+              ]
+            }
+          ],
+          "equationNumber": "27"
+        },
+        {
+          "id": "n08-q11-positive-interpretation",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a>0"
+            },
+            {
+              "type": "text",
+              "text": "の場合は "
+            },
+            {
+              "type": "math",
+              "latex": "|a|=a"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "|-a|=a"
+            },
+            {
+              "type": "text",
+              "text": " となり、二つの絶対値は同じ値です。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-positive-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-positive-terminal-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|-a|= a"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-negative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": "の場合も、まず反対の数"
+            },
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "text",
+              "text": "の符号を確かめてから、その点の原点からの距離を表します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-negative-r7-condition",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-a {\\square}  0",
+              "holeIds": [
+                "n08-q11-negative-build-r7-opposite-relation"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-negative-r7-apply",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|-a|= {\\square}",
+              "holeIds": [
+                "n08-q11-negative-build-r7-distance-term"
+              ]
+            }
+          ],
+          "equationNumber": "28"
+        },
+        {
+          "id": "n08-q11-negative-interpretation",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": "の場合は "
+            },
+            {
+              "type": "math",
+              "latex": "|a|=-a"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "|-a|=-a"
+            },
+            {
+              "type": "text",
+              "text": " となり、二つの絶対値は同じ値です。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-negative-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= -a"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-negative-terminal-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|-a|= -a"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-zero-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a=0"
+            },
+            {
+              "type": "text",
+              "text": " の場合は "
+            },
+            {
+              "type": "math",
+              "latex": "-a=0"
+            },
+            {
+              "type": "text",
+              "text": " です。二点はともに原点なので、"
+            },
+            {
+              "type": "math",
+              "latex": "|a|=|-a|=0"
+            },
+            {
+              "type": "text",
+              "text": " です。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-zero-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正・負・0の三つを確認できました。どの場合にも同じ関係が成り立ちます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-zero-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= 0"
+            }
+          ]
+        },
+        {
+          "id": "n08-q11-zero-terminal-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|-a|= 0"
+            }
+          ]
+        },
+        {
+          "id": "n08-11-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正・負・"
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "の三つの結果をまとめ、元の数と反対の数の絶対値の関係を表します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-11-r7-conclude",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a| {\\square}  |-a|",
+              "holeIds": [
+                "n08-11-build-r7-relation"
+              ]
+            }
+          ],
+          "equationNumber": "29"
+        },
+        {
+          "id": "n08-11-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の数の符号を変えても、原点からの距離は変わりません。"
+            }
+          ]
+        },
+        {
+          "id": "n08-11-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= |-a|"
+            }
+          ]
+        },
+        {
+          "id": "n08-stage-12",
+          "type": "topic",
+          "text": "絶対値を二乗する"
+        },
+        {
+          "id": "n08-stage-12-question",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正負の場合を調べ、絶対値の二乗を表そう。"
+            },
+            {
+              "type": "math",
+              "latex": "|a|^2"
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-nonnegative-basis-n08-cases-result-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= a\\quad(a\\ge0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-nonnegative-basis-n08-cases-result-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|= -a\\quad(a<0)"
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-nonnegative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "なので"
+            },
+            {
+              "type": "math",
+              "latex": "|a|=a"
+            },
+            {
+              "type": "text",
+              "text": "です。二乗の意味を、同じ数二つの計算で表し、式を完成させます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-nonnegative-r7-square",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|^2= a {\\square} a",
+              "holeIds": [
+                "n08-q12-nonnegative-build-r7-square-operation"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-nonnegative-r7-canonical",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "= a^2"
+            }
+          ],
+          "equationNumber": "30"
+        },
+        {
+          "id": "n08-q12-nonnegative-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "条件 "
+            },
+            {
+              "type": "math",
+              "latex": "a\\ge0"
+            },
+            {
+              "type": "text",
+              "text": " の場合の結論です。次に、負の場合でも同じ式になるか調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-nonnegative-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|^2= a^2"
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-negative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": "なので"
+            },
+            {
+              "type": "math",
+              "latex": "|a|=-a"
+            },
+            {
+              "type": "text",
+              "text": "です。両辺を二乗した式を、同じ数を二つ掛ける形へ直してから計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-negative-r7-given-case",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|^2= (-a)^2"
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-negative-r7-expand",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "= (-a)({\\square})",
+              "holeIds": [
+                "n08-q12-negative-build-r7-second-factor"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-negative-r7-product",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "= {\\square}a^2",
+              "holeIds": [
+                "n08-q12-negative-build-r7-result-sign"
+              ]
+            }
+          ],
+          "equationNumber": "31"
+        },
+        {
+          "id": "n08-q12-negative-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "条件 "
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": " の場合の結論です。0以上の場合と同じ式になりました。"
+            }
+          ]
+        },
+        {
+          "id": "n08-q12-negative-terminal-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|^2= a^2"
+            }
+          ]
+        },
+        {
+          "id": "n08-12-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの場合とも二乗した値は一致しました。したがって任意の実数について、絶対値の二乗を次のように表せます。"
+            }
+          ]
+        },
+        {
+          "id": "n08-12-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|a|^2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "a^2"
+            }
+          ],
+          "equationNumber": "32"
+        },
+        {
+          "id": "n08-12-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値を二乗すると、元の数を二乗した値と等しくなります。"
+            }
+          ]
+        },
+        {
+          "id": "n08-closing-r5-before-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値は原点からの距離を表します。中身が式のときも、まずその式全体の符号を調べ、定義に当てはめてから計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n08-closing-r5-after-0",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "点の位置から距離を考える方法と、符号から絶対値を外す方法を結び付けて使えるようになりました。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n08-q01-left-answer",
+          "label": "N08-Q01-LEFT-ANSWER",
+          "prompt": "左側でも右の座標から左の座標を引く",
+          "answerType": "formula",
+          "choices": [
+            "5",
+            "-5",
+            "0"
+          ],
+          "hints": [
+            "負の数を引く計算を思い出します。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-r5-q02-distance-build-r6-right",
+          "label": "右側の点と原点の距離の式を作る",
+          "prompt": "右側の点と原点の座標を、それぞれ引き算の位置へ入れます。",
+          "answerType": "formula",
+          "choices": [
+            "a",
+            "0"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-r5-q02-distance-build-r6-left",
+          "label": "右側の点と原点の距離の式を作る",
+          "prompt": "右側の点と原点の座標を、それぞれ引き算の位置へ入れます。",
+          "answerType": "formula",
+          "choices": [
+            "a",
+            "0"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-02-build-r7-term",
+          "label": "原点か右側なら座標が距離になる",
+          "prompt": "引き算を整理すると、距離はどの項になりますか。",
+          "answerType": "formula",
+          "choices": [
+            "a",
+            "-a",
+            "0"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q03-order-build-r6-right",
+          "label": "左側の点の距離を引き算で作る",
+          "prompt": "今回は原点が右側です。二つの座標を、引き算の位置へ入れます。",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "a"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q03-order-build-r6-left",
+          "label": "左側の点の距離を引き算で作る",
+          "prompt": "今回は原点が右側です。二つの座標を、引き算の位置へ入れます。",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "a"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-03-build-r6-sign",
+          "label": "左側の距離を簡単にする",
+          "prompt": "0からaを引いた数を、aを使って表します。",
+          "answerType": "formula",
+          "choices": [
+            "-",
+            "+"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-04-build-r6-value",
+          "label": "代入した式の値を計算する",
+          "prompt": "括弧の中の数と符号が反対の数を求めます。",
+          "answerType": "formula",
+          "choices": [
+            "5",
+            "-5",
+            "0"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q05-square-answer",
+          "label": "N08-Q05-SQUARE-ANSWER",
+          "prompt": "正の二数の大小を比べる準備",
+          "answerType": "formula",
+          "choices": [
+            "9",
+            "6",
+            "3"
+          ],
+          "hints": [
+            "指数の2は、同じ数を二つ掛けることを表します。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q05-compare-answer",
+          "label": "N08-Q05-COMPARE-ANSWER",
+          "prompt": "二乗した値の大小を決める",
+          "answerType": "text",
+          "choices": [
+            "<",
+            ">",
+            "="
+          ],
+          "hints": [
+            "数直線で右にある数が大きい数です。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-05-build-r7-relation",
+          "label": "根拠と元の数の大小関係を結ぶ",
+          "prompt": "二乗した値の比較から、元の二数の大小を決めます。",
+          "answerType": "formula",
+          "choices": [
+            ">",
+            "=",
+            "<"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-r5-q06-operation-answer",
+          "label": "N08-R5-Q06-OPERATION-ANSWER",
+          "prompt": "前の大小関係から中身の符号へつなぐ",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "0"
+          ],
+          "hints": [
+            "式を作る目的と、直前に分かった条件を確かめよう。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q06-subtract-answer",
+          "label": "N08-Q06-SUBTRACT-ANSWER",
+          "prompt": "両辺から同じ数を引いて差の符号へ",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "3",
+            "-3"
+          ],
+          "hints": [
+            "右辺で同じ数どうしを引きます。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-06",
+          "label": "N08-06",
+          "prompt": "差が0より小さいことを言葉で読む",
+          "answerType": "text",
+          "choices": [
+            "負",
+            "正",
+            "0",
+            "符号は決まらない"
+          ],
+          "hints": [
+            "0との大小関係を符号の言葉に直します。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q07-rule-build-r7-rule-sign",
+          "label": "負の場合に使う規則を選ぶ",
+          "prompt": "中身が負の場合の規則を、表の条件と対応させます。",
+          "answerType": "formula",
+          "choices": [
+            "-",
+            "+"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q07-bracket-build-r7-whole-interior",
+          "label": "中身全体を括弧で囲んで負号を付ける",
+          "prompt": "規則のuが、この元の式のどの範囲に当たるか選びます。",
+          "answerType": "formula",
+          "choices": [
+            "\\sqrt5-3",
+            "\\sqrt5",
+            "-3"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q07-distribute-build-r7-coefficient",
+          "label": "負号を括弧の二項へ掛ける",
+          "prompt": "前行の外側の負号を、掛ける数で表します。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "0",
+            "-1"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q07-distribute-build-r7-second-term",
+          "label": "負号を括弧の二項へ掛ける",
+          "prompt": "元の括弧の第二項を、符号を含めた項として表します。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q07-distribute-build-r7-root-sign",
+          "label": "負号を括弧の二項へ掛ける",
+          "prompt": "第一項の積の符号を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "-",
+            "+"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q07-distribute-build-r7-constant",
+          "label": "負号を括弧の二項へ掛ける",
+          "prompt": "第二項の積を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "0",
+            "3"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-07-build-r6-first-term",
+          "label": "正の項を先に並べて元の問いへ答える",
+          "prompt": "前の行の符号付きの項から、先頭へ置く正の項を選びます。残る項はその選択に応じて配置されます。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-\\sqrt{5}"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q08-order-answer",
+          "label": "N08-Q08-ORDER-ANSWER",
+          "prompt": "円周率と3を比べる",
+          "answerType": "text",
+          "choices": [
+            "<",
+            ">",
+            "="
+          ],
+          "hints": [
+            "与えられた小数表示の小数部分を見ます。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-r5-q08-operation-answer",
+          "label": "N08-R5-Q08-OPERATION-ANSWER",
+          "prompt": "別の例で同じ両辺操作を組み立てる",
+          "answerType": "formula",
+          "choices": [
+            "\\pi",
+            "3",
+            "-\\pi"
+          ],
+          "hints": [
+            "式を作る目的と、直前に分かった条件を確かめよう。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q08-difference-build-r7-zero",
+          "label": "同じ数を引いて0との比較へ",
+          "prompt": "右辺の同じ数どうしの差を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "\\pi",
+            "0",
+            "3"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-08-build-r7-sign-word",
+          "label": "差の符号を根拠と組にする",
+          "prompt": "前行の0との大小関係を、符号の言葉で表します。",
+          "answerType": "text",
+          "choices": [
+            "正",
+            "0",
+            "符号は決まらない",
+            "負"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q09-bracket-build-r7-whole-interior",
+          "label": "前の例と同じ負の規則を使う",
+          "prompt": "規則のuが、この元の式のどの範囲に当たるか選びます。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-\\pi",
+            "3-\\pi"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q09-distribute-build-r7-coefficient",
+          "label": "負号を3と負の円周率へ掛ける",
+          "prompt": "外側の負号を、掛ける数で表します。",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "-1",
+            "1"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q09-distribute-build-r7-second-term",
+          "label": "負号を3と負の円周率へ掛ける",
+          "prompt": "括弧の第二項を、符号を含めた項として表します。",
+          "answerType": "formula",
+          "choices": [
+            "-\\pi",
+            "\\pi"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q09-distribute-build-r7-first-sign",
+          "label": "負号を3と負の円周率へ掛ける",
+          "prompt": "第一項の積の符号を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "+",
+            "-"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q09-distribute-build-r7-joining-operation",
+          "label": "負号を3と負の円周率へ掛ける",
+          "prompt": "第二項の積の符号を計算し、二項をつなぎます。",
+          "answerType": "formula",
+          "choices": [
+            "+",
+            "-"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-09-build-r6-first-term",
+          "label": "元の問題の答えをまとめる",
+          "prompt": "前の行の符号付きの項から、先頭へ置く正の項を選びます。残る項はその選択に応じて配置されます。",
+          "answerType": "formula",
+          "choices": [
+            "\\pi",
+            "-3"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q10-forward-answer",
+          "label": "N08-Q10-FORWARD-ANSWER",
+          "prompt": "距離が0なら点はどこにあるか",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "1",
+            "-1"
+          ],
+          "hints": [
+            "図の原点と重なる座標を読みます。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q10-reverse-answer",
+          "label": "N08-Q10-REVERSE-ANSWER",
+          "prompt": "逆に元の数が0なら距離も0",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "a^2+1",
+            "1"
+          ],
+          "hints": [
+            "原点と原点の間の距離を考えます。"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q11-positive-build-r7-opposite-relation",
+          "label": "正の場合に二つの距離を比べる",
+          "prompt": "aが正のとき、反対の数を0と比べます。",
+          "answerType": "formula",
+          "choices": [
+            "<",
+            ">",
+            "="
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q11-positive-build-r7-rule-sign",
+          "label": "正の場合に二つの距離を比べる",
+          "prompt": "今の中身−aの符号に合う規則を使います。",
+          "answerType": "formula",
+          "choices": [
+            "-",
+            "+"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q11-positive-build-r7-result-sign",
+          "label": "正の場合に二つの距離を比べる",
+          "prompt": "外側の負号を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "-",
+            "+"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q11-negative-build-r7-opposite-relation",
+          "label": "負の場合にも二つの距離を比べる",
+          "prompt": "aが負のとき、反対の数を0と比べます。",
+          "answerType": "formula",
+          "choices": [
+            ">",
+            "<",
+            "="
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q11-negative-build-r7-distance-term",
+          "label": "負の場合にも二つの距離を比べる",
+          "prompt": "今の中身−aに合う規則を使い、距離を表します。",
+          "answerType": "formula",
+          "choices": [
+            "a",
+            "0",
+            "-a"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-11-build-r7-relation",
+          "label": "すべての場合を一つの関係にまとめる",
+          "prompt": "正・負・0の場合の結果に共通する関係をまとめます。",
+          "answerType": "formula",
+          "choices": [
+            "=",
+            ">",
+            "<"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q12-nonnegative-build-r7-square-operation",
+          "label": "0以上の場合の絶対値を二乗する",
+          "prompt": "二乗を、同じ数二つの計算として表します。",
+          "answerType": "formula",
+          "choices": [
+            "\\times",
+            "+",
+            "-"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q12-negative-build-r7-second-factor",
+          "label": "負の場合は括弧ごと二乗する",
+          "prompt": "括弧全体の二乗を、同じ因子二つの積へ直します。",
+          "answerType": "formula",
+          "choices": [
+            "a",
+            "a^{2}",
+            "-a"
+          ],
+          "retryOnWrong": true
+        },
+        {
+          "id": "n08-q12-negative-build-r7-result-sign",
+          "label": "負の場合は括弧ごと二乗する",
+          "prompt": "二つの負号を掛けた結果の符号を決めます。",
+          "answerType": "formula",
+          "choices": [
+            "-",
+            "+"
+          ],
+          "retryOnWrong": true
+        }
+      ]
+    }
+  ]
+}

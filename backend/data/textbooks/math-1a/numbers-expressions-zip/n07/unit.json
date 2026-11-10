@@ -1,0 +1,2836 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n07",
+  "revision": 4,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "分数と小数で、同じ数を表す",
+  "source": {
+    "type": "reference",
+    "label": "教師編集Word「数と式」N07 / 承認済み段階設計",
+    "rightsNote": "原問14件と無番号説明を段階化。本文設計承認2026-10-24。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "商と余りから小数の続き方を読む",
+    "循環部分をそろえる理由を考え分数へ直す",
+    "有限小数の分母と数の分類をつなぐ"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "07",
+      "title": "分数と小数で、同じ数を表す",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "n07-q01-tenths-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3÷4では、整数部分は0で余りは3です。小数第1位を求めるため、余りを10倍した30を4で割ります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-tenths-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\div4"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-tenths-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "30=4\\times"
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q01-tenths-answer"
+            },
+            {
+              "type": "math",
+              "latex": "+2"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-tenths-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "30の中に4は7個入り、余りは2です。商の7を小数第1位に置きます。次の位では、この余り2を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-hundredths-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の余り2を10倍し、20を4で割ります。今の商を小数第2位へ置きます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-hundredths-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "20=4\\times"
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q01-hundredths-answer"
+            },
+            {
+              "type": "math",
+              "latex": "+0"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-hundredths-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "20は4で割り切れます。これで余りが0になり、この先に求める数字はありません。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-hundredths-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac34=0.75"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-end-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "得られた小数と、最後の余りを対応させます。止まる理由は、書いた小数の長さではなく余りで判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-end-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-q01-end-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-end-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{3}{4}"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "0.75"
+            },
+            {
+              "type": "text",
+              "text": "と表せます。次は、余りが0にならない割り算と比べます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q01-end-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac34=0.75"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-integer-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "23÷11では、まず整数部分を求めます。23に含まれる11を二つ取り、残りを次の計算へ送ります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-integer-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "23=11\\times2+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q02-integer-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-integer-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分は2、余りは1です。小数の各位では、余りを10倍してから11で割ります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-digit-0-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今の余り1を10倍すると10です。この数を11で割り、整数として取り出せる商の数字を決めます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-digit-0-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "10\\div11"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-digit-0-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{小数第1位の商}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q02-digit-0-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-digit-0-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "商は0です。余りはまだ計算していません。割る前の数から、11にこの商を掛けた分を引きます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-remainder-0-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直前の商を使い、残った数を求めます。この余りが、次の位の計算の出発点になります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-remainder-0-interaction",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "10-11\\times0"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q02-remainder-0-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-remainder-0-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "余りは10です。次の位では、この余りを10倍して割ります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-digit-1-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今の余り10を10倍すると100です。この数を11で割り、整数として取り出せる商の数字を決めます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-digit-1-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "100\\div11"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-digit-1-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{小数第2位の商}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q02-digit-1-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-digit-1-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "商は9です。余りはまだ計算していません。割る前の数から、11にこの商を掛けた分を引きます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-remainder-1-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直前の商を使い、残った数を求めます。この余りが、次の位の計算の出発点になります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-remainder-1-interaction",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "100-11\\times9"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q02-remainder-1-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q02-remainder-1-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "余りは1です。最初と同じ余りに戻りました。商と余りを表でまとめ、その先を予測します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q03-cycle-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "小数第2位まで進むと、余りが最初の1へ戻りました。同じ余りから始めれば、次に割る数も商も同じになります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q03-cycle-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-q03-cycle-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q03-cycle-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分2の後に09が繰り返されます。上の横線は、その下の数字列が繰り返されることを表します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q03-cycle-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{23}{11}=2.\\overline{09}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q04-definitions-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数"
+            },
+            {
+              "type": "math",
+              "latex": "m,n"
+            },
+            {
+              "type": "text",
+              "text": "を用い、"
+            },
+            {
+              "type": "math",
+              "latex": "n\\ne0"
+            },
+            {
+              "type": "text",
+              "text": "として"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{m}{n}"
+            },
+            {
+              "type": "text",
+              "text": "と表せる数を"
+            },
+            {
+              "type": "term",
+              "text": "有理数"
+            },
+            {
+              "type": "text",
+              "text": "といいます。整数も分母を1にして表せます。小数部分が途中で終わるものを"
+            },
+            {
+              "type": "term",
+              "text": "有限小数"
+            },
+            {
+              "type": "text",
+              "text": "、終わらないものを"
+            },
+            {
+              "type": "term",
+              "text": "無限小数"
+            },
+            {
+              "type": "text",
+              "text": "といいます。無限小数のうち、ある所から同じ数字列を繰り返すものが"
+            },
+            {
+              "type": "term",
+              "text": "循環小数"
+            },
+            {
+              "type": "text",
+              "text": "です。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q04-definitions-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "小数の続き方と、整数どうしの比で表せることは、別の観点です。この二つを分けて最初の数へ当てはめます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q04-finite-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0.75"
+            },
+            {
+              "type": "text",
+              "text": "は、小数部分が途中で終わるかを見ます。定義をそのまま使い、数の大きさとは分けて分類します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q04-finite-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-q04-finite-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q04-finite-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "小数部分が終わるので有限小数です。また"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{3}{4}"
+            },
+            {
+              "type": "text",
+              "text": "と書けることから、有理数でもあります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q04-finite-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0.75=\\frac34"
+            }
+          ]
+        },
+        {
+          "id": "n07-q04-rational-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "もう一つの小数は09が繰り返されます。有理数かどうかは、終わるかどうかではなく定義で判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q04-rational-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-q04-rational-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q04-rational-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{23}{11}"
+            },
+            {
+              "type": "text",
+              "text": "という分数で表せるので、有理数であり循環小数です。有限小数だけが有理数なのではありません。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q05-remainders-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の分数は、負号を外して正の数の小数表示を調べ、最後に負号を戻せます。ここでは分母を正の整数"
+            },
+            {
+              "type": "math",
+              "latex": "n"
+            },
+            {
+              "type": "text",
+              "text": "とし、正の分数について考えます。余りは0から"
+            },
+            {
+              "type": "math",
+              "latex": "n-1"
+            },
+            {
+              "type": "text",
+              "text": "までで、0以外は"
+            },
+            {
+              "type": "math",
+              "latex": "n-1"
+            },
+            {
+              "type": "text",
+              "text": "種類しかありません。余り0で終わらずに計算が続くとき、限られた種類の余りを何度も使うことになります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q05-remainders-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1,2,\\ldots,n-1"
+            }
+          ]
+        },
+        {
+          "id": "n07-q05-remainders-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-q05-remainders-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q05-remainders-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ余りからは、次に10倍して割る計算も同じです。したがって、その後の商の列が繰り返されます。これは具体例の観察だけでなく、任意の正の分母に対する説明です。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q05-property-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "余りが0になればそこで終わり、0にならずに続けば同じ余りが再び現れます。二つの場合で全てを尽くしています。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q05-property-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "したがって有理数の小数表示は有限小数か循環小数です。次は逆に、循環小数から整数どうしの比を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q06-scale-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この数を"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と置きます。両辺を10、100、1000、…倍した形を比べます。このうち、小数部分が元と同じ並びになる最小の倍率を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q06-scale-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=0.\\overline{8}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q06-scale-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両辺を"
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q06-scale-answer"
+            },
+            {
+              "type": "text",
+              "text": "倍して、小数部分をそろえます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q06-scale-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一周期は1桁なので、選んだ10倍で同じ並びがそろいます。次は、その倍率を両辺に掛けた等式を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q06-scaled-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ倍率を、等式の左辺と右辺の両方に掛けます。小数点の移動と整数部分を対応させます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q06-scaled-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=0.\\overline{8}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q06-scaled-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "10x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q06-scaled-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q06-scaled-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分は8になり、小数部分は元と同じ8の繰り返しです。二式を並べ、同じ部分を消す操作を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-subtract-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した二つの式を並べ、小数部分を比べます。同じ部分を消し、有限の等式に直します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-subtract-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}10x&=8.\\overline{8}\\\\x&=0.\\overline{8}\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-subtract-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "上の式から元の式を"
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q07-subtract-answer"
+            },
+            {
+              "type": "text",
+              "text": "ことで、同じ小数部分を消します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-subtract-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "上の等式から元の等式を引きます。いきなり両辺をまとめず、左辺の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の項と右辺の小数を別々に整理します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-subtract-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "10x-x=8.\\overline{8}-0.\\overline{8}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-left-form-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの項に共通する"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "に注目します。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を残したまま、掛かっている数だけを括弧の中へまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-left-form-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "10x-x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q07-left-form-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-left-form-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つ目の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "1x"
+            },
+            {
+              "type": "text",
+              "text": "なので、係数の差は10"
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": "です。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を消さずに括弧の外へ残せました。次は括弧の中を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-coefficient-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "に掛かる数だけを取り出し、その差を計算します。右辺の値は変えずに残します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-coefficient-interaction",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(10-1)x"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q07-coefficient-answer"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-coefficient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "10-1=9"
+            },
+            {
+              "type": "text",
+              "text": "なので、左辺は"
+            },
+            {
+              "type": "math",
+              "latex": "9x"
+            },
+            {
+              "type": "text",
+              "text": "です。左辺の結果を残し、次に右辺の差を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-right-difference-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今度は右辺に注目します。二つの数の小数部分が同じであることを使い、差を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-right-difference-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "8.\\overline{8}-0.\\overline{8}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q07-right-difference-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-right-difference-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ小数部分が消え、右辺には8が残ります。左辺と合わせると"
+            },
+            {
+              "type": "math",
+              "latex": "9x"
+            },
+            {
+              "type": "text",
+              "text": "=8です。この等式から"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q07-right-difference-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "9x=8"
+            }
+          ]
+        },
+        {
+          "id": "n07-q08-divide-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今の等式は、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "に係数を掛けた形です。等式の両辺に同じ操作をして、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "だけを残します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q08-divide-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "9x=8"
+            }
+          ]
+        },
+        {
+          "id": "n07-q08-divide-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q08-divide-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q08-divide-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両辺を9で割ると、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を整数どうしの比"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{8}{9}"
+            },
+            {
+              "type": "text",
+              "text": "で表せます。元の循環小数を分数で表せました。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q08-meaning-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "無限に続く数字を最後まで計算したのではありません。二式で同じ小数部分が対応していたことを振り返ります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q08-meaning-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-q08-meaning-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q08-meaning-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ部分をそろえて消すことで、有限の等式から元の数を求められました。今度は周期が二桁の例にこの方法を使います。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-scale-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の例と比べて、繰り返す部分の桁数を確認します。両辺を10、100、1000、…倍した形のうち、小数部分が元と同じになる最小の倍率を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-scale-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=0.\\overline{69}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-scale-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両辺を"
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q09-scale-answer"
+            },
+            {
+              "type": "text",
+              "text": "倍して、小数部分をそろえます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-scale-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一周期は2桁なので、選んだ100倍で同じ並びがそろいます。次は、その倍率を両辺に掛けた等式を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-scaled-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ倍率を、等式の左辺と右辺の両方に掛けます。小数点の移動と整数部分を対応させます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-scaled-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=0.\\overline{69}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-scaled-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "100x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q09-scaled-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-scaled-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数部分は69になり、小数部分は元と同じ69の繰り返しです。二式を並べ、同じ部分を消す操作を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-subtract-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した二つの式を並べ、小数部分を比べます。同じ部分を消し、有限の等式に直します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-subtract-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}100x&=69.\\overline{69}\\\\x&=0.\\overline{69}\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-subtract-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "上の式から元の式を"
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q09-subtract-answer"
+            },
+            {
+              "type": "text",
+              "text": "ことで、同じ小数部分を消します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-subtract-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "上の等式から元の等式を引きます。いきなり両辺をまとめず、左辺の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の項と右辺の小数を別々に整理します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-subtract-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "100x-x=69.\\overline{69}-0.\\overline{69}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-left-form-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの項に共通する"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "に注目します。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を残したまま、掛かっている数だけを括弧の中へまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-left-form-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "100x-x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q09-left-form-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-left-form-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つ目の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "1x"
+            },
+            {
+              "type": "text",
+              "text": "なので、係数の差は100"
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": "です。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を消さずに括弧の外へ残せました。次は括弧の中を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-coefficient-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "に掛かる数だけを取り出し、その差を計算します。右辺の値は変えずに残します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-coefficient-interaction",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(100-1)x"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q09-coefficient-answer"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-coefficient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "100-1=99"
+            },
+            {
+              "type": "text",
+              "text": "なので、左辺は"
+            },
+            {
+              "type": "math",
+              "latex": "99x"
+            },
+            {
+              "type": "text",
+              "text": "です。左辺の結果を残し、次に右辺の差を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-right-difference-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今度は右辺に注目します。二つの数の小数部分が同じであることを使い、差を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-right-difference-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "69.\\overline{69}-0.\\overline{69}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q09-right-difference-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-right-difference-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ小数部分が消え、右辺には69が残ります。左辺と合わせると"
+            },
+            {
+              "type": "math",
+              "latex": "99x"
+            },
+            {
+              "type": "text",
+              "text": "=69です。この等式から"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q09-right-difference-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "99x=69"
+            }
+          ]
+        },
+        {
+          "id": "n07-q10-divide-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今の等式は、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "に係数を掛けた形です。等式の両辺に同じ操作をして、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "だけを残します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q10-divide-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "99x=69"
+            }
+          ]
+        },
+        {
+          "id": "n07-q10-divide-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q10-divide-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q10-divide-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両辺を99で割ると、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を整数どうしの比"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{69}{99}"
+            },
+            {
+              "type": "text",
+              "text": "で表せます。最後に分子・分母の共通因数を調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q10-reduce-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分子と分母を同じ数で割れるか調べ、値を変えずに既約分数に直します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q10-reduce-interaction",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{69}{99}"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-10"
+            }
+          ]
+        },
+        {
+          "id": "n07-q10-reduce-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "69と99を同じ3で割ると"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{23}{33}"
+            },
+            {
+              "type": "text",
+              "text": "です。整数どうしの比を作れたので、この無限小数も有理数です。次は有限小数になる分母の条件を調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q11-factor-ten-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "例えば"
+            },
+            {
+              "type": "math",
+              "latex": "0.75=\\frac{75}{100}"
+            },
+            {
+              "type": "text",
+              "text": "のように、有限小数は小数点を右へ動かした分だけ10の累乗で割る形へ戻せます。ここではまず、その分母を作る10を素数の積へ分けます。"
+            },
+            {
+              "type": "term",
+              "text": "素数"
+            },
+            {
+              "type": "text",
+              "text": "は1と自分自身以外に正の約数を持たない、1より大きい整数です。"
+            },
+            {
+              "type": "term",
+              "text": "素因数分解"
+            },
+            {
+              "type": "text",
+              "text": "とは、正の整数を素数の積に表すことです。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q11-factor-ten-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "10="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q11-factor-ten-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q11-factor-ten-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "10は"
+            },
+            {
+              "type": "math",
+              "latex": "2\\times5"
+            },
+            {
+              "type": "text",
+              "text": "です。10を"
+            },
+            {
+              "type": "math",
+              "latex": "k"
+            },
+            {
+              "type": "text",
+              "text": "回掛ける場合には、2と5がそれぞれ何個ずつ現れるかを数えます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q11-power-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "k"
+            },
+            {
+              "type": "text",
+              "text": "は正の整数です。10を一つ掛けるたびに、2が一つ、5が一つずつ増えます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q11-power-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "10^k="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q11-power-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q11-power-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分母"
+            },
+            {
+              "type": "math",
+              "latex": "10^k"
+            },
+            {
+              "type": "text",
+              "text": "の素因数は2と5だけです。約分しても、新しい種類の素因数が分母へ加わることはありません。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q11-converse-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "逆に、既約分数を"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{p}{2^u5^v}"
+            },
+            {
+              "type": "text",
+              "text": "とします。"
+            },
+            {
+              "type": "math",
+              "latex": "p"
+            },
+            {
+              "type": "text",
+              "text": "は整数、"
+            },
+            {
+              "type": "math",
+              "latex": "u,v"
+            },
+            {
+              "type": "text",
+              "text": "は0以上の整数です。大きい方の指数を"
+            },
+            {
+              "type": "math",
+              "latex": "h"
+            },
+            {
+              "type": "text",
+              "text": "とすると"
+            },
+            {
+              "type": "math",
+              "latex": "h-u,\\ h-v"
+            },
+            {
+              "type": "text",
+              "text": "は0以上です。分子と分母へ"
+            },
+            {
+              "type": "math",
+              "latex": "2^{h-u}5^{h-v}"
+            },
+            {
+              "type": "text",
+              "text": "を掛けると、分母は"
+            },
+            {
+              "type": "math",
+              "latex": "2^h5^h=10^h"
+            },
+            {
+              "type": "text",
+              "text": "になります。例えば"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{1}{8}"
+            },
+            {
+              "type": "text",
+              "text": "なら分子分母へ125を掛け、"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{125}{1000}"
+            },
+            {
+              "type": "text",
+              "text": "とできます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q11-converse-transform",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{p}{2^u5^v}"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{p\\cdot2^{h-u}5^{h-v}}{2^h5^h}"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{p\\cdot2^{h-u}5^{h-v}}{10^h}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q11-converse-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "既約分母の素因数が2と5だけであることは、有限小数になるための必要十分条件です。分母1も有限小数になる場合に含まれます。分母に3等が残れば有限小数にはなりません。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-powers-two-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2\\le a\\le20"
+            },
+            {
+              "type": "text",
+              "text": "の範囲で、まず5を因数に持たない場合を調べます。2を順に掛けて、上限を超える直前まで記録します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-powers-two-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-q12-powers-two-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-powers-two-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2の累乗は2、4、8、16です。次は5を因数に持つ数を調べ、全候補へまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-include-five-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "5を因数に持つ場合は"
+            },
+            {
+              "type": "math",
+              "latex": "5\\times2^r"
+            },
+            {
+              "type": "text",
+              "text": "（"
+            },
+            {
+              "type": "math",
+              "latex": "r"
+            },
+            {
+              "type": "text",
+              "text": "は0以上の整数）と表せます。"
+            },
+            {
+              "type": "math",
+              "latex": "r"
+            },
+            {
+              "type": "text",
+              "text": "を0から一つずつ増やし、20を超えない最後の場合を調べます。5を二つ含むと25以上になるので、この範囲には入りません。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-include-five-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "5\\times2^r\\le20"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-include-five-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "条件を満たす最大の"
+            },
+            {
+              "type": "math",
+              "latex": "r"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q12-include-five-answer"
+            },
+            {
+              "type": "text",
+              "text": "です。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-include-five-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r=0,1,2"
+            },
+            {
+              "type": "text",
+              "text": "の三つの場合から、5、10、20が得られます。次の"
+            },
+            {
+              "type": "math",
+              "latex": "r=3"
+            },
+            {
+              "type": "text",
+              "text": "では40となり、範囲を超えます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-assemble-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの群を合わせる前に、12を含めてよいか確認します。12を素因数の積に分け、分母として必要な条件と比べます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-assemble-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "12=2^2\\times3"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-assemble-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-q12-assemble-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-assemble-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "12は3を含むため除きます。16は範囲内の2の累乗なので含みます。二つの群を合わせると、答えは2、4、5、8、10、16、20です。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q12-assemble-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a=2,4,5,8,10,16,20"
+            }
+          ]
+        },
+        {
+          "id": "n07-q13-difference-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで"
+            },
+            {
+              "type": "term",
+              "text": "自然数"
+            },
+            {
+              "type": "text",
+              "text": "は正の整数と約束します。"
+            },
+            {
+              "type": "math",
+              "latex": "a=2"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "b=3"
+            },
+            {
+              "type": "text",
+              "text": "を使い、まず"
+            },
+            {
+              "type": "math",
+              "latex": "a-b"
+            },
+            {
+              "type": "text",
+              "text": "だけを計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q13-difference-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a-b=2-3"
+            }
+          ]
+        },
+        {
+          "id": "n07-q13-difference-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a-b="
+            },
+            {
+              "type": "choice",
+              "itemId": "n07-q13-difference-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q13-difference-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "差は"
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": "です。正の整数ではないため自然数ではありませんが、整数として扱えます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q13-quotient-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{a}{b}"
+            },
+            {
+              "type": "text",
+              "text": "を計算します。分母に入る"
+            },
+            {
+              "type": "math",
+              "latex": "b=3"
+            },
+            {
+              "type": "text",
+              "text": "は0ではありません。自然数かどうかは、正の整数という約束で判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q13-quotient-input-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac ab=\\frac23"
+            }
+          ]
+        },
+        {
+          "id": "n07-q13-quotient-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-q13-quotient-answer"
+            }
+          ]
+        },
+        {
+          "id": "n07-q13-quotient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "商は"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{2}{3}"
+            },
+            {
+              "type": "text",
+              "text": "で整数ではありません。したがって、自然数どうしの差や商がいつも自然数になるわけではないと、この反例で分かります。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q13-quotient-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac ab=\\frac23"
+            }
+          ]
+        },
+        {
+          "id": "n07-q14-real-definition-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数へ範囲を広げると差を扱え、有理数では0でない数による商も扱えます。ここで扱う数のうち、整数どうしの比で表せないものを"
+            },
+            {
+              "type": "term",
+              "text": "無理数"
+            },
+            {
+              "type": "text",
+              "text": "といい、"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{2}"
+            },
+            {
+              "type": "text",
+              "text": "や"
+            },
+            {
+              "type": "math",
+              "latex": "\\pi"
+            },
+            {
+              "type": "text",
+              "text": "が例です。有理数と無理数を合わせた全体を"
+            },
+            {
+              "type": "term",
+              "text": "実数"
+            },
+            {
+              "type": "text",
+              "text": "と呼びます。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q14-real-definition-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "無限に続くかどうかだけで、有理数と無理数を分けないことが大切です。具体的に得た分数へ戻って確認します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q14-reuse-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "先ほどの"
+            },
+            {
+              "type": "math",
+              "latex": "0.696969\\ldots"
+            },
+            {
+              "type": "text",
+              "text": "について、保存した最終結果を参照します。もう一度計算せず、有理数の定義と照合します。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q14-reuse-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n07-14"
+            }
+          ]
+        },
+        {
+          "id": "n07-q14-reuse-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "23と33は整数で"
+            },
+            {
+              "type": "math",
+              "latex": "33\\ne0"
+            },
+            {
+              "type": "text",
+              "text": "です。整数どうしの比で表せたため、有理数であることが確かめられました。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q14-reuse-output-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0.\\overline{69}=\\frac{23}{33}"
+            }
+          ]
+        },
+        {
+          "id": "n07-q14-closing-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "無理数の小数表示は循環しない無限小数です。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{2}"
+            },
+            {
+              "type": "text",
+              "text": "が有理数でないことの証明は「命題と証明」で扱います。この節の具体例の計算だけで証明済みとはしません。"
+            }
+          ]
+        },
+        {
+          "id": "n07-q14-closing-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "実数でも交換法則・結合法則・分配法則が成り立ち、これまでの文字式の変形を使えます。ただし0で割ることはできません。次は数直線上の位置と、原点からの距離を分けて考えます。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n07-q01-tenths-answer",
+          "label": "N07-Q01-TENTHS-ANSWER",
+          "prompt": "小数第1位の商を決める。",
+          "answerType": "formula",
+          "choices": [
+            "7",
+            "6",
+            "8"
+          ],
+          "hints": [
+            "小数第1位の商を決める"
+          ]
+        },
+        {
+          "id": "n07-q01-hundredths-answer",
+          "label": "N07-Q01-HUNDREDTHS-ANSWER",
+          "prompt": "小数第2位を求める。",
+          "answerType": "formula",
+          "choices": [
+            "5",
+            "4",
+            "2"
+          ],
+          "hints": [
+            "小数第2位を求める"
+          ]
+        },
+        {
+          "id": "n07-q01-end-answer",
+          "label": "N07-Q01-END-ANSWER",
+          "prompt": "割り算が止まる理由を読む。",
+          "answerType": "text",
+          "choices": [
+            "小数第2位で余りが0になったから",
+            "小数を2桁書いたら必ず止めるから",
+            "余りが同じ値へ戻ったから"
+          ],
+          "hints": [
+            "割り算が止まる理由を読む"
+          ]
+        },
+        {
+          "id": "n07-q02-integer-answer",
+          "label": "N07-Q02-INTEGER-ANSWER",
+          "prompt": "整数部分の後の余りを求める。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "2",
+            "0"
+          ],
+          "hints": [
+            "整数部分の後の余りを求める"
+          ]
+        },
+        {
+          "id": "n07-q02-digit-0-answer",
+          "label": "N07-Q02-DIGIT-0-ANSWER",
+          "prompt": "小数第1位の商を決める。",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "1",
+            "9"
+          ],
+          "hints": [
+            "割る前の数を超えない11の倍数を探します。"
+          ]
+        },
+        {
+          "id": "n07-q02-remainder-0-answer",
+          "label": "N07-Q02-REMAINDER-0-ANSWER",
+          "prompt": "次の位へ送る余りを求める。",
+          "answerType": "formula",
+          "choices": [
+            "10",
+            "0",
+            "1"
+          ],
+          "hints": [
+            "割る前の数から、11に商を掛けた分を引きます。"
+          ]
+        },
+        {
+          "id": "n07-q02-digit-1-answer",
+          "label": "N07-Q02-DIGIT-1-ANSWER",
+          "prompt": "小数第2位の商を決める。",
+          "answerType": "formula",
+          "choices": [
+            "9",
+            "8",
+            "0"
+          ],
+          "hints": [
+            "割る前の数を超えない11の倍数を探します。"
+          ]
+        },
+        {
+          "id": "n07-q02-remainder-1-answer",
+          "label": "N07-Q02-REMAINDER-1-ANSWER",
+          "prompt": "次の位へ送る余りを求める。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "0",
+            "10"
+          ],
+          "hints": [
+            "割る前の数から、11に商を掛けた分を引きます。"
+          ]
+        },
+        {
+          "id": "n07-q03-cycle-answer",
+          "label": "N07-Q03-CYCLE-ANSWER",
+          "prompt": "余りが戻った後の数字を予測する。",
+          "answerType": "text",
+          "choices": [
+            "0、9の並びが繰り返される",
+            "9だけが繰り返される",
+            "ここで余りが0になる"
+          ],
+          "hints": [
+            "余りが戻った後の数字を予測する"
+          ]
+        },
+        {
+          "id": "n07-q04-finite-answer",
+          "label": "N07-Q04-FINITE-ANSWER",
+          "prompt": "0.75の小数分類を決める。",
+          "answerType": "text",
+          "choices": [
+            "有限小数",
+            "循環小数",
+            "終わらない小数"
+          ],
+          "hints": [
+            "0.75の小数分類を決める"
+          ]
+        },
+        {
+          "id": "n07-q04-rational-answer",
+          "label": "N07-Q04-RATIONAL-ANSWER",
+          "prompt": "循環する小数が有理数である根拠を選ぶ。",
+          "answerType": "text",
+          "choices": [
+            "整数23と11の比で表せるから",
+            "小数が無限に続けば整数比で表せないから",
+            "整数部分が2だから"
+          ],
+          "hints": [
+            "整数の比で表せるという有理数の定義に戻ります。"
+          ]
+        },
+        {
+          "id": "n07-q05-remainders-answer",
+          "label": "N07-Q05-REMAINDERS-ANSWER",
+          "prompt": "同じ余りが必ず現れる理由を導く。",
+          "answerType": "text",
+          "choices": [
+            "余りは有限種類なので、計算が続けば同じ余りが再び現れる",
+            "商が必ず同じ数字になるから",
+            "余りはいつまでも別の整数に増えるから"
+          ],
+          "hints": [
+            "同じ余りが必ず現れる理由を導く"
+          ]
+        },
+        {
+          "id": "n07-q06-scale-answer",
+          "label": "N07-Q06-SCALE-ANSWER",
+          "prompt": "小数部分をそろえる。",
+          "answerType": "formula",
+          "choices": [
+            "10",
+            "100",
+            "1000"
+          ],
+          "hints": [
+            "一周期の桁数と、小数点を動かす桁数を対応させます。"
+          ]
+        },
+        {
+          "id": "n07-q06-scaled-answer",
+          "label": "N07-Q06-SCALED-ANSWER",
+          "prompt": "倍率後の式を作る。",
+          "answerType": "formula",
+          "choices": [
+            "8.\\overline{8}",
+            "0.\\overline{8}",
+            "80.\\overline{8}"
+          ],
+          "hints": [
+            "小数点を動かした後、整数部分へ移る数字を確認します。"
+          ]
+        },
+        {
+          "id": "n07-q07-subtract-answer",
+          "label": "N07-Q07-SUBTRACT-ANSWER",
+          "prompt": "同じ部分を消す操作を選ぶ。",
+          "answerType": "text",
+          "choices": [
+            "引く",
+            "足す",
+            "掛ける"
+          ],
+          "hints": [
+            "同じ数どうしから0を作る操作を考えます。"
+          ]
+        },
+        {
+          "id": "n07-q07-left-form-answer",
+          "label": "N07-Q07-LEFT-FORM-ANSWER",
+          "prompt": "左辺を係数の差として作る。",
+          "answerType": "formula",
+          "choices": [
+            "(10-1)x",
+            "(10+1)x",
+            "10x-1"
+          ],
+          "hints": [
+            "二つ目のxは1×xと読み、x以外の数を括弧へ入れます。"
+          ]
+        },
+        {
+          "id": "n07-q07-coefficient-answer",
+          "label": "N07-Q07-COEFFICIENT-ANSWER",
+          "prompt": "左辺の係数をまとめる。",
+          "answerType": "formula",
+          "choices": [
+            "9",
+            "10",
+            "11"
+          ],
+          "hints": [
+            "元の式のxは1xと読めます。"
+          ]
+        },
+        {
+          "id": "n07-q07-right-difference-answer",
+          "label": "N07-Q07-RIGHT-DIFFERENCE-ANSWER",
+          "prompt": "右辺の小数部分を消す。",
+          "answerType": "formula",
+          "choices": [
+            "8",
+            "0",
+            "80"
+          ],
+          "hints": [
+            "同じ小数部分を引くと0になります。"
+          ]
+        },
+        {
+          "id": "n07-q08-divide-answer",
+          "label": "N07-Q08-DIVIDE-ANSWER",
+          "prompt": "x一つの値を求める。",
+          "answerType": "formula",
+          "choices": [
+            "\\frac{8}{9}",
+            "\\frac{9}{8}",
+            "\\frac{8}{10}"
+          ],
+          "hints": [
+            "xに掛かる係数を1にする操作を考えます。"
+          ]
+        },
+        {
+          "id": "n07-q08-meaning-answer",
+          "label": "N07-Q08-MEANING-ANSWER",
+          "prompt": "有限の等式へ直せた理由を確かめる。",
+          "answerType": "text",
+          "choices": [
+            "同じ小数部分を差で消せたから",
+            "無限に続く部分を途中で切り捨てたから",
+            "循環している数字を整数とみなしたから"
+          ],
+          "hints": [
+            "有限の等式へ直せた理由を確かめる"
+          ]
+        },
+        {
+          "id": "n07-q09-scale-answer",
+          "label": "N07-Q09-SCALE-ANSWER",
+          "prompt": "小数部分をそろえる。",
+          "answerType": "formula",
+          "choices": [
+            "100",
+            "1000",
+            "10"
+          ],
+          "hints": [
+            "一周期の桁数と、小数点を動かす桁数を対応させます。"
+          ]
+        },
+        {
+          "id": "n07-q09-scaled-answer",
+          "label": "N07-Q09-SCALED-ANSWER",
+          "prompt": "倍率後の式を作る。",
+          "answerType": "formula",
+          "choices": [
+            "69.\\overline{69}",
+            "0.\\overline{69}",
+            "690.\\overline{69}"
+          ],
+          "hints": [
+            "小数点を動かした後、整数部分へ移る数字を確認します。"
+          ]
+        },
+        {
+          "id": "n07-q09-subtract-answer",
+          "label": "N07-Q09-SUBTRACT-ANSWER",
+          "prompt": "同じ部分を消す操作を選ぶ。",
+          "answerType": "text",
+          "choices": [
+            "引く",
+            "足す",
+            "掛ける"
+          ],
+          "hints": [
+            "同じ数どうしから0を作る操作を考えます。"
+          ]
+        },
+        {
+          "id": "n07-q09-left-form-answer",
+          "label": "N07-Q09-LEFT-FORM-ANSWER",
+          "prompt": "左辺を係数の差として作る。",
+          "answerType": "formula",
+          "choices": [
+            "(100-1)x",
+            "(100+1)x",
+            "100x-1"
+          ],
+          "hints": [
+            "二つ目のxは1×xと読み、x以外の数を括弧へ入れます。"
+          ]
+        },
+        {
+          "id": "n07-q09-coefficient-answer",
+          "label": "N07-Q09-COEFFICIENT-ANSWER",
+          "prompt": "左辺の係数をまとめる。",
+          "answerType": "formula",
+          "choices": [
+            "99",
+            "100",
+            "101"
+          ],
+          "hints": [
+            "元の式のxは1xと読めます。"
+          ]
+        },
+        {
+          "id": "n07-q09-right-difference-answer",
+          "label": "N07-Q09-RIGHT-DIFFERENCE-ANSWER",
+          "prompt": "右辺の小数部分を消す。",
+          "answerType": "formula",
+          "choices": [
+            "69",
+            "0",
+            "690"
+          ],
+          "hints": [
+            "同じ小数部分を引くと0になります。"
+          ]
+        },
+        {
+          "id": "n07-q10-divide-answer",
+          "label": "N07-Q10-DIVIDE-ANSWER",
+          "prompt": "x一つの値を求める。",
+          "answerType": "formula",
+          "choices": [
+            "\\frac{69}{99}",
+            "\\frac{99}{69}",
+            "\\frac{69}{100}"
+          ],
+          "hints": [
+            "xに掛かる係数を1にする操作を考えます。"
+          ]
+        },
+        {
+          "id": "n07-10",
+          "label": "N07-10",
+          "prompt": "分数を整える。",
+          "answerType": "formula",
+          "choices": [
+            "\\frac{23}{33}",
+            "\\frac{69}{100}",
+            "\\frac{23}{99}",
+            "\\frac{33}{23}"
+          ],
+          "hints": [
+            "分子と分母の両方を同じ整数で割れるか調べます。"
+          ]
+        },
+        {
+          "id": "n07-q11-factor-ten-answer",
+          "label": "N07-Q11-FACTOR-TEN-ANSWER",
+          "prompt": "分母10の素因数を読む。",
+          "answerType": "formula",
+          "choices": [
+            "2\\times5",
+            "2+5",
+            "10\\times10"
+          ],
+          "hints": [
+            "分母10の素因数を読む"
+          ]
+        },
+        {
+          "id": "n07-q11-power-answer",
+          "label": "N07-Q11-POWER-ANSWER",
+          "prompt": "10のk乗を素因数の積で作る。",
+          "answerType": "formula",
+          "choices": [
+            "2^k\\cdot5^k",
+            "2^k+5^k",
+            "2^{2k}\\cdot5^k"
+          ],
+          "hints": [
+            "10を一つ掛けるとき、2と5がそれぞれ何個ずつ増えるか数えます。"
+          ]
+        },
+        {
+          "id": "n07-q12-powers-two-answer",
+          "label": "N07-Q12-POWERS-TWO-ANSWER",
+          "prompt": "範囲内の2の累乗を集める。",
+          "answerType": "text",
+          "choices": [
+            "2,4,8,16",
+            "2,4,8",
+            "2,4,8,16,32"
+          ],
+          "hints": [
+            "範囲内の2の累乗を集める"
+          ]
+        },
+        {
+          "id": "n07-q12-include-five-answer",
+          "label": "N07-Q12-INCLUDE-FIVE-ANSWER",
+          "prompt": "5に掛けられる2の個数の上限を決める。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "1",
+            "3"
+          ],
+          "hints": [
+            "5へ2を順に掛け、上限を超える直前を探します。"
+          ]
+        },
+        {
+          "id": "n07-q12-assemble-answer",
+          "label": "N07-Q12-ASSEMBLE-ANSWER",
+          "prompt": "候補の除外理由を条件から判断する。",
+          "answerType": "text",
+          "choices": [
+            "3が残るため除く",
+            "偶数なので含める",
+            "20以下なので含める"
+          ],
+          "hints": [
+            "候補の除外理由を条件から判断する"
+          ]
+        },
+        {
+          "id": "n07-q13-difference-answer",
+          "label": "N07-Q13-DIFFERENCE-ANSWER",
+          "prompt": "差を求め自然数の範囲と比べる。",
+          "answerType": "formula",
+          "choices": [
+            "-1",
+            "1",
+            "0"
+          ],
+          "hints": [
+            "差を求め自然数の範囲と比べる"
+          ]
+        },
+        {
+          "id": "n07-q13-quotient-answer",
+          "label": "N07-Q13-QUOTIENT-ANSWER",
+          "prompt": "求めた商が自然数か判断する。",
+          "answerType": "text",
+          "choices": [
+            "自然数ではない（整数ではないから）",
+            "2/3で、自然数である",
+            "3/2で、自然数である"
+          ],
+          "hints": [
+            "求めた商が自然数か判断する"
+          ]
+        },
+        {
+          "id": "n07-14",
+          "label": "N07-14",
+          "prompt": "前の分数を使い分類の理由を述べる。",
+          "answerType": "text",
+          "choices": [
+            "有理数（23/33と表せる）",
+            "無理数（小数が無限に続く）",
+            "無理数（整数ではない）",
+            "有理数（小数第2位で終わる）"
+          ],
+          "hints": [
+            "整数の比で表せるという有理数の定義に戻ります。"
+          ]
+        }
+      ]
+    }
+  ]
+}

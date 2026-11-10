@@ -3,6 +3,7 @@ import { createReadStream, existsSync } from 'node:fs'
 import { extname, join, normalize } from 'node:path'
 import { isTextbookAnswerCorrect } from '../../src/domain/textbook'
 import { findLoadedTextbook, loadedTextbookUnits, textbookContractReports, textbookImportDiagnostics } from './textbookData'
+import { isNumbersZipUnit } from './numbersZip'
 import { publicTextbookUnit } from './publicTextbook'
 import { textbookInteractionContract } from './textbookContract'
 import { findPracticeQuestion, loadedPracticeUnits } from './practiceData'
@@ -173,12 +174,15 @@ const server = createServer(async (request, response) => {
   }
 
   if (request.method === 'GET' && url.pathname === '/api/textbooks') {
+    // Old frontends still see the original catalog while either deployment is rolling out.
+    const includeNumbersZip = url.searchParams.get('include') === 'numbers-expressions-zip'
     return sendJson(
       request,
       response,
       200,
       loadedTextbookUnits
         .filter(({unit})=>!isArchivedPhysicsChapter1(unit))
+        .filter(({ unit }) => includeNumbersZip || !isNumbersZipUnit(unit.unitId))
         .filter(({ unit }) => unit.status === 'published' || (
           unit.status === 'review' && [
             'math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof',
@@ -381,13 +385,13 @@ const server = createServer(async (request, response) => {
 
       const correct = isTextbookAnswerCorrect(answer, value)
       const wrongReason = !correct && answer.wrongReasons?.[value]
-      // Match the approved 集合と命題 textbook flow: one attempt always
-      // resolves the blank. A wrong attempt reveals the reviewed correct answer
-      // immediately, while recording that the first answer was incorrect.
+      // Construction slots retain their authored retry behavior. Other
+      // textbook blanks still resolve on the first attempt.
+      const resolved = correct || !item.retryOnWrong
       return sendJson(request, response, 200, {
         correct,
-        resolved: true,
-        ...(correct ? {} : { correctAnswer: answer.answer }),
+        resolved,
+        ...(!correct && resolved ? { correctAnswer: answer.answer } : {}),
         ...(wrongReason ? { wrongReason } : {}),
       })
     } catch (error) {
