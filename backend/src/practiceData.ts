@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { gunzipSync } from 'node:zlib'
+import { zipPracticeCatalog, zipPracticeQuestions } from './zipPracticeImport'
 import {
   PracticeCatalogSchema,
   PracticeQuestionSetSchema,
@@ -47,6 +48,16 @@ function validateHierarchy(catalog: PracticeCatalog, questions: PracticeQuestion
 
     const stepIds = new Set(question.solutionSteps.map((step) => step.id))
     const blankIds = new Set(question.blanks.map((blank) => blank.id))
+    const assetIds = new Set(question.assets?.map((asset) => asset.id) ?? [])
+    const blocks = [...question.stem, ...question.solutionSteps.flatMap((step) => step.content), ...(question.completionContent ?? [])]
+    for (const block of blocks) {
+      if (block.type === 'image' && !assetIds.has(block.assetId)) {
+        throw new Error(`unknown practice image ${block.assetId}: ${question.questionId}`)
+      }
+    }
+    if (question.referenceTable?.some((id) => !assetIds.has(id))) {
+      throw new Error(`unknown practice reference table asset: ${question.questionId}`)
+    }
 
     for (const step of question.solutionSteps) {
       for (const dependency of step.dependsOn) {
@@ -104,7 +115,15 @@ function loadPracticeUnits(): LoadedPracticeUnit[] {
   })
 }
 
-export const loadedPracticeUnits = loadPracticeUnits()
+// Kept separate from the existing 36-question bank so a trial import cannot
+// overwrite production history. Both are served through the SAME practice API.
+const zipPracticeUnit:LoadedPracticeUnit={
+  catalog:zipPracticeCatalog,
+  questions:zipPracticeQuestions,
+  dataDir:join(dataRoot,'_zip-practice-review-source'),
+}
+validateHierarchy(zipPracticeUnit.catalog,zipPracticeUnit.questions)
+export const loadedPracticeUnits = [...loadPracticeUnits(),zipPracticeUnit]
 
 export function findPracticeQuestion(questionId: string) {
   for (const unit of loadedPracticeUnits) {

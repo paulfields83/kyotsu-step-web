@@ -1,0 +1,210 @@
+{
+  "unitId": "math-numbers-expressions-n14",
+  "answers": {
+    "n14-01": {
+      "validator": "exact",
+      "answer": "原点からの距離が3より小さい",
+      "acceptedAnswers": []
+    },
+    "n14-02": {
+      "validator": "exact",
+      "answer": "x=-3,\\quad x=3",
+      "acceptedAnswers": []
+    },
+    "n14-w048-q03-region": {
+      "validator": "exact",
+      "answer": "二点の間",
+      "acceptedAnswers": []
+    },
+    "n14-03": {
+      "validator": "exact",
+      "answer": "二点の間、両端を含まない",
+      "acceptedAnswers": []
+    },
+    "n14-04": {
+      "validator": "exact",
+      "answer": "-3<x<3",
+      "acceptedAnswers": []
+    },
+    "n14-w048-q05-boundaries": {
+      "validator": "exact",
+      "answer": "x=-4,\\quad x=4",
+      "acceptedAnswers": []
+    },
+    "n14-w048-q05-region": {
+      "validator": "exact",
+      "answer": "二点の外側",
+      "acceptedAnswers": []
+    },
+    "n14-05": {
+      "validator": "exact",
+      "answer": "境界−4と4、外側、端点を含む",
+      "acceptedAnswers": []
+    },
+    "n14-06": {
+      "validator": "exact",
+      "answer": "x\\le-4\\;\\text{または}\\;x\\ge4",
+      "acceptedAnswers": []
+    },
+    "n14-wm014-q07-nonnegative": {
+      "validator": "exact",
+      "answer": "0\\le X<a",
+      "acceptedAnswers": []
+    },
+    "n14-wm014-q07-negative": {
+      "validator": "exact",
+      "answer": "-a<X<0",
+      "acceptedAnswers": []
+    },
+    "n14-07": {
+      "validator": "exact",
+      "answer": "-a<X<a",
+      "acceptedAnswers": []
+    },
+    "n14-wm015-q08-nonnegative": {
+      "validator": "exact",
+      "answer": "X>a",
+      "acceptedAnswers": []
+    },
+    "n14-wm015-q08-negative": {
+      "validator": "exact",
+      "answer": "X<-a",
+      "acceptedAnswers": []
+    },
+    "n14-08": {
+      "validator": "exact",
+      "answer": "X<-a\\;\\text{または}\\;X>a",
+      "acceptedAnswers": []
+    },
+    "n14-09": {
+      "validator": "exact",
+      "answer": "-5<x-3<5",
+      "acceptedAnswers": []
+    },
+    "n14-wm018-q10-add-left": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n14-wm018-q10-add-center": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n14-wm018-q10-add-right": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n14-10": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n14-wm018-q10-bound-right": {
+      "validator": "exact",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "n14-11": {
+      "validator": "exact",
+      "answer": "x+3\\le-2\\;\\text{または}\\;x+3\\ge2",
+      "acceptedAnswers": []
+    },
+    "n14-wm016-q12-left": {
+      "validator": "exact",
+      "answer": "x\\le-5",
+      "acceptedAnswers": []
+    },
+    "n14-wm016-q12-right": {
+      "validator": "exact",
+      "answer": "x\\ge-1",
+      "acceptedAnswers": []
+    },
+    "n14-12": {
+      "validator": "exact",
+      "answer": "x\\le-5\\;\\text{または}\\;x\\ge-1",
+      "acceptedAnswers": []
+    },
+    "n14-13": {
+      "validator": "exact",
+      "answer": "-4\\le3x-2\\le4",
+      "acceptedAnswers": []
+    },
+    "n14-wm019-q14-add-left": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n14-wm019-q14-add-center": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n14-wm019-q14-add-right": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n14-14": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n14-wm019-q14-bound-right": {
+      "validator": "exact",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "n14-wm020-q15-divide-left": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n14-wm020-q15-divide-center": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n14-wm020-q15-divide-right": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n14-15": {
+      "validator": "exact",
+      "answer": "-\\frac23",
+      "acceptedAnswers": []
+    },
+    "n14-wm020-q15-bound-right": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n14-wm022-q16-left-inner": {
+      "validator": "exact",
+      "answer": "-4",
+      "acceptedAnswers": []
+    },
+    "n14-wm022-q16-left-abs": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "n14-wm022-q16-right-inner": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "n14-wm022-q16-right-abs": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "n14-16": {
+      "validator": "exact",
+      "answer": "両端とも含む",
+      "acceptedAnswers": []
+    }
+  }
+}

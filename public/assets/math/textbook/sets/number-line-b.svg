@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-labelledby="title desc">
+<title id="title">集合Bの数直線</title><desc id="desc">-2と2の間を示し、両端を含まない数直線。</desc>
+<line x1="70" y1="110" x2="650" y2="110" stroke="#111" stroke-width="4"/>
+<polygon points="650,110 632,100 632,120" fill="#111"/>
+<line x1="210" y1="90" x2="210" y2="130" stroke="#111" stroke-width="3"/>
+<line x1="510" y1="90" x2="510" y2="130" stroke="#111" stroke-width="3"/>
+<line x1="220" y1="110" x2="500" y2="110" stroke="#555" stroke-width="12" stroke-linecap="round"/>
+<circle cx="210" cy="110" r="11" fill="#fff" stroke="#111" stroke-width="4"/>
+<circle cx="510" cy="110" r="11" fill="#fff" stroke="#111" stroke-width="4"/>
+<text x="195" y="165" font-family="sans-serif" font-size="28" fill="#111">−2</text>
+<text x="503" y="165" font-family="sans-serif" font-size="28" fill="#111">2</text>
+</svg>

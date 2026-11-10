@@ -1,0 +1,2552 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n03",
+  "revision": 7,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "指数法則と展開",
+  "subtitle": "掛ける構造を見分け、分配する項を一つずつ確かめる。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N03",
+    "rightsNote": "教師編集Wordの原問13件と元図1点に対応するレビュー用新規学習本文。原文中の出版社ガイドへの言及は再配布許諾を意味しない。元の解答別冊は未提供のため独立計算で検証。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "指数法則を因子の個数や組の繰返しから区別する",
+    "括弧の全項へ分配し、同類項を整理する",
+    "新しい多項式でも符号を含めて展開する"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "03",
+      "title": "指数法則と展開",
+      "description": "具体例から法則を作り、分配の考えへつなげる。",
+      "figures": [
+        {
+          "id": "n03-f01",
+          "src": "assets/n03-f01.png",
+          "alt": "積の対応を考える表。上に3xと4、左に2xと1があり、内側の四つのマスは全て疑問符。",
+          "caption": "二つの括弧の項を一つずつ組み合わせる。まだ答えは書き込まない。"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "heading-indices",
+          "type": "heading",
+          "text": "指数は、掛けた個数を数える"
+        },
+        {
+          "id": "marker-example-powers",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "paragraph-powers-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^3\\times4a^5"
+            },
+            {
+              "type": "text",
+              "text": " を簡単にしよう。"
+            },
+            {
+              "type": "math",
+              "latex": "a^3"
+            },
+            {
+              "type": "text",
+              "text": " は "
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " を3回掛けたもの、"
+            },
+            {
+              "type": "math",
+              "latex": "a^5"
+            },
+            {
+              "type": "text",
+              "text": " は5回掛けたものである。このように同じ数を繰り返し掛けた形を"
+            },
+            {
+              "type": "term",
+              "text": "累乗"
+            },
+            {
+              "type": "text",
+              "text": "、右上の数を"
+            },
+            {
+              "type": "term",
+              "text": "指数"
+            },
+            {
+              "type": "text",
+              "text": "という。ここでは指数を正の整数として考える。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-powers-count",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "途中の "
+            },
+            {
+              "type": "math",
+              "latex": "4"
+            },
+            {
+              "type": "text",
+              "text": " は "
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " の個数には入らない。数の部分を前へ置き、文字を数え直すと、"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-count-a-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "の個数を、二つの組から合計する。係数4は個数へ入れない。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-count-a-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{aの個数}=3+5="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-audit-count-a"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^3\\times4a^5=4\\times\\underbrace{a\\times a\\times a}_{3\\text{個}}\\times\\underbrace{a\\times a\\times a\\times a\\times a}_{5\\text{個}}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-01"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-powers-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "となる。ここでは "
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " の個数を足した。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-powers-product",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "では正の整数 "
+            },
+            {
+              "type": "math",
+              "latex": "m,n"
+            },
+            {
+              "type": "text",
+              "text": " について考えよう。"
+            },
+            {
+              "type": "math",
+              "latex": "a^ma^n"
+            },
+            {
+              "type": "text",
+              "text": " では "
+            },
+            {
+              "type": "math",
+              "latex": "m"
+            },
+            {
+              "type": "text",
+              "text": " 個と "
+            },
+            {
+              "type": "math",
+              "latex": "n"
+            },
+            {
+              "type": "text",
+              "text": " 個が続いている。したがって、"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^ma^n="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-02"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-powers-power",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一方、"
+            },
+            {
+              "type": "math",
+              "latex": "(a^m)^n"
+            },
+            {
+              "type": "text",
+              "text": " は「"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " を "
+            },
+            {
+              "type": "math",
+              "latex": "m"
+            },
+            {
+              "type": "text",
+              "text": " 回掛けた組」が "
+            },
+            {
+              "type": "math",
+              "latex": "n"
+            },
+            {
+              "type": "text",
+              "text": " 組ある。"
+            },
+            {
+              "type": "math",
+              "latex": "m+n"
+            },
+            {
+              "type": "text",
+              "text": " 個ではなく、"
+            },
+            {
+              "type": "math",
+              "latex": "m"
+            },
+            {
+              "type": "text",
+              "text": " 個の組を "
+            },
+            {
+              "type": "math",
+              "latex": "n"
+            },
+            {
+              "type": "text",
+              "text": " 回重ねるから、"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-03-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "math",
+              "latex": "m"
+            },
+            {
+              "type": "text",
+              "text": "個掛けた組が"
+            },
+            {
+              "type": "math",
+              "latex": "n"
+            },
+            {
+              "type": "text",
+              "text": "組ある形へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-03-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a^m)^n=\\underbrace{a^m\\cdot a^m\\cdots a^m}_{n\\text{組}}"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a^m)^n="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-03"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-powers-factors",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後に "
+            },
+            {
+              "type": "math",
+              "latex": "(ab)^n"
+            },
+            {
+              "type": "text",
+              "text": " を考える。掛け算の交換法則・結合法則で、"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "b"
+            },
+            {
+              "type": "text",
+              "text": " をそれぞれ集められる。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-04-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず三組の場合を、実際に並べ替えて確かめる。"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "b"
+            },
+            {
+              "type": "text",
+              "text": "をそれぞれ同じ種類で集める。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-04-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(ab)^3=(ab)(ab)(ab)=a\\cdot a\\cdot a\\cdot b\\cdot b\\cdot b"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(ab)^n=(ab)(ab)\\cdots(ab)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-04"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-powers-rules",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで作った三つの関係を"
+            },
+            {
+              "type": "term",
+              "text": "指数法則"
+            },
+            {
+              "type": "text",
+              "text": "という。「同じ底の積」「累乗の累乗」「積の累乗」は、それぞれ掛け合わせる構造が異なるので、指数の計算も区別する。"
+            }
+          ]
+        },
+        {
+          "id": "n03-s4-rules-summary",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{array}{c|c}\\text{同じ底の積}&a^ma^n=a^{m+n}\\\\\\text{累乗の累乗}&(a^m)^n=a^{mn}\\\\\\text{積の累乗}&(ab)^n=a^nb^n\\end{array}"
+            }
+          ]
+        },
+        {
+          "id": "n03-s4-rule-distinction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積では個数を足し、同じ組を繰り返すときは個数に組数を掛けます。括弧が何をまとめているかを見て、使う関係を区別します。"
+            }
+          ]
+        },
+        {
+          "id": "marker-powers-check",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "paragraph-powers-check",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2x^3y^2)^3"
+            },
+            {
+              "type": "text",
+              "text": " を簡単にしよう。負号を含む "
+            },
+            {
+              "type": "math",
+              "latex": "-2"
+            },
+            {
+              "type": "text",
+              "text": " も、括弧の中の一つの因子である。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-05-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三乗を同じ三つの因子の積へ戻す。次に、係数・"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の組・"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "の組ごとに集める。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-05-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2x^3y^2)^3=(-2x^3y^2)(-2x^3y^2)(-2x^3y^2)"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-05",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2x^3y^2)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-05"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-explain-n03-06-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "指数法則の使い方を一度に混ぜず、係数、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "に分ける。数の三乗の符号を決め、各文字については一組の個数×組の数を数える。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-negative-cube-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず係数の三乗を、符号を含めて計算する。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-negative-pair-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の因子を三個まとめて処理せず、まず最初の二個を掛けよう。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-negative-pair-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2)(-2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-detail-negative-pair"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-negative-pair-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここまでの積は正。さらに残った−2を掛けるので、三乗全体の符号を次に判断できる。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-bridge-negative-cube-assemble-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最初の二個の積4を、残る−2へ掛ける段階まで戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-bridge-negative-cube-assemble-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2)^3=4(-2)"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-negative-cube-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2)^3=(-2)(-2)(-2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-negative-cube"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-x-power-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "累乗の累乗では、因子の個数を掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-bridge-x-power-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三つの組を続けて書くと、指数を足す関係へ戻せる。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-bridge-x-power-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x^3)^3=x^3x^3x^3"
+            }
+          ]
+        },
+        {
+          "id": "n03-s5-cube-x-count-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{xの個数を表す式：}"
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-s5-cube-x-count"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-x-power-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{xの指数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-x-power"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-y-power-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "y²"
+            },
+            {
+              "type": "text",
+              "text": "の組も三つある。指数法則を、実際の因子の個数へ戻して確かめよう。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-y-power-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{yの指数}=2+2+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-detail-y-power"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-y-power-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "これで係数、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の指数、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "の指数が別々に決まった。三つを一つの単項式へ組み立てる。"
+            }
+          ]
+        },
+        {
+          "id": "n03-s4-parts-results",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2)^3=-8,\\qquad(x^3)^3=x^9,\\qquad(y^2)^3=y^6"
+            }
+          ]
+        },
+        {
+          "id": "n03-s4-parts-return",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "係数"
+            },
+            {
+              "type": "math",
+              "latex": "−8"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の部分"
+            },
+            {
+              "type": "math",
+              "latex": "x^{9}"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "の部分"
+            },
+            {
+              "type": "math",
+              "latex": "y^{6}"
+            },
+            {
+              "type": "text",
+              "text": "がそろいました。三つを掛けた形へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-06",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2x^3y^2)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-06"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-explain-n03-06-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三つの部分を掛け合わせると一つの単項式になる。数の符号と二種類の文字の指数が、どの計算から来たかを対応させて見直す。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-powers-check-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最初は係数・"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "・"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": " に分け、次に符号と指数を計算した。"
+            }
+          ]
+        },
+        {
+          "id": "heading-distribute",
+          "type": "heading",
+          "text": "括弧の全ての項に掛ける"
+        },
+        {
+          "id": "marker-distribute-example",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "paragraph-distribute-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2(x^2-3x+4)"
+            },
+            {
+              "type": "text",
+              "text": " を展開しよう。中学校の分配法則 "
+            },
+            {
+              "type": "math",
+              "latex": "A(B+C)=AB+AC"
+            },
+            {
+              "type": "text",
+              "text": " は、括弧の中が三つの項でも同じである。"
+            },
+            {
+              "type": "math",
+              "latex": "x^2"
+            },
+            {
+              "type": "text",
+              "text": " は最初の "
+            },
+            {
+              "type": "math",
+              "latex": "x^2"
+            },
+            {
+              "type": "text",
+              "text": " だけでなく、"
+            },
+            {
+              "type": "math",
+              "latex": "-3x"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "4"
+            },
+            {
+              "type": "text",
+              "text": " にも掛かる。まず積を残して書こう。"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2(x^2-3x+4)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-07"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-product-fourth-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "の積です。同じ底"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の積なので指数2と2を足します。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-product-fourth-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2x^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-audit-product-fourth"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-product-negative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "−3x"
+            },
+            {
+              "type": "text",
+              "text": "です。係数"
+            },
+            {
+              "type": "math",
+              "latex": "−3"
+            },
+            {
+              "type": "text",
+              "text": "を残し、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の指数2と1を足します。"
+            }
+          ]
+        },
+        {
+          "id": "n03-s4-product-count",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2(-3x)=-3x^{2+1}"
+            }
+          ]
+        },
+        {
+          "id": "n03-s4-product-exponent-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{xの指数}=2+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-s4-product-exponent"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-product-negative-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2(-3x)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-audit-product-negative"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-product-last-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後は"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "と定数4です。数4を前へ置き、"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "はそのまま残します。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-product-last-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2\\cdot4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-audit-product-last"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-08",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2(x^2-3x+4)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-08"
+            }
+          ]
+        },
+        {
+          "id": "n03-s4-distribute-close",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三つの積は四次・三次・二次で、互いに同類項ではありません。計算結果を元の三つの位置へ戻したので、これで展開は終わりです。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-distribute-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "このように積の形を単項式の和へ書き直すことを"
+            },
+            {
+              "type": "term",
+              "text": "展開する"
+            },
+            {
+              "type": "text",
+              "text": "という。後ろの式が3項なら、対応する積も3個である。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-two-brackets",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今度は "
+            },
+            {
+              "type": "math",
+              "latex": "(2x+1)(3x+4)"
+            },
+            {
+              "type": "text",
+              "text": " を考えよう。前の括弧も2項なので、掛け合わせる組を抜かさないことが大切だ。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-grid-reading",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "表の上の"
+            },
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": "・4が後ろの括弧、左の"
+            },
+            {
+              "type": "math",
+              "latex": "2x"
+            },
+            {
+              "type": "text",
+              "text": "・1が前の括弧の項に当たる。一つのマスでは、同じ列の上の項と同じ行の左の項を掛ける。四つの交点を一回ずつ使えば、掛け漏れがないか確かめられる。"
+            }
+          ]
+        },
+        {
+          "id": "figure-multiplication-grid",
+          "type": "figure",
+          "figureId": "n03-f01"
+        },
+        {
+          "id": "paragraph-grid-first",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず "
+            },
+            {
+              "type": "math",
+              "latex": "2x"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "1"
+            },
+            {
+              "type": "text",
+              "text": " を、それぞれ後ろの括弧全体に掛けると、"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-09",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2x+1)(3x+4)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-09"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-grid-products",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "さらに各括弧を開く。図の「?」4マスに対応する4個の積をまだまとめずに書くと、"
+            }
+          ]
+        },
+        {
+          "id": "formula-r3-q10-p1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2x\\cdot 3x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-r3-q10-p1"
+            }
+          ]
+        },
+        {
+          "id": "formula-r3-q10-p2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2x\\cdot 4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-r3-q10-p2"
+            }
+          ]
+        },
+        {
+          "id": "formula-r3-q10-p3",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1\\cdot 3x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-r3-q10-p3"
+            }
+          ]
+        },
+        {
+          "id": "formula-r3-q10-p4",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1\\cdot 4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-r3-q10-p4"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-10",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2x+1)(3x+4)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-10"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-grid-collect",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ文字の部分を持つ項を集めると、"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-grid-collect-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "四つの積のうち、一次項二つだけをまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-grid-collect-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "8x+3x=(8+3)x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-audit-grid-collect"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-11",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2x+1)(3x+4)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-11"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-grid-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「どの項どうしを掛けるか」を決めてから、「同類項をまとめる」という二段階を踏めば、項の抜けや符号の誤りを防げる。"
+            }
+          ]
+        },
+        {
+          "id": "marker-final-check",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "paragraph-final-check",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(3x-1)(2x^2-x+5)"
+            },
+            {
+              "type": "text",
+              "text": " では、後ろの括弧が3項になった。同じ方法で、まず前の括弧の二つの項に分けよう。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-12-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の"
+            },
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "を、それぞれ後ろの括弧全体へ掛けます。後ろの三項を、途中で省略せず同じ形のまま保ちます。"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-12",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(3x-1)(2x^2-x+5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-12"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-12-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(3x-1)(2x^2-x+5)=3x(2x^2-x+5)+(-1)(2x^2-x+5)"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-explain-n03-13-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず六つの積を二行に分けて求めます。同類項は、二行がそろってからまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-first-row-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": "を後ろの三項へ一つずつ掛ける。まずこの行だけ完成させよう。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-first-product-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": "を三項へ配るときも、一組ずつ積を作る。最初は係数3と2、文字"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "に分けよう。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-first-product-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x\\cdot2x^2=(3\\cdot2)x^{1+2}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-detail-first-product"
+            },
+            {
+              "type": "math",
+              "latex": "x^3"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-first-product-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この積は三次項となる。次の積は相手の項と符号が異なる。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-second-product-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二番目の項は"
+            },
+            {
+              "type": "math",
+              "latex": "−x"
+            },
+            {
+              "type": "text",
+              "text": "である。負号を含めて"
+            },
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": "へ掛けよう。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-second-product-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x(-x)=(3\\cdot(-1))x^{1+1}=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-detail-second-product"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-second-product-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここでは二次項ができる。三次項とはまだ足し合わせず、別の項として残す。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-third-product-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三番目の5には文字がない。数の部分を掛け、前の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を一つ残そう。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-third-product-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x\\cdot5=(3\\cdot5)x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-detail-third-product"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-third-product-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三つの積を、元の項に対応する順序で一行に並べれば、"
+            },
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": "を配った結果になる。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-first-row-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x(2x^2-x+5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-first-row"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-second-row-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は前の括弧の−1を、後ろの全項に掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "n03-s5-minus-row-distribute-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(2x^2-x+5)=(-1)(2x^2)+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-s5-minus-row-distribute"
+            },
+            {
+              "type": "math",
+              "latex": "+(-1)5"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-bridge-second-row-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "後半は"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "を掛けた行です。二次項、一次項、定数項の順に計算します。まず"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "math",
+              "latex": "2x²"
+            },
+            {
+              "type": "text",
+              "text": "へ掛けます。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-bridge-second-row-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-1)(2x^2)=-2x^2"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-minus-minus-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中央の項"
+            },
+            {
+              "type": "math",
+              "latex": "−x"
+            },
+            {
+              "type": "text",
+              "text": "には、さらに"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "が掛かる。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-minus-minus-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-1)(-x)=((-1)(-1))x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-audit-minus-minus"
+            },
+            {
+              "type": "math",
+              "latex": "\\cdot x"
+            }
+          ]
+        },
+        {
+          "id": "n03-s4-minus-last",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次項は"
+            },
+            {
+              "type": "math",
+              "latex": "+x"
+            },
+            {
+              "type": "text",
+              "text": "になりました。最後に、"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "を定数5へ掛けます。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-worked-n03-bridge-second-row-before-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-1)5=-5"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-second-row-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(2x^2-x+5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-second-row"
+            }
+          ]
+        },
+        {
+          "id": "n03-s5-collect-square-terms-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{二次の項：}"
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-s5-collect-square-terms"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-collect-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二行を足す。先に二次項だけを集めよう。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-collect-square-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3x^2-2x^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-collect-square"
+            }
+          ]
+        },
+        {
+          "id": "n03-s5-collect-linear-terms-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{一次の項：}"
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-s5-collect-linear-terms"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-collect-linear-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次項も別にまとめれば、最後に残るのは三次項と定数項である。"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-collect-linear-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "15x+x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-collect-linear"
+            }
+          ]
+        },
+        {
+          "id": "n03-s4-six-products",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(6x^3-3x^2+15x)+(-2x^2+x-5)=6x^3+(-3x^2-2x^2)+(15x+x)-5"
+            }
+          ]
+        },
+        {
+          "id": "formula-n03-13",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(3x-1)(2x^2-x+5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-13"
+            }
+          ]
+        },
+        {
+          "id": "n03-bridge-explain-n03-13-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三次項、二次項、一次項、定数を一つずつ数え直した。元の二項×三項という対応を保って展開したので、六つの積の掛け漏れを確認できる。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-final-bridge",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後は積の対応図を使わず、分配の考えを新しい式へ適用した。次は、展開に繰り返し現れる形を乗法公式として整理する。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n03-bridge-audit-count-a",
+          "label": "N03-BRIDGE-AUDIT-COUNT-A",
+          "prompt": "aの個数を、二つの組から合計する。係数4は個数へ入れない。",
+          "answerType": "formula",
+          "choices": [
+            "8",
+            "15",
+            "2",
+            "4"
+          ],
+          "hints": [
+            "同じ底の積では因子を続けて数える。"
+          ]
+        },
+        {
+          "id": "n03-01",
+          "label": "N03-01",
+          "prompt": "同じaの因子を数えて簡単にしよう。",
+          "answerType": "formula",
+          "choices": [
+            "4a^8",
+            "4a^{15}",
+            "a^8",
+            "4a^2"
+          ],
+          "hints": [
+            "係数4は指数へ加えず、aの個数だけを合わせる。"
+          ]
+        },
+        {
+          "id": "n03-02",
+          "label": "N03-02",
+          "prompt": "同じ底を掛けると指数はどうなる？",
+          "answerType": "formula",
+          "choices": [
+            "a^{m+n}",
+            "a^{mn}",
+            "a^{m-n}",
+            "2a^{mn}"
+          ],
+          "hints": [
+            "m個とn個を一列に続けて数える。"
+          ]
+        },
+        {
+          "id": "n03-03",
+          "label": "N03-03",
+          "prompt": "m個の組をn回繰り返すと？",
+          "answerType": "formula",
+          "choices": [
+            "a^{mn}",
+            "a^{m+n}",
+            "a^{m^n}",
+            "na^m"
+          ],
+          "hints": [
+            "一組の長さと組の数の関係を使う。"
+          ]
+        },
+        {
+          "id": "n03-04",
+          "label": "N03-04",
+          "prompt": "aとbを集め直した形を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "a^nb^n",
+            "a^nb",
+            "ab^n",
+            "a^{2n}b^n"
+          ],
+          "hints": [
+            "括弧内のaとbは毎回一つずつ現れる。"
+          ]
+        },
+        {
+          "id": "n03-05",
+          "label": "N03-05",
+          "prompt": "負号も文字も括弧の全因子へ3乗を配ろう。",
+          "answerType": "formula",
+          "choices": [
+            "(-2)^3(x^3)^3(y^2)^3",
+            "(-2)(x^3)^3(y^2)^3",
+            "(-2)^3x^3y^6",
+            "(-2)^3(x^3)^3y^2"
+          ],
+          "hints": [
+            "括弧の内側の因子を三つに分けて考える。"
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-negative-pair",
+          "label": "N03-BRIDGE-DETAIL-NEGATIVE-PAIR",
+          "prompt": "負の因子を三個まとめて処理せず、まず最初の二個を掛けよう。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "-4",
+            "-2",
+            "2"
+          ],
+          "hints": [
+            "負×負の積の符号を確かめる。"
+          ]
+        },
+        {
+          "id": "n03-bridge-negative-cube",
+          "label": "N03-BRIDGE-NEGATIVE-CUBE",
+          "prompt": "まず係数の三乗を、符号を含めて計算する。",
+          "answerType": "formula",
+          "choices": [
+            "-8",
+            "8",
+            "-6",
+            "6"
+          ],
+          "hints": [
+            "負の因子を三回掛ける。最初の二個の積を作ってから、もう一個を掛けよう。"
+          ]
+        },
+        {
+          "id": "n03-s5-cube-x-count",
+          "label": "N03-S5-CUBE-X-COUNT",
+          "prompt": "各組にxが3個ずつあります。",
+          "answerType": "formula",
+          "choices": [
+            "3+3+3",
+            "3+3",
+            "3^3"
+          ],
+          "hints": [
+            "各組にxが3個ずつあります。"
+          ]
+        },
+        {
+          "id": "n03-bridge-x-power",
+          "label": "N03-BRIDGE-X-POWER",
+          "prompt": "累乗の累乗では、因子の個数を掛ける。",
+          "answerType": "formula",
+          "choices": [
+            "9",
+            "6",
+            "27",
+            "3"
+          ],
+          "hints": [
+            "xが3個の組が、3組ある。"
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-y-power",
+          "label": "N03-BRIDGE-DETAIL-Y-POWER",
+          "prompt": "y²の組も三つある。指数法則を、実際の因子の個数へ戻して確かめよう。",
+          "answerType": "formula",
+          "choices": [
+            "6",
+            "5",
+            "8",
+            "9"
+          ],
+          "hints": [
+            "一組にyが2個あり、その組が3個ある。"
+          ]
+        },
+        {
+          "id": "n03-06",
+          "label": "N03-06",
+          "prompt": "符号と指数をそれぞれ計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-8x^9y^6",
+            "8x^9y^6",
+            "-6x^9y^6",
+            "-8x^6y^5"
+          ],
+          "hints": [
+            "負の数を3乗した符号と、指数の積に注目。"
+          ]
+        },
+        {
+          "id": "n03-07",
+          "label": "N03-07",
+          "prompt": "x²を括弧内の全項に掛けた形を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x^2x^2+x^2(-3x)+x^2\\cdot4",
+            "x^2x^2+x^2\\cdot4",
+            "x^2x^2+x^2(3x)+x^2\\cdot4",
+            "x^2x^2+(-3x)+4"
+          ],
+          "hints": [
+            "括弧内の三項に対応する積を一つずつ書く。"
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-product-fourth",
+          "label": "N03-BRIDGE-AUDIT-PRODUCT-FOURTH",
+          "prompt": "まずx²とx²の積です。同じ底xの積なので指数2と2を足します。",
+          "answerType": "formula",
+          "choices": [
+            "x^4",
+            "x^2",
+            "x^3",
+            "2x^2"
+          ],
+          "hints": [
+            "数の係数と、同じ文字の指数を別々に扱う。"
+          ]
+        },
+        {
+          "id": "n03-s4-product-exponent",
+          "label": "N03-S4-PRODUCT-EXPONENT",
+          "prompt": "文字xの指数2+1を計算します。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "2",
+            "-3"
+          ],
+          "hints": [
+            "係数の−3を指数の計算へ混ぜません。"
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-product-negative",
+          "label": "N03-BRIDGE-AUDIT-PRODUCT-NEGATIVE",
+          "prompt": "次はx²と−3xです。係数−3を残し、xの指数2と1を足します。",
+          "answerType": "formula",
+          "choices": [
+            "-3x^3",
+            "3x^3",
+            "-3x^2",
+            "-x^3"
+          ],
+          "hints": [
+            "数の係数と、同じ文字の指数を別々に扱う。"
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-product-last",
+          "label": "N03-BRIDGE-AUDIT-PRODUCT-LAST",
+          "prompt": "最後はx²と定数4です。数4を前へ置き、x²はそのまま残します。",
+          "answerType": "formula",
+          "choices": [
+            "4x^2",
+            "4x^3",
+            "x^2",
+            "4x"
+          ],
+          "hints": [
+            "数の係数と、同じ文字の指数を別々に扱う。"
+          ]
+        },
+        {
+          "id": "n03-08",
+          "label": "N03-08",
+          "prompt": "三つの積を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "x^4-3x^3+4x^2",
+            "x^4-3x^2+4x^2",
+            "x^4+3x^3+4x^2",
+            "x^4-3x^3+4x"
+          ],
+          "hints": [
+            "同じ底の指数は加え、符号はそのまま残す。"
+          ]
+        },
+        {
+          "id": "n03-09",
+          "label": "N03-09",
+          "prompt": "最初の括弧の2項で全体を分配しよう。",
+          "answerType": "formula",
+          "choices": [
+            "2x(3x+4)+1(3x+4)",
+            "2x(3x+4)+1",
+            "2x(3x+4)+1(3x)",
+            "2x(3x+4)-1(3x+4)"
+          ],
+          "hints": [
+            "前の括弧の各項が後ろの括弧全体に掛かる。"
+          ]
+        },
+        {
+          "id": "n03-r3-q10-p1",
+          "label": "N03-R3-Q10-P1",
+          "prompt": "表の1マス目、2x×3xを計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "6x^2",
+            "5x^2",
+            "6x",
+            "6x^3"
+          ],
+          "hints": [
+            "係数は2×3、文字はx×x。"
+          ]
+        },
+        {
+          "id": "n03-r3-q10-p2",
+          "label": "N03-R3-Q10-P2",
+          "prompt": "表の2マス目、2x×4を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "8x",
+            "8x^2",
+            "6x",
+            "8"
+          ],
+          "hints": [
+            "係数を2×4してxを残す。"
+          ]
+        },
+        {
+          "id": "n03-r3-q10-p3",
+          "label": "N03-R3-Q10-P3",
+          "prompt": "表の3マス目、1×3xを計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "3x",
+            "3x^2",
+            "4x",
+            "3"
+          ],
+          "hints": [
+            "1を掛けても3xの値は変わらない。"
+          ]
+        },
+        {
+          "id": "n03-r3-q10-p4",
+          "label": "N03-R3-Q10-P4",
+          "prompt": "表の4マス目、1×4を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "3",
+            "1",
+            "4x"
+          ],
+          "hints": [
+            "文字のない二つの定数を掛ける。"
+          ]
+        },
+        {
+          "id": "n03-10",
+          "label": "N03-10",
+          "prompt": "図の四つのマスに対応する積を全て書こう。",
+          "answerType": "formula",
+          "choices": [
+            "6x^2+8x+3x+4",
+            "6x^2+8x+4",
+            "6x^2+8x-3x+4",
+            "6x^2+11x+4"
+          ],
+          "hints": [
+            "四組の積は、同類項をまとめる前に全て現れる。"
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-grid-collect",
+          "label": "N03-BRIDGE-AUDIT-GRID-COLLECT",
+          "prompt": "四つの積のうち、一次項二つだけをまとめる。",
+          "answerType": "formula",
+          "choices": [
+            "11",
+            "5",
+            "24",
+            "8"
+          ],
+          "hints": [
+            "x²の項と定数はこの足し算に入れない。"
+          ]
+        },
+        {
+          "id": "n03-11",
+          "label": "N03-11",
+          "prompt": "同類項をまとめて展開を終えよう。",
+          "answerType": "formula",
+          "choices": [
+            "6x^2+11x+4",
+            "6x^2+5x+4",
+            "6x^2+12x+4",
+            "6x^2+11x"
+          ],
+          "hints": [
+            "xの項どうしの係数を足す。"
+          ]
+        },
+        {
+          "id": "n03-12",
+          "label": "N03-12",
+          "prompt": "2項それぞれへ後ろの括弧全体を掛けよう。",
+          "answerType": "formula",
+          "choices": [
+            "3x(2x^2-x+5)-(2x^2-x+5)",
+            "3x(2x^2-x+5)-(2x^2-x)",
+            "3x(2x^2-x+5)+(2x^2-x+5)",
+            "3x(2x^2-x+5)-1"
+          ],
+          "hints": [
+            "前の括弧の−1が後ろの全項へ掛かる。"
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-first-product",
+          "label": "N03-BRIDGE-DETAIL-FIRST-PRODUCT",
+          "prompt": "3xを三項へ配るときも、一組ずつ積を作る。最初は係数3と2、文字xとx²に分けよう。",
+          "answerType": "formula",
+          "choices": [
+            "6",
+            "5",
+            "3",
+            "9"
+          ],
+          "hints": [
+            "係数を掛け、同じ底xの指数を足す。"
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-second-product",
+          "label": "N03-BRIDGE-DETAIL-SECOND-PRODUCT",
+          "prompt": "二番目の項は−xである。負号を含めて3xへ掛けよう。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "3",
+            "-1",
+            "-4"
+          ],
+          "hints": [
+            "−xは係数−1、指数1の項として読む。"
+          ]
+        },
+        {
+          "id": "n03-bridge-detail-third-product",
+          "label": "N03-BRIDGE-DETAIL-THIRD-PRODUCT",
+          "prompt": "三番目の5には文字がない。数の部分を掛け、前のxを一つ残そう。",
+          "answerType": "formula",
+          "choices": [
+            "15",
+            "8",
+            "3",
+            "5"
+          ],
+          "hints": [
+            "3と5を掛ける操作であり、足す操作ではない。"
+          ]
+        },
+        {
+          "id": "n03-bridge-first-row",
+          "label": "N03-BRIDGE-FIRST-ROW",
+          "prompt": "3xを後ろの三項へ一つずつ掛ける。まずこの行だけ完成させよう。",
+          "answerType": "formula",
+          "choices": [
+            "6x^3-3x^2+15x",
+            "6x^3+3x^2+15x",
+            "6x^3-3x^2+5",
+            "6x^2-3x^2+15x"
+          ],
+          "hints": [
+            "3x×2x²、3x×(−x)、3x×5を別々に計算しよう。"
+          ]
+        },
+        {
+          "id": "n03-s5-minus-row-distribute",
+          "label": "N03-S5-MINUS-ROW-DISTRIBUTE",
+          "prompt": "括弧の中央の項は、符号を含めて−xです。",
+          "answerType": "formula",
+          "choices": [
+            "(-1)(-x)",
+            "(-1)x",
+            "-x^2"
+          ],
+          "hints": [
+            "括弧の中央の項は、符号を含めて−xです。"
+          ]
+        },
+        {
+          "id": "n03-bridge-audit-minus-minus",
+          "label": "N03-BRIDGE-AUDIT-MINUS-MINUS",
+          "prompt": "中央の項−xには、さらに−1が掛かる。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "-1",
+            "2",
+            "-2"
+          ],
+          "hints": [
+            "負同士の積の符号を判断する。"
+          ]
+        },
+        {
+          "id": "n03-bridge-second-row",
+          "label": "N03-BRIDGE-SECOND-ROW",
+          "prompt": "次は前の括弧の−1を、後ろの全項に掛ける。",
+          "answerType": "formula",
+          "choices": [
+            "-2x^2+x-5",
+            "-2x^2-x+5",
+            "-2x^2-x-5",
+            "2x^2+x-5"
+          ],
+          "hints": [
+            "−1を掛けると、三つの項の符号がそれぞれどう変わるだろう。"
+          ]
+        },
+        {
+          "id": "n03-s5-collect-square-terms",
+          "label": "N03-S5-COLLECT-SQUARE-TERMS",
+          "prompt": "両方とも文字の部分がx²の項を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "-3x^2-2x^2",
+            "-3x^2+2x^2",
+            "-3x^2+x"
+          ],
+          "hints": [
+            "両方とも文字の部分がx²の項を選びます。"
+          ]
+        },
+        {
+          "id": "n03-bridge-collect-square",
+          "label": "N03-BRIDGE-COLLECT-SQUARE",
+          "prompt": "二行を足す。先に二次項だけを集めよう。",
+          "answerType": "formula",
+          "choices": [
+            "-5x^2",
+            "-x^2",
+            "5x^2",
+            "-5x^4"
+          ],
+          "hints": [
+            "指数は変えず、二つの係数を足す。"
+          ]
+        },
+        {
+          "id": "n03-s5-collect-linear-terms",
+          "label": "N03-S5-COLLECT-LINEAR-TERMS",
+          "prompt": "文字の部分がxの二項です。",
+          "answerType": "formula",
+          "choices": [
+            "15x+x",
+            "15x-x",
+            "15x-5"
+          ],
+          "hints": [
+            "文字の部分がxの二項です。"
+          ]
+        },
+        {
+          "id": "n03-bridge-collect-linear",
+          "label": "N03-BRIDGE-COLLECT-LINEAR",
+          "prompt": "一次項も別にまとめれば、最後に残るのは三次項と定数項である。",
+          "answerType": "formula",
+          "choices": [
+            "16x",
+            "15x^2",
+            "14x",
+            "16x^2"
+          ],
+          "hints": [
+            "xは1xとして係数を数えよう。"
+          ]
+        },
+        {
+          "id": "n03-13",
+          "label": "N03-13",
+          "prompt": "全項を展開し、符号に注意してまとめよう。",
+          "answerType": "formula",
+          "choices": [
+            "6x^3-5x^2+16x-5",
+            "6x^3-3x^2+14x-5",
+            "6x^3-5x^2+16x+5",
+            "6x^3-5x^2+14x-5"
+          ],
+          "hints": [
+            "−1を配るとき、後ろの各項の符号はどうなる？"
+          ]
+        }
+      ]
+    }
+  ]
+}

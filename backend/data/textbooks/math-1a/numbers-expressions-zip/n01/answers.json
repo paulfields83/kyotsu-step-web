@@ -1,0 +1,140 @@
+{
+  "unitId": "math-numbers-expressions-n01",
+  "answers": {
+    "n01-01": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "n01-bridge-r3-negative-coefficient": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n01-bridge-r3-negative-degree": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n01-bridge-r3-square-coefficient": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n01-bridge-r3-square-degree": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n01-bridge-r3-product-coefficient": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "n01-bridge-r3-product-degree": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "n01-03": {
+      "validator": "exact",
+      "answer": "5y",
+      "acceptedAnswers": []
+    },
+    "n01-s4-y-coefficient": {
+      "validator": "exact",
+      "answer": "5x^3",
+      "acceptedAnswers": []
+    },
+    "n01-s4-y-degree": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n01-s4-axy-x": {
+      "validator": "exact",
+      "answer": "ay",
+      "acceptedAnswers": []
+    },
+    "n01-s4-axy-y": {
+      "validator": "exact",
+      "answer": "ax",
+      "acceptedAnswers": []
+    },
+    "n01-06a": {
+      "validator": "exact",
+      "answer": "3x^2-5x^2",
+      "acceptedAnswers": []
+    },
+    "n01-s5-square-regroup": {
+      "validator": "exact",
+      "answer": "3-5",
+      "acceptedAnswers": []
+    },
+    "n01-r3-q07-x2coef": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n01-s5-linear-regroup": {
+      "validator": "exact",
+      "answer": "-5+2",
+      "acceptedAnswers": []
+    },
+    "n01-r3-q07-xcoef": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": []
+    },
+    "n01-r3-q07-const": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n01-s4-like-degree": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n01-s4-like-constant": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n01-s5-example-linear-regroup": {
+      "validator": "exact",
+      "answer": "1+3",
+      "acceptedAnswers": []
+    },
+    "n01-bridge-r3-linear": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "n01-s5-example-cubic-regroup": {
+      "validator": "exact",
+      "answer": "1-1",
+      "acceptedAnswers": []
+    },
+    "n01-bridge-r3-cubic": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "n01-bridge-r3-reuse": {
+      "validator": "exact",
+      "answer": "4x",
+      "acceptedAnswers": []
+    },
+    "n01-10a": {
+      "validator": "exact",
+      "answer": "2次式",
+      "acceptedAnswers": []
+    },
+    "n01-10b": {
+      "validator": "exact",
+      "answer": "3次の項が整理によって消えるから",
+      "acceptedAnswers": []
+    }
+  }
+}

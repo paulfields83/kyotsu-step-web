@@ -1,0 +1,230 @@
+{
+  "unitId": "math-numbers-expressions-n05",
+  "answers": {
+    "n05-01": {
+      "validator": "exact",
+      "answer": "y+5",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-detail-coefficient-factor": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-factor-t": {
+      "validator": "exact",
+      "answer": "(x-3)T",
+      "acceptedAnswers": []
+    },
+    "n05-02": {
+      "validator": "exact",
+      "answer": "(x-3)(y+5)",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-audit-reverse-constant": {
+      "validator": "exact",
+      "answer": "-15",
+      "acceptedAnswers": []
+    },
+    "n05-03": {
+      "validator": "exact",
+      "answer": "xy+5x-3y-15",
+      "acceptedAnswers": []
+    },
+    "n05-s5-reverse-difference": {
+      "validator": "exact",
+      "answer": "-(a-b)",
+      "acceptedAnswers": []
+    },
+    "n05-05": {
+      "validator": "exact",
+      "answer": "(a-b)(x-y)",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-audit-positive-root-16": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-audit-positive-root-9": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n05-07": {
+      "validator": "exact",
+      "answer": "24xy",
+      "acceptedAnswers": []
+    },
+    "n05-08": {
+      "validator": "exact",
+      "answer": "(4x+3y)^2",
+      "acceptedAnswers": []
+    },
+    "n05-09": {
+      "validator": "exact",
+      "answer": "a^2+(r+s)a+rs",
+      "acceptedAnswers": []
+    },
+    "n05-s5-sum-condition-map": {
+      "validator": "exact",
+      "answer": "r+s",
+      "acceptedAnswers": []
+    },
+    "n05-s4-factor-product": {
+      "validator": "exact",
+      "answer": "-16",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-factor-candidates-1": {
+      "validator": "exact",
+      "answer": "-15",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-factor-candidates-2": {
+      "validator": "exact",
+      "answer": "-6",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-factor-candidates-3": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-audit-factor-pair-select": {
+      "validator": "exact",
+      "answer": "(-8,2)",
+      "acceptedAnswers": []
+    },
+    "n05-11": {
+      "validator": "exact",
+      "answer": "(a-8)(a+2)",
+      "acceptedAnswers": []
+    },
+    "n05-s5-general-cross-regroup": {
+      "validator": "exact",
+      "answer": "ps+qr",
+      "acceptedAnswers": []
+    },
+    "n05-12": {
+      "validator": "exact",
+      "answer": "prx^2+(ps+qr)x+qs",
+      "acceptedAnswers": []
+    },
+    "n05-s4-quadratic-condition": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "n05-s4-constant-condition": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n05-s5-linear-condition-map": {
+      "validator": "exact",
+      "answer": "ps+qr",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-cross-a": {
+      "validator": "exact",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-cross-b": {
+      "validator": "exact",
+      "answer": "7",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-cross-c": {
+      "validator": "exact",
+      "answer": "13",
+      "acceptedAnswers": []
+    },
+    "n05-15": {
+      "validator": "exact",
+      "answer": "(x+1)(4x+3)",
+      "acceptedAnswers": []
+    },
+    "n05-s5-last-linear-regroup": {
+      "validator": "exact",
+      "answer": "s+5r",
+      "acceptedAnswers": []
+    },
+    "n05-s5-last-condition-map": {
+      "validator": "exact",
+      "answer": "s+5r",
+      "acceptedAnswers": []
+    },
+    "n05-s4-last-constant-condition": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": []
+    },
+    "n05-17": {
+      "validator": "exact",
+      "answer": "rとsは異符号（rs=-3<0だから）",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-search-rs-1": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-search-rs-2": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-search-rs-3": {
+      "validator": "exact",
+      "answer": "14",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-search-rs-4": {
+      "validator": "exact",
+      "answer": "-14",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-select-rs": {
+      "validator": "exact",
+      "answer": "(-1,3)",
+      "acceptedAnswers": []
+    },
+    "n05-18": {
+      "validator": "exact",
+      "answer": "(x-1)(5x+3)",
+      "acceptedAnswers": []
+    },
+    "n05-s4-common-factor": {
+      "validator": "exact",
+      "answer": "3b",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-audit-common-negative-four": {
+      "validator": "exact",
+      "answer": "-4",
+      "acceptedAnswers": []
+    },
+    "n05-19": {
+      "validator": "exact",
+      "answer": "3b(a^2-4b^2)",
+      "acceptedAnswers": []
+    },
+    "n05-bridge-audit-square-root-four": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n05-s5-square-difference-rewrite": {
+      "validator": "exact",
+      "answer": "(2b)^2",
+      "acceptedAnswers": []
+    },
+    "n05-20": {
+      "validator": "exact",
+      "answer": "3b(a-2b)(a+2b)",
+      "acceptedAnswers": []
+    }
+  }
+}

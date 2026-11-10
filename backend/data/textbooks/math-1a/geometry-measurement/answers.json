@@ -1,310 +1,1317 @@
 {
   "unitId": "math-1a-geometry-measurement",
   "answers": {
-    "math-1a-geometry-measurement-s1-main-b001": {
-      "validator": "normalized-text",
-      "answer": "隣辺",
-      "acceptedAnswers": []
+    "math-trig-c01-r2-scale": {
+      "validator": "exact",
+      "answer": "$a/c$",
+      "wrongReasons": {
+        "$ka/c$": "分母もk倍されるので、分子だけのkを残すことはできない。",
+        "$1$": "aとcが等しいとは限らない。同じ倍率だけが約分される。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b002": {
-      "validator": "normalized-text",
-      "answer": "角の大きさ",
-      "acceptedAnswers": []
+    "math-trig-c01-r2-sin": {
+      "validator": "exact",
+      "answer": "$5/13$",
+      "wrongReasons": {
+        "$12/13$": "これはAの隣辺と斜辺の比で、余弦に当たる。",
+        "$5/12$": "正弦の分母は斜辺。対辺/隣辺は正接である。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b003": {
-      "validator": "normalized-text",
-      "answer": "3/5",
-      "acceptedAnswers": []
+    "math-trig-c01-r2-transfer": {
+      "validator": "exact",
+      "answer": "$12/13$",
+      "wrongReasons": {
+        "$5/13$": "これは基準角をAのままにした正弦である。",
+        "$12/5$": "Bの対辺は12だが、正弦の分母は斜辺13である。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b004": {
-      "validator": "normalized-text",
-      "answer": "4/5",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q01-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\frac{5}{13}$",
+      "wrongReasons": {
+        "$\\frac{12}{13}$": "これは隣辺を分子にした余弦。",
+        "$\\frac{5}{12}$": "分母に隣辺を使うのは正接。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b005": {
-      "validator": "normalized-text",
-      "answer": "3/4",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q01-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$\\frac{5}{12}$",
+      "wrongReasons": {
+        "$\\frac{12}{5}$": "角Aの対辺BCを分子にする。",
+        "$\\frac{5}{13}$": "分母のABは斜辺であり、これは正弦。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b006": {
-      "validator": "number",
-      "answer": "1",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q01-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\frac{1}{\\sqrt5}$",
+      "wrongReasons": {
+        "$\\frac{2}{\\sqrt5}$": "これは隣辺を分子にした余弦。",
+        "$\\frac{1}{2}$": "分母に隣辺を使うのは正接。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b007": {
-      "validator": "normalized-text",
-      "answer": "cos A",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q01-02-r2-node-2": {
+      "validator": "exact",
+      "answer": "$\\frac{1}{2}$",
+      "wrongReasons": {
+        "$\\frac{2}{1}$": "角Aの対辺BCを分子にする。",
+        "$\\frac{1}{\\sqrt5}$": "分母のABは斜辺であり、これは正弦。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b008": {
-      "validator": "normalized-text",
-      "answer": "4/5",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q01-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\frac{2}{3}$",
+      "wrongReasons": {
+        "$\\frac{\\sqrt5}{3}$": "これは隣辺を分子にした余弦。",
+        "$\\frac{2}{\\sqrt5}$": "分母に隣辺を使うのは正接。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b009": {
-      "validator": "normalized-text",
-      "answer": "3/4",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q01-03-r2-node-2": {
+      "validator": "exact",
+      "answer": "$\\frac{2}{\\sqrt5}$",
+      "wrongReasons": {
+        "$\\frac{\\sqrt5}{2}$": "角Aの対辺BCを分子にする。",
+        "$\\frac{2}{3}$": "分母のABは斜辺であり、これは正弦。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b010": {
-      "validator": "normalized-text",
-      "answer": "20°",
-      "acceptedAnswers": []
+    "math-trig-c02-r2-diagonal": {
+      "validator": "exact",
+      "answer": "$\\sqrt2$",
+      "wrongReasons": {
+        "$2$": "二乗和は2だが、斜辺の長さはその正の平方根。",
+        "$1$": "斜辺は直角辺より長い。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b011": {
-      "validator": "normalized-text",
-      "answer": "20√3/3",
-      "acceptedAnswers": []
+    "math-trig-c02-r2-column": {
+      "validator": "exact",
+      "answer": "cos列で0.53に最も近い値",
+      "wrongReasons": {
+        "53°の行": "0.53は角度ではなく余弦の値。",
+        "sin列で0.53に最も近い値": "与えられた比は余弦であり、列を替えると別の角になる。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b012": {
-      "validator": "number",
-      "answer": "0.9781",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q02-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "0.8910",
+      "wrongReasons": {
+        "0.4540": "cosの列でなくsinの列を読む。",
+        "1.9626": "これはtanの列の値。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b013": {
-      "validator": "number",
-      "answer": "0.9877",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q02-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "0.9397",
+      "wrongReasons": {
+        "0.3420": "sinの列でなくcosの列を読む。",
+        "0.3640": "これはtanの列の値。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b014": {
-      "validator": "number",
-      "answer": "1.9626",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q02-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "1.1918",
+      "wrongReasons": {
+        "0.7660": "sinの列でなくtanの列を読む。",
+        "0.6428": "これはcosの列の値。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b015": {
-      "validator": "normalized-text",
-      "answer": "23°",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q03-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$23^\\circ$",
+      "wrongReasons": {
+        "$22^\\circ$": "その行の表値と指定された値の差を確認する。",
+        "$24^\\circ$": "近くの行も調べて差が最小の角を選ぶ。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b016": {
-      "validator": "normalized-text",
-      "answer": "56m",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q03-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$58^\\circ$",
+      "wrongReasons": {
+        "$57^\\circ$": "その行の表値と指定された値の差を確認する。",
+        "$59^\\circ$": "近くの行も調べて差が最小の角を選ぶ。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b017": {
-      "validator": "normalized-text",
-      "answer": "足す",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q03-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$8^\\circ$",
+      "wrongReasons": {
+        "$7^\\circ$": "その行の表値と指定された値の差を確認する。",
+        "$9^\\circ$": "近くの行も調べて差が最小の角を選ぶ。"
+      }
     },
-    "math-1a-geometry-measurement-s1-main-b018": {
-      "validator": "normalized-text",
-      "answer": "同じ角",
-      "acceptedAnswers": []
+    "math-trig-c03-r2-complement": {
+      "validator": "exact",
+      "answer": "$76^\\circ$",
+      "wrongReasons": {
+        "$14^\\circ$": "14度は水平線との角であり、鉛直線との角ではない。",
+        "$104^\\circ$": "直角の内部を二つに分ける角なので、90度から引く。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b001": {
-      "validator": "normalized-text",
-      "answer": "正",
-      "acceptedAnswers": []
+    "math-trig-c03-r2-gradient": {
+      "validator": "exact",
+      "answer": "$\\tan A=20/100=0.20$",
+      "wrongReasons": {
+        "$\\sin A=20/100=0.20$": "100は斜面の長さではなく水平距離である。",
+        "$A=20^\\circ$": "百分率は二つの距離の比であり度数ではない。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b002": {
-      "validator": "normalized-text",
+    "math-trig-l-trig-q04-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$100\\cos10^\\circ$",
+      "wrongReasons": {
+        "$100\\sin10^\\circ$": "正弦なら鉛直方向の高さ。",
+        "$100/\\cos10^\\circ$": "水平距離は斜辺より短い。"
+      }
+    },
+    "math-trig-l-trig-q04-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "98 m",
+      "wrongReasons": {
+        "99 m": "小数第1位は4である。",
+        "98.5 m": "0.1 mの単位ではなく1 mの単位。"
+      }
+    },
+    "math-trig-l-trig-q05-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$76^\\circ$",
+      "wrongReasons": {
+        "$14^\\circ$": "14°は水平線から測った角。",
+        "$104^\\circ$": "水平線と鉛直線の間の90°から俯角を引く。"
+      }
+    },
+    "math-trig-l-trig-q05-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$15\\tan76^\\circ$",
+      "wrongReasons": {
+        "$15\\sin76^\\circ$": "高さ15は斜辺でなく角Bの隣辺。",
+        "$15/\\tan76^\\circ$": "求めるのが対辺なので、隣辺に正接を掛ける。"
+      }
+    },
+    "math-trig-l-trig-q06-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\tan A=0.20$",
+      "wrongReasons": {
+        "$\\sin A=0.20$": "水平距離は斜辺ではない。",
+        "$\\tan A=5$": "高さ20を水平距離100で割る。"
+      }
+    },
+    "math-trig-c04-r2-quotient": {
+      "validator": "exact",
+      "answer": "$a/b$",
+      "wrongReasons": {
+        "$b/a$": "正弦を余弦で割る順なので、対辺aが分子に残る。",
+        "$a/c$": "余弦b/cで割った分のbが必要である。"
+      }
+    },
+    "math-trig-c04-r2-sign": {
+      "validator": "exact",
+      "answer": "正の平方根",
+      "wrongReasons": {
+        "負の平方根": "鋭角では対辺も斜辺も正なので正弦は正。",
+        "正負の両方": "二乗式だけでなく、Aが鋭角という条件も満たす必要がある。"
+      }
+    },
+    "math-trig-l-trig-q07-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sqrt5/3$",
+      "wrongReasons": {
+        "$-\\sqrt5/3$": "鋭角の正弦は正。",
+        "$5/9$": "これは正弦の二乗。"
+      }
+    },
+    "math-trig-l-trig-q07-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$\\sqrt5/2$",
+      "wrongReasons": {
+        "$2/\\sqrt5$": "正接は正弦を余弦で割る。",
+        "$2\\sqrt5/9$": "正弦と余弦を掛けるのではない。"
+      }
+    },
+    "math-trig-c05-r2-reciprocal": {
+      "validator": "exact",
+      "answer": "$\\tan(90^\\circ-A)=b/a=1/\\tan A$",
+      "wrongReasons": {
+        "$\\tan(90^\\circ-A)=a/b$": "角を替えると対辺と隣辺が入れ替わる。",
+        "$\\tan(90^\\circ-A)=-a/b$": "どちらも鋭角なので正接は正。"
+      }
+    },
+    "math-trig-c05-r2-tangent": {
+      "validator": "exact",
+      "answer": "$\\tan52^\\circ=1/\\tan38^\\circ$",
+      "wrongReasons": {
+        "$\\tan52^\\circ=\\tan38^\\circ$": "対辺と隣辺の入替えで逆数になる。",
+        "$\\tan52^\\circ=-\\tan38^\\circ$": "負号になるのはこの余角の関係ではない。"
+      }
+    },
+    "math-trig-l-trig-q08-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$1/\\cos^2 A=1+(4/3)^2$",
+      "wrongReasons": {
+        "$\\cos^2 A=1+(4/3)^2$": "1をcos²Aで割った量が現れる。",
+        "$1/\\cos^2 A=1-(4/3)^2$": "二乗和を割ったので引き算にはならない。"
+      }
+    },
+    "math-trig-l-trig-q08-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$4/5$",
+      "wrongReasons": {
+        "$3/5$": "これは余弦。",
+        "$5/4$": "正弦は1より小さい。"
+      }
+    },
+    "math-trig-l-trig-q09-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\cos15^\\circ$",
+      "wrongReasons": {
+        "$\\sin15^\\circ$": "対辺と隣辺が入れ替わる。",
+        "$-\\cos15^\\circ$": "鋭角どうしなので負にはならない。"
+      }
+    },
+    "math-trig-l-trig-q09-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sin4^\\circ$",
+      "wrongReasons": {
+        "$\\cos4^\\circ$": "余弦を余角へ移すと正弦になる。",
+        "$-\\sin4^\\circ$": "余角で符号を反転させない。"
+      }
+    },
+    "math-trig-l-trig-q09-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$1/\\tan38^\\circ$",
+      "wrongReasons": {
+        "$\\tan38^\\circ$": "分子と分母が入れ替わる。",
+        "$-\\tan38^\\circ$": "両方の鋭角の正接は正。"
+      }
+    },
+    "math-trig-l-trig-s1e01-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$3x/2$",
+      "wrongReasons": {
+        "$2x/3$": "隣辺を求めるにはxを正接で割る。",
+        "$5x$": "5xはAからCまで。"
+      }
+    },
+    "math-trig-l-trig-s1e01-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$5x-3x/2=6$",
+      "wrongReasons": {
+        "$5x+3x/2=6$": "ADはACからDCを引いた残り。",
+        "$3x/2=6$": "6はDCではなくAD。"
+      }
+    },
+    "math-trig-l-trig-s1e02-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$BC=c\\sin A$",
+      "wrongReasons": {
+        "$BC=c\\cos A$": "余弦で得られるのは隣辺AC。",
+        "$BC=c/\\sin A$": "BC/cをc倍すればBCが残る。"
+      }
+    },
+    "math-trig-l-trig-s1e02-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$BC\\sin(90^\\circ-A)$",
+      "wrongReasons": {
+        "$BC\\cos(90^\\circ-A)$": "余弦は角Bの隣辺BDに対応する。",
+        "$BC\\sin A$": "小さい三角形では角BがAの余角。"
+      }
+    },
+    "math-trig-l-trig-s1e02-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$BC\\cos(90^\\circ-A)$",
+      "wrongReasons": {
+        "$BC\\sin(90^\\circ-A)$": "この式は対辺CDの長さ。",
+        "$BC\\cos A$": "小さい三角形の角BはAの余角。"
+      }
+    },
+    "math-trig-l-trig-s1e03-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sin\\angle BAC=58.2/58.4$",
+      "wrongReasons": {
+        "$\\cos\\angle BAC=58.2/58.4$": "BCは角Aに接しない対辺。",
+        "$\\sin\\angle BAC=58.4/58.2$": "対辺を斜辺で割る。逆だと1を超える。"
+      }
+    },
+    "math-trig-l-trig-s1e04-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$2\\sqrt2/3$",
+      "wrongReasons": {
+        "$-2\\sqrt2/3$": "鋭角では正。",
+        "$8/9$": "それは二乗。"
+      }
+    },
+    "math-trig-l-trig-s1e04-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$2\\sqrt2$",
+      "wrongReasons": {
+        "$2\\sqrt2/9$": "二つの値を掛けるのではない。",
+        "$1/(2\\sqrt2)$": "余弦を正弦で割ると逆数になる。"
+      }
+    },
+    "math-trig-l-trig-s1e04-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$2\\sqrt2/3$",
+      "wrongReasons": {
+        "$1/3$": "1/3はAの余弦。余角の余弦にはAの正弦を使う。",
+        "$-2\\sqrt2/3$": "余角は鋭角だから余弦は正。"
+      }
+    },
+    "math-trig-l-trig-s1e04-04-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sqrt2/4$",
+      "wrongReasons": {
+        "$2\\sqrt2$": "余角の正接では元の値の逆数を取る。",
+        "$\\sqrt2/2$": "2√2に√2を掛けた分母は4。"
+      }
+    },
+    "math-trig-c06-r2-negative": {
+      "validator": "exact",
+      "answer": "どちらも負",
+      "wrongReasons": {
+        "どちらも正": "xが負なのでx/rとy/xはいずれも負。",
+        "余弦だけ負": "正接も正のyを負のxで割るので負。"
+      }
+    },
+    "math-trig-c06-r2-zero": {
+      "validator": "exact",
+      "answer": "分母の横座標が0になるから",
+      "wrongReasons": {
+        "縦座標が0になるから": "90度の縦座標はrで、正である。",
+        "半径が0になるから": "半径はr>0と定めている。"
+      }
+    },
+    "math-trig-c06-r2-cosvalue": {
+      "validator": "exact",
+      "answer": "$-1/2$",
+      "wrongReasons": {
+        "$1/2$": "横座標は−1であり、符号を保つ。",
+        "$-2$": "余弦はx/rでありr/xではない。"
+      }
+    },
+    "math-trig-l-trig-q10-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$-1/\\sqrt2$",
+      "wrongReasons": {
+        "$1/\\sqrt2$": "横座標には絶対値を付けない。",
+        "$-1$": "横座標を半径で割った値が余弦。"
+      }
+    },
+    "math-trig-l-trig-q10-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$-1$",
+      "wrongReasons": {
+        "$1$": "横座標xの負号を残す。",
+        "$-1/\\sqrt2$": "これは横座標を半径で割った余弦。"
+      }
+    },
+    "math-trig-l-trig-q10-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$-\\sqrt3/2$",
+      "wrongReasons": {
+        "$\\sqrt3/2$": "横座標には絶対値を付けない。",
+        "$1/2$": "横座標を半径で割った値が余弦。"
+      }
+    },
+    "math-trig-l-trig-q10-02-r2-node-2": {
+      "validator": "exact",
+      "answer": "$-1/\\sqrt3$",
+      "wrongReasons": {
+        "$1/\\sqrt3$": "横座標xの負号を残す。",
+        "$-\\sqrt3/2$": "これは横座標を半径で割った余弦。"
+      }
+    },
+    "math-trig-c07-r2-reflection": {
+      "validator": "exact",
+      "answer": "$(-x,y)$",
+      "wrongReasons": {
+        "$(x,-y)$": "y軸の対称では高さは保たれ、横座標の符号が変わる。",
+        "$(-x,-y)$": "縦方向まで反転するのは原点に関する対称である。"
+      }
+    },
+    "math-trig-c07-r2-value": {
+      "validator": "exact",
+      "answer": "$-\\cos36^\\circ$",
+      "wrongReasons": {
+        "$\\cos36^\\circ$": "144度は鈍角なので余弦は負。",
+        "$-\\sin36^\\circ$": "180度から引く関係ではsinとcosを入れ替えない。"
+      }
+    },
+    "math-trig-l-trig-q11-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sin25^\\circ$",
+      "wrongReasons": {
+        "$-\\sin25^\\circ$": "補角では縦座標の符号は変わらない。",
+        "$\\cos25^\\circ$": "補角は余角ではないので正弦が余弦にはならない。"
+      }
+    },
+    "math-trig-l-trig-q11-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$-\\cos36^\\circ$",
+      "wrongReasons": {
+        "$\\cos36^\\circ$": "補角では横座標が反対符号になる。",
+        "$-\\sin36^\\circ$": "余弦は横座標を使い、補角でも正弦へは替えない。"
+      }
+    },
+    "math-trig-l-trig-q11-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$-\\tan8^\\circ$",
+      "wrongReasons": {
+        "$\\tan8^\\circ$": "横座標が負になり正接も負になる。",
+        "$1/\\tan8^\\circ$": "逆数が現れるのは余角の関係。"
+      }
+    },
+    "math-trig-l-trig-q11-04-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sin75^\\circ$",
+      "wrongReasons": {
+        "$-\\sin75^\\circ$": "縦座標は補角でも同じ。",
+        "$\\cos75^\\circ$": "余角と異なり、補角で横と縦を入れ替えない。"
+      }
+    },
+    "math-trig-l-trig-q12-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\pm\\sqrt7/4$",
+      "wrongReasons": {
+        "$\\sqrt7/4$ だけ": "正弦からは横座標が正か負か決まらない。",
+        "$\\pm7/16$": "二乗の値からは平方根を取る。"
+      }
+    },
+    "math-trig-l-trig-q12-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "余弦と同じ",
+      "wrongReasons": {
+        "余弦と反対": "正の分子を負の分母で割ると、商も負。",
+        "どちらも正": "横座標の負の枝で商は負になる。"
+      }
+    },
+    "math-trig-l-trig-q13-01-r2-node-1": {
+      "validator": "exact",
       "answer": "負",
-      "acceptedAnswers": []
+      "wrongReasons": {
+        "正": "縦と横が両方正なら商も正。",
+        "0": "横座標が0では正接を定義できない。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b003": {
-      "validator": "normalized-text",
-      "answer": "√3/2",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q13-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$-\\sqrt{10}/10$",
+      "wrongReasons": {
+        "$\\sqrt{10}/10$": "鈍角では余弦は負。",
+        "$-1/10$": "1/10は二乗の値。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b004": {
-      "validator": "normalized-text",
-      "answer": "−1/2",
-      "acceptedAnswers": []
+    "math-trig-c17-r2-count": {
+      "validator": "exact",
+      "answer": "二つ",
+      "wrongReasons": {
+        "一つ": "水平線は左右対称の二点で上半円と交わる。",
+        "常に三つ": "上半円の左右に一つずつの二点である。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b005": {
-      "validator": "normalized-text",
-      "answer": "−√3",
-      "acceptedAnswers": []
+    "math-trig-c17-r2-sign": {
+      "validator": "exact",
+      "answer": "0以下",
+      "wrongReasons": {
+        "0より大きい": "正弦が0以上なので、その負号付きの相手cosは0以下。",
+        "符号を決められない": "元の式と角域の両方を使えば符号は制限できる。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b006": {
-      "validator": "normalized-text",
-      "answer": "反対",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q14-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "60°、120°",
+      "wrongReasons": {
+        "60°だけ": "120°も60°と同じ高さを与える。",
+        "30°、150°": "この二つの正弦は1/2。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b007": {
-      "validator": "number",
-      "answer": "1",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q14-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "135°",
+      "wrongReasons": {
+        "45°": "45°の点は半円の右側で余弦は正。",
+        "150°": "150°の余弦は−√3/2で、横座標がもっと小さい。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b008": {
-      "validator": "number",
-      "answer": "−1",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q14-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "30°、150°",
+      "wrongReasons": {
+        "30°だけ": "正弦はy軸をはさんだ反対側でも等しい。",
+        "60°、120°": "その高さは√3/2。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b009": {
-      "validator": "normalized-text",
-      "answer": "−4/5",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q14-04-r2-node-1": {
+      "validator": "exact",
+      "answer": "30°",
+      "wrongReasons": {
+        "150°": "150°では余弦が負になる。",
+        "60°": "60°の余弦は1/2。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b010": {
-      "validator": "normalized-text",
-      "answer": "−3/4",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q15-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "45°",
+      "wrongReasons": {
+        "135°": "135°では横座標が負で正接も負。",
+        "90°": "90°では分母の横座標が0。"
+      }
     },
-    "math-1a-geometry-measurement-s2-main-b011": {
-      "validator": "normalized-text",
-      "answer": "1/2",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometry-measurement-s2-main-b012": {
-      "validator": "normalized-text",
-      "answer": "−√3/2",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometry-measurement-s2-main-b013": {
-      "validator": "normalized-text",
-      "answer": "−1/√3",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometry-measurement-s2-main-b014": {
-      "validator": "normalized-text",
-      "answer": "3/5",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometry-measurement-s2-main-b015": {
-      "validator": "normalized-text",
-      "answer": "4/5",
-      "acceptedAnswers": []
-    },
-    "math-1a-geometry-measurement-s2-main-b016": {
-      "validator": "normalized-text",
+    "math-trig-l-trig-q15-02-r2-node-1": {
+      "validator": "exact",
       "answer": "150°",
-      "acceptedAnswers": []
+      "wrongReasons": {
+        "30°": "30°の正接は正。",
+        "120°": "120°の正接は−√3。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b001": {
-      "validator": "normalized-text",
-      "answer": "2R",
-      "acceptedAnswers": []
+    "math-trig-c08-r2-tangent": {
+      "validator": "exact",
+      "answer": "$\\tan\\theta$",
+      "wrongReasons": {
+        "$\\sin\\theta$": "sinはy/rであり、横座標で割る比ではない。",
+        "$\\cos\\theta$": "cosはx/rである。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b002": {
-      "validator": "normalized-text",
-      "answer": "6√2",
-      "acceptedAnswers": []
+    "math-trig-c08-r2-angle": {
+      "validator": "exact",
+      "answer": "$135^\\circ$",
+      "wrongReasons": {
+        "$45^\\circ$": "45度の正接は正の1である。",
+        "$-45^\\circ$": "負の角は今回の傾き角の約束の範囲外。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b003": {
-      "validator": "number",
-      "answer": "8",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q16-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$30^\\circ$",
+      "wrongReasons": {
+        "$60^\\circ$": "60°の正接は√3。",
+        "$150^\\circ$": "150°では正接が負。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b004": {
-      "validator": "number",
-      "answer": "28",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q16-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$135^\\circ$",
+      "wrongReasons": {
+        "$45^\\circ$": "45°の正接は正。",
+        "$90^\\circ$": "90°では直線の傾きは定義されない。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b005": {
-      "validator": "normalized-text",
-      "answer": "2√7",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s2e01-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$180^\\circ-C$",
+      "wrongReasons": {
+        "$90^\\circ-C$": "三角形の内角の和は180°。",
+        "$180^\\circ+C$": "和からCを引けばAとBだけが残る。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b006": {
-      "validator": "normalized-text",
-      "answer": "−1/4",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s2e01-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "符号だけが反対になる",
+      "wrongReasons": {
+        "同じ値になる": "変わらないのは縦座標。横座標はy軸に関する対称移動で符号が変わる。",
+        "絶対値も変わる": "y軸からの距離は変わらない。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b007": {
-      "validator": "normalized-text",
-      "answer": "鈍角",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s2e02-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\sqrt5/3$",
+      "wrongReasons": {
+        "$-\\sqrt5/3$": "上半円の縦座標は負にならない。",
+        "$5/9$": "正弦そのものには平方根を取る。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b008": {
-      "validator": "normalized-text",
-      "answer": "sinA",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s2e03-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\pm\\sqrt3/2$",
+      "wrongReasons": {
+        "$\\sqrt3/2$ だけ": "二乗が同じなら負の平方根も候補に入る。",
+        "$\\pm3/4$": "3/4は余弦の二乗。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b009": {
-      "validator": "number",
-      "answer": "10",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s2e04-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$\\cos\\theta\\le0$",
+      "wrongReasons": {
+        "$\\cos\\theta\\ge0$": "左辺と同じ符号なのは余弦そのものではなく余弦に負号を付けた値。",
+        "$\\cos\\theta=0$ だけ": "左辺は正でもよく、その場合の余弦は負。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b010": {
-      "validator": "normalized-text",
-      "answer": "鋭角",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s2e04-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "135°",
+      "wrongReasons": {
+        "45°": "45°では左辺が正、右辺は負。",
+        "45°、135°": "元の式の符号条件で45°を除く。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b011": {
-      "validator": "normalized-text",
+    "math-trig-l-trig-s2e05-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "135°、60°",
+      "wrongReasons": {
+        "45°、60°": "傾き−1の方向角は鈍角側の135°。",
+        "135°、30°": "正接が√3になる鋭角は60°。"
+      }
+    },
+    "math-trig-l-trig-s2e05-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "75°",
+      "wrongReasons": {
+        "105°": "これは75°の補角であり、指定の範囲を超える。",
+        "15°": "傾きが負の直線を45°として差を取ってはいけない。"
+      }
+    },
+    "math-trig-c09-r2-sum": {
+      "validator": "exact",
+      "answer": "$180^\\circ$",
+      "wrongReasons": {
+        "$360^\\circ$": "360度は中心角の和。円周角ではその半分にする。",
+        "$90^\\circ$": "二つの円周角の和は360度の半分である。"
+      }
+    },
+    "math-trig-c09-r2-cos": {
+      "validator": "exact",
+      "answer": "$-\\cos A$",
+      "wrongReasons": {
+        "$\\cos A$": "補角の余弦は逆符号。",
+        "$\\sin A$": "補角では種類をsinへ替えない。"
+      }
+    },
+    "math-trig-c10-r2-diameter": {
+      "validator": "exact",
+      "answer": "$BC=2R\\sin\\angle BDC$",
+      "wrongReasons": {
+        "$BC=R\\sin\\angle BDC$": "直角三角形の斜辺BDは半径でなく直径2R。",
+        "$BC=2R\\cos\\angle BDC$": "BCは角BDCの向かいにある辺なので正弦を使う。"
+      }
+    },
+    "math-trig-c10-r2-length": {
+      "validator": "exact",
+      "answer": "$4\\sqrt3$",
+      "wrongReasons": {
+        "$2\\sqrt3$": "共通比は2R=8。R=4をそのまま掛けない。",
+        "$8\\sqrt3$": "sin60度は√3/2なので分母2も掛ける。"
+      }
+    },
+    "math-trig-l-trig-q17-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "弧BAD",
+      "wrongReasons": {
+        "弧BCD": "同じ弧ではなくCを通らないBからDまでの弧を使う。",
+        "弧ABC": "角Cを作る二辺はCBとCDなので、弧の両端はBとD。"
+      }
+    },
+    "math-trig-l-trig-q18-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$2R$",
+      "wrongReasons": {
+        "$R$": "辺を対角の正弦で割った値は半径でなく直径。",
+        "$R/2$": "半径を2倍した直径が現れる。"
+      }
+    },
+    "math-trig-l-trig-q18-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "45°と135°",
+      "wrongReasons": {
+        "45°だけ": "正弦は補角でも同じ値。",
+        "45°と90°": "90°の正弦は1。"
+      }
+    },
+    "math-trig-l-trig-q19-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$6\\sin60^\\circ/\\sin45^\\circ$",
+      "wrongReasons": {
+        "$6\\sin45^\\circ/\\sin60^\\circ$": "求める辺cに対応する正弦を分子に置く。",
+        "$6\\sin75^\\circ/\\sin45^\\circ$": "角A=75°は辺aの対角。"
+      }
+    },
+    "math-trig-l-trig-q19-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$45^\\circ$ 未満",
+      "wrongReasons": {
+        "$45^\\circ$ より大きい": "BとCを足して45°になるため、Bはそれより小さい。",
+        "90°以下だけでよい": "B+C=45°から、さらに強い上限がある。"
+      }
+    },
+    "math-trig-c11-r2-coordinates": {
+      "validator": "exact",
+      "answer": "$(c\\cos B,c\\sin B)$",
+      "wrongReasons": {
+        "$(c\\sin B,c\\cos B)$": "横座標は余弦、縦座標は正弦で表す。",
+        "$(a\\cos B,a\\sin B)$": "Aまでの距離はBA=cであり、BC=aではない。"
+      }
+    },
+    "math-trig-c11-r2-distance": {
+      "validator": "exact",
+      "answer": "$b^2=(a-c\\cos B)^2+(c\\sin B)^2$",
+      "wrongReasons": {
+        "$b=(a-c\\cos B)+(c\\sin B)$": "直交する二方向の長さを足しても斜辺の長さにはならない。",
+        "$b^2=(a-c\\cos B)^2-(c\\sin B)^2$": "bは二方向の差が作る直角三角形の斜辺なので、二乗を足す。"
+      }
+    },
+    "math-trig-c11-r2-expand": {
+      "validator": "exact",
+      "answer": "$-2ac\\cos B$",
+      "wrongReasons": {
+        "$-ac\\cos B$": "積は二つ現れるので係数2が必要。",
+        "$+2ac\\cos B$": "aからc cos Bを引いた二乗なので、交差項の符号は負。"
+      }
+    },
+    "math-trig-c11-r2-identity": {
+      "validator": "exact",
+      "answer": "$1$",
+      "wrongReasons": {
+        "$0$": "正弦と余弦の二乗和は1。差の式と混同しない。",
+        "$2$": "二つの三角比がそれぞれ1になるわけではない。"
+      }
+    },
+    "math-trig-c11-r2-value": {
+      "validator": "exact",
+      "answer": "$19$",
+      "wrongReasons": {
+        "$34$": "60度の余弦は0ではないので、交差項を引く。",
+        "$49$": "余弦は正であり、15を加えるのでなく引く。"
+      }
+    },
+    "math-trig-c11-r2-reverse": {
+      "validator": "exact",
+      "answer": "$1/2$",
+      "wrongReasons": {
+        "$-1/2$": "分子は9+16−13=12で正である。",
+        "$2$": "分母は2×3×4=24。比を逆にしない。"
+      }
+    },
+    "math-trig-l-trig-q20-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$15^2+7^2-2\\cdot15\\cdot7\\cos60^\\circ$",
+      "wrongReasons": {
+        "$15^2+7^2+2\\cdot15\\cdot7\\cos60^\\circ$": "余弦定理の交差項は引く。",
+        "$15^2+7^2$": "60°は直角ではないので余弦の項は消えない。"
+      }
+    },
+    "math-trig-l-trig-q21-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$4+75-49$",
+      "wrongReasons": {
+        "$4+49-75$": "角Aの対辺aの二乗を引く。",
+        "$49-4-75$": "挟む二辺の二乗の和から対辺の二乗を引く。"
+      }
+    },
+    "math-trig-l-trig-q21-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$1+18-25$",
+      "wrongReasons": {
+        "$18+25-1$": "角Aの対辺aの二乗を引く。",
+        "$25-1-18$": "挟む二辺の二乗の和から対辺の二乗を引く。"
+      }
+    },
+    "math-trig-c12-r2-largest": {
+      "validator": "exact",
+      "answer": "最長辺の対角",
+      "wrongReasons": {
+        "最短辺の対角": "最小の角だけが鋭角でも、最大角が鈍角の場合がある。",
+        "任意の一角": "一角だけの鋭角判定では残りの角を制限できない。"
+      }
+    },
+    "math-trig-c12-r2-shape": {
+      "validator": "exact",
       "answer": "鋭角三角形",
-      "acceptedAnswers": []
+      "wrongReasons": {
+        "直角三角形": "36と41は等しくない。",
+        "鈍角三角形": "最大角の余弦の分子は41−36>0である。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b012": {
-      "validator": "normalized-text",
-      "answer": "2通り",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q22-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "鈍角",
+      "wrongReasons": {
+        "鋭角": "鋭角は余弦が正、鈍角は負。分子の差の符号に合わせる。",
+        "直角": "余弦が0になるのは二乗の和と対辺の二乗が等しいとき。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b013": {
-      "validator": "normalized-text",
-      "answer": "半周長",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q22-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "鋭角",
+      "wrongReasons": {
+        "鈍角": "鋭角は余弦が正、鈍角は負。分子の差の符号に合わせる。",
+        "直角": "余弦が0になるのは二乗の和と対辺の二乗が等しいとき。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b014": {
-      "validator": "number",
-      "answer": "8",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q23-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$C$",
+      "wrongReasons": {
+        "$A$": "Aは最短辺の向かい。最大角は最長辺の対角。",
+        "$B$": "Bの対辺8は最長でなく9より短い。"
+      }
     },
-    "math-1a-geometry-measurement-s3-main-b015": {
-      "validator": "number",
-      "answer": "12",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q24-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$9=c^2+6-\\sqrt6 c$",
+      "wrongReasons": {
+        "$9=c^2+6+\\sqrt6 c$": "cos60°は正なので交差項を引く。",
+        "$c^2=9+6-\\sqrt6 c$": "選んだ余弦の角Bの対辺はb=3。左辺はb²。"
+      }
     },
-    "math-1a-geometry-measurement-s4-main-b001": {
-      "validator": "normalized-text",
-      "answer": "2本",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q24-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$(\\sqrt6+3\\sqrt2)/2$",
+      "wrongReasons": {
+        "$(\\sqrt6-3\\sqrt2)/2$": "3√2の方が√6より大きいので、この根は負。",
+        "正負どちらの根も使う": "三角形の辺の長さは正でなければならない。"
+      }
     },
-    "math-1a-geometry-measurement-s4-main-b002": {
-      "validator": "normalized-text",
-      "answer": "共有",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q24-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$6-2\\sqrt3$",
+      "wrongReasons": {
+        "$3-\\sqrt3$": "2×√6×√2/2は2√3。これを√3−1に掛ける。",
+        "$6+2\\sqrt3$": "bは√3−1であり、交差項の中も引き算になる。"
+      }
     },
-    "math-1a-geometry-measurement-s4-main-b003": {
-      "validator": "normalized-text",
-      "answer": "足す",
-      "acceptedAnswers": []
+    "math-trig-l-trig-q24-02-r2-node-2": {
+      "validator": "exact",
+      "answer": "$-1/2$",
+      "wrongReasons": {
+        "$1/2$": "分子は2−2√3で負。",
+        "$-1/\\sqrt2$": "分子と分母の共通因子√3−1を約分すると−1/2。"
+      }
     },
-    "math-1a-geometry-measurement-s4-main-b004": {
-      "validator": "normalized-text",
-      "answer": "平面図形",
-      "acceptedAnswers": []
+    "math-trig-c18-r2-cases": {
+      "validator": "exact",
+      "answer": "二つの因子それぞれが0になる場合",
+      "wrongReasons": {
+        "後ろの因子が0になる場合だけ": "前の因子が0、すなわちa=bでも元の積は0になる。",
+        "両方の因子が同時に0の場合だけ": "積が0になるには少なくとも一方が0ならよい。"
+      }
     },
-    "math-1a-geometry-measurement-s4-main-b005": {
-      "validator": "normalized-text",
-      "answer": "既知辺",
-      "acceptedAnswers": []
+    "math-trig-c18-r2-sides": {
+      "validator": "exact",
+      "answer": "$a^2+b^2=c^2$",
+      "wrongReasons": {
+        "$a+b=c$": "元の正弦が二乗されているので辺も二乗になる。",
+        "$a^2-b^2=c^2$": "左辺の加法は置換後も加法のままである。"
+      }
     },
-    "math-1a-geometry-measurement-s4-main-b006": {
-      "validator": "normalized-text",
-      "answer": "足す",
-      "acceptedAnswers": []
+    "math-trig-l-trig-rsh01-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$(a^2-b^2)\\{c^2-(a^2+b^2)\\}=0$",
+      "wrongReasons": {
+        "$(a^2+b^2)\\{c^2-(a^2-b^2)\\}=0$": "四乗の差は平方の差と平方の和の積。c²にも平方の差が掛かる。",
+        "$(a^2-b^2)(c^2-a^2+b^2)=0$": "四乗の差を分解して引くと、括弧内ではa²もb²も引かれる。"
+      }
     },
-    "math-1a-geometry-measurement-s4-main-b007": {
-      "validator": "normalized-text",
-      "answer": "2a²/3",
-      "acceptedAnswers": []
+    "math-trig-l-trig-rsh01-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$a=b$ の二等辺三角形、または $C=90^\\circ$ の直角三角形",
+      "wrongReasons": {
+        "両条件が必ず成り立つ直角二等辺三角形": "積が0なら、少なくとも一方の因子が0でよい。",
+        "$a=b$ の二等辺三角形だけ": "二つ目の因子も0になりうる。"
+      }
     },
-    "math-1a-geometry-measurement-s4-end-b001": {
-      "validator": "normalized-text",
-      "answer": "受け渡す",
-      "acceptedAnswers": []
+    "math-trig-l-trig-rsh02-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$a^2+b^2=c^2$",
+      "wrongReasons": {
+        "$a+b=c$": "正弦は二乗されているため辺も二乗される。",
+        "$a^2+c^2=b^2$": "右辺は角Cの正弦なので、対応する辺cが右辺。"
+      }
     },
-    "math-1a-geometry-measurement-s4-end-b002": {
-      "validator": "normalized-text",
-      "answer": "受け渡す",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s3e01-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "補角",
+      "wrongReasons": {
+        "余角": "CBとCHは直線上で反対を向き、二角の和は180°。",
+        "等しい角": "二つの角の一方は△ACHの内角、もう一方はその外角。"
+      }
     },
-    "math-1a-geometry-measurement-s4-end-b003": {
-      "validator": "normalized-text",
-      "answer": "abc/(4R)",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s3e01-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$2R=AB/\\sin\\angle ACB$",
+      "wrongReasons": {
+        "$R=AB/\\sin\\angle ACB$": "正弦定理で出るのは直径2R。",
+        "$2R=AC/\\sin\\angle ACB$": "角Cの対辺はAB。"
+      }
     },
-    "math-1a-geometry-measurement-s4-end-b004": {
-      "validator": "normalized-text",
-      "answer": "abc/(4S)",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s3e01-03-r2-node-1": {
+      "validator": "exact",
+      "answer": "$BC/(2R)$",
+      "wrongReasons": {
+        "$BC/R$": "分母に置くのは外接円の直径。",
+        "$2R/BC$": "正弦定理を正弦について解くと辺が分子に残る。"
+      }
     },
-    "math-1a-geometry-measurement-s4-end-b005": {
-      "validator": "normalized-text",
-      "answer": "正弦定理",
-      "acceptedAnswers": []
+    "math-trig-l-trig-s3e02-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$(c^2+a^2-b^2)/(2ca)$",
+      "wrongReasons": {
+        "$(c^2+b^2-a^2)/(2cb)$": "この式は角Aを求める組。",
+        "$(b^2-c^2-a^2)/(2ca)$": "挟む二辺の二乗を足してから対辺の二乗を引く。"
+      }
+    },
+    "math-trig-l-trig-s3e02-02-r2-node-1": {
+      "validator": "exact",
+      "answer": "$6^2+4^2-2\\cdot6\\cdot4\\cdot(7/8)$",
+      "wrongReasons": {
+        "$6^2+8^2-2\\cdot6\\cdot8\\cdot(7/8)$": "△ABMではBC全体でなくBMを使う。",
+        "$6^2+4^2$": "角Bは直角とは限らず、余弦の項が残る。"
+      }
+    },
+    "math-trig-l-trig-s3e03-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "135°",
+      "wrongReasons": {
+        "45°": "45°の余弦は正。",
+        "150°": "150°の余弦は−√3/2。"
+      }
+    },
+    "math-trig-l-trig-s3e03-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$\\sqrt2$",
+      "wrongReasons": {
+        "$2\\sqrt2$": "それは直径2R。",
+        "$1/\\sqrt2$": "Rはaを2sin Aで割る。"
+      }
+    },
+    "math-trig-l-trig-s3e04-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$4=2+c^2-2c$",
+      "wrongReasons": {
+        "$4=2+c^2+2c$": "45°の余弦は正で、余弦定理では交差項を引く。",
+        "$c^2=4+2-2c$": "角Aの対辺a=2の二乗が左辺。"
+      }
+    },
+    "math-trig-l-trig-s3e04-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "$1+\\sqrt3$",
+      "wrongReasons": {
+        "$1-\\sqrt3$": "√3>1なので、この根は負。",
+        "$\\sqrt3-1$": "負の根の絶対値を取っても、元の方程式の解にはならない。"
+      }
+    },
+    "math-trig-l-trig-s3e05-01-r2-node-1": {
+      "validator": "exact",
+      "answer": "$5:3:7$",
+      "wrongReasons": {
+        "$7:3:5$": "角A、B、Cは順に辺a、b、cに対応する。",
+        "$1/5:1/3:1/7$": "同じ値で割ってあるので、正弦の比は分母の比と同じ。"
+      }
+    },
+    "math-trig-l-trig-s3e05-01-r2-node-2": {
+      "validator": "exact",
+      "answer": "120°",
+      "wrongReasons": {
+        "60°": "60°の余弦は正の1/2。",
+        "150°": "150°の余弦は−√3/2。"
+      }
+    },
+    "math-trig-c13-r2-height": {
+      "validator": "exact",
+      "answer": "$h=c\\sin A$",
+      "wrongReasons": {
+        "$h=c\\cos A$": "高さは角Aの向かいで、cが斜辺である。",
+        "$h=b\\sin A$": "高さを含む直角三角形の斜辺はAB=c。"
+      }
+    },
+    "math-trig-c13-r2-radius": {
+      "validator": "exact",
+      "answer": "$S=abc/(4R)$",
+      "wrongReasons": {
+        "$S=abc/(2R)$": "面積公式にも分母2があり、2Rと合わせて4Rになる。",
+        "$S=2Rbc/a$": "正弦はa/(2R)であり、その逆数ではない。"
+      }
+    },
+    "math-trig-l-trig-q25-01-r2-formula": {
+      "validator": "exact",
+      "answer": "$S=ca\\sin B/2$",
+      "wrongReasons": {
+        "$S=ca\\sin A/2$": "辺cとaが挟む角はBである。",
+        "$S=ca\\cos B/2$": "高さを作るのは正弦。余弦ではない。"
+      }
+    },
+    "math-trig-l-trig-q25-02-r2-value": {
+      "validator": "exact",
+      "answer": "$1/\\sqrt2$",
+      "wrongReasons": {
+        "$-1/\\sqrt2$": "上半円では正弦は正。負になるのは鈍角の余弦。",
+        "$\\sqrt3/2$": "135度の補角は45度であり、60度ではない。"
+      }
+    },
+    "math-trig-l-trig-q26-01-r2-sine": {
+      "validator": "exact",
+      "answer": "$\\sin C=4\\sqrt3/7$",
+      "wrongReasons": {
+        "$\\sin C=-4\\sqrt3/7$": "三角形の内角の正弦は正。",
+        "$\\sin C=48/49$": "48/49は正弦の二乗であり、正の平方根を取る。"
+      }
+    },
+    "math-trig-l-trig-q26-02-r2-area": {
+      "validator": "exact",
+      "answer": "$S=4\\cdot6\\cdot(\\sqrt{15}/8)/2$",
+      "wrongReasons": {
+        "$S=4\\cdot6\\cdot(7/8)/2$": "7/8は余弦で、面積に必要なのは正弦。",
+        "$S=4\\cdot\\sqrt{10}\\cdot(\\sqrt{15}/8)/2$": "Cを挟む二辺はa,bであり、cを混ぜない。"
+      }
+    },
+    "math-trig-c14-r2-equal": {
+      "validator": "exact",
+      "answer": "$AH=BH=CH$",
+      "wrongReasons": {
+        "$AH=BH=OH$": "OHは共通に引いた高さであり、底面上の距離と等しいとはいえない。",
+        "$AH+BH=CH$": "二乗の値が等しいので各距離が等しくなる。"
+      }
+    },
+    "math-trig-c14-r2-height": {
+      "validator": "exact",
+      "answer": "$3$",
+      "wrongReasons": {
+        "$4$": "底面積が違うので高さをそのまま保てない。",
+        "$32/6$": "同じ体積よりh2=S1h1/S2。比の向きを逆にしない。"
+      }
+    },
+    "math-trig-l-trig-q27-01-r2-height": {
+      "validator": "exact",
+      "answer": "$OH=\\sqrt{4^2-(2\\sqrt3)^2}=2$",
+      "wrongReasons": {
+        "$OH=4$": "4は斜めの辺OAであり、高さOHとは異なる。",
+        "$OH=\\sqrt{4^2+(2\\sqrt3)^2}=2\\sqrt7$": "直角三角形でOAが斜辺なので、既知の直角辺の二乗を引く。"
+      }
+    },
+    "math-trig-c15-r2-sum": {
+      "validator": "exact",
+      "answer": "$ar/2+br/2+cr/2$",
+      "wrongReasons": {
+        "$ar+br+cr$": "各小三角形の面積にも2で割る係数が必要。",
+        "$abc/2$": "三辺を掛けても面積の分割を表せない。"
+      }
+    },
+    "math-trig-c15-r2-radius": {
+      "validator": "exact",
+      "answer": "$1$",
+      "wrongReasons": {
+        "$1/2$": "割るのは周長12でなく半周長6。",
+        "$6$": "面積の値をそのまま半径にはできない。"
+      }
+    },
+    "math-trig-c16-r2-factor": {
+      "validator": "exact",
+      "answer": "$((b+c)^2-a^2)(a^2-(b-c)^2)$",
+      "wrongReasons": {
+        "$((b+c)^2+a^2)(a^2+(b-c)^2)$": "平方差では一方を引き一方を足す。両方を和にはしない。",
+        "$(b^2+c^2-a^2)^2$": "元の式はこの二乗を4b²c²から引いたものである。"
+      }
+    },
+    "math-trig-c16-r2-area": {
+      "validator": "exact",
+      "answer": "$12$",
+      "wrongReasons": {
+        "$144$": "144は面積の二乗である。",
+        "$-12$": "面積は正なので負の平方根は採用しない。"
+      }
+    },
+    "math-trig-l-trig-rhe01-01-r2-half": {
+      "validator": "exact",
+      "answer": "$s=9$",
+      "wrongReasons": {
+        "$s=18$": "sは周長そのものではなく半分。",
+        "$s=6$": "三辺の平均でなく和の半分である。"
+      }
+    },
+    "math-trig-l-trig-rin01-01-r2-equation": {
+      "validator": "exact",
+      "answer": "$10\\sqrt3=(7+5+8)r/2=10r$",
+      "wrongReasons": {
+        "$10\\sqrt3=(7+5+8)r=20r$": "三つの小三角形それぞれの面積に1/2がある。",
+        "$10\\sqrt3=7\\cdot5\\cdot8/(4r)$": "abc/(4R)は外接半径Rの公式で、内接半径rには使わない。"
+      }
+    },
+    "math-trig-l-trig-s4e01-01-r2-sine": {
+      "validator": "exact",
+      "answer": "$\\sin A=a/(2R)$",
+      "wrongReasons": {
+        "$\\sin A=2R/a$": "a=2R sin Aをsin Aについて解く。",
+        "$\\sin A=a/R$": "正弦定理の共通比は半径でなく直径2R。"
+      }
+    },
+    "math-trig-l-trig-s4e01-02-r2-coefficient": {
+      "validator": "exact",
+      "answer": "$8R^3/(4R)=2R^2$",
+      "wrongReasons": {
+        "$8R^3/(4R)=2R$": "R³をRで割るとR²が残る。",
+        "$8R^3/(4R)=4R^2$": "数の係数は8÷4=2。"
+      }
+    },
+    "math-trig-l-trig-s4e02-01-r2-factor": {
+      "validator": "exact",
+      "answer": "$(x+y)(u+v)$",
+      "wrongReasons": {
+        "$(x+u)(y+v)$": "展開したときxyやuvが現れ、元の四つの積と一致しない。",
+        "$xu+yv$": "四つの小三角形のうち二つを落としている。"
+      }
+    },
+    "math-trig-l-trig-s4e03-01-r2-formula": {
+      "validator": "exact",
+      "answer": "$\\cos\\angle BDE=(BD^2+DE^2-BE^2)/(2BD\\cdot DE)$",
+      "wrongReasons": {
+        "$\\cos\\angle BDE=(BD^2+BE^2-DE^2)/(2BD\\cdot BE)$": "これは角DBEの式で、頂点Dの角ではない。",
+        "$\\cos\\angle BDE=(BD^2+DE^2+BE^2)/(2BD\\cdot DE)$": "対辺の二乗は分子で引く。"
+      }
+    },
+    "math-trig-l-trig-s4e03-02-r2-sine": {
+      "validator": "exact",
+      "answer": "$\\sin\\angle BDE=7\\sqrt2/10$",
+      "wrongReasons": {
+        "$\\sin\\angle BDE=-7\\sqrt2/10$": "内角は0度と180度の間なので正弦は正。",
+        "$\\sin\\angle BDE=98/100$": "98/100は正弦の二乗。"
+      }
+    },
+    "math-trig-l-trig-s4e03-03-r2-volume": {
+      "validator": "exact",
+      "answer": "$1=(7/2)h/3$",
+      "wrongReasons": {
+        "$1=(7/2)h$": "四面体なので底面積×高さを3で割る。",
+        "$1=(7/2)\\cdot3/3$": "底面を替えたら高さもAからその平面へのhに替わる。"
+      }
+    },
+    "math-trig-l-trig-s4e04-01-r2-equation": {
+      "validator": "exact",
+      "answer": "$AB^2=100^2+60^2-2\\cdot100\\cdot60\\cos60^\\circ$",
+      "wrongReasons": {
+        "$AB^2=100^2+60^2$": "挟角は90度でないので交差項を省けない。",
+        "$AB^2=100^2+60^2+2\\cdot100\\cdot60\\cos60^\\circ$": "余弦定理では交差項を引く。60度の余弦は正。"
+      }
+    },
+    "math-trig-c19-r2-angle": {
+      "validator": "exact",
+      "answer": "$15^\\circ$",
+      "wrongReasons": {
+        "$30^\\circ$": "底角75度から60度を引く。頂角とは異なる。",
+        "$45^\\circ$": "75−60の差を使う。"
+      }
+    },
+    "math-trig-c19-r2-cos": {
+      "validator": "exact",
+      "answer": "$(\\sqrt6+\\sqrt2)/4$",
+      "wrongReasons": {
+        "$(\\sqrt6-\\sqrt2)/4$": "分母に共役な和を掛けるので、余弦の分子は和になる。",
+        "$(\\sqrt6+\\sqrt2)/8$": "共役を掛けた分母は6−2=4。"
+      }
+    },
+    "math-trig-l-trig-ca01-01-r2-ratio": {
+      "validator": "exact",
+      "answer": "$CH/BH$",
+      "wrongReasons": {
+        "$BH/CH$": "15度の向かいはCH、隣はBHなのでこの順。",
+        "$CH/BC$": "BCは斜辺なので、その比は正弦になる。"
+      }
+    },
+    "math-trig-l-trig-ca02-01-r2-equation": {
+      "validator": "exact",
+      "answer": "$3(x^2+48)=4(x^2+28)$",
+      "wrongReasons": {
+        "$4(x^2+48)=3(x^2+28)$": "分母16x側には3、12x側には4が掛かる。",
+        "$x^2+48=x^2+28$": "二つの分母が異なるため、分子だけを等置できない。"
+      }
+    },
+    "math-trig-l-trig-ca03-01-r2-sine-law": {
+      "validator": "exact",
+      "answer": "$BH/\\sin45^\\circ=6/\\sin30^\\circ$",
+      "wrongReasons": {
+        "$BH/\\sin30^\\circ=6/\\sin45^\\circ$": "辺と対角の組が逆になっている。",
+        "$BH=6\\tan45^\\circ$": "三角形ABHは直角三角形ではない。"
+      }
+    },
+    "math-trig-c20-r2-ratio": {
+      "validator": "exact",
+      "answer": "$AC/BC=a\\sin\\alpha/(b\\sin\\beta)$",
+      "wrongReasons": {
+        "$AC/BC=a/b$": "角が等しいとは限らず、正弦の比をまだ約分できない。",
+        "$AC/BC=b\\sin\\beta/(a\\sin\\alpha)$": "分子はOACの面積に対応する。"
+      }
+    },
+    "math-trig-c20-r2-value": {
+      "validator": "exact",
+      "answer": "$\\sqrt2$",
+      "wrongReasons": {
+        "$1$": "45度と30度の正弦は異なる。",
+        "$1/\\sqrt2$": "比はsin45度/sin30度の向きである。"
+      }
+    },
+    "math-trig-l-trig-cb04-01-r2-ratio": {
+      "validator": "exact",
+      "answer": "$AC/BC=7\\sqrt2/5$",
+      "wrongReasons": {
+        "$AC/BC=7/5$": "正弦45度と30度の比が残る。",
+        "$AC/BC=5/(7\\sqrt2)$": "分子はOACの面積に対応する。"
+      }
+    },
+    "math-trig-l-trig-cb05-01-r2-equation": {
+      "validator": "exact",
+      "answer": "$80=c^2+25-6c$",
+      "wrongReasons": {
+        "$80=c^2+25+6c$": "cosB=3/5は正であり、余弦定理の交差項は引く。",
+        "$80=c^2+25-3c$": "交差項には係数2があり、2×5×3/5=6。"
+      }
+    },
+    "math-trig-l-trig-cb05-02-r2-rationalize": {
+      "validator": "exact",
+      "answer": "$r=11(4-\\sqrt5)/(16-5)$",
+      "wrongReasons": {
+        "$r=11(4+\\sqrt5)/(16-5)$": "分母4+√5を有理化するには共役な4−√5を掛ける。",
+        "$r=11(4-\\sqrt5)/(16+5)$": "共役の積は平方差16−5になる。"
+      }
+    },
+    "math-trig-l-trig-cb06-01-r2-second": {
+      "validator": "exact",
+      "answer": "$AC^2=149+140\\cos\\theta$",
+      "wrongReasons": {
+        "$AC^2=149-140\\cos\\theta$": "補角の余弦の負号と、余弦定理の負号が重なって正になる。",
+        "$AC^2=149+70\\cos\\theta$": "交差項には2×7×10=140が必要。"
+      }
+    },
+    "math-trig-l-trig-cb06-02-r2-radius": {
+      "validator": "exact",
+      "answer": "$R=5\\sqrt{65}/8$",
+      "wrongReasons": {
+        "$R=5\\sqrt{65}/4$": "これはAC/sinθ、すなわち直径2Rの値。",
+        "$R=4\\sqrt{65}/5$": "正弦定理ではsinθを掛けるのでなく割り、さらに2で割る。"
+      }
+    },
+    "math-trig-l-trig-cb06-03-r2-sum": {
+      "validator": "exact",
+      "answer": "$S=(10+35)\\sin\\theta$",
+      "wrongReasons": {
+        "$S=(35-10)\\sin\\theta$": "二つの部分の面積は引かずに足す。",
+        "$S=(20+70)\\sin\\theta$": "各三角形の面積を2で割る係数が必要。"
+      }
+    },
+    "math-trig-l-trig-cb07-01-r2-equation": {
+      "validator": "exact",
+      "answer": "$100=OB^2+OC^2-2OB\\cdot OC\\cos30^\\circ$",
+      "wrongReasons": {
+        "$100=OB^2+OC^2$": "OBCの角Oは30度で、直角ではない。",
+        "$100=OB^2+OC^2+2OB\\cdot OC\\cos30^\\circ$": "余弦定理では正の余弦の交差項を引く。"
+      }
+    },
+    "math-trig-l-trig-cb07-02-r2-area": {
+      "validator": "exact",
+      "answer": "$S_{OBC}=OB\\cdot OC\\sin30^\\circ/2$",
+      "wrongReasons": {
+        "$S_{OBC}=OB\\cdot OC/2$": "OBCは直角三角形ではなく、sin30度の係数が必要。",
+        "$S_{OBC}=OA\\cdot OC\\sin30^\\circ/2$": "面OBCの面積なので、面外の辺OAを入れない。"
+      }
+    },
+    "math-trig-l-trig-cb07-03-r2-sine": {
+      "validator": "exact",
+      "answer": "$\\sin\\angle BAC=\\sqrt{1-54/64}=\\sqrt{10}/8$",
+      "wrongReasons": {
+        "$\\sin\\angle BAC=\\sqrt{1-18/64}=\\sqrt{46}/8$": "(3√6)²は9×6=54である。",
+        "$\\sin\\angle BAC=-\\sqrt{10}/8$": "三角形の内角の正弦は正。"
+      }
+    },
+    "math-trig-l-trig-cb07-04-r2-volume": {
+      "validator": "exact",
+      "answer": "$S_{OBC}\\,OA/3=S_{ABC}h/3$",
+      "wrongReasons": {
+        "$S_{OBC}h/3=S_{ABC}\\,OA/3$": "OAはOBCへの高さ、hはABCへの高さであり、組を入れ替えない。",
+        "$S_{OBC}\\,OA=S_{ABC}h/3$": "同じ四面体なので両方の表示に1/3が必要。"
+      }
     }
   }
 }

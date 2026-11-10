@@ -1,0 +1,3315 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n02",
+  "revision": 6,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "多項式の整理と加減",
+  "subtitle": "注目する文字を決め、同じ次数をそろえて式を扱う。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N02",
+    "rightsNote": "教師編集Wordの原問12件を独立計算で照合したレビュー用新規学習本文。図の追加なし。公式別冊解答・出版社の再配布許諾は未確認。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "注目する文字を一つ選んで式の項を整理する",
+    "欠けた次数を0として扱い、式全体の加法・減法を説明する",
+    "AやBを一つのまとまりとして既に求めた式を再利用する"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "02",
+      "title": "多項式の整理と加減",
+      "description": "同じ次数・全体への符号・既出の式の再利用をつなぐ。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "heading-variable",
+          "type": "heading",
+          "text": "「何の文字について」見るかを先に決める"
+        },
+        {
+          "id": "marker-polynomial-example",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "paragraph-polynomial-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2bx+x^3+5c-ax^2+bx"
+            },
+            {
+              "type": "text",
+              "text": " を "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " について整理しよう。"
+            },
+            {
+              "type": "math",
+              "latex": "a,b,c"
+            },
+            {
+              "type": "text",
+              "text": " は定数とする。文字が何種類もあっても、今回は "
+            },
+            {
+              "type": "term",
+              "text": "xが何回掛けられているか"
+            },
+            {
+              "type": "text",
+              "text": " に注目する。"
+            },
+            {
+              "type": "math",
+              "latex": "2bx"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "bx"
+            },
+            {
+              "type": "text",
+              "text": " はどちらも "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " の1次の項なので同類項になる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-like-b-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ"
+            },
+            {
+              "type": "math",
+              "latex": "bx"
+            },
+            {
+              "type": "text",
+              "text": "を残し、二つの係数を足す。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-like-b-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2bx+bx=(2+1)bx="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-like-b"
+            },
+            {
+              "type": "math",
+              "latex": "bx"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2bx+bx="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-01"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-polynomial-order",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " の3次、2次、1次、そして "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " を含まない項を順に並べよう。次数が高い方から書くと、"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-order-map",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次の項は"
+            },
+            {
+              "type": "math",
+              "latex": "3bx"
+            },
+            {
+              "type": "text",
+              "text": "になりました。残る項は"
+            },
+            {
+              "type": "math",
+              "latex": "x³"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "−ax²"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "5c"
+            },
+            {
+              "type": "text",
+              "text": "です。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の個数が3個、2個、1個、0個となる順に、符号を保って並べます。"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2bx+x^3+5c-ax^2+bx="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-02"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-order-name",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "注目した文字の次数が高い順に並べることを"
+            },
+            {
+              "type": "term",
+              "text": "降べきの順"
+            },
+            {
+              "type": "text",
+              "text": "、低い順に並べることを"
+            },
+            {
+              "type": "term",
+              "text": "昇べきの順"
+            },
+            {
+              "type": "text",
+              "text": "という。項の順序を変えても値は変わらない。"
+            },
+            {
+              "type": "math",
+              "latex": "5c"
+            },
+            {
+              "type": "text",
+              "text": " は "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " を含まないため、この見方では定数項になる。"
+            }
+          ]
+        },
+        {
+          "id": "marker-variable-check",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "paragraph-variable-check",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+2xy+y^2-3x-3y+2"
+            },
+            {
+              "type": "text",
+              "text": " を "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " の降べき順に整理しよう。"
+            },
+            {
+              "type": "math",
+              "latex": "2xy"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "-3x"
+            },
+            {
+              "type": "text",
+              "text": " は一次項。"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": " は係数の一部として扱う。"
+            },
+            {
+              "type": "math",
+              "latex": "y^2-3y+2"
+            },
+            {
+              "type": "text",
+              "text": " は "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " を含まない。係数と定数項の組は、"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-03-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "後で"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の次数順に並べるため、まず一次係数と定数部分を分けて求める。"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を含むかではなく、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を含むかを判定の基準にする。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-worked-n02-04-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の式の項を、二次・一次・"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を含まない部分へ並べ替える。項の符号は変えない。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-worked-n02-04-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+2xy+y^2-3x-3y+2=x^2+("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-s5-classify-linear"
+            },
+            {
+              "type": "math",
+              "latex": ")+(y^2-3y+2)"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-linear-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を含む一次項だけを取り出す。二つに共通する"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を外へ出し、残った係数を一つの括弧に入れよう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-coefficient-factors",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2xy=(2y)x,\\qquad -3x=(-3)x"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-linear-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2xy-3x=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-detail-linear-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-linear-coefficient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次項は、この括弧全体に"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を掛けた形になった。次に"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を含まない項を別のまとまりとして読めば、係数と定数部分を区別できる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-constant-part-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を一つも含まない項を、元の式から符号ごと集める。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-constant-part-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{xを含まない部分}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-constant-part"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{一次係数：}2y-3,\\qquad\\text{定数部分：}y^2-3y+2"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-03-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "得た二つを次の式の一次係数と定数部分へ戻す。定数部分が一つの数でなく文字式でも、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "がなければこの整理では定数として扱える。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-variable-assembly",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今の二つのまとまりを戻し、"
+            },
+            {
+              "type": "math",
+              "latex": "x^2"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "、定数項の順に並べると、"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-reuse-goal",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次の項"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "はそのまま残します。求めた一次係数を"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の前へ戻し、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を含まない部分を最後へ置きます。"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-reuse-linear-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-s4-reuse-linear"
+            },
+            {
+              "type": "math",
+              "latex": " )x+(y^2-3y+2)"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2+2xy+y^2-3x-3y+2="
+            },
+            {
+              "type": "math",
+              "latex": "x^2+(2y-3)x+(y^2-3y+2)"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-variable-summary",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "大切なのは、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " について見ると他の文字が係数や定数項の中に残ることだ。"
+            },
+            {
+              "type": "text",
+              "text": "次はこの見方で二つの式全体を足し引きする。"
+            }
+          ]
+        },
+        {
+          "id": "heading-add",
+          "type": "heading",
+          "text": "同じ次数の列をそろえて足す"
+        },
+        {
+          "id": "marker-add-example",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "paragraph-ab-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の "
+            },
+            {
+              "type": "math",
+              "latex": "A,B"
+            },
+            {
+              "type": "text",
+              "text": " について、"
+            },
+            {
+              "type": "math",
+              "latex": "A+B"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "A-B"
+            },
+            {
+              "type": "text",
+              "text": " を求めよう。"
+            }
+          ]
+        },
+        {
+          "id": "formula-ab-definition",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}A&=2x^3-3x^2+x-1\\\\B&=-x^3+2x^2+2\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-b-missing",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": " には "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " の一次項があるが、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": " には一次の項が見当たらない。同じ次数の列をそろえるため、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の値を変えずに補える一次項を考えよう。"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-05",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "B=-x^3+2x^2+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-05"
+            },
+            {
+              "type": "math",
+              "latex": "+2"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-n02-05-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次項の係数は "
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            },
+            {
+              "type": "text",
+              "text": "。次数ごとに列をそろえるときだけ "
+            },
+            {
+              "type": "math",
+              "latex": "0x"
+            },
+            {
+              "type": "text",
+              "text": " と書いても、もとの式の値は変わらない。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-06-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の一次係数を0としてそろえたので、同じ次数の列を一つずつ足せる。三次、二次、一次、定数の計算は、それぞれ別の列の計算である。"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-sum-align",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}A&=2x^3-3x^2+1x-1\\\\B&=-x^3+2x^2+0x+2\\end{aligned}"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-cube-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三次項の係数だけを計算し、その文字の部分は残す。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-cube-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2+(-1))x^3=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-sum-cube"
+            },
+            {
+              "type": "math",
+              "latex": ")x^3"
+            }
+          ]
+        },
+        {
+          "id": "n02-s5-sum-square-regroup-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3x^2+2x^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-s5-sum-square-regroup"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次項の係数だけを計算し、その文字の部分は残す。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-square-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-3+2)x^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-sum-square"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-linear-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次項の係数だけを計算し、その文字の部分は残す。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-linear-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(1+0)x=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-sum-linear"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-constant-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後に、文字を含まない定数項どうしを足します。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-constant-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-1+2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-sum-constant"
+            },
+            {
+              "type": "math",
+              "latex": ")"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-sum-regroup",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A+B=(2-1)x^3+(-3+2)x^2+(1+0)x+(-1+2)"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-sum-coeff",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ次数の係数を足す。"
+            },
+            {
+              "type": "math",
+              "latex": "x^3"
+            },
+            {
+              "type": "text",
+              "text": " は "
+            },
+            {
+              "type": "math",
+              "latex": "2+(-1)"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "x^2"
+            },
+            {
+              "type": "text",
+              "text": " は "
+            },
+            {
+              "type": "math",
+              "latex": "-3+2"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " は "
+            },
+            {
+              "type": "math",
+              "latex": "1+0"
+            },
+            {
+              "type": "text",
+              "text": "、定数は "
+            },
+            {
+              "type": "math",
+              "latex": "-1+2"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-06",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A+B="
+            },
+            {
+              "type": "math",
+              "latex": "x^3-x^2+x+1"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-sum-close",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三次・二次・一次・定数の四つの結果を、"
+            },
+            {
+              "type": "math",
+              "latex": "A+B"
+            },
+            {
+              "type": "text",
+              "text": "の各位置へ戻しました。係数1は省略して書いています。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-06-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和を作れたので、次は引き算を「負の式を足す」形へ直す。同類項を集める方法はそのまま使い、先に符号だけを処理する。"
+            }
+          ]
+        },
+        {
+          "id": "heading-minus",
+          "type": "heading",
+          "text": "マイナスは括弧の全ての項に掛かる"
+        },
+        {
+          "id": "paragraph-minus-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A-B"
+            },
+            {
+              "type": "text",
+              "text": " は、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": " に "
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": " を掛けて "
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": " に足すこと。最初の項だけでなく "
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": " の全項の符号が変わる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-07-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A−B"
+            },
+            {
+              "type": "text",
+              "text": "では、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "という式全体を引く。そこで"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の全項へ掛けた式を先に作れば、あとでは加法と同じ方法で次数をそろえられる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-s5-minus-distribute-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-B=(-1)(-x^3+2x^2+2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-s5-minus-distribute"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-minus-cube-sign-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の三次項へ掛ける。二つの負号を含めて数の部分を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-minus-cube-sign-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-1)(-x^3)=((-1)(-1))x^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-minus-cube-sign"
+            },
+            {
+              "type": "math",
+              "latex": "\\cdot x^3"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-minus-square-sign-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は二次項へも同じ−1を掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-minus-square-sign-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-1)(2x^2)=((-1)2)x^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-minus-square-sign"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-minus-constant-sign-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後の定数項も−1倍する。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-minus-constant-sign-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-1)\\cdot2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-minus-constant-sign"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-B=-(-x^3+2x^2+2)="
+            },
+            {
+              "type": "math",
+              "latex": "x^3-2x^2-2"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-07-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この"
+            },
+            {
+              "type": "math",
+              "latex": "−B"
+            },
+            {
+              "type": "text",
+              "text": "を次の"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "へ足す。負号を変える操作と係数を足す操作を一度にせず、二段階に分けた結果を利用する。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-minus-add",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この結果を "
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": " に足して、同類項をまとめよう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-diff-align",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A-B=A+(-B)=(2+1)x^3+(-3-2)x^2+(1+0)x+(-1-2)"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-cube-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三次項の係数だけを計算し、その文字の部分は残す。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-cube-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2+1)x^3=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-diff-cube"
+            },
+            {
+              "type": "math",
+              "latex": ")x^3"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次項の係数だけを計算し、その文字の部分は残す。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-square-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-3+(-2))x^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-diff-square"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-linear-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次項の係数だけを計算し、その文字の部分は残す。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-linear-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(1+0)x=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-diff-linear"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-constant-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後に、"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "の定数項と、符号を変えた"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の定数項を足します。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-constant-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-1+(-2)=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-diff-constant"
+            },
+            {
+              "type": "math",
+              "latex": ")"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-08",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A-B=(2x^3-3x^2+x-1)+(x^3-2x^2-2)="
+            },
+            {
+              "type": "math",
+              "latex": "3x^3-5x^2+x-3"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-minus-summary",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「全項の符号を変える」と「同類項をまとめる」を分けると、符号を落としにくい。"
+            }
+          ]
+        },
+        {
+          "id": "marker-multiply-check",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "paragraph-multiple-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ "
+            },
+            {
+              "type": "math",
+              "latex": "A,B"
+            },
+            {
+              "type": "text",
+              "text": " で "
+            },
+            {
+              "type": "math",
+              "latex": "2A-3B"
+            },
+            {
+              "type": "text",
+              "text": " を求めよう。"
+            },
+            {
+              "type": "text",
+              "text": "まずそれぞれの式全体に係数を掛ける。二つの式を組として書くと、"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-09-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A−3B"
+            },
+            {
+              "type": "text",
+              "text": "をそのまま一度に整理すると、係数倍と同類項の計算が重なる。まず"
+            },
+            {
+              "type": "math",
+              "latex": "2A"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "−3B"
+            },
+            {
+              "type": "text",
+              "text": "をそれぞれ完成させ、次の段階で同じ次数を集める。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-distribute-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A"
+            },
+            {
+              "type": "text",
+              "text": "の2は括弧全体に掛かる。まず、各項に掛けた形を作ろう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-distribute-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-distribute"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-cube-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分配して各項の積ができました。最初の三次項から、係数2と2の積を計算し、"
+            },
+            {
+              "type": "math",
+              "latex": "x³"
+            },
+            {
+              "type": "text",
+              "text": "を残します。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-cube-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(2x^3)=(2\\cdot2)x^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-detail-cube-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": "x^3"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-cube-coefficient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三次項でも、係数の掛け算と文字の部分を分けて扱える。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-twice-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字の部分"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "は残し、係数だけを掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-signed-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "2を掛けても文字の種類と指数は変わらない。数の部分だけを計算してから、"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "へ戻そう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-signed-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(-3x^2)=(2\\cdot(-3))x^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-detail-signed-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-signed-coefficient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "係数だけが変わり、"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "は残る。この係数を使って次の一項全体を完成させる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-twice-square-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(-3x^2)="
+            },
+            {
+              "type": "math",
+              "latex": "-6x^2"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-twice-linear-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A"
+            },
+            {
+              "type": "text",
+              "text": "の一次項では2を"
+            },
+            {
+              "type": "math",
+              "latex": "1x"
+            },
+            {
+              "type": "text",
+              "text": "へ掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-twice-linear-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2\\cdot x=(2\\cdot1)x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-twice-linear"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-twice-constant-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A"
+            },
+            {
+              "type": "text",
+              "text": "の定数項"
+            },
+            {
+              "type": "math",
+              "latex": "−1"
+            },
+            {
+              "type": "text",
+              "text": "にも2を掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-twice-constant-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(-1)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-twice-constant"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-twice-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A=4x^3-6x^2+2x-2"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-minus-three-goal",
+          "type": "heading",
+          "text": "次に−3Bを完成させる"
+        },
+        {
+          "id": "n02-s4-minus-three-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A"
+            },
+            {
+              "type": "text",
+              "text": "の計算は終わりました。今度は"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "全体に"
+            },
+            {
+              "type": "math",
+              "latex": "−3"
+            },
+            {
+              "type": "text",
+              "text": "を掛けます。"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "の計算へ戻らず、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の三次項、二次項、定数項を順に処理します。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-multiplier-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A−3B"
+            },
+            {
+              "type": "text",
+              "text": "は、"
+            },
+            {
+              "type": "math",
+              "latex": "2A"
+            },
+            {
+              "type": "text",
+              "text": "に"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の何倍を足す式だろう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-multiplier-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{Bに掛ける数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-minus-multiplier"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-multiplier-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いま選んだ数を"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "全体に掛ける。括弧の閉じを含めると"
+            },
+            {
+              "type": "math",
+              "latex": "2A+(-3)B"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-cube-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の係数を、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の先頭の負の項へ掛けよう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-cube-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-3)(-x^3)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-minus-cube"
+            }
+          ]
+        },
+        {
+          "id": "n02-s5-minus-three-square-distribute-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n02-s5-minus-three-square-distribute"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の二次項へ同じ係数を掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-square-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-3)(2x^2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-minus-square"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-constant-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定数項にも同じ係数が掛かる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-constant-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-3)\\cdot2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-minus-constant"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-09",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3B=3x^3-6x^2-6"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-09-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "−3B"
+            },
+            {
+              "type": "text",
+              "text": "の計算も終わりました。次は、完成済みの"
+            },
+            {
+              "type": "math",
+              "latex": "2A"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "−3B"
+            },
+            {
+              "type": "text",
+              "text": "を足します。三次から定数まで一列ずつ計算します。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-multiple-collect",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "それぞれ展開した二つの多項式を、同じ次数ごとにまとめると、"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-10-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここでは新しく展開しない。直前に求めた二式の中で文字と指数が一致する項を選び、その係数だけを足す。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-cube-sum-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三次の係数も別に計算しておく。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-cube-sum-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4+3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-cube-sum"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-like-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "展開した二式の中から、"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "の係数を足すために必要な二項だけを選ぼう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-like-square-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-like-square"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-square-sum-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ二項は"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "が共通する。係数を足して一項にしよう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-square-sum-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-6x^2-6x^2=(-6-6)x^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-square-sum"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-square-sum-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "これで二次項の係数が決まった。次は残りの次数も同じ方法でそろえる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-worked-n02-10-assemble-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の一次係数は0。係数倍した後も一次項は増えないため、一次の計算は次のようになる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-worked-n02-10-assemble-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2x+0x=(2+0)x=2x"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-constant-sum-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後に、"
+            },
+            {
+              "type": "math",
+              "latex": "2A"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "−3B"
+            },
+            {
+              "type": "text",
+              "text": "の定数項を足します。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-constant-sum-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2+(-6)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-constant-sum"
+            }
+          ]
+        },
+        {
+          "id": "n02-s4-multiple-align",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A-3B=(4+3)x^3+(-6-6)x^2+(2+0)x+(-2-6)"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-10",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A-3B="
+            },
+            {
+              "type": "math",
+              "latex": "7x^3-12x^2+2x-8"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-10-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この結果には"
+            },
+            {
+              "type": "math",
+              "latex": "2A−3B"
+            },
+            {
+              "type": "text",
+              "text": "という名前が付いている。後の式を同じ"
+            },
+            {
+              "type": "math",
+              "latex": "2A−3B"
+            },
+            {
+              "type": "text",
+              "text": "へ直せれば、計算を繰り返さずにこの結果へつなげられる。"
+            }
+          ]
+        },
+        {
+          "id": "heading-structure",
+          "type": "heading",
+          "text": "長い式に戻す前に、まとまりを使う"
+        },
+        {
+          "id": "marker-last-check",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "paragraph-last-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3A-4B-(A-B)"
+            },
+            {
+              "type": "text",
+              "text": " を計算しよう。"
+            },
+            {
+              "type": "math",
+              "latex": "A,B"
+            },
+            {
+              "type": "text",
+              "text": " を長い多項式へ戻す前に、まとまりのまま括弧を外して同類項を集めると、"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-11-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後の長い式でも、"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "をすぐ"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の式へ戻す必要はない。"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "の係数、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の係数を先に整理し、既に計算した式の形が現れるかを調べる。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-outer-minus-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まとまり"
+            },
+            {
+              "type": "math",
+              "latex": "A−B"
+            },
+            {
+              "type": "text",
+              "text": "の前の負号を、二項それぞれへ配ろう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-outer-minus-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(A-B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-outer-minus"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-group-coefficients-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いまの結果を戻すと"
+            },
+            {
+              "type": "math",
+              "latex": "3A−4B−A+B"
+            },
+            {
+              "type": "text",
+              "text": "になる。"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "を別々に集めよう。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-worked-n02-bridge-group-coefficients-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "括弧を外した結果を、"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "の二項と"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の二項へ並べ替えた。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-worked-n02-bridge-group-coefficients-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3A-4B-A+B=(3A-A)+(-4B+B)"
+            }
+          ]
+        },
+        {
+          "id": "n02-s5-group-a-coefficients-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3A-A=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-s5-group-a-coefficients"
+            },
+            {
+              "type": "math",
+              "latex": ")A"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-a-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "の項だけをまとめた係数を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-a-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3A-A=(3-1)A="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-a-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-b-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の係数は"
+            },
+            {
+              "type": "math",
+              "latex": "−4"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "+1"
+            },
+            {
+              "type": "text",
+              "text": "である。負号を係数に含めて足す。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-b-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-4B+B=(-4+1)B=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-bridge-audit-b-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")B"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-group-coefficients-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3A-4B-A+B="
+            },
+            {
+              "type": "math",
+              "latex": "(3-1)A+(-4+1)B"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-11",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3A-4B-(A-B)="
+            },
+            {
+              "type": "math",
+              "latex": "2A-3B"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-explain-n02-11-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "の係数が2、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "の係数が"
+            },
+            {
+              "type": "math",
+              "latex": "−3"
+            },
+            {
+              "type": "text",
+              "text": "になった。これで、前の計算結果を使えることが式の一致から確かめられた。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-reuse",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "出てきた式は直前に計算したものだ。その結果を利用すれば、"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-reuse-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここで得た"
+            },
+            {
+              "type": "math",
+              "latex": "2A−3B"
+            },
+            {
+              "type": "text",
+              "text": "は、前の段階で計算済みです。その結果を使い、"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "をもう一度展開する計算を省きます。"
+            }
+          ]
+        },
+        {
+          "id": "n02-bridge-reuse-formula",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2A−3B"
+            },
+            {
+              "type": "text",
+              "text": "の計算結果"
+            }
+          ]
+        },
+        {
+          "id": "formula-n02-12",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3A-4B-(A-B)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n02-12"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-final-bridge",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "注目文字を決める → 同じ次数をそろえる → 括弧全体を処理する → 既出の結果を使う。"
+            },
+            {
+              "type": "text",
+              "text": "次は掛け算でも、どの項どうしを組み合わせるかを考えよう。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n02-bridge-audit-like-b",
+          "label": "N02-BRIDGE-AUDIT-LIKE-B",
+          "prompt": "同じbxを残し、二つの係数を足す。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "2",
+            "1",
+            "4"
+          ],
+          "hints": [
+            "bxは1bxとして読む。"
+          ]
+        },
+        {
+          "id": "n02-01",
+          "label": "N02-01",
+          "prompt": "二つのx一次項の係数を足そう。",
+          "answerType": "formula",
+          "choices": [
+            "3bx",
+            "3b^2x",
+            "2bx^2",
+            "bx"
+          ],
+          "hints": [
+            "bを掛け合わせるのでなく、2bとbを足す。"
+          ]
+        },
+        {
+          "id": "n02-02",
+          "label": "N02-02",
+          "prompt": "xの次数3→2→1→0の順へ。",
+          "answerType": "formula",
+          "choices": [
+            "x^3-ax^2+3bx+5c",
+            "5c+3bx-ax^2+x^3",
+            "x^3+3bx-ax^2+5c",
+            "x^3-ax^2+2bx+5c"
+          ],
+          "hints": [
+            "並べ替えの順序と同類項の係数の両方に注目。"
+          ]
+        },
+        {
+          "id": "n02-s5-classify-linear",
+          "label": "N02-S5-CLASSIFY-LINEAR",
+          "prompt": "xを一つ含む項だけを選びます。",
+          "answerType": "formula",
+          "choices": [
+            "2xy-3x",
+            "2xy-3y",
+            "2xy+3x"
+          ],
+          "hints": [
+            "xを一つ含む項だけを選びます。"
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-linear-coefficient",
+          "label": "N02-BRIDGE-DETAIL-LINEAR-COEFFICIENT",
+          "prompt": "xを含む一次項だけを取り出す。二つに共通するxを外へ出し、残った係数を一つの括弧に入れよう。",
+          "answerType": "formula",
+          "choices": [
+            "2y-3",
+            "2y+3",
+            "2y",
+            "-3"
+          ],
+          "hints": [
+            "xで各項を割ったときに何が残るかを、符号ごと比べる。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-constant-part",
+          "label": "N02-BRIDGE-AUDIT-CONSTANT-PART",
+          "prompt": "xを一つも含まない項を、元の式から符号ごと集める。",
+          "answerType": "formula",
+          "choices": [
+            "y^2-3y+2",
+            "y^2+3y+2",
+            "y^2-3y-2",
+            "2"
+          ],
+          "hints": [
+            "yの有無ではなく、xを含むかで分類する。"
+          ]
+        },
+        {
+          "id": "n02-s4-reuse-linear",
+          "label": "N02-S4-REUSE-LINEAR",
+          "prompt": "先ほど求めた一次係数を元の位置へ戻します。",
+          "answerType": "formula",
+          "choices": [
+            "2y-3",
+            "2y+3",
+            "2y"
+          ],
+          "hints": [
+            "2xy−3xをまとめたときの、xに掛かる括弧を使います。"
+          ]
+        },
+        {
+          "id": "n02-05",
+          "label": "N02-05",
+          "prompt": "Bの値を変えずに補える一次項を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "0x",
+            "x",
+            "-x",
+            "2x"
+          ],
+          "hints": [
+            "ない項は係数0。Bの値を変えてはいけない。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-cube",
+          "label": "N02-BRIDGE-AUDIT-SUM-CUBE",
+          "prompt": "三次項の係数だけを計算し、その文字の部分は残す。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "3",
+            "-1",
+            "2"
+          ],
+          "hints": [
+            "同じ次数の係数だけを集めて足す。"
+          ]
+        },
+        {
+          "id": "n02-s5-sum-square-regroup",
+          "label": "N02-S5-SUM-SQUARE-REGROUP",
+          "prompt": "Aの−3とBの+2を、そのまま足します。",
+          "answerType": "formula",
+          "choices": [
+            "-3+2",
+            "-3-2",
+            "3+2"
+          ],
+          "hints": [
+            "Aの−3とBの+2を、そのまま足します。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-square",
+          "label": "N02-BRIDGE-AUDIT-SUM-SQUARE",
+          "prompt": "二次項の係数だけを計算し、その文字の部分は残す。",
+          "answerType": "formula",
+          "choices": [
+            "-1",
+            "1",
+            "-5",
+            "5"
+          ],
+          "hints": [
+            "同じ次数の係数だけを集めて足す。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-linear",
+          "label": "N02-BRIDGE-AUDIT-SUM-LINEAR",
+          "prompt": "一次項の係数だけを計算し、その文字の部分は残す。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "0",
+            "2",
+            "-1"
+          ],
+          "hints": [
+            "同じ次数の係数だけを集めて足す。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-sum-constant",
+          "label": "N02-BRIDGE-AUDIT-SUM-CONSTANT",
+          "prompt": "最後に、文字を含まない定数項どうしを足します。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "-1",
+            "3",
+            "-3"
+          ],
+          "hints": [
+            "同じ次数の係数だけを集めて足す。"
+          ]
+        },
+        {
+          "id": "n02-s5-minus-distribute",
+          "label": "N02-S5-MINUS-DISTRIBUTE",
+          "prompt": "三つの項すべてに−1を掛けます。",
+          "answerType": "formula",
+          "choices": [
+            "(-1)(-x^3)+(-1)(2x^2)+(-1)2",
+            "(-1)(-x^3)+2x^2+2",
+            "(-1)(-x^3)+(-1)(2x^2)+2"
+          ],
+          "hints": [
+            "三つの項すべてに−1を掛けます。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-minus-cube-sign",
+          "label": "N02-BRIDGE-AUDIT-MINUS-CUBE-SIGN",
+          "prompt": "−1をBの三次項へ掛ける。二つの負号を含めて数の部分を計算する。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "-1",
+            "2",
+            "-2"
+          ],
+          "hints": [
+            "括弧の前の−1は全項に掛かる。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-minus-square-sign",
+          "label": "N02-BRIDGE-AUDIT-MINUS-SQUARE-SIGN",
+          "prompt": "次は二次項へも同じ−1を掛ける。",
+          "answerType": "formula",
+          "choices": [
+            "-2",
+            "2",
+            "-1",
+            "1"
+          ],
+          "hints": [
+            "括弧の前の−1は全項に掛かる。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-minus-constant-sign",
+          "label": "N02-BRIDGE-AUDIT-MINUS-CONSTANT-SIGN",
+          "prompt": "最後の定数項も−1倍する。",
+          "answerType": "formula",
+          "choices": [
+            "-2",
+            "2",
+            "-1",
+            "1"
+          ],
+          "hints": [
+            "括弧の前の−1は全項に掛かる。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-cube",
+          "label": "N02-BRIDGE-AUDIT-DIFF-CUBE",
+          "prompt": "三次項の係数だけを計算し、その文字の部分は残す。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "1",
+            "-1",
+            "2"
+          ],
+          "hints": [
+            "同じ次数の係数だけを集めて足す。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-square",
+          "label": "N02-BRIDGE-AUDIT-DIFF-SQUARE",
+          "prompt": "二次項の係数だけを計算し、その文字の部分は残す。",
+          "answerType": "formula",
+          "choices": [
+            "-5",
+            "-1",
+            "5",
+            "1"
+          ],
+          "hints": [
+            "同じ次数の係数だけを集めて足す。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-linear",
+          "label": "N02-BRIDGE-AUDIT-DIFF-LINEAR",
+          "prompt": "一次項の係数だけを計算し、その文字の部分は残す。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "0",
+            "2",
+            "-1"
+          ],
+          "hints": [
+            "同じ次数の係数だけを集めて足す。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-diff-constant",
+          "label": "N02-BRIDGE-AUDIT-DIFF-CONSTANT",
+          "prompt": "最後に、Aの定数項と、符号を変えたBの定数項を足します。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "1",
+            "3",
+            "-1"
+          ],
+          "hints": [
+            "同じ次数の係数だけを集めて足す。"
+          ]
+        },
+        {
+          "id": "n02-bridge-distribute",
+          "label": "N02-BRIDGE-DISTRIBUTE",
+          "prompt": "2Aの2は括弧全体に掛かる。まず、各項に掛けた形を作ろう。",
+          "answerType": "formula",
+          "choices": [
+            "2(2x^3)+2(-3x^2)+2x+2(-1)",
+            "2(2x^3)-3x^2+x-1",
+            "2(2x^3)+2(3x^2)+2x+2",
+            "2(2x^3)+2(-3x^2)+x-1"
+          ],
+          "hints": [
+            "元のAの四つの項が、一度ずつ2倍されているかを確認しよう。"
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-cube-coefficient",
+          "label": "N02-BRIDGE-DETAIL-CUBE-COEFFICIENT",
+          "prompt": "分配して各項の積ができました。最初の三次項から、係数2と2の積を計算し、x³を残します。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "2",
+            "8",
+            "6"
+          ],
+          "hints": [
+            "2倍するのはxの指数ではなく、この項全体である。"
+          ]
+        },
+        {
+          "id": "n02-bridge-detail-signed-coefficient",
+          "label": "N02-BRIDGE-DETAIL-SIGNED-COEFFICIENT",
+          "prompt": "2を掛けても文字の種類と指数は変わらない。数の部分だけを計算してから、x²へ戻そう。",
+          "answerType": "formula",
+          "choices": [
+            "-6",
+            "6",
+            "-1",
+            "-3"
+          ],
+          "hints": [
+            "正×負の符号を先に決め、それから絶対値を掛ける。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-twice-linear",
+          "label": "N02-BRIDGE-AUDIT-TWICE-LINEAR",
+          "prompt": "2Aの一次項では2を1xへ掛ける。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "1",
+            "0",
+            "4"
+          ],
+          "hints": [
+            "係数を掛け、xは一つ残す。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-twice-constant",
+          "label": "N02-BRIDGE-AUDIT-TWICE-CONSTANT",
+          "prompt": "2Aの定数項−1にも2を掛ける。",
+          "answerType": "formula",
+          "choices": [
+            "-2",
+            "2",
+            "1",
+            "-1"
+          ],
+          "hints": [
+            "負号を含む定数を2倍する。"
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-multiplier",
+          "label": "N02-BRIDGE-MINUS-MULTIPLIER",
+          "prompt": "2A−3Bは、2AにBの何倍を足す式だろう。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "3",
+            "-1",
+            "2"
+          ],
+          "hints": [
+            "Bを引く回数と、足し算に直したときの符号を考えよう。"
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-cube",
+          "label": "N02-BRIDGE-MINUS-CUBE",
+          "prompt": "負の係数を、Bの先頭の負の項へ掛けよう。",
+          "answerType": "formula",
+          "choices": [
+            "3x^3",
+            "-3x^3",
+            "3x^9",
+            "-x^3"
+          ],
+          "hints": [
+            "負の数どうしの積を先に判断し、x³はそのまま残そう。"
+          ]
+        },
+        {
+          "id": "n02-s5-minus-three-square-distribute",
+          "label": "N02-S5-MINUS-THREE-SQUARE-DISTRIBUTE",
+          "prompt": "倍率は−3、Bの二次項は+2x²です。二次項への掛け算を作ります。",
+          "answerType": "formula",
+          "choices": [
+            "(-3)(2x^2)",
+            "3(2x^2)",
+            "(-3)(-2x^2)"
+          ],
+          "hints": [
+            "倍率は−3、Bの二次項は+2x²です。二次項への掛け算を作ります。"
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-square",
+          "label": "N02-BRIDGE-MINUS-SQUARE",
+          "prompt": "次はBの二次項へ同じ係数を掛ける。",
+          "answerType": "formula",
+          "choices": [
+            "-6x^2",
+            "6x^2",
+            "-6x^6",
+            "-3x^2"
+          ],
+          "hints": [
+            "掛ける数は、前の項だけでなく次の項にも同じように働く。"
+          ]
+        },
+        {
+          "id": "n02-bridge-minus-constant",
+          "label": "N02-BRIDGE-MINUS-CONSTANT",
+          "prompt": "定数項にも同じ係数が掛かる。",
+          "answerType": "formula",
+          "choices": [
+            "-6",
+            "6",
+            "-1",
+            "-3"
+          ],
+          "hints": [
+            "負の数と正の数の積を計算しよう。"
+          ]
+        },
+        {
+          "id": "n02-bridge-cube-sum",
+          "label": "N02-BRIDGE-CUBE-SUM",
+          "prompt": "三次の係数も別に計算しておく。",
+          "answerType": "formula",
+          "choices": [
+            "7",
+            "1",
+            "12",
+            "-7"
+          ],
+          "hints": [
+            "三次項どうしの係数の足し算である。"
+          ]
+        },
+        {
+          "id": "n02-bridge-like-square",
+          "label": "N02-BRIDGE-LIKE-SQUARE",
+          "prompt": "展開した二式の中から、x²の係数を足すために必要な二項だけを選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-6x^2,\\quad-6x^2",
+            "-6x^2,\\quad3x^3",
+            "2x,\\quad-6",
+            "4x^3,\\quad3x^3"
+          ],
+          "hints": [
+            "文字と指数が両方同じ項を探そう。"
+          ]
+        },
+        {
+          "id": "n02-bridge-square-sum",
+          "label": "N02-BRIDGE-SQUARE-SUM",
+          "prompt": "選んだ二項はx²が共通する。係数を足して一項にしよう。",
+          "answerType": "formula",
+          "choices": [
+            "-12",
+            "0",
+            "12",
+            "-6"
+          ],
+          "hints": [
+            "負の6を二つ足すと、負の向きにいくつ進むだろう。"
+          ]
+        },
+        {
+          "id": "n02-bridge-constant-sum",
+          "label": "N02-BRIDGE-CONSTANT-SUM",
+          "prompt": "最後に、2Aと−3Bの定数項を足します。",
+          "answerType": "formula",
+          "choices": [
+            "-8",
+            "4",
+            "8",
+            "-4"
+          ],
+          "hints": [
+            "括弧内の負号を、引く操作と取り違えないようにしよう。"
+          ]
+        },
+        {
+          "id": "n02-bridge-outer-minus",
+          "label": "N02-BRIDGE-OUTER-MINUS",
+          "prompt": "まとまりA−Bの前の負号を、二項それぞれへ配ろう。",
+          "answerType": "formula",
+          "choices": [
+            "-A+B",
+            "-A-B",
+            "A+B",
+            "A-B"
+          ],
+          "hints": [
+            "−1をAと−Bの両方へ掛けよう。"
+          ]
+        },
+        {
+          "id": "n02-s5-group-a-coefficients",
+          "label": "N02-S5-GROUP-A-COEFFICIENTS",
+          "prompt": "Aは1Aと読めます。",
+          "answerType": "formula",
+          "choices": [
+            "3-1",
+            "3+1",
+            "3\\times1"
+          ],
+          "hints": [
+            "Aは1Aと読めます。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-a-coefficient",
+          "label": "N02-BRIDGE-AUDIT-A-COEFFICIENT",
+          "prompt": "Aの項だけをまとめた係数を計算する。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "4",
+            "-2",
+            "3"
+          ],
+          "hints": [
+            "Aを1Aとして読む。"
+          ]
+        },
+        {
+          "id": "n02-bridge-audit-b-coefficient",
+          "label": "N02-BRIDGE-AUDIT-B-COEFFICIENT",
+          "prompt": "Bの係数は−4と+1である。負号を係数に含めて足す。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "-5",
+            "3",
+            "5"
+          ],
+          "hints": [
+            "Bを1Bとして読む。"
+          ]
+        },
+        {
+          "id": "n02-12",
+          "label": "N02-12",
+          "prompt": "既に計算した2A-3Bの結果を再利用しよう。",
+          "answerType": "formula",
+          "choices": [
+            "7x^3-12x^2+2x-8",
+            "3x^3-5x^2+x-3",
+            "x^3-x^2+x+1",
+            "7x^3-12x^2+2x-6"
+          ],
+          "hints": [
+            "Qの番号ではなく、直前に求めた式の形を見返そう。"
+          ]
+        }
+      ]
+    }
+  ]
+}

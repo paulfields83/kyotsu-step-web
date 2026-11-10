@@ -1,0 +1,1134 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n13",
+  "revision": 5,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "距離の条件を、二つの位置へ戻す",
+  "subtitle": "絶対値方程式を左右二つの位置と「または」で解く。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N13",
+    "rightsNote": "教師編集WordのN13原問9件と元の距離図2点を使用。独立解答、公式別冊未提供、レビュー限定。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "絶対値方程式を左右二つの式へ分ける",
+    "平行移動した中心からの距離を読む",
+    "距離が0・負の場合を区別する"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "13",
+      "title": "距離の条件を、二つの位置へ戻す",
+      "description": "距離の意味を保ったまま二つの方程式へ変形する。",
+      "figures": [
+        {
+          "id": "n13-f02",
+          "src": "assets/n13-f02.png",
+          "alt": "原点から左右に同じ距離の二点を示す、解答後確認用の元数直線。",
+          "caption": "左右の位置と等しい距離を検算する。"
+        },
+        {
+          "id": "n13-f01",
+          "src": "assets/n13-f01.png",
+          "alt": "点xが1の右側にある場合と左側にある場合の元図。",
+          "caption": "中心1からの距離を、引き算の順として考えよう。"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "n13-heading-1",
+          "type": "heading",
+          "text": "距離を満たす二つの位置"
+        },
+        {
+          "id": "n13-marker-1",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "n13-group-1",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値は数直線上の距離を表す。距離が正であれば原点の左右に同じ距離の点が一つずつある。「または」で二つの位置を表す。"
+            }
+          ]
+        },
+        {
+          "id": "n13-lead-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x|=5"
+            },
+            {
+              "type": "text",
+              "text": "は原点から5離れた点の条件。左右どちらも調べる。"
+            },
+            {
+              "type": "math",
+              "latex": "|x|=5"
+            }
+          ]
+        },
+        {
+          "id": "n13-formula-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n13-01"
+            }
+          ]
+        },
+        {
+          "id": "n13-after-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "「または」はどちらか一方を満たせばよい条件で、両方を同時に満たす意味ではない。"
+            }
+          ]
+        },
+        {
+          "id": "n13-show-n13-f02",
+          "type": "figure",
+          "figureId": "n13-f02"
+        },
+        {
+          "id": "n13-w048-positive-distance-property",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今の二つの位置を、正の距離"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "に広げます。"
+            },
+            {
+              "type": "math",
+              "latex": "a>0:\\quad |x|=a\\iff(x=a\\;\\text{または}\\;x=-a)"
+            },
+            {
+              "type": "text",
+              "text": "「または」は、どちらか一方を満たせばよいという条件です。"
+            }
+          ]
+        },
+        {
+          "id": "n13-lead-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の例題は、中身が式になっています。"
+            },
+            {
+              "type": "math",
+              "latex": "|x-1|=4"
+            },
+            {
+              "type": "text",
+              "text": "中身全体を一つの数として扱うため、"
+            },
+            {
+              "type": "math",
+              "latex": "X=x-1"
+            },
+            {
+              "type": "text",
+              "text": "と置きます。いまの距離の条件を"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "について書き直しましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n13-formula-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n13-02"
+            }
+          ]
+        },
+        {
+          "id": "n13-after-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中身をひとまとまりにしたまま、距離の条件を方程式へ戻せた。"
+            }
+          ]
+        },
+        {
+          "id": "n13-lead-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "仮の文字"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "を元の"
+            },
+            {
+              "type": "math",
+              "latex": "x-1"
+            },
+            {
+              "type": "text",
+              "text": "に置き換え、二つの普通の方程式にする。"
+            },
+            {
+              "type": "math",
+              "latex": "X=x-1"
+            }
+          ]
+        },
+        {
+          "id": "n13-formula-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n13-03"
+            }
+          ]
+        },
+        {
+          "id": "n13-after-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二本の式をそれぞれ解けば、元の絶対値方程式の候補が揃う。"
+            }
+          ]
+        },
+        {
+          "id": "n13-lead-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値を外して得た二つの方程式を、それぞれ解きます。両辺に同じ数を加える規則を使い、片方を解いた後も、もう片方の枝を残します。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q04-positive-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "右の位置を求めます。右辺の4+1を計算しましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q04-positive-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x-1=4\\ \\Rightarrow\\ x=4+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-w048-q04-positive"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q04-positive-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "右の位置が決まりました。次は負の方程式を解きます。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q04-negative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左の位置を求めます。負号を残し、−4+1を計算しましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q04-negative-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x-1=-4\\ \\Rightarrow\\ x=-4+1="
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-w048-q04-negative"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q04-negative-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二本の方程式の解が揃いました。元の問いへの答えとして一組にします。"
+            }
+          ]
+        },
+        {
+          "id": "n13-formula-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n13-04"
+            }
+          ]
+        },
+        {
+          "id": "n13-after-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの点は1を中心として左右に同じ4だけ離れている。"
+            }
+          ]
+        },
+        {
+          "id": "n13-show-n13-f01",
+          "type": "figure",
+          "figureId": "n13-f01"
+        },
+        {
+          "id": "n13-heading-2",
+          "type": "heading",
+          "text": "中心を移しても距離は同じ"
+        },
+        {
+          "id": "n13-marker-2",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n13-group-2",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x-1|"
+            },
+            {
+              "type": "text",
+              "text": "は点"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と点1の間の距離。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "が1の右側か左側かによって、引き算の順を変える。"
+            }
+          ]
+        },
+        {
+          "id": "n13-lead-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x-1|"
+            },
+            {
+              "type": "text",
+              "text": " は点 "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " と点 1 の距離。数直線でどちらが右にあるかを先に見て、右の座標から左の座標を引こう。"
+            }
+          ]
+        },
+        {
+          "id": "n13-wm023-q05-right",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\ge1:\\quad |x-1|="
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-wm023-q05-right"
+            }
+          ]
+        },
+        {
+          "id": "n13-formula-05",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x<1:\\quad |x-1|="
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-05"
+            }
+          ]
+        },
+        {
+          "id": "n13-after-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\ge 1"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "x-1\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "x<1"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "1-x>0"
+            },
+            {
+              "type": "text",
+              "text": "。どちらも二点間の距離として負にならない。"
+            }
+          ]
+        },
+        {
+          "id": "n13-heading-3",
+          "type": "heading",
+          "text": "中の式を一つの数として扱う"
+        },
+        {
+          "id": "n13-marker-3",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n13-group-3",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "別の式でも距離の二分岐がそのまま使える。右辺が0や負のときは、距離として可能かどうかを先に確かめる。"
+            }
+          ]
+        },
+        {
+          "id": "n13-lead-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x+2|=3"
+            },
+            {
+              "type": "text",
+              "text": "を解く。中身の"
+            },
+            {
+              "type": "math",
+              "latex": "x+2"
+            },
+            {
+              "type": "text",
+              "text": "を、原点から距離3の一つの数と見よう。"
+            },
+            {
+              "type": "math",
+              "latex": "|x+2|=3"
+            }
+          ]
+        },
+        {
+          "id": "n13-formula-06",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n13-06"
+            }
+          ]
+        },
+        {
+          "id": "n13-after-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの方程式を解くとき、+2を両方の枝から引く。"
+            }
+          ]
+        },
+        {
+          "id": "n13-lead-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の確認でも、二つの方程式を別々に解きます。前の例題より説明を減らし、符号を自分で確かめましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q07-positive-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正の枝を"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "について解きましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q07-positive-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x+2=3\\ \\Rightarrow\\ x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-w048-q07-positive"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q07-positive-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "もう一方の枝も同じ操作で解きます。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q07-negative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の枝も"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "について解きましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q07-negative-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x+2=-3\\ \\Rightarrow\\ x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-w048-q07-negative"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q07-negative-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの結果を元の絶対値方程式の解としてまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n13-formula-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n13-07"
+            }
+          ]
+        },
+        {
+          "id": "n13-after-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの解は−2を中心に左右へ3ずつ離れた位置にある。"
+            }
+          ]
+        },
+        {
+          "id": "n13-lead-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|3x|=6"
+            },
+            {
+              "type": "text",
+              "text": " では、はじめに絶対値の中身がとり得る二通りの等式を作り、それぞれを "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " について解こう。"
+            },
+            {
+              "type": "math",
+              "latex": "|3x|=6"
+            }
+          ]
+        },
+        {
+          "id": "n13-formula-08",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n13-wm023-q08-branches"
+            }
+          ]
+        },
+        {
+          "id": "n13-wm023-q08-positive-root",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x=6\\Rightarrow x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-wm023-q08-positive-root"
+            }
+          ]
+        },
+        {
+          "id": "n13-wm023-q08-negative-root",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x=-6\\Rightarrow x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-08"
+            }
+          ]
+        },
+        {
+          "id": "n13-after-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=2\\;\\text{または}\\;x=-2"
+            },
+            {
+              "type": "text",
+              "text": "。二つの解は「または」で結ぶ。両方の条件を同時に満たすという意味ではない。"
+            }
+          ]
+        },
+        {
+          "id": "n13-lead-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "term",
+              "text": "性質"
+            },
+            {
+              "type": "text",
+              "text": "を確かめます。ここまでは距離が正の場合でした。距離が0の場合と、負の値を要求された場合を分けて考えます。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q09-zero-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず、原点からの距離が0になる位置を求めましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q09-zero-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x|=0\\ \\Rightarrow\\ x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-w048-q09-zero"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q09-zero-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "距離が0の場合は一つの位置です。次は負の値を要求した条件を調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q09-negative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に、絶対値が負の数に等しくなる実数があるか判断しましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q09-negative-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x|=-2\\quad "
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-w048-q09-negative"
+            }
+          ]
+        },
+        {
+          "id": "n13-w048-q09-negative-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの場合の違いを、元の問いの順にまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n13-formula-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "考えて選ぶ："
+            },
+            {
+              "type": "choice",
+              "itemId": "n13-09"
+            }
+          ]
+        },
+        {
+          "id": "n13-after-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|X|=a"
+            },
+            {
+              "type": "text",
+              "text": "では、"
+            },
+            {
+              "type": "math",
+              "latex": "a>0"
+            },
+            {
+              "type": "text",
+              "text": "なら二枝、"
+            },
+            {
+              "type": "math",
+              "latex": "a=0"
+            },
+            {
+              "type": "text",
+              "text": "なら一つ、"
+            },
+            {
+              "type": "math",
+              "latex": "a<0"
+            },
+            {
+              "type": "text",
+              "text": "なら実数解なし。次は距離に上限・下限を付ける。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n13-01",
+          "label": "N13-01",
+          "prompt": "すべての実数解を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x=5\\;\\text{または}\\;x=-5",
+            "x=5",
+            "x=-5",
+            "x=5\\;\\text{かつ}\\;x=-5"
+          ],
+          "hints": [
+            "距離は正でも点の座標は左右で符号が違う。"
+          ]
+        },
+        {
+          "id": "n13-02",
+          "label": "N13-02",
+          "prompt": "Xについての二つの可能性を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "X=4\\;\\text{または}\\;X=-4",
+            "X=4",
+            "X=4\\;\\text{かつ}\\;X=-4",
+            "X=\\pm1"
+          ],
+          "hints": [
+            "|X|=正の数の解は左右の二つに分かれる。"
+          ]
+        },
+        {
+          "id": "n13-03",
+          "label": "N13-03",
+          "prompt": "xについての二つの方程式を書こう。",
+          "answerType": "formula",
+          "choices": [
+            "x-1=4\\;\\text{または}\\;x-1=-4",
+            "x=4\\;\\text{または}\\;x=-4",
+            "x+1=4\\;\\text{または}\\;x+1=-4",
+            "x-1=4\\;\\text{かつ}\\;x-1=-4"
+          ],
+          "hints": [
+            "Xだけをx−1へ戻す。両方の符号の枝を残す。"
+          ]
+        },
+        {
+          "id": "n13-w048-q04-positive",
+          "label": "N13-W048-Q04-POSITIVE",
+          "prompt": "右の位置を求めます。右辺の4+1を計算しましょう。",
+          "answerType": "formula",
+          "choices": [
+            "5",
+            "3",
+            "-5",
+            "4"
+          ],
+          "hints": [
+            "両辺に1を足した結果を計算します。"
+          ]
+        },
+        {
+          "id": "n13-w048-q04-negative",
+          "label": "N13-W048-Q04-NEGATIVE",
+          "prompt": "左の位置を求めます。負号を残し、−4+1を計算しましょう。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "3",
+            "-5",
+            "-4"
+          ],
+          "hints": [
+            "負の数に正の1を加える位置を考えます。"
+          ]
+        },
+        {
+          "id": "n13-04",
+          "label": "N13-04",
+          "prompt": "xの解をすべて選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x=5\\;\\text{または}\\;x=-3",
+            "x=5",
+            "x=3\\;\\text{または}\\;x=-5",
+            "x=4\\;\\text{または}\\;x=-4"
+          ],
+          "hints": [
+            "両方の等式でxを一つだけにする。−4+1の符号にも注意。"
+          ]
+        },
+        {
+          "id": "n13-wm023-q05-right",
+          "label": "N13-WM023-Q05-RIGHT",
+          "prompt": "x≥1 のとき、距離を式で表そう。",
+          "answerType": "formula",
+          "choices": [
+            "x-1",
+            "1-x",
+            "x+1",
+            "-1-x"
+          ],
+          "hints": [
+            "たとえば x=3 のときは点3が点1より右。2点の距離はどちらの座標からどちらを引くだろう。"
+          ]
+        },
+        {
+          "id": "n13-05",
+          "label": "N13-05",
+          "prompt": "x<1 のとき、距離を式で表そう。",
+          "answerType": "formula",
+          "choices": [
+            "1-x",
+            "x-1",
+            "1+x",
+            "-1-x"
+          ],
+          "hints": [
+            "たとえば x=0 のときは点1が点0より右。右側から左側を引く順番を、文字 x に戻そう。"
+          ]
+        },
+        {
+          "id": "n13-06",
+          "label": "N13-06",
+          "prompt": "絶対値なしの二つの方程式を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x+2=3\\;\\text{または}\\;x+2=-3",
+            "x=3\\;\\text{または}\\;x=-3",
+            "x+2=3\\;\\text{かつ}\\;x+2=-3",
+            "x-2=3\\;\\text{または}\\;x-2=-3"
+          ],
+          "hints": [
+            "絶対値が付いている範囲を確認し、中身全体を一つの数として、最初の例題で使った分け方を適用します。"
+          ]
+        },
+        {
+          "id": "n13-w048-q07-positive",
+          "label": "N13-W048-Q07-POSITIVE",
+          "prompt": "正の枝をxについて解きましょう。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "5",
+            "-1",
+            "3"
+          ],
+          "hints": [
+            "xだけを残すため、両辺から同じ数を引きます。"
+          ]
+        },
+        {
+          "id": "n13-w048-q07-negative",
+          "label": "N13-W048-Q07-NEGATIVE",
+          "prompt": "負の枝もxについて解きましょう。",
+          "answerType": "formula",
+          "choices": [
+            "-5",
+            "-1",
+            "5",
+            "-3"
+          ],
+          "hints": [
+            "右辺が負でも、左辺の定数を打ち消す操作は同じです。"
+          ]
+        },
+        {
+          "id": "n13-07",
+          "label": "N13-07",
+          "prompt": "両方の解を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x=1\\;\\text{または}\\;x=-5",
+            "x=1",
+            "x=5\\;\\text{または}\\;x=-1",
+            "x=-1\\;\\text{または}\\;x=-5"
+          ],
+          "hints": [
+            "どちらの枝も両辺から2を引く。"
+          ]
+        },
+        {
+          "id": "n13-wm023-q08-branches",
+          "label": "N13-WM023-Q08-BRANCHES",
+          "prompt": "中身3xがとり得る二つの等式を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3x=6\\;\\text{または}\\;3x=-6",
+            "3x=6\\;\\text{かつ}\\;3x=-6",
+            "3x=6",
+            "3x=-6"
+          ],
+          "hints": [
+            "|y|=3なら、正の位置と負の位置の両方がある。その2通りを今の中身3xに当てはめよう。"
+          ]
+        },
+        {
+          "id": "n13-wm023-q08-positive-root",
+          "label": "N13-WM023-Q08-POSITIVE-ROOT",
+          "prompt": "3x=6 の解を求めよう。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "-2",
+            "6",
+            "\\frac12"
+          ],
+          "hints": [
+            "たとえば2u=6なら両辺を2で割ってu=3。ここでは係数3を使おう。"
+          ]
+        },
+        {
+          "id": "n13-08",
+          "label": "N13-08",
+          "prompt": "3x=−6 の解を求めよう。",
+          "answerType": "formula",
+          "choices": [
+            "-2",
+            "2",
+            "-6",
+            "-\\frac12"
+          ],
+          "hints": [
+            "たとえば2u=−6ならu=−3。負の方も同じ正の係数3で割ろう。"
+          ]
+        },
+        {
+          "id": "n13-w048-q09-zero",
+          "label": "N13-W048-Q09-ZERO",
+          "prompt": "まず、原点からの距離が0になる位置を求めましょう。",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "1",
+            "-1",
+            "2"
+          ],
+          "hints": [
+            "点と原点が同じ位置にある場合の距離を考えます。"
+          ]
+        },
+        {
+          "id": "n13-w048-q09-negative",
+          "label": "N13-W048-Q09-NEGATIVE",
+          "prompt": "次に、絶対値が負の数に等しくなる実数があるか判断しましょう。",
+          "answerType": "text",
+          "choices": [
+            "実数解なし",
+            "x=-2",
+            "x=2",
+            "すべての実数"
+          ],
+          "hints": [
+            "絶対値が取り得る値と、右辺の符号を照合します。"
+          ]
+        },
+        {
+          "id": "n13-09",
+          "label": "N13-09",
+          "prompt": "それぞれの実数解について選ぼう。",
+          "answerType": "text",
+          "choices": [
+            "0ならx=0、負なら実数解なし",
+            "0ならx=±0、負ならx=±2",
+            "0なら解なし、負ならx=−2",
+            "両方ともすべての実数"
+          ],
+          "hints": [
+            "直前に別々に求めた二つの結果を、距離が0の場合、負の場合の順に対応させます。"
+          ]
+        }
+      ]
+    }
+  ]
+}

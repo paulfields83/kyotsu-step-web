@@ -1,0 +1,2514 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-ne02",
+  "revision": 2,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "二重根号を、平方の形から外す",
+  "subtitle": "和と積の条件を作り、最後に非負性まで確かめる。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / NE02",
+    "rightsNote": "教師編集Wordの原問を照合した参考・発展のレビュー教材。出典は原Word SHA-256 93827322a877313d4d39957dd6196c01de31f2e994baa1aac0a64b96be88eeaa。sourcePagesは2026-10-23 LibreOffice再描画40頁版のページ番号であり、過去の53頁索引のページとは異なる。原問の段落対応はW-MATH-003/NE01_NE02/source.jsonに保持。別冊解答は未提供。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "平方の展開と二重根号を対応させる",
+    "和と積を同時に満たす二数を探す",
+    "主平方根の符号を確かめて値を決める"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "NE02",
+      "title": "二重根号を、平方の形から外す",
+      "description": "参考・発展。式と説明を一続きに読み、必要な変形を自分で完成させる。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "ne02-intro-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "例題は "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{5+2\\sqrt6}"
+            },
+            {
+              "type": "text",
+              "text": " を簡単にすることです。根号の中にさらに根号がある形を "
+            },
+            {
+              "type": "term",
+              "text": "二重根号"
+            },
+            {
+              "type": "text",
+              "text": " といいます。外側の根号を外すには、平方が "
+            },
+            {
+              "type": "math",
+              "latex": "5+2\\sqrt6"
+            },
+            {
+              "type": "text",
+              "text": " と一致し、しかも非負である候補を作ります。N10で扱った平方根の定義と積の公式を使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-intro-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q01-expand-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a,b"
+            },
+            {
+              "type": "text",
+              "text": " は正の実数とします。候補の和全体を二乗するので、同じ括弧を二つ掛けます。分配法則で、左の各項を右の各項へ掛けます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q01-expand-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a+\\sqrt b)^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q01-expand"
+            }
+          ],
+          "equationNumber": "1"
+        },
+        {
+          "id": "ne02-q01-expand-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a+\\sqrt b)^2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "(\\sqrt a)^2+\\sqrt a\\sqrt b+\\sqrt b\\sqrt a+(\\sqrt b)^2"
+            }
+          ],
+          "equationNumber": "1"
+        },
+        {
+          "id": "ne02-q01-expand-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平方の項は "
+            },
+            {
+              "type": "math",
+              "latex": "a,b"
+            },
+            {
+              "type": "text",
+              "text": "、交差する二項はどちらも "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{ab}"
+            },
+            {
+              "type": "text",
+              "text": " です。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-01-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "四つの項のうち、同じ "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{ab}"
+            },
+            {
+              "type": "text",
+              "text": " を二つまとめます。平方の項は両端にあるので、和と交差項が見える形にします。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-01-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a+\\sqrt b)^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-01"
+            }
+          ],
+          "equationNumber": "2"
+        },
+        {
+          "id": "ne02-01-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a+\\sqrt b)^2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "a+b+2\\sqrt{ab}"
+            }
+          ],
+          "equationNumber": "2"
+        },
+        {
+          "id": "ne02-01-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここから、定数部分と交差項を別々に合わせる方針を立てます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q02-sum-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の "
+            },
+            {
+              "type": "math",
+              "latex": "5+2\\sqrt6"
+            },
+            {
+              "type": "text",
+              "text": " に合わせるため、展開した "
+            },
+            {
+              "type": "math",
+              "latex": "a+b+2\\sqrt{ab}"
+            },
+            {
+              "type": "text",
+              "text": " のうち、根号の外の和を対応させます。これは同じ平方を作るための十分な条件を選ぶ操作です。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q02-sum-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a+b="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q02-sum"
+            }
+          ],
+          "equationNumber": "3"
+        },
+        {
+          "id": "ne02-q02-sum-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a+b"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            }
+          ],
+          "equationNumber": "3"
+        },
+        {
+          "id": "ne02-q02-sum-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q02-product-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残る交差項を合わせます。"
+            },
+            {
+              "type": "math",
+              "latex": "2\\sqrt{ab}"
+            },
+            {
+              "type": "text",
+              "text": " を "
+            },
+            {
+              "type": "math",
+              "latex": "2\\sqrt6"
+            },
+            {
+              "type": "text",
+              "text": " と同じにするには、二つの非負の根号の中身を合わせればよいので、積の条件を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q02-product-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "ab="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q02-product"
+            }
+          ],
+          "equationNumber": "4"
+        },
+        {
+          "id": "ne02-q02-product-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "ab"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "6"
+            }
+          ],
+          "equationNumber": "4"
+        },
+        {
+          "id": "ne02-q02-product-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-02-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いま作った和の条件と積の条件を、両方満たす候補を探せるように一組にします。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-02-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-02"
+            }
+          ],
+          "equationNumber": "5"
+        },
+        {
+          "id": "ne02-02-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}a+b&=5\\\\ab&=6\\end{aligned}"
+            }
+          ],
+          "equationNumber": "5"
+        },
+        {
+          "id": "ne02-02-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この二条件を満たす候補が一組見つかれば、平方と符号を検算して答えを確定できます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q03-pairs-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "簡単な候補として正の整数の組を探します。積が "
+            },
+            {
+              "type": "math",
+              "latex": "6"
+            },
+            {
+              "type": "text",
+              "text": " になる組は、順番を区別しなければ "
+            },
+            {
+              "type": "math",
+              "latex": "(1,6)"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "(2,3)"
+            },
+            {
+              "type": "text",
+              "text": " です。実数の候補をすべて列挙する必要はありません。二組の和を計算して、和が "
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            },
+            {
+              "type": "text",
+              "text": " の組を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q03-pairs-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-q03-pairs"
+            }
+          ],
+          "equationNumber": "6"
+        },
+        {
+          "id": "ne02-q03-pairs-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}1+6&=7\\\\2+3&=5\\end{aligned}"
+            }
+          ],
+          "equationNumber": "6"
+        },
+        {
+          "id": "ne02-q03-pairs-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和と積の条件を同時に満たす組を使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-03-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和が "
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            },
+            {
+              "type": "text",
+              "text": " で積が "
+            },
+            {
+              "type": "math",
+              "latex": "6"
+            },
+            {
+              "type": "text",
+              "text": " だった組を、"
+            },
+            {
+              "type": "math",
+              "latex": "a,b"
+            },
+            {
+              "type": "text",
+              "text": " の値として記録します。和は順序を交換しても同じです。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-03-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-03"
+            }
+          ],
+          "equationNumber": "7"
+        },
+        {
+          "id": "ne02-03-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}a&=2\\\\b&=3\\quad(\\text{順不同})\\end{aligned}"
+            }
+          ],
+          "equationNumber": "7"
+        },
+        {
+          "id": "ne02-03-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この値を、最初に置いた平方根の和へ代入します。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q04-square-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補は "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt2+\\sqrt3"
+            },
+            {
+              "type": "text",
+              "text": " です。先ほど作った平方の式に代入し、元の根号内に戻るかを確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q04-square-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt2+\\sqrt3)^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q04-square"
+            }
+          ],
+          "equationNumber": "8"
+        },
+        {
+          "id": "ne02-q04-square-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt2+\\sqrt3)^2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "5+2\\sqrt6"
+            }
+          ],
+          "equationNumber": "8"
+        },
+        {
+          "id": "ne02-q04-square-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平方の値は一致しました。次に候補の符号を確認します。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q04-sign-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt2"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt3"
+            },
+            {
+              "type": "text",
+              "text": " はどちらも正です。候補の和全体の符号を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q04-sign-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt2+\\sqrt3\\ "
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q04-sign"
+            },
+            {
+              "type": "math",
+              "latex": "\\ 0"
+            }
+          ],
+          "equationNumber": "9"
+        },
+        {
+          "id": "ne02-q04-sign-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt2+\\sqrt3\\ "
+            },
+            {
+              "type": "math",
+              "latex": ">"
+            },
+            {
+              "type": "math",
+              "latex": "\\ 0"
+            }
+          ],
+          "equationNumber": "9"
+        },
+        {
+          "id": "ne02-q04-sign-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "非負で平方が同じ数は一つなので、この候補が元の根号の値です。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-04-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補の平方が元の根号内に一致し、候補が正であることを確かめました。二つの確認と元の根号の値をまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-04-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-04"
+            }
+          ],
+          "equationNumber": "10"
+        },
+        {
+          "id": "ne02-04-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}\\sqrt2+\\sqrt3&>0\\\\\\sqrt{5+2\\sqrt6}&=\\sqrt2+\\sqrt3\\end{aligned}"
+            }
+          ],
+          "equationNumber": "10"
+        },
+        {
+          "id": "ne02-04-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平方の一致だけでなく、根号が表す非負性まで確認して結論にしました。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-difference-problem-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の例題は "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{9-4\\sqrt5}"
+            },
+            {
+              "type": "text",
+              "text": " です。根号を含む項が引かれているので、候補を平方根の差にして、負の交差項を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-difference-problem-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q05-expand-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a-\\sqrt b)^2"
+            },
+            {
+              "type": "text",
+              "text": " は、同じ差の括弧を二つ掛けることです。交差項では一方の因子だけに負号があるので、両方とも負になります。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q05-expand-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a-\\sqrt b)^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q05-expand"
+            }
+          ],
+          "equationNumber": "11"
+        },
+        {
+          "id": "ne02-q05-expand-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a-\\sqrt b)^2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "a-\\sqrt{ab}-\\sqrt{ab}+b"
+            }
+          ],
+          "equationNumber": "11"
+        },
+        {
+          "id": "ne02-q05-expand-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-05-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ "
+            },
+            {
+              "type": "math",
+              "latex": "-\\sqrt{ab}"
+            },
+            {
+              "type": "text",
+              "text": " の二項をまとめます。和の平方と比べて、交差項の符号だけが違う形になります。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-05-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a-\\sqrt b)^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-05"
+            }
+          ],
+          "equationNumber": "12"
+        },
+        {
+          "id": "ne02-05-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt a-\\sqrt b)^2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "a+b-2\\sqrt{ab}"
+            }
+          ],
+          "equationNumber": "12"
+        },
+        {
+          "id": "ne02-05-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は、元の係数4を、いまの展開の係数2にそろえます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q06-coefficient-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "交差項を "
+            },
+            {
+              "type": "math",
+              "latex": "2\\sqrt{ab}"
+            },
+            {
+              "type": "text",
+              "text": " と比べられるよう、"
+            },
+            {
+              "type": "math",
+              "latex": "4\\sqrt5"
+            },
+            {
+              "type": "text",
+              "text": " の係数 "
+            },
+            {
+              "type": "math",
+              "latex": "4"
+            },
+            {
+              "type": "text",
+              "text": " を "
+            },
+            {
+              "type": "math",
+              "latex": "2\\times2"
+            },
+            {
+              "type": "text",
+              "text": " に分けます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q06-coefficient-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4\\sqrt5=2("
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q06-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")"
+            }
+          ],
+          "equationNumber": "13"
+        },
+        {
+          "id": "ne02-q06-coefficient-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4\\sqrt5"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "2(2\\sqrt5)"
+            }
+          ],
+          "equationNumber": "13"
+        },
+        {
+          "id": "ne02-q06-coefficient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q06-radical-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "括弧内の "
+            },
+            {
+              "type": "math",
+              "latex": "2\\sqrt5"
+            },
+            {
+              "type": "text",
+              "text": " は正です。"
+            },
+            {
+              "type": "math",
+              "latex": "2=\\sqrt4"
+            },
+            {
+              "type": "text",
+              "text": " として根号の積の公式を使うと、外の係数2を残したまま一つの根号にできます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q06-radical-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4\\sqrt5=2\\sqrt{{\\square}}",
+              "holeIds": [
+                "ne02-q06-radical"
+              ]
+            }
+          ],
+          "equationNumber": "14"
+        },
+        {
+          "id": "ne02-q06-radical-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4\\sqrt5"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "2\\sqrt{20}"
+            }
+          ],
+          "equationNumber": "14"
+        },
+        {
+          "id": "ne02-q06-radical-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の式は "
+            },
+            {
+              "type": "math",
+              "latex": "9-2\\sqrt{20}"
+            },
+            {
+              "type": "text",
+              "text": " と同じです。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-06-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の式を "
+            },
+            {
+              "type": "math",
+              "latex": "9-2\\sqrt{20}"
+            },
+            {
+              "type": "text",
+              "text": " とそろえました。"
+            },
+            {
+              "type": "math",
+              "latex": "a+b-2\\sqrt{ab}"
+            },
+            {
+              "type": "text",
+              "text": " の和と積を、それぞれ同じ部分に対応させます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-06-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-06"
+            }
+          ],
+          "equationNumber": "15"
+        },
+        {
+          "id": "ne02-06-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}a+b&=9\\\\ab&=20\\end{aligned}"
+            }
+          ],
+          "equationNumber": "15"
+        },
+        {
+          "id": "ne02-06-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和は9、積は20となる候補を探します。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q07-pairs-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正の整数の候補で積 "
+            },
+            {
+              "type": "math",
+              "latex": "20"
+            },
+            {
+              "type": "text",
+              "text": " を作る組は、順不同なら "
+            },
+            {
+              "type": "math",
+              "latex": "(1,20),(2,10),(4,5)"
+            },
+            {
+              "type": "text",
+              "text": " です。和を順に計算すると "
+            },
+            {
+              "type": "math",
+              "latex": "21,12,9"
+            },
+            {
+              "type": "text",
+              "text": " になります。条件の和が "
+            },
+            {
+              "type": "math",
+              "latex": "9"
+            },
+            {
+              "type": "text",
+              "text": " となる組を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q07-pairs-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\{a,b\\}="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q07-pairs"
+            }
+          ],
+          "equationNumber": "16"
+        },
+        {
+          "id": "ne02-q07-pairs-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\{a,b\\}"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\{4,5\\}"
+            }
+          ],
+          "equationNumber": "16"
+        },
+        {
+          "id": "ne02-q07-pairs-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "差では順番を変えると符号が反対になるので、両方の差を残します。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-07-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ二数を平方根の差へ戻します。"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt4=2"
+            },
+            {
+              "type": "text",
+              "text": " なので、二通りの順序でできる候補を並べます。この段階では符号で一つに絞りません。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-07-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-07"
+            }
+          ],
+          "equationNumber": "17"
+        },
+        {
+          "id": "ne02-07-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "5,\\ b"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "4:\\ \\sqrt5-2\\quad\\text{または}\\quad a"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "4,\\ b"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "5:\\ 2-\\sqrt5"
+            }
+          ],
+          "equationNumber": "17"
+        },
+        {
+          "id": "ne02-07-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つは符号が反対で平方が同じです。根号の値を決めるために大小を調べます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q08-squares-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": " は正なので、二乗した大小と元の大小が一致します。まず左の平方、次に右の平方を計算してから比較します。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q08-squares-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-q08-squares"
+            }
+          ],
+          "equationNumber": "18"
+        },
+        {
+          "id": "ne02-q08-squares-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}(\\sqrt5)^2&=5\\\\2^2&=4\\\\5&>4\\end{aligned}"
+            }
+          ],
+          "equationNumber": "18"
+        },
+        {
+          "id": "ne02-q08-squares-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "したがって "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt5>2"
+            },
+            {
+              "type": "text",
+              "text": " です。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q08-nonnegative-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5>2"
+            },
+            {
+              "type": "text",
+              "text": " の両辺から "
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": " を引くと、"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt5-2>0"
+            },
+            {
+              "type": "text",
+              "text": " です。もう一方の差はこれと符号が反対です。非負となる候補を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q08-nonnegative-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-q08-nonnegative"
+            }
+          ],
+          "equationNumber": "19"
+        },
+        {
+          "id": "ne02-q08-nonnegative-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5-2"
+            }
+          ],
+          "equationNumber": "19"
+        },
+        {
+          "id": "ne02-q08-nonnegative-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-08-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いま確かめた大小関係と非負の候補を使い、元の根号の値をまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-08-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-08"
+            }
+          ],
+          "equationNumber": "20"
+        },
+        {
+          "id": "ne02-08-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}\\sqrt5&>2\\\\\\sqrt{9-4\\sqrt5}&=\\sqrt5-2\\end{aligned}"
+            }
+          ],
+          "equationNumber": "20"
+        },
+        {
+          "id": "ne02-08-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "差の二乗を根号から戻す一般形は "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{(\\sqrt a-\\sqrt b)^2}=|\\sqrt a-\\sqrt b|"
+            },
+            {
+              "type": "text",
+              "text": " です。絶対値が必要なのは、差の符号が順序によって変わるためです。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-third-problem-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確認問題は "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{3+\\sqrt5}"
+            },
+            {
+              "type": "text",
+              "text": " です。これまでの "
+            },
+            {
+              "type": "math",
+              "latex": "2\\sqrt{ab}"
+            },
+            {
+              "type": "text",
+              "text": " と係数を合わせるため、根号内全体を分母2の分数に直します。一部の項だけを2倍すると元の値が変わってしまいます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-third-problem-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q09-double-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3+\\sqrt5"
+            },
+            {
+              "type": "text",
+              "text": " の値を変えずに分母を "
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": " にするには、和全体を分子で "
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": " 倍します。分配法則で分子を展開します。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q09-double-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(3+\\sqrt5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q09-double"
+            }
+          ],
+          "equationNumber": "21"
+        },
+        {
+          "id": "ne02-q09-double-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(3+\\sqrt5)"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "6+2\\sqrt5"
+            }
+          ],
+          "equationNumber": "21"
+        },
+        {
+          "id": "ne02-q09-double-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-09-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いま作った分子を分母2の上へ置きます。分子と分母を同じ2倍にしているので元の値と等しい分数です。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-09-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3+\\sqrt5="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-09"
+            }
+          ],
+          "equationNumber": "22"
+        },
+        {
+          "id": "ne02-09-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3+\\sqrt5"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{6+2\\sqrt5}{2}"
+            }
+          ],
+          "equationNumber": "22"
+        },
+        {
+          "id": "ne02-09-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分子は正、分母2も正です。この条件で平方根の商の公式を使えます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-10-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "商の平方根の公式 "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{A/B}=\\sqrt A/\\sqrt B"
+            },
+            {
+              "type": "text",
+              "text": " は、"
+            },
+            {
+              "type": "math",
+              "latex": "A\\ge0,B>0"
+            },
+            {
+              "type": "text",
+              "text": " のとき使えます。ここでは "
+            },
+            {
+              "type": "math",
+              "latex": "A=6+2\\sqrt5>0"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "B=2>0"
+            },
+            {
+              "type": "text",
+              "text": " です。分子の和全体を一つの根号に入れたまま分けます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-10-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{3+\\sqrt5}="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-10"
+            }
+          ],
+          "equationNumber": "23"
+        },
+        {
+          "id": "ne02-10-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{3+\\sqrt5}"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{\\sqrt{6+2\\sqrt5}}{\\sqrt2}"
+            }
+          ],
+          "equationNumber": "23"
+        },
+        {
+          "id": "ne02-10-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分子だけに、最初の例題の方法を使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q11-conditions-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分子は "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{6+2\\sqrt5}"
+            },
+            {
+              "type": "text",
+              "text": " です。平方根の和の平方を対応させるため、和と積の条件を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q11-conditions-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-q11-conditions"
+            }
+          ],
+          "equationNumber": "24"
+        },
+        {
+          "id": "ne02-q11-conditions-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}a+b&=6\\\\ab&=5\\end{aligned}"
+            }
+          ],
+          "equationNumber": "24"
+        },
+        {
+          "id": "ne02-q11-conditions-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q11-candidate-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積 "
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            },
+            {
+              "type": "text",
+              "text": " の正の整数の組 "
+            },
+            {
+              "type": "math",
+              "latex": "(1,5)"
+            },
+            {
+              "type": "text",
+              "text": " は、和も "
+            },
+            {
+              "type": "math",
+              "latex": "6"
+            },
+            {
+              "type": "text",
+              "text": " です。したがって平方根の和として作る候補を、"
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt1=1"
+            },
+            {
+              "type": "text",
+              "text": " を使って書きます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q11-candidate-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-q11-candidate"
+            }
+          ],
+          "equationNumber": "25"
+        },
+        {
+          "id": "ne02-q11-candidate-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt5+1"
+            }
+          ],
+          "equationNumber": "25"
+        },
+        {
+          "id": "ne02-q11-candidate-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補は正で、平方すると "
+            },
+            {
+              "type": "math",
+              "latex": "6+2\\sqrt5"
+            },
+            {
+              "type": "text",
+              "text": " になるので、分子の値として使えます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-11-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和と積の条件、選んだ二数、平方と非負性を確かめた分子の結果を一組にして記録します。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-11-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne02-11"
+            }
+          ],
+          "equationNumber": "26"
+        },
+        {
+          "id": "ne02-11-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}a+b&=6,\\ ab=5\\\\\\{a,b\\}&=\\{5,1\\}\\\\\\sqrt{6+2\\sqrt5}&=\\sqrt5+1\\end{aligned}"
+            }
+          ],
+          "equationNumber": "26"
+        },
+        {
+          "id": "ne02-11-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分母は前に残した "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt2"
+            },
+            {
+              "type": "text",
+              "text": " のままです。次は分子の結果を商の全体へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q12-factor-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "全体は "
+            },
+            {
+              "type": "math",
+              "latex": "(\\sqrt5+1)/\\sqrt2"
+            },
+            {
+              "type": "text",
+              "text": " です。元の分母と掛けて平方を作る非零の因子を "
+            },
+            {
+              "type": "math",
+              "latex": "c"
+            },
+            {
+              "type": "text",
+              "text": " とします。まず因子を選び、その後に分子と分母の両方へ掛けます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q12-factor-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "c="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q12-factor"
+            }
+          ],
+          "equationNumber": "27"
+        },
+        {
+          "id": "ne02-q12-factor-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "c"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt2"
+            }
+          ],
+          "equationNumber": "27"
+        },
+        {
+          "id": "ne02-q12-factor-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ因子は正なので0ではありません。この因子を分子と分母の両方へ掛けても値は変わりません。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q12-denominator-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分母は同じ根号を二つ掛けた平方になります。分子の和全体の括弧は残します。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q12-denominator-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{(\\sqrt5+1)\\sqrt2}{\\sqrt2\\sqrt2}=\\frac{(\\sqrt5+1)\\sqrt2}{{\\square}}",
+              "holeIds": [
+                "ne02-q12-denominator"
+              ]
+            }
+          ],
+          "equationNumber": "28"
+        },
+        {
+          "id": "ne02-q12-denominator-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{(\\sqrt5+1)\\sqrt2}{\\sqrt2\\sqrt2}"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{(\\sqrt5+1)\\sqrt2}{2}"
+            }
+          ],
+          "equationNumber": "28"
+        },
+        {
+          "id": "ne02-q12-denominator-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q12-numerator-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分母は求まりました。分子では "
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt2"
+            },
+            {
+              "type": "text",
+              "text": " を括弧内の両項へ掛け、根号の積を一つにまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-q12-numerator-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt5+1)\\sqrt2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-q12-numerator"
+            }
+          ],
+          "equationNumber": "29"
+        },
+        {
+          "id": "ne02-q12-numerator-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(\\sqrt5+1)\\sqrt2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\sqrt{10}+\\sqrt2"
+            }
+          ],
+          "equationNumber": "29"
+        },
+        {
+          "id": "ne02-q12-numerator-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-12-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分子と分母を元の商へ戻し、初めの根号の値を一つの式で結論にします。"
+            }
+          ]
+        },
+        {
+          "id": "ne02-12-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{3+\\sqrt5}="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne02-12"
+            }
+          ],
+          "equationNumber": "30"
+        },
+        {
+          "id": "ne02-12-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\sqrt{3+\\sqrt5}"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{\\sqrt{10}+\\sqrt2}{2}"
+            }
+          ],
+          "equationNumber": "30"
+        },
+        {
+          "id": "ne02-12-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "根号内を平方の形へ合わせ、候補を作り、符号まで確かめました。ここで扱った方法がすべての二重根号に機械的に使えるわけではありません。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "ne02-q01-expand",
+          "label": "NE02-Q01-EXPAND",
+          "prompt": "二乗を積へ戻し四項を作る",
+          "answerType": "formula",
+          "choices": [
+            "(\\sqrt a)^2+\\sqrt a\\sqrt b+\\sqrt b\\sqrt a+(\\sqrt b)^2",
+            "a+b",
+            "a+2\\sqrt{a+b}+b"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-01",
+          "label": "NE02-01",
+          "prompt": "a,bを正の実数とする。平方根の和を二乗し、平方の項と二つの交差項を分けて書く。",
+          "answerType": "formula",
+          "choices": [
+            "a+b+2\\sqrt{ab}",
+            "a+b+\\sqrt{ab}",
+            "a+b+2ab"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q02-sum",
+          "label": "NE02-Q02-SUM",
+          "prompt": "外側の和の条件を作る",
+          "answerType": "formula",
+          "choices": [
+            "5",
+            "6",
+            "11"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q02-product",
+          "label": "NE02-Q02-PRODUCT",
+          "prompt": "交差項の中身の条件を作る",
+          "answerType": "formula",
+          "choices": [
+            "6",
+            "3",
+            "5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-02",
+          "label": "NE02-02",
+          "prompt": "前の平方の展開を5+2√6と比べる。根号の外の部分と、交差項の根号の中を対応させる。",
+          "answerType": "formula",
+          "choices": [
+            "a+b=5,\\quad ab=6",
+            "a+b=5,\\quad ab=3",
+            "a+b=5,\\quad ab=12"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q03-pairs",
+          "label": "NE02-Q03-PAIRS",
+          "prompt": "積6の自然数候補から和を選ぶ",
+          "answerType": "formula",
+          "choices": [
+            "1+6=7,\\quad2+3=5",
+            "1+6=5,\\quad2+3=7",
+            "1+6=6,\\quad2+3=6"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-03",
+          "label": "NE02-03",
+          "prompt": "和と積の二条件を同時に満たす正の二数を探す。順番はどちらでもよい。",
+          "answerType": "formula",
+          "choices": [
+            "a=2,\\quad b=3\\quad(\\text{順不同})",
+            "a=1,\\quad b=4",
+            "a=1,\\quad b=6"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q04-square",
+          "label": "NE02-Q04-SQUARE",
+          "prompt": "候補を平方して元へ戻る",
+          "answerType": "formula",
+          "choices": [
+            "5+2\\sqrt6",
+            "5+\\sqrt6",
+            "5+2\\sqrt5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q04-sign",
+          "label": "NE02-Q04-SIGN",
+          "prompt": "平方根の符号条件を確認する",
+          "answerType": "formula",
+          "choices": [
+            ">",
+            "<",
+            "="
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-04",
+          "label": "NE02-04",
+          "prompt": "平方が一致しただけでは符号が決まらない。候補が非負であることも確かめ、元の根号の値を選ぶ。",
+          "answerType": "formula",
+          "choices": [
+            "\\sqrt2+\\sqrt3>0,\\quad\\sqrt{5+2\\sqrt6}=\\sqrt2+\\sqrt3",
+            "\\sqrt{5+2\\sqrt6}=-\\sqrt2-\\sqrt3",
+            "\\sqrt{5+2\\sqrt6}=\\sqrt5+\\sqrt{2\\sqrt6}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q05-expand",
+          "label": "NE02-Q05-EXPAND",
+          "prompt": "負号を含む四つの積を作る",
+          "answerType": "formula",
+          "choices": [
+            "a-\\sqrt{ab}-\\sqrt{ab}+b",
+            "a+\\sqrt{ab}+\\sqrt{ab}+b",
+            "a-\\sqrt{ab}-\\sqrt{ab}-b"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-05",
+          "label": "NE02-05",
+          "prompt": "次は中央項が負の9−4√5を考える。平方根の差の平方を展開し、対応させる形を作る。",
+          "answerType": "formula",
+          "choices": [
+            "a+b-2\\sqrt{ab}",
+            "a+b+2\\sqrt{ab}",
+            "a-b-2\\sqrt{ab}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q06-coefficient",
+          "label": "NE02-Q06-COEFFICIENT",
+          "prompt": "係数4を2と2へ分ける",
+          "answerType": "formula",
+          "choices": [
+            "2\\sqrt5",
+            "4\\sqrt5",
+            "\\sqrt5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q06-radical",
+          "label": "NE02-Q06-RADICAL",
+          "prompt": "残る2を根号の中へ入れる",
+          "answerType": "formula",
+          "choices": [
+            "20",
+            "10",
+            "5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-06",
+          "label": "NE02-06",
+          "prompt": "交差項の係数をそろえて比べられるよう、4√5を係数2と一つの根号の積へ直す。和と積を別々の条件にする。",
+          "answerType": "formula",
+          "choices": [
+            "a+b=9,\\quad ab=20",
+            "a+b=9,\\quad ab=5",
+            "a+b=9,\\quad ab=10"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q07-pairs",
+          "label": "NE02-Q07-PAIRS",
+          "prompt": "積20の組と和を照合する",
+          "answerType": "formula",
+          "choices": [
+            "\\{4,5\\}",
+            "\\{2,10\\}",
+            "\\{1,20\\}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-07",
+          "label": "NE02-07",
+          "prompt": "和と積を満たす二数を求め、平方根の差へ戻す。この段階では二つの順序を候補として残す。",
+          "answerType": "formula",
+          "choices": [
+            "a=5,\\ b=4:\\ \\sqrt5-2\\quad\\text{または}\\quad a=4,\\ b=5:\\ 2-\\sqrt5",
+            "a=8,\\ b=1:\\ \\sqrt8-1",
+            "a=5,\\ b=4:\\ \\sqrt{5-4}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q08-squares",
+          "label": "NE02-Q08-SQUARES",
+          "prompt": "正の二数を二乗して比べる",
+          "answerType": "formula",
+          "choices": [
+            "(\\sqrt5)^2=5,\\quad2^2=4,\\quad5>4",
+            "(\\sqrt5)^2=5,\\quad2^2=4,\\quad5<4",
+            "(\\sqrt5)^2=25,\\quad2^2=4,\\quad25>4"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q08-nonnegative",
+          "label": "NE02-Q08-NONNEGATIVE",
+          "prompt": "非負の差を選ぶ",
+          "answerType": "formula",
+          "choices": [
+            "\\sqrt5-2",
+            "2-\\sqrt5",
+            "-\\sqrt5-2"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-08",
+          "label": "NE02-08",
+          "prompt": "二つの候補の大小を平方で比較する。根号そのものを表す非負の方を一つ選ぶ。",
+          "answerType": "formula",
+          "choices": [
+            "\\sqrt5>2,\\quad\\sqrt{9-4\\sqrt5}=\\sqrt5-2",
+            "\\sqrt{9-4\\sqrt5}=2-\\sqrt5",
+            "\\sqrt{9-4\\sqrt5}=\\pm(\\sqrt5-2)"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q09-double",
+          "label": "NE02-Q09-DOUBLE",
+          "prompt": "根号内全体を2倍した分子を作る",
+          "answerType": "formula",
+          "choices": [
+            "6+2\\sqrt5",
+            "6+\\sqrt5",
+            "3+2\\sqrt5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-09",
+          "label": "NE02-09",
+          "prompt": "最後は√(3+√5)に取り組む。根号の中全体を分母2へ通分し、分子の中央の係数を前とそろえる。",
+          "answerType": "formula",
+          "choices": [
+            "\\frac{6+2\\sqrt5}{2}",
+            "\\frac{3+2\\sqrt5}{2}",
+            "\\frac{6+\\sqrt5}{2}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-10",
+          "label": "NE02-10",
+          "prompt": "分子が正、分母が正であることを確かめ、平方根の商の関係を使う。分子の和は一つの根号に保つ。",
+          "answerType": "formula",
+          "choices": [
+            "\\frac{\\sqrt{6+2\\sqrt5}}{\\sqrt2}",
+            "\\frac{\\sqrt{6+2\\sqrt5}}{2}",
+            "\\frac{\\sqrt6+\\sqrt{2\\sqrt5}}{\\sqrt2}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q11-conditions",
+          "label": "NE02-Q11-CONDITIONS",
+          "prompt": "分子の和と積の条件を作る",
+          "answerType": "formula",
+          "choices": [
+            "a+b=6,\\quad ab=5",
+            "a+b=5,\\quad ab=6",
+            "a+b=6,\\quad ab=10"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q11-candidate",
+          "label": "NE02-Q11-CANDIDATE",
+          "prompt": "条件を満たす候補へ戻す",
+          "answerType": "formula",
+          "choices": [
+            "\\sqrt5+1",
+            "\\sqrt6",
+            "\\sqrt5-1"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-11",
+          "label": "NE02-11",
+          "prompt": "分子へ、最初の例題で作った和と積の方法を使う。条件、二数、非負の平方根の和までを一つの対応として選ぶ。",
+          "answerType": "formula",
+          "choices": [
+            "a+b=6,\\ ab=5;\\ \\{a,b\\}=\\{5,1\\};\\ \\sqrt{6+2\\sqrt5}=\\sqrt5+1",
+            "a+b=6,\\ ab=5;\\ \\{a,b\\}=\\{3,3\\};\\ \\sqrt{6+2\\sqrt5}=2\\sqrt3",
+            "a+b=6,\\ ab=5;\\ \\{a,b\\}=\\{5,1\\};\\ \\sqrt{6+2\\sqrt5}=\\sqrt5-1"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q12-factor",
+          "label": "NE02-Q12-FACTOR",
+          "prompt": "有理化の因子を選ぶ",
+          "answerType": "formula",
+          "choices": [
+            "\\sqrt2",
+            "2",
+            "\\sqrt5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q12-denominator",
+          "label": "NE02-Q12-DENOMINATOR",
+          "prompt": "分母の積を計算する",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "4",
+            "2\\sqrt2"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-q12-numerator",
+          "label": "NE02-Q12-NUMERATOR",
+          "prompt": "分子の和の両項へ分配する",
+          "answerType": "formula",
+          "choices": [
+            "\\sqrt{10}+\\sqrt2",
+            "\\sqrt{10}+1",
+            "\\sqrt{12}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "ne02-12",
+          "label": "NE02-12",
+          "prompt": "分子の結果を前の商へ戻す。分母と分子に同じ平方根を掛け、有理化して答えをまとめる。",
+          "answerType": "formula",
+          "choices": [
+            "\\frac{\\sqrt{10}+\\sqrt2}{2}",
+            "\\frac{\\sqrt{10}+1}{2}",
+            "\\sqrt{10}+\\sqrt2"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2115 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n01",
+  "revision": 7,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "式の見方",
+  "subtitle": "数と文字を掛け算として読み、どの文字に注目するか考える。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N01",
+    "rightsNote": "教師作成WordのN01 Q1–Q10を原式に照合したレビュー用新規学習本文。啓林館「深進数学Ⅰ」教科書ガイドへの原稿側言及は元教科書への独立アクセスや再配布許諾を意味しない。解答別冊なし・独立解法監査。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "数と文字の積を一つずつ読み取る",
+    "注目する文字を変えて式の見方を比べる",
+    "同じ文字の部分をまとめた結果から式を読む"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "01",
+      "title": "式の見方",
+      "description": "問い→意味→用語→別の式への応用をつなげる。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "heading-factors",
+          "type": "heading",
+          "text": "式を掛け算に戻す"
+        },
+        {
+          "id": "marker-factor-example",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "paragraph-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の三つの式を比べよう。"
+            },
+            {
+              "type": "math",
+              "latex": "-2x,\\quad x^2,\\quad -x^2y^2"
+            },
+            {
+              "type": "text",
+              "text": "。どれも数と文字の掛け算で読める。例えば "
+            },
+            {
+              "type": "math",
+              "latex": "x^2=x\\times x"
+            },
+            {
+              "type": "text",
+              "text": " である。マイナスがあるときは、符号も数の部分に含めて考える。"
+            }
+          ]
+        },
+        {
+          "id": "n01-bridge-explain-n01-01-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず"
+            },
+            {
+              "type": "math",
+              "latex": "−x²y²"
+            },
+            {
+              "type": "text",
+              "text": "を「数×文字×文字…」の形に戻します。前の負号を数の部分に含め、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "がそれぞれ何回掛かっているか見えるようにします。"
+            }
+          ]
+        },
+        {
+          "id": "formula-n01-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-x^2y^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-01"
+            },
+            {
+              "type": "math",
+              "latex": "\\times x\\times x\\times y\\times y"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-concept-monomial",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "このように数と文字の積で表した式を"
+            },
+            {
+              "type": "term",
+              "text": "単項式"
+            },
+            {
+              "type": "text",
+              "text": "という。ここでは文字の指数を0以上の整数として扱う。数の部分を"
+            },
+            {
+              "type": "term",
+              "text": "係数"
+            },
+            {
+              "type": "text",
+              "text": "、掛け合わせた文字の総数を"
+            },
+            {
+              "type": "term",
+              "text": "次数"
+            },
+            {
+              "type": "text",
+              "text": "という。"
+            }
+          ]
+        },
+        {
+          "id": "n01-bridge-explain-n01-01-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "先頭の数は係数を読むため、後ろに並ぶ文字は次数を数えるために使える。同じ分解から二種類の情報を取り出す。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-coefficient-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "係数と次数を、一つずつ確かめます。まず数の部分を読み取り、次に掛け合わせた文字の個数を数えます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-negative-heading",
+          "type": "heading",
+          "text": "−2xの係数と次数"
+        },
+        {
+          "id": "n01-r3-negative-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "−2x"
+            },
+            {
+              "type": "text",
+              "text": "を掛け算に戻すと、"
+            },
+            {
+              "type": "math",
+              "latex": "−2×x"
+            },
+            {
+              "type": "text",
+              "text": "です。符号を含む数の部分が係数です。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-negative-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2x=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-bridge-r3-negative-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")\\times x"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-negative-degree-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に次数を見ます。掛けている文字は"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "が一つなので、その個数を入れます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-negative-degree-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{次数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-bridge-r3-negative-degree"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-square-heading",
+          "type": "heading",
+          "text": "x²の係数と次数"
+        },
+        {
+          "id": "n01-r3-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "は、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を二つ掛けた式です。文字の前に数がない場合は、1が省略されています。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-square-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-bridge-r3-square-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": "\\times x\\times x"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-square-degree-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{次数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-bridge-r3-square-degree"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-product-heading",
+          "type": "heading",
+          "text": "−x²y²の係数と次数"
+        },
+        {
+          "id": "n01-r3-product-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最初に扱った"
+            },
+            {
+              "type": "math",
+              "latex": "−x²y²"
+            },
+            {
+              "type": "text",
+              "text": "も、同じ順に読みます。前の負号を数の部分に含めて、係数を入れます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-product-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-x^2y^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-bridge-r3-product-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")\\times x\\times x\\times y\\times y"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-product-degree-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次数は、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を合わせて数えます。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "が二つ、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "が二つなので、"
+            },
+            {
+              "type": "math",
+              "latex": "2+2"
+            },
+            {
+              "type": "text",
+              "text": "を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-product-degree-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{次数}=2+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-bridge-r3-product-degree"
+            }
+          ]
+        },
+        {
+          "id": "heading-variable",
+          "type": "heading",
+          "text": "どの文字を見るか"
+        },
+        {
+          "id": "marker-variable-example",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "paragraph-variable-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ式 "
+            },
+            {
+              "type": "math",
+              "latex": "5x^3y"
+            },
+            {
+              "type": "text",
+              "text": " でも、注目する文字によって見方が変わる。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " に注目するとき、"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": " は変わらない数とみなす。"
+            },
+            {
+              "type": "text",
+              "text": "そこで、"
+            },
+            {
+              "type": "math",
+              "latex": "x^3"
+            },
+            {
+              "type": "text",
+              "text": " の前に掛かるものを一つにまとめよう。"
+            }
+          ]
+        },
+        {
+          "id": "n01-bridge-explain-n01-03-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この問題では"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "だけが変化すると考える。"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を消すのではなく、数5と一緒に係数側へ移して、"
+            },
+            {
+              "type": "math",
+              "latex": "x³"
+            },
+            {
+              "type": "text",
+              "text": "に何が掛かるかを見える形にする。"
+            }
+          ]
+        },
+        {
+          "id": "formula-n01-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "5x^3y="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-03"
+            },
+            {
+              "type": "math",
+              "latex": "\\,x^3"
+            }
+          ]
+        },
+        {
+          "id": "n01-bridge-explain-n01-03-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "掛け算の順を入れ替えただけなので式の値は変わらない。注目する文字を"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "へ変えるときも、同じ方法で"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "の外側に残るものを集める。"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-y-goal",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ"
+            },
+            {
+              "type": "math",
+              "latex": "5x³y"
+            },
+            {
+              "type": "text",
+              "text": "を、今度は"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "について読みます。"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "を一つ残し、それ以外を係数の側にまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-y-reorder",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "5x^3y=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s4-y-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")y^1"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-y-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{yの係数}=5x^3"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-y-degree-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{yについての次数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s4-y-degree"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-y-result",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "について見ると係数は"
+            },
+            {
+              "type": "math",
+              "latex": "5x³"
+            },
+            {
+              "type": "text",
+              "text": "、次数は1です。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "について見たときと、残す文字が変わっています。"
+            }
+          ]
+        },
+        {
+          "id": "marker-variable-check",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n01-s4-axy-goal",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は"
+            },
+            {
+              "type": "math",
+              "latex": "axy"
+            },
+            {
+              "type": "text",
+              "text": "に同じ方法を使います。まず"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "に注目します。掛け算の順序を変え、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "だけを右に残します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-axy-x-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "axy=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s4-axy-x"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-axy-switch",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の係数は"
+            },
+            {
+              "type": "math",
+              "latex": "ay"
+            },
+            {
+              "type": "text",
+              "text": "でした。今度は"
+            },
+            {
+              "type": "math",
+              "latex": "y"
+            },
+            {
+              "type": "text",
+              "text": "だけを右に残し、同じ式を読み直します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-axy-y-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "axy=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s4-axy-y"
+            },
+            {
+              "type": "math",
+              "latex": ")y"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-axy-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の式は変わりません。注目する文字を変えると、その文字に掛かる係数の見方が変わります。"
+            }
+          ]
+        },
+        {
+          "id": "heading-like-terms",
+          "type": "heading",
+          "text": "同類項をまとめる：問題と見通し"
+        },
+        {
+          "id": "n01-s4-like-goal",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の式を簡単にします。二次の項、一次の項、定数項の順に、一組ずつ計算してから全体を組み立てます。"
+            }
+          ]
+        },
+        {
+          "id": "formula-like-original",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x^2-5x+6-5x^2+2x-3"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-term-concept",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "引き算は負の数を足すこととして読めます。符号を含む一つ一つのまとまりを項、単項式の和を多項式といいます。文字の部分が同じ項が同類項です。項を取り出すときも前の符号を一緒に扱います。"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-like-square",
+          "type": "heading",
+          "text": "① 二次の項をまとめる"
+        },
+        {
+          "id": "n01-s4-like-square-target",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字の部分が"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "の項を、元の式から符号ごと取り出します。"
+            }
+          ]
+        },
+        {
+          "id": "s4-local-n01-06a",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{二次の項：}"
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-06a"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-like-square-reason",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの項は同じ"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "の何倍かを表します。係数を引き、文字の部分"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "を残します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-square-factor",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x^2-5x^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s5-square-regroup"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "s4-local-n01-r3-q07-x2coef",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(3-5)x^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-r3-q07-x2coef"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-square-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{二次の項：}-2x^2"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-like-linear",
+          "type": "heading",
+          "text": "② 一次の項をまとめる"
+        },
+        {
+          "id": "n01-s4-like-linear-target",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字の部分が"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の項は"
+            },
+            {
+              "type": "math",
+              "latex": "−5x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "+2x"
+            },
+            {
+              "type": "text",
+              "text": "です。同じ"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を残し、係数"
+            },
+            {
+              "type": "math",
+              "latex": "−5"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "+2"
+            },
+            {
+              "type": "text",
+              "text": "を足します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-linear-factor",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-5x+2x=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s5-linear-regroup"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "s4-local-n01-r3-q07-xcoef",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-5+2)x=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-r3-q07-xcoef"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-linear-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{一次の項：}-3x"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-like-constant",
+          "type": "heading",
+          "text": "③ 定数項をまとめる"
+        },
+        {
+          "id": "n01-s4-like-constant-target",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字を含まない項は+6と−3です。この二つを計算します。"
+            }
+          ]
+        },
+        {
+          "id": "s4-local-n01-r3-q07-const",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "6-3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-r3-q07-const"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-constant-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{定数項：}3"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-like-assembly",
+          "type": "heading",
+          "text": "④ 結果を戻し、式を読む"
+        },
+        {
+          "id": "n01-s4-like-assembly-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次の項"
+            },
+            {
+              "type": "math",
+              "latex": "−2x²"
+            },
+            {
+              "type": "text",
+              "text": "、一次の項"
+            },
+            {
+              "type": "math",
+              "latex": "−3x"
+            },
+            {
+              "type": "text",
+              "text": "、定数項3が求まりました。これらを次数の高い順に並べます。異なる次数の項は、これ以上まとめません。"
+            }
+          ]
+        },
+        {
+          "id": "formula-n01-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x^2-5x+6-5x^2+2x-3=-2x^2-3x+3"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-like-degree-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "多項式の次数は、整理後に残る項の次数の最大値です。いまの式で最も高い次数を読みます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-like-degree-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{次数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s4-like-degree"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-like-constant-read",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に、整理後の式から文字を含まない項を読みます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-s4-like-constant-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{定数項}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s4-like-constant"
+            }
+          ]
+        },
+        {
+          "id": "marker-degree-check",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題｜同類項をまとめる"
+        },
+        {
+          "id": "paragraph-cancellation-intro",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の式を、同類項をまとめて簡単にしましょう。"
+            }
+          ]
+        },
+        {
+          "id": "formula-cancellation-original",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3-2x^2+x-x^3+3x-1"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-plan",
+          "type": "heading",
+          "text": "解き方の見通し"
+        },
+        {
+          "id": "n01-r3-plan-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同類項は、文字の部分が同じ項です。同類項どうしは、係数を計算して一つにまとめられます。この式では、一次の項、二次の項、三次の項、定数項の順に確かめ、最後に結果を組み合わせます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-linear-heading",
+          "type": "heading",
+          "text": "① 一次の項をまとめる"
+        },
+        {
+          "id": "n01-r3-linear-target",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の式から、文字の部分が"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の項を取り出します。項を取り出すときは、その項の前の符号も一緒に見ます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-linear-locate",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3-2x^2+\\underbrace{x}_{\\text{一次の項}}-x^3+\\underbrace{3x}_{\\text{一次の項}}-1"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-linear-reason",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次の項は"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": "です。"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "には係数の1が省略されているので、"
+            },
+            {
+              "type": "math",
+              "latex": "x=1x"
+            },
+            {
+              "type": "text",
+              "text": "と考えます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-linear-expand",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x+3x=1x+3x"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-linear-operation",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "が1個と3個あるので、文字の部分"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "を残して係数を足します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-linear-factor",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1x+3x=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s5-example-linear-regroup"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-linear-calculate",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(1+3)x="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-bridge-r3-linear"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-linear-result-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次の項は"
+            },
+            {
+              "type": "math",
+              "latex": "4x"
+            },
+            {
+              "type": "text",
+              "text": "にまとまりました。この結果を、最後に式全体を組み立てるときに使います。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-linear-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{一次の項：}4x"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-quadratic-heading",
+          "type": "heading",
+          "text": "② 二次の項を確かめる"
+        },
+        {
+          "id": "n01-r3-quadratic-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字の部分が"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "の項は、"
+            },
+            {
+              "type": "math",
+              "latex": "−2x²"
+            },
+            {
+              "type": "text",
+              "text": "だけです。ほかに同類項がないため、この項はそのまま残します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-quadratic-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{二次の項：}-2x^2"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-cubic-heading",
+          "type": "heading",
+          "text": "③ 三次の項をまとめる"
+        },
+        {
+          "id": "n01-r3-cubic-target",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字の部分が"
+            },
+            {
+              "type": "math",
+              "latex": "x³"
+            },
+            {
+              "type": "text",
+              "text": "の項は、"
+            },
+            {
+              "type": "math",
+              "latex": "x³"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "−x³"
+            },
+            {
+              "type": "text",
+              "text": "です。一次の項と同じように、文字の部分を残して係数を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-cubic-expand",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3-x^3=1x^3-1x^3"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-cubic-factor",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1x^3-1x^3=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-s5-example-cubic-regroup"
+            },
+            {
+              "type": "math",
+              "latex": ")x^3"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-cubic-operation",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの項の係数を引き算します。1−1の計算結果を入れます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-cubic-calculate",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(1-1)x^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-bridge-r3-cubic"
+            },
+            {
+              "type": "math",
+              "latex": "x^3"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-cubic-zero",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "0x^3=0"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-cubic-result-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三次の項をまとめた結果は0です。したがって、最後の式には三次の項が残りません。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-cubic-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{三次の項：}0"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-constant-heading",
+          "type": "heading",
+          "text": "④ 定数項を確かめる"
+        },
+        {
+          "id": "n01-r3-constant-text",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定数項は、文字を含まない項です。元の式では−1なので、そのまま残します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-constant-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{定数項：}-1"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-assembly-heading",
+          "type": "heading",
+          "text": "⑤ 求めた結果で式全体をまとめる"
+        },
+        {
+          "id": "n01-r3-assembly-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここまでの結果を、次数の高い順に並べて確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-results-table",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{array}{c|r}\\text{種類}&\\text{まとめた結果}\\\\\\hline\\text{三次の項}&0\\\\\\text{二次の項}&-2x^2\\\\\\text{一次の項}&4x\\\\\\text{定数項}&-1\\end{array}"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-assembly-rule",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "0になった三次の項は省きます。二次の項・一次の項・定数項は同類項ではないため、これ以上一つの項にはまとめられません。①で求めた一次の項を、次の空欄に戻します。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-assembly-reuse",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2x^2+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-bridge-r3-reuse"
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-assembly-return",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "これで元の式のすべての項を整理できました。元の式と答えをつなぐと、次のようになります。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-final-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3-2x^2+x-x^3+3x-1=-2x^2+4x-1"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-method-summary",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ文字の部分を持つ項だけをまとめます。まとめた結果が0になった項は省き、残る項を次数の高い順に並べます。"
+            }
+          ]
+        },
+        {
+          "id": "n01-r3-interpret-heading",
+          "type": "heading",
+          "text": "整理後の式から次数を読む"
+        },
+        {
+          "id": "paragraph-n01-10a",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整理した結果、この多項式は "
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-10a"
+            },
+            {
+              "type": "text",
+              "text": " である。"
+            }
+          ]
+        },
+        {
+          "id": "n01-bridge-explain-n01-10a-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "消えた項を最高次数として数えず、係数が0でない項のうち最大の指数を読む。この結果が次の理由の判断につながる。"
+            }
+          ]
+        },
+        {
+          "id": "paragraph-n01-10b",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "そのように判断できる理由は "
+            },
+            {
+              "type": "choice",
+              "itemId": "n01-10b"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            }
+          ]
+        },
+        {
+          "id": "marker-n01-summary",
+          "type": "marker",
+          "kind": "summary",
+          "text": "ここまでの要点"
+        },
+        {
+          "id": "paragraph-summary",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "式を読むときは、"
+            },
+            {
+              "type": "term",
+              "text": "注目する文字"
+            },
+            {
+              "type": "text",
+              "text": "を決め、"
+            },
+            {
+              "type": "term",
+              "text": "同類項"
+            },
+            {
+              "type": "text",
+              "text": "をまとめてから、残った項の"
+            },
+            {
+              "type": "term",
+              "text": "次数"
+            },
+            {
+              "type": "text",
+              "text": "を判断する。この考え方を次の長い式の整理と足し引きにも使う。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n01-01",
+          "label": "N01-01",
+          "prompt": "負号を含めた数の部分を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-1",
+            "1",
+            "-2"
+          ],
+          "hints": [
+            "式全体の前にあるマイナスは、文字ではなく数の部分に入る。"
+          ]
+        },
+        {
+          "id": "n01-bridge-r3-negative-coefficient",
+          "label": "N01-BRIDGE-R3-NEGATIVE-COEFFICIENT",
+          "prompt": "−2xの数の部分を、符号も含めて入れます。",
+          "answerType": "formula",
+          "choices": [
+            "-2",
+            "2",
+            "-1"
+          ],
+          "hints": [
+            "−2x=(−2)×xです。前の負号も数の部分に含めます。"
+          ]
+        },
+        {
+          "id": "n01-bridge-r3-negative-degree",
+          "label": "N01-BRIDGE-R3-NEGATIVE-DEGREE",
+          "prompt": "−2xに掛けている文字の個数を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "2",
+            "0"
+          ],
+          "hints": [
+            "係数の−2ではなく、文字xの個数を数えます。"
+          ]
+        },
+        {
+          "id": "n01-bridge-r3-square-coefficient",
+          "label": "N01-BRIDGE-R3-SQUARE-COEFFICIENT",
+          "prompt": "x²で省略されている数の部分を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "2",
+            "0"
+          ],
+          "hints": [
+            "指数の2はxの個数です。数の部分は1です。"
+          ]
+        },
+        {
+          "id": "n01-bridge-r3-square-degree",
+          "label": "N01-BRIDGE-R3-SQUARE-DEGREE",
+          "prompt": "x²=x×xに掛けている文字の個数を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "1",
+            "0"
+          ],
+          "hints": [
+            "xを二つ掛けています。"
+          ]
+        },
+        {
+          "id": "n01-bridge-r3-product-coefficient",
+          "label": "N01-BRIDGE-R3-PRODUCT-COEFFICIENT",
+          "prompt": "−x²y²の数の部分を、符号も含めて入れます。",
+          "answerType": "formula",
+          "choices": [
+            "-1",
+            "1",
+            "-4"
+          ],
+          "hints": [
+            "負号は−1を掛けることを表します。"
+          ]
+        },
+        {
+          "id": "n01-bridge-r3-product-degree",
+          "label": "N01-BRIDGE-R3-PRODUCT-DEGREE",
+          "prompt": "xとyを合わせた個数を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "2",
+            "3"
+          ],
+          "hints": [
+            "xが二つ、yが二つなので、2+2を計算します。"
+          ]
+        },
+        {
+          "id": "n01-03",
+          "label": "N01-03",
+          "prompt": "x³に掛かるものをまとめよう。",
+          "answerType": "formula",
+          "choices": [
+            "5y",
+            "5",
+            "5x"
+          ],
+          "hints": [
+            "xに注目するとき、yは係数に含められる。"
+          ]
+        },
+        {
+          "id": "n01-s4-y-coefficient",
+          "label": "N01-S4-Y-COEFFICIENT",
+          "prompt": "yに掛かっている式を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "5x^3",
+            "5y",
+            "5"
+          ],
+          "hints": [
+            "変化させる文字yを残し、それ以外を一つにまとめます。"
+          ]
+        },
+        {
+          "id": "n01-s4-y-degree",
+          "label": "N01-S4-Y-DEGREE",
+          "prompt": "yだけの個数を数えます。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "3",
+            "4"
+          ],
+          "hints": [
+            "xの指数ではなく、yの指数を読みます。"
+          ]
+        },
+        {
+          "id": "n01-s4-axy-x",
+          "label": "N01-S4-AXY-X",
+          "prompt": "xに掛かる係数の部分を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "ay",
+            "ax",
+            "a"
+          ],
+          "hints": [
+            "aとyが、残したxに掛かっています。"
+          ]
+        },
+        {
+          "id": "n01-s4-axy-y",
+          "label": "N01-S4-AXY-Y",
+          "prompt": "yに掛かる係数の部分を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "ax",
+            "ay",
+            "a"
+          ],
+          "hints": [
+            "今度はaとxが係数側に残ります。"
+          ]
+        },
+        {
+          "id": "n01-06a",
+          "label": "N01-06A",
+          "prompt": "x²を含む二つの項を符号ごと選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3x^2-5x^2",
+            "3x^2+5x^2",
+            "3x^2-5x"
+          ],
+          "hints": [
+            "文字の部分が同じ項だけを抜き出す。"
+          ]
+        },
+        {
+          "id": "n01-s5-square-regroup",
+          "label": "N01-S5-SQUARE-REGROUP",
+          "prompt": "3倍のx²から5倍のx²を引きます。",
+          "answerType": "formula",
+          "choices": [
+            "3-5",
+            "3+5",
+            "3\\times5"
+          ],
+          "hints": [
+            "3倍のx²から5倍のx²を引きます。"
+          ]
+        },
+        {
+          "id": "n01-r3-q07-x2coef",
+          "label": "N01-R3-Q07-X2COEF",
+          "prompt": "x²の係数 3−5 を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-2",
+            "2",
+            "-8"
+          ],
+          "hints": [
+            "3から5を引く。符号まで答えに含めよう。"
+          ]
+        },
+        {
+          "id": "n01-s5-linear-regroup",
+          "label": "N01-S5-LINEAR-REGROUP",
+          "prompt": "二つの項の係数を、符号ごと括弧へ入れます。",
+          "answerType": "formula",
+          "choices": [
+            "-5+2",
+            "-5-2",
+            "5+2"
+          ],
+          "hints": [
+            "二つの項の係数を、符号ごと括弧へ入れます。"
+          ]
+        },
+        {
+          "id": "n01-r3-q07-xcoef",
+          "label": "N01-R3-Q07-XCOEF",
+          "prompt": "xの係数 −5+2 を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "3",
+            "-7"
+          ],
+          "hints": [
+            "負の5と正の2を加える。"
+          ]
+        },
+        {
+          "id": "n01-r3-q07-const",
+          "label": "N01-R3-Q07-CONST",
+          "prompt": "定数項 6−3 を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "9"
+          ],
+          "hints": [
+            "文字を含まない二つの数を計算する。"
+          ]
+        },
+        {
+          "id": "n01-s4-like-degree",
+          "label": "N01-S4-LIKE-DEGREE",
+          "prompt": "整理後の最大の次数を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "3",
+            "1"
+          ],
+          "hints": [
+            "−2x²の項が残っています。"
+          ]
+        },
+        {
+          "id": "n01-s4-like-constant",
+          "label": "N01-S4-LIKE-CONSTANT",
+          "prompt": "整理後の文字を含まない項を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "2"
+          ],
+          "hints": [
+            "−3xは文字を含むので定数項ではありません。"
+          ]
+        },
+        {
+          "id": "n01-s5-example-linear-regroup",
+          "label": "N01-S5-EXAMPLE-LINEAR-REGROUP",
+          "prompt": "同じxの個数を合わせます。",
+          "answerType": "formula",
+          "choices": [
+            "1+3",
+            "1\\times3",
+            "1-3"
+          ],
+          "hints": [
+            "同じxの個数を合わせます。"
+          ]
+        },
+        {
+          "id": "n01-bridge-r3-linear",
+          "label": "N01-BRIDGE-R3-LINEAR",
+          "prompt": "係数の計算1+3の結果を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "3",
+            "4x"
+          ],
+          "hints": [
+            "空欄の外にxがあります。空欄には係数だけを入れます。"
+          ]
+        },
+        {
+          "id": "n01-s5-example-cubic-regroup",
+          "label": "N01-S5-EXAMPLE-CUBIC-REGROUP",
+          "prompt": "前の項から後ろの項を引くので、係数も同じ引き算にします。",
+          "answerType": "formula",
+          "choices": [
+            "1-1",
+            "1+1",
+            "1\\times1"
+          ],
+          "hints": [
+            "前の項から後ろの項を引くので、係数も同じ引き算にします。"
+          ]
+        },
+        {
+          "id": "n01-bridge-r3-cubic",
+          "label": "N01-BRIDGE-R3-CUBIC",
+          "prompt": "係数の計算1−1の結果を入れます。",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "1",
+            "2"
+          ],
+          "hints": [
+            "引き算です。同じ数から同じ数を引きます。"
+          ]
+        },
+        {
+          "id": "n01-bridge-r3-reuse",
+          "label": "N01-BRIDGE-R3-REUSE",
+          "prompt": "①で求めた一次の項を、式全体へ戻します。",
+          "answerType": "formula",
+          "choices": [
+            "4x",
+            "4x^2",
+            "4"
+          ],
+          "hints": [
+            "ここは係数だけの空欄ではありません。一次の項を、文字xも含めて戻します。"
+          ]
+        },
+        {
+          "id": "n01-10a",
+          "label": "N01-10A",
+          "prompt": "整理した結果の式は何次式だろう。",
+          "answerType": "text",
+          "choices": [
+            "2次式",
+            "3次式",
+            "1次式",
+            "0次式"
+          ],
+          "hints": [
+            "元の式ではなく、整理後に残る項を調べる。"
+          ]
+        },
+        {
+          "id": "n01-10b",
+          "label": "N01-10B",
+          "prompt": "その次数と判断した理由を選ぼう。",
+          "answerType": "text",
+          "choices": [
+            "3次の項が整理によって消えるから",
+            "式にはxが3回出てくるから",
+            "定数項があるから",
+            "負の係数があるから"
+          ],
+          "hints": [
+            "次数は項を整理した後に残る最大の指数から判断する。"
+          ]
+        }
+      ]
+    }
+  ]
+}

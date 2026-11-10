@@ -1,4 +1,4 @@
-import { getTextbookChoices } from '../../src/domain/textbook'
+import { getGuidedTextbookChoices } from './guidedTextbookChoices'
 import type { TextbookAnswerBook, TextbookReadingPart, TextbookUnit } from '../../src/domain/textbookSchema'
 
 function publicAssetSrc(unitId: string, src: string, apiOrigin?: string) {
@@ -98,9 +98,11 @@ export function publicTextbookUnit(unit: TextbookUnit, answerBook: TextbookAnswe
       )),
       items: section.items.map((item) => {
         const { answer: _answer, acceptedAnswers: _acceptedAnswers, choices: _choices, ...publicItem } = item
+        const choices = getGuidedTextbookChoices(unit, item, answerBook)
         return {
           ...publicItem,
-          choices: getTextbookChoices(unit, item, answerBook.answers),
+          // Answer keys stay server-side; expose only the shuffled options.
+          choices,
         }
       }),
     })),

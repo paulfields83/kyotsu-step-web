@@ -5,10 +5,13 @@ export type TextbookLessonTarget = {
   key: string
   label: string
   unitId: string
-  kind: 'unit' | 'section' | 'section-group'
+  kind: 'unit' | 'section' | 'section-group' | 'cross-unit-group' | 'chapter-group'
   sectionId?: string
   sectionIds?: string[]
+  sectionRefs?: Array<{unitId:string;sectionId:string}>
   topicPrefix?: string
+  group?: '集合' | '命題' | '証明'
+  topics?: TextbookLessonTarget[]
 }
 
 export type TextbookChapter = {
@@ -54,11 +57,86 @@ function physicsChapterNumber(unit: PublicTextbookUnit) {
 function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
   const chapters: TextbookChapter[] = []
 
+  const goldenGroups = [
+    { unitId:'math-sets', group:'集合' as const },
+    { unitId:'math-propositions-reading', group:'命題' as const },
+    { unitId:'math-quantifiers-all-exists', group:'命題' as const },
+    { unitId:'math-propositions-proof', group:'証明' as const },
+  ]
+  const goldenUnitIds = new Set(goldenGroups.map(x=>x.unitId))
+  const hasGoldenSetChapter = units.some(unit=>goldenUnitIds.has(unit.unitId))
+  const hasStrictSetsPropositions = units.some(unit=>unit.unitId==='math-1a-sets-propositions')
+  const hasRevisedNumbersExpressions = units.some(unit=>unit.unitId==='math-1a-numbers-expressions-revised')
+  let insertedGolden = false
   for (const unit of units) {
+    if (hasRevisedNumbersExpressions && unit.unitId === 'math-1a-numbers-expressions') continue
+    if (hasStrictSetsPropositions && unit.unitId === 'math-1a-sets-propositions-trial') continue
+    if (hasGoldenSetChapter && ['math-1a-sets-propositions','math-1a-sets-propositions-trial'].includes(unit.unitId)) continue
+    if (goldenUnitIds.has(unit.unitId)) {
+      if (!insertedGolden) {
+        insertedGolden = true
+        const lessons:TextbookLessonTarget[] = goldenGroups.flatMap(meta=> {
+          const source = units.find(candidate=>candidate.unitId===meta.unitId)
+          if(!source) return []
+          const ordinary = (sections: typeof source.sections):TextbookLessonTarget[] =>
+            sections.map(section=>({
+              key:'math-golden-'+meta.unitId+'-'+section.id,
+              label:section.number+' '+section.title,
+              unitId:meta.unitId,
+              kind:'section' as const,
+              sectionId:section.id,
+              group:meta.group,
+            }))
+          if(meta.unitId==='math-quantifiers-all-exists') return []
+          if(meta.unitId!=='math-propositions-reading') return ordinary(source.sections)
+          return [
+            ...ordinary(source.sections.filter(section=>section.id==='golden-prop-01')),
+            {
+              key:'math-golden-proposition-conditions',
+              label:'2.2～2.4 必要条件・十分条件・同値条件・否定',
+              unitId:meta.unitId,group:meta.group,kind:'section-group' as const,
+              sectionIds:['golden-prop-02','golden-prop-03','golden-prop-04'],
+              topicPrefix:'2',
+            },
+            {
+              key:'math-golden-proposition-negation-quantifiers',
+              label:'2.5～2.7 「かつ」「または」の否定・「ある」「すべて」',
+              unitId:meta.unitId,group:meta.group,kind:'cross-unit-group' as const,
+              sectionRefs:[
+                {unitId:'math-propositions-reading',sectionId:'golden-prop-05'},
+                {unitId:'math-quantifiers-all-exists',sectionId:'golden-quant-01'},
+                {unitId:'math-quantifiers-all-exists',sectionId:'golden-quant-02'},
+              ],
+            },
+          ]
+        })
+        // Match the existing 数と式 UI: chapter rows first, then the
+        // established knowledge-point tile grid inside a chapter page.
+        const groups: Array<{group:'集合'|'命題'|'証明';unitId:string;number:string}> = [
+          {group:'集合',unitId:'math-sets',number:'第1節'},
+          {group:'命題',unitId:'math-propositions-reading',number:'第2節'},
+          {group:'証明',unitId:'math-propositions-proof',number:'第3節'},
+        ]
+        chapters.push({
+          key:'math-golden-sets-propositions',label:'集合と命題（改訂版）',order:30,
+          lessons:groups.filter(meta=>units.some(candidate=>candidate.unitId===meta.unitId))
+            .map(meta=>({
+              key:'math-golden-group-'+meta.unitId,
+              label:meta.number+'　'+meta.group,
+              unitId:meta.unitId,
+              kind:'chapter-group' as const,
+              group:meta.group,
+              topics:lessons.filter(target=>target.group===meta.group),
+            })),
+        })
+      }
+      continue
+    }
+
     if (unit.unitId === 'math-1a-sets-propositions') {
       chapters.push({
         key: 'math-sets-propositions',
-        label: '集合と命題',
+        label: '集合と命題（改訂版）',
         order: 30,
         lessons: unit.sections.map((section) => ({
           key: `math-sets-propositions-${section.id}`,
@@ -66,6 +144,30 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
           unitId: unit.unitId,
           kind: 'section' as const,
           sectionId: section.id,
+        })),
+      })
+      continue
+    }
+
+    if (unit.unitId === 'math-1a-numbers-expressions-revised') {
+      // Group the sixteen existing revised lessons under the three textbook headings.
+      // The original N01–N14/NE01–NE02 identifiers and their reading order stay intact.
+      const revisedGroups = [
+        { key: 'polynomials', label: '第1節　多項式', codes: ['n01','n02','n03','n04','n05','n06'] },
+        { key: 'real-numbers', label: '第2節　実数', codes: ['n07','n08','n09','n10'] },
+        { key: 'inequalities', label: '第3節　1次不等式・参考発展', codes: ['n11','n12','n13','n14','ne01','ne02'] },
+      ]
+      chapters.push({
+        key: 'math-revised-numbers-expressions',
+        label: '数と式',
+        order: 10,
+        lessons: revisedGroups.map((group, index) => ({
+          key: 'math-revised-numbers-expressions-' + group.key,
+          label: group.label,
+          unitId: unit.unitId,
+          kind: 'section-group' as const,
+          sectionIds: group.codes.map((code) => 'revised-' + code),
+          topicPrefix: String(index + 1),
         })),
       })
       continue
@@ -101,7 +203,7 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
     chapters.push({
       key: `math-${unit.unitId}`,
       label: conciseMathTitle(unit.title),
-      order: 900,
+      order: unit.unitId === 'math-1a-numbers-expressions-revised' ? 10 : 900,
       lessons: unit.sections.length > 1
         ? unit.sections.map((section) => ({
           key: `math-${unit.unitId}-${section.id}`,
@@ -118,9 +220,15 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
 }
 
 function physicsChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
+  const revisedCodes = new Set(units
+    .filter(unit=>unit.unitId.endsWith('-revised'))
+    .map(physicsUnitCode).filter(Boolean))
+  // The original Chapter 1 is archived as soon as its corresponding revised
+  // source is present; legacy IDs and answer histories remain untouched.
+  const visibleUnits=units.filter(unit=>
+    unit.unitId.endsWith('-revised') || !revisedCodes.has(physicsUnitCode(unit)))
   const grouped = new Map<string, TextbookChapter>()
-
-  for (const unit of units) {
+  for (const unit of visibleUnits) {
     const chapterNumber = physicsChapterNumber(unit)
     const meta = chapterNumber ? physicsChapterMeta[chapterNumber] : undefined
     const key = chapterNumber ? `physics-${chapterNumber}` : `physics-${unit.unitId}`
@@ -139,6 +247,42 @@ function physicsChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
     grouped.set(key, current)
   }
 
+  const revisedOne=grouped.get('physics-1')
+  const revisedLessons=revisedOne?.lessons.filter(lesson=>lesson.unitId.endsWith('-revised')) ?? []
+  if(revisedOne && revisedLessons.length>0){
+    // This lookup is also called with just the open lesson (not the whole
+    // catalog). The canonical ZIP map must remain complete even then.
+    const canonical=[
+      {code:'1A',unitId:'physics-a-displacement-velocity-revised',label:'1A 変位と速度'},
+      {code:'1B',unitId:'physics-1b-velocity-composition-revised',label:'1B 速度の合成と分解'},
+      {code:'1C',unitId:'physics-1c-relative-velocity-revised',label:'1C 相対速度'},
+      {code:'1D',unitId:'physics-1d-acceleration-revised',label:'1D 加速度'},
+      {code:'1E',unitId:'physics-1e-horizontal-projectile-revised',label:'1E 水平投射'},
+      {code:'1F',unitId:'physics-1f-oblique-projectile-revised',label:'1F 斜方投射'},
+      {code:'1G',unitId:'physics-1g-gravity-drag-terminal-velocity-revised',label:'1G 重力加速度・空気抵抗・終端速度'},
+    ]
+    const fullTopics:TextbookLessonTarget[]=canonical.map(meta=>
+      revisedLessons.find(lesson=>lesson.unitId===meta.unitId) ??
+      {key:meta.unitId,label:meta.label,unitId:meta.unitId,kind:'unit'})
+    const groupDefs=[
+      {id:'represent',label:'第1節　運動を表す',codes:['1A','1B','1C']},
+      {id:'change',label:'第2節　速度の変化',codes:['1D','1E','1F']},
+      {id:'force',label:'第3節　力と運動',codes:['1G']},
+    ]
+    revisedOne.label='物体の運動（改訂版）'
+    revisedOne.lessons=groupDefs.map(meta=>{
+      const topics=canonical.filter(item=>meta.codes.includes(item.code))
+        .map(item=>fullTopics.find(topic=>topic.unitId===item.unitId)!)
+      return {
+        key:'physics-revised-ch01-'+meta.id,
+        label:meta.label,
+        unitId:topics[0].unitId,
+        kind:'chapter-group' as const,
+        topics,
+      }
+    })
+  }
+
   return [...grouped.values()].map((chapter) => ({
     ...chapter,
     lessons: [...chapter.lessons].sort((a, b) => a.label.localeCompare(b.label, 'ja')),
@@ -146,17 +290,35 @@ function physicsChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
 }
 
 export function buildTextbookChapters(units: PublicTextbookUnit[], subject: Question['subject']) {
-  const subjectUnits = units.filter((unit) => unit.subject === subject && unit.status === 'published')
+  // The three GOLDEN proposition sources are review-only but available for
+  // evaluation in this test UI; the catalog never promotes other review drafts.
+  const sourceReviewIds = new Set(['math-propositions-reading','math-quantifiers-all-exists','math-propositions-proof'])
+  const subjectUnits = units.filter((unit) => unit.subject === subject && (
+    unit.status === 'published' || (unit.status === 'review' && sourceReviewIds.has(unit.unitId))
+  ))
   const chapters = subject === 'physics' ? physicsChapters(subjectUnits) : mathChapters(subjectUnits)
   return chapters.sort((a, b) => a.order - b.order || a.label.localeCompare(b.label, 'ja'))
 }
 
 export function findTextbookLessonTarget(units: PublicTextbookUnit[], key: string | null | undefined) {
   if (!key) return undefined
+  // Old direct lesson bookmarks continue to open the consolidated source
+  // rather than accidentally falling back to an unrelated first section.
+  const legacyToMerged:Record<string,string> = {
+    'math-golden-math-propositions-reading-golden-prop-02':'math-golden-proposition-conditions',
+    'math-golden-math-propositions-reading-golden-prop-03':'math-golden-proposition-conditions',
+    'math-golden-math-propositions-reading-golden-prop-04':'math-golden-proposition-conditions',
+    'math-golden-math-propositions-reading-golden-prop-05':'math-golden-proposition-negation-quantifiers',
+  }
+  key = legacyToMerged[key] ?? key
   for (const subject of ['math-1a', 'physics'] as const) {
     for (const chapter of buildTextbookChapters(units, subject)) {
       const lesson = chapter.lessons.find((candidate) => candidate.key === key)
       if (lesson) return { chapter, lesson }
+      // Existing direct links to individual knowledge points remain valid.
+      // Only the learning hub shows the grouped chapter rows.
+      const nested = chapter.lessons.flatMap(parent=>parent.topics ?? []).find(topic=>topic.key===key)
+      if (nested) return {chapter,lesson:nested}
     }
   }
   return undefined
@@ -174,10 +336,15 @@ export function textbookLessonHref(lesson: TextbookLessonTarget) {
 export function textbookLessonItemIds(unit: PublicTextbookUnit | undefined, lesson: TextbookLessonTarget | undefined) {
   if (!unit || !lesson) return []
   if (lesson.kind === 'unit') return unit.sections.flatMap((section) => section.items.map((item) => item.id))
+  if (lesson.kind === 'chapter-group') {
+    return unit.sections.flatMap(section=>section.items.map(item=>item.id))
+  }
   if (lesson.kind === 'section') {
     return unit.sections.find((section) => section.id === lesson.sectionId)?.items.map((item) => item.id) ?? []
   }
-  const sectionIds = new Set(lesson.sectionIds ?? [])
+  const sectionIds = new Set(lesson.kind === 'cross-unit-group'
+    ? (lesson.sectionRefs ?? []).filter(ref=>ref.unitId===unit.unitId).map(ref=>ref.sectionId)
+    : (lesson.sectionIds ?? []))
   return unit.sections
     .filter((section) => sectionIds.has(section.id))
     .flatMap((section) => section.items.map((item) => item.id))
