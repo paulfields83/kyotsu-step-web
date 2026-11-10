@@ -637,6 +637,43 @@ button.reading-inline-blank:hover { background: var(--color-section); }
 .practice-step-heading strong { color: var(--color-text); font-size: 1rem; }
 .practice-step-block > .content-renderer { padding-top: .15rem; }
 
+.learning-flow--continuous .practice-blank-line {
+  display: block;
+  min-height: 0;
+  padding: .3rem 0;
+  border-bottom: 0;
+}
+.practice-reading-continuation {
+  margin: 0;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.practice-full-explanation > summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.textbook-reading-flow--geometry .reading-role-marker {
+  justify-self: start;
+  padding: .15rem .5rem;
+  border-inline-start: .2rem solid var(--color-primary);
+  font-weight: 700;
+}
+.reading-application-toggle {
+  width: 100%;
+  padding: .5rem 0;
+  text-align: start;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.reading-application-toggle::before {
+  content: '▸';
+  margin-inline-end: .45em;
+}
+.reading-application-toggle[aria-expanded="true"]::before { content: '▾'; }
+
 
 
 

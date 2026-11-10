@@ -33,6 +33,7 @@ function PracticeBlankLine({
   onAnswered,
   currentMarker,
   resolvedLabelsByMarker,
+  continuous,
 }: {
   questionId: string
   blank: PublicPracticeBlank
@@ -42,9 +43,11 @@ function PracticeBlankLine({
   onAnswered: (blankId: string, state: BlankState) => void
   currentMarker: string
   resolvedLabelsByMarker: Record<string, string>
+  continuous: boolean
 }) {
   const { text } = useI18n()
   const [submitError, setSubmitError] = useState('')
+  const [hintCount, setHintCount] = useState(0)
   const parts = promptParts(blank.prompt)
   const hasInteractiveMarker = parts.some((part) => markerValue(part) === currentMarker)
   const resolvedPrompt = parts.map((part) => {
@@ -139,7 +142,13 @@ function PracticeBlankLine({
         ))}
       </div>
 
-      {answer?.resolved ? (
+      {answer?.resolved && answer.correct && continuous ? (
+        answer.explanation && (
+          <p className="practice-reading-continuation" data-testid={`practice-explanation-${blank.id}`}>
+            <MathText value={answer.explanation} />
+          </p>
+        )
+      ) : answer?.resolved ? (
         <div className={`practice-answer-feedback${answer.correct ? '' : ' practice-answer-feedback--wrong'}`}
           data-testid={`practice-answer-feedback-${blank.id}`}>
           <strong>{answer.correct ? text('正解', '回答正确') : text('不正解', '回答错误')}</strong>
@@ -163,9 +172,9 @@ function PracticeBlankLine({
         </div>
       ) : (
         <div className="reading-inline-choice-panel">
-          <div className="reading-inline-choice-panel__head">
+          {!continuous && <div className="reading-inline-choice-panel__head">
             <strong><MathText value={resolvedPrompt} /></strong>
-          </div>
+          </div>}
           <div className="reading-choice-options" role="group" aria-label={blank.prompt}>
             {blank.options.map((option, index) => {
               const selectedWrong = Boolean(answer && !answer.correct && answer.selectedOptionIds.includes(option.id))
@@ -183,6 +192,20 @@ function PracticeBlankLine({
               )
             })}
           </div>
+          {blank.hints && (
+            <div className="reading-staged-hints">
+              <button type="button" className="reading-hint-trigger"
+                disabled={hintCount >= blank.hints.length}
+                onClick={() => setHintCount((count) => count + 1)}>
+                {text(`ヒントを見る ${hintCount}/${blank.hints.length}`, `查看提示 ${hintCount}/${blank.hints.length}`)}
+              </button>
+              {hintCount > 0 && (
+                <ol className="reading-hint-steps">
+                  {blank.hints.slice(0, hintCount).map((hint, index) => <li key={index}><MathText value={hint} /></li>)}
+                </ol>
+              )}
+            </div>
+          )}
           {submitError && <div className="practice-inline-error" role="alert"><p>{submitError}</p></div>}
         </div>
       )}
@@ -258,6 +281,10 @@ export function PracticeSessionPage() {
     return image ? [image] : []
   }) ?? []
   const hasGuidedMath = ['geometry-measurement', 'geometric-properties'].includes(question.majorUnit)
+  const continuous = question.interaction.solutionStyle === 'continuous'
+  const explanation = fullExplanation && (hasGuidedMath
+    ? fullExplanation.split('\n').map((line, index) => <p key={index}><MathText value={line} /></p>)
+    : <p>{fullExplanation}</p>)
 
   return (
     <div className="page-stack learning-page">
@@ -282,7 +309,7 @@ export function PracticeSessionPage() {
 
       <section>
         <h2 className="solution-heading">{text('連続解答', '连续解答')}</h2>
-        <div className="learning-flow learning-flow--practice">
+        <div className={`learning-flow learning-flow--practice${continuous ? ' learning-flow--continuous' : ''}`}>
           {question.solutionSteps.map((step, stepIndex) => {
             const stepIndexes = step.blankIds.map((blankId) => orderedBlankIds.indexOf(blankId)).filter((index) => index >= 0)
             const firstStepIndex = Math.min(...stepIndexes)
@@ -290,10 +317,10 @@ export function PracticeSessionPage() {
 
             return (
               <div key={step.id} className="practice-step-block">
-                <div className="practice-step-heading">
+                {!continuous && <div className="practice-step-heading">
                   <span>STEP {stepIndex + 1}</span>
                   <strong>{step.operation}</strong>
-                </div>
+                </div>}
                 {step.content.length > 0 && (
                   <ContentRenderer blocks={step.content} assets={assets} mathInText={hasGuidedMath} />
                 )}
@@ -311,6 +338,7 @@ export function PracticeSessionPage() {
                       busy={busyBlankId === blankId}
                       currentMarker={circledMarkers[blankIndex] ?? String(blankIndex + 1)}
                       resolvedLabelsByMarker={resolvedLabelsByMarker}
+                      continuous={continuous}
                       onBusyChange={setBusyBlankId}
                       onAnswered={handleAnswered}
                     />
@@ -325,12 +353,17 @@ export function PracticeSessionPage() {
       {complete && (
         <div className="v2-empty-card">
           <strong>{text('この問題は完了しました。', '这道题已完成。')}</strong>
-          {fullExplanation && (
+          {continuous && completionContent && <ContentRenderer blocks={completionContent} assets={assets} mathInText={hasGuidedMath} />}
+          {continuous && explanation && (
+            <details className="practice-full-explanation" data-testid="practice-full-explanation">
+              <summary>{text('解答を通して読む', '通读完整解答')}</summary>
+              {explanation}
+            </details>
+          )}
+          {!continuous && fullExplanation && (
             <div className="practice-full-explanation" data-testid="practice-full-explanation">
               <h3>{text('問題全体の解説', '整题综合解说')}</h3>
-              {hasGuidedMath
-                ? fullExplanation.split('\n').map((line, index) => <p key={index}><MathText value={line} /></p>)
-                : <p>{fullExplanation}</p>}
+              {explanation}
               {completionContent && <ContentRenderer blocks={completionContent} assets={assets} mathInText={hasGuidedMath} />}
             </div>
           )}

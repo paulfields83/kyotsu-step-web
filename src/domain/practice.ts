@@ -53,6 +53,7 @@ export type PublicPracticeBlank = {
   prompt: string
   answerType: 'single-choice'
   options: PublicPracticeOption[]
+  hints?: string[]
 }
 
 export type PublicPracticeStep = {
@@ -79,6 +80,7 @@ export type PublicPracticeQuestion = PracticeQuestionSummary & {
     options: 'inline-expand'
     substituteCorrectAnswer: true
     lockFutureSteps: true
+    solutionStyle?: 'continuous'
   }
 }
 

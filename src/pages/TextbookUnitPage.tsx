@@ -272,6 +272,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
 }) {
   const { text } = useI18n()
   const revisedPhysics = unit.subject === 'physics' && unit.unitId.endsWith('-revised')
+  const isGeometryUnit = ['math-1a-geometry-measurement', 'math-1a-geometric-properties'].includes(unit.unitId)
   const emphasisScope = textbookEmphasisScope(unit.subject, unit.unitId)
   const [activeItemId, setActiveItemId] = useState<string | null>(null)
   const [hintCounts, setHintCounts] = useState<Record<string, number>>({})
@@ -279,6 +280,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
   const [submitError, setSubmitError] = useState('')
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(0)
   const [selectedKnowledgeId, setSelectedKnowledgeId] = useState(requestedKnowledgeId ?? null)
+  const [expandedApplication, setExpandedApplication] = useState<{ knowledgeId: string; topicId: string | null }>()
   const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
   const hasTopicNavigation = groups.some((group) => group[0]?.type === 'topic')
   const knowledgeGroups = section.knowledgeGroups?.filter((group) => group.topicIds.length > 0)
@@ -286,6 +288,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
 
   useEffect(() => {
     setSelectedGroupIndex(0)
+    setExpandedApplication(undefined)
     setActiveItemId(null)
     setHintCounts({})
     setSubmitError('')
@@ -743,6 +746,9 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
     const done = ids.filter((id) => progress?.answers[id]?.resolved).length
     return { id: point.id, title: point.title, detail: `${done}/${ids.length}` }
   })
+  const defaultApplication = displayedGroups.every(([topic]) => topic?.type === 'topic' && topic.role === 'application')
+    ? displayedGroups[0]?.[0]?.id
+    : undefined
 
   const readingContent = displayedGroups.map((group) => {
     // Keep each original problem's steps gated by its own answers.
@@ -758,6 +764,30 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
     const groupIndex = groups.indexOf(group)
     const groupItemIds = readingGroupItemIds(group)
     const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
+    const topic = group[0]
+    if (selectedKnowledge && topic?.type === 'topic' && topic.role === 'application') {
+      const applicationId = expandedApplication?.knowledgeId === selectedKnowledge.id
+        ? expandedApplication.topicId
+        : defaultApplication
+      const open = applicationId === topic.id
+      const panelId = `reading-application-${topic.id}`
+      return (
+        <section className="reading-subsection" data-testid={`reading-subsection-${groupIndex}`} key={topic.id}>
+          <h4 className="reading-topic-title">
+            <button type="button" className="reading-application-toggle"
+              aria-expanded={open} aria-controls={panelId}
+              onClick={() => {
+                setExpandedApplication({ knowledgeId: selectedKnowledge.id, topicId: open ? null : topic.id })
+                setActiveItemId(null)
+                setSubmitError('')
+              }}>
+              {topic.text.replace(/^\d+(?:\.\d+)?\s+/u, '')}
+            </button>
+          </h4>
+          <div id={panelId} hidden={!open}>{open && renderExampleSequence(visibleGroup.slice(1))}</div>
+        </section>
+      )
+    }
     return (
       <section className={`reading-subsection${!knowledgeGroups && group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
         {renderExampleSequence(visibleGroup)}
@@ -772,17 +802,18 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
   })
 
   return (
-    <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
+    <article className={`textbook-reading-flow${isGeometryUnit ? ' textbook-reading-flow--geometry' : ''}`} data-testid="textbook-reading-flow">
       {knowledgePoints && (
         <KnowledgePointGrid label={text('知識項目', '知识点')} points={knowledgePoints}
           selectedId={selectedKnowledgeId} onSelect={(id) => {
             setSelectedKnowledgeId(id)
+            setExpandedApplication(undefined)
             setActiveItemId(null)
             setSubmitError('')
           }} />
       )}
       {!knowledgeGroups && hasTopicNavigation && (
-        <nav className={groups.length > 12 && ['math-1a-geometry-measurement', 'math-1a-geometric-properties'].includes(unit.unitId)
+        <nav className={groups.length > 12 && isGeometryUnit
           ? 'reading-topic-nav reading-topic-nav--scroll' : 'reading-topic-nav'}
           aria-label={text('知識項目', '知识点')}>
           {groups.map((group, groupIndex) => {
