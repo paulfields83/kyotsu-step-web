@@ -31,7 +31,7 @@ class ApiTextbookRepository implements TextbookRepository {
   private readonly baseUrl = apiBaseUrl()
 
   async listPublished() {
-    const response = await fetch(`${this.baseUrl}/api/textbooks`)
+    const response = await fetch(`${this.baseUrl}/api/textbooks?include=numbers-expressions-zip`)
     return readJson<PublicTextbookUnit[]>(response)
   }
 

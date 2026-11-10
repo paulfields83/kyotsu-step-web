@@ -10,11 +10,12 @@ import { ErrorState, ProgressBar, RaisedButton, StatusBadge } from '../component
 import { fillResolvedMathHoles } from '../domain/textbookFormulaFill'
 import { textbookRepository } from '../repositories/textbookRepository'
 import { textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecord, type TextbookUnitProgress } from '../domain/textbook'
-import { findTextbookLessonTarget, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
+import { findTextbookLessonTarget, numbersZipGroupPrefix, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
 import type { TextbookReadingBlock, TextbookReadingPart } from '../domain/textbookSchema'
 import type { PublicTextbookItem, PublicTextbookSection, PublicTextbookUnit, TextbookAnswerResult } from '../domain/textbookPublic'
 import { KnowledgePointGrid } from '../components/learning/KnowledgePointGrid'
 import { useAppStore } from '../stores/useAppStore'
+import { isNumbersZipUnit } from '../domain/numbersZip'
 import { useI18n } from '../i18n/runtime'
 
 function conciseTextbookTitle(unit: PublicTextbookUnit) {
@@ -271,6 +272,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
   requestedKnowledgeId?: string | null
 }) {
   const { text } = useI18n()
+  const numbersZip = isNumbersZipUnit(unit.unitId)
   const revisedPhysics = unit.subject === 'physics' && unit.unitId.endsWith('-revised')
   const isGeometryUnit = ['math-1a-geometry-measurement', 'math-1a-geometric-properties'].includes(unit.unitId)
   const emphasisScope = textbookEmphasisScope(unit.subject, unit.unitId)
@@ -278,7 +280,12 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
   const [hintCounts, setHintCounts] = useState<Record<string, number>>({})
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
   const [submitError, setSubmitError] = useState('')
-  const [selectedGroupIndex, setSelectedGroupIndex] = useState(0)
+  const [selectedGroupIndex, setSelectedGroupIndex] = useState(() => {
+    if (!numbersZip) return 0
+    const firstPending = groupReadingFlow(section.readingFlow).findIndex((group) =>
+      readingGroupItemIds(group).some((id) => !progress?.answers[id]?.resolved))
+    return Math.max(0, firstPending)
+  })
   const [selectedKnowledgeId, setSelectedKnowledgeId] = useState(requestedKnowledgeId ?? null)
   const [expandedApplication, setExpandedApplication] = useState<{ knowledgeId: string; topicId: string | null }>()
   const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
@@ -287,12 +294,12 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
   const selectedKnowledge = knowledgeGroups?.find((group) => group.id === selectedKnowledgeId)
 
   useEffect(() => {
-    setSelectedGroupIndex(0)
+    if (!numbersZip) setSelectedGroupIndex(0)
     setExpandedApplication(undefined)
     setActiveItemId(null)
     setHintCounts({})
     setSubmitError('')
-  }, [section.id])
+  }, [numbersZip, section.id])
   useEffect(() => {
     setSelectedKnowledgeId(requestedKnowledgeId ?? null)
   }, [section.id, requestedKnowledgeId])
@@ -332,7 +339,8 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
       const item = section.items.find((candidate) => candidate.id === id)
       if (!item) return null
       const record = progress?.answers[id]
-      const revealedWrong = Boolean(record?.resolved && !record.isFirstCorrect)
+      const revealedWrong = Boolean(!item.retryOnWrong && record?.resolved && !record.isFirstCorrect)
+      const needsRetry = Boolean(record && !record.resolved)
       const hintCount = hintCounts[id] ?? 0
       return (
         <div key={id} className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${id}`}>
@@ -341,7 +349,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
           </div>
           {item.choices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${item.label} ${text('選択肢', '选项')}`}>
             {item.choices.map((choice, index) => {
-              const selectedWrong = Boolean(revealedWrong && record?.firstValue === choice)
+              const selectedWrong = Boolean((revealedWrong && record?.firstValue === choice) || (needsRetry && record?.value === choice))
               const revealedCorrect = Boolean(revealedWrong && record?.value === choice)
               return (
                 <button type="button" key={choice}
@@ -351,7 +359,10 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
                   disabled={Boolean(record?.resolved) || submittingItemId !== null}
                   onClick={() => void selectChoice(item, choice)}>
                   <span>{index + 1}</span>
-                  <strong><GuidedChoiceValue value={choice} /></strong>
+                  <strong>{item.choiceMathLines?.[choice] ? (
+                    <span className="numbers-zip-choice-lines">{item.choiceMathLines[choice].map((line, lineIndex) =>
+                      <ReadableMath key={lineIndex} latex={line} />)}</span>
+                  ) : <GuidedChoiceValue value={choice} />}</strong>
                   {item.unit && <small>{item.unit}</small>}
                 </button>
               )
@@ -369,7 +380,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
               </button>
               {hintCount > 0 && (
                 <ol className="reading-hint-steps">
-                  {item.hints?.slice(0, hintCount).map((hint, index) => <li key={index}>{revisedPhysics ? <PhysicsInlineText value={hint}/> : hint}</li>)}
+                  {item.hints?.slice(0, hintCount).map((hint, index) => <li key={index}>{revisedPhysics ? <PhysicsInlineText value={hint}/> : numbersZip ? <MathText value={hint} /> : hint}</li>)}
                 </ol>
               )}
             </div>
@@ -380,7 +391,10 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
           {revealedWrong && <p className="reading-inline-choice-error" data-testid={`answer-reveal-${id}`}>
             {text('不正解です。正解は「', '回答错误。正确答案是「')}<GuidedChoiceValue value={record?.value ?? ''} />{text('」です。', '」。')}
           </p>}
-          {revealedWrong && record?.wrongReason && (
+          {needsRetry && <p className="reading-inline-choice-error" data-testid={`answer-retry-${id}`}>
+            {text('もう一度考えよう。', '再想一想。')}
+          </p>}
+          {(revealedWrong || needsRetry) && record?.wrongReason && (
             <p className="reading-inline-choice-error"><MathText value={record.wrongReason} /></p>
           )}
           {submitError && activeItemId === id && <p className="reading-inline-choice-error" role="alert">{submitError}</p>}
@@ -522,6 +536,12 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
       return <TrigonometryReferenceTable key={block.id} images={images} />
     }
 
+    if (block.type === 'math-table') return <div className="numbers-zip-math-table" key={block.id}>
+      <table><caption>{block.caption}</caption><thead><tr>{block.headers.map((header, index) =>
+        <th key={index} scope="col">{header}</th>)}</tr></thead><tbody>{block.rows.map((row, index) =>
+        <tr key={index}>{row.map((cell, column) => <td key={column}><ReadableMath latex={cell} /></td>)}</tr>)}</tbody></table>
+    </div>
+
     if (block.type === 'figure') {
       const figure = section.figures.find((candidate) => candidate.id === block.figureId)
       if (!figure) return null
@@ -603,7 +623,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
     return (
       <div className="reading-block-with-choice" key={block.id}>
         {block.type === 'formula'
-          ? <div className="reading-formula-line">{content}</div>
+          ? <div className="reading-formula-line">{content}{block.equationNumber && <span className="numbers-zip-equation-number">（{block.equationNumber}）</span>}</div>
           : <p className="reading-paragraph">{content}</p>}
         {renderInlineChoicePanel(visibleParts)}
       </div>
@@ -728,10 +748,14 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
   const visiblePhysicsBlockIds = guidedRevisedPhysics && firstPendingPhysicsBlock >= 0
     ? new Set(section.readingFlow.slice(0, firstPendingPhysicsBlock + 1).map((block) => block.id))
     : undefined
+  const firstIncompleteStage = numbersZip && hasTopicNavigation
+    ? groups.findIndex((group) => readingGroupItemIds(group).some((id) => !progress?.answers[id]?.resolved))
+    : -1
+  const maxStageIndex = firstIncompleteStage < 0 ? groups.length - 1 : firstIncompleteStage
   const displayedGroups = knowledgeGroups
     ? groups.filter((group) => selectedKnowledge?.topicIds.includes(group[0].id))
     : hasTopicNavigation
-      ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0)))
+      ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, maxStageIndex))
       : groups
 
   const topicLabel = (group: TextbookReadingBlock[], index: number) => {
@@ -757,9 +781,9 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
         && blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
       : -1
     const mathVisibleGroup = unansweredBlock < 0 ? group : group.slice(0, unansweredBlock + 1)
-    const visibleGroup = visiblePhysicsBlockIds
-      ? mathVisibleGroup.filter((block) => visiblePhysicsBlockIds.has(block.id))
-      : mathVisibleGroup
+    const visibleGroup = mathVisibleGroup.filter((block) =>
+      (!visiblePhysicsBlockIds || visiblePhysicsBlockIds.has(block.id)) &&
+      (!('hideAfter' in block) || !block.hideAfter?.every((id) => progress?.answers[id]?.resolved)))
     if (!visibleGroup.length) return null
     const groupIndex = groups.indexOf(group)
     const groupItemIds = readingGroupItemIds(group)
@@ -791,10 +815,14 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
     return (
       <section className={`reading-subsection${!knowledgeGroups && group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
         {renderExampleSequence(visibleGroup)}
-        {!knowledgeGroups && completed && groupIndex < groups.length - 1 && (
+        {!knowledgeGroups && (completed || (numbersZip && hasTopicNavigation && !groupItemIds.length)) && groupIndex < groups.length - 1 && (
           <div className="reading-subsection-complete">
             <Check size={16} aria-hidden="true" />
             <span>{text('この小節を完了しました。次の項目へ進めます。', '本知识点已完成，可以继续下一知识点。')}</span>
+            {numbersZip && hasTopicNavigation && <button type="button" className="text-button"
+              onClick={() => { setSelectedGroupIndex(groupIndex + 1); setActiveItemId(null); setSubmitError('') }}>
+              {text('次の段階へ', '进入下一阶段')}
+            </button>}
           </div>
         )}
       </section>
@@ -824,7 +852,8 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
               <button
                 type="button"
                 key={group[0]?.id ?? groupIndex}
-                aria-pressed={selectedGroupIndex === groupIndex}
+                aria-pressed={Math.min(selectedGroupIndex, maxStageIndex) === groupIndex}
+                disabled={numbersZip && groupIndex > maxStageIndex}
                 onClick={() => {
                   setSelectedGroupIndex(groupIndex)
                   setActiveItemId(null)
@@ -897,7 +926,7 @@ function GoldenChapterGroupPage({
   const {text} = useI18n()
   const allProgress=useAppStore(state=>state.textbookProgress)
   const resetTextbookUnit=useAppStore(state=>state.resetTextbookUnit)
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [otherUnits,setOtherUnits]=useState<Record<string,PublicTextbookUnit|null>>({})
   const topics=lesson.topics ?? []
   const otherIds=[...new Set(topics.flatMap(topic=>topic.kind==='cross-unit-group'
@@ -972,7 +1001,7 @@ function GoldenChapterGroupPage({
       <header className="session-header">
         <div><p className="eyebrow">{rootUnit.subject==='physics'?'TEXTBOOK / PHYSICS':'TEXTBOOK / MATH I・A'}</p><h1>{title}</h1></div>
         <StatusBadge>{rootUnit.status==='review' ? text('レビュー中（未承認）','审核中（未批准）')
-          : rootUnit.subject==='physics' ? text('改訂版','改订版')
+          : rootUnit.subject==='physics' || isNumbersZipUnit(rootUnit.unitId) ? text('改訂版','改订版')
             : text('GOLDEN 完成版','GOLDEN 完成版')}</StatusBadge>
       </header>
       <ProgressBar label={text('この学習項目の進み具合','本学习部分进度')}
@@ -985,6 +1014,11 @@ function GoldenChapterGroupPage({
             data-testid={`golden-topic-${index+1}`}
             aria-pressed={selectedIndex===index} onClick={()=>{
               setSelectedIndex(index)
+              if (isNumbersZipUnit(rootUnit.unitId)) {
+                const params = new URLSearchParams(searchParams)
+                params.set('topic', topic.key)
+                setSearchParams(params, { replace: true })
+              }
               window.scrollTo({top:0,behavior:'smooth'})
             }}>
             <span>{complete?<Check size={16} aria-hidden="true"/>:numberFor(topic,index)}</span>
@@ -1030,7 +1064,9 @@ export function TextbookUnitPage() {
   const targetKey = searchParams.get('target')
   const requestedSectionId = searchParams.get('section')
   const isRevisedPhysicsGroup = Boolean(targetKey?.startsWith('physics-revised-ch01-'))
-  const [physicsChapterUnits, setPhysicsChapterUnits] = useState<PublicTextbookUnit[] | null | undefined>(undefined)
+  const isNumbersChapterGroup = Boolean(targetKey?.startsWith(numbersZipGroupPrefix))
+  const needsChapterCatalog = isRevisedPhysicsGroup || isNumbersChapterGroup
+  const [chapterUnits, setChapterUnits] = useState<PublicTextbookUnit[] | null | undefined>(undefined)
   const [unit, setUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
   const [companionUnit, setCompanionUnit] = useState<PublicTextbookUnit | null | undefined>(undefined)
   const [selectedSectionIndex, setSelectedSectionIndex] = useState(0)
@@ -1054,17 +1090,17 @@ export function TextbookUnitPage() {
   // Chapter 1 spans seven separately owned units. A single unit cannot reconstruct
   // the three chapter-group navigation rows or their topic tiles by itself.
   useEffect(() => {
-    if (!isRevisedPhysicsGroup) {
-      setPhysicsChapterUnits(undefined)
+    if (!needsChapterCatalog) {
+      setChapterUnits(undefined)
       return
     }
     let active = true
-    setPhysicsChapterUnits(undefined)
+    setChapterUnits(undefined)
     textbookRepository.listPublished()
-      .then(value => { if (active) setPhysicsChapterUnits(value) })
-      .catch(() => { if (active) setPhysicsChapterUnits(null) })
+      .then(value => { if (active) setChapterUnits(value) })
+      .catch(() => { if (active) setChapterUnits(null) })
     return () => { active = false }
-  }, [isRevisedPhysicsGroup])
+  }, [needsChapterCatalog])
 
   // 2.5–2.7 spans two original ZIP units. Load both without migrating IDs
   // or progress records between their original owning units.
@@ -1098,11 +1134,11 @@ export function TextbookUnitPage() {
   if (!unit) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('バックエンド API が起動しているか、VITE_API_BASE_URL を確認してください。', '请确认后端 API 已启动，并检查 VITE_API_BASE_URL。')} action={<Link className="raised-link" to="/learning/setup">{text('学習設定へ戻る', '返回学习设置')}</Link>} />
   if (isCrossUnitLesson && companionUnit === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
   if (isCrossUnitLesson && companionUnit === null) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('量詞の教材データを読み込めませんでした。', '无法加载量词教材数据。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
-  if (isRevisedPhysicsGroup && physicsChapterUnits === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
-  if (isRevisedPhysicsGroup && physicsChapterUnits === null) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('物理の章立てデータを取得できませんでした。', '无法获取物理章节目录。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
+  if (needsChapterCatalog && chapterUnits === undefined) return <div className="state-panel"><span className="state-panel__mark">…</span><h2>{text('教材を読み込んでいます', '正在加载教材')}</h2></div>
+  if (needsChapterCatalog && chapterUnits === null) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('物理の章立てデータを取得できませんでした。', '无法获取物理章节目录。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
 
-  const targetMatch = targetKey ? findTextbookLessonTarget(isRevisedPhysicsGroup ? physicsChapterUnits ?? [unit] : [unit], targetKey) : undefined
-  if (isRevisedPhysicsGroup && !targetMatch) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('改訂版1A～1Gの目次が揃っていません。', '改订版1A～1G的目录数据不完整。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
+  const targetMatch = targetKey ? findTextbookLessonTarget(needsChapterCatalog ? chapterUnits ?? [unit] : [unit], targetKey) : undefined
+  if (needsChapterCatalog && !targetMatch) return <ErrorState title={text('教材を読み込めません', '无法加载教材')} body={text('この章の目次データが揃っていません。', '本章目录数据不完整。')} action={<Link className="raised-link" to="/learn">{text('学習へ戻る', '返回学习')}</Link>} />
   const lessonTarget = targetMatch?.lesson
   const groupedSection = lessonTarget ? groupedLessonSection(unit, lessonTarget) : undefined
   const crossParts = lessonTarget?.kind === 'cross-unit-group'

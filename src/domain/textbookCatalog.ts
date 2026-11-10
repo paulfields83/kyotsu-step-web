@@ -1,4 +1,5 @@
 import type { Question } from './questionSchema'
+import { isNumbersZipUnit, numbersZipUnitPrefix } from './numbersZip'
 import type { PublicTextbookUnit } from './textbookPublic'
 
 export type TextbookLessonTarget = {
@@ -54,8 +55,33 @@ function physicsChapterNumber(unit: PublicTextbookUnit) {
   return code?.match(/^\d+/)?.[0]
 }
 
+export const numbersZipGroupPrefix = 'math-numbers-zip-'
+const numbersZipGroups = [
+  { key: 'polynomials', label: '第1節　多項式', codes: ['n01', 'n02', 'n03', 'n04', 'n05', 'n06', 'ne01'] },
+  { key: 'real-numbers', label: '第2節　実数', codes: ['n07', 'n08', 'n09', 'n10', 'ne02'] },
+  { key: 'inequalities', label: '第3節　1次不等式', codes: ['n11', 'n12', 'n13', 'n14'] },
+]
+
+function numbersZipChapter(units: PublicTextbookUnit[]): TextbookChapter | undefined {
+  const byId = new Map(units.map((unit) => [unit.unitId, unit]))
+  if (!numbersZipGroups.every(({ codes }) => codes.every((code) => byId.has(numbersZipUnitPrefix + code)))) return
+  return {
+    key: 'math-revised-numbers-expressions',
+    label: '数と式',
+    order: 10,
+    lessons: numbersZipGroups.map(({ key, label, codes }) => {
+      const topics: TextbookLessonTarget[] = codes.map((code) => {
+        const unit = byId.get(numbersZipUnitPrefix + code)!
+        return { key: unit.unitId, label: unit.title, unitId: unit.unitId, kind: 'unit' }
+      })
+      return { key: numbersZipGroupPrefix + key, label, unitId: topics[0].unitId, kind: 'chapter-group', topics }
+    }),
+  }
+}
+
 function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
-  const chapters: TextbookChapter[] = []
+  const importedNumbers = numbersZipChapter(units)
+  const chapters: TextbookChapter[] = importedNumbers ? [importedNumbers] : []
 
   const goldenGroups = [
     { unitId:'math-sets', group:'集合' as const },
@@ -69,6 +95,7 @@ function mathChapters(units: PublicTextbookUnit[]): TextbookChapter[] {
   const hasRevisedNumbersExpressions = units.some(unit=>unit.unitId==='math-1a-numbers-expressions-revised')
   let insertedGolden = false
   for (const unit of units) {
+    if (isNumbersZipUnit(unit.unitId) || (importedNumbers && ['math-1a-numbers-expressions', 'math-1a-numbers-expressions-revised'].includes(unit.unitId))) continue
     if (hasRevisedNumbersExpressions && unit.unitId === 'math-1a-numbers-expressions') continue
     if (hasStrictSetsPropositions && unit.unitId === 'math-1a-sets-propositions-trial') continue
     if (hasGoldenSetChapter && ['math-1a-sets-propositions','math-1a-sets-propositions-trial'].includes(unit.unitId)) continue

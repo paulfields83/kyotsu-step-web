@@ -1041,3 +1041,11 @@ button.reading-inline-blank:hover { background: var(--color-section); }
 .key-concept-emphasis--condition {
   color: inherit;
 }
+
+.numbers-zip-choice-lines { display: grid; gap: .2rem; }
+.numbers-zip-equation-number { padding-inline-start: .65rem; font-size: .85em; }
+.numbers-zip-math-table { overflow-x: auto; margin-block: .8rem; }
+.numbers-zip-math-table table { border-collapse: collapse; margin-inline: auto; }
+.numbers-zip-math-table caption { font-weight: 700; padding: .45rem; }
+.numbers-zip-math-table th,
+.numbers-zip-math-table td { border: 1px solid var(--color-line); padding: .45rem .65rem; text-align: center; }
