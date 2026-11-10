@@ -13,6 +13,7 @@ import { textbookSectionProgress, textbookUnitProgress, type TextbookAnswerRecor
 import { findTextbookLessonTarget, physicsTopicPrefix, type TextbookLessonTarget } from '../domain/textbookCatalog'
 import type { TextbookReadingBlock, TextbookReadingPart } from '../domain/textbookSchema'
 import type { PublicTextbookItem, PublicTextbookSection, PublicTextbookUnit, TextbookAnswerResult } from '../domain/textbookPublic'
+import { KnowledgePointGrid } from '../components/learning/KnowledgePointGrid'
 import { useAppStore } from '../stores/useAppStore'
 import { useI18n } from '../i18n/runtime'
 
@@ -263,10 +264,11 @@ function renderPart(
   return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text)
 }
 
-function TextbookReadingFlow({ unit, section, progress }: {
+function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: {
   unit: PublicTextbookUnit
   section: PublicTextbookSection
   progress: TextbookUnitProgress | undefined
+  requestedKnowledgeId?: string | null
 }) {
   const { text } = useI18n()
   const revisedPhysics = unit.subject === 'physics' && unit.unitId.endsWith('-revised')
@@ -276,8 +278,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const [submittingItemId, setSubmittingItemId] = useState<string | null>(null)
   const [submitError, setSubmitError] = useState('')
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(0)
+  const [selectedKnowledgeId, setSelectedKnowledgeId] = useState(requestedKnowledgeId ?? null)
   const groups = useMemo(() => groupReadingFlow(section.readingFlow), [section.readingFlow])
   const hasTopicNavigation = groups.some((group) => group[0]?.type === 'topic')
+  const knowledgeGroups = section.knowledgeGroups?.filter((group) => group.topicIds.length > 0)
+  const selectedKnowledge = knowledgeGroups?.find((group) => group.id === selectedKnowledgeId)
 
   useEffect(() => {
     setSelectedGroupIndex(0)
@@ -285,6 +290,9 @@ function TextbookReadingFlow({ unit, section, progress }: {
     setHintCounts({})
     setSubmitError('')
   }, [section.id])
+  useEffect(() => {
+    setSelectedKnowledgeId(requestedKnowledgeId ?? null)
+  }, [section.id, requestedKnowledgeId])
   // Choices are always shown for every currently visible unanswered item.
   // Preserve the previously wrong choice without blocking the next item.
   const selectChoice = async (item: PublicTextbookItem, choice: string) => {
@@ -420,7 +428,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
   }
 
   const renderBlock = (block: TextbookReadingBlock) => {
-    if (block.type === 'topic') return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
+    if (block.type === 'topic') {
+      if (!knowledgeGroups) return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
+      const title = block.text.replace(/^\d+(?:\.\d+)?\s+/u, '')
+      return title === selectedKnowledge?.title ? null : <h4 className="reading-topic-title" key={block.id}>{title}</h4>
+    }
     if (block.type === 'marker') return (
       <div className={`reading-role-marker reading-role-marker--${block.kind}`} key={block.id}>
         {block.text}
@@ -713,9 +725,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
   const visiblePhysicsBlockIds = guidedRevisedPhysics && firstPendingPhysicsBlock >= 0
     ? new Set(section.readingFlow.slice(0, firstPendingPhysicsBlock + 1).map((block) => block.id))
     : undefined
-  const displayedGroups = hasTopicNavigation
-    ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0)))
-    : groups
+  const displayedGroups = knowledgeGroups
+    ? groups.filter((group) => selectedKnowledge?.topicIds.includes(group[0].id))
+    : hasTopicNavigation
+      ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, Math.max(groups.length - 1, 0)))
+      : groups
 
   const topicLabel = (group: TextbookReadingBlock[], index: number) => {
     const topic = group[0]
@@ -724,9 +738,50 @@ function TextbookReadingFlow({ unit, section, progress }: {
     return match ? { number: match[1], title: match[2] } : { number: String(index + 1), title: raw }
   }
 
+  const knowledgePoints = knowledgeGroups?.map((point) => {
+    const ids = readingGroupItemIds(groups.filter((group) => point.topicIds.includes(group[0].id)).flat())
+    const done = ids.filter((id) => progress?.answers[id]?.resolved).length
+    return { id: point.id, title: point.title, detail: `${done}/${ids.length}` }
+  })
+
+  const readingContent = displayedGroups.map((group) => {
+    // Keep each original problem's steps gated by its own answers.
+    const unansweredBlock = unit.subject === 'math-1a'
+      ? group.findIndex((block) => (block.type === 'paragraph' || block.type === 'formula')
+        && blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
+      : -1
+    const mathVisibleGroup = unansweredBlock < 0 ? group : group.slice(0, unansweredBlock + 1)
+    const visibleGroup = visiblePhysicsBlockIds
+      ? mathVisibleGroup.filter((block) => visiblePhysicsBlockIds.has(block.id))
+      : mathVisibleGroup
+    if (!visibleGroup.length) return null
+    const groupIndex = groups.indexOf(group)
+    const groupItemIds = readingGroupItemIds(group)
+    const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
+    return (
+      <section className={`reading-subsection${!knowledgeGroups && group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
+        {renderExampleSequence(visibleGroup)}
+        {!knowledgeGroups && completed && groupIndex < groups.length - 1 && (
+          <div className="reading-subsection-complete">
+            <Check size={16} aria-hidden="true" />
+            <span>{text('この小節を完了しました。次の項目へ進めます。', '本知识点已完成，可以继续下一知识点。')}</span>
+          </div>
+        )}
+      </section>
+    )
+  })
+
   return (
     <article className="textbook-reading-flow" data-testid="textbook-reading-flow">
-      {hasTopicNavigation && (
+      {knowledgePoints && (
+        <KnowledgePointGrid label={text('知識項目', '知识点')} points={knowledgePoints}
+          selectedId={selectedKnowledgeId} onSelect={(id) => {
+            setSelectedKnowledgeId(id)
+            setActiveItemId(null)
+            setSubmitError('')
+          }} />
+      )}
+      {!knowledgeGroups && hasTopicNavigation && (
         <nav className={groups.length > 12 && ['math-1a-geometry-measurement', 'math-1a-geometric-properties'].includes(unit.unitId)
           ? 'reading-topic-nav reading-topic-nav--scroll' : 'reading-topic-nav'}
           aria-label={text('知識項目', '知识点')}>
@@ -754,33 +809,12 @@ function TextbookReadingFlow({ unit, section, progress }: {
         </nav>
       )}
 
-      {displayedGroups.map((group) => {
-        // Unlock the next mathematics reasoning block only after the preceding
-        // answer has been submitted. Independent chapters remain navigable.
-        const unansweredBlock = unit.subject === 'math-1a'
-          ? group.findIndex((block) => (block.type === 'paragraph' || block.type === 'formula')
-            && blockItemIds(block).some((id) => !progress?.answers[id]?.resolved))
-          : -1
-        const mathVisibleGroup = unansweredBlock < 0 ? group : group.slice(0, unansweredBlock + 1)
-        const visibleGroup = visiblePhysicsBlockIds
-          ? mathVisibleGroup.filter((block) => visiblePhysicsBlockIds.has(block.id))
-          : mathVisibleGroup
-        if (!visibleGroup.length) return null
-        const groupIndex = groups.indexOf(group)
-        const groupItemIds = readingGroupItemIds(group)
-        const completed = groupItemIds.length > 0 && groupItemIds.every((itemId) => progress?.answers[itemId]?.resolved)
-        return (
-          <section className={`reading-subsection${group[0]?.type === 'topic' ? ' reading-topic-card' : ''}`} data-testid={`reading-subsection-${groupIndex}`} key={group[0]?.id ?? groupIndex}>
-            {renderExampleSequence(visibleGroup)}
-            {completed && groupIndex < groups.length - 1 && (
-              <div className="reading-subsection-complete">
-                <Check size={16} aria-hidden="true" />
-                <span>{text('この小節を完了しました。次の項目へ進めます。', '本知识点已完成，可以继续下一知识点。')}</span>
-              </div>
-            )}
-          </section>
-        )
-      })}
+      {selectedKnowledge
+        ? <section className="reading-topic-card" data-testid="learning-knowledge-point">
+          <h3 className="reading-topic-title">{selectedKnowledge.title}</h3>
+          {readingContent}
+        </section>
+        : readingContent}
     </article>
   )
 }
@@ -1157,7 +1191,7 @@ export function TextbookUnitPage() {
         </header>
 
         {currentSection.readingFlow.length > 0
-          ? <TextbookReadingFlow unit={unit} section={currentSection} progress={progress} />
+          ? <TextbookReadingFlow unit={unit} section={currentSection} progress={progress} requestedKnowledgeId={searchParams.get('knowledge')} />
           : null}
 
         {!targetSelected && !focusedSection && sectionComplete && !unitComplete && selectedSectionIndex < unit.sections.length - 1 && (

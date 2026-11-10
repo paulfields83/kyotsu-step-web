@@ -10,9 +10,23 @@ import { textbookRepository } from '../../repositories/textbookRepository'
 import { useAppStore } from '../../stores/useAppStore'
 import { useI18n } from '../../i18n/runtime'
 import { difficultyLabel } from '../../i18n/labels'
+import { KnowledgePointGrid } from '../../components/learning/KnowledgePointGrid'
 
 type Mode = 'knowledge' | 'practice'
 type PracticeMode = 'practice' | 'simulation'
+type PracticeKnowledgePoint = {
+  id: string
+  title: string
+  hasReading: boolean
+  questions: PracticeQuestionSummary[]
+}
+type PracticeCategory = {
+  key: string
+  majorLabel: string
+  title: string
+  questions: PracticeQuestionSummary[]
+  knowledge?: { unitId: string; sectionId: string; points: PracticeKnowledgePoint[] }
+}
 
 export function LearningHubPage() {
   const defaultSubject = useAppStore((state) => state.settings.defaultSubject)
@@ -28,6 +42,7 @@ export function LearningHubPage() {
   const [practiceLoading, setPracticeLoading] = useState(false)
   const [practiceError, setPracticeError] = useState(false)
   const [selectedPracticeCategory, setSelectedPracticeCategory] = useState<string | null>(null)
+  const [selectedPracticeKnowledgeId, setSelectedPracticeKnowledgeId] = useState<string | null>(null)
 
   useEffect(() => {
     textbookRepository.listPublished()
@@ -74,11 +89,33 @@ export function LearningHubPage() {
     }
     return grouped
   }, [practiceQuestions])
-  // Keep only the THREE (or however many are actually returned by the API)
-  // category titles in the outer list. Questions render only inside a chosen
-  // category as topic tiles, matching the textbook navigation.
-  const practiceCategories = useMemo(() => sortedPracticeCatalogs.flatMap((catalog) =>
-    [...catalog.subcategories].sort((a, b) => a.order - b.order).map((subcategory) => {
+  const practiceCategories = useMemo(() => sortedPracticeCatalogs.flatMap((catalog): PracticeCategory[] => {
+    const knowledge = catalog.knowledge
+    if (knowledge) {
+      const byId = new Map(practiceQuestions
+        .filter((question) => question.majorUnit === catalog.majorUnit.id)
+        .map((question) => [question.questionId, question]))
+      const grouped = knowledge.sections.flatMap((section): PracticeCategory[] => {
+        const points = section.groups.flatMap((group): PracticeKnowledgePoint[] => {
+          const questions = group.practiceQuestionIds.flatMap((id) => {
+            const question = byId.get(id)
+            return question ? [question] : []
+          })
+          return questions.length
+            ? [{ id: group.id, title: group.title, hasReading: group.topicIds.length > 0, questions }]
+            : []
+        })
+        return points.length ? [{
+          key: `${catalog.majorUnit.id}/${section.id}`,
+          majorLabel: catalog.majorUnit.label,
+          title: section.title,
+          questions: points.flatMap((point) => point.questions),
+          knowledge: { unitId: knowledge.unitId, sectionId: section.id, points },
+        }] : []
+      })
+      if (grouped.length && grouped.flatMap((category) => category.questions).length === byId.size) return grouped
+    }
+    return [...catalog.subcategories].sort((a, b) => a.order - b.order).map((subcategory) => {
       const key = `${catalog.majorUnit.id}/${subcategory.id}`
       return {
         key,
@@ -86,9 +123,10 @@ export function LearningHubPage() {
         title: subcategory.label,
         questions: practiceQuestionGroups.get(key) ?? [],
       }
-    }),
-  ), [sortedPracticeCatalogs, practiceQuestionGroups])
+    })
+  }), [sortedPracticeCatalogs, practiceQuestionGroups, practiceQuestions])
   const selectedCategory = practiceCategories.find((category) => category.key === selectedPracticeCategory)
+  const selectedPracticeKnowledge = selectedCategory?.knowledge?.points.find((point) => point.id === selectedPracticeKnowledgeId)
 
   return (
     <div className="v2-page">
@@ -208,7 +246,10 @@ export function LearningHubPage() {
                         <button type="button" key={category.key}
                           className="v2-practice-category-row"
                           data-testid={`practice-category-${index + 1}`}
-                          onClick={() => setSelectedPracticeCategory(category.key)}>
+                          onClick={() => {
+                            setSelectedPracticeKnowledgeId(null)
+                            setSelectedPracticeCategory(category.key)
+                          }}>
                           <span className="v2-lesson-status">{index + 1}</span>
                           <span className="v2-practice-category-label">
                             <strong>{category.title}</strong>
@@ -233,7 +274,38 @@ export function LearningHubPage() {
                     <h2>{selectedCategory.title}</h2>
                     <p>{text(`${selectedCategory.questions.length} 問題`, `共 ${selectedCategory.questions.length} 道题`)}</p>
                   </div>
-                  {selectedCategory.questions.length ? (
+                  {selectedCategory.knowledge ? (
+                    <>
+                      <KnowledgePointGrid label={text('知識項目', '知识点')}
+                        points={selectedCategory.knowledge.points.map((point) => ({
+                          id: point.id,
+                          title: point.title,
+                          detail: text(`${point.questions.length} 問題`, `${point.questions.length} 道题`),
+                        }))}
+                        selectedId={selectedPracticeKnowledgeId} onSelect={setSelectedPracticeKnowledgeId} />
+                      {selectedPracticeKnowledge && (
+                        <section data-testid="practice-knowledge-point">
+                          <div className="v2-practice-topic-heading">
+                            <h3>{selectedPracticeKnowledge.title}</h3>
+                            {selectedPracticeKnowledge.hasReading && (
+                              <Link to={`/learning/textbook/${selectedCategory.knowledge.unitId}?section=${selectedCategory.knowledge.sectionId}&knowledge=${selectedPracticeKnowledge.id}`}>
+                                {text('この知識項目の解説を読む', '阅读这个知识点的讲解')}
+                              </Link>
+                            )}
+                          </div>
+                          <div className="v2-lesson-list" data-testid="practice-group-questions">
+                            {selectedPracticeKnowledge.questions.map((question) => (
+                              <Link key={question.questionId} to={`/practice/session/${question.questionId}`}>
+                                <strong>{question.title}</strong>
+                                <small>{difficultyLabel(question.difficulty, language)}</small>
+                                <ArrowRight size={17} aria-hidden="true" />
+                              </Link>
+                            ))}
+                          </div>
+                        </section>
+                      )}
+                    </>
+                  ) : selectedCategory.questions.length ? (
                     <div className="v2-practice-topic-grid" data-testid="practice-question-tiles">
                       {selectedCategory.questions.map((question, index) => (
                         <Link key={question.questionId}

@@ -268,7 +268,7 @@ export function PracticeSessionPage() {
           {hasGuidedMath && <p>{question.source.label}</p>}
         </div>
         <div className="tag-row">
-          <span className="status-badge">{question.subcategoryLabel ?? question.subcategory}</span>
+          <span className="status-badge">{question.knowledgeGroupTitle ?? question.subcategoryLabel ?? question.subcategory}</span>
           <span className="status-badge">rev.{question.revision}</span>
         </div>
       </header>

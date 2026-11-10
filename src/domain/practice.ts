@@ -1,4 +1,5 @@
 import type { ContentBlock, QuestionAsset } from './questionSchema'
+import type { TextbookKnowledgeGroup } from './textbookPublic'
 
 export type PracticeProblemType = {
   id: string
@@ -21,6 +22,10 @@ export type PracticeCatalog = {
   course: 'math-i' | 'math-a'
   majorUnit: { id: string; label: string; order: number }
   subcategories: PracticeSubcategory[]
+  knowledge?: {
+    unitId: string
+    sections: Array<{ id: string; title: string; groups: TextbookKnowledgeGroup[] }>
+  }
 }
 
 export type PracticeQuestionSummary = {
@@ -61,6 +66,7 @@ export type PublicPracticeStep = {
 }
 
 export type PublicPracticeQuestion = PracticeQuestionSummary & {
+  knowledgeGroupTitle?: string
   schemaVersion: '1.0'
   status: 'draft' | 'review' | 'published'
   stem: ContentBlock[]
