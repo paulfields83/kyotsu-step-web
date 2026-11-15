@@ -201,17 +201,19 @@ function renderActiveChoice(
   isWrong: boolean,
   onOpen: (itemId: string) => void,
   text: (ja: string, zh: string) => string,
+  showLabel: boolean,
 ) {
+  const action = item.choices.length ? text('選択', '选择') : text('入力', '输入')
   return (
     <button
       type="button"
       data-testid={`textbook-item-${item.id}`}
       className={`reading-inline-blank${isWrong ? ' reading-inline-blank--wrong' : ''}`}
       onClick={() => onOpen(item.id)}
-      aria-label={`${item.label} ${item.choices.length ? text('を選ぶ', '选择答案') : text('を入力', '输入答案')}`}
+      aria-label={showLabel ? `${item.label} ${action}` : action}
     >
-      <span>{item.label}</span>
-      <strong>{value || (item.choices.length ? text('選択', '选择') : text('入力', '输入'))}</strong>
+      {showLabel && <span>{item.label}</span>}
+      <strong>{value || action}</strong>
     </button>
   )
 }
@@ -262,7 +264,7 @@ function renderPart(
   if (!item) return null
   const record = progress?.answers[item.id]
   if (record?.resolved) return renderResolvedChoice(item, record)
-  return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text)
+  return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text, !isNumbersZipUnit(unitId ?? ''))
 }
 
 function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: {
@@ -345,9 +347,9 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
       return (
         <div key={id} className="reading-inline-choice-panel" data-testid={`inline-choice-panel-${id}`}>
           <div className="reading-inline-choice-panel__head">
-            <strong>{item.label}</strong><span><MathText value={item.prompt} /></span>
+            {!numbersZip && <strong>{item.label}</strong>}<span><MathText value={item.prompt} /></span>
           </div>
-          {item.choices.length > 0 && <div className="reading-choice-options" role="group" aria-label={`${item.label} ${text('選択肢', '选项')}`}>
+          {item.choices.length > 0 && <div className="reading-choice-options" role="group" aria-label={numbersZip ? text('選択肢', '选项') : `${item.label} ${text('選択肢', '选项')}`}>
             {item.choices.map((choice, index) => {
               const selectedWrong = Boolean((revealedWrong && record?.firstValue === choice) || (needsRetry && record?.value === choice))
               const revealedCorrect = Boolean(revealedWrong && record?.value === choice)
@@ -748,7 +750,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
   const visiblePhysicsBlockIds = guidedRevisedPhysics && firstPendingPhysicsBlock >= 0
     ? new Set(section.readingFlow.slice(0, firstPendingPhysicsBlock + 1).map((block) => block.id))
     : undefined
-  const firstIncompleteStage = numbersZip && hasTopicNavigation
+  const firstIncompleteStage = numbersZip
     ? groups.findIndex((group) => readingGroupItemIds(group).some((id) => !progress?.answers[id]?.resolved))
     : -1
   const maxStageIndex = firstIncompleteStage < 0 ? groups.length - 1 : firstIncompleteStage
@@ -756,7 +758,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
     ? groups.filter((group) => selectedKnowledge?.topicIds.includes(group[0].id))
     : hasTopicNavigation
       ? groups.filter((_, index) => index === Math.min(selectedGroupIndex, maxStageIndex))
-      : groups
+      : numbersZip ? groups.slice(0, maxStageIndex + 1) : groups
 
   const topicLabel = (group: TextbookReadingBlock[], index: number) => {
     const topic = group[0]
@@ -844,7 +846,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
         <nav className={groups.length > 12 && isGeometryUnit
           ? 'reading-topic-nav reading-topic-nav--scroll' : 'reading-topic-nav'}
           aria-label={text('知識項目', '知识点')}>
-          {groups.map((group, groupIndex) => {
+          {groups.slice(0, maxStageIndex + 1).map((group, groupIndex) => {
             const label = topicLabel(group, groupIndex)
             const itemIds = readingGroupItemIds(group)
             const completedCount = itemIds.filter((itemId) => progress?.answers[itemId]?.resolved).length
@@ -853,7 +855,6 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
                 type="button"
                 key={group[0]?.id ?? groupIndex}
                 aria-pressed={Math.min(selectedGroupIndex, maxStageIndex) === groupIndex}
-                disabled={numbersZip && groupIndex > maxStageIndex}
                 onClick={() => {
                   setSelectedGroupIndex(groupIndex)
                   setActiveItemId(null)
@@ -933,7 +934,6 @@ function GoldenChapterGroupPage({
     ? (topic.sectionRefs ?? []).map(ref=>ref.unitId) : [topic.unitId]))]
     .filter(id=>id!==rootUnit.unitId)
   const [selectedIndex,setSelectedIndex]=useState(0)
-  const selectedTopic=topics[Math.min(selectedIndex,Math.max(0,topics.length-1))]
   useEffect(()=>{
     let alive=true
     setOtherUnits({})
@@ -978,12 +978,27 @@ function GoldenChapterGroupPage({
       const counts=progressForSection(part.section,part.progress)
       return {completed:sum.completed+counts.completed,total:sum.total+counts.total}
     },{completed:0,total:0})
-  const totals=topics.reduce((sum,topic)=>{
-    const counts=topicStats(topic)
-    return {completed:sum.completed+counts.completed,total:sum.total+counts.total}
-  },{completed:0,total:0})
-  const activeParts=selectedTopic ? partsFor(selectedTopic) : []
-  const activeStats=selectedTopic ? topicStats(selectedTopic) : {completed:0,total:0}
+  const stats = topics.map(topicStats)
+  const totals = stats.reduce((sum, counts) => ({
+    completed: sum.completed + counts.completed,
+    total: sum.total + counts.total,
+  }), {completed:0,total:0})
+  const ordered = isNumbersZipUnit(rootUnit.unitId)
+  const firstIncomplete = ordered ? stats.findIndex(({completed,total}) => completed < total) : -1
+  const lastVisible = firstIncomplete < 0 ? topics.length - 1 : firstIncomplete
+  const activeIndex = selectedIndex <= lastVisible ? selectedIndex : 0
+  const selectedTopic = topics[activeIndex]
+  const activeParts = selectedTopic ? partsFor(selectedTopic) : []
+  const activeStats = stats[activeIndex] ?? {completed:0,total:0}
+  const selectTopic = (index: number) => {
+    setSelectedIndex(index)
+    if (ordered) {
+      const params = new URLSearchParams(searchParams)
+      params.set('topic', topics[index].key)
+      setSearchParams(params, {replace:true})
+    }
+    window.scrollTo({top:0,behavior:'smooth'})
+  }
   const numberFor=(topic:TextbookLessonTarget,index:number)=>{
     if(topic.key==='math-golden-proposition-conditions')return '2.2～2.4'
     if(topic.key==='math-golden-proposition-negation-quantifiers')return '2.5～2.7'
@@ -1007,29 +1022,21 @@ function GoldenChapterGroupPage({
       <ProgressBar label={text('この学習項目の進み具合','本学习部分进度')}
         value={totals.completed} max={totals.total}/>
       <nav className="textbook-section-nav" aria-label={text('知識項目','知识点')}>
-        {topics.map((topic,index)=>{
-          const stats=topicStats(topic)
-          const complete=stats.total>0&&stats.completed===stats.total
+        {topics.slice(0, lastVisible + 1).map((topic,index)=>{
+          const counts=stats[index]
+          const complete=counts.total>0&&counts.completed===counts.total
           return <button type="button" key={topic.key}
             data-testid={`golden-topic-${index+1}`}
-            aria-pressed={selectedIndex===index} onClick={()=>{
-              setSelectedIndex(index)
-              if (isNumbersZipUnit(rootUnit.unitId)) {
-                const params = new URLSearchParams(searchParams)
-                params.set('topic', topic.key)
-                setSearchParams(params, { replace: true })
-              }
-              window.scrollTo({top:0,behavior:'smooth'})
-            }}>
+            aria-pressed={activeIndex===index} onClick={()=>selectTopic(index)}>
             <span>{complete?<Check size={16} aria-hidden="true"/>:numberFor(topic,index)}</span>
             <strong>{nameFor(topic)}</strong>
-            <small>{stats.completed}/{stats.total}</small>
+            <small>{counts.completed}/{counts.total}</small>
           </button>
         })}
       </nav>
       <section className="textbook-section">
         <header className="textbook-section-heading">
-          <div><span>{selectedTopic?numberFor(selectedTopic,selectedIndex):''}</span>
+          <div><span>{selectedTopic?numberFor(selectedTopic,activeIndex):''}</span>
             <div><h2>{selectedTopic?nameFor(selectedTopic):''}</h2></div>
           </div>
           <strong>{activeStats.completed}/{activeStats.total}</strong>
@@ -1045,6 +1052,8 @@ function GoldenChapterGroupPage({
             <Check size={28} aria-hidden="true"/>
             <div><h2>{text('学習項目完了','学习部分完成')}</h2>
               <p>{text('この学習項目をすべて完了しました。','本学习部分已完成。')}</p></div>
+            {ordered && activeIndex < lastVisible && <button type="button" className="text-button"
+              onClick={() => selectTopic(activeIndex + 1)}>{text('次の知識項目へ', '进入下一个知识点')}</button>}
           </div>
         )}
       </section>
