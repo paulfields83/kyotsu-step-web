@@ -984,9 +984,7 @@ function GoldenChapterGroupPage({
     total: sum.total + counts.total,
   }), {completed:0,total:0})
   const ordered = isNumbersZipUnit(rootUnit.unitId)
-  const firstIncomplete = ordered ? stats.findIndex(({completed,total}) => completed < total) : -1
-  const lastVisible = firstIncomplete < 0 ? topics.length - 1 : firstIncomplete
-  const activeIndex = selectedIndex <= lastVisible ? selectedIndex : 0
+  const activeIndex = Math.min(selectedIndex, Math.max(0, topics.length - 1))
   const selectedTopic = topics[activeIndex]
   const activeParts = selectedTopic ? partsFor(selectedTopic) : []
   const activeStats = stats[activeIndex] ?? {completed:0,total:0}
@@ -1022,7 +1020,7 @@ function GoldenChapterGroupPage({
       <ProgressBar label={text('この学習項目の進み具合','本学习部分进度')}
         value={totals.completed} max={totals.total}/>
       <nav className="textbook-section-nav" aria-label={text('知識項目','知识点')}>
-        {topics.slice(0, lastVisible + 1).map((topic,index)=>{
+        {topics.map((topic,index)=>{
           const counts=stats[index]
           const complete=counts.total>0&&counts.completed===counts.total
           return <button type="button" key={topic.key}
@@ -1052,7 +1050,7 @@ function GoldenChapterGroupPage({
             <Check size={28} aria-hidden="true"/>
             <div><h2>{text('学習項目完了','学习部分完成')}</h2>
               <p>{text('この学習項目をすべて完了しました。','本学习部分已完成。')}</p></div>
-            {ordered && activeIndex < lastVisible && <button type="button" className="text-button"
+            {ordered && activeIndex < topics.length - 1 && <button type="button" className="text-button"
               onClick={() => selectTopic(activeIndex + 1)}>{text('次の知識項目へ', '进入下一个知识点')}</button>}
           </div>
         )}
