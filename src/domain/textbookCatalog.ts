@@ -67,7 +67,7 @@ function numbersZipChapter(units: PublicTextbookUnit[]): TextbookChapter | undef
   if (!numbersZipGroups.every(({ codes }) => codes.every((code) => byId.has(numbersZipUnitPrefix + code)))) return
   return {
     key: 'math-revised-numbers-expressions',
-    label: '数と式',
+    label: '数と式（改订版1）',
     order: 10,
     lessons: numbersZipGroups.map(({ key, label, codes }) => {
       const topics: TextbookLessonTarget[] = codes.map((code) => {
