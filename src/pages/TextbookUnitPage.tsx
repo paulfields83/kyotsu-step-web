@@ -171,10 +171,8 @@ function PhysicsInlineText({ value, scope, blockId, unitId }: { value: string; s
   })}</>
 }
 
-const negativeCubeFormulaId = 'n03-bridge-negative-cube-formula'
-
-function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord, showWrongInline: boolean) {
-  if (record.isFirstCorrect || !showWrongInline) {
+function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord) {
+  if (record.isFirstCorrect) {
     return (
       <span className="reading-inline-answer" data-testid={`resolved-${item.id}`}>
         <Check size={14} aria-hidden="true" />
@@ -265,7 +263,7 @@ function renderPart(
   const item = section.items.find((candidate) => candidate.id === part.itemId)
   if (!item) return null
   const record = progress?.answers[item.id]
-  if (record?.resolved) return renderResolvedChoice(item, record, blockId !== negativeCubeFormulaId)
+  if (record?.resolved) return renderResolvedChoice(item, record)
   return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text, !isNumbersZipUnit(unitId ?? ''))
 }
 
@@ -572,11 +570,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
     const answerParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
     // Keep the current line complete. Later blanks in that line stay inert
     // while their surrounding notation remains visible.
-    const waitingForPair = block.id === negativeCubeFormulaId &&
-      block.parts[firstUnansweredPart + 1]?.type === 'math' && firstUnansweredPart >= 0
-    const visibleParts = waitingForPair
-      ? block.parts.slice(0, firstUnansweredPart + 2)
-      : numbersZip ? block.parts : answerParts
+    const visibleParts = numbersZip ? block.parts : answerParts
     const linkedAnswerId = blockItemIds(block)[0]
     const renderVisiblePart = (part: TextbookReadingPart, index: number): ReactNode => {
       if (numbersZip && firstUnansweredPart >= 0 && index > firstUnansweredPart) {
