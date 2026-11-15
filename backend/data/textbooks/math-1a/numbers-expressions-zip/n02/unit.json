@@ -134,20 +134,6 @@
           ]
         },
         {
-          "id": "formula-n02-01",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "2bx+bx="
-            },
-            {
-              "type": "choice",
-              "itemId": "n02-01"
-            }
-          ]
-        },
-        {
           "id": "paragraph-polynomial-order",
           "type": "paragraph",
           "parts": [
@@ -1949,22 +1935,12 @@
           ]
         },
         {
-          "id": "n02-s5-minus-three-square-distribute-formula",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "choice",
-              "itemId": "n02-s5-minus-three-square-distribute"
-            }
-          ]
-        },
-        {
           "id": "n02-bridge-minus-square-lead",
           "type": "paragraph",
           "parts": [
             {
               "type": "text",
-              "text": "次は"
+              "text": "次に、"
             },
             {
               "type": "math",
@@ -1972,21 +1948,33 @@
             },
             {
               "type": "text",
-              "text": "の二次項へ同じ係数を掛ける。"
+              "text": " の二次項にも "
+            },
+            {
+              "type": "math",
+              "latex": "-3"
+            },
+            {
+              "type": "text",
+              "text": " を掛けよう。"
             }
           ]
         },
         {
-          "id": "n02-bridge-minus-square-formula",
+          "id": "n02-s5-minus-three-square-distribute-formula",
           "type": "formula",
           "parts": [
             {
               "type": "math",
-              "latex": "(-3)(2x^2)="
+              "latex": "-3\\times(B\\text{ の二次項})="
             },
             {
               "type": "choice",
-              "itemId": "n02-bridge-minus-square"
+              "itemId": "n02-s5-minus-three-square-distribute"
+            },
+            {
+              "type": "math",
+              "latex": "=-6x^2"
             }
           ]
         },
@@ -2472,6 +2460,20 @@
           ]
         },
         {
+          "id": "n02-bridge-audit-a-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": " の項をまとめると、係数はどう変わりますか。"
+            }
+          ]
+        },
+        {
           "id": "n02-s5-group-a-coefficients-formula",
           "type": "formula",
           "parts": [
@@ -2486,38 +2488,10 @@
             {
               "type": "math",
               "latex": ")A"
-            }
-          ]
-        },
-        {
-          "id": "n02-bridge-audit-a-coefficient-lead",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "A"
-            },
-            {
-              "type": "text",
-              "text": "の項だけをまとめた係数を計算する。"
-            }
-          ]
-        },
-        {
-          "id": "n02-bridge-audit-a-coefficient-formula",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "3A-A=(3-1)A="
-            },
-            {
-              "type": "choice",
-              "itemId": "n02-bridge-audit-a-coefficient"
             },
             {
               "type": "math",
-              "latex": "A"
+              "latex": "=2A"
             }
           ]
         },
@@ -2575,25 +2549,7 @@
           "parts": [
             {
               "type": "math",
-              "latex": "3A-4B-A+B="
-            },
-            {
-              "type": "math",
-              "latex": "(3-1)A+(-4+1)B"
-            }
-          ]
-        },
-        {
-          "id": "formula-n02-11",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "3A-4B-(A-B)="
-            },
-            {
-              "type": "math",
-              "latex": "2A-3B"
+              "latex": "3A-4B-A+B=2A-3B"
             }
           ]
         },
@@ -2691,7 +2647,7 @@
           "parts": [
             {
               "type": "math",
-              "latex": "3A-4B-(A-B)="
+              "latex": "3A-4B-(A-B)=2A-3B="
             },
             {
               "type": "choice",
@@ -2728,21 +2684,6 @@
           ],
           "hints": [
             "bxは1bxとして読む。"
-          ]
-        },
-        {
-          "id": "n02-01",
-          "label": "N02-01",
-          "prompt": "二つのx一次項の係数を足そう。",
-          "answerType": "formula",
-          "choices": [
-            "3bx",
-            "3b^2x",
-            "2bx^2",
-            "bx"
-          ],
-          "hints": [
-            "bを掛け合わせるのでなく、2bとbを足す。"
           ]
         },
         {
@@ -3134,7 +3075,7 @@
         {
           "id": "n02-s5-minus-three-square-distribute",
           "label": "N02-S5-MINUS-THREE-SQUARE-DISTRIBUTE",
-          "prompt": "倍率は−3、Bの二次項は+2x²です。二次項への掛け算を作ります。",
+          "prompt": "$B$ の二次項は $+2x^2$ です。掛け算の式を選びましょう。",
           "answerType": "formula",
           "choices": [
             "(-3)(2x^2)",
@@ -3143,21 +3084,6 @@
           ],
           "hints": [
             "倍率は−3、Bの二次項は+2x²です。二次項への掛け算を作ります。"
-          ]
-        },
-        {
-          "id": "n02-bridge-minus-square",
-          "label": "N02-BRIDGE-MINUS-SQUARE",
-          "prompt": "次はBの二次項へ同じ係数を掛ける。",
-          "answerType": "formula",
-          "choices": [
-            "-6x^2",
-            "6x^2",
-            "-6x^6",
-            "-3x^2"
-          ],
-          "hints": [
-            "掛ける数は、前の項だけでなく次の項にも同じように働く。"
           ]
         },
         {
@@ -3253,7 +3179,7 @@
         {
           "id": "n02-s5-group-a-coefficients",
           "label": "N02-S5-GROUP-A-COEFFICIENTS",
-          "prompt": "Aは1Aと読めます。",
+          "prompt": "Aの項をまとめると、係数はどの式になりますか。",
           "answerType": "formula",
           "choices": [
             "3-1",
@@ -3262,21 +3188,6 @@
           ],
           "hints": [
             "Aは1Aと読めます。"
-          ]
-        },
-        {
-          "id": "n02-bridge-audit-a-coefficient",
-          "label": "N02-BRIDGE-AUDIT-A-COEFFICIENT",
-          "prompt": "Aの項だけをまとめた係数を計算する。",
-          "answerType": "formula",
-          "choices": [
-            "2",
-            "4",
-            "-2",
-            "3"
-          ],
-          "hints": [
-            "Aを1Aとして読む。"
           ]
         },
         {

@@ -6,11 +6,6 @@
       "answer": "3",
       "acceptedAnswers": []
     },
-    "n02-01": {
-      "validator": "exact",
-      "answer": "3bx",
-      "acceptedAnswers": []
-    },
     "n02-02": {
       "validator": "exact",
       "answer": "x^3-ax^2+3bx+5c",
@@ -146,11 +141,6 @@
       "answer": "(-3)(2x^2)",
       "acceptedAnswers": []
     },
-    "n02-bridge-minus-square": {
-      "validator": "exact",
-      "answer": "-6x^2",
-      "acceptedAnswers": []
-    },
     "n02-bridge-minus-constant": {
       "validator": "exact",
       "answer": "-6",
@@ -184,11 +174,6 @@
     "n02-s5-group-a-coefficients": {
       "validator": "exact",
       "answer": "3-1",
-      "acceptedAnswers": []
-    },
-    "n02-bridge-audit-a-coefficient": {
-      "validator": "exact",
-      "answer": "2",
       "acceptedAnswers": []
     },
     "n02-bridge-audit-b-coefficient": {

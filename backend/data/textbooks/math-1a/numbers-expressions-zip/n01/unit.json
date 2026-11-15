@@ -843,23 +843,15 @@
           "parts": [
             {
               "type": "text",
-              "text": "二つの項は同じ"
+              "text": "どちらの項にも"
             },
             {
               "type": "math",
-              "latex": "x²"
+              "latex": "x^2"
             },
             {
               "type": "text",
-              "text": "の何倍かを表します。係数を引き、文字の部分"
-            },
-            {
-              "type": "math",
-              "latex": "x²"
-            },
-            {
-              "type": "text",
-              "text": "を残します。"
+              "text": "があります。まとめると、係数はどう変わりますか。"
             }
           ]
         },
@@ -878,34 +870,10 @@
             {
               "type": "math",
               "latex": ")x^2"
-            }
-          ]
-        },
-        {
-          "id": "s4-local-n01-r3-q07-x2coef",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "(3-5)x^2=("
-            },
-            {
-              "type": "choice",
-              "itemId": "n01-r3-q07-x2coef"
             },
             {
               "type": "math",
-              "latex": ")x^2"
-            }
-          ]
-        },
-        {
-          "id": "n01-s4-square-result",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "\\text{二次の項：}-2x^2"
+              "latex": "=-2x^2"
             }
           ]
         },
@@ -987,34 +955,10 @@
             {
               "type": "math",
               "latex": ")x"
-            }
-          ]
-        },
-        {
-          "id": "s4-local-n01-r3-q07-xcoef",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "(-5+2)x=("
-            },
-            {
-              "type": "choice",
-              "itemId": "n01-r3-q07-xcoef"
             },
             {
               "type": "math",
-              "latex": ")x"
-            }
-          ]
-        },
-        {
-          "id": "n01-s4-linear-result",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "\\text{一次の項：}-3x"
+              "latex": "=-3x"
             }
           ]
         },
@@ -1263,16 +1207,6 @@
           ]
         },
         {
-          "id": "n01-r3-linear-expand",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "x+3x=1x+3x"
-            }
-          ]
-        },
-        {
           "id": "n01-r3-linear-operation",
           "type": "paragraph",
           "parts": [
@@ -1304,7 +1238,7 @@
           "parts": [
             {
               "type": "math",
-              "latex": "1x+3x=("
+              "latex": "x+3x=1x+3x=("
             },
             {
               "type": "choice",
@@ -1313,24 +1247,10 @@
             {
               "type": "math",
               "latex": ")x"
-            }
-          ]
-        },
-        {
-          "id": "n01-r3-linear-calculate",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "(1+3)x="
-            },
-            {
-              "type": "choice",
-              "itemId": "n01-bridge-r3-linear"
             },
             {
               "type": "math",
-              "latex": "x"
+              "latex": "=4x"
             }
           ]
         },
@@ -1443,22 +1363,12 @@
           ]
         },
         {
-          "id": "n01-r3-cubic-expand",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "x^3-x^3=1x^3-1x^3"
-            }
-          ]
-        },
-        {
           "id": "n01-r3-cubic-factor",
           "type": "formula",
           "parts": [
             {
               "type": "math",
-              "latex": "1x^3-1x^3=("
+              "latex": "x^3-x^3=("
             },
             {
               "type": "choice",
@@ -1467,44 +1377,10 @@
             {
               "type": "math",
               "latex": ")x^3"
-            }
-          ]
-        },
-        {
-          "id": "n01-r3-cubic-operation",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "二つの項の係数を引き算します。1−1の計算結果を入れます。"
-            }
-          ]
-        },
-        {
-          "id": "n01-r3-cubic-calculate",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "(1-1)x^3="
-            },
-            {
-              "type": "choice",
-              "itemId": "n01-bridge-r3-cubic"
             },
             {
               "type": "math",
-              "latex": "x^3"
-            }
-          ]
-        },
-        {
-          "id": "n01-r3-cubic-zero",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "0x^3=0"
+              "latex": "=0"
             }
           ]
         },
@@ -1514,17 +1390,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "三次の項をまとめた結果は0です。したがって、最後の式には三次の項が残りません。"
-            }
-          ]
-        },
-        {
-          "id": "n01-r3-cubic-result",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "\\text{三次の項：}0"
+              "text": "三次の項は残りません。"
             }
           ]
         },
@@ -1914,7 +1780,7 @@
         {
           "id": "n01-s5-square-regroup",
           "label": "N01-S5-SQUARE-REGROUP",
-          "prompt": "3倍のx²から5倍のx²を引きます。",
+          "prompt": "二次の項をまとめると、係数はどの式になりますか。",
           "answerType": "formula",
           "choices": [
             "3-5",
@@ -1926,23 +1792,9 @@
           ]
         },
         {
-          "id": "n01-r3-q07-x2coef",
-          "label": "N01-R3-Q07-X2COEF",
-          "prompt": "x²の係数 3−5 を計算しよう。",
-          "answerType": "formula",
-          "choices": [
-            "-2",
-            "2",
-            "-8"
-          ],
-          "hints": [
-            "3から5を引く。符号まで答えに含めよう。"
-          ]
-        },
-        {
           "id": "n01-s5-linear-regroup",
           "label": "N01-S5-LINEAR-REGROUP",
-          "prompt": "二つの項の係数を、符号ごと括弧へ入れます。",
+          "prompt": "一次の項をまとめると、係数はどの式になりますか。",
           "answerType": "formula",
           "choices": [
             "-5+2",
@@ -1951,20 +1803,6 @@
           ],
           "hints": [
             "二つの項の係数を、符号ごと括弧へ入れます。"
-          ]
-        },
-        {
-          "id": "n01-r3-q07-xcoef",
-          "label": "N01-R3-Q07-XCOEF",
-          "prompt": "xの係数 −5+2 を計算しよう。",
-          "answerType": "formula",
-          "choices": [
-            "-3",
-            "3",
-            "-7"
-          ],
-          "hints": [
-            "負の5と正の2を加える。"
           ]
         },
         {
@@ -2012,7 +1850,7 @@
         {
           "id": "n01-s5-example-linear-regroup",
           "label": "N01-S5-EXAMPLE-LINEAR-REGROUP",
-          "prompt": "同じxの個数を合わせます。",
+          "prompt": "同類項をまとめると、係数はどの式になりますか。",
           "answerType": "formula",
           "choices": [
             "1+3",
@@ -2024,23 +1862,9 @@
           ]
         },
         {
-          "id": "n01-bridge-r3-linear",
-          "label": "N01-BRIDGE-R3-LINEAR",
-          "prompt": "係数の計算1+3の結果を入れます。",
-          "answerType": "formula",
-          "choices": [
-            "4",
-            "3",
-            "4x"
-          ],
-          "hints": [
-            "空欄の外にxがあります。空欄には係数だけを入れます。"
-          ]
-        },
-        {
           "id": "n01-s5-example-cubic-regroup",
           "label": "N01-S5-EXAMPLE-CUBIC-REGROUP",
-          "prompt": "前の項から後ろの項を引くので、係数も同じ引き算にします。",
+          "prompt": "三次の項をまとめると、係数はどの式になりますか。",
           "answerType": "formula",
           "choices": [
             "1-1",
@@ -2049,20 +1873,6 @@
           ],
           "hints": [
             "前の項から後ろの項を引くので、係数も同じ引き算にします。"
-          ]
-        },
-        {
-          "id": "n01-bridge-r3-cubic",
-          "label": "N01-BRIDGE-R3-CUBIC",
-          "prompt": "係数の計算1−1の結果を入れます。",
-          "answerType": "formula",
-          "choices": [
-            "0",
-            "1",
-            "2"
-          ],
-          "hints": [
-            "引き算です。同じ数から同じ数を引きます。"
           ]
         },
         {
