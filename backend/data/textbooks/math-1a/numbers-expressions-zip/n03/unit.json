@@ -590,61 +590,7 @@
           "parts": [
             {
               "type": "text",
-              "text": "まず係数の三乗を、符号を含めて計算する。"
-            }
-          ]
-        },
-        {
-          "id": "n03-bridge-detail-negative-pair-lead",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "負の因子を三個まとめて処理せず、まず最初の二個を掛けよう。"
-            }
-          ]
-        },
-        {
-          "id": "n03-bridge-detail-negative-pair-formula",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "(-2)(-2)="
-            },
-            {
-              "type": "choice",
-              "itemId": "n03-bridge-detail-negative-pair"
-            }
-          ]
-        },
-        {
-          "id": "n03-bridge-detail-negative-pair-after",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "ここまでの積は正。さらに残った−2を掛けるので、三乗全体の符号を次に判断できる。"
-            }
-          ]
-        },
-        {
-          "id": "n03-bridge-worked-n03-bridge-negative-cube-assemble-0-lead",
-          "type": "paragraph",
-          "parts": [
-            {
-              "type": "text",
-              "text": "最初の二個の積4を、残る−2へ掛ける段階まで戻す。"
-            }
-          ]
-        },
-        {
-          "id": "n03-bridge-worked-n03-bridge-negative-cube-assemble-0-equation-0",
-          "type": "formula",
-          "parts": [
-            {
-              "type": "math",
-              "latex": "(-2)^3=4(-2)"
+              "text": "まず、係数 −2 の三乗を計算しよう。"
             }
           ]
         },
@@ -654,7 +600,19 @@
           "parts": [
             {
               "type": "math",
-              "latex": "(-2)^3=(-2)(-2)(-2)="
+              "latex": "(-2)^3=\\underbrace{(-2)(-2)}_{\\text{まず前の二つを掛ける}}(-2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n03-bridge-detail-negative-pair"
+            },
+            {
+              "type": "math",
+              "latex": "(-2)"
+            },
+            {
+              "type": "math",
+              "latex": "="
             },
             {
               "type": "choice",
@@ -2059,7 +2017,7 @@
         {
           "id": "n03-bridge-detail-negative-pair",
           "label": "N03-BRIDGE-DETAIL-NEGATIVE-PAIR",
-          "prompt": "負の因子を三個まとめて処理せず、まず最初の二個を掛けよう。",
+          "prompt": "前の二つの因子を掛けると、いくつになりますか。",
           "answerType": "formula",
           "choices": [
             "4",
@@ -2074,7 +2032,7 @@
         {
           "id": "n03-bridge-negative-cube",
           "label": "N03-BRIDGE-NEGATIVE-CUBE",
-          "prompt": "まず係数の三乗を、符号を含めて計算する。",
+          "prompt": "求めた積に、残りの −2 を掛けよう。",
           "answerType": "formula",
           "choices": [
             "-8",
@@ -2083,7 +2041,7 @@
             "6"
           ],
           "hints": [
-            "負の因子を三回掛ける。最初の二個の積を作ってから、もう一個を掛けよう。"
+            "正の数に負の数を掛けると、積は負になる。"
           ]
         },
         {
