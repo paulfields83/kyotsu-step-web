@@ -2,6 +2,8 @@ import { Check, Circle, X } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ContentRenderer } from '../components/question/ContentRenderer'
+import { MathText } from '../components/learning/MathText'
+import { TrigonometryReferenceTable } from '../components/learning/TrigonometryReferenceTable'
 import { ProgressBar } from '../components/ui/Primitives'
 import type { PracticeAnswerResult, PublicPracticeBlank, PublicPracticeQuestion } from '../domain/practice'
 import { practiceRepository } from '../repositories/practiceRepository'
@@ -26,77 +28,153 @@ function PracticeBlankLine({
   questionId,
   blank,
   answer,
-  open,
   busy,
-  onToggle,
+  onBusyChange,
   onAnswered,
   currentMarker,
   resolvedLabelsByMarker,
+  continuous,
 }: {
   questionId: string
   blank: PublicPracticeBlank
   answer?: BlankState
-  open: boolean
   busy: boolean
-  onToggle: () => void
+  onBusyChange: (blankId: string | null) => void
   onAnswered: (blankId: string, state: BlankState) => void
   currentMarker: string
   resolvedLabelsByMarker: Record<string, string>
+  continuous: boolean
 }) {
   const { text } = useI18n()
+  const [submitError, setSubmitError] = useState('')
+  const [hintCount, setHintCount] = useState(0)
   const parts = promptParts(blank.prompt)
+  const hasInteractiveMarker = parts.some((part) => markerValue(part) === currentMarker)
   const resolvedPrompt = parts.map((part) => {
     const marker = markerValue(part)
     if (!marker || marker === currentMarker) return part
     return resolvedLabelsByMarker[marker] ?? part
   }).join('')
 
+  const correctLabels = answer?.correctOptionIds
+    ?.map((id) => blank.options.find((option) => option.id === id)?.label)
+    .filter((label): label is string => Boolean(label)) ?? []
+
   const choose = async (optionId: string) => {
     if (busy || answer?.resolved) return
     const selected = blank.options.find((option) => option.id === optionId)
     if (!selected) return
-    const result = await practiceRepository.submitAnswer(questionId, blank.id, [optionId])
-    onAnswered(blank.id, { ...result, selectedLabel: selected.label })
+    onBusyChange(blank.id)
+    setSubmitError('')
+    try {
+      const result = await practiceRepository.submitAnswer(questionId, blank.id, [optionId])
+      onAnswered(blank.id, { ...result, selectedLabel: selected.label })
+    } catch {
+      onBusyChange(null)
+      setSubmitError(text('解答を送信できませんでした。もう一度お試しください。', '提交失败，请重试。'))
+    }
   }
 
   return (
-    <div className={`practice-blank-block${open ? ' practice-blank-block--active' : ''}`}>
+    <div className={`practice-blank-block${!answer?.resolved ? ' practice-blank-block--active' : ''}`}>
       <div className="practice-blank-line">
         {parts.map((part, index) => {
           const marker = markerValue(part)
-          if (!marker) return <span key={`${blank.id}-text-${index}`}>{part}</span>
+          if (!marker) return <span key={`${blank.id}-text-${index}`}><MathText value={part} /></span>
           if (marker !== currentMarker) {
             const substituted = resolvedLabelsByMarker[marker]
             return substituted
-              ? <strong key={`${blank.id}-ref-${index}`} className="practice-substituted-value">{substituted}</strong>
+              ? <strong key={`${blank.id}-ref-${index}`} className="practice-substituted-value"><MathText value={substituted} /></strong>
               : <span key={`${blank.id}-ref-${index}`}>{part}</span>
           }
           return answer?.resolved ? (
-            <span key={`${blank.id}-current-${index}`} className="reading-inline-answer">
-              <Check size={14} aria-hidden="true" />
-              <strong>{answer.selectedLabel}</strong>
+            <span key={`${blank.id}-current-${index}`} className="practice-answer-pair">
+              <span data-testid={`practice-blank-resolved-${blank.id}`}
+                className={`reading-inline-answer${answer.correct ? '' : ' reading-inline-answer--wrong'}`}>
+                {answer.correct ? <Check size={14} aria-hidden="true" /> : <X size={14} aria-hidden="true" />}
+                <strong><MathText value={answer.selectedLabel} /></strong>
+              </span>
+              {!answer.correct && (
+                <span className="reading-inline-answer practice-correct-inline"
+                  data-testid={`practice-inline-correct-${blank.id}`}>
+                  <Check size={14} aria-hidden="true" />
+                  <small>{text('正解', '正确答案')}：</small>
+                  <strong><MathText value={correctLabels.join('、')} /></strong>
+                </span>
+              )}
             </span>
           ) : (
-            <button
-              type="button"
+            <span
               key={`${blank.id}-current-${index}`}
               className={`reading-inline-blank${answer && !answer.correct ? ' reading-inline-blank--wrong' : ''}`}
-              onClick={onToggle}
-              aria-expanded={open}
             >
               {answer && !answer.correct ? <X size={14} aria-hidden="true" /> : <Circle size={13} aria-hidden="true" />}
               <span>{marker}</span>
               <strong>{answer && !answer.correct ? answer.selectedLabel : text('選択', '选择')}</strong>
-            </button>
+            </span>
           )
         })}
+        {/* ZIP authored practice prompts often contain no 【①】 marker.
+            Use the SAME existing inline-answer button, not a new UI style. */}
+        {!hasInteractiveMarker && (answer?.resolved ? (
+          <span className="practice-answer-pair">
+            <span className={`reading-inline-answer${answer.correct ? '' : ' reading-inline-answer--wrong'}`}
+              data-testid={`practice-blank-resolved-${blank.id}`}>
+              {answer.correct ? <Check size={14} aria-hidden="true" /> : <X size={14} aria-hidden="true" />}
+              <strong><MathText value={answer.selectedLabel} /></strong>
+            </span>
+            {!answer.correct && (
+              <span className="reading-inline-answer practice-correct-inline"
+                data-testid={`practice-inline-correct-${blank.id}`}>
+                <Check size={14} aria-hidden="true" />
+                <small>{text('正解', '正确答案')}：</small>
+                <strong><MathText value={correctLabels.join('、')} /></strong>
+              </span>
+            )}
+          </span>
+        ) : (
+          <span data-testid={`practice-blank-trigger-${blank.id}`}
+            className={`reading-inline-blank${answer && !answer.correct ? ' reading-inline-blank--wrong' : ''}`}
+            aria-label={blank.prompt}>
+            {answer && !answer.correct ? <X size={14} aria-hidden="true" /> : <Circle size={13} aria-hidden="true" />}
+            <strong>{answer && !answer.correct ? answer.selectedLabel : text('選択', '选择')}</strong>
+          </span>
+        ))}
       </div>
 
-      {!answer?.resolved && open && (
+      {answer?.resolved && answer.correct && continuous ? (
+        answer.explanation && (
+          <p className="practice-reading-continuation" data-testid={`practice-explanation-${blank.id}`}>
+            <MathText value={answer.explanation} />
+          </p>
+        )
+      ) : answer?.resolved ? (
+        <div className={`practice-answer-feedback${answer.correct ? '' : ' practice-answer-feedback--wrong'}`}
+          data-testid={`practice-answer-feedback-${blank.id}`}>
+          <strong>{answer.correct ? text('正解', '回答正确') : text('不正解', '回答错误')}</strong>
+          {!answer.correct && (
+            <>
+              <p data-testid={`practice-selected-answer-${blank.id}`}>
+                {text('あなたの解答', '你的答案')}：<MathText value={answer.selectedLabel} />
+              </p>
+              <p data-testid={`practice-correct-answer-${blank.id}`}>
+                {text('正解', '正确答案')}：<MathText value={correctLabels.join('、')} />
+              </p>
+              {answer.wrongReason && <p>{text('誤答の理由', '错误原因')}：<MathText value={answer.wrongReason} /></p>}
+            </>
+          )}
+          {answer.explanation && (
+            <div className="practice-answer-feedback__explanation" data-testid={`practice-explanation-${blank.id}`}>
+              <strong>{text('解説', '解说')}</strong>
+              <p><MathText value={answer.explanation} /></p>
+            </div>
+          )}
+        </div>
+      ) : (
         <div className="reading-inline-choice-panel">
-          <div className="reading-inline-choice-panel__head">
-            <strong>{resolvedPrompt}</strong>
-          </div>
+          {!continuous && <div className="reading-inline-choice-panel__head">
+            <strong><MathText value={resolvedPrompt} /></strong>
+          </div>}
           <div className="reading-choice-options" role="group" aria-label={blank.prompt}>
             {blank.options.map((option, index) => {
               const selectedWrong = Boolean(answer && !answer.correct && answer.selectedOptionIds.includes(option.id))
@@ -109,16 +187,26 @@ function PracticeBlankLine({
                   onClick={() => void choose(option.id)}
                 >
                   <span>{String.fromCharCode(65 + index)}</span>
-                  <div className="practice-option-content"><p>{option.label}</p></div>
+                  <div className="practice-option-content"><p><MathText value={option.label} /></p></div>
                 </button>
               )
             })}
           </div>
-          {answer && !answer.correct && (
-            <div className="practice-inline-error">
-              <p>{answer.wrongReason ?? text('不正解です。もう一度考えてください。', '答错了，请再想一次。')}</p>
+          {blank.hints && (
+            <div className="reading-staged-hints">
+              <button type="button" className="reading-hint-trigger"
+                disabled={hintCount >= blank.hints.length}
+                onClick={() => setHintCount((count) => count + 1)}>
+                {text(`ヒントを見る ${hintCount}/${blank.hints.length}`, `查看提示 ${hintCount}/${blank.hints.length}`)}
+              </button>
+              {hintCount > 0 && (
+                <ol className="reading-hint-steps">
+                  {blank.hints.slice(0, hintCount).map((hint, index) => <li key={index}><MathText value={hint} /></li>)}
+                </ol>
+              )}
             </div>
           )}
+          {submitError && <div className="practice-inline-error" role="alert"><p>{submitError}</p></div>}
         </div>
       )}
     </div>
@@ -132,7 +220,6 @@ export function PracticeSessionPage() {
   const [loading, setLoading] = useState(true)
   const [loadError, setLoadError] = useState(false)
   const [answers, setAnswers] = useState<Record<string, BlankState>>({})
-  const [openBlankId, setOpenBlankId] = useState<string | null>(null)
   const [busyBlankId, setBusyBlankId] = useState<string | null>(null)
 
   useEffect(() => {
@@ -141,7 +228,6 @@ export function PracticeSessionPage() {
     practiceRepository.getQuestion(questionId)
       .then((value) => {
         setQuestion(value)
-        setOpenBlankId(null)
         setAnswers({})
       })
       .catch(() => setLoadError(true))
@@ -151,15 +237,31 @@ export function PracticeSessionPage() {
   const blankById = useMemo(() => new Map(question?.blanks.map((blank) => [blank.id, blank]) ?? []), [question])
   const orderedBlankIds = useMemo(() => question?.solutionSteps.flatMap((step) => step.blankIds) ?? [], [question])
   const firstUnresolvedIndex = orderedBlankIds.findIndex((blankId) => !answers[blankId]?.resolved)
+
   const completedCount = orderedBlankIds.filter((blankId) => answers[blankId]?.resolved).length
   const complete = orderedBlankIds.length > 0 && completedCount === orderedBlankIds.length
   const resolvedLabelsByMarker = Object.fromEntries(
     orderedBlankIds.flatMap((blankId, index) => {
       const marker = circledMarkers[index]
-      const label = answers[blankId]?.resolved ? answers[blankId]?.selectedLabel : undefined
+      const answer = answers[blankId]
+      const blank = blankById.get(blankId)
+      // Later steps must use the correct value even when the learner chose wrongly.
+      const correctLabel = answer?.correctOptionIds
+        ?.map((id) => blank?.options.find((option) => option.id === id)?.label)
+        .filter(Boolean).join('、')
+      const label = answer?.resolved ? correctLabel ?? answer.selectedLabel : undefined
       return marker && label ? [[marker, label]] : []
     }),
   )
+  const fullExplanation = orderedBlankIds
+    .map((blankId) => answers[blankId]?.fullExplanation)
+    .find((value): value is string => Boolean(value))
+  const completionContent = orderedBlankIds
+    .map((blankId) => answers[blankId]?.completionContent)
+    .find((value) => value !== undefined)
+  const completionAssets = orderedBlankIds
+    .map((blankId) => answers[blankId]?.completionAssets)
+    .find((value) => value !== undefined) ?? []
 
   if (loading) return <div className="page-stack"><div className="v2-empty-card">{text('問題を読み込んでいます…', '正在读取题目…')}</div></div>
   if (loadError || !question) return (
@@ -172,8 +274,17 @@ export function PracticeSessionPage() {
   const handleAnswered = (blankId: string, state: BlankState) => {
     setAnswers((current) => ({ ...current, [blankId]: state }))
     setBusyBlankId(null)
-    if (state.resolved) setOpenBlankId(null)
   }
+  const assets = [...(question.assets ?? []), ...completionAssets]
+  const tableImages = question.referenceTable?.flatMap((id) => {
+    const image = assets.find((candidate) => candidate.id === id)
+    return image ? [image] : []
+  }) ?? []
+  const hasGuidedMath = ['geometry-measurement', 'geometric-properties'].includes(question.majorUnit)
+  const continuous = question.interaction.solutionStyle === 'continuous'
+  const explanation = fullExplanation && (hasGuidedMath
+    ? fullExplanation.split('\n').map((line, index) => <p key={index}><MathText value={line} /></p>)
+    : <p>{fullExplanation}</p>)
 
   return (
     <div className="page-stack learning-page">
@@ -181,9 +292,10 @@ export function PracticeSessionPage() {
         <div>
           <p className="eyebrow">PRACTICE / BACKEND</p>
           <h1>{question.title}</h1>
+          {hasGuidedMath && <p>{question.source.label}</p>}
         </div>
         <div className="tag-row">
-          <span className="status-badge">{question.subcategory}</span>
+          <span className="status-badge">{question.knowledgeGroupTitle ?? question.subcategoryLabel ?? question.subcategory}</span>
           <span className="status-badge">rev.{question.revision}</span>
         </div>
       </header>
@@ -191,12 +303,13 @@ export function PracticeSessionPage() {
       <ProgressBar label={text('空欄の進み具合', '填空进度')} value={completedCount} max={orderedBlankIds.length} />
 
       <article className="question-paper">
-        <ContentRenderer blocks={question.stem} assets={[]} />
+        <ContentRenderer blocks={question.stem} assets={assets} mathInText={hasGuidedMath} />
       </article>
+      {tableImages.length > 0 && <TrigonometryReferenceTable key={question.questionId} images={tableImages} />}
 
       <section>
         <h2 className="solution-heading">{text('連続解答', '连续解答')}</h2>
-        <div className="learning-flow learning-flow--practice">
+        <div className={`learning-flow learning-flow--practice${continuous ? ' learning-flow--continuous' : ''}`}>
           {question.solutionSteps.map((step, stepIndex) => {
             const stepIndexes = step.blankIds.map((blankId) => orderedBlankIds.indexOf(blankId)).filter((index) => index >= 0)
             const firstStepIndex = Math.min(...stepIndexes)
@@ -204,11 +317,13 @@ export function PracticeSessionPage() {
 
             return (
               <div key={step.id} className="practice-step-block">
-                <div className="practice-step-heading">
+                {!continuous && <div className="practice-step-heading">
                   <span>STEP {stepIndex + 1}</span>
                   <strong>{step.operation}</strong>
-                </div>
-                <ContentRenderer blocks={step.content} assets={[]} />
+                </div>}
+                {step.content.length > 0 && (
+                  <ContentRenderer blocks={step.content} assets={assets} mathInText={hasGuidedMath} />
+                )}
                 {step.blankIds.map((blankId) => {
                   const blank = blankById.get(blankId)
                   if (!blank) return null
@@ -220,15 +335,12 @@ export function PracticeSessionPage() {
                       questionId={question.questionId}
                       blank={blank}
                       answer={answers[blankId]}
-                      open={openBlankId === blankId}
                       busy={busyBlankId === blankId}
-                      onToggle={() => setOpenBlankId((current) => current === blankId ? null : blankId)}
                       currentMarker={circledMarkers[blankIndex] ?? String(blankIndex + 1)}
                       resolvedLabelsByMarker={resolvedLabelsByMarker}
-                      onAnswered={(id, state) => {
-                        setBusyBlankId(id)
-                        handleAnswered(id, state)
-                      }}
+                      continuous={continuous}
+                      onBusyChange={setBusyBlankId}
+                      onAnswered={handleAnswered}
                     />
                   )
                 })}
@@ -241,7 +353,20 @@ export function PracticeSessionPage() {
       {complete && (
         <div className="v2-empty-card">
           <strong>{text('この問題は完了しました。', '这道题已完成。')}</strong>
-          <p>{text('後端の問題データと回答判定だけで最後まで進めました。', '本题已完全通过后端题目数据和后端判题完成。')}</p>
+          {continuous && completionContent && <ContentRenderer blocks={completionContent} assets={assets} mathInText={hasGuidedMath} />}
+          {continuous && explanation && (
+            <details className="practice-full-explanation" data-testid="practice-full-explanation">
+              <summary>{text('解答を通して読む', '通读完整解答')}</summary>
+              {explanation}
+            </details>
+          )}
+          {!continuous && fullExplanation && (
+            <div className="practice-full-explanation" data-testid="practice-full-explanation">
+              <h3>{text('問題全体の解説', '整题综合解说')}</h3>
+              {explanation}
+              {completionContent && <ContentRenderer blocks={completionContent} assets={assets} mathInText={hasGuidedMath} />}
+            </div>
+          )}
           <Link className="v2-primary-action" to="/learn">{text('問題一覧へ戻る', '返回题目列表')}</Link>
         </div>
       )}

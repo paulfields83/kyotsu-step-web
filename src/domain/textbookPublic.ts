@@ -7,8 +7,16 @@ export type PublicTextbookItem = Omit<InternalItem, 'answer' | 'acceptedAnswers'
   choices: string[]
 }
 
+export type TextbookKnowledgeGroup = {
+  id: string
+  title: string
+  topicIds: string[]
+  practiceQuestionIds: string[]
+}
+
 export type PublicTextbookSection = Omit<InternalSection, 'items'> & {
   items: PublicTextbookItem[]
+  knowledgeGroups?: TextbookKnowledgeGroup[]
 }
 
 export type PublicTextbookUnit = Omit<TextbookUnit, 'sections'> & {
@@ -19,4 +27,5 @@ export type TextbookAnswerResult = {
   correct: boolean
   resolved: boolean
   correctAnswer?: string
+  wrongReason?: string
 }

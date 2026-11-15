@@ -137,7 +137,17 @@ export function LearningSetupPage() {
           : <>
             <label className="field-label" htmlFor="textbook-lesson">{text('学習する項目', '选择学习部分')}</label>
             <select id="textbook-lesson" className="select-control" value={selectedLesson?.key ?? ''} onChange={(event) => setLessonKey(event.target.value)}>
-              {selectedChapter.lessons.map((lesson) => <option key={lesson.key} value={lesson.key}>{lesson.label}</option>)}
+              {selectedChapter.lessons.some(lesson=>lesson.group)
+                ? (['集合','命題','証明'] as const).map(group=>(
+                    <optgroup label={group} key={group}>
+                      {selectedChapter.lessons.filter(lesson=>lesson.group===group).map(lesson=>(
+                        <option key={lesson.key} value={lesson.key}>{lesson.label}</option>
+                      ))}
+                    </optgroup>
+                  ))
+                : selectedChapter.lessons.map(lesson=>(
+                    <option key={lesson.key} value={lesson.key}>{lesson.label}</option>
+                  ))}
             </select>
             {selectedLesson && <div className="setup-progress-note"><span>{selectedStarted ? text('続きから再開できます', '可以从上次进度继续') : text('最初から開始', '从头开始')}</span><small>{text(`${selectedCompleted}/${selectedItemIds.length} の確認項目を完了`, `已完成 ${selectedCompleted}/${selectedItemIds.length} 个确认项目`)}</small></div>}
           </>}
