@@ -30,6 +30,18 @@ describe('unified textbook mathematical answer display', () => {
     expect(textbookMathLatex('5x³')).toContain('^{3}')
   })
 
+  it('keeps the entire authored exponent in a single TeX group', () => {
+    for (const value of ['a^{m-n}', '2a^{mn}', 'a^{m+n}', 'a^{m^n}']) {
+      expect(textbookMathLatex(value)).toBe(value)
+      expect(katex.renderToString(value, { output: 'mathml' })).toContain('<msup>')
+    }
+  })
+
+  it('renders authored math with Japanese text embedded in TeX', () => {
+    const value = String.raw`x=5\;\text{または}\;x=-5`
+    expect(textbookMathLatex(value)).toBe(value)
+  })
+
   it('leaves Japanese prose unmodified',()=>{
     expect(textbookMathLatex('入っていない')).toBeNull()
     expect(textbookMathLatex('この条件だけでは決まらない')).toBeNull()

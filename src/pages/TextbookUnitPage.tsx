@@ -171,8 +171,21 @@ function PhysicsInlineText({ value, scope, blockId, unitId }: { value: string; s
   })}</>
 }
 
-function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord) {
-  if (record.isFirstCorrect) {
+// For these worked lines, the wrong selection is shown in the feedback panel.
+const guidedDerivations = new Map([
+  ['n01-s4-square-factor', 1],
+  ['n01-s4-linear-factor', 1],
+  ['n01-r3-linear-factor', 1],
+  ['n01-r3-cubic-factor', 1],
+  ['n02-bridge-audit-like-b-formula', 0],
+  ['n02-s5-minus-three-square-distribute-formula', 1],
+  ['n02-s5-group-a-coefficients-formula', 1],
+  ['formula-n02-12', 0],
+  ['n03-bridge-negative-cube-formula', 2],
+])
+
+function renderResolvedChoice(item: PublicTextbookItem, record: TextbookAnswerRecord, showWrongInline: boolean) {
+  if (record.isFirstCorrect || !showWrongInline) {
     return (
       <span className="reading-inline-answer" data-testid={`resolved-${item.id}`}>
         <Check size={14} aria-hidden="true" />
@@ -263,7 +276,7 @@ function renderPart(
   const item = section.items.find((candidate) => candidate.id === part.itemId)
   if (!item) return null
   const record = progress?.answers[item.id]
-  if (record?.resolved) return renderResolvedChoice(item, record)
+  if (record?.resolved) return renderResolvedChoice(item, record, !guidedDerivations.has(blockId ?? ''))
   return renderActiveChoice(item, record?.value, Boolean(record && !record.resolved), onOpen, text, !isNumbersZipUnit(unitId ?? ''))
 }
 
@@ -323,7 +336,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
     }
   }
 
-  const renderInlineChoicePanel = (visibleParts: TextbookReadingPart[]) => {
+  const renderInlineChoicePanel = (visibleParts: TextbookReadingPart[], showWrongBelow: boolean) => {
     const ids = [...new Set(visibleParts.flatMap((part) => {
       if (part.type === 'choice') return [part.itemId]
       if (part.type !== 'math') return []
@@ -391,6 +404,9 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
             {text('選択肢の読み込みに失敗しました。画面を更新してください。', '选项加载失败，请刷新页面。')}
           </p>}
           {revealedWrong && <p className="reading-inline-choice-error" data-testid={`answer-reveal-${id}`}>
+            {showWrongBelow && record?.firstValue && (
+              <>{text('選んだ答えは「', '你选的是「')}<GuidedChoiceValue value={record.firstValue} />{text('」です。', '」。')}</>
+            )}
             {text('不正解です。正解は「', '回答错误。正确答案是「')}<GuidedChoiceValue value={record?.value ?? ''} />{text('」です。', '」。')}
           </p>}
           {needsRetry && <p className="reading-inline-choice-error" data-testid={`answer-retry-${id}`}>
@@ -570,7 +586,14 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
     const answerParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
     // Keep the current line complete. Later blanks in that line stay inert
     // while their surrounding notation remains visible.
-    const visibleParts = numbersZip ? block.parts : answerParts
+    const lastPart = block.parts.at(-1)
+    const hasResultSuffix = lastPart?.type === 'choice' ||
+      (lastPart?.type === 'math' && lastPart.latex.startsWith('='))
+    const delayedParts = firstUnansweredPart >= 0 && hasResultSuffix
+      ? guidedDerivations.get(block.id) ?? 0 : 0
+    const visibleParts = numbersZip
+      ? block.parts.slice(0, Math.max(answerParts.length, block.parts.length - delayedParts))
+      : answerParts
     const linkedAnswerId = blockItemIds(block)[0]
     const renderVisiblePart = (part: TextbookReadingPart, index: number): ReactNode => {
       if (numbersZip && firstUnansweredPart >= 0 && index > firstUnansweredPart) {
@@ -627,7 +650,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
             <div className="practice-blank-line">
               {content}
             </div>
-            {renderInlineChoicePanel(answerParts)}
+            {renderInlineChoicePanel(answerParts, guidedDerivations.has(block.id))}
           </div>
         </div>
       )
@@ -638,7 +661,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
         {block.type === 'formula'
           ? <div className="reading-formula-line">{content}{block.equationNumber && <span className="numbers-zip-equation-number">（{block.equationNumber}）</span>}</div>
           : <p className="reading-paragraph">{content}</p>}
-        {renderInlineChoicePanel(answerParts)}
+        {renderInlineChoicePanel(answerParts, guidedDerivations.has(block.id))}
       </div>
     )
   }

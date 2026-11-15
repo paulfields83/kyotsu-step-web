@@ -17,15 +17,15 @@ export function textbookMathLatex(value: string): string | null {
       return null
     }
   }
-  if (!value.trim() || /[ぁ-んァ-ン一-龯]/u.test(value)) return null
+  const outsideText = value.replace(/\\text\{[^{}]*\}/g, '')
+  if (!value.trim() || /[ぁ-んァ-ン一-龯]/u.test(outsideText)) return null
   const hasCommand = /\\(?:[A-Za-z]+|[{}])/.test(value)
   const hasMath = hasCommand || /[∈∉∅∩∪⊂⊆∀∃¬⇒⇔≤≥^²³⁴√=<>0-9{}]/.test(value)
   if (!hasMath) return null
 
   let formula = value.trim()
-  // Escape ORIGINAL literal set braces before superscript conversion inserts
-  // TeX grouping braces such as ^{3}, which must remain unescaped.
-  if (!hasCommand) {
+  // Preserve authored TeX groups while keeping literal braces in plain set notation.
+  if (!hasCommand && !/[_^]\s*\{/.test(formula)) {
     formula = formula.replace(/\{/g,'\\{').replace(/\}/g,'\\}')
   }
   formula = formula
