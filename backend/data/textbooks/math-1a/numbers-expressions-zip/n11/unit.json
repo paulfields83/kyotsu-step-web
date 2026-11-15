@@ -1,0 +1,3530 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n11",
+  "revision": 11,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "大小関係を保つ変形を選ぶ",
+  "subtitle": "不等号が変わる根拠を、差の符号と数直線で確かめる。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N11",
+    "rightsNote": "教師編集Word N11原問14件と元数直線2点を使用。独立解答、公式別冊未提供、レビュー限定。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "正負の倍率で不等号がどう変わるか証明する",
+    "一次不等式を一段ずつ解く",
+    "開いた端点と閉じた端点を元の式で確かめる"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "11",
+      "title": "大小関係を保つ変形を選ぶ",
+      "description": "不等号の根拠から実数の解の範囲へ進む。",
+      "figures": [
+        {
+          "id": "n11-f01",
+          "src": "assets/n11-f01.png",
+          "alt": "元Wordの数直線。2と5、符号を変えた−2と−5の位置関係を上下に示す。",
+          "caption": "両辺の符号を変えると、位置関係はどうなるだろう。"
+        },
+        {
+          "id": "n11-f02",
+          "src": "assets/n11-f02.png",
+          "alt": "二つの不等式の解の範囲を、白丸・黒丸を区別した元の完成数直線。",
+          "caption": "境界の含有を解いた後で数直線でも確認する。"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "n11-intro-before-figure",
+          "type": "figure",
+          "figureId": "n11-f01"
+        },
+        {
+          "id": "n11-intro-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "例題は "
+            },
+            {
+              "type": "math",
+              "latex": "2<5"
+            },
+            {
+              "type": "text",
+              "text": " の両辺へ同じ操作をしたとき、大小がどう変わるかを調べることです。両辺から2を引くと "
+            },
+            {
+              "type": "math",
+              "latex": "0<3"
+            },
+            {
+              "type": "text",
+              "text": "、正の4を掛けると "
+            },
+            {
+              "type": "math",
+              "latex": "8<20"
+            },
+            {
+              "type": "text",
+              "text": " です。次は "
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": " 倍を、元の数直線で確かめます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-intro-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-01-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2"
+            },
+            {
+              "type": "text",
+              "text": " を "
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": " 倍した数は "
+            },
+            {
+              "type": "math",
+              "latex": "-2"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            },
+            {
+              "type": "text",
+              "text": " を "
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": " 倍した数は "
+            },
+            {
+              "type": "math",
+              "latex": "-5"
+            },
+            {
+              "type": "text",
+              "text": " です。元図で右側にある点の数が大きいことを使い、二数の大小を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-01-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2)\\ "
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-01"
+            },
+            {
+              "type": "math",
+              "latex": "\\ (-5)"
+            }
+          ],
+          "equationNumber": "1"
+        },
+        {
+          "id": "n11-01-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-2)\\ "
+            },
+            {
+              "type": "math",
+              "latex": ">"
+            },
+            {
+              "type": "math",
+              "latex": "\\ (-5)"
+            }
+          ],
+          "equationNumber": "1"
+        },
+        {
+          "id": "n11-01-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "具体例では不等号の向きが変わりました。次に一般の文字で理由を調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-difference-basis-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここからは導出です。"
+            },
+            {
+              "type": "math",
+              "latex": "a<b"
+            },
+            {
+              "type": "text",
+              "text": " とします。小さい "
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": " から大きい "
+            },
+            {
+              "type": "math",
+              "latex": "b"
+            },
+            {
+              "type": "text",
+              "text": " までの差は正なので、"
+            },
+            {
+              "type": "math",
+              "latex": "b-a>0"
+            },
+            {
+              "type": "text",
+              "text": " です。操作した後も「右の式−左の式」の符号を調べれば、大小を判断できます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-difference-basis-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q02-open-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ "
+            },
+            {
+              "type": "math",
+              "latex": "c"
+            },
+            {
+              "type": "text",
+              "text": " を足した後の差は "
+            },
+            {
+              "type": "math",
+              "latex": "(b+c)-(a+c)"
+            },
+            {
+              "type": "text",
+              "text": " です。二つ目の括弧全体を引くため、中の二項の符号を両方変えて括弧を外します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q02-open-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(b+c)-(a+c)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-q02-open"
+            }
+          ],
+          "equationNumber": "2"
+        },
+        {
+          "id": "n11-q02-open-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(b+c)-(a+c)"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "b+c-a-c"
+            }
+          ],
+          "equationNumber": "2"
+        },
+        {
+          "id": "n11-q02-open-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は同じcの項を打ち消します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-02-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "展開した差は "
+            },
+            {
+              "type": "math",
+              "latex": "b+c-a-c"
+            },
+            {
+              "type": "text",
+              "text": " でした。"
+            },
+            {
+              "type": "math",
+              "latex": "c"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "-c"
+            },
+            {
+              "type": "text",
+              "text": " が打ち消し合った後の差を記録します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-02-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(b+c)-(a+c)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-02"
+            }
+          ],
+          "equationNumber": "3"
+        },
+        {
+          "id": "n11-02-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(b+c)-(a+c)"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "b-a"
+            }
+          ],
+          "equationNumber": "3"
+        },
+        {
+          "id": "n11-02-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の差と同じ値になりました。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q02-compare-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a<b"
+            },
+            {
+              "type": "text",
+              "text": " より "
+            },
+            {
+              "type": "math",
+              "latex": "b-a>0"
+            },
+            {
+              "type": "text",
+              "text": " です。足した後の「右−左」の差が同じ正の数なので、どちらが大きいかを判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q02-compare-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-wm011-q02-compare"
+            }
+          ],
+          "equationNumber": "4"
+        },
+        {
+          "id": "n11-wm011-q02-compare-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}a+c&<b+c\\\\&\\text{差は正のまま}\\end{aligned}"
+            }
+          ],
+          "equationNumber": "4"
+        },
+        {
+          "id": "n11-wm011-q02-compare-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ数を引くことも、反対の数を足す操作なので同じ規則を使えます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q03-factor-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両辺に同じ数を掛けた後の差は "
+            },
+            {
+              "type": "math",
+              "latex": "bc-ac"
+            },
+            {
+              "type": "text",
+              "text": " です。二つの項に共通する因子を外へ出し、残る差を括弧にまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q03-factor-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "bc-ac="
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-wm011-q03-factor"
+            },
+            {
+              "type": "math",
+              "latex": "(b-a)"
+            }
+          ],
+          "equationNumber": "5"
+        },
+        {
+          "id": "n11-wm011-q03-factor-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "bc-ac"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "c(b-a)"
+            }
+          ],
+          "equationNumber": "5"
+        },
+        {
+          "id": "n11-wm011-q03-factor-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の差 "
+            },
+            {
+              "type": "math",
+              "latex": "b-a"
+            },
+            {
+              "type": "text",
+              "text": " は正なので、掛けるcの符号を分けて調べます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q03-positive-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず "
+            },
+            {
+              "type": "math",
+              "latex": "c>0"
+            },
+            {
+              "type": "text",
+              "text": " の場合です。"
+            },
+            {
+              "type": "math",
+              "latex": "b-a>0"
+            },
+            {
+              "type": "text",
+              "text": " なので、"
+            },
+            {
+              "type": "math",
+              "latex": "c(b-a)"
+            },
+            {
+              "type": "text",
+              "text": " は正と正の積です。右から左を引いた差の符号と、両辺の大小を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q03-positive-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-wm011-q03-positive"
+            }
+          ],
+          "equationNumber": "6"
+        },
+        {
+          "id": "n11-wm011-q03-positive-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}ac&<bc\\\\bc-ac&>0\\end{aligned}"
+            }
+          ],
+          "equationNumber": "6"
+        },
+        {
+          "id": "n11-wm011-q03-positive-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正の数を掛ける場合、不等号の向きは変わりません。"
+            }
+          ]
+        },
+        {
+          "id": "n11-03-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は "
+            },
+            {
+              "type": "math",
+              "latex": "c<0"
+            },
+            {
+              "type": "text",
+              "text": " の場合です。"
+            },
+            {
+              "type": "math",
+              "latex": "b-a>0"
+            },
+            {
+              "type": "text",
+              "text": " なので、差 "
+            },
+            {
+              "type": "math",
+              "latex": "c(b-a)"
+            },
+            {
+              "type": "text",
+              "text": " は負の数と正の数の積です。この差の符号を判断し、「右−左」の差から左右の大小を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-03-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-03"
+            }
+          ],
+          "equationNumber": "7"
+        },
+        {
+          "id": "n11-03-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}ac&>bc\\\\bc-ac&<0\\end{aligned}"
+            }
+          ],
+          "equationNumber": "7"
+        },
+        {
+          "id": "n11-03-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の数を掛ける場合、不等号の向きが逆になります。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q03-zero-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後に "
+            },
+            {
+              "type": "math",
+              "latex": "c=0"
+            },
+            {
+              "type": "text",
+              "text": " の場合です。元の二数の大小に関係なく、両辺を0倍した結果を考えます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q03-zero-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-wm011-q03-zero"
+            }
+          ],
+          "equationNumber": "8"
+        },
+        {
+          "id": "n11-wm011-q03-zero-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}ac&=bc=0\\\\&\\text{元の厳密な大小は失われる}\\end{aligned}"
+            }
+          ],
+          "equationNumber": "8"
+        },
+        {
+          "id": "n11-wm011-q03-zero-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "0倍では元の厳密な大小は残りません。0で割る操作は定義されていません。"
+            }
+          ]
+        },
+        {
+          "id": "n11-division-basis-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "c\\ne0"
+            },
+            {
+              "type": "text",
+              "text": " で割ることは、逆数 "
+            },
+            {
+              "type": "math",
+              "latex": "1/c"
+            },
+            {
+              "type": "text",
+              "text": " を掛けることです。逆数の符号は "
+            },
+            {
+              "type": "math",
+              "latex": "c"
+            },
+            {
+              "type": "text",
+              "text": " と同じなので、正の数で割れば向きはそのまま、負の数で割れば向きが逆になります。"
+            }
+          ]
+        },
+        {
+          "id": "n11-division-basis-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q04-fraction-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確認です。元の "
+            },
+            {
+              "type": "math",
+              "latex": "a<b"
+            },
+            {
+              "type": "text",
+              "text": " の両辺に "
+            },
+            {
+              "type": "math",
+              "latex": "-1/5"
+            },
+            {
+              "type": "text",
+              "text": " を掛けます。掛ける数が負であることを根拠に、不等号の向きと式を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm011-q04-fraction-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-wm011-q04-fraction"
+            }
+          ],
+          "equationNumber": "9"
+        },
+        {
+          "id": "n11-wm011-q04-fraction-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}-\\frac a5&>-\\frac b5\\\\&\\text{負数倍なので反転}\\end{aligned}"
+            }
+          ],
+          "equationNumber": "9"
+        },
+        {
+          "id": "n11-wm011-q04-fraction-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この変形は、次の変形とは別の問題です。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q04-negate-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つ目の確認では元の "
+            },
+            {
+              "type": "math",
+              "latex": "a<b"
+            },
+            {
+              "type": "text",
+              "text": " へ戻ります。まず両辺を "
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "text",
+              "text": " 倍し、次に3を足す二段階を順に行います。最初の段階の大小を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q04-negate-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-q04-negate"
+            }
+          ],
+          "equationNumber": "10"
+        },
+        {
+          "id": "n11-q04-negate-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-a"
+            },
+            {
+              "type": "math",
+              "latex": ">"
+            },
+            {
+              "type": "math",
+              "latex": "-b"
+            }
+          ],
+          "equationNumber": "10"
+        },
+        {
+          "id": "n11-q04-negate-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-04-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いまの "
+            },
+            {
+              "type": "math",
+              "latex": "-a>-b"
+            },
+            {
+              "type": "text",
+              "text": " の両辺へ同じ "
+            },
+            {
+              "type": "math",
+              "latex": "3"
+            },
+            {
+              "type": "text",
+              "text": " を足します。加法では向きはそのままで、定数を前へ書いた形にします。"
+            }
+          ]
+        },
+        {
+          "id": "n11-04-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-04"
+            }
+          ],
+          "equationNumber": "11"
+        },
+        {
+          "id": "n11-04-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-a"
+            },
+            {
+              "type": "math",
+              "latex": ">"
+            },
+            {
+              "type": "math",
+              "latex": "3-b"
+            }
+          ],
+          "equationNumber": "11"
+        },
+        {
+          "id": "n11-04-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "先ほどの "
+            },
+            {
+              "type": "math",
+              "latex": "-1/5"
+            },
+            {
+              "type": "text",
+              "text": " 倍の式へ3を足したのではなく、元の不等式から別に作った結果です。"
+            }
+          ]
+        },
+        {
+          "id": "n11-solve-problem-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の例題は "
+            },
+            {
+              "type": "math",
+              "latex": "3x-2<5"
+            },
+            {
+              "type": "text",
+              "text": " を満たすすべての実数 "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " を求めることです。一つの値だけでなく、条件を満たす範囲全体を残します。まず左辺の定数 "
+            },
+            {
+              "type": "math",
+              "latex": "-2"
+            },
+            {
+              "type": "text",
+              "text": " を打ち消します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-solve-problem-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm017-q05-operation-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2"
+            },
+            {
+              "type": "text",
+              "text": " を打ち消して0にする数を、まず左辺で決めます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm017-q05-operation-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-wm017-q05-operation"
+            },
+            {
+              "type": "math",
+              "latex": "=0"
+            }
+          ],
+          "equationNumber": "12"
+        },
+        {
+          "id": "n11-wm017-q05-operation-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2+2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            }
+          ],
+          "equationNumber": "12"
+        },
+        {
+          "id": "n11-wm017-q05-operation-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この操作を右辺にも行います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm017-q05-balance-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ数を両辺へ足せば大小は保たれます。左辺で選んだ操作と同じ数を右辺にも足します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm017-q05-balance-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x-2+2<5+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-wm017-q05-balance"
+            }
+          ],
+          "equationNumber": "13"
+        },
+        {
+          "id": "n11-wm017-q05-balance-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x-2+2"
+            },
+            {
+              "type": "math",
+              "latex": "<"
+            },
+            {
+              "type": "math",
+              "latex": "5+2"
+            }
+          ],
+          "equationNumber": "13"
+        },
+        {
+          "id": "n11-wm017-q05-balance-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左辺の定数が0になり、右辺に足し算が残りました。"
+            }
+          ]
+        },
+        {
+          "id": "n11-05-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左辺では "
+            },
+            {
+              "type": "math",
+              "latex": "-2+2=0"
+            },
+            {
+              "type": "text",
+              "text": " です。右辺の "
+            },
+            {
+              "type": "math",
+              "latex": "5+2"
+            },
+            {
+              "type": "text",
+              "text": " を計算して、次に係数を1へ変えられる形にします。"
+            }
+          ]
+        },
+        {
+          "id": "n11-05-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x<"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-05"
+            }
+          ],
+          "equationNumber": "14"
+        },
+        {
+          "id": "n11-05-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "math",
+              "latex": "<"
+            },
+            {
+              "type": "math",
+              "latex": "7"
+            }
+          ],
+          "equationNumber": "14"
+        },
+        {
+          "id": "n11-05-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は両辺を正の3で割ります。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q06-operation-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": " を "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " にするには、係数3を割って1にします。両辺に同じ操作を行うため、割る数を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q06-operation-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\div"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-q06-operation"
+            },
+            {
+              "type": "math",
+              "latex": "=1"
+            }
+          ],
+          "equationNumber": "15"
+        },
+        {
+          "id": "n11-q06-operation-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\div3"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "1"
+            }
+          ],
+          "equationNumber": "15"
+        },
+        {
+          "id": "n11-q06-operation-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "正の3で割るので、不等号の向きは変わりません。"
+            }
+          ]
+        },
+        {
+          "id": "n11-06-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3x<7"
+            },
+            {
+              "type": "text",
+              "text": " の両辺を正の "
+            },
+            {
+              "type": "math",
+              "latex": "3"
+            },
+            {
+              "type": "text",
+              "text": " で割ります。"
+            },
+            {
+              "type": "math",
+              "latex": "3x/3=x"
+            },
+            {
+              "type": "text",
+              "text": " なので、右辺の商を入れて範囲を表します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-06-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x<"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-06"
+            }
+          ],
+          "equationNumber": "16"
+        },
+        {
+          "id": "n11-06-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "math",
+              "latex": "<"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac73"
+            }
+          ],
+          "equationNumber": "16"
+        },
+        {
+          "id": "n11-06-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この不等式で表される実数全体が解です。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q07-substitution-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界 "
+            },
+            {
+              "type": "math",
+              "latex": "x=7/3"
+            },
+            {
+              "type": "text",
+              "text": " が入るかは、元の "
+            },
+            {
+              "type": "math",
+              "latex": "3x-2<5"
+            },
+            {
+              "type": "text",
+              "text": " へ代入して確かめます。先に左辺の値を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q07-substitution-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\times\\frac73-2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-q07-substitution"
+            }
+          ],
+          "equationNumber": "17"
+        },
+        {
+          "id": "n11-q07-substitution-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\times\\frac73-2"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            }
+          ],
+          "equationNumber": "17"
+        },
+        {
+          "id": "n11-q07-substitution-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界では元の式が "
+            },
+            {
+              "type": "math",
+              "latex": "5<5"
+            },
+            {
+              "type": "text",
+              "text": " になります。"
+            }
+          ]
+        },
+        {
+          "id": "n11-07-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界を代入した関係は "
+            },
+            {
+              "type": "math",
+              "latex": "5<5"
+            },
+            {
+              "type": "text",
+              "text": " です。この関係が成り立つかを確かめ、境界が解に含まれるかを判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-07-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-07"
+            }
+          ]
+        },
+        {
+          "id": "n11-07-result",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "含まれない（等号となり<を満たさない）"
+            }
+          ]
+        },
+        {
+          "id": "n11-07-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "解は "
+            },
+            {
+              "type": "math",
+              "latex": "x<7/3"
+            },
+            {
+              "type": "text",
+              "text": " で、境界は含みません。"
+            }
+          ]
+        },
+        {
+          "id": "n11-negative-problem-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の例題は "
+            },
+            {
+              "type": "math",
+              "latex": "-2x+3\\le5"
+            },
+            {
+              "type": "text",
+              "text": " です。最初は正の係数の例題と同じように、左辺の定数項からなくします。"
+            }
+          ]
+        },
+        {
+          "id": "n11-negative-problem-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p007-q08-subtract-left-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左辺の "
+            },
+            {
+              "type": "math",
+              "latex": "+3"
+            },
+            {
+              "type": "text",
+              "text": " を打ち消すため、左辺から引く数を決めます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p007-q08-subtract-left-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-p007-q08-subtract-left"
+            },
+            {
+              "type": "math",
+              "latex": "=0"
+            }
+          ],
+          "equationNumber": "18"
+        },
+        {
+          "id": "n11-p007-q08-subtract-left-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3-3"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "0"
+            }
+          ],
+          "equationNumber": "18"
+        },
+        {
+          "id": "n11-p007-q08-subtract-left-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p007-q08-subtract-right-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左辺から引いた数を、右辺からも同じように引きます。加減では不等号の向きを保ちます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p007-q08-subtract-right-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2x+3-3\\le5-"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-p007-q08-subtract-right"
+            }
+          ],
+          "equationNumber": "19"
+        },
+        {
+          "id": "n11-p007-q08-subtract-right-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2x+3-3"
+            },
+            {
+              "type": "math",
+              "latex": "\\le"
+            },
+            {
+              "type": "math",
+              "latex": "5-3"
+            }
+          ],
+          "equationNumber": "19"
+        },
+        {
+          "id": "n11-p007-q08-subtract-right-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-08-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左辺の定数を打ち消しました。右辺の "
+            },
+            {
+              "type": "math",
+              "latex": "5-3"
+            },
+            {
+              "type": "text",
+              "text": " を計算して、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " の係数だけを残します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-08-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2x\\le"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-08"
+            }
+          ],
+          "equationNumber": "20"
+        },
+        {
+          "id": "n11-08-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2x"
+            },
+            {
+              "type": "math",
+              "latex": "\\le"
+            },
+            {
+              "type": "math",
+              "latex": "2"
+            }
+          ],
+          "equationNumber": "20"
+        },
+        {
+          "id": "n11-08-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "係数は負なので、割るときの向きを判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p007-q09-direction-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2x\\le2"
+            },
+            {
+              "type": "text",
+              "text": " の両辺を負の "
+            },
+            {
+              "type": "math",
+              "latex": "-2"
+            },
+            {
+              "type": "text",
+              "text": " で割ります。向きの変化を先に決め、右辺の計算とは分けて答えます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p007-q09-direction-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{-2x}{-2}\\ "
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-p007-q09-direction"
+            },
+            {
+              "type": "math",
+              "latex": "\\ \\frac2{-2}"
+            }
+          ],
+          "equationNumber": "21"
+        },
+        {
+          "id": "n11-p007-q09-direction-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{-2x}{-2}\\ "
+            },
+            {
+              "type": "math",
+              "latex": "\\ge"
+            },
+            {
+              "type": "math",
+              "latex": "\\ \\frac2{-2}"
+            }
+          ],
+          "equationNumber": "21"
+        },
+        {
+          "id": "n11-p007-q09-direction-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に右辺の値を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-09-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左辺の係数は1になりました。右辺の "
+            },
+            {
+              "type": "math",
+              "latex": "2\\div(-2)"
+            },
+            {
+              "type": "text",
+              "text": " を計算して範囲を記録します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-09-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\ge"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-09"
+            }
+          ],
+          "equationNumber": "22"
+        },
+        {
+          "id": "n11-09-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "math",
+              "latex": "\\ge"
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            }
+          ],
+          "equationNumber": "22"
+        },
+        {
+          "id": "n11-09-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "不等号の向きと右辺の符号を別々に確認できました。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q10-substitution-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界 "
+            },
+            {
+              "type": "math",
+              "latex": "x=-1"
+            },
+            {
+              "type": "text",
+              "text": " を、元の式へ括弧付きで代入します。負と負の積を先に計算してから3を足します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q10-substitution-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2(-1)+3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-q10-substitution"
+            }
+          ],
+          "equationNumber": "23"
+        },
+        {
+          "id": "n11-q10-substitution-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2(-1)+3"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "5"
+            }
+          ],
+          "equationNumber": "23"
+        },
+        {
+          "id": "n11-q10-substitution-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界では "
+            },
+            {
+              "type": "math",
+              "latex": "5\\le5"
+            },
+            {
+              "type": "text",
+              "text": " となります。"
+            }
+          ]
+        },
+        {
+          "id": "n11-10-before-figure",
+          "type": "figure",
+          "figureId": "n11-f02"
+        },
+        {
+          "id": "n11-10-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界では "
+            },
+            {
+              "type": "math",
+              "latex": "5\\le5"
+            },
+            {
+              "type": "text",
+              "text": " という関係になりました。元の不等号に注意して、この境界が条件を満たすかを判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-10-interaction",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-10"
+            }
+          ]
+        },
+        {
+          "id": "n11-10-result",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "含む（代入すると5≤5）"
+            }
+          ]
+        },
+        {
+          "id": "n11-10-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここまでの二例を元図で比べます。○は端点を含まず、●は含みます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-linear-definition-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "すべての項を左へ集めた左辺が "
+            },
+            {
+              "type": "math",
+              "latex": "ax+b"
+            },
+            {
+              "type": "text",
+              "text": "（"
+            },
+            {
+              "type": "math",
+              "latex": "a\\ne0"
+            },
+            {
+              "type": "text",
+              "text": "）になる不等式を "
+            },
+            {
+              "type": "term",
+              "text": "一次不等式"
+            },
+            {
+              "type": "text",
+              "text": " といいます。"
+            },
+            {
+              "type": "term",
+              "text": "移項"
+            },
+            {
+              "type": "text",
+              "text": " は両辺に同じ数や式を加減する操作をまとめた書き方です。理由なしに符号だけを変える規則ではありません。"
+            }
+          ]
+        },
+        {
+          "id": "n11-linear-definition-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-bracket-problem-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確認問題は "
+            },
+            {
+              "type": "math",
+              "latex": "3(2x+3)\\ge10x-17"
+            },
+            {
+              "type": "text",
+              "text": " です。まず分配法則で括弧を外し、それから "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " の項、定数項の順にまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-bracket-problem-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm012-q11-expand-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左辺の3を、括弧内の "
+            },
+            {
+              "type": "math",
+              "latex": "2x"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "3"
+            },
+            {
+              "type": "text",
+              "text": " の両方へ掛けます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm012-q11-expand-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3(2x+3)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-wm012-q11-expand"
+            }
+          ],
+          "equationNumber": "24"
+        },
+        {
+          "id": "n11-wm012-q11-expand-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3(2x+3)"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "6x+9"
+            }
+          ],
+          "equationNumber": "24"
+        },
+        {
+          "id": "n11-wm012-q11-expand-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この展開結果を元の不等式の左辺へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm012-q11-xcoef-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の不等式は "
+            },
+            {
+              "type": "math",
+              "latex": "6x+9\\ge10x-17"
+            },
+            {
+              "type": "text",
+              "text": " になりました。両辺から "
+            },
+            {
+              "type": "math",
+              "latex": "10x"
+            },
+            {
+              "type": "text",
+              "text": " を引き、左辺の "
+            },
+            {
+              "type": "math",
+              "latex": "6x-10x"
+            },
+            {
+              "type": "text",
+              "text": " をまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm012-q11-xcoef-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(6-10)x+9\\ge-17,\\quad6-10="
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-wm012-q11-xcoef"
+            }
+          ],
+          "equationNumber": "25"
+        },
+        {
+          "id": "n11-wm012-q11-xcoef-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{aligned}(6-10)x+9&\\ge-17\\\\6-10&=-4\\end{aligned}"
+            }
+          ],
+          "equationNumber": "25"
+        },
+        {
+          "id": "n11-wm012-q11-xcoef-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左辺のxの係数が求まりました。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q11-constant-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いまの式は "
+            },
+            {
+              "type": "math",
+              "latex": "-4x+9\\ge-17"
+            },
+            {
+              "type": "text",
+              "text": " です。左辺の9を打ち消すため両辺から9を引き、右辺を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q11-constant-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-17-9="
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-q11-constant"
+            }
+          ],
+          "equationNumber": "26"
+        },
+        {
+          "id": "n11-q11-constant-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-17-9"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "-26"
+            }
+          ],
+          "equationNumber": "26"
+        },
+        {
+          "id": "n11-q11-constant-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-11-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "係数の計算と定数の計算の結果を元の不等式へ戻して、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " の項だけを左に残した形をまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-11-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-11"
+            }
+          ],
+          "equationNumber": "27"
+        },
+        {
+          "id": "n11-11-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-4x"
+            },
+            {
+              "type": "math",
+              "latex": "\\ge"
+            },
+            {
+              "type": "math",
+              "latex": "-26"
+            }
+          ],
+          "equationNumber": "27"
+        },
+        {
+          "id": "n11-11-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は負の係数を1にする段階です。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q12-sign-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-4x\\ge-26"
+            },
+            {
+              "type": "text",
+              "text": " を負の "
+            },
+            {
+              "type": "math",
+              "latex": "-4"
+            },
+            {
+              "type": "text",
+              "text": " で割ります。右辺を簡単にする前に、不等号の向きを選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q12-sign-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\ "
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-q12-sign"
+            },
+            {
+              "type": "math",
+              "latex": "\\ \\frac{-26}{-4}"
+            }
+          ],
+          "equationNumber": "28"
+        },
+        {
+          "id": "n11-q12-sign-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\ "
+            },
+            {
+              "type": "math",
+              "latex": "\\le"
+            },
+            {
+              "type": "math",
+              "latex": "\\ \\frac{-26}{-4}"
+            }
+          ],
+          "equationNumber": "28"
+        },
+        {
+          "id": "n11-q12-sign-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-12-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "右辺 "
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{-26}{-4}"
+            },
+            {
+              "type": "text",
+              "text": " は負の数どうしの商です。約分して境界を求め、直前に選んだ不等号の向きで解の範囲を表します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-12-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-12"
+            }
+          ],
+          "equationNumber": "29"
+        },
+        {
+          "id": "n11-12-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "math",
+              "latex": "\\le"
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{13}{2}"
+            }
+          ],
+          "equationNumber": "29"
+        },
+        {
+          "id": "n11-12-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "式を解く過程の同値な条件は等号ではなく、段階ごとの不等式として並べます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-fraction-problem-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の不等式 "
+            },
+            {
+              "type": "math",
+              "latex": "\\frac{x-2}{3}\\le2x+1"
+            },
+            {
+              "type": "text",
+              "text": " です。分母をなくす操作を考えます。両辺に同じ数を掛けることを使い、分母を打ち消す数を選びましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n11-fraction-problem-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この内容を、次の判断や変形の根拠に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p008-q13-mul-left-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "分母の3を打ち消す数を左辺で選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p008-q13-mul-left-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{x-2}{3}\\times"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-p008-q13-mul-left"
+            },
+            {
+              "type": "math",
+              "latex": "=x-2"
+            }
+          ],
+          "equationNumber": "30"
+        },
+        {
+          "id": "n11-p008-q13-mul-left-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\frac{x-2}{3}\\times3"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "x-2"
+            }
+          ],
+          "equationNumber": "30"
+        },
+        {
+          "id": "n11-p008-q13-mul-left-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p008-q13-mul-right-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左辺を3倍したので、右辺の和全体にも同じ数を掛けます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p008-q13-mul-right-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x-2\\le"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-p008-q13-mul-right"
+            },
+            {
+              "type": "math",
+              "latex": "(2x+1)"
+            }
+          ],
+          "equationNumber": "31"
+        },
+        {
+          "id": "n11-p008-q13-mul-right-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x-2"
+            },
+            {
+              "type": "math",
+              "latex": "\\le"
+            },
+            {
+              "type": "math",
+              "latex": "3(2x+1)"
+            }
+          ],
+          "equationNumber": "31"
+        },
+        {
+          "id": "n11-p008-q13-mul-right-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "右辺の括弧を外します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-13-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "右辺では3を "
+            },
+            {
+              "type": "math",
+              "latex": "2x"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "1"
+            },
+            {
+              "type": "text",
+              "text": " の両方へ掛けます。まず "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " の項の係数を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-13-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3(2x+1)=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-13"
+            },
+            {
+              "type": "math",
+              "latex": ")x+3\\times1"
+            }
+          ],
+          "equationNumber": "32"
+        },
+        {
+          "id": "n11-13-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3(2x+1)"
+            },
+            {
+              "type": "math",
+              "latex": "="
+            },
+            {
+              "type": "math",
+              "latex": "(6)x+3\\times1"
+            }
+          ],
+          "equationNumber": "32"
+        },
+        {
+          "id": "n11-13-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p008-q13-constant-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ分配法則の残る項 "
+            },
+            {
+              "type": "math",
+              "latex": "3\\times1"
+            },
+            {
+              "type": "text",
+              "text": " を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-p008-q13-constant-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x-2\\le6x+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-p008-q13-constant"
+            }
+          ],
+          "equationNumber": "33"
+        },
+        {
+          "id": "n11-p008-q13-constant-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x-2"
+            },
+            {
+              "type": "math",
+              "latex": "\\le"
+            },
+            {
+              "type": "math",
+              "latex": "6x+3"
+            }
+          ],
+          "equationNumber": "33"
+        },
+        {
+          "id": "n11-p008-q13-constant-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両辺からxを引き、次に両辺から定数を引きます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm013-q14-xcoef-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x-2\\le6x+3"
+            },
+            {
+              "type": "text",
+              "text": " の両辺から "
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " を引きます。右辺の "
+            },
+            {
+              "type": "math",
+              "latex": "6x-x"
+            },
+            {
+              "type": "text",
+              "text": " の係数をまとめます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm013-q14-xcoef-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2\\le("
+            },
+            {
+              "type": "choice",
+              "itemId": "n11-wm013-q14-xcoef"
+            },
+            {
+              "type": "math",
+              "latex": ")x+3"
+            }
+          ],
+          "equationNumber": "34"
+        },
+        {
+          "id": "n11-wm013-q14-xcoef-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2"
+            },
+            {
+              "type": "math",
+              "latex": "\\le"
+            },
+            {
+              "type": "math",
+              "latex": "(5)x+3"
+            }
+          ],
+          "equationNumber": "34"
+        },
+        {
+          "id": "n11-wm013-q14-xcoef-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm013-q14-const-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "いまの式は "
+            },
+            {
+              "type": "math",
+              "latex": "-2\\le5x+3"
+            },
+            {
+              "type": "text",
+              "text": " です。両辺から3を引き、左辺の定数を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "n11-wm013-q14-const-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-wm013-q14-const"
+            },
+            {
+              "type": "math",
+              "latex": "\\le5x"
+            }
+          ],
+          "equationNumber": "35"
+        },
+        {
+          "id": "n11-wm013-q14-const-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-5"
+            },
+            {
+              "type": "math",
+              "latex": "\\le"
+            },
+            {
+              "type": "math",
+              "latex": "5x"
+            }
+          ],
+          "equationNumber": "35"
+        },
+        {
+          "id": "n11-wm013-q14-const-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "確定した結果を記録し、次の操作に使います。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q14-divide-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-5\\le5x"
+            },
+            {
+              "type": "text",
+              "text": " の両辺を正の5で割ります。大小を保ち、まず左に定数を置いた形で書きます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-q14-divide-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-q14-divide"
+            }
+          ],
+          "equationNumber": "36"
+        },
+        {
+          "id": "n11-q14-divide-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-1"
+            },
+            {
+              "type": "math",
+              "latex": "\\le"
+            },
+            {
+              "type": "math",
+              "latex": " x"
+            }
+          ],
+          "equationNumber": "36"
+        },
+        {
+          "id": "n11-q14-divide-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ関係をxから読むと、xは−1以上です。"
+            }
+          ]
+        },
+        {
+          "id": "n11-14-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-1\\le x"
+            },
+            {
+              "type": "text",
+              "text": " と同じ範囲を、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": " を先に書いた形で表します。辺を入れ替えると、不等号が指す大小も合わせて書き替えます。"
+            }
+          ]
+        },
+        {
+          "id": "n11-14-interaction-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n11-14"
+            }
+          ],
+          "equationNumber": "37"
+        },
+        {
+          "id": "n11-14-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "math",
+              "latex": "\\ge"
+            },
+            {
+              "type": "math",
+              "latex": "-1"
+            }
+          ],
+          "equationNumber": "37"
+        },
+        {
+          "id": "n11-14-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一つずつの不等式を解く方法ができました。次は複数の条件を同時に満たす範囲を残します。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n11-01",
+          "label": "N11-01",
+          "prompt": "数直線の−2と−5を比べ、不等号を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            ">",
+            "<",
+            "=",
+            "\\le"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-q02-open",
+          "label": "N11-Q02-OPEN",
+          "prompt": "引く括弧の符号を配る",
+          "answerType": "formula",
+          "choices": [
+            "b+c-a-c",
+            "b+c-a+c",
+            "b+c+a+c"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-02",
+          "label": "N11-02",
+          "prompt": "両辺に同じcを加えたあとの差を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "b-a",
+            "b-a+2c",
+            "b-a-c",
+            "a-b"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm011-q02-compare",
+          "label": "N11-WM011-Q02-COMPARE",
+          "prompt": "差の符号を根拠に、加えたあとの大小関係を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "a+c<b+c,\\quad\\text{差は正のまま}",
+            "a+c>b+c,\\quad\\text{差は負になる}",
+            "a+c=b+c,\\quad\\text{差は0}",
+            "a+c>b+c,\\quad\\text{差は正のまま}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm011-q03-factor",
+          "label": "N11-WM011-Q03-FACTOR",
+          "prompt": "共通の(b−a)を残して、括り出す係数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "c",
+            "-c",
+            "c^2",
+            "1"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm011-q03-positive",
+          "label": "N11-WM011-Q03-POSITIVE",
+          "prompt": "c>0のとき、差の符号と大小関係を判断しよう。",
+          "answerType": "formula",
+          "choices": [
+            "ac<bc,\\quad bc-ac>0",
+            "ac>bc,\\quad bc-ac<0",
+            "ac=bc,\\quad bc-ac=0",
+            "ac<bc,\\quad bc-ac<0"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-03",
+          "label": "N11-03",
+          "prompt": "c<0のとき、差の符号と大小関係を判断しよう。",
+          "answerType": "formula",
+          "choices": [
+            "ac>bc,\\quad bc-ac<0",
+            "ac<bc,\\quad bc-ac>0",
+            "ac=bc,\\quad bc-ac=0",
+            "ac>bc,\\quad bc-ac>0"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm011-q03-zero",
+          "label": "N11-WM011-Q03-ZERO",
+          "prompt": "c=0のとき、両辺と厳密な不等号はどうなるだろう。",
+          "answerType": "formula",
+          "choices": [
+            "ac=bc=0,\\quad\\text{元の厳密な大小は失われる}",
+            "ac<bc,\\quad\\text{そのまま保つ}",
+            "ac>bc,\\quad\\text{逆転する}",
+            "ac=bc=0,\\quad\\text{元の不等号を保つ}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm011-q04-fraction",
+          "label": "N11-WM011-Q04-FRACTION",
+          "prompt": "a<bの両辺に負の1/5を掛けるとどうなるだろう。",
+          "answerType": "formula",
+          "choices": [
+            "-\\frac a5>-\\frac b5,\\quad\\text{負数倍なので反転}",
+            "-\\frac a5<-\\frac b5,\\quad\\text{向きを保つ}",
+            "-\\frac a5=-\\frac b5,\\quad\\text{等号になる}",
+            "-\\frac a5>-\\frac b5,\\quad\\text{正数倍なので反転}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-q04-negate",
+          "label": "N11-Q04-NEGATE",
+          "prompt": "元の大小へ戻り負の1倍をする",
+          "answerType": "formula",
+          "choices": [
+            "-a>-b",
+            "-a<-b",
+            "-a=-b"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-04",
+          "label": "N11-04",
+          "prompt": "a<bから−1倍と+3を順に行った大小関係を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3-a>3-b",
+            "3-a<3-b",
+            "3-a=3-b",
+            "3+a>3+b"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm017-q05-operation",
+          "label": "N11-WM017-Q05-OPERATION",
+          "prompt": "左辺の−2を消すため、左辺に加える数を考えよう。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "-2",
+            "3",
+            "0"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm017-q05-balance",
+          "label": "N11-WM017-Q05-BALANCE",
+          "prompt": "不等号の向きを保つために、右辺にも加える同じ数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "-2",
+            "5",
+            "0"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-05",
+          "label": "N11-05",
+          "prompt": "左辺の定数を打ち消したあと、右辺の5+2を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "7",
+            "3",
+            "5",
+            "9"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-q06-operation",
+          "label": "N11-Q06-OPERATION",
+          "prompt": "係数を1にする除数を選ぶ",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "1",
+            "-3"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-06",
+          "label": "N11-06",
+          "prompt": "3x<7の両辺を正の3で割ったときの右辺を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "\\frac73",
+            "\\frac37",
+            "-\\frac73",
+            "7"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-q07-substitution",
+          "label": "N11-Q07-SUBSTITUTION",
+          "prompt": "境界を元の式へ代入する",
+          "answerType": "formula",
+          "choices": [
+            "5",
+            "7",
+            "3"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-07",
+          "label": "N11-07",
+          "prompt": "境界の値が含まれるかを選ぼう。",
+          "answerType": "text",
+          "choices": [
+            "含まれない（等号となり<を満たさない）",
+            "含まれる（左右が等しくなるから）",
+            "含まれる（3は正だから）",
+            "判断できない（分数だから）"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-p007-q08-subtract-left",
+          "label": "N11-P007-Q08-SUBTRACT-LEFT",
+          "prompt": "左辺の＋3を打ち消すため、引く数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "2",
+            "5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-p007-q08-subtract-right",
+          "label": "N11-P007-Q08-SUBTRACT-RIGHT",
+          "prompt": "同じ操作を右辺にも行う。右辺から引く数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "5",
+            "2"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-08",
+          "label": "N11-08",
+          "prompt": "左辺を整理したあとの右辺、5−3を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "8",
+            "-2",
+            "5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-p007-q09-direction",
+          "label": "N11-P007-Q09-DIRECTION",
+          "prompt": "負の係数で割った後の不等号を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "\\ge",
+            "\\le",
+            ">",
+            "<"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-09",
+          "label": "N11-09",
+          "prompt": "負の2で割った右辺、2÷(−2)を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-1",
+            "1",
+            "-2",
+            "2"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-q10-substitution",
+          "label": "N11-Q10-SUBSTITUTION",
+          "prompt": "境界を代入した左辺を求める",
+          "answerType": "formula",
+          "choices": [
+            "5",
+            "1",
+            "-5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-10",
+          "label": "N11-10",
+          "prompt": "境界を含むかどうか、根拠とともに選ぼう。",
+          "answerType": "text",
+          "choices": [
+            "含む（代入すると5≤5）",
+            "含まない（負の数だから）",
+            "含まない（代入すると5<5）",
+            "含む（不等号を逆にしないから）"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm012-q11-expand",
+          "label": "N11-WM012-Q11-EXPAND",
+          "prompt": "括弧の両方の項に3を掛けて、展開した左辺を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "6x+9",
+            "6x+3",
+            "2x+9",
+            "6x+6"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm012-q11-xcoef",
+          "label": "N11-WM012-Q11-XCOEF",
+          "prompt": "両辺から10xを引いたあとの、左辺のxの係数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-4",
+            "4",
+            "-10",
+            "16"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-q11-constant",
+          "label": "N11-Q11-CONSTANT",
+          "prompt": "定数を同じ操作でまとめる",
+          "answerType": "formula",
+          "choices": [
+            "-26",
+            "-8",
+            "26"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-11",
+          "label": "N11-11",
+          "prompt": "整理した不等式を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-4x\\ge-26",
+            "-4x\\le-26",
+            "4x\\ge-26",
+            "-4x\\ge26"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-q12-sign",
+          "label": "N11-Q12-SIGN",
+          "prompt": "負数で割る向きを判断する",
+          "answerType": "formula",
+          "choices": [
+            "\\le",
+            "\\ge",
+            "<"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-12",
+          "label": "N11-12",
+          "prompt": "解の範囲を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x\\le\\frac{13}{2}",
+            "x\\ge\\frac{13}{2}",
+            "x\\le-\\frac{13}{2}",
+            "x<\\frac{13}{2}"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-p008-q13-mul-left",
+          "label": "N11-P008-Q13-MUL-LEFT",
+          "prompt": "左辺の分母3を消すために掛ける数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "1",
+            "6"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-p008-q13-mul-right",
+          "label": "N11-P008-Q13-MUL-RIGHT",
+          "prompt": "右辺にも同じ数を掛けよう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "1",
+            "-3",
+            "6"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-13",
+          "label": "N11-13",
+          "prompt": "右辺3(2x+1)を展開したxの係数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "6",
+            "2",
+            "3",
+            "9"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-p008-q13-constant",
+          "label": "N11-P008-Q13-CONSTANT",
+          "prompt": "3(2x+1) の定数項を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "1",
+            "-3",
+            "6"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm013-q14-xcoef",
+          "label": "N11-WM013-Q14-XCOEF",
+          "prompt": "両辺からxを引いて右辺のxの係数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "5",
+            "6",
+            "7",
+            "-5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-wm013-q14-const",
+          "label": "N11-WM013-Q14-CONST",
+          "prompt": "両辺から3を引いて左辺の定数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-5",
+            "1",
+            "-2",
+            "5"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-q14-divide",
+          "label": "N11-Q14-DIVIDE",
+          "prompt": "正の係数で割り向きを読む",
+          "answerType": "formula",
+          "choices": [
+            "-1\\le x",
+            "-1\\ge x",
+            "1\\le x"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        },
+        {
+          "id": "n11-14",
+          "label": "N11-14",
+          "prompt": "最終的な解の範囲を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x\\ge-1",
+            "x\\le-1",
+            "x\\ge1",
+            "x>-1"
+          ],
+          "hints": [
+            "いま使う条件と、式のどの部分を変える操作かを先に確かめます。"
+          ]
+        }
+      ]
+    }
+  ]
+}

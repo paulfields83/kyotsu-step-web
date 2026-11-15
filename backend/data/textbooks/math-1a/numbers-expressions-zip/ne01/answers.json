@@ -1,0 +1,205 @@
+{
+  "unitId": "math-numbers-expressions-ne01",
+  "answers": {
+    "ne01-s5-cube-as-square": {
+      "validator": "exact",
+      "answer": "(x+3)^2",
+      "acceptedAnswers": []
+    },
+    "ne01-01": {
+      "validator": "exact",
+      "answer": "(x+3)(x^2+6x+9)",
+      "acceptedAnswers": []
+    },
+    "ne01-s5-concrete-second-distribute": {
+      "validator": "exact",
+      "answer": "3(x^2+6x+9)",
+      "acceptedAnswers": []
+    },
+    "ne01-s5-concrete-square-terms": {
+      "validator": "exact",
+      "answer": "6x^2+3x^2",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-collect-square": {
+      "validator": "exact",
+      "answer": "9",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-collect-linear": {
+      "validator": "exact",
+      "answer": "27",
+      "acceptedAnswers": []
+    },
+    "ne01-02": {
+      "validator": "exact",
+      "answer": "x^3+9x^2+27x+27",
+      "acceptedAnswers": []
+    },
+    "ne01-03": {
+      "validator": "exact",
+      "answer": "(a+b)(a^2+2ab+b^2)",
+      "acceptedAnswers": []
+    },
+    "ne01-04": {
+      "validator": "exact",
+      "answer": "a^3+2a^2b+ab^2+a^2b+2ab^2+b^3",
+      "acceptedAnswers": []
+    },
+    "ne01-s5-general-a2b-terms": {
+      "validator": "exact",
+      "answer": "2a^2b+a^2b",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-general-first-middle": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "ne01-s5-general-ab2-terms": {
+      "validator": "exact",
+      "answer": "ab^2+2ab^2",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-general-second-middle": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "ne01-05": {
+      "validator": "exact",
+      "answer": "a^3+3a^2b+3ab^2+b^3",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-negative-substitute": {
+      "validator": "exact",
+      "answer": "a^3+3a^2(-b)+3a(-b)^2+(-b)^3",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-detail-even-coefficient": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-detail-odd-coefficient": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "ne01-06": {
+      "validator": "exact",
+      "answer": "a^3-3a^2b+3ab^2-b^3",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-concrete-substitute": {
+      "validator": "exact",
+      "answer": "x^3-3x^2\\cdot2+3x\\cdot2^2-2^3",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-detail-quadratic-coefficient": {
+      "validator": "exact",
+      "answer": "-6",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-linear-number": {
+      "validator": "exact",
+      "answer": "12",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-detail-constant-power": {
+      "validator": "exact",
+      "answer": "-8",
+      "acceptedAnswers": []
+    },
+    "ne01-07": {
+      "validator": "exact",
+      "answer": "x^3-6x^2+12x-8",
+      "acceptedAnswers": []
+    },
+    "ne01-08": {
+      "validator": "exact",
+      "answer": "3ab(a+b)",
+      "acceptedAnswers": []
+    },
+    "ne01-s5-factor-common-remainder": {
+      "validator": "exact",
+      "answer": "(a+b)^2-3ab",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-cube-factor-middle": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "ne01-10": {
+      "validator": "exact",
+      "answer": "(a+b)(a^2-ab+b^2)",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-difference-substitute": {
+      "validator": "exact",
+      "answer": "(a-b)(a^2-a(-b)+(-b)^2)",
+      "acceptedAnswers": []
+    },
+    "ne01-11": {
+      "validator": "exact",
+      "answer": "(a-b)(a^2+ab+b^2)",
+      "acceptedAnswers": []
+    },
+    "ne01-s4-difference-rule": {
+      "validator": "exact",
+      "answer": "3乗の差",
+      "acceptedAnswers": []
+    },
+    "ne01-s5-difference-substitute": {
+      "validator": "exact",
+      "answer": "x^2+x\\cdot1+1^2",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-factor-difference": {
+      "validator": "exact",
+      "answer": "(x-1)(x^2+x+1)",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-cube-root-eight": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-cube-root-twentyseven": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "ne01-s4-sum-rule": {
+      "validator": "exact",
+      "answer": "3乗の和",
+      "acceptedAnswers": []
+    },
+    "ne01-s5-sum-linear-factor": {
+      "validator": "exact",
+      "answer": "2x+3y",
+      "acceptedAnswers": []
+    },
+    "ne01-s5-sum-quadratic-substitute": {
+      "validator": "exact",
+      "answer": "(2x)^2-(2x)(3y)+(3y)^2",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-cube-factor-square-a": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-cube-factor-product": {
+      "validator": "exact",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "ne01-bridge-audit-cube-factor-square-b": {
+      "validator": "exact",
+      "answer": "9",
+      "acceptedAnswers": []
+    }
+  }
+}

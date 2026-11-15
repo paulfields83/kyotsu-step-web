@@ -1,0 +1,210 @@
+{
+  "unitId": "math-numbers-expressions-n06",
+  "answers": {
+    "n06-s4-substitution-part": {
+      "validator": "exact",
+      "answer": "x+2y",
+      "acceptedAnswers": []
+    },
+    "n06-s5-substitute-whole": {
+      "validator": "exact",
+      "answer": "(X+1)(X-2)-4",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-x-expand": {
+      "validator": "exact",
+      "answer": "X^2-2X+X-2-4",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-audit-x-linear-sum": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-audit-x-constant-sum": {
+      "validator": "exact",
+      "answer": "-6",
+      "acceptedAnswers": []
+    },
+    "n06-02": {
+      "validator": "exact",
+      "answer": "X^2-X-6",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-x-pair": {
+      "validator": "exact",
+      "answer": "-3,\\quad2",
+      "acceptedAnswers": []
+    },
+    "n06-03": {
+      "validator": "exact",
+      "answer": "(X-3)(X+2)",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-audit-restore-x-first": {
+      "validator": "exact",
+      "answer": "x+2y-3",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-audit-restore-x-second": {
+      "validator": "exact",
+      "answer": "x+2y+2",
+      "acceptedAnswers": []
+    },
+    "n06-04": {
+      "validator": "exact",
+      "answer": "(x+2y-3)(x+2y+2)",
+      "acceptedAnswers": []
+    },
+    "n06-s4-fourth-substitution": {
+      "validator": "exact",
+      "answer": "x^2",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-t-pair": {
+      "validator": "exact",
+      "answer": "-1,\\quad-4",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-t-factor": {
+      "validator": "exact",
+      "answer": "(T-1)(T-4)",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-detail-restore-first": {
+      "validator": "exact",
+      "answer": "x^2-1",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-detail-restore-second": {
+      "validator": "exact",
+      "answer": "x^2-4",
+      "acceptedAnswers": []
+    },
+    "n06-06": {
+      "validator": "exact",
+      "answer": "(x^2-1)(x^2-4)",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-detail-difference-first": {
+      "validator": "exact",
+      "answer": "(x-1)(x+1)",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-detail-difference-second": {
+      "validator": "exact",
+      "answer": "(x-2)(x+2)",
+      "acceptedAnswers": []
+    },
+    "n06-07": {
+      "validator": "exact",
+      "answer": "(x-1)(x+1)(x-2)(x+2)",
+      "acceptedAnswers": []
+    },
+    "n06-s4-x-degree": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n06-s4-y-degree": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n06-s4-choose-variable": {
+      "validator": "exact",
+      "answer": "yについて整理",
+      "acceptedAnswers": []
+    },
+    "n06-s5-classify-y": {
+      "validator": "exact",
+      "answer": "x^2y+xy-2y",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-audit-y-coefficient": {
+      "validator": "exact",
+      "answer": "x^2+x-2",
+      "acceptedAnswers": []
+    },
+    "n06-09": {
+      "validator": "exact",
+      "answer": "y(x^2+x-2)+(x^3+x^2-2x)",
+      "acceptedAnswers": []
+    },
+    "n06-10": {
+      "validator": "exact",
+      "answer": "x(x^2+x-2)",
+      "acceptedAnswers": []
+    },
+    "n06-11": {
+      "validator": "exact",
+      "answer": "(x+y)(x^2+x-2)",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-last-pair": {
+      "validator": "exact",
+      "answer": "2,\\quad-1",
+      "acceptedAnswers": []
+    },
+    "n06-12": {
+      "validator": "exact",
+      "answer": "(x+y)(x+2)(x-1)",
+      "acceptedAnswers": []
+    },
+    "n06-s5-classify-x": {
+      "validator": "exact",
+      "answer": "3xy-x",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-audit-x-coefficient": {
+      "validator": "exact",
+      "answer": "3y-1",
+      "acceptedAnswers": []
+    },
+    "n06-13": {
+      "validator": "exact",
+      "answer": "x^2+(3y-1)x+(2y^2-3y-2)",
+      "acceptedAnswers": []
+    },
+    "n06-s5-constant-linear-condition": {
+      "validator": "exact",
+      "answer": "2s+r",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-audit-constant-pair": {
+      "validator": "exact",
+      "answer": "(1,-2)",
+      "acceptedAnswers": []
+    },
+    "n06-14": {
+      "validator": "exact",
+      "answer": "(2y+1)(y-2)",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-audit-sum-y-coefficient": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": []
+    },
+    "n06-bridge-audit-sum-y-constant": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "n06-s5-factor-sum-target": {
+      "validator": "exact",
+      "answer": "xの一次係数",
+      "acceptedAnswers": []
+    },
+    "n06-s5-restore-coefficient-sum": {
+      "validator": "exact",
+      "answer": "(2y+1)+(y-2)",
+      "acceptedAnswers": []
+    },
+    "n06-16": {
+      "validator": "exact",
+      "answer": "(x+2y+1)(x+y-2)",
+      "acceptedAnswers": []
+    }
+  }
+}

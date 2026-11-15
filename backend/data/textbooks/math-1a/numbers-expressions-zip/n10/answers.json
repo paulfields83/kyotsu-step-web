@@ -1,0 +1,640 @@
+{
+  "unitId": "math-numbers-expressions-n10",
+  "answers": {
+    "n10-q01-square-ux06productbase": {
+      "validator": "exact",
+      "answer": "t\\sqrt5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "t^2\\sqrt5": "平方前の基底全体をもう一度掛けます。",
+        "5t": "√5を勝手に5へ変えません。"
+      }
+    },
+    "n10-q01-square-ux06coefficientexponent": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "tが二つ掛かっています。",
+        "4": "t²同士を掛けているのではありません。"
+      }
+    },
+    "n10-q01-square-rootsquare": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "25": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt5": "平方の操作を定義に従って行います。"
+      }
+    },
+    "n10-01-value": {
+      "validator": "exact",
+      "answer": "25",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "120": "両辺を5で割るのであり、5を引く操作ではありません。",
+        "625": "係数を除くために5で割ります。"
+      }
+    },
+    "n10-q02-sign-value": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "25": "平方と元の数を区別します。",
+        "-5": "最初の正の条件に合わせます。"
+      }
+    },
+    "n10-02-candidatesign": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "<": "正の数どうしの積の符号を確認してください。",
+        "=": "どちらの因子も0ではありません。"
+      }
+    },
+    "n10-02-squarevalue": {
+      "validator": "exact",
+      "answer": "125",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "25": "√5の平方による因子5を落としていませんか。",
+        "625": "25×5を計算します。25を平方する場面ではありません。"
+      }
+    },
+    "n10-02-identificationreason": {
+      "validator": "exact",
+      "answer": "正で、平方が125になるから",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "平方が125になるだけでよい": "平方が同じ負の候補も区別できるか考えてください。",
+        "正であるだけでよい": "正の数の中で125の平方根を特定する条件も必要です。"
+      }
+    },
+    "n10-q03-expand-powera": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "√aの因子は二つです。",
+        "4": "同じ因子の個数を数えます。"
+      }
+    },
+    "n10-q03-expand-powerb": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "√bも二回現れます。",
+        "4": "平方を二度重ねるのではありません。"
+      }
+    },
+    "n10-03-avalue": {
+      "validator": "exact",
+      "answer": "a",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a^2": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt a": "平方の操作を行います。"
+      }
+    },
+    "n10-03-bvalue": {
+      "validator": "exact",
+      "answer": "b",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "b^2": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt b": "平方した値を使います。"
+      }
+    },
+    "n10-q04-sign-relation": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "<": "与条件と左右の順序から関係を確かめます。",
+        "=": "候補の符号と等号にできる条件を確認します。"
+      }
+    },
+    "n10-04-rootreason": {
+      "validator": "exact",
+      "answer": "候補が正で、平方がabになることの両方",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "平方がabになることだけ": "負の候補を除けるか確認してください。",
+        "候補が正であることだけ": "どの正の数かを定める平方の値も必要です。"
+      }
+    },
+    "n10-q05-denominator-relation": {
+      "validator": "exact",
+      "answer": "\\ne",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "=": "与条件と左右の順序から関係を確かめます。",
+        "<": "候補の符号と等号にできる条件を確認します。"
+      }
+    },
+    "n10-q05-square-numpower": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "分子に同じ因子が二つあります。",
+        "4": "因子の個数を指数で表します。"
+      }
+    },
+    "n10-q05-square-denpower": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "分母も二回掛かっています。",
+        "4": "分子だけでなく分母も同じ回数です。"
+      }
+    },
+    "n10-05-numerator": {
+      "validator": "exact",
+      "answer": "a",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "b": "元の分子の文字を保持します。",
+        "a^2": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。"
+      }
+    },
+    "n10-05-denominator": {
+      "validator": "exact",
+      "answer": "b",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a": "元の分母の文字を保持します。",
+        "b^2": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。"
+      }
+    },
+    "n10-q06-sign-relation": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "<": "与条件と左右の順序から関係を確かめます。",
+        "=": "候補の符号と等号にできる条件を確認します。"
+      }
+    },
+    "n10-06-quotientreason": {
+      "validator": "exact",
+      "answer": "分母が非零で、商が正、平方がa/b",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "分母が0でも、平方がa/bならよい": "分母0の商が定義できるか確認してください。",
+        "分母が非零なら平方や符号は不要": "商の存在と、正の平方根であることは別の確認です。"
+      }
+    },
+    "n10-q07-product-insideoperation": {
+      "validator": "exact",
+      "answer": "\\times",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "+": "元の式は二つの平方根の和ですか、積ですか。",
+        "-": "証明した積の性質と対応させてください。"
+      }
+    },
+    "n10-q07-product-inside": {
+      "validator": "exact",
+      "answer": "48",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "14": "積なので中の数も掛けます。和ではありません。",
+        "24": "6×8の掛け算を確かめます。"
+      }
+    },
+    "n10-07-squarefactor": {
+      "validator": "exact",
+      "answer": "16",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "4も平方因子ですが、今回は最大のものを選びます。残りにも平方因子がないか見てください。",
+        "8": "8は整数の平方になっていますか。"
+      }
+    },
+    "n10-07-factor": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2": "16と掛けて48へ戻るか確認します。",
+        "4": "因子の積が元へ戻るか確認します。"
+      }
+    },
+    "n10-q08-factor-coefficient": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "16": "平方数とその平方根を区別します。",
+        "-4": "根号の値は非負です。"
+      }
+    },
+    "n10-q09-left-squarefactor": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2": "取り出す因子自身が平方数である必要があります。",
+        "8": "元の8が整数の平方か確認してください。"
+      }
+    },
+    "n10-q09-left-coefficient": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "平方数をその平方根へ直します。",
+        "8": "元の根号内の数をそのまま外へ出しません。"
+      }
+    },
+    "n10-q09-right-squarefactor": {
+      "validator": "exact",
+      "answer": "25",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "5": "5は整数の平方数ではありません。",
+        "10": "50の因子でも、平方数とは限りません。"
+      }
+    },
+    "n10-q09-right-coefficient": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "10": "平方して25になる非負の数を求めます。",
+        "25": "平方数とその平方根を区別します。"
+      }
+    },
+    "n10-q10-coefficients-collectedexpressionux05": {
+      "validator": "exact",
+      "answer": "(2+5)\\sqrt2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt{2+5}": "係数を根号内へ入れる変形はできません。元の二項はいずれも√2の倍数です。",
+        "(2+5)\\sqrt{2+2}": "同じ√2をくくる操作です。根号内の2を足して変えてはいけません。",
+        "(2\\times5)\\sqrt2": "元は和です。係数を掛けるのでなく足してまとめます。"
+      }
+    },
+    "n10-q10-coefficients-coefficient": {
+      "validator": "exact",
+      "answer": "7",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "二つの項は加算されています。",
+        "10": "係数を掛けずに足します。"
+      }
+    },
+    "n10-q11-formula-ux06lastproductsign": {
+      "validator": "exact",
+      "answer": "+",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-": "最後は負の項同士の積です。",
+        "\\pm": "積の符号は一意に決まります。"
+      }
+    },
+    "n10-q11-formula-ux06differencecount": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "−ABが二つあります。",
+        "4": "四項すべてが交差項ではありません。"
+      }
+    },
+    "n10-q11-formula-signedmiddletermux05": {
+      "validator": "exact",
+      "answer": "-2\\sqrt2\\sqrt3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-\\sqrt2\\sqrt3": "中項の係数2が不足しています。既習公式の2ABをこの二項へ対応させます。",
+        "+2\\sqrt2\\sqrt3": "和でなく差の平方なので中項は負です。",
+        "-2\\sqrt{2+3}": "積ABに対応する根号の積です。根号の中を足すことはできません。"
+      }
+    },
+    "n10-11-leftsquare": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt2": "平方を計算します。"
+      }
+    },
+    "n10-11-rightsquare": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "9": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt3": "平方を計算します。"
+      }
+    },
+    "n10-q12-product-inside": {
+      "validator": "exact",
+      "answer": "6",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "5": "根号内を足さずに掛けます。",
+        "12": "外の係数−2を根号内の積へ混ぜません。"
+      }
+    },
+    "n10-12-constant": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "6": "足し算を掛け算へ変えません。",
+        "-1": "普通の数は2と+3です。"
+      }
+    },
+    "n10-q13-identity-ux06crosssign": {
+      "validator": "exact",
+      "answer": "-",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "+": "Aと−Bからできる項です。",
+        "\\pm": "因子の符号から積の符号は一意です。"
+      }
+    },
+    "n10-q13-identity-ux06crosssum": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2AB": "二つの交差項の符号は反対です。",
+        "-2AB": "どちらも負ではありません。"
+      }
+    },
+    "n10-q13-identity-cancellingpairux05": {
+      "validator": "exact",
+      "answer": "−√7√2 と ＋√2√7",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "＋√7√2 と ＋√2√7": "二つとも正なら打ち消し合いません。第二因子の−√2を掛ける項を確認します。",
+        "−√7√2 と −√2√7": "二つとも負ではありません。第一因子の＋√2と第二因子の√7の積は正です。",
+        "−√7√7 と ＋√2√2": "これらは交差項の組ではありません。異なる根号どうしを掛ける項を対応させます。"
+      }
+    },
+    "n10-13-left": {
+      "validator": "exact",
+      "answer": "7",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "49": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt7": "平方した値を使います。"
+      }
+    },
+    "n10-13-right": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt2": "平方した値を使います。"
+      }
+    },
+    "n10-13-difference": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "9": "平方の和ではなく差です。",
+        "-5": "左から右を引く順序を保ちます。"
+      }
+    },
+    "n10-14-operation": {
+      "validator": "exact",
+      "answer": "分子と分母に同じ0でない数を掛ける",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "分母だけに同じ数を掛ける": "分母だけを変えると分数の値が変わります。",
+        "分子と分母に0を掛ける": "分母を0にはできません。"
+      }
+    },
+    "n10-q15-factor-factor": {
+      "validator": "exact",
+      "answer": "\\sqrt3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "√3を平方にする相手を考えます。",
+        "-\\sqrt3": "負の同根号でも別の同値変形はできますが、ここで指定する正の同じ根号とは区別します。"
+      }
+    },
+    "n10-15-ux06compensatingfactor": {
+      "validator": "exact",
+      "answer": "\\sqrt3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "分母だけに因子を掛けると分数の値が変わります。",
+        "3": "分母へ掛けた因子と同じ数を分子にも掛けます。"
+      }
+    },
+    "n10-15-ux06denominatorpower": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "√3が二因子あります。",
+        "3": "因子の中の数と指数を区別します。"
+      }
+    },
+    "n10-q16-denominator-square": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "9": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt3": "平方を実行します。"
+      }
+    },
+    "n10-q16-denominator-denominator": {
+      "validator": "exact",
+      "answer": "6",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "外の係数2を落としません。",
+        "5": "2と求めた値を掛けます。"
+      }
+    },
+    "n10-q17-factor-factor": {
+      "validator": "exact",
+      "answer": "\\sqrt3-\\sqrt2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt3+\\sqrt2": "同じ和では平方差になりません。",
+        "\\sqrt2-\\sqrt3": "逆順も別の有理化には使えますが、この問いのA−Bの対応とは区別します。"
+      }
+    },
+    "n10-q17-nonzero-relation": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "<": "与条件と左右の順序から関係を確かめます。",
+        "=": "候補の符号と等号にできる条件を確認します。"
+      }
+    },
+    "n10-17-ux06numeratorproduct": {
+      "validator": "exact",
+      "answer": "\\sqrt3c",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt3": "分子にもcを掛けます。",
+        "c": "元の分子√3を落としません。"
+      }
+    },
+    "n10-17-ux06denominatorscope": {
+      "validator": "exact",
+      "answer": "\\sqrt3+\\sqrt2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt3": "元の分母の和全体に掛けます。",
+        "\\sqrt2": "元の分母の一項だけには掛けません。"
+      }
+    },
+    "n10-18-a": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "9": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt3": "平方を計算します。"
+      }
+    },
+    "n10-18-b": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "根号全体の平方は中の数へ戻ります。中の数を再び平方しません。",
+        "\\sqrt2": "平方を計算します。"
+      }
+    },
+    "n10-18-c": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "5": "平方の差を計算します。",
+        "-1": "左右の順序を保持します。"
+      }
+    },
+    "n10-q19-distribute-distributednumeratorux05": {
+      "validator": "exact",
+      "answer": "\\sqrt3\\times\\sqrt3-\\sqrt3\\times\\sqrt2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt3\\times\\sqrt3-\\sqrt2": "括弧の第二項にも外の√3を掛けます。",
+        "\\sqrt3\\times\\sqrt3+\\sqrt3\\times\\sqrt2": "元の差を和へ変えてはいけません。",
+        "\\sqrt3\\times\\sqrt3-\\sqrt3": "第二項は√3と√2の積です。√2を落とさずに対応させます。"
+      }
+    },
+    "n10-19-inside": {
+      "validator": "exact",
+      "answer": "6",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "第二因子2も積へ含めます。",
+        "5": "根号の中の積を計算します。"
+      }
+    },
+    "n10-q20-factor-factor": {
+      "validator": "exact",
+      "answer": "2-\\sqrt3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2+\\sqrt3": "同じ和では平方差を作れません。",
+        "\\sqrt3-2": "その因子でも分母を−1にできます。ただし、この手順では正の因子cを選ぶ指定があります。指定と因子の符号を照合してください。"
+      }
+    },
+    "n10-q20-factor-positivecomparisonleftsquareux05": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2": "平方は同じ数を二回掛けます。2をそのまま残しません。",
+        "8": "2を三回掛ける計算ではありません。"
+      }
+    },
+    "n10-q20-factor-positivecomparisonrootsquareux05": {
+      "validator": "exact",
+      "answer": "3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "9": "根号の中の3をさらに平方しません。",
+        "\\sqrt3": "平方の作用を反映して根号を外します。"
+      }
+    },
+    "n10-q20-factor-factorsign": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "<": "2と√3の平方の大小を、元の正の数の大小へ戻してください。",
+        "=": "4と3は一致していません。"
+      }
+    },
+    "n10-q20-factor-reason": {
+      "validator": "exact",
+      "answer": "非零の因子で上下を同じように変え、分母の積を有理数にできるから",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "上下へ同じ因子を掛けさえすれば、その因子が零でも値を保てるから": "因子を上下へ掛けた式を比として見たとき、因子が零だと分母がどうなるか確かめてください。",
+        "分母の積が有理数なら、分子に掛ける因子は別の数でもよいから": "分母だけが有理数になっても、元の分数と同じ値になるとは限りません。上下へ掛けた比が何になるかを確かめてください。"
+      }
+    },
+    "n10-20-ux06numeratorpower": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "分子には同じ差が二因子あります。",
+        "4": "平方した因子を二つ掛けているのではありません。"
+      }
+    },
+    "n10-20-ux06denominatorsign": {
+      "validator": "exact",
+      "answer": "-",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "+": "和と差の積では交差項が相殺し、平方の差が残ります。",
+        "\\times": "二つの平方の積へはなりません。"
+      }
+    },
+    "n10-q21-denominator-d": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "7": "和ではなく差です。",
+        "-1": "左から右を引きます。"
+      }
+    },
+    "n10-q21-expand-signedmiddletermux05": {
+      "validator": "exact",
+      "answer": "-4\\sqrt3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "-2\\sqrt3": "公式の2ABではA=2です。その2をもう一つ掛けます。",
+        "+4\\sqrt3": "差の平方では中項が負です。",
+        "-12": "中項は2と√3の積の倍数です。√3を3へ取り替えません。"
+      }
+    },
+    "n10-q21-constants-c": {
+      "validator": "exact",
+      "answer": "7",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1": "普通の数は4と+3です。",
+        "12": "足し算を掛け算にしません。"
+      }
+    }
+  }
+}

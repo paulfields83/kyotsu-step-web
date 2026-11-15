@@ -1,0 +1,2654 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-ne01",
+  "revision": 6,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "3次の展開と因数分解",
+  "subtitle": "平方と分配法則から、三乗の公式を作って使う。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / NE01",
+    "rightsNote": "教師編集Wordの原問を照合した参考・発展のレビュー教材。出典は原Word SHA-256 93827322a877313d4d39957dd6196c01de31f2e994baa1aac0a64b96be88eeaa。sourcePagesは2026-10-23 LibreOffice再描画40頁版のページ番号であり、過去の53頁索引のページとは異なる。原問の段落対応はW-MATH-003/NE01_NE02/source.jsonに保持。別冊解答は未提供。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "分配した六項から三乗の係数を説明する",
+    "共通因数を使って三乗の和と差を因数分解する"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "NE01",
+      "title": "3次の展開と因数分解",
+      "description": "参考・発展。式と説明を一続きに読み、必要な変形を自分で完成させる。",
+      "figures": [],
+      "readingFlow": [
+        {
+          "id": "ne01-heading-01",
+          "type": "heading",
+          "text": "同じ因子を三つ掛ける"
+        },
+        {
+          "id": "ne01-marker-01",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "ne01-intro-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三乗は同じ因子を三つ掛けることを表す。まず二つを先に掛け、既習の平方の公式から計算を始める。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-first-goal",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "(x+3)³を展開します。先に二因子を平方として計算し、残る一因子を分配し、同類項をまとめる順に進めます。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-problem-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+3)^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三つの同じ因子のうち二つを先に掛ける。平方で生まれる中央の項も残し、一次式と二次式の積に直す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-01-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ三因子のうち二つを平方として先に計算する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-01-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+3)^3=(x+3)"
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-s5-cube-as-square"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-01-before-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和の平方へxと3を代入し、中央と最後の数も計算する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-01-before-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+3)^2=x^2+2x\\cdot3+3^2=x^2+6x+9"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+3)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-01"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの因子を先に掛けた結果を使い、残りの積を分配する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の積で、一次式の各項を二次式のすべての項へ掛ける。六つの積を書いてから同類項をまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-before-02-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+3)(x^2+6x+9)=x(x^2+6x+9)+"
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-s5-concrete-second-distribute"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-02-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三つの因子のうち二つを先に掛けたので、残る計算は一次式×二次式である。前のxを配った行と3を配った行を別々に作れば、六つの積を数えられる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-concrete-first-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず前のxを掛けた行だけを作ります。相手のx²、6x、9の順に積を計算します。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-concrete-first-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "xを三項へ掛け、各文字の指数を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-concrete-first-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x\\cdot x^2=x^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-concrete-first-before-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " x\\cdot6x=6x^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-concrete-first-before-0-equation-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " x\\cdot9=9x"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-concrete-first-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x(x^2+6x+9)="
+            },
+            {
+              "type": "math",
+              "latex": "x^3+6x^2+9x"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-concrete-second-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "xを掛けた行は完成しました。次に3を掛けた行を、同じ三項の順に作ります。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-concrete-second-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3を三項へ掛け、数の積を別々に計算する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-concrete-second-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\cdot x^2=3x^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-concrete-second-before-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\cdot6x=18x"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-concrete-second-before-0-equation-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\cdot9=27"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-concrete-second-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3(x^2+6x+9)="
+            },
+            {
+              "type": "math",
+              "latex": "3x^2+18x+27"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s5-concrete-square-terms-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{二次の項：}"
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-s5-concrete-square-terms"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-collect-square-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの行にある二次項の係数を足す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-collect-square-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "6x^2+3x^2=(6+3)x^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-collect-square"
+            },
+            {
+              "type": "math",
+              "latex": "x^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-collect-linear-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に一次項の係数を足す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-collect-linear-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "9x+18x=(9+18)x="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-collect-linear"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-02-assemble-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの行の結果を足し、二次項と一次項の組を作る。ここで求めた二つの係数を、この位置へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-02-assemble-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+3)(x^2+6x+9)=x^3+(6x^2+3x^2)+(9x+18x)+27"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+3)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-02"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-02-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二行の同類項を集めると四つの項になる。三次項と定数だけが残るのではなく、交差して生まれた二次項と一次項も残る。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "各項をすべて掛けると六項ができる。同じ次数の項だけをまとめるので、中央の二つの係数も変わる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-heading-03",
+          "type": "heading",
+          "text": "和と差の3乗を作る"
+        },
+        {
+          "id": "ne01-marker-03",
+          "type": "marker",
+          "kind": "proof",
+          "text": "導出"
+        },
+        {
+          "id": "ne01-intro-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "具体例の数を文字へ置き換える。a,bは任意の実数とし、平方の公式と分配法則から一般の式を導く。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "具体例の3を一般の実数bへ置き換える。同じ因子二つを平方にまとめ、既習の和の平方を使う。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-03-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "文字が一般のa,bになっても、二因子を平方へまとめる方法は同じである。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-03-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a+b)^3=(a+b)(a+b)^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a+b)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-03"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "aからの三項とbからの三項を、まとめる前の形で並べる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "aを掛けた三項とbを掛けた三項を順に書く。まだ同類項をまとめず、中央の係数がどこから生まれるか見える形にする。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-04-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "具体例のx、3をa、bへ変えても、分配する組合せは同じである。aを掛ける三組とbを掛ける三組を一つずつ対応させ、六項を作る。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-general-a-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一般の式でも同じ分配を使う。まずaを三項へ掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-general-a-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "aを三項へ配り、同じ文字の指数だけを足す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-general-a-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a\\cdot a^2=a^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-general-a-before-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " a(2ab)=2a^2b"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-general-a-before-0-equation-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " ab^2=ab^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-general-a-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a(a^2+2ab+b^2)="
+            },
+            {
+              "type": "math",
+              "latex": "a^3+2a^2b+ab^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-general-b-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次はbを三項へ掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-general-b-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "bを配った行も別に作る。中央の2はそのまま残る。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-general-b-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "ba^2=a^2b"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-general-b-before-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " b(2ab)=2ab^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-general-b-before-0-equation-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": " bb^2=b^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-general-b-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "b(a^2+2ab+b^2)="
+            },
+            {
+              "type": "math",
+              "latex": "a^2b+2ab^2+b^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a+b)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-04"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "六項のうち、同じ文字・次数の項同士をまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の六項でa²b同士、ab²同士をまとめる。得られた式を和の3乗の公式として整理する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s5-general-a2b-terms-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^2b\\text{の項：}"
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-s5-general-a2b-terms"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-general-first-middle-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a²bの二項だけを集め、係数を足す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-general-first-middle-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2a^2b+a^2b=(2+1)a^2b="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-general-first-middle"
+            },
+            {
+              "type": "math",
+              "latex": "a^2b"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s5-general-ab2-terms-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "ab^2\\text{の項：}"
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-s5-general-ab2-terms"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-general-second-middle-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ab²の二項にも同じ計算を行う。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-general-second-middle-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "ab^2+2ab^2=(1+2)ab^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-general-second-middle"
+            },
+            {
+              "type": "math",
+              "latex": "ab^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-04-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中央ではa²bが2個と1個、ab²が1個と2個に分かれている。次はこの同類項を集め、一般の係数3がどこから現れるかを確かめる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-05",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a+b)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-05"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中央の係数3は、それぞれ2と1を足して生まれた。これが和の3乗の展開である。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今作った和の公式でbを−bへ置き換える。奇数乗と偶数乗の符号を分けて判断する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-06-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "差の三乗を新しく暗記する前に、和の三乗でbを−bへ置き換える。bの一乗、二乗、三乗が別々に現れるので、それぞれに負号が何回掛かるかを調べる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-negative-substitute-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和の3乗の公式のbを、すべて−bに置き換える。符号の計算より先に、代入した形を作ろう。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-negative-substitute-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a-b)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-negative-substitute"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-even-sign-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負の因子を二回掛けた部分だけを計算しよう。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-even-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "−bを、数の部分−1と文字bの積へ戻す。二乗では−1も二回掛かる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-even-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-b)^2=((-1)(-1))b^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-detail-even-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": "\\cdot b^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-even-coefficient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "符号を含む数の部分が決まったので、次の行では係数1を省略した通常の形に直す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-even-sign-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-b)^2="
+            },
+            {
+              "type": "math",
+              "latex": "b^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-odd-sign-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "もう一つ負の因子が掛かると、三乗の符号はどうなるだろう。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-odd-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三乗では、二乗の結果にもう一つ−bを掛ける。数の部分の積に最後の負号を含めよう。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-odd-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-b)^3=((-1)(-1)(-1))b^3=("
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-detail-odd-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")b^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-odd-coefficient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "偶数回と奇数回で符号が違う理由が、この因子の個数から分かる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-odd-sign-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-b)^3="
+            },
+            {
+              "type": "math",
+              "latex": "-b^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-06-assemble-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "負号を計算した各部分を、置換直後の三つの位置へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-06-assemble-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3a^2(-b)=-3a^2b"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-06-assemble-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3a(-b)^2=3ab^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-06-assemble-0-equation-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-b)^3=-b^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-06",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a-b)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-06"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-06-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "奇数回掛かるbの項は負になり、二回掛かる項は正になる。このため差の三乗の符号は、左から正・負・正・負と並ぶ。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "奇数乗では負号が残り、偶数乗では残らない。置換を使えば符号の理由まで確かめられる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-heading-07",
+          "type": "heading",
+          "text": "できた公式を具体式へ使う"
+        },
+        {
+          "id": "ne01-marker-07",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "ne01-intro-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "差の3乗の公式を、新しい具体式へ対応させる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-problem-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x-2)^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "差の3乗の公式を今度はxと2に使う。中央二項の係数と符号を確かめ、具体式へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-07-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここでは差の公式を使う方針が既に立っている。a=x、b=2を各項へ代入し、二乗と三乗を計算してから係数をまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-concrete-substitute-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "差の3乗の公式へa=x、b=2を代入する。まだ数の掛け算は残そう。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-concrete-substitute-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x-2)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-concrete-substitute"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-quadratic-coefficient-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "代入した式を左から見ます。先頭x³はそのままなので、次の二次項−3x²×2から計算します。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-quadratic-coefficient-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3x^2\\cdot2=(-3\\cdot2)x^2=("
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-detail-quadratic-coefficient"
+            },
+            {
+              "type": "math",
+              "latex": ")x^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-quadratic-coefficient-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "これで二次項が決まった。一次項は2²を含むので、同じ計算にはならない。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-linear-number-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次項は−6x²になりました。次に一次項の係数3×2²を計算します。先に2²を求めます。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-linear-number-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3\\cdot2^2=3\\cdot4="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-linear-number"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-constant-power-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "定数項では、2³を計算してから前のマイナスを付ける。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-constant-power-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2^3=-(2\\cdot2\\cdot2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-detail-constant-power"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-constant-power-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次項、一次項、定数項の計算結果を元の位置へ戻すと、展開した四項がそろう。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x-2)^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-07"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-07-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ2を代入しても、2、2²、2³では計算する値が違う。代入直後の式と完成式を対応させれば、中央二項を省略せずに検算できる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "公式の各項へ代入すると、中央二項も省かず展開できる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-heading-08",
+          "type": "heading",
+          "text": "3乗の和を積へ戻す"
+        },
+        {
+          "id": "ne01-marker-08",
+          "type": "marker",
+          "kind": "proof",
+          "text": "導出"
+        },
+        {
+          "id": "ne01-intro-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和の3乗には、3乗の和のほかに中央の二項がある。この二項を取り除くため、先に共通因数を見つける。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3乗の和だけを取り出すため、和の3乗で生じた中央二項に注目する。両方に共通する因数でまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-08-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "因数分解したいのはa³+b³である。既知の(a+b)³には余分な中央二項があるので、それらを引いて目的の式だけを取り出す。その中央二項を共通因数でまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-08-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "既知の和の三乗から、余分な中央二項を両辺で引く。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-08-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a+b)^3-3a^2b-3ab^2=a^3+b^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-08-before-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "引く二項をそれぞれ共通因数の積へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-08-before-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3a^2b=(3ab)a"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-08-before-1-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3ab^2=(3ab)b"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-08",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3a^2b+3ab^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-08"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-explain-ne01-08-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中央二項を3ab(a+b)へまとめたため、全体の両項にa+bが共通する形が見えた。次の段階では、この括弧を共通因数として外へ出せる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-08-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二項を引く部分を一つの括弧へまとめ、その中へ因数分解の結果を戻す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-08-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^3+b^3=(a+b)^3-(3a^2b+3ab^2)=(a+b)^3-3ab(a+b)"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "このまとまりを和の3乗から引くと、3乗の和が残る。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の段階でa³+b³=(a+b)³−3ab(a+b)が得られました。三乗を積へ戻して、両項に共通するa+bを一度だけ取り出します。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-09-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三乗から一つのa+bを外へ出す。もう一方の項にも同じ括弧が掛かる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-09-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a+b)^3=(a+b)(a+b)^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-09-before-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "これで二項の共通因数としてa+bを取り出せる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-09-before-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^3+b^3=(a+b)(a+b)^2-3ab(a+b)"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-09",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^3+b^3=(a+b)("
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-s5-factor-common-remainder"
+            },
+            {
+              "type": "math",
+              "latex": ")"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "括弧内の平方を展開し、中央の項をまとめる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-10",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "括弧内だけを展開して整理する。和の平方でできる中央項と、引いた項を合わせ、積の形で完成させる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-10-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残る括弧の平方を展開し、−3abを残す。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-10-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a+b)^2-3ab=a^2+2ab+b^2-3ab"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-middle-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中央の同類項の係数を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-middle-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2ab-3ab=(2-3)ab=("
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-cube-factor-middle"
+            },
+            {
+              "type": "math",
+              "latex": ")ab"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-10",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^3+b^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-10"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-10",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "展開して元の二項へ戻ることでも、この因数分解を確かめられる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-lead-11",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は3乗の差a³−b³を因数分解します。3乗の和a³+b³の因数分解でbを−bへ置き換え、両方の因子に同じ置換を行います。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-difference-left",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^3+(-b)^3=a^3-b^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-difference-substitute-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "3乗の和の因数分解でbを−bへ置き換えます。左辺a³+(−b)³はa³−b³になるので、3乗の差の因数分解を作れます。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-difference-substitute-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^3-b^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-difference-substitute"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-11-assemble-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "代入した二次因子の負号を、項ごとに処理する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-11-assemble-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-a(-b)=ab"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-11-assemble-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-b)^2=b^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-formula-11",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^3-b^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-11"
+            }
+          ]
+        },
+        {
+          "id": "ne01-after-11",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和と差では、一次因子と二次因子の中央項の符号の組み合わせが変わる。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-heading-12",
+          "type": "heading",
+          "text": "一問目：x³−1を因数分解する"
+        },
+        {
+          "id": "ne01-s4-first-factor-goal",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "x³−1を因数分解します。まず二項を、それぞれ何の3乗かが分かる形に書きます。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-first-factor-source",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3-1=x^3-1^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-difference-rule-formula",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne01-s4-difference-rule"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-first-factor-substitution",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "a³−b³の公式でa=x、b=1とします。二つの因子の両方へ代入し、1を掛ける部分と1の平方を整理します。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-first-factor-insert",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3-1=(x-1)("
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-s5-difference-substitute"
+            },
+            {
+              "type": "math",
+              "latex": ")"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-factor-difference-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず一問目だけを完成させる。a=x、b=1として差の公式を使おう。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-factor-difference-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x^3-1="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-factor-difference"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-first-factor-close",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一問目は(x−1)(x²+x+1)になりました。ここで計算を終え、次の問題へ移ります。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-second-factor-heading",
+          "type": "heading",
+          "text": "二問目：8x³+27y³を因数分解する"
+        },
+        {
+          "id": "ne01-s4-second-factor-goal",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "8x³+27y³を因数分解します。係数も含めて、二つの項をそれぞれ一つの式の3乗へ戻します。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-second-factor-source",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "8x^3+27y^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-root-eight-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "8x³を一つの式の三乗へ戻す。正の係数で、三回掛けて8になる数を使う。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-root-eight-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "("
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-cube-root-eight"
+            },
+            {
+              "type": "math",
+              "latex": "x)^3=8x^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-audit-cube-root-eight-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "係数の三乗と文字の三乗を別に計算して検算する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-audit-cube-root-eight-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2x)^3=2^3x^3=8x^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-root-twentyseven-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "27y³も同じ方法で三乗へ戻す。正の係数を選ぼう。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-root-twentyseven-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "("
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-cube-root-twentyseven"
+            },
+            {
+              "type": "math",
+              "latex": "y)^3=27y^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-audit-cube-root-twentyseven-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二問目も係数の三乗を含めて一致した。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-worked-ne01-bridge-audit-cube-root-twentyseven-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(3y)^3=3^3y^3=27y^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-second-factor-rewrite",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "8x^3+27y^3=(2x)^3+(3y)^3"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-sum-rule-formula",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "ne01-s4-sum-rule"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-second-factor-map",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "今回はa=2x、b=3yです。a³+b³の公式へ、二つのまとまりを括弧ごと代入します。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-factor-sum-substitute-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二問目はa=2x、b=3y。和の公式に括弧ごと代入しよう。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s5-sum-linear-factor-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a+b="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-s5-sum-linear-factor"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-factor-sum-substitute-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "8x^3+27y^3=(2x+3y)("
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-s5-sum-quadratic-substitute"
+            },
+            {
+              "type": "math",
+              "latex": ")"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-second-factor-order",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次の因子の中を、最初の平方、中央の積、最後の平方の順に計算します。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-square-a-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "代入した2x全体の平方を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-square-a-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2x)^2=(2\\cdot2)x^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-cube-factor-square-a"
+            },
+            {
+              "type": "math",
+              "latex": "x^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-product-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次因子の中央の積では、2と3を掛ける。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-product-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(2x)(3y)=(2\\cdot3)xy="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-cube-factor-product"
+            },
+            {
+              "type": "math",
+              "latex": "xy"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-square-b-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後は3y全体を二乗する。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-square-b-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(3y)^2=(3\\cdot3)y^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "ne01-bridge-audit-cube-factor-square-b"
+            },
+            {
+              "type": "math",
+              "latex": "y^2"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-second-factor-return",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三つの結果4x²、6xy、9y²を、公式の二次の因子へ戻します。中央には元の公式のマイナスを残します。"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-second-factor-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "8x^3+27y^3=(2x+3y)(4x^2-6xy+9y^2)"
+            }
+          ]
+        },
+        {
+          "id": "ne01-s4-final-summary",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三乗の展開・因数分解も、平方の公式、分配法則、共通因数をつないで導けます。式の形を見分け、まとまりを対応させて代入し、計算結果を元の位置へ戻す順序を使いました。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "ne01-s5-cube-as-square",
+          "label": "NE01-S5-CUBE-AS-SQUARE",
+          "prompt": "残りは同じ因子を二つ掛けたものです。",
+          "answerType": "formula",
+          "choices": [
+            "(x+3)^2",
+            "(x^2+9)",
+            "(x+3)"
+          ],
+          "hints": [
+            "残りは同じ因子を二つ掛けたものです。"
+          ]
+        },
+        {
+          "id": "ne01-01",
+          "label": "NE01-01",
+          "prompt": "三つの同じ因子のうち二つを先に掛ける。平方で生まれる中央の項も残し、一次式と二次式の積に直す。",
+          "answerType": "formula",
+          "choices": [
+            "(x+3)(x^2+6x+9)",
+            "(x+3)(x^2+9)",
+            "(x+3)(x^2+3x+9)"
+          ],
+          "hints": [
+            "和の平方では、異なる二項の積が二つできる。"
+          ]
+        },
+        {
+          "id": "ne01-s5-concrete-second-distribute",
+          "label": "NE01-S5-CONCRETE-SECOND-DISTRIBUTE",
+          "prompt": "xのときと同じ括弧全体を残します。",
+          "answerType": "formula",
+          "choices": [
+            "3(x^2+6x+9)",
+            "3(x^2+6x)",
+            "3"
+          ],
+          "hints": [
+            "xのときと同じ括弧全体を残します。"
+          ]
+        },
+        {
+          "id": "ne01-s5-concrete-square-terms",
+          "label": "NE01-S5-CONCRETE-SQUARE-TERMS",
+          "prompt": "文字の部分がx²の二項です。",
+          "answerType": "formula",
+          "choices": [
+            "6x^2+3x^2",
+            "6x^2+18x",
+            "6x^2-3x^2"
+          ],
+          "hints": [
+            "文字の部分がx²の二項です。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-collect-square",
+          "label": "NE01-BRIDGE-AUDIT-COLLECT-SQUARE",
+          "prompt": "二つの行にある二次項の係数を足す。",
+          "answerType": "formula",
+          "choices": [
+            "9",
+            "3",
+            "18",
+            "6"
+          ],
+          "hints": [
+            "二次項だけを集め、指数2は変えない。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-collect-linear",
+          "label": "NE01-BRIDGE-AUDIT-COLLECT-LINEAR",
+          "prompt": "次に一次項の係数を足す。",
+          "answerType": "formula",
+          "choices": [
+            "27",
+            "9",
+            "18",
+            "162"
+          ],
+          "hints": [
+            "二つの積から生まれた一次項を両方残す。"
+          ]
+        },
+        {
+          "id": "ne01-02",
+          "label": "NE01-02",
+          "prompt": "前の積で、一次式の各項を二次式のすべての項へ掛ける。六つの積を書いてから同類項をまとめる。",
+          "answerType": "formula",
+          "choices": [
+            "x^3+9x^2+27x+27",
+            "x^3+27",
+            "x^3+6x^2+9x+27"
+          ],
+          "hints": [
+            "xを掛けた三項と、3を掛けた三項を並べよう。"
+          ]
+        },
+        {
+          "id": "ne01-03",
+          "label": "NE01-03",
+          "prompt": "具体例の3を一般の実数bへ置き換える。同じ因子二つを平方にまとめ、既習の和の平方を使う。",
+          "answerType": "formula",
+          "choices": [
+            "(a+b)(a^2+2ab+b^2)",
+            "(a+b)(a^2+b^2)",
+            "(a+b)(a^2+ab+b^2)"
+          ],
+          "hints": [
+            "三乗を一次式と平方の積に分ける。"
+          ]
+        },
+        {
+          "id": "ne01-04",
+          "label": "NE01-04",
+          "prompt": "aを掛けた三項とbを掛けた三項を順に書く。まだ同類項をまとめず、中央の係数がどこから生まれるか見える形にする。",
+          "answerType": "formula",
+          "choices": [
+            "a^3+2a^2b+ab^2+a^2b+2ab^2+b^3",
+            "a^3+2a^2b+ab^2+b^3",
+            "a^3+2a^2b+ab^2+a^2b+ab^2+b^3"
+          ],
+          "hints": [
+            "先にa×括弧、次にb×括弧の三項ずつを数えよう。"
+          ]
+        },
+        {
+          "id": "ne01-s5-general-a2b-terms",
+          "label": "NE01-S5-GENERAL-A2B-TERMS",
+          "prompt": "aもbも、それぞれの指数まで一致する項を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "2a^2b+a^2b",
+            "2a^2b+ab^2",
+            "2a^2b-a^2b"
+          ],
+          "hints": [
+            "aもbも、それぞれの指数まで一致する項を選びます。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-general-first-middle",
+          "label": "NE01-BRIDGE-AUDIT-GENERAL-FIRST-MIDDLE",
+          "prompt": "a²bの二項だけを集め、係数を足す。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "2",
+            "1",
+            "4"
+          ],
+          "hints": [
+            "二つの行に分かれていた同類項をまとめる。"
+          ]
+        },
+        {
+          "id": "ne01-s5-general-ab2-terms",
+          "label": "NE01-S5-GENERAL-AB2-TERMS",
+          "prompt": "今度はaが一つ、bが二つの項です。",
+          "answerType": "formula",
+          "choices": [
+            "ab^2+2ab^2",
+            "ab^2+2a^2b",
+            "ab^2-2ab^2"
+          ],
+          "hints": [
+            "今度はaが一つ、bが二つの項です。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-general-second-middle",
+          "label": "NE01-BRIDGE-AUDIT-GENERAL-SECOND-MIDDLE",
+          "prompt": "ab²の二項にも同じ計算を行う。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "1",
+            "2",
+            "4"
+          ],
+          "hints": [
+            "a²bの項とは、文字の指数が違うので混ぜない。"
+          ]
+        },
+        {
+          "id": "ne01-05",
+          "label": "NE01-05",
+          "prompt": "前の六項でa²b同士、ab²同士をまとめる。得られた式を和の3乗の公式として整理する。",
+          "answerType": "formula",
+          "choices": [
+            "a^3+3a^2b+3ab^2+b^3",
+            "a^3+2a^2b+2ab^2+b^3",
+            "a^3+3a^2b+3ab^2-b^3"
+          ],
+          "hints": [
+            "a²bとab²について、それぞれ係数を足そう。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-negative-substitute",
+          "label": "NE01-BRIDGE-NEGATIVE-SUBSTITUTE",
+          "prompt": "和の3乗の公式のbを、すべて−bに置き換える。符号の計算より先に、代入した形を作ろう。",
+          "answerType": "formula",
+          "choices": [
+            "a^3+3a^2(-b)+3a(-b)^2+(-b)^3",
+            "a^3+3a^2(-b)+3ab^2+b^3",
+            "a^3-3a^2b-3ab^2-b^3",
+            "a^3+3a^2b+3ab^2-b^3"
+          ],
+          "hints": [
+            "bを一回だけ含む項、二回含む項、三回含む項のすべてを置き換えよう。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-even-coefficient",
+          "label": "NE01-BRIDGE-DETAIL-EVEN-COEFFICIENT",
+          "prompt": "−bを、数の部分−1と文字bの積へ戻す。二乗では−1も二回掛かる。",
+          "answerType": "formula",
+          "choices": [
+            "1",
+            "-1",
+            "2",
+            "-2"
+          ],
+          "hints": [
+            "負号を消すという決まりを覚える代わりに、負×負の積を計算する。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-odd-coefficient",
+          "label": "NE01-BRIDGE-DETAIL-ODD-COEFFICIENT",
+          "prompt": "三乗では、二乗の結果にもう一つ−bを掛ける。数の部分の積に最後の負号を含めよう。",
+          "answerType": "formula",
+          "choices": [
+            "-1",
+            "1",
+            "3",
+            "-3"
+          ],
+          "hints": [
+            "最初の二個の積を求めた後、残った−1を掛ける。"
+          ]
+        },
+        {
+          "id": "ne01-06",
+          "label": "NE01-06",
+          "prompt": "今作った和の公式でbを−bへ置き換える。奇数乗と偶数乗の符号を分けて判断する。",
+          "answerType": "formula",
+          "choices": [
+            "a^3-3a^2b+3ab^2-b^3",
+            "a^3-3a^2b-3ab^2-b^3",
+            "a^3+3a^2b+3ab^2-b^3"
+          ],
+          "hints": [
+            "bの一次・二次・三次で、負号が残るかを別々に確かめよう。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-concrete-substitute",
+          "label": "NE01-BRIDGE-CONCRETE-SUBSTITUTE",
+          "prompt": "差の3乗の公式へa=x、b=2を代入する。まだ数の掛け算は残そう。",
+          "answerType": "formula",
+          "choices": [
+            "x^3-3x^2\\cdot2+3x\\cdot2^2-2^3",
+            "x^3-3x^2\\cdot2-3x\\cdot2^2-2^3",
+            "x^3-3x^2+3x-2",
+            "x^3+3x^2\\cdot2+3x\\cdot2^2+2^3"
+          ],
+          "hints": [
+            "公式のbが2に当たる。b²、b³にも2を入れよう。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-quadratic-coefficient",
+          "label": "NE01-BRIDGE-DETAIL-QUADRATIC-COEFFICIENT",
+          "prompt": "代入した式を左から見ます。先頭x³はそのままなので、次の二次項−3x²×2から計算します。",
+          "answerType": "formula",
+          "choices": [
+            "-6",
+            "6",
+            "-3",
+            "-5"
+          ],
+          "hints": [
+            "負×正の符号と、3×2の大きさを別々に確かめる。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-linear-number",
+          "label": "NE01-BRIDGE-LINEAR-NUMBER",
+          "prompt": "二次項は−6x²になりました。次に一次項の係数3×2²を計算します。先に2²を求めます。",
+          "answerType": "formula",
+          "choices": [
+            "12",
+            "6",
+            "36",
+            "8"
+          ],
+          "hints": [
+            "3×2を先に二乗する式とは違う。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-detail-constant-power",
+          "label": "NE01-BRIDGE-DETAIL-CONSTANT-POWER",
+          "prompt": "定数項では、2³を計算してから前のマイナスを付ける。",
+          "answerType": "formula",
+          "choices": [
+            "-8",
+            "8",
+            "-6",
+            "6"
+          ],
+          "hints": [
+            "三乗は2を三回掛ける操作である。"
+          ]
+        },
+        {
+          "id": "ne01-07",
+          "label": "NE01-07",
+          "prompt": "差の3乗の公式を今度はxと2に使う。中央二項の係数と符号を確かめ、具体式へ戻す。",
+          "answerType": "formula",
+          "choices": [
+            "x^3-6x^2+12x-8",
+            "x^3-6x^2-12x-8",
+            "x^3-8"
+          ],
+          "hints": [
+            "a=x、b=2と対応させ、各項へ代入しよう。"
+          ]
+        },
+        {
+          "id": "ne01-08",
+          "label": "NE01-08",
+          "prompt": "3乗の和だけを取り出すため、和の3乗で生じた中央二項に注目する。両方に共通する因数でまとめる。",
+          "answerType": "formula",
+          "choices": [
+            "3ab(a+b)",
+            "3ab(a-b)",
+            "ab(a+b)"
+          ],
+          "hints": [
+            "二項それぞれに含まれる数と文字をすべて取り出そう。"
+          ]
+        },
+        {
+          "id": "ne01-s5-factor-common-remainder",
+          "label": "NE01-S5-FACTOR-COMMON-REMAINDER",
+          "prompt": "最初の項からは(a+b)²、後ろの項からは−3abが残ります。",
+          "answerType": "formula",
+          "choices": [
+            "(a+b)^2-3ab",
+            "(a+b)^2+3ab",
+            "(a+b)-3ab"
+          ],
+          "hints": [
+            "最初の項からは(a+b)²、後ろの項からは−3abが残ります。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-middle",
+          "label": "NE01-BRIDGE-AUDIT-CUBE-FACTOR-MIDDLE",
+          "prompt": "中央の同類項の係数を計算する。",
+          "answerType": "formula",
+          "choices": [
+            "-1",
+            "1",
+            "5",
+            "-5"
+          ],
+          "hints": [
+            "括弧の外のa+bは変えず、中の同類項だけをまとめる。"
+          ]
+        },
+        {
+          "id": "ne01-10",
+          "label": "NE01-10",
+          "prompt": "括弧内だけを展開して整理する。和の平方でできる中央項と、引いた項を合わせ、積の形で完成させる。",
+          "answerType": "formula",
+          "choices": [
+            "(a+b)(a^2-ab+b^2)",
+            "(a+b)(a^2+ab+b^2)",
+            "(a+b)(a^2-3ab+b^2)"
+          ],
+          "hints": [
+            "括弧内の(a+b)²を先に展開し、abの係数をまとめよう。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-difference-substitute",
+          "label": "NE01-BRIDGE-DIFFERENCE-SUBSTITUTE",
+          "prompt": "3乗の和の因数分解でbを−bへ置き換えます。左辺a³+(−b)³はa³−b³になるので、3乗の差の因数分解を作れます。",
+          "answerType": "formula",
+          "choices": [
+            "(a-b)(a^2-a(-b)+(-b)^2)",
+            "(a-b)(a^2-ab-b^2)",
+            "(a+b)(a^2+ab+b^2)",
+            "(a-b)(a^2-ab+b^2)"
+          ],
+          "hints": [
+            "和の公式(a+b)(a²−ab+b²)の、bを含む場所をすべて置換しよう。"
+          ]
+        },
+        {
+          "id": "ne01-11",
+          "label": "NE01-11",
+          "prompt": "和の因数分解にb→−bを使う。一次の因子と二次の因子の両方へ置換を反映し、3乗の差を作る。",
+          "answerType": "formula",
+          "choices": [
+            "(a-b)(a^2+ab+b^2)",
+            "(a-b)(a^2-ab+b^2)",
+            "(a-b)(a^2+ab-b^2)"
+          ],
+          "hints": [
+            "二つの括弧の中にあるbを、一つずつ−bへ置き換えよう。"
+          ]
+        },
+        {
+          "id": "ne01-s4-difference-rule",
+          "label": "NE01-S4-DIFFERENCE-RULE",
+          "prompt": "x³−1³に対応する形を選びます。",
+          "answerType": "text",
+          "choices": [
+            "3乗の差",
+            "差の3乗",
+            "平方の差"
+          ],
+          "hints": [
+            "(x−1)³ではなく、三乗した二つの項の差です。"
+          ]
+        },
+        {
+          "id": "ne01-s5-difference-substitute",
+          "label": "NE01-S5-DIFFERENCE-SUBSTITUTE",
+          "prompt": "差の因数分解では、二次因子の中央はプラスです。",
+          "answerType": "formula",
+          "choices": [
+            "x^2+x\\cdot1+1^2",
+            "x^2-x\\cdot1+1^2",
+            "x^2+x\\cdot1-1^2"
+          ],
+          "hints": [
+            "差の因数分解では、二次因子の中央はプラスです。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-factor-difference",
+          "label": "NE01-BRIDGE-FACTOR-DIFFERENCE",
+          "prompt": "まず一問目だけを完成させる。a=x、b=1として差の公式を使おう。",
+          "answerType": "formula",
+          "choices": [
+            "(x-1)(x^2+x+1)",
+            "(x-1)(x^2-x+1)",
+            "(x+1)(x^2-x+1)",
+            "(x-1)(x^2+x-1)"
+          ],
+          "hints": [
+            "差の公式では、二次因子の中央と最後はどちらも正になる。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-root-eight",
+          "label": "NE01-BRIDGE-AUDIT-CUBE-ROOT-EIGHT",
+          "prompt": "8x³を一つの式の三乗へ戻す。正の係数で、三回掛けて8になる数を使う。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "8",
+            "4",
+            "3"
+          ],
+          "hints": [
+            "係数も文字と一緒に三乗の中へ入れる。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-root-twentyseven",
+          "label": "NE01-BRIDGE-AUDIT-CUBE-ROOT-TWENTYSEVEN",
+          "prompt": "27y³も同じ方法で三乗へ戻す。正の係数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "9",
+            "27",
+            "2"
+          ],
+          "hints": [
+            "三回掛けた数が27になるか確かめる。"
+          ]
+        },
+        {
+          "id": "ne01-s4-sum-rule",
+          "label": "NE01-S4-SUM-RULE",
+          "prompt": "二つの3乗を足した形に対応する公式を選びます。",
+          "answerType": "text",
+          "choices": [
+            "3乗の和",
+            "和の3乗",
+            "3乗の差"
+          ],
+          "hints": [
+            "括弧全体を三乗する式とは異なります。"
+          ]
+        },
+        {
+          "id": "ne01-s5-sum-linear-factor",
+          "label": "NE01-S5-SUM-LINEAR-FACTOR",
+          "prompt": "二つの三乗の底を、そのまま足します。",
+          "answerType": "formula",
+          "choices": [
+            "2x+3y",
+            "2x-3y",
+            "8x+27y"
+          ],
+          "hints": [
+            "二つの三乗の底を、そのまま足します。"
+          ]
+        },
+        {
+          "id": "ne01-s5-sum-quadratic-substitute",
+          "label": "NE01-S5-SUM-QUADRATIC-SUBSTITUTE",
+          "prompt": "二次因子にも2xと3yを括弧ごと代入します。",
+          "answerType": "formula",
+          "choices": [
+            "(2x)^2-(2x)(3y)+(3y)^2",
+            "(2x)^2+(2x)(3y)+(3y)^2",
+            "2x^2-(2x)(3y)+3y^2"
+          ],
+          "hints": [
+            "二次因子にも2xと3yを括弧ごと代入します。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-square-a",
+          "label": "NE01-BRIDGE-AUDIT-CUBE-FACTOR-SQUARE-A",
+          "prompt": "代入した2x全体の平方を計算する。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "2",
+            "8",
+            "6"
+          ],
+          "hints": [
+            "公式へ入れた式全体に、平方または積の操作を行う。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-product",
+          "label": "NE01-BRIDGE-AUDIT-CUBE-FACTOR-PRODUCT",
+          "prompt": "二次因子の中央の積では、2と3を掛ける。",
+          "answerType": "formula",
+          "choices": [
+            "6",
+            "5",
+            "3",
+            "9"
+          ],
+          "hints": [
+            "公式へ入れた式全体に、平方または積の操作を行う。"
+          ]
+        },
+        {
+          "id": "ne01-bridge-audit-cube-factor-square-b",
+          "label": "NE01-BRIDGE-AUDIT-CUBE-FACTOR-SQUARE-B",
+          "prompt": "最後は3y全体を二乗する。",
+          "answerType": "formula",
+          "choices": [
+            "9",
+            "6",
+            "3",
+            "12"
+          ],
+          "hints": [
+            "公式へ入れた式全体に、平方または積の操作を行う。"
+          ]
+        }
+      ]
+    }
+  ]
+}

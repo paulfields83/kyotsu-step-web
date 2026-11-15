@@ -1,0 +1,2510 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n14",
+  "revision": 11,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "距離の上限と下限から、残す範囲を決める",
+  "subtitle": "絶対値の内側・外側と端点を、数直線で選び分ける。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N14",
+    "rightsNote": "教師編集WordのN14原問16件、答えの後に開く元数直線1点、別冊解答未提供の独立導出、レビュー限定。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "距離の上限と下限を内外の範囲へ翻訳する",
+    "等号の有無から端点の包含を判断する",
+    "二重不等式と「または」の二枝を区別して解く"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "14",
+      "title": "距離の上限と下限から、残す範囲を決める",
+      "description": "範囲の意味から変形し、元の条件へ戻して検算する。",
+      "figures": [
+        {
+          "id": "n14-f01",
+          "src": "assets/n14-f01.png",
+          "alt": "距離が3より小さい範囲と4以上の範囲を上下で比較した、解答後確認用の元図。",
+          "caption": "二つの範囲を導いた後で、内側と外側を図で比較する。"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "n14-heading-1",
+          "type": "heading",
+          "text": "距離から残す範囲を考える"
+        },
+        {
+          "id": "n14-marker-1",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "n14-group-1",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値の不等式を距離の条件として読む。「より近い」と「少なくともこれだけ遠い」では残す範囲が反対になる。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x|<3"
+            },
+            {
+              "type": "text",
+              "text": "は、数直線上で原点からの距離に上限を付けた条件。"
+            },
+            {
+              "type": "math",
+              "latex": "|x|<3"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "考えて選ぶ："
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-01"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界になる位置を先に見つけ、そこからどちら側を残すか判断する。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "原点からの距離がちょうど3になる点は左右に一つずつある。"
+            },
+            {
+              "type": "math",
+              "latex": "|x|=3"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-02"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界の二点が決まりました。次に、その間と外側のどちらを残すか、元の距離の条件から考えます。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x|<3"
+            },
+            {
+              "type": "text",
+              "text": "の意味から、−3と3の間か外側か、端点を含むかを判断する。"
+            },
+            {
+              "type": "math",
+              "latex": "|x|<3"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-q03-region-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "距離が3未満となる領域を、二点の間と外側から選びましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-q03-region-formula",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-w048-q03-region"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-q03-region-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残す領域が決まりました。次は、距離がちょうど3の境界を含むかを判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "考えて選ぶ："
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-03"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "範囲は左右二つの境界の内側で、端点は白丸になる。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残す区間を一つの二重不等式へ書き換える。"
+            },
+            {
+              "type": "math",
+              "latex": "|x|<3"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-04"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二重不等式は左右両方の条件を同時に満たす数全体を表す。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の例題は、距離に下限がある条件です。境界の位置、残す領域、等号の扱いを順に判断します。"
+            },
+            {
+              "type": "math",
+              "latex": "|x|\\ge4"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-q05-boundaries-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "距離がちょうど4になる二つの境界を選びましょう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-q05-boundaries-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-w048-q05-boundaries"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-q05-boundaries-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界の二点が決まりました。次は残す領域を考えます。"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-q05-region-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の距離の下限を満たすのは、二点の間と外側のどちらでしょう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-q05-region-formula",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-w048-q05-region"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-q05-region-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残す領域が決まりました。最後に、元の不等号が境界を含むかを判断します。"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "考えて選ぶ："
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-05"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "原点から遠い範囲は、右と左に分かれた二つの区間となる。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直前に決めた境界・内外・端点の扱いを、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "についての二つの不等式へ翻訳しよう。二つの枝をどう結ぶかも自分で判断する。"
+            },
+            {
+              "type": "math",
+              "latex": "|x|\\ge4"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-06",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-06"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界を含む左右の外側なので"
+            },
+            {
+              "type": "math",
+              "latex": "x\\le -4"
+            },
+            {
+              "type": "text",
+              "text": "または"
+            },
+            {
+              "type": "math",
+              "latex": "x\\ge 4"
+            },
+            {
+              "type": "text",
+              "text": "となる。二つの問題を解いたので完成原図で比較しよう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-show-n14-f01",
+          "type": "figure",
+          "figureId": "n14-f01"
+        },
+        {
+          "id": "n14-heading-2",
+          "type": "heading",
+          "text": "距離の規則を一般化する"
+        },
+        {
+          "id": "n14-marker-2",
+          "type": "marker",
+          "kind": "proof",
+          "text": "導出"
+        },
+        {
+          "id": "n14-group-2",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "境界の距離を正の数"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "とし、中の式全体を"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "と見ても、数直線の意味は同じである。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-wm014-q07-nonnegative",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "距離の規則を一般の数"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "で考える。"
+            },
+            {
+              "type": "math",
+              "latex": "a>0"
+            },
+            {
+              "type": "text",
+              "text": "とし、まず"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "が0以上の場合を調べよう。"
+            },
+            {
+              "type": "math",
+              "latex": "|X|<a\\quad(a>0)"
+            },
+            {
+              "type": "math",
+              "latex": "X\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=X"
+            },
+            {
+              "type": "text",
+              "text": "となる。この場合に成り立つ"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "の範囲を選ぼう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-wm014-q07-nonnegative",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-wm014-q07-nonnegative"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-wm014-q07-nonnegative",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "なので"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=X"
+            },
+            {
+              "type": "text",
+              "text": "。よって"
+            },
+            {
+              "type": "math",
+              "latex": "X<a"
+            },
+            {
+              "type": "text",
+              "text": "であり、二つの条件を合わせて"
+            },
+            {
+              "type": "math",
+              "latex": "0\\le X<a"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-wm014-q07-negative",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次に"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "が負の場合を調べる。"
+            },
+            {
+              "type": "math",
+              "latex": "X<0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=-X"
+            },
+            {
+              "type": "text",
+              "text": "だから、"
+            },
+            {
+              "type": "math",
+              "latex": "-X<a"
+            },
+            {
+              "type": "text",
+              "text": "となる。両辺に−1を掛けると不等号は反転する。"
+            },
+            {
+              "type": "math",
+              "latex": "X<0"
+            },
+            {
+              "type": "text",
+              "text": "も考慮した範囲を選ぼう。"
+            },
+            {
+              "type": "math",
+              "latex": "-X<a\\quad(X<0)"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-wm014-q07-negative",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-wm014-q07-negative"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-wm014-q07-negative",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-X<a"
+            },
+            {
+              "type": "text",
+              "text": "の両辺を−1倍すると"
+            },
+            {
+              "type": "math",
+              "latex": "X>-a"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            },
+            {
+              "type": "math",
+              "latex": "X<0"
+            },
+            {
+              "type": "text",
+              "text": "と合わせて"
+            },
+            {
+              "type": "math",
+              "latex": "-a<X<0"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "X<0"
+            },
+            {
+              "type": "text",
+              "text": "の二つの場合を合わせよう。いずれか一方に入る"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "全体を、絶対値なしの一つの範囲で表す。"
+            },
+            {
+              "type": "math",
+              "latex": "|X|<a\\quad(a>0)"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-07"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "が文字式でも、式全体を一つの数としてこの関係を使える。"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-wm014-q07-converse",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "逆も確かめる。今得た範囲に"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "があるとする。"
+            },
+            {
+              "type": "math",
+              "latex": "X\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=X<a"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            },
+            {
+              "type": "math",
+              "latex": "X<0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "X>-a"
+            },
+            {
+              "type": "text",
+              "text": "より"
+            },
+            {
+              "type": "math",
+              "latex": "-X<a"
+            },
+            {
+              "type": "text",
+              "text": "であり、"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=-X<a"
+            },
+            {
+              "type": "text",
+              "text": "。どちらも元の条件を満たすので、両方向が成り立つ。"
+            },
+            {
+              "type": "math",
+              "latex": "|X|<a\\iff -a<X<a\\quad(a>0)"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-wm015-q08-nonnegative",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は原点からの距離が"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "より大きい場合を考える。"
+            },
+            {
+              "type": "math",
+              "latex": "a>0"
+            },
+            {
+              "type": "text",
+              "text": "として、まず"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "が0以上のとき。"
+            },
+            {
+              "type": "math",
+              "latex": "|X|>a\\quad(a>0)"
+            },
+            {
+              "type": "math",
+              "latex": "X\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "では"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=X"
+            },
+            {
+              "type": "text",
+              "text": "。この場合に必要な条件を選ぼう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-wm015-q08-nonnegative",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-wm015-q08-nonnegative"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-wm015-q08-nonnegative",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X\\ge 0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=X"
+            },
+            {
+              "type": "text",
+              "text": "なので、この場合は"
+            },
+            {
+              "type": "math",
+              "latex": "X>a"
+            },
+            {
+              "type": "text",
+              "text": "となる。等号は含めない。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-wm015-q08-negative",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "X<0"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=-X"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            },
+            {
+              "type": "math",
+              "latex": "-X>a"
+            },
+            {
+              "type": "text",
+              "text": "の両辺に−1を掛けると不等号の向きが変わる。"
+            },
+            {
+              "type": "math",
+              "latex": "-X>a\\quad(X<0)"
+            },
+            {
+              "type": "text",
+              "text": "負の場合に残る範囲を選ぼう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-wm015-q08-negative",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-wm015-q08-negative"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-wm015-q08-negative",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-X>a"
+            },
+            {
+              "type": "text",
+              "text": "を−1倍すると"
+            },
+            {
+              "type": "math",
+              "latex": "X<-a"
+            },
+            {
+              "type": "text",
+              "text": "となる。こちらも等号を含めない。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの場合のいずれかに入ればよい。左右に離れた範囲の結び方も考えて、絶対値のない条件を選ぼう。"
+            },
+            {
+              "type": "math",
+              "latex": "|X|>a\\quad(a>0)"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-08",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-08"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "上限なら内側、下限なら外側。等号が付く場合は境界も含める。"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-wm015-q08-converse",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "逆も確かめよう。"
+            },
+            {
+              "type": "math",
+              "latex": "X>a"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "a>0"
+            },
+            {
+              "type": "text",
+              "text": "より"
+            },
+            {
+              "type": "math",
+              "latex": "X>0"
+            },
+            {
+              "type": "text",
+              "text": "なので"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=X>a"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            },
+            {
+              "type": "math",
+              "latex": "X<-a"
+            },
+            {
+              "type": "text",
+              "text": "なら"
+            },
+            {
+              "type": "math",
+              "latex": "X<0"
+            },
+            {
+              "type": "text",
+              "text": "なので"
+            },
+            {
+              "type": "math",
+              "latex": "|X|=-X>a"
+            },
+            {
+              "type": "text",
+              "text": "。"
+            },
+            {
+              "type": "text",
+              "text": "左右のどちらか一方でよく「または」で結ぶ。「かつ」では両方同時に満たせない。"
+            },
+            {
+              "type": "math",
+              "latex": "X=\\pm a"
+            },
+            {
+              "type": "text",
+              "text": "も等号がないため含まれない。"
+            },
+            {
+              "type": "math",
+              "latex": "|X|>a\\iff\\left(X<-a\\;\\text{または}\\;X>a\\right)\\quad(a>0)"
+            }
+          ]
+        },
+        {
+          "id": "n14-heading-3",
+          "type": "heading",
+          "text": "中の式を一つの数として変形する"
+        },
+        {
+          "id": "n14-marker-3",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "n14-group-3",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "絶対値を外した後も不等式は続く。二重不等式なら三辺すべてに同じ操作をし、外側の条件なら二枝をそれぞれ解く。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x-3|<5"
+            },
+            {
+              "type": "text",
+              "text": "を解く。中身"
+            },
+            {
+              "type": "math",
+              "latex": "x-3"
+            },
+            {
+              "type": "text",
+              "text": "全体を"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "と見て、一般化した内側の規則を使う。"
+            },
+            {
+              "type": "math",
+              "latex": "|x-3|<5"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-09",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-09"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は三辺に同じ操作をして、中央を"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "だけにする。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-10",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-5<x-3<5"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-10",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-5+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm018-q10-add-left"
+            },
+            {
+              "type": "math",
+              "latex": "<x-3+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm018-q10-add-center"
+            },
+            {
+              "type": "math",
+              "latex": "<5+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm018-q10-add-right"
+            }
+          ]
+        },
+        {
+          "id": "n14-wm018-q10-explain",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三辺に同じ数を足しても、二つの不等号の向きは変わらない。真ん中の−3と＋3が打ち消し合い、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "だけが残る。"
+            }
+          ]
+        },
+        {
+          "id": "n14-wm018-q10-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-10"
+            },
+            {
+              "type": "math",
+              "latex": "<x<"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm018-q10-bound-right"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-10",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二重不等式では一部だけ移項すると同値な条件にならない。"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-check-marker",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n14-lead-11",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|x+3|\\ge 2"
+            },
+            {
+              "type": "text",
+              "text": "の絶対値を外す。中身"
+            },
+            {
+              "type": "math",
+              "latex": "x+3"
+            },
+            {
+              "type": "text",
+              "text": "を一つの数"
+            },
+            {
+              "type": "math",
+              "latex": "X"
+            },
+            {
+              "type": "text",
+              "text": "と考え、距離の下限が表す領域と等号の扱いを判断しよう。"
+            },
+            {
+              "type": "math",
+              "latex": "|x+3|\\ge2"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-11",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-11"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-11",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "外側で端点を含むため、"
+            },
+            {
+              "type": "math",
+              "latex": "x+3\\le -2"
+            },
+            {
+              "type": "text",
+              "text": "または"
+            },
+            {
+              "type": "math",
+              "latex": "x+3\\ge 2"
+            },
+            {
+              "type": "text",
+              "text": "。続いて各枝を"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "について解く。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-wm016-q12-left",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の問題で得た二つの条件は「または」で結ばれている。まず左側を一つずつ解こう。"
+            },
+            {
+              "type": "math",
+              "latex": "x+3\\le-2"
+            },
+            {
+              "type": "text",
+              "text": "両辺から3を引いたときの"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の範囲を選ぼう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-wm016-q12-left",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-wm016-q12-left"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-wm016-q12-left",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両辺から同じ3を引けば不等号の向きは変わらない。右辺は"
+            },
+            {
+              "type": "math",
+              "latex": "-2-3=-5"
+            },
+            {
+              "type": "text",
+              "text": "なので、"
+            },
+            {
+              "type": "math",
+              "latex": "x\\le -5"
+            },
+            {
+              "type": "text",
+              "text": "となる。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-wm016-q12-right",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は右側の条件を解こう。左側とは別に、同じ操作を行う。"
+            },
+            {
+              "type": "math",
+              "latex": "x+3\\ge2"
+            },
+            {
+              "type": "text",
+              "text": "両辺から3を引いて"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の範囲を選ぼう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-wm016-q12-right",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-wm016-q12-right"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-wm016-q12-right",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2-3=-1"
+            },
+            {
+              "type": "text",
+              "text": "だから"
+            },
+            {
+              "type": "math",
+              "latex": "x\\ge -1"
+            },
+            {
+              "type": "text",
+              "text": "となる。ここでも同じ数を引くだけなので、不等号は反転しない。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-12",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左右の不等式をそれぞれ解いた。前問の「または」を保って、二つの範囲を合わせた最終解を選ぼう。"
+            },
+            {
+              "type": "math",
+              "latex": "|x+3|\\ge2"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-12",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-12"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-12",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "距離の下限は区間の外側という意味が最後まで保たれている。"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-wm016-q12-union",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左の枝では"
+            },
+            {
+              "type": "math",
+              "latex": "x\\le -5"
+            },
+            {
+              "type": "text",
+              "text": "、右の枝では"
+            },
+            {
+              "type": "math",
+              "latex": "x\\ge -1"
+            },
+            {
+              "type": "text",
+              "text": "。どちらか一方を満たせばよいため「または」で結ぶ。"
+            },
+            {
+              "type": "text",
+              "text": "もとの不等号には等号があるので、"
+            },
+            {
+              "type": "math",
+              "latex": "x=-5"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "x=-1"
+            },
+            {
+              "type": "text",
+              "text": "はどちらも解に含まれる。その間は解にならない。"
+            },
+            {
+              "type": "math",
+              "latex": "x\\le-5\\;\\text{または}\\;x\\ge-1"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-13",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "|3x-2|\\le 4"
+            },
+            {
+              "type": "text",
+              "text": "では等号を含む距離の上限。内側の二重不等式を作る。"
+            },
+            {
+              "type": "math",
+              "latex": "|3x-2|\\le4"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-13",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-13"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-13",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は三辺に共通する操作を考え、中央の定数を整理する。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-14",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-4\\le3x-2\\le4"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-14",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-4+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm019-q14-add-left"
+            },
+            {
+              "type": "math",
+              "latex": "\\le3x-2+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm019-q14-add-center"
+            },
+            {
+              "type": "math",
+              "latex": "\\le4+"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm019-q14-add-right"
+            }
+          ]
+        },
+        {
+          "id": "n14-wm019-q14-explain",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三辺に同じ数を足しても、不等号の向きと等号は変わらない。中央の−2と＋2が打ち消し合い、"
+            },
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": "だけが残る。"
+            }
+          ]
+        },
+        {
+          "id": "n14-wm019-q14-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-14"
+            },
+            {
+              "type": "math",
+              "latex": "\\le3x\\le"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm019-q14-bound-right"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-14",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三辺に同じ変形を行い、中央の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の係数を1にする段階へ進もう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-15",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2\\le3x\\le6"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-15",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-2\\div"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm020-q15-divide-left"
+            },
+            {
+              "type": "math",
+              "latex": "\\le3x\\div"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm020-q15-divide-center"
+            },
+            {
+              "type": "math",
+              "latex": "\\le6\\div"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm020-q15-divide-right"
+            }
+          ]
+        },
+        {
+          "id": "n14-wm020-q15-explain",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三辺を正の3で割っても、不等号の向きと等号は変わらない。中央の"
+            },
+            {
+              "type": "math",
+              "latex": "3x"
+            },
+            {
+              "type": "text",
+              "text": "を3で割ると、"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "だけが残る。"
+            }
+          ]
+        },
+        {
+          "id": "n14-wm020-q15-result",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n14-15"
+            },
+            {
+              "type": "math",
+              "latex": "\\le x\\le"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm020-q15-bound-right"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-15",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後に両端を元の"
+            },
+            {
+              "type": "math",
+              "latex": "|3x-2|"
+            },
+            {
+              "type": "text",
+              "text": "へ戻して、本当に等号が成立するか検査する。"
+            }
+          ]
+        },
+        {
+          "id": "n14-lead-16",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前問で求めた左端 "
+            },
+            {
+              "type": "math",
+              "latex": "x=-2/3"
+            },
+            {
+              "type": "text",
+              "text": " と右端 "
+            },
+            {
+              "type": "math",
+              "latex": "x=2"
+            },
+            {
+              "type": "text",
+              "text": " を、元の不等式に戻して確かめよう。まず絶対値の中身を計算し、次に絶対値を求める。"
+            },
+            {
+              "type": "math",
+              "latex": "|3x-2|\\le4"
+            }
+          ]
+        },
+        {
+          "id": "n14-formula-16",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=-\\frac23:\\quad|3(-\\frac23)-2|"
+            },
+            {
+              "type": "math",
+              "latex": "=|"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm022-q16-left-inner"
+            },
+            {
+              "type": "math",
+              "latex": "|="
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm022-q16-left-abs"
+            }
+          ]
+        },
+        {
+          "id": "n14-wm022-q16-right",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x=2:\\quad|3\\cdot2-2|"
+            },
+            {
+              "type": "math",
+              "latex": "=|"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm022-q16-right-inner"
+            },
+            {
+              "type": "math",
+              "latex": "|="
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-wm022-q16-right-abs"
+            }
+          ]
+        },
+        {
+          "id": "n14-wm022-q16-bridge",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の条件は絶対値が4以下であること。左右とも、その条件を満たすか考えよう。"
+            }
+          ]
+        },
+        {
+          "id": "n14-wm022-q16-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両端の扱いを選ぼう。"
+            },
+            {
+              "type": "choice",
+              "itemId": "n14-16"
+            }
+          ]
+        },
+        {
+          "id": "n14-after-16",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "左端も右端も絶対値が4となり、"
+            },
+            {
+              "type": "math",
+              "latex": "4\\le 4"
+            },
+            {
+              "type": "text",
+              "text": "を満たす。もとの不等号には等号があるので、両端とも解に含まれる。"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-chapter-summary",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この章では、同じ値や同じ条件を別の形で表してきました。式を整理するときは注目する文字を決め、展開ではすべての積を拾い、因数分解では展開との一致を確かめました。平方根では平方と符号を、絶対値では距離の意味を、不等式では変形に使う数の符号と境界の扱いを確かめました。"
+            }
+          ]
+        },
+        {
+          "id": "n14-w048-next-chapter-bridge",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の二次関数では、一つの値を変えたときに、もう一つの値がどう変わるかを調べます。この章で使った展開・因数分解・平方根・不等式を、グラフの形や値の範囲を読む道具として使います。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n14-01",
+          "label": "N14-01",
+          "prompt": "言葉で表した条件を選ぼう。",
+          "answerType": "text",
+          "choices": [
+            "原点からの距離が3より小さい",
+            "原点からの距離が3より大きい",
+            "座標が3より大きい",
+            "原点からの距離が3以上"
+          ],
+          "hints": [
+            "絶対値は座標の符号ではなく原点からの距離。"
+          ]
+        },
+        {
+          "id": "n14-02",
+          "label": "N14-02",
+          "prompt": "二つの境界を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x=-3,\\quad x=3",
+            "x=0,\\quad x=3",
+            "x=-3,\\quad x=0",
+            "x=3,\\quad x=6"
+          ],
+          "hints": [
+            "3だけ左へ動いた点と3だけ右へ動いた点。"
+          ]
+        },
+        {
+          "id": "n14-w048-q03-region",
+          "label": "N14-W048-Q03-REGION",
+          "prompt": "距離が3未満となる領域を、二点の間と外側から選びましょう。",
+          "answerType": "text",
+          "choices": [
+            "二点の間",
+            "二点の外側",
+            "右側だけ",
+            "左側だけ"
+          ],
+          "hints": [
+            "原点と、境界の外にある点をそれぞれ元の条件に当てはめて比べます。"
+          ]
+        },
+        {
+          "id": "n14-03",
+          "label": "N14-03",
+          "prompt": "判定した領域に、境界を含むかどうかを合わせてまとめよう。",
+          "answerType": "text",
+          "choices": [
+            "二点の間、両端を含まない",
+            "二点の外側、両端を含まない",
+            "二点の間、両端を含む",
+            "二点の外側、両端を含む"
+          ],
+          "hints": [
+            "境界では距離がちょうど3です。その値が元の不等号を満たすか確かめます。"
+          ]
+        },
+        {
+          "id": "n14-04",
+          "label": "N14-04",
+          "prompt": "xについての範囲を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-3<x<3",
+            "x<-3\\;\\text{または}\\;x>3",
+            "-3\\le x\\le3",
+            "3<x<-3"
+          ],
+          "hints": [
+            "xは−3より大きく、かつ3より小さい。"
+          ]
+        },
+        {
+          "id": "n14-w048-q05-boundaries",
+          "label": "N14-W048-Q05-BOUNDARIES",
+          "prompt": "距離がちょうど4になる二つの境界を選びましょう。",
+          "answerType": "formula",
+          "choices": [
+            "x=-4,\\quad x=4",
+            "x=0,\\quad x=4",
+            "x=-4,\\quad x=0",
+            "x=4,\\quad x=8"
+          ],
+          "hints": [
+            "境界では距離がちょうど4になります。N13で求めた左右の位置を使います。"
+          ]
+        },
+        {
+          "id": "n14-w048-q05-region",
+          "label": "N14-W048-Q05-REGION",
+          "prompt": "元の距離の下限を満たすのは、二点の間と外側のどちらでしょう。",
+          "answerType": "text",
+          "choices": [
+            "二点の外側",
+            "二点の間",
+            "右側だけ",
+            "左側だけ"
+          ],
+          "hints": [
+            "原点と、境界より遠い位置をそれぞれ条件に当てはめて比べます。"
+          ]
+        },
+        {
+          "id": "n14-05",
+          "label": "N14-05",
+          "prompt": "求めた境界と領域に、等号の条件を合わせて結果をまとめよう。",
+          "answerType": "text",
+          "choices": [
+            "境界−4と4、外側、端点を含む",
+            "境界−4と4、内側、端点を含む",
+            "境界−4と4、外側、端点を含まない",
+            "境界0と4、外側、端点を含む"
+          ],
+          "hints": [
+            "境界では距離がちょうど4です。その値が元の不等号を満たすか確かめます。"
+          ]
+        },
+        {
+          "id": "n14-06",
+          "label": "N14-06",
+          "prompt": "残す範囲と二つの枝のつなぎ方を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x\\le-4\\;\\text{または}\\;x\\ge4",
+            "-4\\le x\\le4",
+            "x<-4\\;\\text{または}\\;x>4",
+            "x\\le-4\\;\\text{かつ}\\;x\\ge4"
+          ],
+          "hints": [
+            "左右に離れた二つの範囲のいずれかを満たせばよい。等号も確認する。"
+          ]
+        },
+        {
+          "id": "n14-wm014-q07-nonnegative",
+          "label": "N14-WM014-Q07-NONNEGATIVE",
+          "prompt": "Xが0以上のとき、|X|<aとX≥0の両方から範囲を考えよう。",
+          "answerType": "formula",
+          "choices": [
+            "0\\le X<a",
+            "0\\le X\\le a",
+            "X>a",
+            "-a<X<0"
+          ],
+          "hints": [
+            "X≥0では絶対値を外すとXのまま。もとの「より小さい」は厳密な不等号。"
+          ]
+        },
+        {
+          "id": "n14-wm014-q07-negative",
+          "label": "N14-WM014-Q07-NEGATIVE",
+          "prompt": "Xが負のとき、−X<aを解き、X<0と組み合わせよう。",
+          "answerType": "formula",
+          "choices": [
+            "-a<X<0",
+            "-a\\le X<0",
+            "X<-a",
+            "0\\le X<a"
+          ],
+          "hints": [
+            "Xに直すため−1倍すると、不等号の向きが逆になる。X<0も忘れない。"
+          ]
+        },
+        {
+          "id": "n14-07",
+          "label": "N14-07",
+          "prompt": "絶対値なしの一つの範囲を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-a<X<a",
+            "X<-a\\;\\text{または}\\;X>a",
+            "-a\\le X\\le a",
+            "a<X<-a"
+          ],
+          "hints": [
+            "距離の上限は二つの境界の間で、等号を含まない。"
+          ]
+        },
+        {
+          "id": "n14-wm015-q08-nonnegative",
+          "label": "N14-WM015-Q08-NONNEGATIVE",
+          "prompt": "Xが0以上のとき、|X|>aを絶対値のない条件へ直そう。",
+          "answerType": "formula",
+          "choices": [
+            "X>a",
+            "X\\ge a",
+            "0\\le X<a",
+            "X<-a"
+          ],
+          "hints": [
+            "X≥0なら|X|はXのまま。元の不等号は「より大きい」。"
+          ]
+        },
+        {
+          "id": "n14-wm015-q08-negative",
+          "label": "N14-WM015-Q08-NEGATIVE",
+          "prompt": "Xが負のとき、−X>aを解こう。",
+          "answerType": "formula",
+          "choices": [
+            "X<-a",
+            "X\\le-a",
+            "X>-a",
+            "X>a"
+          ],
+          "hints": [
+            "−1を掛けると不等号の向きが変わる。"
+          ]
+        },
+        {
+          "id": "n14-08",
+          "label": "N14-08",
+          "prompt": "絶対値のない二つの範囲を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "X<-a\\;\\text{または}\\;X>a",
+            "-a<X<a",
+            "X\\le-a\\;\\text{または}\\;X\\ge a",
+            "X<-a\\;\\text{かつ}\\;X>a"
+          ],
+          "hints": [
+            "左右の外側に分かれ、等号を含まない。"
+          ]
+        },
+        {
+          "id": "n14-09",
+          "label": "N14-09",
+          "prompt": "最初に得られる二重不等式を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-5<x-3<5",
+            "x-3<-5\\;\\text{または}\\;x-3>5",
+            "-5\\le x-3\\le5",
+            "-5<x<5"
+          ],
+          "hints": [
+            "まだ3を移動せず、中身x−3のまま−5と5の間に挟む。"
+          ]
+        },
+        {
+          "id": "n14-wm018-q10-add-left",
+          "label": "N14-WM018-Q10-ADD-LEFT",
+          "prompt": "左端−5に足す数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "2",
+            "5"
+          ],
+          "hints": [
+            "中央の−3を打ち消す操作を、左端にも行おう。"
+          ]
+        },
+        {
+          "id": "n14-wm018-q10-add-center",
+          "label": "N14-WM018-Q10-ADD-CENTER",
+          "prompt": "真ん中のx−3の定数を打ち消す数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "0",
+            "5"
+          ],
+          "hints": [
+            "負の定数を打ち消すには、符号が逆の数を足す。"
+          ]
+        },
+        {
+          "id": "n14-wm018-q10-add-right",
+          "label": "N14-WM018-Q10-ADD-RIGHT",
+          "prompt": "右端5にも同じ数を足そう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "-5",
+            "2"
+          ],
+          "hints": [
+            "左端と真ん中に使った加える数にそろえる。"
+          ]
+        },
+        {
+          "id": "n14-10",
+          "label": "N14-10",
+          "prompt": "左端の−5と加えた数を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-2",
+            "2",
+            "-8",
+            "-5"
+          ],
+          "hints": [
+            "−5に正の数を足したときの位置を数直線で考える。"
+          ]
+        },
+        {
+          "id": "n14-wm018-q10-bound-right",
+          "label": "N14-WM018-Q10-BOUND-RIGHT",
+          "prompt": "右端の5と加えた数を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "8",
+            "2",
+            "5",
+            "-8"
+          ],
+          "hints": [
+            "5から正の方向へ動いた結果を計算する。"
+          ]
+        },
+        {
+          "id": "n14-11",
+          "label": "N14-11",
+          "prompt": "内外と端点を判断し、絶対値を外した二条件を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x+3\\le-2\\;\\text{または}\\;x+3\\ge2",
+            "-2\\le x+3\\le2",
+            "x+3<-2\\;\\text{または}\\;x+3>2",
+            "x+3\\le-2\\;\\text{かつ}\\;x+3\\ge2"
+          ],
+          "hints": [
+            "≥という距離の下限を、x+3が取りうる位置として数直線で想像しよう。端点を含むかも考える。"
+          ]
+        },
+        {
+          "id": "n14-wm016-q12-left",
+          "label": "N14-WM016-Q12-LEFT",
+          "prompt": "左側の不等式x+3≤−2について、両辺から3を引こう。",
+          "answerType": "formula",
+          "choices": [
+            "x\\le-5",
+            "x<-5",
+            "x\\ge-5",
+            "x\\le-1"
+          ],
+          "hints": [
+            "両辺から同じ3を引いても不等号の向きは変わらない。"
+          ]
+        },
+        {
+          "id": "n14-wm016-q12-right",
+          "label": "N14-WM016-Q12-RIGHT",
+          "prompt": "右側の不等式x+3≥2について、両辺から3を引こう。",
+          "answerType": "formula",
+          "choices": [
+            "x\\ge-1",
+            "x>-1",
+            "x\\le-1",
+            "x\\ge1"
+          ],
+          "hints": [
+            "右辺では2−3を計算する。両辺から3を引くと向きは変わらない。"
+          ]
+        },
+        {
+          "id": "n14-12",
+          "label": "N14-12",
+          "prompt": "最終的な二領域を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "x\\le-5\\;\\text{または}\\;x\\ge-1",
+            "-5\\le x\\le-1",
+            "x<-5\\;\\text{または}\\;x>-1",
+            "x\\le-1\\;\\text{または}\\;x\\ge5"
+          ],
+          "hints": [
+            "両方の枝から同じ3を引くが、枝どうしは結合しない。"
+          ]
+        },
+        {
+          "id": "n14-13",
+          "label": "N14-13",
+          "prompt": "絶対値を外した条件を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "-4\\le3x-2\\le4",
+            "3x-2\\le-4\\;\\text{または}\\;3x-2\\ge4",
+            "-4<3x-2<4",
+            "-4\\le3x\\le4"
+          ],
+          "hints": [
+            "≤では内側の両端も残し、中身全体を挟む。"
+          ]
+        },
+        {
+          "id": "n14-wm019-q14-add-left",
+          "label": "N14-WM019-Q14-ADD-LEFT",
+          "prompt": "左端−4にも同じ数を足そう。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "-2",
+            "4",
+            "6"
+          ],
+          "hints": [
+            "中央の−2を打ち消すには何を足すか考え、左端にも同じ操作をしよう。"
+          ]
+        },
+        {
+          "id": "n14-wm019-q14-add-center",
+          "label": "N14-WM019-Q14-ADD-CENTER",
+          "prompt": "中央3x−2の定数を打ち消す数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "-2",
+            "0",
+            "3"
+          ],
+          "hints": [
+            "−2と足して0になる数を考えよう。"
+          ]
+        },
+        {
+          "id": "n14-wm019-q14-add-right",
+          "label": "N14-WM019-Q14-ADD-RIGHT",
+          "prompt": "右端4にも同じ数を足そう。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "-2",
+            "4",
+            "0"
+          ],
+          "hints": [
+            "左端と中央に使った同じ数を右端にも足そう。"
+          ]
+        },
+        {
+          "id": "n14-14",
+          "label": "N14-14",
+          "prompt": "左端の−4と加えた数を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-2",
+            "2",
+            "-6",
+            "-4"
+          ],
+          "hints": [
+            "−4に正の2を足すと数直線上でどこに動くか考えよう。"
+          ]
+        },
+        {
+          "id": "n14-wm019-q14-bound-right",
+          "label": "N14-WM019-Q14-BOUND-RIGHT",
+          "prompt": "右端の4と加えた数を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "6",
+            "2",
+            "4",
+            "-6"
+          ],
+          "hints": [
+            "4と2を足した結果を計算しよう。"
+          ]
+        },
+        {
+          "id": "n14-wm020-q15-divide-left",
+          "label": "N14-WM020-Q15-DIVIDE-LEFT",
+          "prompt": "左端−2を割る正の数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "2",
+            "6"
+          ],
+          "hints": [
+            "中央の3xから係数3を取り除くには何で割ればよいか考え、左端にも同じ除数を使おう。"
+          ]
+        },
+        {
+          "id": "n14-wm020-q15-divide-center",
+          "label": "N14-WM020-Q15-DIVIDE-CENTER",
+          "prompt": "中央3xの係数を1にする除数を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "1",
+            "6"
+          ],
+          "hints": [
+            "係数を1にする方法を、まず小さい数で考えよう。① 2×□=1 の□には何が入る？ ② 3×□=1 では？ ③ 同じ考え方で、3x×□=x の□には何が入る？ ④ この掛け算を割り算に直すと、3x÷□=x の□には何が入る？"
+          ]
+        },
+        {
+          "id": "n14-wm020-q15-divide-right",
+          "label": "N14-WM020-Q15-DIVIDE-RIGHT",
+          "prompt": "右端6にも同じ正の除数を使おう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "-3",
+            "2",
+            "6"
+          ],
+          "hints": [
+            "左端と中央に使った正の除数と同じ数で割ろう。"
+          ]
+        },
+        {
+          "id": "n14-15",
+          "label": "N14-15",
+          "prompt": "左端−2を正の3で割った値を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-\\frac23",
+            "\\frac23",
+            "-6",
+            "-\\frac32"
+          ],
+          "hints": [
+            "負の2を正の3で割るので答えは負。分子と分母を確認しよう。"
+          ]
+        },
+        {
+          "id": "n14-wm020-q15-bound-right",
+          "label": "N14-WM020-Q15-BOUND-RIGHT",
+          "prompt": "右端6を正の3で割った値を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "3",
+            "-2",
+            "\\frac12"
+          ],
+          "hints": [
+            "6÷3を計算し、等号の有無を変えずに右端の境界を埋めよう。"
+          ]
+        },
+        {
+          "id": "n14-wm022-q16-left-inner",
+          "label": "N14-WM022-Q16-LEFT-INNER",
+          "prompt": "左端x=−2/3を代入して、3x−2を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-4",
+            "4",
+            "-2",
+            "0"
+          ],
+          "hints": [
+            "まず3×(−1/3)=−1を考えよう。今度は−2/3を掛ける。その積を求めた後で2を引こう。"
+          ]
+        },
+        {
+          "id": "n14-wm022-q16-left-abs",
+          "label": "N14-WM022-Q16-LEFT-ABS",
+          "prompt": "左端の中身を使って絶対値を求めよう。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "-4",
+            "2",
+            "0"
+          ],
+          "hints": [
+            "たとえば|−3|=3。絶対値は0からの距離だよ。直前に求めた負の数にも同じ規則を使おう。"
+          ]
+        },
+        {
+          "id": "n14-wm022-q16-right-inner",
+          "label": "N14-WM022-Q16-RIGHT-INNER",
+          "prompt": "右端x=2を代入して、3x−2を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "-4",
+            "2",
+            "6"
+          ],
+          "hints": [
+            "たとえばx=1なら3×1−2を計算する。同じ順序で、今回はx=2を入れよう。"
+          ]
+        },
+        {
+          "id": "n14-wm022-q16-right-abs",
+          "label": "N14-WM022-Q16-RIGHT-ABS",
+          "prompt": "右端の中身を使って絶対値を求めよう。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "-4",
+            "2",
+            "0"
+          ],
+          "hints": [
+            "たとえば|2|=2。中身が0以上のときは、その値がそのまま距離になる。直前の結果に当てはめよう。"
+          ]
+        },
+        {
+          "id": "n14-16",
+          "label": "N14-16",
+          "prompt": "元の不等式を満たすか確認し、両端の扱いを選ぼう。",
+          "answerType": "text",
+          "choices": [
+            "両端とも含む",
+            "左端だけ含む",
+            "右端だけ含む",
+            "両端とも含まない"
+          ],
+          "hints": [
+            "たとえば|−2|≤2は、等号でも成り立つ。左右の絶対値と元の上限4を一つずつ比べよう。"
+          ]
+        }
+      ]
+    }
+  ]
+}

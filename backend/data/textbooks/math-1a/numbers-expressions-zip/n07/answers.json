@@ -1,0 +1,185 @@
+{
+  "unitId": "math-numbers-expressions-n07",
+  "answers": {
+    "n07-q01-tenths-answer": {
+      "validator": "exact",
+      "answer": "7",
+      "acceptedAnswers": []
+    },
+    "n07-q01-hundredths-answer": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "n07-q01-end-answer": {
+      "validator": "exact",
+      "answer": "小数第2位で余りが0になったから",
+      "acceptedAnswers": []
+    },
+    "n07-q02-integer-answer": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n07-q02-digit-0-answer": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "n07-q02-remainder-0-answer": {
+      "validator": "exact",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "n07-q02-digit-1-answer": {
+      "validator": "exact",
+      "answer": "9",
+      "acceptedAnswers": []
+    },
+    "n07-q02-remainder-1-answer": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n07-q03-cycle-answer": {
+      "validator": "exact",
+      "answer": "0、9の並びが繰り返される",
+      "acceptedAnswers": []
+    },
+    "n07-q04-finite-answer": {
+      "validator": "exact",
+      "answer": "有限小数",
+      "acceptedAnswers": []
+    },
+    "n07-q04-rational-answer": {
+      "validator": "exact",
+      "answer": "整数23と11の比で表せるから",
+      "acceptedAnswers": []
+    },
+    "n07-q05-remainders-answer": {
+      "validator": "exact",
+      "answer": "余りは有限種類なので、計算が続けば同じ余りが再び現れる",
+      "acceptedAnswers": []
+    },
+    "n07-q06-scale-answer": {
+      "validator": "exact",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "n07-q06-scaled-answer": {
+      "validator": "exact",
+      "answer": "8.\\overline{8}",
+      "acceptedAnswers": []
+    },
+    "n07-q07-subtract-answer": {
+      "validator": "exact",
+      "answer": "引く",
+      "acceptedAnswers": []
+    },
+    "n07-q07-left-form-answer": {
+      "validator": "exact",
+      "answer": "(10-1)x",
+      "acceptedAnswers": []
+    },
+    "n07-q07-coefficient-answer": {
+      "validator": "exact",
+      "answer": "9",
+      "acceptedAnswers": []
+    },
+    "n07-q07-right-difference-answer": {
+      "validator": "exact",
+      "answer": "8",
+      "acceptedAnswers": []
+    },
+    "n07-q08-divide-answer": {
+      "validator": "exact",
+      "answer": "\\frac{8}{9}",
+      "acceptedAnswers": []
+    },
+    "n07-q08-meaning-answer": {
+      "validator": "exact",
+      "answer": "同じ小数部分を差で消せたから",
+      "acceptedAnswers": []
+    },
+    "n07-q09-scale-answer": {
+      "validator": "exact",
+      "answer": "100",
+      "acceptedAnswers": []
+    },
+    "n07-q09-scaled-answer": {
+      "validator": "exact",
+      "answer": "69.\\overline{69}",
+      "acceptedAnswers": []
+    },
+    "n07-q09-subtract-answer": {
+      "validator": "exact",
+      "answer": "引く",
+      "acceptedAnswers": []
+    },
+    "n07-q09-left-form-answer": {
+      "validator": "exact",
+      "answer": "(100-1)x",
+      "acceptedAnswers": []
+    },
+    "n07-q09-coefficient-answer": {
+      "validator": "exact",
+      "answer": "99",
+      "acceptedAnswers": []
+    },
+    "n07-q09-right-difference-answer": {
+      "validator": "exact",
+      "answer": "69",
+      "acceptedAnswers": []
+    },
+    "n07-q10-divide-answer": {
+      "validator": "exact",
+      "answer": "\\frac{69}{99}",
+      "acceptedAnswers": []
+    },
+    "n07-10": {
+      "validator": "exact",
+      "answer": "\\frac{23}{33}",
+      "acceptedAnswers": []
+    },
+    "n07-q11-factor-ten-answer": {
+      "validator": "exact",
+      "answer": "2\\times5",
+      "acceptedAnswers": []
+    },
+    "n07-q11-power-answer": {
+      "validator": "exact",
+      "answer": "2^k\\cdot5^k",
+      "acceptedAnswers": []
+    },
+    "n07-q12-powers-two-answer": {
+      "validator": "exact",
+      "answer": "2,4,8,16",
+      "acceptedAnswers": []
+    },
+    "n07-q12-include-five-answer": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n07-q12-assemble-answer": {
+      "validator": "exact",
+      "answer": "3が残るため除く",
+      "acceptedAnswers": []
+    },
+    "n07-q13-difference-answer": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "n07-q13-quotient-answer": {
+      "validator": "exact",
+      "answer": "自然数ではない（整数ではないから）",
+      "acceptedAnswers": []
+    },
+    "n07-14": {
+      "validator": "exact",
+      "answer": "有理数（23/33と表せる）",
+      "acceptedAnswers": []
+    }
+  }
+}

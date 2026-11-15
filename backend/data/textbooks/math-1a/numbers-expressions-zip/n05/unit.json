@@ -1,0 +1,3657 @@
+{
+  "schemaVersion": "1.0",
+  "unitId": "math-numbers-expressions-n05",
+  "revision": 7,
+  "status": "published",
+  "subject": "math-1a",
+  "title": "展開を逆にたどり、積の形を見つける",
+  "subtitle": "共通因数から平方の公式、たすき掛けまで、元の展開を確かめる。",
+  "source": {
+    "type": "reference",
+    "label": "ユーザー提供「数と式」教科書モード対話段階導入版 v2 / N05",
+    "rightsNote": "教師編集原WordのN05原問20件と元画像2点を保持。別冊解答未提供・独立導出、レビュー限定。 / Numbers_Expressions_Integration_20261108, fixed source 1ac9f31ec205424f393a488f0d17cb3bb8bc75fd"
+  },
+  "objectives": [
+    "分配法則の逆向きに共通因数を探す",
+    "中央の項まで照合して因数分解を確認する",
+    "たすき掛けの係数の由来を四組の積から理解する"
+  ],
+  "sections": [
+    {
+      "id": "lesson",
+      "number": "05",
+      "title": "展開を逆にたどり、積の形を見つける",
+      "description": "和から積へ戻るとき、各係数の一致を確かめる。",
+      "figures": [
+        {
+          "id": "n05-f01",
+          "src": "assets/n05-f01.png",
+          "alt": "係数p、q、r、sを斜めの矢印で結び、交差積を考える元の一般たすき掛け図。",
+          "caption": "斜めに掛けた積の和を、候補ごとに確かめよう。"
+        },
+        {
+          "id": "n05-f02",
+          "src": "assets/n05-f02.png",
+          "alt": "正しい組を選んだ後に確認する、原Wordの完成たすき掛け図。",
+          "caption": "ここまでの判断を完成図で検算する。"
+        }
+      ],
+      "readingFlow": [
+        {
+          "id": "n05-heading-1",
+          "type": "heading",
+          "text": "共通する因数を外へ出す"
+        },
+        {
+          "id": "n05-marker-1",
+          "type": "marker",
+          "kind": "example",
+          "text": "例題"
+        },
+        {
+          "id": "n05-group-1",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "展開は積を和へ直す操作だった。ここでは和から共通する掛け算を探し、逆向きに積へ戻す。最初に式全体を展開する必要はない。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの項 "
+            },
+            {
+              "type": "math",
+              "latex": "x(y+5)"
+            },
+            {
+              "type": "text",
+              "text": " と "
+            },
+            {
+              "type": "math",
+              "latex": "−3(y+5)"
+            },
+            {
+              "type": "text",
+              "text": " に共通して掛かっている括弧を探す。"
+            },
+            {
+              "type": "math",
+              "latex": "x(y+5)-3(y+5)"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-01",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{共通因数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-01"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-01",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "括弧全体を"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "とすれば、式は"
+            },
+            {
+              "type": "math",
+              "latex": "xT−3T"
+            },
+            {
+              "type": "text",
+              "text": "という単純な形で見られる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "共通因数を"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "と仮置きする。係数"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "−3"
+            },
+            {
+              "type": "text",
+              "text": "を一つの括弧へまとめ、最後に"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "を元へ戻す。"
+            },
+            {
+              "type": "math",
+              "latex": "xT-3T,\\quad T=y+5"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-explain-n05-02-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "共通因数を探すのは、同じ括弧が何度も出る長い式を短い積へ戻すためである。一時的に"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "と呼べば、残る係数だけを比べやすくなる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-t-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "先に"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "の式のまま共通因数を外へ出す。元へ戻すのはその後にしよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-detail-coefficient-factor-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "共通因数"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "を外へ出すと、残るのは二項の係数である。足し算の形にそろえ、負号を係数に含めよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-detail-coefficient-factor-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "xT+(-3)T=(x+("
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-detail-coefficient-factor"
+            },
+            {
+              "type": "math",
+              "latex": "))T"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-detail-coefficient-factor-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "同じ"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "が掛かる項だけをまとめている。"
+            },
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "を二回外へ出すのではなく、一度だけ掛ける形になる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-t-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "xT-3T="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-factor-t"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-02",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x(y+5)-3(y+5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-02"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-explain-n05-02-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "T"
+            },
+            {
+              "type": "text",
+              "text": "をくくった結果に"
+            },
+            {
+              "type": "math",
+              "latex": "T=y+5"
+            },
+            {
+              "type": "text",
+              "text": "を戻すと、元の文字だけの積が得られる。正しいかは次の逆向きの展開で検査する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-02",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "このように多項式を積の形に直すことを因数分解といい、掛け合わせる各式を因数という。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "因数分解が正しいかどうかは逆の展開で確かめられる。四組の積へ戻そう。"
+            },
+            {
+              "type": "math",
+              "latex": "(x-3)(y+5)"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-03-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの括弧の各項を掛け、まだ定数の積を残す。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-03-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x-3)(y+5)=xy+5x+(-3)y+(-3)5"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-reverse-constant-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "四組のうち、最後の定数の積を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-reverse-constant-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-3)5="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-audit-reverse-constant"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-03",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x-3)(y+5)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-03"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-check-original",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "元の式も分配法則で展開して、いま求めた積の展開結果と比べます。"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-check-equation",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x(y+5)-3(y+5)=xy+5x-3y-15"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-check-conclusion",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両方とも"
+            },
+            {
+              "type": "math",
+              "latex": "xy+5x−3y−15"
+            },
+            {
+              "type": "text",
+              "text": "になりました。展開後の各項が一致するので、最初の式を"
+            },
+            {
+              "type": "math",
+              "latex": "(x−3)(y+5)"
+            },
+            {
+              "type": "text",
+              "text": "へ因数分解できたことを確かめられます。"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-03",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積から和へ戻して同じ式になることが、因数分解の検算になる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の二つの括弧は、引き算の順序が逆になっている。"
+            },
+            {
+              "type": "math",
+              "latex": "a-b,\\quad b-a"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-04-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "括弧全体へ−1を配ると、引き算の順を反対にした式になる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-04",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "b-a="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-s5-reverse-difference"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-04-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-(a-b)=-a+b=b-a"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-04",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "引き算の順を反対にすると、式全体にマイナスが掛かる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "先ほどの符号反転を使って二項の共通因数を揃える。"
+            },
+            {
+              "type": "math",
+              "latex": "(a-b)x+(b-a)y"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-05-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直前に得た"
+            },
+            {
+              "type": "math",
+              "latex": "b−a=−(a−b)"
+            },
+            {
+              "type": "text",
+              "text": "を、二項目だけへ代入する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-05-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a-b)x+(b-a)y=(a-b)x-(a-b)y"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-05",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a-b)x+(b-a)y="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-05"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-05",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "見た目の異なる括弧でも、符号を揃えれば同じ因数を見つけられる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-heading-2",
+          "type": "heading",
+          "text": "平方の公式を逆向きに読む"
+        },
+        {
+          "id": "n05-marker-2",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n05-group-2",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積の候補を見つけたら、両端の平方だけで決めない。中央の項まで展開と照らす。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次の式の両端の項は、それぞれ何の平方でしょうか。"
+            },
+            {
+              "type": "math",
+              "latex": "16x^2+24xy+9y^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-positive-root-16-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "16x²"
+            },
+            {
+              "type": "text",
+              "text": "を平方の形で読むため、まず二乗すると16になる正の数を選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-positive-root-16-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "("
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-audit-positive-root-16"
+            },
+            {
+              "type": "math",
+              "latex": ")^2=16"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-positive-root-9-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後の"
+            },
+            {
+              "type": "math",
+              "latex": "9y²"
+            },
+            {
+              "type": "text",
+              "text": "も、数の平方と文字の平方に分ける。正の底を選ぼう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-positive-root-9-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "("
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-audit-positive-root-9"
+            },
+            {
+              "type": "math",
+              "latex": ")^2=9"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-06-assemble-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "数の平方へ、それぞれ文字の平方を掛け直す。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-06-assemble-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "16x^2=4^2x^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-06-assemble-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "9y^2=3^2y^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-06",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "16x^2=(4x)^2,\\qquad9y^2=(3y)^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-06",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの平方が見つかっても、中央の項が合うまではまだ候補である。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "平方の候補を"
+            },
+            {
+              "type": "math",
+              "latex": "(4x+3y)²"
+            },
+            {
+              "type": "text",
+              "text": "とする。中央に現れる二組の交差積はいくらになるか。"
+            },
+            {
+              "type": "math",
+              "latex": "(4x+3y)^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-07-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補の中央は同じ交差積が二組ある。数の係数を前へ集める。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-07-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(4x)(3y)=(2\\cdot4\\cdot3)xy=(8\\cdot3)xy"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-07",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2(4x)(3y)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-07"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-07",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中央の項"
+            },
+            {
+              "type": "math",
+              "latex": "24xy"
+            },
+            {
+              "type": "text",
+              "text": "が、元の式の係数と符号に一致する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両端の平方と中央の項がすべて一致した。和の平方に戻そう。"
+            },
+            {
+              "type": "math",
+              "latex": "16x^2+24xy+9y^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-08",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "16x^2+24xy+9y^2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-08"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-square-close",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "16x^2+24xy+9y^2=(4x)^2+2(4x)(3y)+(3y)^2=(4x+3y)^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-08",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "中央の符号まで含めて照合することが、公式の逆利用では欠かせない。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は整数の係数を持つ二次式を、整数係数の一次式の積に戻す場合を考えます。"
+            },
+            {
+              "type": "math",
+              "latex": "r"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "s"
+            },
+            {
+              "type": "text",
+              "text": "を因数の定数部分を表す数とし、候補"
+            },
+            {
+              "type": "math",
+              "latex": "(a+r)(a+s)"
+            },
+            {
+              "type": "text",
+              "text": "を展開して、必要な条件を作ります。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-09-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二つの一次式を四組の積へ開く。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-09-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a+r)(a+s)=a^2+as+ra+rs"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-09-before-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次項に共通する"
+            },
+            {
+              "type": "math",
+              "latex": "a"
+            },
+            {
+              "type": "text",
+              "text": "を外へ出す。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-09-before-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "as+ra=(s+r)a=(r+s)a"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-09",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a+r)(a+s)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-09"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-09",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次の係数は二数の和、定数項は二数の積に対応する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-10",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "もとの二次式"
+            },
+            {
+              "type": "math",
+              "latex": "a²−6a−16"
+            },
+            {
+              "type": "text",
+              "text": "と、いまの一般展開の係数を比較する。"
+            },
+            {
+              "type": "math",
+              "latex": "a^2-6a-16"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-factor-sum-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n05-s5-sum-condition-map"
+            },
+            {
+              "type": "math",
+              "latex": "=-6"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-factor-product-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "rs="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-s4-factor-product"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-10",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r+s=-6,\\qquad rs=-16"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-10",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積が負なので符号の異なる二数を探し、その中から和を一致させる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-11",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積が−16、和が−6となる二つの整数を探す。"
+            },
+            {
+              "type": "math",
+              "latex": "a^2-6a-16"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-explain-n05-11-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和と積の二条件を同時に満たす必要がある。積から候補を列挙し、符号で絞り、それぞれの和を比べる順にすれば当てずっぽうにならない。"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-factor-enumeration",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数で積の絶対値が16になる組は、順序を入れ替えたものを除くと(1,16)、(2,8)、(4,4)です。積を負にするため、一方だけを負にします。和も負なので、絶対値が大きい側を負にする必要があります。"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-candidate-purpose",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三つの候補を一つずつ確かめます。積が合うだけで決めず、和が"
+            },
+            {
+              "type": "math",
+              "latex": "−6"
+            },
+            {
+              "type": "text",
+              "text": "になるかを比べます。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-candidates-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積が−16になる候補(1,−16)から、和を一つずつ計算しよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-candidates-1-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1-16="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-factor-candidates-1"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-candidates-2-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は候補(2,−8)の和を比べよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-candidates-2-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2-8="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-factor-candidates-2"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-candidates-3-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最後に候補(4,−4)の和を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-candidates-3-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4-4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-factor-candidates-3"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-candidate-table",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{array}{c|r|r}\\text{候補}&\\text{和}&\\text{積}\\\\\\hline(1,-16)&-15&-16\\\\(2,-8)&-6&-16\\\\(4,-4)&0&-16\\end{array}"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-factor-pair-select-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "各候補の和を比べた結果から、和−6・積−16の両方を満たす組を選ぶ。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-factor-pair-select-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(r,s)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-audit-factor-pair-select"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-bridge-audit-factor-pair-select-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ組を二条件へ代入して検算する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-bridge-audit-factor-pair-select-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-8)+2=-6"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-bridge-audit-factor-pair-select-after-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(-8)2=-16"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-11",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^2-6a-16="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-11"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-explain-n05-11-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "和が"
+            },
+            {
+              "type": "math",
+              "latex": "−6"
+            },
+            {
+              "type": "text",
+              "text": "になる候補は2と"
+            },
+            {
+              "type": "math",
+              "latex": "−8"
+            },
+            {
+              "type": "text",
+              "text": "で、積も"
+            },
+            {
+              "type": "math",
+              "latex": "−16"
+            },
+            {
+              "type": "text",
+              "text": "になる。二つの条件の一致を確認してから、"
+            },
+            {
+              "type": "math",
+              "latex": "(a+r)(a+s)"
+            },
+            {
+              "type": "text",
+              "text": "の"
+            },
+            {
+              "type": "math",
+              "latex": "r"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "s"
+            },
+            {
+              "type": "text",
+              "text": "の場所へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-11",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(a−8)(a+2)"
+            },
+            {
+              "type": "text",
+              "text": "を展開すると"
+            },
+            {
+              "type": "math",
+              "latex": "a²−6a−16"
+            },
+            {
+              "type": "text",
+              "text": "に戻る。"
+            }
+          ]
+        },
+        {
+          "id": "n05-heading-3",
+          "type": "heading",
+          "text": "交差する係数を照合する"
+        },
+        {
+          "id": "n05-marker-3",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n05-group-3",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二次の係数が1でないときも、四組の積に戻る。左右の係数の斜めの積が一次項になる仕組みを使う。"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-general-definition",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は"
+            },
+            {
+              "type": "math",
+              "latex": "x²"
+            },
+            {
+              "type": "text",
+              "text": "の係数が1でない式です。候補を"
+            },
+            {
+              "type": "math",
+              "latex": "(px+q)(rx+s)"
+            },
+            {
+              "type": "text",
+              "text": "と書きます。"
+            },
+            {
+              "type": "math",
+              "latex": "p"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "r"
+            },
+            {
+              "type": "text",
+              "text": "は各因数の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "の係数、"
+            },
+            {
+              "type": "math",
+              "latex": "q"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "s"
+            },
+            {
+              "type": "text",
+              "text": "は各因数の定数部分を表す数です。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-12",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(px+q)(rx+s)"
+            },
+            {
+              "type": "text",
+              "text": "では、最初どうし・交差どうし・最後どうしを掛ける。"
+            },
+            {
+              "type": "math",
+              "latex": "(px+q)(rx+s)"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-12-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "前の"
+            },
+            {
+              "type": "math",
+              "latex": "px"
+            },
+            {
+              "type": "text",
+              "text": "から二組、前の"
+            },
+            {
+              "type": "math",
+              "latex": "q"
+            },
+            {
+              "type": "text",
+              "text": "から二組を作る。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-12-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(px)(rx)=prx^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-12-before-0-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(px)s=psx"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-12-before-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残る二組を加え、一次項だけを共通の"
+            },
+            {
+              "type": "math",
+              "latex": "x"
+            },
+            {
+              "type": "text",
+              "text": "でくくる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-12-before-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "q(rx)=qrx"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-12-before-1-equation-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "psx+qrx=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-s5-general-cross-regroup"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-12",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(px+q)(rx+s)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-12"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-12",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "この交差する二つの積を足す考えが、たすき掛けの根拠になる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-13",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4x²+7x+3"
+            },
+            {
+              "type": "text",
+              "text": "になるためには、二次、一次、定数の三つの係数が一致しなければならない。"
+            },
+            {
+              "type": "math",
+              "latex": "4x^2+7x+3"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-quadratic-condition-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "pr="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-s4-quadratic-condition"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-constant-condition-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "qs="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-s4-constant-condition"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-linear-condition-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n05-s5-linear-condition-map"
+            },
+            {
+              "type": "math",
+              "latex": "=7"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-13",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "pr=4,\\qquad ps+qr=7,\\qquad qs=3"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-13",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "両端の積だけが合っても、中央の係数が不一致なら因数分解にはならない。"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-candidate-heading",
+          "type": "heading",
+          "text": "候補を作り、交差積を比べる"
+        },
+        {
+          "id": "n05-show-n05-f01",
+          "type": "figure",
+          "figureId": "n05-f01"
+        },
+        {
+          "id": "n05-s4-candidate-generation",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "pr=4"
+            },
+            {
+              "type": "text",
+              "text": "には1と4、2と2という正の因数の組があり、"
+            },
+            {
+              "type": "math",
+              "latex": "qs=3"
+            },
+            {
+              "type": "text",
+              "text": "には1と3があります。定数の置き方を変えると交差積も変わるので、ここでは図の三候補を比較します。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-14",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "原Wordの表の三候補を実際の積として並べる。"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "(2x+1)(2x+3)"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "(x+1)(4x+3)"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "C"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "(x+3)(4x+1)"
+            },
+            {
+              "type": "text",
+              "text": "。原図の交差積をそれぞれ足そう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-source-14-1",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{候補 A: }(2x+1)(2x+3)"
+            }
+          ]
+        },
+        {
+          "id": "n05-source-14-2",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{候補 B: }(x+1)(4x+3)"
+            }
+          ]
+        },
+        {
+          "id": "n05-source-14-3",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{候補 C: }(x+3)(4x+1)"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-explain-n05-14-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "たすき掛けでは両端の積が合うだけでは不十分である。一次項を作る交差積を二つずつ計算し、その和が元の一次係数7になる候補を選別する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-cross-a-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補"
+            },
+            {
+              "type": "math",
+              "latex": "A"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "(2x+1)(2x+3)"
+            },
+            {
+              "type": "text",
+              "text": "。斜めの積だけを先に足そう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-cross-a-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "2\\cdot3+1\\cdot2=6+2="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-cross-a"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-cross-b-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補"
+            },
+            {
+              "type": "math",
+              "latex": "B"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "(x+1)(4x+3)"
+            },
+            {
+              "type": "text",
+              "text": "。同じ位置の交差積を計算しよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-cross-b-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1\\cdot3+1\\cdot4=3+4="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-cross-b"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-cross-c-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補"
+            },
+            {
+              "type": "math",
+              "latex": "C"
+            },
+            {
+              "type": "text",
+              "text": "は"
+            },
+            {
+              "type": "math",
+              "latex": "(x+3)(4x+1)"
+            },
+            {
+              "type": "text",
+              "text": "。定数の置き方だけでも一次係数は変わる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-cross-c-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1\\cdot1+3\\cdot4=1+12="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-cross-c"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-14",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\begin{array}{c|r}\\text{候補}&\\text{一次係数}\\\\\\hline A&8\\\\B&7\\\\C&13\\end{array}"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-explain-n05-14-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補の一次係数を別々に求めたので、元の7と直接比べられる。次の積の選択は、図の形ではなく三つの係数の一致を根拠に行う。"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-14",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "狙う一次係数は7なので、これに一致する候補だけが残る。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-15",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "三条件を満たす候補を選び、実際の一次式の積へ戻す。"
+            },
+            {
+              "type": "math",
+              "latex": "4x^2+7x+3"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-15",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "4x^2+7x+3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-15"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-15",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "ここまで確かめた後で、完成形の原図を開いて斜めの積を逆展開で照合する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-show-n05-f02",
+          "type": "figure",
+          "figureId": "n05-f02"
+        },
+        {
+          "id": "n05-heading-4",
+          "type": "heading",
+          "text": "条件を立て、候補を比較する"
+        },
+        {
+          "id": "n05-marker-4",
+          "type": "marker",
+          "kind": "check",
+          "text": "確認"
+        },
+        {
+          "id": "n05-group-4",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "次は"
+            },
+            {
+              "type": "math",
+              "latex": "5x²−2x−3"
+            },
+            {
+              "type": "text",
+              "text": "です。まず因数の形を決め、展開から条件を作ります。その条件へ四つの整数候補を代入し、両方を満たす組を選ぶ練習をします。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-16",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "5x²−2x−3"
+            },
+            {
+              "type": "text",
+              "text": "を"
+            },
+            {
+              "type": "math",
+              "latex": "(x+r)(5x+s)"
+            },
+            {
+              "type": "text",
+              "text": "へ戻す。"
+            },
+            {
+              "type": "math",
+              "latex": "r,s"
+            },
+            {
+              "type": "text",
+              "text": "はこれから決める数である。"
+            },
+            {
+              "type": "math",
+              "latex": "(x+r)(5x+s)"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-16-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "候補の積を、二次・一次・定数の係数が見える形まで展開する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-16-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+r)(5x+s)=5x^2+sx+5rx+rs"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-16-before-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "sx+5rx=("
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-s5-last-linear-regroup"
+            },
+            {
+              "type": "math",
+              "latex": ")x"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-16-before-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一次項をまとめると、和ではなく"
+            },
+            {
+              "type": "math",
+              "latex": "s+5r"
+            },
+            {
+              "type": "text",
+              "text": "が条件になる理由が分かる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-16-before-2-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まとめた一次項を二次項と定数項の間へ戻す。この式と元の三係数を比べる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-16-before-2-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(x+r)(5x+s)=5x^2+(s+5r)x+rs"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-last-linear-condition-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "choice",
+              "itemId": "n05-s5-last-condition-map"
+            },
+            {
+              "type": "math",
+              "latex": "=-2"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-last-constant-condition-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "rs="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-s4-last-constant-condition"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-16",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "s+5r=-2,\\qquad rs=-3"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-16",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二数の積が負であることから、符号の組を絞れる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-17",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "直前に得た積の条件"
+            },
+            {
+              "type": "math",
+              "latex": "rs=−3"
+            },
+            {
+              "type": "text",
+              "text": "から、二数の符号を判定しよう。判断には条件そのものを根拠として使う。"
+            },
+            {
+              "type": "math",
+              "latex": "rs=-3"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-17",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "考えて選ぶ："
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-17"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-17",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "rs=−3<0"
+            },
+            {
+              "type": "text",
+              "text": "なので"
+            },
+            {
+              "type": "math",
+              "latex": "r"
+            },
+            {
+              "type": "text",
+              "text": "と"
+            },
+            {
+              "type": "math",
+              "latex": "s"
+            },
+            {
+              "type": "text",
+              "text": "は異符号。どちらが正かは和の条件も使って決める。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-18",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "符号の異なる因子のうち、"
+            },
+            {
+              "type": "math",
+              "latex": "s+5r=−2"
+            },
+            {
+              "type": "text",
+              "text": "も満たす組を探す。"
+            },
+            {
+              "type": "math",
+              "latex": "5x^2-2x-3"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-explain-n05-18-before",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積"
+            },
+            {
+              "type": "math",
+              "latex": "rs=−3"
+            },
+            {
+              "type": "text",
+              "text": "で候補を絞っても、一次係数の条件"
+            },
+            {
+              "type": "math",
+              "latex": "s+5r=−2"
+            },
+            {
+              "type": "text",
+              "text": "はまだ残っている。整数の各候補へ代入し、結果を一つずつ比較して両条件を満たす組を決める。"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-last-candidates",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "整数で"
+            },
+            {
+              "type": "math",
+              "latex": "rs=−3"
+            },
+            {
+              "type": "text",
+              "text": "となる候補は、"
+            },
+            {
+              "type": "math",
+              "latex": "(1,−3)"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "(−1,3)"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "(3,−1)"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "(−3,1)"
+            },
+            {
+              "type": "text",
+              "text": "です。今回は四候補の一次係数をすべて比べ、条件に合うものを選びます。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積"
+            },
+            {
+              "type": "math",
+              "latex": "rs=−3"
+            },
+            {
+              "type": "text",
+              "text": "を満たす候補"
+            },
+            {
+              "type": "math",
+              "latex": "(r,s)=(1,−3)"
+            },
+            {
+              "type": "text",
+              "text": "で、"
+            },
+            {
+              "type": "math",
+              "latex": "s+5r"
+            },
+            {
+              "type": "text",
+              "text": "を計算しよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-1-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-3+5\\cdot1=-3+5="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-search-rs-1"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-2-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積"
+            },
+            {
+              "type": "math",
+              "latex": "rs=−3"
+            },
+            {
+              "type": "text",
+              "text": "を満たす候補"
+            },
+            {
+              "type": "math",
+              "latex": "(r,s)=(−1,3)"
+            },
+            {
+              "type": "text",
+              "text": "で、"
+            },
+            {
+              "type": "math",
+              "latex": "s+5r"
+            },
+            {
+              "type": "text",
+              "text": "を計算しよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-2-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3+5(-1)=3-5="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-search-rs-2"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-3-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積"
+            },
+            {
+              "type": "math",
+              "latex": "rs=−3"
+            },
+            {
+              "type": "text",
+              "text": "を満たす候補"
+            },
+            {
+              "type": "math",
+              "latex": "(r,s)=(3,−1)"
+            },
+            {
+              "type": "text",
+              "text": "で、"
+            },
+            {
+              "type": "math",
+              "latex": "s+5r"
+            },
+            {
+              "type": "text",
+              "text": "を計算しよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-3-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-1+5\\cdot3=-1+15="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-search-rs-3"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-4-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積"
+            },
+            {
+              "type": "math",
+              "latex": "rs=−3"
+            },
+            {
+              "type": "text",
+              "text": "を満たす候補"
+            },
+            {
+              "type": "math",
+              "latex": "(r,s)=(−3,1)"
+            },
+            {
+              "type": "text",
+              "text": "で、"
+            },
+            {
+              "type": "math",
+              "latex": "s+5r"
+            },
+            {
+              "type": "text",
+              "text": "を計算しよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-4-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "1+5(-3)=1-15="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-search-rs-4"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-select-rs-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "四候補のうち"
+            },
+            {
+              "type": "math",
+              "latex": "s+5r=−2"
+            },
+            {
+              "type": "text",
+              "text": "を満たす組を使う。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-select-rs-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "(r,s)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-select-rs"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-detail-substitute-r-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "選んだ"
+            },
+            {
+              "type": "math",
+              "latex": "r=−1"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "s=3"
+            },
+            {
+              "type": "text",
+              "text": "を、候補"
+            },
+            {
+              "type": "math",
+              "latex": "(x+r)(5x+s)"
+            },
+            {
+              "type": "text",
+              "text": "に戻す。まず最初の括弧だけを完成させよう。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-detail-substitute-r-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "x+r=x+(-1)=x-1"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-detail-substitute-r-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "最初の因数の定数部分に"
+            },
+            {
+              "type": "math",
+              "latex": "r=−1"
+            },
+            {
+              "type": "text",
+              "text": "を戻したので、"
+            },
+            {
+              "type": "math",
+              "latex": "x−1"
+            },
+            {
+              "type": "text",
+              "text": "になりました。次に二番目の因数へ"
+            },
+            {
+              "type": "math",
+              "latex": "s"
+            },
+            {
+              "type": "text",
+              "text": "を戻します。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-bridge-detail-substitute-r-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "二番目には、同じ組で求めた"
+            },
+            {
+              "type": "math",
+              "latex": "s=3"
+            },
+            {
+              "type": "text",
+              "text": "を戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-bridge-detail-substitute-r-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "5x+s=5x+3"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-18",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "5x^2-2x-3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-18"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-explain-n05-18-after",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "r"
+            },
+            {
+              "type": "text",
+              "text": "、"
+            },
+            {
+              "type": "math",
+              "latex": "s"
+            },
+            {
+              "type": "text",
+              "text": "は因数の定数部分として導入した数である。選んだ組を"
+            },
+            {
+              "type": "math",
+              "latex": "(x+r)(5x+s)"
+            },
+            {
+              "type": "text",
+              "text": "へ戻し、一次項と定数項が元へ戻ることを確かめる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-18",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "積と一次係数の両方を満たすか、最後に逆展開して確かめる。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-19",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3a²b−12b³"
+            },
+            {
+              "type": "text",
+              "text": "では、すべての項に共通する係数と文字を最初に外へ出す。"
+            },
+            {
+              "type": "math",
+              "latex": "3a^2b-12b^3"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-common-search",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "まず係数3と"
+            },
+            {
+              "type": "math",
+              "latex": "−12"
+            },
+            {
+              "type": "text",
+              "text": "を比べると、どちらも3で割れます。文字は両項とも少なくとも"
+            },
+            {
+              "type": "math",
+              "latex": "b"
+            },
+            {
+              "type": "text",
+              "text": "を一つ含みます。共通して取り出せる最大の数の因子と文字を組み合わせます。"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-common-factor-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "\\text{共通因数}="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-s4-common-factor"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-19-before-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "一項目は"
+            },
+            {
+              "type": "math",
+              "latex": "3b"
+            },
+            {
+              "type": "text",
+              "text": "を因子としてそのまま取り出せる。二項目にも同じ"
+            },
+            {
+              "type": "math",
+              "latex": "3b"
+            },
+            {
+              "type": "text",
+              "text": "を作る。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-19-before-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3a^2b=(3b)a^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-common-negative-four-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "−12b³"
+            },
+            {
+              "type": "text",
+              "text": "の中へ"
+            },
+            {
+              "type": "math",
+              "latex": "3b"
+            },
+            {
+              "type": "text",
+              "text": "を一つ作り、残る係数を計算する。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-common-negative-four-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "-12b^3=(3b)("
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-audit-common-negative-four"
+            },
+            {
+              "type": "math",
+              "latex": ")b^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-19",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3a^2b-12b^3="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-19"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-19",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "括弧内にまだ二つの平方の差が残っている。"
+            }
+          ]
+        },
+        {
+          "id": "n05-lead-20",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "共通因数を残したまま、"
+            },
+            {
+              "type": "math",
+              "latex": "a²−(2b)²"
+            },
+            {
+              "type": "text",
+              "text": "を和と差の積へ変える。"
+            },
+            {
+              "type": "math",
+              "latex": "3b(a^2-4b^2)"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-square-root-four-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "残る"
+            },
+            {
+              "type": "math",
+              "latex": "4b²"
+            },
+            {
+              "type": "text",
+              "text": "を、正の係数を使った一つの式の平方へ戻す。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-square-root-four-formula",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "("
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-bridge-audit-square-root-four"
+            },
+            {
+              "type": "math",
+              "latex": "b)^2=4b^2"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-bridge-audit-square-root-four-after-0-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "これで括弧の中を平方差へ直せる。外にある"
+            },
+            {
+              "type": "math",
+              "latex": "3b"
+            },
+            {
+              "type": "text",
+              "text": "は残す。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-bridge-audit-square-root-four-after-0-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "a^2-4b^2=a^2-"
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-s5-square-difference-rewrite"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-bridge-audit-square-root-four-after-1-lead",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "外にくくった"
+            },
+            {
+              "type": "math",
+              "latex": "3b"
+            },
+            {
+              "type": "text",
+              "text": "も、変形の前後で残してつなぐ。"
+            }
+          ]
+        },
+        {
+          "id": "n05-bridge-worked-n05-bridge-audit-square-root-four-after-1-equation-0",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3b(a^2-4b^2)=3b(a^2-(2b)^2)"
+            }
+          ]
+        },
+        {
+          "id": "n05-formula-20",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3b(a^2-4b^2)="
+            },
+            {
+              "type": "choice",
+              "itemId": "n05-20"
+            }
+          ]
+        },
+        {
+          "id": "n05-s4-final-source",
+          "type": "formula",
+          "parts": [
+            {
+              "type": "math",
+              "latex": "3a^2b-12b^3=3b(a^2-4b^2)=3b(a-2b)(a+2b)"
+            }
+          ]
+        },
+        {
+          "id": "n05-after-20",
+          "type": "paragraph",
+          "parts": [
+            {
+              "type": "text",
+              "text": "共通因数を外に出す→括弧内の形を見る→さらに因数分解する、という順序が有効である。"
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "n05-01",
+          "label": "N05-01",
+          "prompt": "共通因数となる括弧を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "y+5",
+            "x-3",
+            "xy+5",
+            "y-5"
+          ],
+          "hints": [
+            "xと−3のどちらにも掛かっている部分を残す。"
+          ]
+        },
+        {
+          "id": "n05-bridge-detail-coefficient-factor",
+          "label": "N05-BRIDGE-DETAIL-COEFFICIENT-FACTOR",
+          "prompt": "共通因数Tを外へ出すと、残るのは二項の係数である。足し算の形にそろえ、負号を係数に含めよう。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "3",
+            "-1",
+            "0"
+          ],
+          "hints": [
+            "二項目に掛かっていた数を、そのまま括弧の中へ残す。"
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-t",
+          "label": "N05-BRIDGE-FACTOR-T",
+          "prompt": "先にTの式のまま共通因数を外へ出す。元へ戻すのはその後にしよう。",
+          "answerType": "formula",
+          "choices": [
+            "(x-3)T",
+            "(x+3)T",
+            "(x-3)T^2",
+            "x-3T"
+          ],
+          "hints": [
+            "Tを一つ外へ出したとき、各項から何が残るだろう。"
+          ]
+        },
+        {
+          "id": "n05-02",
+          "label": "N05-02",
+          "prompt": "積に戻した式を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "(x-3)(y+5)",
+            "(x+3)(y+5)",
+            "(x-3)(y-5)",
+            "x-3(y+5)"
+          ],
+          "hints": [
+            "Tは一度だけ外へ出し、残る係数をx−3にする。"
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-reverse-constant",
+          "label": "N05-BRIDGE-AUDIT-REVERSE-CONSTANT",
+          "prompt": "四組のうち、最後の定数の積を計算する。",
+          "answerType": "formula",
+          "choices": [
+            "-15",
+            "15",
+            "-8",
+            "8"
+          ],
+          "hints": [
+            "負×正の符号を決めてから絶対値を掛ける。"
+          ]
+        },
+        {
+          "id": "n05-03",
+          "label": "N05-03",
+          "prompt": "展開して元の式と一致する形を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "xy+5x-3y-15",
+            "xy+5x+3y-15",
+            "xy+5x-3y+15",
+            "xy+5x-3y"
+          ],
+          "hints": [
+            "−3をyと5の両方に掛ける。"
+          ]
+        },
+        {
+          "id": "n05-s5-reverse-difference",
+          "label": "N05-S5-REVERSE-DIFFERENCE",
+          "prompt": "候補の括弧へ−1を配り、b−aに戻るか確かめます。",
+          "answerType": "formula",
+          "choices": [
+            "-(a-b)",
+            "a-b",
+            "-(a+b)"
+          ],
+          "hints": [
+            "候補の括弧へ−1を配り、b−aに戻るか確かめます。"
+          ]
+        },
+        {
+          "id": "n05-05",
+          "label": "N05-05",
+          "prompt": "一つの積にまとめよう。",
+          "answerType": "formula",
+          "choices": [
+            "(a-b)(x-y)",
+            "(a-b)(x+y)",
+            "(a+b)(x-y)",
+            "(a-b)(y-x)"
+          ],
+          "hints": [
+            "二項目は−(a−b)yと書き直せる。"
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-positive-root-16",
+          "label": "N05-BRIDGE-AUDIT-POSITIVE-ROOT-16",
+          "prompt": "16x²を平方の形で読むため、まず二乗すると16になる正の数を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "8",
+            "16",
+            "2"
+          ],
+          "hints": [
+            "選んだ数を二回掛けて16になるか確認する。"
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-positive-root-9",
+          "label": "N05-BRIDGE-AUDIT-POSITIVE-ROOT-9",
+          "prompt": "最後の9y²も、数の平方と文字の平方に分ける。正の底を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "9",
+            "6",
+            "1"
+          ],
+          "hints": [
+            "選んだ数の平方を計算して9と比べる。"
+          ]
+        },
+        {
+          "id": "n05-07",
+          "label": "N05-07",
+          "prompt": "中央の項を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "24xy",
+            "12xy",
+            "7xy",
+            "24x^2y^2"
+          ],
+          "hints": [
+            "4xと3yの積12xyは二組ある。"
+          ]
+        },
+        {
+          "id": "n05-08",
+          "label": "N05-08",
+          "prompt": "因数分解を完成させよう。",
+          "answerType": "formula",
+          "choices": [
+            "(4x+3y)^2",
+            "(4x-3y)^2",
+            "(4x+3y)(4x-3y)",
+            "(16x+9y)^2"
+          ],
+          "hints": [
+            "中央が正なので同じ和の括弧を二つ使う。"
+          ]
+        },
+        {
+          "id": "n05-09",
+          "label": "N05-09",
+          "prompt": "次数ごとに整理した形を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "a^2+(r+s)a+rs",
+            "a^2+rsa+(r+s)",
+            "a^2+(r-s)a+rs",
+            "a^2+(r+s)a+r+s"
+          ],
+          "hints": [
+            "一次項はarとas、定数項はrs。"
+          ]
+        },
+        {
+          "id": "n05-s5-sum-condition-map",
+          "label": "N05-S5-SUM-CONDITION-MAP",
+          "prompt": "展開したaの一次係数に当たる式を入れます。aに掛かる括弧の中を読みます。",
+          "answerType": "formula",
+          "choices": [
+            "r+s",
+            "rs",
+            "r-s"
+          ],
+          "hints": [
+            "展開したaの一次係数に当たる式を入れます。aに掛かる括弧の中を読みます。"
+          ]
+        },
+        {
+          "id": "n05-s4-factor-product",
+          "label": "N05-S4-FACTOR-PRODUCT",
+          "prompt": "定数項と比べ、二数の積の条件を作ります。",
+          "answerType": "formula",
+          "choices": [
+            "-16",
+            "16",
+            "-6"
+          ],
+          "hints": [
+            "定数項は−16です。"
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-candidates-1",
+          "label": "N05-BRIDGE-FACTOR-CANDIDATES-1",
+          "prompt": "積が−16になる候補(1,−16)から、和を一つずつ計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-15",
+            "15",
+            "-17",
+            "17"
+          ],
+          "hints": [
+            "同じ積を持つ候補でも、和が違う。元の一次係数と照合しよう。"
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-candidates-2",
+          "label": "N05-BRIDGE-FACTOR-CANDIDATES-2",
+          "prompt": "次は候補(2,−8)の和を比べよう。",
+          "answerType": "formula",
+          "choices": [
+            "-6",
+            "6",
+            "-10",
+            "10"
+          ],
+          "hints": [
+            "同じ積を持つ候補でも、和が違う。元の一次係数と照合しよう。"
+          ]
+        },
+        {
+          "id": "n05-bridge-factor-candidates-3",
+          "label": "N05-BRIDGE-FACTOR-CANDIDATES-3",
+          "prompt": "最後に候補(4,−4)の和を計算する。",
+          "answerType": "formula",
+          "choices": [
+            "0",
+            "8",
+            "-8",
+            "4"
+          ],
+          "hints": [
+            "同じ積を持つ候補でも、和が違う。元の一次係数と照合しよう。"
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-factor-pair-select",
+          "label": "N05-BRIDGE-AUDIT-FACTOR-PAIR-SELECT",
+          "prompt": "各候補の和を比べた結果から、和−6・積−16の両方を満たす組を選ぶ。",
+          "answerType": "formula",
+          "choices": [
+            "(-8,2)",
+            "(-4,4)",
+            "(8,-2)",
+            "(-8,-2)"
+          ],
+          "hints": [
+            "和の条件を満たすことと、積の条件を満たすことを別々に確かめる。"
+          ]
+        },
+        {
+          "id": "n05-11",
+          "label": "N05-11",
+          "prompt": "整数の組と完成した因数分解を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "(a-8)(a+2)",
+            "(a-4)(a+4)",
+            "(a-2)(a+8)",
+            "(a-8)(a-2)"
+          ],
+          "hints": [
+            "積が負なので二数の符号は異なる。和が負になるには、絶対値の大きい方が負になる。積が−16、和が−6の両方に合うか確かめよう。"
+          ]
+        },
+        {
+          "id": "n05-s5-general-cross-regroup",
+          "label": "N05-S5-GENERAL-CROSS-REGROUP",
+          "prompt": "共通のxを一つ外へ出します。",
+          "answerType": "formula",
+          "choices": [
+            "ps+qr",
+            "pq+rs",
+            "ps-qr"
+          ],
+          "hints": [
+            "共通のxを一つ外へ出します。"
+          ]
+        },
+        {
+          "id": "n05-12",
+          "label": "N05-12",
+          "prompt": "三つの係数が見える形へ展開しよう。",
+          "answerType": "formula",
+          "choices": [
+            "prx^2+(ps+qr)x+qs",
+            "prx^2+(pq+rs)x+qs",
+            "prx^2+(ps-qr)x+qs",
+            "prx^2+psx+qs"
+          ],
+          "hints": [
+            "一次の積はpx×sとq×rxの二組。"
+          ]
+        },
+        {
+          "id": "n05-s4-quadratic-condition",
+          "label": "N05-S4-QUADRATIC-CONDITION",
+          "prompt": "x²の係数を元の式と比べます。",
+          "answerType": "formula",
+          "choices": [
+            "4",
+            "7",
+            "3"
+          ],
+          "hints": [
+            "最初どうしの積prがx²に掛かります。"
+          ]
+        },
+        {
+          "id": "n05-s4-constant-condition",
+          "label": "N05-S4-CONSTANT-CONDITION",
+          "prompt": "定数項を元の式と比べます。",
+          "answerType": "formula",
+          "choices": [
+            "3",
+            "4",
+            "7"
+          ],
+          "hints": [
+            "最後どうしの積qsは文字xを含みません。"
+          ]
+        },
+        {
+          "id": "n05-s5-linear-condition-map",
+          "label": "N05-S5-LINEAR-CONDITION-MAP",
+          "prompt": "xの一次係数を比べます。二次や定数の積と区別します。",
+          "answerType": "formula",
+          "choices": [
+            "ps+qr",
+            "pr+qs",
+            "ps-qr"
+          ],
+          "hints": [
+            "xの一次係数を比べます。二次や定数の積と区別します。"
+          ]
+        },
+        {
+          "id": "n05-bridge-cross-a",
+          "label": "N05-BRIDGE-CROSS-A",
+          "prompt": "候補Aは(2x+1)(2x+3)。斜めの積だけを先に足そう。",
+          "answerType": "formula",
+          "choices": [
+            "8",
+            "7",
+            "6",
+            "12"
+          ],
+          "hints": [
+            "二次項と定数項ではなく、xを一回含む二つの積を使う。"
+          ]
+        },
+        {
+          "id": "n05-bridge-cross-b",
+          "label": "N05-BRIDGE-CROSS-B",
+          "prompt": "候補Bは(x+1)(4x+3)。同じ位置の交差積を計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "7",
+            "8",
+            "12",
+            "13"
+          ],
+          "hints": [
+            "xの係数は1、4。掛ける相手の定数は3、1である。"
+          ]
+        },
+        {
+          "id": "n05-bridge-cross-c",
+          "label": "N05-BRIDGE-CROSS-C",
+          "prompt": "候補Cは(x+3)(4x+1)。定数の置き方だけでも一次係数は変わる。",
+          "answerType": "formula",
+          "choices": [
+            "13",
+            "7",
+            "8",
+            "12"
+          ],
+          "hints": [
+            "二つの交差積を、一つずつ掛けてから足そう。"
+          ]
+        },
+        {
+          "id": "n05-15",
+          "label": "N05-15",
+          "prompt": "原図の候補と因数分解の組を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "(x+1)(4x+3)",
+            "(x+3)(4x+1)",
+            "(2x+1)(2x+3)",
+            "(x-1)(4x-3)"
+          ],
+          "hints": [
+            "x×3と1×4xの和は7x。"
+          ]
+        },
+        {
+          "id": "n05-s5-last-linear-regroup",
+          "label": "N05-S5-LAST-LINEAR-REGROUP",
+          "prompt": "sxと5rxのそれぞれからxを外へ出します。",
+          "answerType": "formula",
+          "choices": [
+            "s+5r",
+            "r+5s",
+            "s-5r"
+          ],
+          "hints": [
+            "sxと5rxのそれぞれからxを外へ出します。"
+          ]
+        },
+        {
+          "id": "n05-s5-last-condition-map",
+          "label": "N05-S5-LAST-CONDITION-MAP",
+          "prompt": "直前の展開でxの前にある式を使います。",
+          "answerType": "formula",
+          "choices": [
+            "s+5r",
+            "r+s",
+            "r+5s"
+          ],
+          "hints": [
+            "直前の展開でxの前にある式を使います。"
+          ]
+        },
+        {
+          "id": "n05-s4-last-constant-condition",
+          "label": "N05-S4-LAST-CONSTANT-CONDITION",
+          "prompt": "展開した定数項を、元の定数項と比べます。",
+          "answerType": "formula",
+          "choices": [
+            "-3",
+            "3",
+            "-2"
+          ],
+          "hints": [
+            "rsは文字xを含まない部分です。"
+          ]
+        },
+        {
+          "id": "n05-17",
+          "label": "N05-17",
+          "prompt": "rとsの符号関係と、その理由を組にして選ぼう。",
+          "answerType": "text",
+          "choices": [
+            "rとsは異符号（rs=-3<0だから）",
+            "rとsは同符号（rs=-3<0だから）",
+            "rとsは異符号（r+s=-2だから）",
+            "rとsはともに負（rs=-3だから）"
+          ],
+          "hints": [
+            "積の正負と、二数の符号の組合せを対応させよう。和の条件だけでは理由にならない。"
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-1",
+          "label": "N05-BRIDGE-SEARCH-RS-1",
+          "prompt": "積rs=−3を満たす候補(r,s)=(1,−3)で、s+5rを計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "-2",
+            "8",
+            "-8"
+          ],
+          "hints": [
+            "元の一次係数に必要なのは−2。積の条件だけで候補を決めないようにしよう。"
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-2",
+          "label": "N05-BRIDGE-SEARCH-RS-2",
+          "prompt": "積rs=−3を満たす候補(r,s)=(−1,3)で、s+5rを計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-2",
+            "2",
+            "8",
+            "-8"
+          ],
+          "hints": [
+            "元の一次係数に必要なのは−2。積の条件だけで候補を決めないようにしよう。"
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-3",
+          "label": "N05-BRIDGE-SEARCH-RS-3",
+          "prompt": "積rs=−3を満たす候補(r,s)=(3,−1)で、s+5rを計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "14",
+            "16",
+            "-14",
+            "4"
+          ],
+          "hints": [
+            "元の一次係数に必要なのは−2。積の条件だけで候補を決めないようにしよう。"
+          ]
+        },
+        {
+          "id": "n05-bridge-search-rs-4",
+          "label": "N05-BRIDGE-SEARCH-RS-4",
+          "prompt": "積rs=−3を満たす候補(r,s)=(−3,1)で、s+5rを計算しよう。",
+          "answerType": "formula",
+          "choices": [
+            "-14",
+            "14",
+            "16",
+            "-16"
+          ],
+          "hints": [
+            "元の一次係数に必要なのは−2。積の条件だけで候補を決めないようにしよう。"
+          ]
+        },
+        {
+          "id": "n05-bridge-select-rs",
+          "label": "N05-BRIDGE-SELECT-RS",
+          "prompt": "四候補のうちs+5r=−2を満たす組を使う。",
+          "answerType": "formula",
+          "choices": [
+            "(-1,3)",
+            "(1,-3)",
+            "(3,-1)",
+            "(-3,1)"
+          ],
+          "hints": [
+            "直前の比較で、−2になった位置を見返そう。"
+          ]
+        },
+        {
+          "id": "n05-18",
+          "label": "N05-18",
+          "prompt": "両条件に一致する因数分解を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "(x-1)(5x+3)",
+            "(x+1)(5x-3)",
+            "(x-3)(5x+1)",
+            "(x-1)(5x-3)"
+          ],
+          "hints": [
+            "例えば r=1、s=−3 なら、積は−3でも s+5r=2 となり、−2には一致しない。候補は積だけでなく、一次の係数も計算して選ぼう。"
+          ]
+        },
+        {
+          "id": "n05-s4-common-factor",
+          "label": "N05-S4-COMMON-FACTOR",
+          "prompt": "二つの項に共通して掛かる因数を選びます。",
+          "answerType": "formula",
+          "choices": [
+            "3b",
+            "3b^2",
+            "3a"
+          ],
+          "hints": [
+            "一項目3a²bにはbは一つしかありません。"
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-common-negative-four",
+          "label": "N05-BRIDGE-AUDIT-COMMON-NEGATIVE-FOUR",
+          "prompt": "−12b³の中へ3bを一つ作り、残る係数を計算する。",
+          "answerType": "formula",
+          "choices": [
+            "-4",
+            "4",
+            "-12",
+            "-3"
+          ],
+          "hints": [
+            "3に掛けて−12になる数を使い、残る文字はb²とする。"
+          ]
+        },
+        {
+          "id": "n05-19",
+          "label": "N05-19",
+          "prompt": "共通因数でくくった最初の形を選ぼう。",
+          "answerType": "formula",
+          "choices": [
+            "3b(a^2-4b^2)",
+            "3(a^2-4b^2)",
+            "3b(a^2-4b)",
+            "3b(a^2+4b^2)"
+          ],
+          "hints": [
+            "3とbが両項に掛かる。−12b³÷3bを計算する。"
+          ]
+        },
+        {
+          "id": "n05-bridge-audit-square-root-four",
+          "label": "N05-BRIDGE-AUDIT-SQUARE-ROOT-FOUR",
+          "prompt": "残る4b²を、正の係数を使った一つの式の平方へ戻す。",
+          "answerType": "formula",
+          "choices": [
+            "2",
+            "4",
+            "1",
+            "3"
+          ],
+          "hints": [
+            "正の数で、二乗すると4になる係数を使う。"
+          ]
+        },
+        {
+          "id": "n05-s5-square-difference-rewrite",
+          "label": "N05-S5-SQUARE-DIFFERENCE-REWRITE",
+          "prompt": "二乗すると4b²になるまとまりを使います。",
+          "answerType": "formula",
+          "choices": [
+            "(2b)^2",
+            "(4b)^2",
+            "2b^2"
+          ],
+          "hints": [
+            "二乗すると4b²になるまとまりを使います。"
+          ]
+        },
+        {
+          "id": "n05-20",
+          "label": "N05-20",
+          "prompt": "できるところまで因数分解しよう。",
+          "answerType": "formula",
+          "choices": [
+            "3b(a-2b)(a+2b)",
+            "3b(a-4b)(a+4b)",
+            "3b(a-2b)^2",
+            "3b(a^2-2b)(a+2b)"
+          ],
+          "hints": [
+            "4b²=(2b)²。平方差A²−B²の公式を使う。"
+          ]
+        }
+      ]
+    }
+  ]
+}

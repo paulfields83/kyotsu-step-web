@@ -1,0 +1,95 @@
+{
+  "unitId": "math-numbers-expressions-n13",
+  "answers": {
+    "n13-01": {
+      "validator": "exact",
+      "answer": "x=5\\;\\text{または}\\;x=-5",
+      "acceptedAnswers": []
+    },
+    "n13-02": {
+      "validator": "exact",
+      "answer": "X=4\\;\\text{または}\\;X=-4",
+      "acceptedAnswers": []
+    },
+    "n13-03": {
+      "validator": "exact",
+      "answer": "x-1=4\\;\\text{または}\\;x-1=-4",
+      "acceptedAnswers": []
+    },
+    "n13-w048-q04-positive": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": []
+    },
+    "n13-w048-q04-negative": {
+      "validator": "exact",
+      "answer": "-3",
+      "acceptedAnswers": []
+    },
+    "n13-04": {
+      "validator": "exact",
+      "answer": "x=5\\;\\text{または}\\;x=-3",
+      "acceptedAnswers": []
+    },
+    "n13-wm023-q05-right": {
+      "validator": "exact",
+      "answer": "x-1",
+      "acceptedAnswers": []
+    },
+    "n13-05": {
+      "validator": "exact",
+      "answer": "1-x",
+      "acceptedAnswers": []
+    },
+    "n13-06": {
+      "validator": "exact",
+      "answer": "x+2=3\\;\\text{または}\\;x+2=-3",
+      "acceptedAnswers": []
+    },
+    "n13-w048-q07-positive": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n13-w048-q07-negative": {
+      "validator": "exact",
+      "answer": "-5",
+      "acceptedAnswers": []
+    },
+    "n13-07": {
+      "validator": "exact",
+      "answer": "x=1\\;\\text{または}\\;x=-5",
+      "acceptedAnswers": []
+    },
+    "n13-wm023-q08-branches": {
+      "validator": "exact",
+      "answer": "3x=6\\;\\text{または}\\;3x=-6",
+      "acceptedAnswers": []
+    },
+    "n13-wm023-q08-positive-root": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n13-08": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n13-w048-q09-zero": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "n13-w048-q09-negative": {
+      "validator": "exact",
+      "answer": "実数解なし",
+      "acceptedAnswers": []
+    },
+    "n13-09": {
+      "validator": "exact",
+      "answer": "0ならx=0、負なら実数解なし",
+      "acceptedAnswers": []
+    }
+  }
+}

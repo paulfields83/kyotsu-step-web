@@ -140,8 +140,10 @@ function renderPart(
   text: (ja: string, zh: string) => string,
 ): ReactNode {
   if (part.type === 'text') return part.text
+  if (part.type === 'term') return <strong className="reading-term">{part.text}</strong>
   if (part.type === 'math') return <InlineMath math={part.latex} />
 
+  if (part.type !== 'choice') return null
   const item = section.items.find((candidate) => candidate.id === part.itemId)
   if (!item) return null
   const record = progress?.answers[item.id]
@@ -234,6 +236,11 @@ function TextbookReadingFlow({ unit, section, progress }: {
 
   const renderBlock = (block: TextbookReadingBlock) => {
     if (block.type === 'topic') return <h3 className="reading-topic-title" key={block.id}>{block.text}</h3>
+    if (block.type === 'marker') return <div className={`reading-role-marker reading-role-marker--${block.kind}`} key={block.id}>{block.text}</div>
+    if (block.type === 'dialogue') {
+      const speaker = block.speaker === 'teacher' ? '先生' : block.speaker === 'hanako' ? '花子' : '太郎'
+      return <p key={block.id} className="reading-dialogue"><strong>{speaker}：</strong>{block.text}</p>
+    }
     if (block.type === 'heading') return <h4 className="reading-subheading" key={block.id}>{block.text}</h4>
     if (block.type === 'note') return <aside className="reading-note" key={block.id}>{block.text}</aside>
 
@@ -248,6 +255,7 @@ function TextbookReadingFlow({ unit, section, progress }: {
       )
     }
 
+    if (block.type !== 'paragraph' && block.type !== 'formula') return null
     const content = block.parts.map((part, index) => (
       <span key={`${block.id}-part-${index}`}>
         {renderPart(part, section, progress, setActiveItemId, text)}

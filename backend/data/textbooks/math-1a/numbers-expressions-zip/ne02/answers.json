@@ -1,0 +1,275 @@
+{
+  "unitId": "math-numbers-expressions-ne02",
+  "answers": {
+    "ne02-q01-expand": {
+      "validator": "exact",
+      "answer": "(\\sqrt a)^2+\\sqrt a\\sqrt b+\\sqrt b\\sqrt a+(\\sqrt b)^2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a+b": "交差して掛ける二項が抜けています。",
+        "a+2\\sqrt{a+b}+b": "積の根号を和の根号に変えてはいけません。"
+      }
+    },
+    "ne02-01": {
+      "validator": "exact",
+      "answer": "a+b+2\\sqrt{ab}",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a+b+\\sqrt{ab}": "計算対象・条件・符号を直前の式と照合します。和の平方の交差項に√aと√bを代入する。",
+        "a+b+2ab": "計算対象・条件・符号を直前の式と照合します。和の平方の交差項に√aと√bを代入する。"
+      }
+    },
+    "ne02-q02-sum": {
+      "validator": "exact",
+      "answer": "5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "6": "根号の中の値と、根号の外の和を区別します。",
+        "11": "別々の部分をまとめて足しません。"
+      }
+    },
+    "ne02-q02-product": {
+      "validator": "exact",
+      "answer": "6",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "3": "係数2は両方にあるので中身を2で割りません。",
+        "5": "和の条件と積の条件を入れ替えません。"
+      }
+    },
+    "ne02-02": {
+      "validator": "exact",
+      "answer": "a+b=5,\\quad ab=6",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a+b=5,\\quad ab=3": "計算対象・条件・符号を直前の式と照合します。中央の係数2をそろえたまま、根号内を比べよう。",
+        "a+b=5,\\quad ab=12": "計算対象・条件・符号を直前の式と照合します。中央の係数2をそろえたまま、根号内を比べよう。"
+      }
+    },
+    "ne02-q03-pairs": {
+      "validator": "exact",
+      "answer": "1+6=7,\\quad2+3=5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "1+6=5,\\quad2+3=7": "それぞれの和を別々に計算します。",
+        "1+6=6,\\quad2+3=6": "和の計算と積の条件を混同しています。"
+      }
+    },
+    "ne02-03": {
+      "validator": "exact",
+      "answer": "a=2,\\quad b=3\\quad(\\text{順不同})",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a=1,\\quad b=4": "計算対象・条件・符号を直前の式と照合します。一方の条件だけで決めず、もう一方も代入して確かめよう。",
+        "a=1,\\quad b=6": "計算対象・条件・符号を直前の式と照合します。一方の条件だけで決めず、もう一方も代入して確かめよう。"
+      }
+    },
+    "ne02-q04-square": {
+      "validator": "exact",
+      "answer": "5+2\\sqrt6",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "5+\\sqrt6": "交差項は二つです。",
+        "5+2\\sqrt5": "交差項の根号内は積です。"
+      }
+    },
+    "ne02-q04-sign": {
+      "validator": "exact",
+      "answer": ">",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "<": "正の数二つの和です。",
+        "=": "どちらの項も0ではありません。"
+      }
+    },
+    "ne02-04": {
+      "validator": "exact",
+      "answer": "\\sqrt2+\\sqrt3>0,\\quad\\sqrt{5+2\\sqrt6}=\\sqrt2+\\sqrt3",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt{5+2\\sqrt6}=-\\sqrt2-\\sqrt3": "計算対象・条件・符号を直前の式と照合します。√の記号が表す値の符号も条件に入れよう。",
+        "\\sqrt{5+2\\sqrt6}=\\sqrt5+\\sqrt{2\\sqrt6}": "計算対象・条件・符号を直前の式と照合します。√の記号が表す値の符号も条件に入れよう。"
+      }
+    },
+    "ne02-q05-expand": {
+      "validator": "exact",
+      "answer": "a-\\sqrt{ab}-\\sqrt{ab}+b",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a+\\sqrt{ab}+\\sqrt{ab}+b": "差の交差項の負号を落としています。",
+        "a-\\sqrt{ab}-\\sqrt{ab}-b": "負と負の積でできる最後の項は正です。"
+      }
+    },
+    "ne02-05": {
+      "validator": "exact",
+      "answer": "a+b-2\\sqrt{ab}",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a+b+2\\sqrt{ab}": "計算対象・条件・符号を直前の式と照合します。差の平方では中央項の符号だけでなく、最後の平方の符号も確かめよう。",
+        "a-b-2\\sqrt{ab}": "計算対象・条件・符号を直前の式と照合します。差の平方では中央項の符号だけでなく、最後の平方の符号も確かめよう。"
+      }
+    },
+    "ne02-q06-coefficient": {
+      "validator": "exact",
+      "answer": "2\\sqrt5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4\\sqrt5": "外へ出した2の分まで重複します。",
+        "\\sqrt5": "係数の残りの2が抜けています。"
+      }
+    },
+    "ne02-q06-radical": {
+      "validator": "exact",
+      "answer": "20",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "5": "括弧内の係数2を残していません。",
+        "10": "根号の中へ入る2は平方して4になります。"
+      }
+    },
+    "ne02-06": {
+      "validator": "exact",
+      "answer": "a+b=9,\\quad ab=20",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a+b=9,\\quad ab=5": "計算対象・条件・符号を直前の式と照合します。4√5を2でくくった残りを、一つの根号へ入れよう。",
+        "a+b=9,\\quad ab=10": "計算対象・条件・符号を直前の式と照合します。4√5を2でくくった残りを、一つの根号へ入れよう。"
+      }
+    },
+    "ne02-q07-pairs": {
+      "validator": "exact",
+      "answer": "\\{4,5\\}",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\{2,10\\}": "積は合っていても和が違います。",
+        "\\{1,20\\}": "和の条件も同時に使います。"
+      }
+    },
+    "ne02-07": {
+      "validator": "exact",
+      "answer": "a=5,\\ b=4:\\ \\sqrt5-2\\quad\\text{または}\\quad a=4,\\ b=5:\\ 2-\\sqrt5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a=8,\\ b=1:\\ \\sqrt8-1": "計算対象・条件・符号を直前の式と照合します。二数の順序を入れ替えると、差の符号がどうなるかも書こう。",
+        "a=5,\\ b=4:\\ \\sqrt{5-4}": "計算対象・条件・符号を直前の式と照合します。二数の順序を入れ替えると、差の符号がどうなるかも書こう。"
+      }
+    },
+    "ne02-q08-squares": {
+      "validator": "exact",
+      "answer": "(\\sqrt5)^2=5,\\quad2^2=4,\\quad5>4",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "(\\sqrt5)^2=5,\\quad2^2=4,\\quad5<4": "最後の比較を確かめます。",
+        "(\\sqrt5)^2=25,\\quad2^2=4,\\quad25>4": "根号を二乗すると中身に戻ります。"
+      }
+    },
+    "ne02-q08-nonnegative": {
+      "validator": "exact",
+      "answer": "\\sqrt5-2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2-\\sqrt5": "大きい数を小さい数から引いています。",
+        "-\\sqrt5-2": "二つの候補のどちらでもありません。"
+      }
+    },
+    "ne02-08": {
+      "validator": "exact",
+      "answer": "\\sqrt5>2,\\quad\\sqrt{9-4\\sqrt5}=\\sqrt5-2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt{9-4\\sqrt5}=2-\\sqrt5": "計算対象・条件・符号を直前の式と照合します。正の数同士なので、平方した値の大小を比べられる。",
+        "\\sqrt{9-4\\sqrt5}=\\pm(\\sqrt5-2)": "計算対象・条件・符号を直前の式と照合します。正の数同士なので、平方した値の大小を比べられる。"
+      }
+    },
+    "ne02-q09-double": {
+      "validator": "exact",
+      "answer": "6+2\\sqrt5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "6+\\sqrt5": "根号の項にも2を掛けます。",
+        "3+2\\sqrt5": "定数項にも2を掛けます。"
+      }
+    },
+    "ne02-09": {
+      "validator": "exact",
+      "answer": "\\frac{6+2\\sqrt5}{2}",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\frac{3+2\\sqrt5}{2}": "計算対象・条件・符号を直前の式と照合します。根号の中の式全体に2/2を掛けよう。",
+        "\\frac{6+\\sqrt5}{2}": "計算対象・条件・符号を直前の式と照合します。根号の中の式全体に2/2を掛けよう。"
+      }
+    },
+    "ne02-10": {
+      "validator": "exact",
+      "answer": "\\frac{\\sqrt{6+2\\sqrt5}}{\\sqrt2}",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\frac{\\sqrt{6+2\\sqrt5}}{2}": "計算対象・条件・符号を直前の式と照合します。商全体の平方根では、分母にも平方根を付ける。",
+        "\\frac{\\sqrt6+\\sqrt{2\\sqrt5}}{\\sqrt2}": "計算対象・条件・符号を直前の式と照合します。商全体の平方根では、分母にも平方根を付ける。"
+      }
+    },
+    "ne02-q11-conditions": {
+      "validator": "exact",
+      "answer": "a+b=6,\\quad ab=5",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a+b=5,\\quad ab=6": "和と積の対応を入れ替えています。",
+        "a+b=6,\\quad ab=10": "中央の係数2は根号の外に共通です。"
+      }
+    },
+    "ne02-q11-candidate": {
+      "validator": "exact",
+      "answer": "\\sqrt5+1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt6": "和の平方根と平方根の和は異なります。",
+        "\\sqrt5-1": "交差項の符号は正です。"
+      }
+    },
+    "ne02-11": {
+      "validator": "exact",
+      "answer": "a+b=6,\\ ab=5;\\ \\{a,b\\}=\\{5,1\\};\\ \\sqrt{6+2\\sqrt5}=\\sqrt5+1",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "a+b=6,\\ ab=5;\\ \\{a,b\\}=\\{3,3\\};\\ \\sqrt{6+2\\sqrt5}=2\\sqrt3": "計算対象・条件・符号を直前の式と照合します。分子の定数部分と中央項から、二つの条件を作り直そう。",
+        "a+b=6,\\ ab=5;\\ \\{a,b\\}=\\{5,1\\};\\ \\sqrt{6+2\\sqrt5}=\\sqrt5-1": "計算対象・条件・符号を直前の式と照合します。分子の定数部分と中央項から、二つの条件を作り直そう。"
+      }
+    },
+    "ne02-q12-factor": {
+      "validator": "exact",
+      "answer": "\\sqrt2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "2": "分子と分母に同じ因子を掛けます。",
+        "\\sqrt5": "分母の根号と同じ因子を使います。"
+      }
+    },
+    "ne02-q12-denominator": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "4": "根号を二乗した値です。",
+        "2\\sqrt2": "積を和として扱っていませんか。"
+      }
+    },
+    "ne02-q12-numerator": {
+      "validator": "exact",
+      "answer": "\\sqrt{10}+\\sqrt2",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\sqrt{10}+1": "1の項にも根号を掛けます。",
+        "\\sqrt{12}": "和を一つの根号にまとめる公式はありません。"
+      }
+    },
+    "ne02-12": {
+      "validator": "exact",
+      "answer": "\\frac{\\sqrt{10}+\\sqrt2}{2}",
+      "acceptedAnswers": [],
+      "wrongReasons": {
+        "\\frac{\\sqrt{10}+1}{2}": "計算対象・条件・符号を直前の式と照合します。(√5+1)/√2の分子全体にも√2を掛けよう。",
+        "\\sqrt{10}+\\sqrt2": "計算対象・条件・符号を直前の式と照合します。(√5+1)/√2の分子全体にも√2を掛けよう。"
+      }
+    }
+  }
+}

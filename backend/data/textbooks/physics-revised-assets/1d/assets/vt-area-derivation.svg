@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">一定加速度の速度時間グラフと面積分解</title>
+  <desc id="desc">速度時間グラフの下の面積を、初速度による長方形と速度増加による三角形に分けて変位を表す図。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#111"/>
+    </marker>
+    <marker id="arrowBothStart" markerWidth="9" markerHeight="9" refX="2" refY="3" orient="auto">
+      <path d="M8,0 L8,6 L0,3 z" fill="#111"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="900" fill="#fff"/>
+  <text x="75" y="62" font-size="38" font-family="system-ui, -apple-system, 'Noto Sans JP', sans-serif" font-weight="700">一定加速度の v-t グラフ</text>
+
+  <!-- shaded area -->
+  <rect x="160" y="390" width="700" height="310" fill="#d8ecff"/>
+  <polygon points="160,390 860,390 860,150" fill="#ffd9e3"/>
+
+  <!-- axes -->
+  <line x1="160" y1="700" x2="1060" y2="700" stroke="#111" stroke-width="6" marker-end="url(#arrow)"/>
+  <line x1="160" y1="700" x2="160" y2="95" stroke="#111" stroke-width="6" marker-end="url(#arrow)"/>
+
+  <!-- velocity line -->
+  <line x1="160" y1="390" x2="860" y2="150" stroke="#166fc7" stroke-width="8"/>
+  <circle cx="160" cy="390" r="11" fill="#111"/>
+  <circle cx="860" cy="150" r="11" fill="#111"/>
+
+  <!-- guides -->
+  <line x1="160" y1="390" x2="980" y2="390" stroke="#222" stroke-width="3" stroke-dasharray="14 12"/>
+  <line x1="160" y1="150" x2="980" y2="150" stroke="#222" stroke-width="3" stroke-dasharray="14 12"/>
+  <line x1="860" y1="150" x2="860" y2="700" stroke="#222" stroke-width="3" stroke-dasharray="14 12"/>
+
+  <!-- labels -->
+  <g font-family="system-ui, -apple-system, 'Noto Sans JP', sans-serif" fill="#111">
+    <text x="88" y="118" font-size="36" font-weight="600">速度 v</text>
+    <text x="1020" y="758" font-size="36" font-weight="600">時間 t</text>
+    <text x="116" y="715" font-size="34">0</text>
+    <text x="105" y="405" font-size="38" font-style="italic">v₀</text>
+    <text x="118" y="165" font-size="38" font-style="italic">v</text>
+    <text x="845" y="755" font-size="38" font-style="italic">t</text>
+
+    <text x="390" y="545" font-size="38" font-weight="600">長方形:  v₀t</text>
+    <text x="400" y="305" font-size="36" font-weight="600">三角形:  ½(v−v₀)t</text>
+  </g>
+
+  <!-- delta-v bracket -->
+  <line x1="930" y1="165" x2="930" y2="375" stroke="#111" stroke-width="4"
+        marker-start="url(#arrowBothStart)" marker-end="url(#arrow)"/>
+  <text x="960" y="285" font-size="38" font-family="system-ui, -apple-system, 'Noto Sans JP', sans-serif" font-style="italic">v−v₀</text>
+
+  <!-- displacement annotation -->
+  <line x1="235" y1="755" x2="785" y2="755" stroke="#111" stroke-width="3"/>
+  <line x1="235" y1="755" x2="255" y2="740" stroke="#111" stroke-width="3"/>
+  <line x1="785" y1="755" x2="765" y2="740" stroke="#111" stroke-width="3"/>
+  <text x="430" y="815" font-size="38" font-family="system-ui, -apple-system, 'Noto Sans JP', sans-serif" font-weight="600">変位 x</text>
+
+  <!-- formula -->
+  <rect x="245" y="830" width="710" height="58" rx="14" fill="#eef8ed" stroke="#69ad7d" stroke-width="3"/>
+  <text x="350" y="871" font-size="34" font-family="system-ui, -apple-system, 'Noto Sans JP', sans-serif">
+    x = v₀t + ½(v−v₀)t
+  </text>
+</svg>

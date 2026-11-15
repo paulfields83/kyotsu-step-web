@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "1.0",
+  "subject": "math-1a",
+  "course": "math-i",
+  "majorUnit": {
+    "id": "geometry-measurement",
+    "label": "図形と計量（4STEP）（改订版2）",
+    "order": 5
+  },
+  "subcategories": [
+    {
+      "id": "acute-ratios",
+      "label": "鋭角の三角比",
+      "order": 1,
+      "problemTypes": [
+        {
+          "id": "numbered",
+          "label": "問題",
+          "order": 1
+        },
+        {
+          "id": "example",
+          "label": "例題",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "ratio-relations",
+      "label": "三角比の相互関係",
+      "order": 2,
+      "problemTypes": [
+        {
+          "id": "numbered",
+          "label": "問題",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "extended-ratios",
+      "label": "三角比の拡張",
+      "order": 3,
+      "problemTypes": [
+        {
+          "id": "numbered",
+          "label": "問題",
+          "order": 1
+        },
+        {
+          "id": "example",
+          "label": "例題",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "sine-cosine-laws",
+      "label": "正弦定理・余弦定理",
+      "order": 4,
+      "problemTypes": [
+        {
+          "id": "numbered",
+          "label": "問題",
+          "order": 1
+        },
+        {
+          "id": "example",
+          "label": "例題",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "area",
+      "label": "図形の面積",
+      "order": 5,
+      "problemTypes": [
+        {
+          "id": "numbered",
+          "label": "問題",
+          "order": 1
+        },
+        {
+          "id": "example",
+          "label": "例題",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "spatial",
+      "label": "空間図形",
+      "order": 6,
+      "problemTypes": [
+        {
+          "id": "numbered",
+          "label": "問題",
+          "order": 1
+        },
+        {
+          "id": "example",
+          "label": "例題",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "chapter-review",
+      "label": "章末演習",
+      "order": 7,
+      "problemTypes": [
+        {
+          "id": "exercise",
+          "label": "演習",
+          "order": 3
+        }
+      ]
+    }
+  ]
+}

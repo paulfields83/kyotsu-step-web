@@ -14,12 +14,16 @@ export const TextbookItemSchema = z.object({
   answerType: TextbookAnswerTypeSchema.default('text'),
   choices: z.array(z.string().min(1)).min(2).optional(),
   unit: z.string().optional(),
+  hints: z.array(z.string().min(1)).optional(),
+  retryOnWrong: z.literal(true).optional(),
+  choiceMathLines: z.record(z.string(), z.array(z.string().min(1)).min(1)).optional(),
 })
 
 export const TextbookAnswerEntrySchema = z.object({
   validator: TextbookAnswerValidatorSchema.default('normalized-text'),
   answer: z.string().min(1),
   acceptedAnswers: z.array(z.string().min(1)).default([]),
+  wrongReasons: z.record(z.string(), z.string().min(1)).optional(),
 })
 
 export const TextbookAnswerBookSchema = z.object({
@@ -36,16 +40,21 @@ export const TextbookFigureSchema = z.object({
 
 export const TextbookReadingPartSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('text'), text: z.string().min(1) }),
-  z.object({ type: z.literal('math'), latex: z.string().min(1) }),
+  z.object({ type: z.literal('term'), text: z.string().min(1) }),
+  z.object({ type: z.literal('math'), latex: z.string().min(1), holeIds: z.array(IdSchema).optional() }),
   z.object({ type: z.literal('choice'), itemId: IdSchema }),
 ])
 
 export const TextbookReadingBlockSchema = z.discriminatedUnion('type', [
-  z.object({ id: IdSchema, type: z.literal('topic'), text: z.string().min(1) }),
+  z.object({ id: IdSchema, type: z.literal('topic'), text: z.string().min(1), role: z.literal('application').optional() }),
   z.object({ id: IdSchema, type: z.literal('heading'), text: z.string().min(1) }),
-  z.object({ id: IdSchema, type: z.literal('paragraph'), parts: z.array(TextbookReadingPartSchema).min(1) }),
-  z.object({ id: IdSchema, type: z.literal('formula'), parts: z.array(TextbookReadingPartSchema).min(1) }),
+  z.object({ id: IdSchema, type: z.literal('marker'), kind: z.enum(['definition', 'example', 'proof', 'check', 'summary']), text: z.string().min(1) }),
+  z.object({ id: IdSchema, type: z.literal('dialogue'), speaker: z.enum(['hanako', 'taro', 'teacher']), text: z.string().min(1) }),
+  z.object({ id: IdSchema, type: z.literal('paragraph'), parts: z.array(TextbookReadingPartSchema).min(1), hideAfter: z.array(IdSchema).min(1).optional() }),
+  z.object({ id: IdSchema, type: z.literal('formula'), parts: z.array(TextbookReadingPartSchema).min(1), hideAfter: z.array(IdSchema).min(1).optional(), equationNumber: z.string().min(1).optional() }),
   z.object({ id: IdSchema, type: z.literal('figure'), figureId: IdSchema }),
+  z.object({ id: IdSchema, type: z.literal('reference-table'), figureIds: z.array(IdSchema).length(2) }),
+  z.object({ id: IdSchema, type: z.literal('math-table'), caption: z.string(), headers: z.array(z.string()).min(1), rows: z.array(z.array(z.string()).min(1)).min(1) }),
   z.object({ id: IdSchema, type: z.literal('note'), text: z.string().min(1) }),
 ])
 
@@ -56,7 +65,13 @@ export const TextbookSectionSchema = z.object({
   description: z.string().optional(),
   figures: z.array(TextbookFigureSchema).default([]),
   readingFlow: z.array(TextbookReadingBlockSchema).default([]),
-  items: z.array(TextbookItemSchema).min(1),
+  items: z.array(TextbookItemSchema).default([]),
+  knowledgeGroups: z.array(z.object({
+    id: IdSchema,
+    title: z.string().min(1),
+    topicIds: z.array(IdSchema),
+    practiceQuestionIds: z.array(IdSchema),
+  }).refine((group) => group.topicIds.length > 0 || group.practiceQuestionIds.length > 0)).min(1).optional(),
 })
 
 const TextbookUnitBaseSchema = z.object({
@@ -79,6 +94,7 @@ const TextbookUnitBaseSchema = z.object({
 export const TextbookUnitSchema = TextbookUnitBaseSchema.superRefine((unit, context) => {
   const sectionIds = new Set<string>()
   const itemIds = new Set<string>()
+  const knowledgeGroupIds = new Set<string>()
 
   for (const [sectionIndex, section] of unit.sections.entries()) {
     if (sectionIds.has(section.id)) context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'id'], message: 'section id が重複しています' })
@@ -87,6 +103,23 @@ export const TextbookUnitSchema = TextbookUnitBaseSchema.superRefine((unit, cont
     const sectionItemIds = new Set(section.items.map((item) => item.id))
     const figureIds = new Set(section.figures.map((figure) => figure.id))
     const referencedItems = new Set<string>()
+
+    if (section.knowledgeGroups) {
+      const topicIds = new Set(section.readingFlow.filter((block) => block.type === 'topic').map((block) => block.id))
+      for (const [groupIndex, group] of section.knowledgeGroups.entries()) {
+        const path = ['sections', sectionIndex, 'knowledgeGroups', groupIndex]
+        if (knowledgeGroupIds.has(group.id)) {
+          context.addIssue({ code: 'custom', path, message: `重複する知識項目: ${group.id}` })
+        }
+        knowledgeGroupIds.add(group.id)
+        for (const id of group.topicIds) {
+          if (!topicIds.delete(id)) context.addIssue({ code: 'custom', path, message: `無効な教材項目: ${id}` })
+        }
+      }
+      if (topicIds.size || (section.readingFlow.length > 0 && section.readingFlow[0].type !== 'topic')) {
+        context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'knowledgeGroups'], message: '教材の全項目を知識項目に割り当ててください' })
+      }
+    }
 
     for (const [itemIndex, item] of section.items.entries()) {
       if (itemIds.has(item.id)) context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'items', itemIndex, 'id'], message: 'item id が重複しています' })
@@ -97,13 +130,23 @@ export const TextbookUnitSchema = TextbookUnitBaseSchema.superRefine((unit, cont
       if (block.type === 'figure' && !figureIds.has(block.figureId)) {
         context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'figureId'], message: `存在しない figure 参照: ${block.figureId}` })
       }
+      if (block.type === 'reference-table' && block.figureIds.some((id) => !figureIds.has(id))) {
+        context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'figureIds'], message: '参照表の図が見つかりません' })
+      }
       if (block.type === 'paragraph' || block.type === 'formula') {
+        if (block.hideAfter?.some((id) => !sectionItemIds.has(id))) {
+          context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'hideAfter'], message: '存在しない解答参照' })
+        }
         block.parts.forEach((part, partIndex) => {
-          if (part.type !== 'choice') return
-          if (!sectionItemIds.has(part.itemId)) {
-            context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'parts', partIndex, 'itemId'], message: `存在しない item 参照: ${part.itemId}` })
+          const linkedIds = part.type === 'choice'
+            ? [part.itemId]
+            : part.type === 'math' ? (part.holeIds ?? []) : []
+          for (const itemId of linkedIds) {
+            if (!sectionItemIds.has(itemId)) {
+              context.addIssue({ code: 'custom', path: ['sections', sectionIndex, 'readingFlow', blockIndex, 'parts', partIndex], message: `存在しない item 参照: ${itemId}` })
+            }
+            referencedItems.add(itemId)
           }
-          referencedItems.add(part.itemId)
         })
       }
     })

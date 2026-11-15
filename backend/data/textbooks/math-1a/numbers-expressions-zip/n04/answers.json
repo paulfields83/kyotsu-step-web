@@ -1,0 +1,300 @@
+{
+  "unitId": "math-numbers-expressions-n04",
+  "answers": {
+    "n04-q01-p1": {
+      "validator": "exact",
+      "answer": "25x^2",
+      "acceptedAnswers": []
+    },
+    "n04-q01-p2": {
+      "validator": "exact",
+      "answer": "20xy",
+      "acceptedAnswers": []
+    },
+    "n04-q01-p3": {
+      "validator": "exact",
+      "answer": "20xy",
+      "acceptedAnswers": []
+    },
+    "n04-q01-p4": {
+      "validator": "exact",
+      "answer": "16y^2",
+      "acceptedAnswers": []
+    },
+    "n04-01": {
+      "validator": "exact",
+      "answer": "25x^2+20xy+20xy+16y^2",
+      "acceptedAnswers": []
+    },
+    "n04-s5-cross-regroup": {
+      "validator": "exact",
+      "answer": "20+20",
+      "acceptedAnswers": []
+    },
+    "n04-02": {
+      "validator": "exact",
+      "answer": "40xy",
+      "acceptedAnswers": []
+    },
+    "n04-03": {
+      "validator": "exact",
+      "answer": "25x^2+40xy+16y^2",
+      "acceptedAnswers": []
+    },
+    "n04-04": {
+      "validator": "exact",
+      "answer": "a^2+ab+ba+b^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-square-cross-count": {
+      "validator": "exact",
+      "answer": "2",
+      "acceptedAnswers": []
+    },
+    "n04-05": {
+      "validator": "exact",
+      "answer": "a^2+2ab+b^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-negative-cross-sign": {
+      "validator": "exact",
+      "answer": "-1",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-negative-square-sign": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n04-06": {
+      "validator": "exact",
+      "answer": "a^2-ab-ba+b^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-negative-cross-sum": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n04-07": {
+      "validator": "exact",
+      "answer": "a^2-2ab+b^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-opposite-cancel": {
+      "validator": "exact",
+      "answer": "0",
+      "acceptedAnswers": []
+    },
+    "n04-08": {
+      "validator": "exact",
+      "answer": "a^2-ab+ab-b^2=a^2-b^2",
+      "acceptedAnswers": []
+    },
+    "n04-s4-square-rule": {
+      "validator": "exact",
+      "answer": "差の平方",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-formula-substitute": {
+      "validator": "exact",
+      "answer": "(2a)^2-2(2a)5+5^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-square-2a": {
+      "validator": "exact",
+      "answer": "4",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-cross-coefficient": {
+      "validator": "exact",
+      "answer": "-20",
+      "acceptedAnswers": []
+    },
+    "n04-s4-product-rule": {
+      "validator": "exact",
+      "answer": "和と差の積",
+      "acceptedAnswers": []
+    },
+    "n04-s5-product-substitute": {
+      "validator": "exact",
+      "answer": "(3x)^2-2^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-square-3x": {
+      "validator": "exact",
+      "answer": "9",
+      "acceptedAnswers": []
+    },
+    "n04-11": {
+      "validator": "exact",
+      "answer": "acx^2+adx+bcx+bd",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-general-linear": {
+      "validator": "exact",
+      "answer": "ad+bc",
+      "acceptedAnswers": []
+    },
+    "n04-12": {
+      "validator": "exact",
+      "answer": "acx^2+(ad+bc)x+bd",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-concrete-cross": {
+      "validator": "exact",
+      "answer": "6",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-concrete-linear": {
+      "validator": "exact",
+      "answer": "7",
+      "acceptedAnswers": []
+    },
+    "n04-s5-three-substitute": {
+      "validator": "exact",
+      "answer": "(T+c)^2",
+      "acceptedAnswers": []
+    },
+    "n04-14": {
+      "validator": "exact",
+      "answer": "T^2+2Tc+c^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-restore-t": {
+      "validator": "exact",
+      "answer": "(a+b)^2+2(a+b)c+c^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-expand-restored": {
+      "validator": "exact",
+      "answer": "a^2+2ab+b^2+2ac+2bc+c^2",
+      "acceptedAnswers": []
+    },
+    "n04-15": {
+      "validator": "exact",
+      "answer": "a^2+b^2+c^2+2ab+2ac+2bc",
+      "acceptedAnswers": []
+    },
+    "n04-s5-negative-c-substitute": {
+      "validator": "exact",
+      "answer": "-c",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-minus-ac": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-minus-bc": {
+      "validator": "exact",
+      "answer": "-2",
+      "acceptedAnswers": []
+    },
+    "n04-16": {
+      "validator": "exact",
+      "answer": "a^2+b^2+c^2+2ab-2ac-2bc",
+      "acceptedAnswers": []
+    },
+    "n04-s4-shared-part": {
+      "validator": "exact",
+      "answer": "x^2+1",
+      "acceptedAnswers": []
+    },
+    "n04-s4-opposite-part": {
+      "validator": "exact",
+      "answer": "x",
+      "acceptedAnswers": []
+    },
+    "n04-18": {
+      "validator": "exact",
+      "answer": "(x^2+1)^2-x^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-remaining-square": {
+      "validator": "exact",
+      "answer": "1",
+      "acceptedAnswers": []
+    },
+    "n04-19": {
+      "validator": "exact",
+      "answer": "x^4+x^2+1",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-pairing": {
+      "validator": "exact",
+      "answer": "[(x+1)(x+4)]\\,[(x+2)(x+3)]",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-pair-first": {
+      "validator": "exact",
+      "answer": "x^2+5x+4",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-pair-second": {
+      "validator": "exact",
+      "answer": "x^2+5x+6",
+      "acceptedAnswers": []
+    },
+    "n04-20": {
+      "validator": "exact",
+      "answer": "(x^2+5x+4)(x^2+5x+6)",
+      "acceptedAnswers": []
+    },
+    "n04-s5-four-substitute": {
+      "validator": "exact",
+      "answer": "(T+4)(T+6)",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-t-linear": {
+      "validator": "exact",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "n04-21": {
+      "validator": "exact",
+      "answer": "T^2+10T+24",
+      "acceptedAnswers": []
+    },
+    "n04-s5-four-restore-square": {
+      "validator": "exact",
+      "answer": "(x^2+5x)^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-detail-square-cross": {
+      "validator": "exact",
+      "answer": "10",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-detail-square-last": {
+      "validator": "exact",
+      "answer": "25",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-restore-square": {
+      "validator": "exact",
+      "answer": "x^4+10x^3+25x^2",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-audit-ten-linear": {
+      "validator": "exact",
+      "answer": "50",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-restore-ten": {
+      "validator": "exact",
+      "answer": "10x^2+50x",
+      "acceptedAnswers": []
+    },
+    "n04-bridge-restore-collect": {
+      "validator": "exact",
+      "answer": "35x^2",
+      "acceptedAnswers": []
+    },
+    "n04-22": {
+      "validator": "exact",
+      "answer": "x^4+10x^3+35x^2+50x+24",
+      "acceptedAnswers": []
+    }
+  }
+}
