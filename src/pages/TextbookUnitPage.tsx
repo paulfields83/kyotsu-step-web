@@ -567,9 +567,20 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
             : part.type === 'math' && (part.holeIds ?? []).some((id) => !progress?.answers[id]?.resolved)
         ))
       : -1
-    const visibleParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
+    const answerParts = firstUnansweredPart < 0 ? block.parts : block.parts.slice(0, firstUnansweredPart + 1)
+    // Keep the current line complete. Later blanks in that line stay inert
+    // while their surrounding notation remains visible.
+    const visibleParts = numbersZip ? block.parts : answerParts
     const linkedAnswerId = blockItemIds(block)[0]
-    const renderVisiblePart = (part: TextbookReadingPart): ReactNode => {
+    const renderVisiblePart = (part: TextbookReadingPart, index: number): ReactNode => {
+      if (numbersZip && firstUnansweredPart >= 0 && index > firstUnansweredPart) {
+        if (part.type === 'choice' && !progress?.answers[part.itemId]?.resolved) {
+          return <ReadableMath latex="\square" />
+        }
+        if (part.type === 'math' && part.holeIds?.length) {
+          return <ReadableMath latex={fillResolvedMathHoles(part.latex, part.holeIds, progress?.answers)} />
+        }
+      }
       if (part.type === 'text' && !/【[^】]*】/.test(part.text) && revisedPhysics) {
         return <PhysicsInlineText value={part.text} scope={emphasisScope} blockId={block.id} unitId={unit.unitId} />
       }
@@ -599,7 +610,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
     }
     const content = visibleParts.map((part, index) => (
       <span key={`${block.id}-part-${index}`}>
-        {renderVisiblePart(part)}
+        {renderVisiblePart(part, index)}
       </span>
     ))
 
@@ -616,7 +627,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
             <div className="practice-blank-line">
               {content}
             </div>
-            {renderInlineChoicePanel(visibleParts)}
+            {renderInlineChoicePanel(answerParts)}
           </div>
         </div>
       )
@@ -627,7 +638,7 @@ function TextbookReadingFlow({ unit, section, progress, requestedKnowledgeId }: 
         {block.type === 'formula'
           ? <div className="reading-formula-line">{content}{block.equationNumber && <span className="numbers-zip-equation-number">（{block.equationNumber}）</span>}</div>
           : <p className="reading-paragraph">{content}</p>}
-        {renderInlineChoicePanel(visibleParts)}
+        {renderInlineChoicePanel(answerParts)}
       </div>
     )
   }
